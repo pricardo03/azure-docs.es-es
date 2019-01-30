@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse: Azure PowerShell | Microsoft Docs'
+title: 'Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse: Azure PowerShell | Microsoft Docs'
 description: Cree rápidamente un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y una base de datos de almacenamiento de datos con Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852646"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433618"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guía de inicio rápido: Creación y consulta de una instancia de Azure SQL Data Warehouse con Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Inicio rápido: Creación y consulta de una instancia de Azure SQL Data Warehouse con Azure PowerShell
 
 Cree rápidamente una instancia de Azure SQL Data Warehouse con Azure PowerShell.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión que tiene actualmente. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión que tiene actualmente. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 
 > [!NOTE]
@@ -126,7 +126,7 @@ Los parámetros obligatorios son:
 * **DatabaseName**: el nombre de SQL Data Warehouse que está creando.
 * **ServerName**: el nombre del servidor que se usa para la creación.
 * **ResourceGroupName**: el grupo de recursos que está usando. Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
-* **Edition**: la edición debe ser "DataWarehouse" para crear un SQL Data Warehouse.
+* **Edición**: la edición debe ser "DataWarehouse" para crear una instancia de SQL Data Warehouse.
 
 Los parámetros opcionales son:
 

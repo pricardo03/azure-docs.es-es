@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753156"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467170"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexación de blobs JSON con el indizador de blobs de Azure Search
 En este artículo se muestra cómo configurar un indexador de blobs de Azure Search para extraer contenido estructurado de los blobs JSON en Azure Blob Storage.
@@ -23,6 +23,9 @@ En este artículo se muestra cómo configurar un indexador de blobs de Azure Sea
 Puede usar el [portal](#json-indexer-portal), las [API REST](#json-indexer-rest) o el [SDK de .NET](#json-indexer-dotnet) para indexar el contenido JSON. En todas las opciones anteriores, los documentos JSON se encuentran en un contenedor de blob en una cuenta de almacenamiento de Azure. Para obtener instrucciones sobre la inserción de documentos JSON desde otras plataformas que no sean de Azure, consulte [Importación de datos en Azure Search](search-what-is-data-import.md).
 
 Los blobs JSON de Azure Blobs Storage suelen ser un documento JSON único o una matriz JSON. El indexador de blobs de Azure Search puede analizar cualquier construcción, según cómo configure el parámetro **parsingMode** en la solicitud.
+
+> [!IMPORTANT]
+> La indexación de blobs de JSON está disponible con carácter general, pero el análisis de JsonArray se encuentra en versión preliminar pública y no debería utilizarse en entornos de producción. Para obtener más información, consulte [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 

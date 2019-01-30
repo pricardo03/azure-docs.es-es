@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045964"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integración de Azure Active Directory con Shmoop For Schools
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+     a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
     b. En el cuadro **Identificador**, escriba una dirección URL con el siguiente patrón: `https://schools.shmoop.com/<uniqueid>`
 
@@ -120,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop For Schools admite dos roles para los usuarios: **Teacher** (Profesor) y **Student** (Estudiante). Configure estos roles en Azure AD para que se pueda asignar a los usuarios los roles correspondientes. Para comprender cómo configurar roles en Azure AD, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+    > Shmoop For Schools admite dos roles para los usuarios: **Teacher** (Profesor) y **Student** (Alumno). Configure estos roles en Azure AD para que se pueda asignar a los usuarios los roles correspondientes. Para comprender cómo configurar roles en Azure AD, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
     
 5. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token SAML como muestra la imagen anterior.  A continuación, siga estos pasos:
 
@@ -128,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | -------------- | --------------- |
     | role           | user.assignedroles |
 
-    a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
     
     ![Configurar inicio de sesión único ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
@@ -146,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+7. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
     ![Vínculo de descarga del certificado](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -176,7 +176,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Cuadro de diálogo Usuario](./media/shmoopforschools-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -227,7 +227,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al seleccionar el icono **Shmoop For Schools** del panel de acceso, debería iniciar sesión automáticamente en la aplicación Shmoop For Schools.
 
-Para más información sobre el panel de acceso, consulte [Introducción al panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

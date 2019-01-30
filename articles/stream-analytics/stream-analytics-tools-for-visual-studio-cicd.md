@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558403"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410598"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Integración y desarrollo continuos con las herramientas de Stream Analytics
 En este artículo se describe cómo usar las herramientas de Azure Stream Analytics para Visual Studio para configurar un proceso de integración e implementación continuas.
@@ -54,6 +54,8 @@ En todas las credenciales, los valores predeterminados están establecidos en nu
     },
 ```
 Obtenga más información acerca de cómo [implementar con un archivo de plantilla de Resource Manager y Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Obtenga más información acerca de cómo [utilizar un objeto como un parámetro en una plantilla de Resource Manager](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+
+Para usar la identidad administrada para Azure Data Lake Store Gen1 como receptor de salida, deberá proporcionar acceso a la entidad de servicio con PowerShell antes de la implementación en Azure. Más información acerca de cómo [implementar ADLS Gen1 con identidad administrada con la plantilla de Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
 
 ## <a name="command-line-tool"></a>Herramienta de línea de comandos

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 22e72d454626941b932cef2750cba008da20a214
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 974149fdad8e8f5a617c428c6513f30930ff596b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114967"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: Integración de Azure Active Directory con ServiceChannel
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el valor como `http://adfs.<domain>.com/adfs/service/trust`.
+     a. En el cuadro de texto **Identificador**, escriba el valor como `http://adfs.<domain>.com/adfs/service/trust`.
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.servicechannel.com/saml/acs`.
 
@@ -134,7 +134,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     | --- | --- |    
     | Rol| user.assignedroles |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/servicechannel-tutorial/tutorial_servicechannel_04.png)
 
@@ -181,7 +181,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
  
     ![Creación de un usuario de prueba de Azure AD](./media/servicechannel-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

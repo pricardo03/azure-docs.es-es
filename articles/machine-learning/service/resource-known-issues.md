@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5634a1aae32b3e9895bf5c5b72837f29223bca27
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351805"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381837"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
  
@@ -32,11 +32,16 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas al crear la instancia de Proceso de Azure Machine Learning
+
 Es posible que algunos usuarios que crearon su área de trabajo de Azure Machine Learning en Azure Portal antes de la versión disponible de forma general no puedan crear la instancia de Proceso de Azure Machine Learning en esa área de trabajo. Puede generar una solicitud de soporte técnico en el servicio o crear una nueva área de trabajo mediante el portal o el SDK para desbloquearse a sí mismo inmediatamente. 
 
 ## <a name="image-building-failure"></a>Error de creación de imagen
 
 Error de creación de imagen al implementar el servicio web. La solución alternativa es agregar "pynacl==1.2.1" como una dependencia pip al archivo Conda para la configuración de la imagen.  
+
+## <a name="deployment-failure"></a>Error de implementación
+
+Si observa 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' finalizó con <Signals.SIGKILL: 9> - cambie la SKU para las máquinas virtuales que se usaron en la implementación por otra con mayor capacidad de memoria.
 
 ## <a name="fpgas"></a>FPGA
 No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aprobado para la cuota FPGA. Para solicitar acceso, rellene el formulario de solicitud de cuota: https://aka.ms/aml-real-time-ai

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a28bb0ba-b564-46ba-accc-e587699295d4
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ec165253898ec77da2c7ae0e98cab578e773094
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e8c7dbb2b50e6c6c00b857e419f4e238e318a537
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429172"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integración de Azure Active Directory con Origami
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_531.png)
 
-    a. Seleccione **Enable Single Sign On**(Habilitar el inicio de sesión único).
+     a. Seleccione **Enable Single Sign On**(Habilitar el inicio de sesión único).
 
     b. En el cuadro de texto **Identity Provider's Sign-in Page URL** (Dirección URL de la página de inicio de sesión del proveedor de identidades), pegue el valor de **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
 
@@ -150,7 +150,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     e. Haga clic en **Guardar cambios**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -176,7 +176,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/origami-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -206,7 +206,7 @@ En esta sección, creará un usuario llamado Britta Simon en Origami.
    
     ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. En el cuadro de texto **Correo electrónico**, escriba el correo electrónico del usuario, en este caso **brittasimon@contoso.com**.
+     a. En el cuadro de texto **Correo electrónico**, escriba el correo electrónico del usuario, en este caso **brittasimon@contoso.com**.
 
     b. En el cuadro de texto **Password** (Contraseña), escriba una contraseña.
 

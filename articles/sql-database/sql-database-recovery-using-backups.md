@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 8785ef50cd7bd27e866b1fa546317021eed5da01
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599117"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432292"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 
@@ -92,10 +92,8 @@ Para recuperar una base de datos única, agrupada o de Instancia administrada a 
 
 ## <a name="deleted-database-restore"></a>Restauración de la base de datos eliminada
 
-Puede restaurar una base de datos eliminada a la hora de eliminación de una base de datos eliminada en el mismo servidor lógico con Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o la [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Puede restaurar una base de datos eliminada a un momento anterior en el tiempo durante el período de retención mediante [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Puede restaurar una base de datos eliminada a la hora de eliminación de una base de datos eliminada en el mismo servidor lógico con Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o la [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). También puede [restaurar una base de datos eliminada en Instancia administrada mediante PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Puede restaurar una base de datos eliminada a un momento anterior en el tiempo durante el período de retención mediante [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
-> [!Note]
-> La restauración de bases de datos eliminadas no está disponible en la instancia administrada.
 > [!TIP]
 > Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración en una base de datos eliminada, vea [Restauración de una instancia de SQL Database con PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138082"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401408"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guía de programación de Azure Event Hubs
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -92,7 +92,7 @@ Para obtener más información y una explicación sobre las ventajas y desventaj
 
 El envío de eventos por lotes puede ayudar a aumentar el rendimiento. Puede usar la API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para crear un lote al que más tarde se pueden agregar objetos de datos para una llamada [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync).
 
-Un único lote no debe superar el límite de 256 KB de un evento. Además, cada mensaje del lote usa la misma identidad del publicador. Es responsabilidad del remitente asegurarse de que el lote no supera el tamaño máximo del evento. Si es así, se generará un error de **envío** de cliente. Puede utilizar el método auxiliar [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para asegurarse de que el lote no supera los 256 KB. Obtiene una salida vacía [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) de la API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) y, después, use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) para agregar eventos para construir el lote. 
+Un único lote no debe superar el límite de 1 MB de un evento. Además, cada mensaje del lote usa la misma identidad del publicador. Es responsabilidad del remitente asegurarse de que el lote no supera el tamaño máximo del evento. Si es así, se generará un error de **envío** de cliente. Puede utilizar el método auxiliar [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) para asegurarse de que el lote no supera los 1 MB. Obtiene una salida vacía [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) de la API [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) y, después, use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) para agregar eventos para construir el lote. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Enviar de forma asincrónica y enviar a escala
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b3977e045751165947243c67291e81b998b5fcb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e70a17271dee9f78f13c06ca2fd24dc39b20c6a4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606121"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425210"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restricción del acceso a la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante PowerShell
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
@@ -361,7 +361,7 @@ Get-AzureStorageFile `
   -Context $storageContext
 ```
 
-Se deniega el acceso y se recibe el error *Get-AzureStorageFile : The remote server returned an error: (403) Forbidden. Código de estado HTTP: 403 - mensaje de Error de HTTP: esta solicitud no está autorizada para realizar esta operación* (Get-AzureStorageFile: El servidor remoto devolvió un error: (403) Prohibido. Código de estado HTTP: 403 - Mensaje de error HTTP: Esta solicitud no está autorizada para realizar esta operación), porque el equipo no está en la subred *Private* de la red virtual *MyVirtualNetwork*.
+Se deniega el acceso y se recibe el error *Get-AzureStorageFile: El servidor remoto devolvió un error: 403 Prohibido. Código de estado HTTP: 403 - Mensaje de error HTTP: This request is not authorized to perform this operation* (Esta solicitud no está autorizada para realizar esta operación) porque el equipo no está en la subred *Private* de la red virtual *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -1,29 +1,21 @@
 ---
-title: Hospedaje de varios sitios en Azure Application Gateway | Microsoft Docs
-description: Esta página proporciona información general de la compatibilidad multisitio de Puerta de enlace de aplicaciones.
-documentationcenter: na
+title: Hospedaje de varios sitios en Azure Application Gateway
+description: Este artículo proporciona información general de la compatibilidad multisitio de Azure Application Gateway.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: df98559a9476190d683812bf9f63d8ad9c4d3f0e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160518"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381978"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
-El hospedaje de varios sitios permite configurar más de una aplicación web en la misma instancia de Puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 20 sitios web en una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de contoso.com y fabrikam.com desde dos grupos de servidores back-end denominados ContosoServerPool y FabrikamServerPool.
+El hospedaje de varios sitios permite configurar más de una aplicación web en la misma instancia de Puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web en una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de contoso.com y fabrikam.com desde dos grupos de servidores back-end denominados ContosoServerPool y FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

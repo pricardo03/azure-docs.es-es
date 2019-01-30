@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 515b89502a9794671c1086b9dc537cdac9779f79
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f9516cafc09b560b8c111d822aae8a26a04e4dc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447894"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integración de Azure Active Directory con SpaceIQ
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de SpaceIQ](./media/spaceiq-tutorial/tutorial_spaceiq_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://api.spaceiq.com`
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://api.spaceiq.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api.spaceiq.com/saml/<instanceid>/callback`.
 
@@ -143,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de la autenticación SAML](./media/spaceiq-tutorial/setting3.png)
 
-    a. En el cuadro **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor de **identificador de entidad de SAML** que copió de la ventana de configuración de la aplicación Azure AD.
+     a. En el cuadro **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor de **identificador de entidad de SAML** que copió de la ventana de configuración de la aplicación Azure AD.
     
     b. Copie el valor de **dirección URL de punto de conexión de devolución de llamada SAML (solo lectura)** y péguelo en el cuadro **URL de respuesta** en Azure Portal, en la sección **Dominio y direcciones URL** de SpaceIQ.
     
@@ -154,7 +154,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     e. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/spaceiq-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -190,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
   
 ### <a name="create-a-spaceiq-test-user"></a>Creación de un usuario de prueba SpaceIQ
 
-En esta sección, creará un usuario llamado Britta Simon en SpaceIQ. Trabaje con el [equipo de soporte técnico de SpaceIQ](mailto:eng@spaceiq.com) para agregar los usuarios en la plataforma de SpaceIQ. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en SpaceIQ. Trabaje con el [equipo de soporte técnico de SpaceIQ](mailto:eng@spaceiq.com) para agregar usuarios en la plataforma de SpaceIQ. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -227,7 +227,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de SpaceIQ del panel de acceso, debería iniciar sesión automáticamente en su aplicación SpaceIQ.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

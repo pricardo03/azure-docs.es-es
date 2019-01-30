@@ -2,18 +2,19 @@
 title: Creación de temas y colas con particiones de Azure Service Bus | Microsoft Docs
 description: Describe cómo realizar la partición de los temas y las colas de Service Bus mediante el uso de varios agentes de mensajes.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: spelluru
-ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285074"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856594"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -70,7 +71,7 @@ En función del escenario, se usan diferentes propiedades de mensaje como clave 
 
 **SessionId**: si un mensaje tiene establecida la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), Service Bus usa **SessionID** como clave de partición. De esta manera, todos los mensajes que pertenecen a la misma sesión se gestionan por el mismo agente de mensajes. Las sesiones permiten que Service Bus garantice la ordenación de los mensajes, así como la coherencia de los estados de la sesión.
 
-**PartitionKey**: si un mensaje tiene establecida la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) pero no la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), Service Bus usa el valor de la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) como clave de partición. Si el mensaje tiene establecidas las propiedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) y [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), ambas propiedades deben ser idénticas. Si la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) se establece en un valor distinto del de la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), Service Bus devuelve una excepción de operación no válida. La propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) debe usarse si un remitente envía mensajes transaccionales que no tienen en cuenta la sesión. La clave de partición asegura que todos los mensajes que se envían dentro de una transacción se gestionan por el mismo agente de mensajes.
+**PartitionKey**: si un mensaje tiene establecida la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), pero no la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), Service Bus usa el valor de la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) como clave de partición. Si el mensaje tiene establecidas las propiedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) y [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), ambas propiedades deben ser idénticas. Si la propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) se establece en un valor distinto del de la propiedad [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), Service Bus devuelve una excepción de operación no válida. La propiedad [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) debe usarse si un remitente envía mensajes transaccionales que no tienen en cuenta la sesión. La clave de partición asegura que todos los mensajes que se envían dentro de una transacción se gestionan por el mismo agente de mensajes.
 
 **MessageId**: si la cola o el tema tiene la propiedad [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) establecida en **true** y no se han establecido las propiedades [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) o [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), el valor de la propiedad [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) sirve de clave de partición. (Las bibliotecas de Microsoft .NET y AMQP asignan automáticamente un identificador de mensaje si la aplicación emisora no lo hace). En este caso, todas las copias del mismo mensaje se controlan por el mismo agente de mensajes. Este identificador permite que Service Bus detecte y elimine los mensajes duplicados. Si la propiedad [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) no está establecida en **true**, Service Bus no contempla la propiedad [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) como clave de partición.
 

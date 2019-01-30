@@ -3,23 +3,23 @@ title: El protocolo AMQP 1.0 de las operaciones de respuesta o solicitud de Azur
 description: Lista de operaciones de respuesta/solicitud de Microsoft Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159101"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852483"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
@@ -188,7 +188,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
+|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
 |statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -308,14 +308,14 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
+|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
 |statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|expiration|timestamp|SÍ|Nueva expiración.|  
+|expiration| timestamp|SÍ|Nueva expiración.|  
   
 ### <a name="peek-session-message"></a>Inspección de mensajes de sesiones  
 
@@ -344,7 +344,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
+|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
 |statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
@@ -439,7 +439,7 @@ El cuerpo del mensaje de solicitud debe constar de una sección con el **valor d
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|timestamp|SÍ|Filtro para incluir solo las sesiones actualizadas después de un momento dado.|  
+|last-updated-time| timestamp|SÍ|Filtro para incluir solo las sesiones actualizadas después de un momento dado.|  
 |skip|int|SÍ|Omite un número de sesiones.|  
 |top|int|SÍ|Número máximo de sesiones.|  
   
@@ -449,7 +449,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
+|statusCode|int|SÍ|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
 |statusDescription|string|Sin |Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  

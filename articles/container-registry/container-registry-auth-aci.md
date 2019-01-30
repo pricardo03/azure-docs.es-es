@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855840"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390665"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticación con Azure Container Registry desde Azure Container Instances
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a crear y configurar una entidad de servicio de Az
 
 Debe usar una entidad de servicio para la autenticación desde ACI en **escenarios de equipos sin periféricos**, como, por ejemplo aplicaciones o servicios que crean instancias de contenedor de manera automática o desatendida.
 
-Por ejemplo, si tiene un script automatizado que se ejecuta cada noche y crea una [instancia de contenedor basada en tareas](../container-instances/container-instances-restart-policy.md) para procesar determinados datos, este puede usar una entidad de servicio con permisos de solo extracción (lector) para autenticarse en el registro. A continuación, puede intercambiar las credenciales de la entidad de servicio o revocar el acceso por completo sin que ello afecte a otros servicios y aplicaciones.
+Por ejemplo, si tiene un script automatizado que se ejecuta cada noche y crea una [instancia de contenedor basado en tareas](../container-instances/container-instances-restart-policy.md) para procesar determinados datos, este puede usar una entidad de servicio con permisos de solo extracción para autenticarse en el Registro. A continuación, puede intercambiar las credenciales de la entidad de servicio o revocar el acceso por completo sin que ello afecte a otros servicios y aplicaciones.
 
 Las entidades de servicio también deben usarse cuando el [usuario administrador](container-registry-authentication.md#admin-account) del registro está deshabilitado.
 

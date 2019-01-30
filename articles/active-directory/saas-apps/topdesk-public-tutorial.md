@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con TOPdesk - Public | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con TOPdesk - Public | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TOPdesk - Public.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0873299f-ce70-457b-addc-e57c5801275f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: ce74d4263e06c33c9beb66417b5ab8d61b8a259f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1043752ccead6276dbe6b18db7c0965cd90b43f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433926"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integración de Azure Active Directory con TOPdesk - Public
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de TOPdesk - Public](./media/topdesk-public-tutorial/tutorial_topdesk-public_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net`.
     
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net/tas/public/login/verify`
 
@@ -149,7 +149,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración técnica](./media/topdesk-public-tutorial/ic790601.png "Configuración técnica")
    
-    a. Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
+     a. Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
    
     b. Abra el archivo de metadatos descargado y luego busque el nodo **AssertionConsumerService**.
 
@@ -161,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Certificado](./media/topdesk-public-tutorial/ic790606.png "Certificado")
     
-    a. Abra el archivo de metadatos descargado de Azure Portal.
+     a. Abra el archivo de metadatos descargado de Azure Portal.
     
     b. Expanda el nodo **RoleDescriptor** cuyo **xsi:type** es **fed:ApplicationServiceType**.
     
@@ -177,7 +177,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Asistente para configuración de SAML](./media/topdesk-public-tutorial/ic790608.png "Asistente de configuración de SAML")
     
-    a. Para cargar el archivo de metadatos descargado de Azure Portal, en **Federation Metadata** (Metadatos de federación) haga clic en **Browse** (Examinar).
+     a. Para cargar el archivo de metadatos descargado de Azure Portal, en **Federation Metadata** (Metadatos de federación) haga clic en **Browse** (Examinar).
 
     b. Para cargar el archivo del certificado, en **Certificate (RSA)** (Certificado [RSA]), haga clic en **Browse** (Examinar).
 
@@ -190,7 +190,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     f. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -216,7 +216,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/topdesk-public-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -240,7 +240,7 @@ En el caso de TOPdesk - Public, el aprovisionamiento es una tarea manual.
    
     ![Nueva persona](./media/topdesk-public-tutorial/ic790629.png "Nueva persona")
    
-    a. Haga clic en la pestaña General.
+     a. Haga clic en la pestaña General.
 
     b. En el cuadro de texto **Apellidos**, escriba los apellidos del usuario, en este caso, Simon.
  
@@ -286,7 +286,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de TOPdesk - Public en el panel de acceso, debería iniciar sesión automáticamente en la aplicación TOPdesk - Public.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -8,24 +8,24 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311871"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452214"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
-La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. 
+La aptitud **Reconocimiento de entidades** extrae entidades de distintos tipos del texto. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) en Cognitive Services.
 
 > [!NOTE]
-> A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permitirá empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezaremos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
+> A partir del 21 de diciembre de 2018, podrá [asociar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) con un conjunto de aptitudes de Azure Search. Esto nos permite empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezamos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
 >
-> La ejecución de aptitudes integradas se cobrará a los [precios de pago por uso existentes de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). La extracción de imágenes se cobrará al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
+> La ejecución de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) se cobra al [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services), con la misma tarifa que tendría si hubiese realizado la tarea directamente. La extracción de imágenes es un cargo de Azure Search que actualmente se ofrece al precio de la versión preliminar. Para obtener más información, consulte la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) o [cómo funciona la facturación](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +43,7 @@ Los parámetros distinguen mayúsculas de minúsculas y son opcionales.
 | Categorías    | Matriz de categorías que se deben extraer.  Tipos de categorías posibles: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si no se proporciona ninguna categoría, se devuelven todos los tipos.|
 |defaultLanguageCode |  Código de idioma del texto de entrada. Se admiten los siguientes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Sin usar. Reservado para uso futuro. |
-|includeTypelessEntites | Cuando se establece en true, si el texto contiene una entidad conocida, pero no se puede clasificar en una de las categorías admitidas, se devolverá como parte del campo de salida compleja `"entities"`. El valor predeterminado es `false` |
+|includeTypelessEntities | Cuando se establece en true, si el texto contiene una entidad conocida, pero no se puede clasificar en una de las categorías admitidas, se devolverá como parte del campo de salida compleja `"entities"`. El valor predeterminado es `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
@@ -67,8 +67,8 @@ Solo _en_, _es_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, 
 | dateTimes  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |
 | urls | Una matriz de cadenas donde cada cadena representa una dirección URL. |
 | emails | Una matriz de cadenas donde cada cadena representa un correo electrónico. |
-| namedEntities | Una matriz de tipos complejos, que contienen los siguientes campos: <ul><li>categoría</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
-| entities | Una matriz de tipos complejos, que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
+| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>categoría</li> <li>valor (el nombre de entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
+| entities | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo
 

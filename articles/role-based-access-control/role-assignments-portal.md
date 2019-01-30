@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634870"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412315"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Administración del acceso mediante RBAC y Azure Portal
 
@@ -67,13 +67,13 @@ Siga estos pasos para ver el acceso de un solo usuario, grupo, entidad de servic
 
 1. Haga clic en la pestaña **Comprobación de acceso**.
 
-    ![Control de acceso: pestaña Comprobación de acceso](./media/role-assignments-portal/access-control-check-access.png)
+    ![Control de acceso: pestaña Comprobar acceso](./media/role-assignments-portal/access-control-check-access.png)
 
 1. En la lista **Buscar**, seleccione el tipo de entidad de seguridad cuyo acceso quiere comprobar.
 
 1. En el cuadro de búsqueda, escriba una cadena para buscar nombres para mostrar, direcciones de correo electrónico o identificadores de objeto en el directorio.
 
-    ![Lista de selección de Comprobación de acceso](./media/role-assignments-portal/check-access-select.png)
+    ![Lista de selección de Comprobar acceso](./media/role-assignments-portal/check-access-select.png)
 
 1. Haga clic en la entidad de seguridad para abrir el panel **Asignaciones**.
 
@@ -167,5 +167,5 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Siga est
 
 * [Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
 * [Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Roles integrados](built-in-roles.md)
+* [Solución de problemas de RBAC en Azure](troubleshooting.md)
 * [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md)

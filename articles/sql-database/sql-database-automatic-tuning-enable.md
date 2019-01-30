@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607088"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382783"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático para supervisar las consultas y mejorar el rendimiento de la carga de trabajo
 
@@ -87,6 +87,10 @@ Para configurar las opciones individuales de ajuste automático mediante T-SQL, 
    ```
    
 Si establece la opción de ajuste individual en ON, invalidará todas las configuraciones que la base de datos haya heredado y habilitará la opción de ajuste. Si la establece en OFF, también invalidará todas las configuraciones que la base de datos haya heredado y deshabilitará la opción de ajuste. Las opciones de ajuste automático para las que se especifique DEFAULT heredarán la configuración de ajuste automático del nivel de base de datos.  
+
+> [!IMPORTANT]
+> En caso de la [replicación geográfica activa](sql-database-auto-failover-group.md), el ajuste automático solo debe configurarse en la base de datos principal. Las acciones de ajuste aplicadas automáticamente, como la creación o la eliminación de un índice, se replicarán de forma automática en la base de datos secundaria de solo lectura. Al intentar habilitar el ajuste automático mediante T-SQL en la base de datos secundaria de solo lectura, se producirá un error ya que no se puede tener una configuración de ajuste diferente en la base de datos secundaria de solo lectura.
+>
 
 Para más información sobre las opciones de T-SQL para configurar el ajuste automático, consulte el artículo sobre las [opciones de ALTER DATABASE SET (Transact-SQL) para el servidor lógico de SQL Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 

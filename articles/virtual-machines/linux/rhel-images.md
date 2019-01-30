@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229581"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402156"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imágenes de Red Hat Enterprise Linux en Azure
 En este artículo, se describen las imágenes disponibles de Red Hat Enterprise Linux (RHEL) en Azure Marketplace, además de directivas en relación con su nomenclatura y retención.
 
 Puede encontrar información sobre las directivas de soporte técnico de Red Hat para todas las versiones de RHEL en la página [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo de vida de Red Hat Enterprise Linux).
+
+>[!Important]
+> Las imágenes RHEL actualmente disponibles en Azure Marketplace admiten los modelos de licencia "traiga su propia suscripción" (BYOS) y pago por uso (PAYG). No se admiten la [Ventaja para uso híbrido de Azure](../windows/hybrid-use-benefit-licensing.md) ni el cambio dinámico entre BYOS y pago por uso. Para cambiar el modo de licencia es necesario volver a implementar la máquina virtual desde la imagen correspondiente.
+
+>[!Note]
+> Si tiene cualquier problema con las imágenes RHEL de la Galería de Azure Marketplace, abra una incidencia de soporte técnico de Microsoft.
 
 ## <a name="images-available-in-the-ui"></a>Imágenes disponibles en la interfaz de usuario
 Al buscar “Red Hat” en Marketplace o al crear un recurso en la interfaz de usuario de Azure Portal, verá un subconjunto de imágenes de RHEL disponibles y productos de Red Hat relacionados. En cualquier momento, puede obtener el conjunto completo de imágenes de VM disponibles mediante PowerShell, la API o la CLI de Azure.

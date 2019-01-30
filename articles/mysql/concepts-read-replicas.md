@@ -5,19 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: 1c05203de694cde882277bf269f3ff87438f9f26
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547735"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462427"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
 La característica de réplica de lectura (versión preliminar pública) le permite replicar datos desde un servidor Azure Database for MySQL (maestro) en hasta un máximo de cinco servidores de solo lectura (réplicas) de la misma región de Azure. Las réplicas de solo lectura se actualizan asincrónicamente mediante la tecnología de replicación basada en la posición de los archivos de registros binarios nativos (binlog) del motor de MySQL. Para obtener más información acerca de la replicación de binlog, consulte la [Introducción a la replicación de binlog de MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Las réplicas creadas en el servicio Azure Database for MySQL son nuevos servidores que pueden administrarse de la misma manera que los servidores de MySQL independientes o los habituales. Estos servidores se cargan a la misma velocidad que un servidor independiente.
+Las réplicas creadas en el servicio Azure Database for MySQL son nuevos servidores que pueden administrarse de la misma manera que los servidores de MySQL independientes o los habituales. Por cada réplica de lectura, se le cobra por el proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes. 
+
 
 Para obtener más información sobre los problemas y las características de replicación de MySQL, consulte la [documentación de replicación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 

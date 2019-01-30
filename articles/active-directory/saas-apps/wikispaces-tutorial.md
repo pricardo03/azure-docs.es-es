@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 665b95aa-f7f5-4406-9e2a-6fc299a1599c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e4112b431aba706ec1bc9b54f429e1fb43159d6c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9fb09a6abf6e4f7deafb92ec905bf39c69951003
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448754"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integración de Azure Active Directory con Wikispaces
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/wikispaces-tutorial/tutorial_wikispaces_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.wikispaces.net`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.wikispaces.net`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://session.wikispaces.net/<instancename>`
 
@@ -130,7 +130,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en el lado de **Wikispaces**, necesita enviar los datos descargados de **XML de metadatos** al [equipo de soporte técnico de Wikispaces](https://www.wikispaces.com/site/help). Tan pronto como se complete la configuración, recibirá una notificación.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -155,7 +155,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/wikispaces-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -182,7 +182,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben 
    
     ![Invitar a personas](./media/wikispaces-tutorial/ic787208.png "Invitar a personas")
    
-    a. Escriba los **nombres de usuario o dirección de correo electrónico** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
+     a. Escriba los **nombres de usuario o dirección de correo electrónico** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
    
     b. Haga clic en **Enviar**.  
       

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465180"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Utilice instantáneas de almacenamiento de datos para recuperar o copiar el almacenamiento de datos en un punto de restauración en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica. 
@@ -86,7 +86,7 @@ Cada instantánea crea un punto de restauración que representa la hora de inici
 
 Puede mantener el almacenamiento de datos restaurado y el actual, o eliminar uno de ellos. Si quiere reemplazar el almacenamiento de datos actual por el restaurado, puede cambiarle el nombre mediante [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con la opción MODIFY NAME. 
 
-Para restaurar un almacenamiento de datos, consulte [Restauración de un almacenamiento de datos mediante Azure Portal](sql-data-warehouse-restore-database-portal.md), [Restauración de un almacenamiento de datos mediante PowerShell](sql-data-warehouse-restore-database-powershell.md) o [Restauración de un almacenamiento de datos mediante T-SQL](sql-data-warehouse-restore-database-rest-api.md).
+Para restaurar un almacenamiento de datos, consulte [Restauración de un almacenamiento de datos mediante Azure Portal](sql-data-warehouse-restore-database-portal.md), [Restauración de un almacenamiento de datos mediante PowerShell](sql-data-warehouse-restore-database-powershell.md) o [Restauración de un almacenamiento de datos mediante API REST](sql-data-warehouse-restore-database-rest-api.md).
 
 Para restaurar un almacenamiento de datos eliminado o en pausa, puede [crear una incidencia de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md). 
 

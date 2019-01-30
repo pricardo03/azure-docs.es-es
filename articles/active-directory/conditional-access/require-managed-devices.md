@@ -4,7 +4,7 @@ description: Aprenda a configurar directivas de acceso condicional basadas en di
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b59e4898f85de7ad93d9172cdb3c551a17799194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2df2d716516cb8e451c054fce3e184e1b4bf3f9b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630490"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447605"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
 En un mundo donde la nube y la movilidad son prioritarias, Azure Active Directory (Azure AD) permite el inicio de sesión único en aplicaciones y servicios desde cualquier parte. Los usuarios autorizados pueden acceder a las aplicaciones en la nube desde una amplia variedad de dispositivos, como dispositivos móviles y personales. No obstante, algunos entornos tienen algunas aplicaciones a las que solo se puede acceder mediante dispositivos que reúnan los estándares de seguridad y cumplimiento. A estos dispositivos también se les conoce como dispositivos administrados. 
 

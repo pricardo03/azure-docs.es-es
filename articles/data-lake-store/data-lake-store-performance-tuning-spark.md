@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127676"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401714"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Spark en HDInsight y Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ Cuando ajuste el rendimiento de Spark, necesitará tener en cuenta el número de
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 * **Ejecutar el clúster de Spark en Data Lake Storage Gen1**.  Para más información, consulte [Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
 * **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance). 
 
@@ -55,20 +55,20 @@ Si va a ejecute cargas de trabajo de análisis de Spark para trabajar con datos 
 
 Para aumentar la simultaneidad de trabajos de uso intensivo de E/S, existen algunos métodos generales:
 
-**Paso 1: determine cuántas aplicaciones se ejecutan en el clúster**. Debe conocer cuántas aplicaciones se están ejecutando en el clúster, incluida la actual.  Los valores predeterminados para cada ajuste de Spark asume que hay 4 aplicaciones ejecutándose simultáneamente.  Por lo tanto, solo habrá un 25 % del clúster disponible para cada aplicación.  Para obtener un mejor rendimiento, puede sustituir los valores predeterminados cambiando el número de ejecutores.  
+**Paso 1: Determine cuántas aplicaciones se ejecutan en el clúster**. Debe conocer cuántas aplicaciones se están ejecutando en el clúster, incluida la actual.  Los valores predeterminados para cada ajuste de Spark asume que hay 4 aplicaciones ejecutándose simultáneamente.  Por lo tanto, solo habrá un 25 % del clúster disponible para cada aplicación.  Para obtener un mejor rendimiento, puede sustituir los valores predeterminados cambiando el número de ejecutores.  
 
-**Paso 2: establezca executor-memory**. Lo primero que se debe establecer es executor-memory.  La memoria dependerá el trabajo que va a ejecutar.  Puede aumentar la simultaneidad asignando menos memoria a cada ejecutor.  Si ve excepciones por memoria insuficiente cuando ejecuta el trabajo, aumente el valor para este parámetro.  Otra alternativa consiste en obtener más memoria mediante un clúster que tenga mayor cantidad de la misma o aumentar el número de nodos en el clúster.  Mientras más memoria tenga, más ejecutores podrá utilizar, lo que se traduce en una mayor simultaneidad.
+**Paso 2: Establezca executor-memory**. Lo primero que se debe establecer es executor-memory.  La memoria dependerá el trabajo que va a ejecutar.  Puede aumentar la simultaneidad asignando menos memoria a cada ejecutor.  Si ve excepciones por memoria insuficiente cuando ejecuta el trabajo, aumente el valor para este parámetro.  Otra alternativa consiste en obtener más memoria mediante un clúster que tenga mayor cantidad de la misma o aumentar el número de nodos en el clúster.  Mientras más memoria tenga, más ejecutores podrá utilizar, lo que se traduce en una mayor simultaneidad.
 
-**Paso 3: establezca executor-cores**. En cargas de trabajo con uso intensivo de E/S que no tengan operaciones complejas, es recomendable empezar con un gran número de núcleos de ejecutor para aumentar el número de tareas paralelas por cada ejecutor.  Un buen punto de partida sería establecer executor-cores en 4.   
+**Paso 3: Establezca executor-cores**. En cargas de trabajo con uso intensivo de E/S que no tengan operaciones complejas, es recomendable empezar con un gran número de núcleos de ejecutor para aumentar el número de tareas paralelas por cada ejecutor.  Un buen punto de partida sería establecer executor-cores en 4.   
 
     executor-cores = 4
 Si aumenta el número de núcleos de ejecutor podrá tener mayor paralelismo, con lo que puede experimentar con diferentes valores para executor-cores.  Para los trabajos que tengan operaciones más complejas, reduzca el número de núcleos por ejecutor.  Si executor-cores se ha establecido en un número mayor que 4, puede que la recolección de elementos no utilizados sea ineficaz y el rendimiento se vea degradado.
 
-**Paso 4: determine la cantidad de memoria YARN en el clúster**. Esta información está disponible en Ambari.  Vaya a YARN y vea la pestaña Configs (Configuraciones).  En esta ventana se muestra el tamaño de la memoria de YARN.  
+**Paso 4: Determine la cantidad de memoria YARN en el clúster**. Esta información está disponible en Ambari.  Vaya a YARN y examine la pestaña de configuración.  En esta ventana se muestra el tamaño de la memoria de YARN.  
 Tenga en cuenta que mientras está en la ventana puede ver también el tamaño predeterminado del contenedor YARN.  El tamaño del contenedor YARN es igual que la memoria por cada parámetro de ejecutor.
 
     Total YARN memory = nodes * YARN memory per node
-**Paso 5: calcule num-executors**
+**Paso 5: Calcule num-executors**
 
 **Calcule la restricción de memoria**: el parámetro num-executors está restringido por la memoria o por la CPU.  La restricción de memoria se determina por la cantidad de memoria YARN disponible para la aplicación.  Tome la memoria total de YARN y divídala por la memoria del ejecutor.  La restricción debe adaptarse al número de aplicaciones, por lo que dividiremos entre dicho número.
 
@@ -86,19 +86,19 @@ El hecho de establecer un número mayor de ejecutores no tiene por qué aumentar
 
 Supongamos que tiene actualmente un clúster compuesto de 8 nodos D4v2 que están ejecutando 2 aplicaciones, incluida la que se va a ejecutar.  
 
-**Paso 1: determine las aplicaciones se ejecutan en el clúster**. Sabe que tiene 2 aplicaciones en el clúster, incluida la que se va a ejecutar.  
+**Paso 1: Determine cuántas aplicaciones se ejecutan en el clúster**. Sabe que tiene 2 aplicaciones en el clúster, incluida la que se va a ejecutar.  
 
-**Paso 2: establezca executor-memory**. En este ejemplo, determinamos que 6 GB de memoria de ejecutor serán suficientes para trabajos con uso intensivo de E/S.  
+**Paso 2: Establezca executor-memory**. En este ejemplo, determinamos que 6 GB de memoria de ejecutor serán suficientes para trabajos con uso intensivo de E/S.  
 
     executor-memory = 6GB
-**Paso 3: establezca executor-cores**. Puesto que se trata de un trabajo con uso intensivo de E/S, podemos establecer el número de núcleos para cada ejecutor a 4.  Si establece los núcleos por ejecutor en un número mayor que 4 puede causar problemas de colección de elementos no utilizados.  
+**Paso 3: Establezca executor-cores**. Puesto que se trata de un trabajo con uso intensivo de E/S, podemos establecer el número de núcleos para cada ejecutor a 4.  Si establece los núcleos por ejecutor en un número mayor que 4 puede causar problemas de colección de elementos no utilizados.  
 
     executor-cores = 4
-**Paso 4: determine la cantidad de memoria YARN en clúster**. Navegamos a Ambari para averiguar que cada D4v2 tiene 25 GB de memoria YARN.  Dado que hay 8 nodos, la memoria YARN disponible se multiplica por 8.
+**Paso 4: Determine la cantidad de memoria YARN en clúster**. Navegamos a Ambari para averiguar que cada D4v2 tiene 25 GB de memoria YARN.  Dado que hay 8 nodos, la memoria YARN disponible se multiplica por 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Paso 5: calcule num-executors**. El parámetro num-executors se determina a partir de la restricción mínima de memoria y de CPU, dividida por el número de aplicaciones que están ejecutando en Spark.    
+**Paso 5: Calcule num-executors**. El parámetro num-executors se determina a partir de la restricción mínima de memoria y de CPU, dividida por el número de aplicaciones que están ejecutando en Spark.    
 
 **Calcule la restricción de memoria**. La restricción de memoria se calcula dividiendo la memoria YARN total entre la memoria por ejecutor.
 

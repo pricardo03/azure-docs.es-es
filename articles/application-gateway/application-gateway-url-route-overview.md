@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95d443eeebf2fe5a8fad185210f88576a5f21f6a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188766"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435302"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -23,7 +23,7 @@ En el ejemplo siguiente, Application Gateway atiende el tráfico de contoso.com 
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Las solicitudes para http://contoso.com/video/* se redirigen a VideoServerPool, y http://contoso.com/images/*, a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
+Las solicitudes de http\://contoso.com/video/* se enrutan a VideoServerPool y las de http\://contoso.com/images/* a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
 
 > [!IMPORTANT]
 > Las reglas se procesan en el orden en que aparecen en el portal. Es muy recomendable configurar a los agentes de escucha multisitio antes de configurar un agente de escucha básico.  De esta forma se asegura de que el tráfico se enruta al back-end adecuado. Si un agente de escucha básico aparece en primer lugar y coincide con una solicitud entrante, lo procesa ese agente de escucha.

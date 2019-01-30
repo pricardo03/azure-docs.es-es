@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: e7f0f6bb778dedeea61b74b5ca0c2edbadd5279b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4ca13640f64c88164aa98c5434c252d844cebd72
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430294"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integración de Azure Active Directory con TimeOffManager
 
@@ -130,7 +130,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Lastname |User.surname |
     | Email |User.mail |
     
-    a.  En cada fila de datos de la tabla anterior, haga clic en **agregar atributo de usuario**.
+     a.  En cada fila de datos de la tabla anterior, haga clic en **agregar atributo de usuario**.
     
     ![Atributos de token de SAML](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addattrb.png "Atributos de token de SAML")
     
@@ -159,7 +159,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
    ![Configuración de inicio de sesión único](./media/timeoffmanager-tutorial/ic795918.png "Configuración de inicio de sesión único")
    
-   a. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego pegue todo el certificado en el cuadro de texto **Certificado X.509** .
+    a. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego pegue todo el certificado en el cuadro de texto **Certificado X.509** .
    
    b. En el cuadro de texto **Emisor de IdP**, pegue el valor de **Identificador de entidad de SAML** que ha copiado de Azure Portal.
    
@@ -178,7 +178,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
       ![Configuración de inicio de sesión único](./media/timeoffmanager-tutorial/ic795915.png "Configuración de inicio de sesión único")
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -204,7 +204,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Página del cuadro de diálogo Usuario](./media/timeoffmanager-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -258,7 +258,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de TimeOffManager en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación TimeOffManager. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de TimeOffManager en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación TimeOffManager. Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

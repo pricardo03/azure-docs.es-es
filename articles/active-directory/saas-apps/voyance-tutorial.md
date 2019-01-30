@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 539dc1f9-64c9-4dce-b259-2b0b49dcf857
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ce72fb75729574c9645025459b67fd3eab597bb1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3fc0b30bf283612425e59b2d32e0817b6b0f9d4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432184"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Tutorial: Integración de Azure Active Directory con Voyance
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Voyance para IDP](./media/voyance-tutorial/tutorial_voyance_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.nyansa.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.nyansa.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.nyansa.com/saml/create/`.
 
@@ -157,7 +157,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración del inicio de sesión único en la configuración SAML v2 de la aplicación](./media/voyance-tutorial/tutorial_voyance_005.png)
     
-    a. Seleccione **Habilitado**.
+     a. Seleccione **Habilitado**.
     
     b. Pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que copió de Azure Portal en el cuadro de texto **IdP Login URL** (Dirección URL de inicio de sesión del proveedor de identidades).
 
@@ -166,7 +166,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     d. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -193,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Cuadro de diálogo Usuario](./media/voyance-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287479"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402258"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Administración de carga de trabajo con clases de recursos en Azure SQL Data Warehouse
 Instrucciones para usar las clases de recursos para administrar la memoria y la simultaneidad para las consultas en Azure SQL Data Warehouse.  
@@ -90,7 +90,7 @@ Solo en **Gen2**, las clases de recursos dinámicos son verdaderamente dinámica
 ### <a name="default-resource-class"></a>Clase de recursos predeterminada
 De forma predeterminada, cada usuario es miembro de la clase de recursos dinámicos **smallrc**. 
 
-La clase de recursos del administrador de servicios es fija y no se puede cambiar.  El administrador de servicios es el usuario que se creó durante el proceso de aprovisionamiento.
+La clase de recursos del administrador de servicios está fijada en smallrc y no se puede cambiar.  El administrador de servicios es el usuario que se creó durante el proceso de aprovisionamiento.  En este contexto, el administrador de servicios es el inicio de sesión especificado como inicio de sesión del administrador de servidores al crear una nueva instancia de SQL Data Warehouse con un nuevo servidor.
 
 > [!NOTE]
 > Los usuarios o grupos definidos como administrador de Active Directory también son administradores de servicio.

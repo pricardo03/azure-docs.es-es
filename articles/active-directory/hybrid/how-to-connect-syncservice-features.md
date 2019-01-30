@@ -4,7 +4,7 @@ description: Describe las características del servicio de sincronización de Az
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5a251c3e867035ecc00d449c4fbc1cf980a4f1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243000"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461219"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Características del servicio de sincronización de Azure AD Connect
 La característica de sincronización de Azure AD Connect tiene dos componentes:
@@ -55,12 +55,12 @@ Las siguientes opciones se configuran mediante Azure AD Connect y no se pueden m
 
 | DirSyncFeature | Comentario |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: habilitación de la escritura diferida de dispositivos](how-to-connect-device-writeback.md) |
+| DeviceWriteback |[Azure AD Connect: habilitación de la escritura diferida de dispositivo](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Sincronización de Azure AD Connect: Extensiones de directorio](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite poner un atributo en cuarentena si es un duplicado de otro objeto en lugar de consignar un error en todo el objeto durante la exportación. |
 | Sincronización de hash de contraseñas |[Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Autenticación de paso a través|[Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Versión preliminar: reescritura de grupos](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |[Versión preliminar: Escritura diferida de grupos](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |No se admite actualmente. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Resistencia de atributos duplicados

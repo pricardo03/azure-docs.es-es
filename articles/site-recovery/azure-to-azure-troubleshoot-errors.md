@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 8023129bf700793447b63f0686acd22f6ac2b25c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 44801663165b85edc988dab8ae2b668ef0e613b7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265012"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381597"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -230,6 +230,10 @@ Si no ve la VM que quiere habilitar para la replicación, podría deberse a que 
 - Habilitó la replicación para la máquina virtual de Azure mediante Site Recovery y luego eliminó el grupo de recursos que contenía el almacén de Site Recovery sin deshabilitar explícitamente la replicación en la máquina virtual.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
+
+>[!NOTE] 
+>
+>Asegúrese de actualizar el módulo "" AzureRM.Resources"" antes de usar el siguiente script. 
 
 Puede usar el artículo sobre cómo [quitar el script de configuración de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) y quitar la configuración de Site Recovery obsoleta en la máquina virtual de Azure. Debería poder ver la VM después de quitar la configuración obsoleta.
 

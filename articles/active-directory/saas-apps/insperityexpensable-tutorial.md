@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c579c453-580e-417d-8a5e-9b6b352795c0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: ba2d71a52b8b2367c6d292a9531cf5403f59242e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b078f459faf4da468a0b0e4ec7c6e880627e4a4d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427873"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821195"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Tutorial: integración de Azure Active Directory con Insperity ExpensAble
+# <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Tutorial: Integración de Azure Active Directory con Insperity ExpensAble
 
 En este tutorial, obtendrá información sobre cómo integrar Insperity ExpensAble con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/insperityexpensable-tutorial/tutorial_insperityexpensable_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`.
 
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Insperity ExpensAble](http://expensable.com/support/support-overview) para obtener este valor. 
@@ -132,7 +132,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **Insperity ExpensAble**, es preciso enviar los valores descargados de **XML de metadatos**, **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) y **SAML Entity ID** (Id. de entidad SAML) al [equipo de soporte técnico de Insperity ExpensAble](http://expensable.com/support/support-overview). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -158,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/insperityexpensable-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

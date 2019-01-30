@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: directiva de contraseña | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Directiva de contraseñas | Microsoft Docs'
 description: Descripción de las directivas de contraseña en dominios administrados.
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284615"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852701"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 En este artículo se describen las directivas de contraseña predeterminadas en un dominio administrado. También se describe cómo puede configurar estas directivas.
@@ -113,7 +113,7 @@ Para crear una directiva FGPP personalizada en el dominio administrado:
   ![FGPP aplicada](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **Para aplicar directivas de contraseña personalizadas a cuentas de usuario de una unidad organizativa personalizada:** las directivas de contraseñas específicas solo pueden aplicarse a grupos. Para configurar una directiva de contraseña personalizada solo para los usuarios de una unidad organizativa personalizada, cree un grupo que incluya a los usuarios de esa unidad organizativa.
+> **Para aplicar directivas de contraseñas personalizadas a las cuentas de usuario en una unidad organizativa personalizada:** las directivas de contraseñas específicas pueden aplicarse únicamente a grupos. Para configurar una directiva de contraseña personalizada solo para los usuarios de una unidad organizativa personalizada, cree un grupo que incluya a los usuarios de esa unidad organizativa.
 >
 >
 

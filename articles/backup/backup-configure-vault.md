@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788402"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382740"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
@@ -48,9 +48,9 @@ Un almacén de Recovery Services es una entidad que almacena todas las copias de
 
 6. En la sección **Grupo de recursos**:
 
-    * Si desea crear un nuevo grupo de recursos, seleccione **Create new** (Crear nuevo).
+    * Haga clic en el menú desplegable **Seleccionar existentes**.  para ver la lista de grupos de recursos disponibles.
     o
-    * Seleccione **Use existing** (Usar existente) y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles.
+    * Si desea crear un nuevo grupo de recursos, seleccione **Create new** (Crear nuevo).
 
   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Al crear un almacén de Recovery Services se determina cómo se replica el almac
 
 1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo.
 
-    ![Selección del almacén nuevo en la lista de almacenes de Recovery Services](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Selección del almacén nuevo en la lista de almacenes de Recovery Services](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Al seleccionar el almacén, la hoja **Almacén de Recovery Services** se delimita, y la hoja de configuración (*con el nombre del almacén en la parte superior*) y la hoja de detalles del almacén se abren.
+    Al seleccionar el almacén, la hoja Almacén de Recovery Services, la hoja **Información general** (*que tiene el nombre del almacén en la parte superior*) y la hoja de detalles del almacén se abren.
 
-    ![Vista de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Vista de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. En la hoja de configuración del nuevo almacén, desplácese con el control deslizante vertical hasta la sección Manage (Administrar) y haga clic en **Backup Infrastructure** (Infraestructura de copia de seguridad).
+2. En el nuevo almacén en la sección **Configuración**, vaya a **Propiedades**.
 
-  Con ello, se abrirá esta hoja.
+  La hoja **Propiedades** se abre.
 
-3. En la hoja Infraestructura de copia de seguridad, haga clic en **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**.
+3. En la hoja **Propiedades**, haga clic en **Actualizar** en la hoja **Configuración de copia de seguridad**. La hoja **Configuración de copia de seguridad** se abre.
 
-  ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Elija la opción de replicación del almacenamiento apropiada para su almacén.
+4. Elija la opción de replicación del almacenamiento apropiada para su almacén y haga clic en **Guardar**.
 
   ![opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ La directiva de copia de seguridad constituye la programación del momento en qu
 
 ### <a name="to-create-a-backup-schedule"></a>Para crear una programación de copia de seguridad
 
-Establezca la programación de copia de seguridad en la máquina de la que desea realizar una copia de seguridad. Tenga en cuenta que el tiempo establecido para la copia de seguridad puede diferir de la hora del equipo local, porque Azure Backup no toma en cuenta el horario de verano (DST). 
+Establezca la programación de copia de seguridad en la máquina de la que desea realizar una copia de seguridad. Tenga en cuenta que el tiempo establecido para la copia de seguridad puede diferir de la hora del equipo local, porque Azure Backup no toma en cuenta el horario de verano (DST).
 1. Abra el agente de Microsoft Azure Backup. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
     ![Lanzamiento del agente de Azure Backup](./media/backup-configure-vault/snap-in-search.png)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359279"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450207"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
 
@@ -31,9 +31,9 @@ ms.locfileid: "54359279"
 
 Este documento contiene una lista de los formatos de archivo de entrada y salida y los códecs que son compatibles con la vista previa pública del **Flujo de trabajo del Codificador multimedia premium** .
 
-[Códecs y formatos de entrada del flujo de trabajo del Codificador multimedia Premium](#input_formats)
+[Códecs y formatos de entrada de Media Encoder Premium Workflow](#input_formats)
 
-[Códecs y formatos de salida del flujo de trabajo del Codificador multimedia Premium](#output_formats)
+[Códecs y formatos de salida de Media Encoder Premium Workflow](#output_formats)
 
 **Flujo de trabajo del Codificador multimedia premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección. 
 

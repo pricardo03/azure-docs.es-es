@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integración de Azure Active Directory con LinkedIn Elevate
 
@@ -119,7 +119,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_01.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el **Id.de entidad** que copió de LinkedIn Portal 
+     a. En el cuadro de texto **Identificador**, escriba el **Id.de entidad** que copió de LinkedIn Portal 
 
     b. En el cuadro de texto **URL de respuesta**, escriba la **Assertion Consumer Access (ACS) Url** (Url de Acceso de consumidor de aserciones [ACS]) que copió de LinkedIn Portal
 
@@ -141,7 +141,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
       ![Creación de un usuario de prueba de Azure AD](./media/linkedinelevate-tutorial/userattribute.png)
 
-      a. Haga clic en Agregar atributo para abrir la página de detalles del atributo y agregue el atributo department tal como se muestra a continuación:
+       a. Haga clic en Agregar atributo para abrir la página de detalles del atributo y agregue el atributo department tal como se muestra a continuación:
 
       ![Creación de un usuario de prueba de Azure AD](./media/linkedinelevate-tutorial/adduserattribute.png)
 
@@ -188,7 +188,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     ![Creación de un usuario de prueba de Azure AD](./media/linkedinelevate-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -240,7 +240,7 @@ Al hacer clic en el icono de LinkedIn Elevate en el Panel de acceso, debe abrirs
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Tutorial: configuración de LinkedIn Elevate para el aprovisionamiento automático de usuarios con Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
+* [Tutorial: Configuración de LinkedIn Elevate para el aprovisionamiento automático de usuarios con Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configuración del aprovisionamiento de usuarios](linkedinelevate-provisioning-tutorial.md)

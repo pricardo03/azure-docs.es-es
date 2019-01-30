@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, evento de riesgo, vulnerabilidad, directiva de seguridad, Microsoft Graph
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
 ms.component: conditional-access
@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: a415258b8127bb78d8a8d1b5ef228234b34b3e26
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d1703df524976bac4880975585e9d2e4f8af72fd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287519"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475278"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 Microsoft Graph es el punto de conexión de API unificada de Microsoft y donde se encuentran las API de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). La primera API, **identityRiskEvents**, le permite consultar una lista de Microsoft Graph de [eventos de riesgo](../reports-monitoring/concept-risk-events.md) así como información asociada. Este artículo es una introducción a cómo consultar esta API. Para una introducción más detallada, consulte la documentación completa y el acceso al explorador de Graph en [sitio web de Microsoft Graph](https://developer.microsoft.com/graph/).
@@ -77,7 +77,7 @@ Antes de comenzar, necesitará lo siguiente:
    
     ![Creación de una aplicación](./media/graph-get-started/44.png)
 
-    a. En el cuadro de texto **Nombre** , escriba un nombre para la aplicación (por ejemplo: aplicación de API de eventos de riesgo AADIP).
+     a. En el cuadro de texto **Nombre**, escriba el nombre de la aplicación (por ejemplo: AADIP Risk Event API Application).
    
     b. Como **Tipo de aplicación**, seleccione **Aplicación web y/o API web**.
    
@@ -136,7 +136,7 @@ Antes de comenzar, necesitará lo siguiente:
    
     ![Creación de una aplicación](./media/graph-get-started/24.png)
 
-    a. En el cuadro de texto **Descripción de la clave**, escriba una descripción (por ejemplo, *Evento de riesgo de AADIP*).
+     a. En el cuadro de texto **Descripción de la clave**, escriba una descripción (por ejemplo, *Evento de riesgo de AADIP*).
     
     b. Como **Duración**, seleccione **1 año**.
 

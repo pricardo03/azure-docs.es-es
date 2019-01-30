@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065501"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853823"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migración de Contoso: Valoración de cargas de trabajo locales para migrarlas a Azure
 
@@ -31,7 +31,7 @@ Artículo 3: Valoración de los recursos locales para migrarse a Azure | Contos
 [Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en el grupo de disponibilidad Always On de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación SmartHotel360 usando Site Recovery para migrar las VM de la aplicación, y Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server protegido por un grupo de disponibilidad Always On. | Disponible
 [Artículo 7: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante "lift-and-shift" de su aplicación osTicket de Linux a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
 [Artículo 8: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure y Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. Migra la base de datos de la aplicación a Azure Database for MySQL con MySQL Workbench. | Disponible
-[Artículo 9: Refactorización de una aplicación en una aplicación web de Azure y en Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra su aplicación SmartHotel360 a una aplicación web de Azure, y migra la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant. | Disponible
+[Artículo 9: Refactorización de una aplicación en una aplicación web de Azure y en Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra su aplicación SmartHotel360 a una aplicación web de Azure y migra la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant. | Disponible
 [Artículo 10: Migración de Contoso: refactorización de una aplicación de consola de servicio de Linux en Contoso en varias regiones con Azure App Service, Traffic Manager y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varias regiones de Azure con Azure Traffic Manager, integrado con GitHub para la entrega continua. Contoso migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible
 [Artículo 11: Refactorización de Team Foundation Server en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
 [Artículo 12: Rediseño de una aplicación en contenedores de Azure y en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña el nivel de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos con Azure SQL Database. | Disponible
@@ -206,7 +206,7 @@ Los resultados se muestran en cuanto están disponibles. Si Contoso corrige los 
 > [!NOTE]
 > Para valoraciones a gran escala:
 > - Ejecute varias valoraciones simultáneamente y vea su estado en la página **Todas las valoraciones**.
-> - Consolide las valoraciones en una [base de datos de SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Consolide las valoraciones en una [base de datos de SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Consolide las valoraciones en un [informe de Power BI](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Paso 3: Preparación de la valoración de las máquinas virtuales con Azure Migrate

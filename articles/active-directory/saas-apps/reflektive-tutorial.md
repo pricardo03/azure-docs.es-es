@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Reflektive | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Reflektive | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Reflektive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 228bcc2e43337876b211158f70fe1136de494c85
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e8125fb60256e403b31fd896f9eabda37bfd5507
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041235"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814416"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: integración de Azure Active Directory con Reflektive
+# <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: Integración de Azure Active Directory con Reflektive
 
 En este tutorial, obtendrá información sobre cómo integrar Reflektive con Azure Active Directory (Azure AD).
 
@@ -136,7 +136,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 7. Para configurar el inicio de sesión único en **Reflektive**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Reflektive](https://support@reflektive.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -162,7 +162,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/reflektive-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -172,7 +172,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-reflektive-test-user"></a>Creación de un usuario de prueba Reflektive
 
-En esta sección, se crea un usuario denominado Britta Simon en Reflektive. Trabaje con el [equipo de soporte técnico de Reflektive](mailto:support@reflektive.com) para agregar los usuarios a la plataforma de Reflektive. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, se crea un usuario denominado Britta Simon en Reflektive. Trabaje con el [equipo de soporte técnico de Reflektive](mailto:support@reflektive.com) para agregar los usuarios a la plataforma de Reflektive. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -209,7 +209,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Reflektive en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Reflektive.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

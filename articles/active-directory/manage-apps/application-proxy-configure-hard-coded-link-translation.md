@@ -4,7 +4,7 @@ description: Se explican los conceptos básicos acerca de los conectores del Pro
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461559"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -46,13 +46,13 @@ Estas tres características mantendrán sus vínculos en funcionamiento independ
 >O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para otro enfoque para la asignación de vínculos. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>Opción 1: integración con Intune Managed Browser 
+### <a name="option-1-intune-managed-browser-integration"></a>Opción 1: Integración con Intune Managed Browser 
 
 Puede usar Intune Managed Browser para proteger aún más la aplicación y su contenido. Para usar esta solución, debe requerir o recomendar a los usuarios que accedan a la aplicación a través de Intune Managed Browser. Managed Browser reconocerá todas las URL internas publicadas con Application Proxy y se redirigirán a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario entra en el explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
 
 Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 
-### <a name="option-2-myapps-browser-extension"></a>Opción 2: extensión de explorador de MyApps 
+### <a name="option-2-myapps-browser-extension"></a>Opción 2: Extensión de explorador de MyApps 
 
 La extensión de explorador de MyApps reconoce todas las URL internas publicadas con Application Proxy y las redirige a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario va a la barra de direcciones del explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
 
@@ -60,7 +60,7 @@ Para usar esta característica, el usuario debe descargar la extensión e inicia
 
  
 
-### <a name="option-3-link-translation-setting"></a>Opción 3: valor de traducción de vínculos 
+### <a name="option-3-link-translation-setting"></a>Opción 3: Valor de traducción de vínculos 
 
 Si está habilitada la traducción de vínculos, el servicio Application Proxy busca a través de HTML y CSS los vínculos internos publicados y los traduce de forma que los usuarios reciban una experiencia sin interrupciones. 
 

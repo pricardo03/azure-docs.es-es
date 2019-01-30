@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730756"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382520"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -260,7 +260,7 @@ En el caso de aplicaciones y funciones de .NET, la manera más sencilla de traba
 
 1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y a otros paquetes necesarios para la aplicación. El ejemplo siguiente también usa [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Agregue el código siguiente a la aplicación, modificándolo para que tenga como destino el recurso correcto. En este ejemplo se muestran dos formas de trabajar con Azure Key Vault:
+2. Agregue el código siguiente a la aplicación, modificándolo para que tenga como destino el recurso correcto. En este ejemplo se muestran dos formas de trabajar con Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication 
 ### <a name="using-the-rest-protocol"></a>Uso del protocolo de REST
 
 Una aplicación con una identidad administrada tiene dos variables de entorno definidas:
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicación puede solicitar tokens. Para obtener un token para un recurso, realice una solicitud HTTP GET para este punto de conexión, incluyendo los parámetros siguientes:
 
-> [!div class="mx-tdBreakAll"]
 > |Nombre de parámetro|En|DESCRIPCIÓN|
 > |-----|-----|-----|
 > |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
@@ -290,10 +290,8 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 > |secret|Encabezado|El valor de la variable de entorno MSI_SECRET.|
 > |clientid|Consultar|(Opcional) El identificador de la identidad asignada por el usuario que se usará. Si se omite, se usa la identidad asignada por el sistema.|
 
-
 Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 
-> [!div class="mx-tdBreakAll"]
 > |Nombre de propiedad|DESCRIPCIÓN|
 > |-------------|----------|
 > |access_token|El token de acceso solicitado. El servicio web de llamada puede usar este token para autenticarse en el servicio web de recepción.|
@@ -301,24 +299,27 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > |resource|El URI del identificador de la aplicación del servicio web de recepción.|
 > |token_type|Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]).|
 
-
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Las variables de entorno se configuran cuando el proceso se inicia por primera vez, por lo que después de habilitar una identidad administrada para la aplicación puede que necesite reiniciar la aplicación, o implementar de nuevo su código, antes de que `MSI_ENDPOINT` y `MSI_SECRET` estén disponibles en el código.
 
 ### <a name="rest-protocol-examples"></a>Ejemplos de protocolo de REST
+
 Una solicitud de ejemplo puede tener el siguiente aspecto:
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 Y una respuesta de ejemplo puede tener el siguiente aspecto:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Ejemplos de código
+
 <a name="token-csharp"></a>Para realizar esta solicitud en C#:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > Para los lenguajes. NET, también puede usar [Microsoft.Azure.Services.AppAuthentication](#asal) en lugar de crear esta solicitud personalmente.
 
 <a name="token-js"></a>En Node.js:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>En PowerShell:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,12 +376,12 @@ Para quitar una identidad asignada por el sistema, deshabilite la función media
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 Al quitar una identidad asignada por el sistema de esta manera también se eliminará de AAD. Las identidades asignadas por el sistema también se quitan automáticamente de AAD cuando se elimina el recurso de la aplicación.
 
-> [!NOTE] 
+> [!NOTE]
 > También hay una configuración de aplicación que se puede establecer, WEBSITE_DISABLE_MSI, que simplemente deshabilita el servicio de token local. Sin embargo, deja la identidad en su lugar, y las herramientas seguirán mostrando la identidad administrada como "activada" o "habilitada". Como resultado, no se recomienda el uso de esta configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes

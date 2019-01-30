@@ -4,7 +4,7 @@ description: Unión de una máquina virtual con Windows Server a un dominio admi
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157265"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856645"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Unión de una máquina virtual con Windows Server a un dominio administrado mediante una plantilla de Resource Manager
 En este artículo se muestra cómo unir una máquina virtual con Windows Server a un dominio administrado con Azure AD Domain Services mediante plantillas de Resource Manager.
@@ -38,8 +38,8 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 
 ## <a name="install-and-configure-required-tools"></a>Instalación y configuración de las herramientas necesarias
 Puede usar cualquiera de las siguientes opciones para realizar los pasos descritos en este documento:
-* **Azure PowerShell**: [instalación y configuración](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **CLI de Azure**: [instalación y configuración](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure PowerShell**: [Instalación y configuración](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **CLI de Azure**: [Instalación y configuración](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opción 1: aprovisionamiento de una nueva máquina virtual con Windows Server y su unión a un dominio administrado
@@ -59,7 +59,7 @@ Para implementar una máquina virtual con Windows Server y su unión a un domini
 11. En el campo de **dominio al que desea unirse**, especifique el nombre de dominio del dominio administrado.
 12. En el campo de **nombre de usuario de dominio**, especifique el nombre de cuenta de usuario del dominio administrado que debe usarse para unir la máquina virtual al dominio administrado.
 13. En el campo de **contraseña de dominio**, especifique la contraseña de la cuenta de usuario de dominio a la que hace referencia el parámetro "domainUsername".
-14. Opcional: puede especificar una **ruta de acceso de la unidad organizativa** en una unidad organizativa personalizada, en la que se va a agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa **Equipos de DC de AAD** del dominio administrado.
+14. Opcional: puede especificar una **ruta de acceso de unidad organizativa** que dirija a la unidad organizativa personalizada a la que se va a agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa **Equipos de DC de AAD** del dominio administrado.
 15. En el campo de **nombre de usuario de administrador de máquina virtual**, especifique un nombre de cuenta de administrador local para la máquina virtual.
 16. En el campo de **contraseña de administrador de máquina virtual**, especifique una contraseña de administrador local para la máquina virtual. Proporcione una contraseña de administrador local segura para la máquina virtual a fin de ofrecer protección frente a ataques de fuerza bruta a contraseñas.
 17. Haga clic en **Acepto los términos y condiciones indicados anteriormente**.
@@ -87,7 +87,7 @@ Para unir una máquina virtual con Windows Server existente a un dominio adminis
 8. En el campo de **nombre de usuario de unión al dominio**, especifique el nombre de cuenta de usuario del dominio administrado que debe usarse para unir la máquina virtual al dominio administrado.
 9. En el campo de **contraseña de usuario de unión al dominio**, especifique la contraseña de la cuenta de usuario de dominio a la que hace referencia el parámetro "domainUsername".
 10. En el campo de **dominio FQDN**, especifique el nombre de dominio DNS del dominio administrado.
-11. Opcional: puede especificar una **ruta de acceso de la unidad organizativa** en una unidad organizativa personalizada, en la que se va a agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa **Equipos de DC de AAD** del dominio administrado.
+11. Opcional: puede especificar una **ruta de acceso de unidad organizativa** que dirija a la unidad organizativa personalizada a la que se va a agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa **Equipos de DC de AAD** del dominio administrado.
 12. Haga clic en **Acepto los términos y condiciones indicados anteriormente**.
 13. Haga clic en **Comprar** para aprovisionar la máquina virtual.
 

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e4ff5b3fd7797296761ba025dc54d15c491dea06
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116443"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integración de Azure Active Directory con Land Gorilla Client
 
@@ -118,7 +118,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/landgorilla-tutorial/tutorial_landgorilla_url_02.png)
 
-    a. En el cuadro de texto **Identificador**, escriba un valor con el siguiente patrón: 
+     a. En el cuadro de texto **Identificador**, escriba un valor con el siguiente patrón: 
     
     `https://<customer domain>.landgorilla.com/` 
     
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
  
     ![Creación de un usuario de prueba de Azure AD](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

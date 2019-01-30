@@ -4,7 +4,7 @@ description: Explica qué es un inquilino de Azure AD y cómo administrar Azure 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957945"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461202"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -63,7 +63,7 @@ La sintaxis de la sugerencia de dominio varía en función del protocolo que se 
 
 **WS-Federation**: whr=contoso.com en la cadena de consulta.
 
-**SAML**: una solicitud de autenticación de SAML que contiene una sugerencia de dominio o una cadena de consulta whr=contoso.com.
+**SAML**:  una solicitud de autenticación de SAML que contiene una sugerencia de dominio o una cadena de consulta whr=contoso.com.
 
 **Open ID Connect**: una cadena de consulta domain_hint=contoso.com. 
 
@@ -168,14 +168,14 @@ En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar direct
 
 Si no se devuelve nada, significa que no tiene directivas creadas en el inquilino.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Ejemplo: configurar la directiva HRD para una aplicación 
+### <a name="example-set-hrd-policy-for-an-application"></a>Ejemplo: Configuración de la directiva HRD para una aplicación 
 
 En este ejemplo, puede crear una directiva que, cuando se asigne a una aplicación: 
 - Acelere automáticamente a los usuarios hacia una pantalla de inicio de sesión de AD FS cuando estos inicien sesión en una aplicación y cuando haya un solo dominio en su inquilino. 
 - Acelere automáticamente a los usuarios hacia una pantalla de inicio de sesión de AD FS cuando haya más de un dominio federado en su inquilino.
 - Permita el inicio de sesión no interactivo de nombre de usuario y contraseña directamente a Azure Active Directory a los usuarios federados para las aplicaciones a las que está asignada la directiva.
 
-#### <a name="step-1-create-an-hrd-policy"></a>Paso 1: cree una directiva de HRD.
+#### <a name="step-1-create-an-hrd-policy"></a>Paso 1: Creación de una directiva de HRD
 
 La directiva siguiente acelera automáticamente a los usuarios hacia una pantalla de inicio de sesión de AD FS cuando estos inician sesión en una aplicación y cuando hay un solo dominio en su inquilino.
 
@@ -204,12 +204,12 @@ Get-AzureADPolicy
 
 Para aplicar la directiva de HRD después de crearla, puede asignarla a varias entidades de servicio de aplicación.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Paso 2: busque la entidad de servicio a la cual se asignará la directiva.  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Paso 2: Búsqueda de la entidad de servicio a la cual se asignará la directiva  
 Para ello, necesita el valor de **ObjectID** de las entidades de servicio a las que quiere asignar la directiva. Hay varias maneras de buscar el valor de **ObjectID** de las entidades de servicio.    
 
 Puede usar el portal, o bien puede consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). También puede ir a la [herramienta Probador de Graph](https://developer.microsoft.com/graph/graph-explorer) e iniciar sesión en su cuenta de Azure AD para ver todas las entidades de servicio de su organización. Dado que usa PowerShell, puede usar el cmdlet get-AzureADServicePrincipal para enumerar las entidades de servicio y sus identificadores.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Paso 3: asigne la directiva a la entidad de servicio.  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Paso 3: Asignación de la directiva a su entidad de servicio  
 Una vez tenga el valor de **ObjectID** de la entidad de servicio de la aplicación para el que quiere configurar la aceleración automática, ejecute el siguiente comando. Este comando asocia la directiva HRD que creó en el paso 1 con la entidad de servicio que encuentra en el paso 2.
 
 ``` powershell
@@ -220,18 +220,18 @@ Puede repetir este comando para cada entidad de servicio a la que quiera agregar
 
 En caso de que una aplicación ya tenga una directiva HomeRealmDiscovery asignada, no podrá agregar un segunda.  En ese caso, cambie la definición de la directiva de detección del dominio de inicio que está asignada a la aplicación para agregar parámetros adicionales.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Paso 4: compruebe a qué entidades de servicio de aplicación está asignada su directiva de HRD.
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Paso 4: Comprobación de a qué entidades de servicio de aplicación está asignada la directiva de HRD
 Para comprobar qué aplicaciones tienen configurada la directiva de aceleración automática, use el cmdlet **Get-AzureADPolicyAppliedObject**. Pásele el valor de **ObjectID** de la directiva que quiera comprobar.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Paso 5: ¡todo listo!
+#### <a name="step-5-youre-done"></a>Paso 5: ¡Y ya está!
 Pruebe la aplicación para comprobar que la nueva directiva funciona correctamente.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Ejemplo: enumere las aplicaciones para las que se configuró una directiva de HRD.
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Ejemplo: Enumere las aplicaciones para las que se configuró una directiva de HRD.
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Paso 1: enumere todas las directivas creadas en la organización. 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Paso 1: Enumeración de todas las directivas creadas en la organización 
 
 ``` powershell
 Get-AzureADPolicy
@@ -239,23 +239,23 @@ Get-AzureADPolicy
 
 Apunte el valor de **ObjectID** de la directiva de la cual quiere enumerar las asignaciones.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 2: enumere las entidades de servicio a las que se asignó la directiva.  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 2: Enumeración de las entidades de servicio a las que se asignó la directiva  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Ejemplo: quite una directiva de HRD para una aplicación
-#### <a name="step-1-get-the-objectid"></a>Paso 1: Obtener el valor de ObjectID
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>Ejemplo: Supresión de una directiva de HRD para una aplicación
+#### <a name="step-1-get-the-objectid"></a>Paso 1: Obtención del valor de ObjectID
 Use el ejemplo anterior para obtener el valor de **ObjectID** de la directiva y el de la entidad de servicio de aplicación de la que quiere eliminarlo. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Paso 2: quite la asignación de directiva de la entidad de servicio de aplicación.  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Paso 2: Supresión de la asignación de directiva de la entidad de servicio de aplicación  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 3: compruebe que se eliminó correctamente; para ello, enumere las entidades de servicio a las que se asignó la directiva. 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Paso 3: Comprobación de que se eliminó correctamente; para ello, enumere las entidades de servicio a las que se asignó la directiva 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

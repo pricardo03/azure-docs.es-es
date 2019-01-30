@@ -2,18 +2,18 @@
 title: Supervisar la entrega de mensajes de Azure Event Grid
 description: Describe cómo se supervisa la entrega de mensajes de Azure Event Grid.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: tomfitz
-ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/22/2019
+ms.author: spelluru
+ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626996"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464823"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
 
@@ -37,8 +37,8 @@ Para las suscripciones, las métricas son:
 
 * **Entrega realizada**: el evento se entregó correctamente al punto de conexión de la suscripción y se recibió una respuesta 2xx.
 * **Entrega no realizada**: el evento se envió al punto de conexión de la suscripción, pero se recibió una respuesta 4xx o 5xx.
-* **Expired Events (Eventos expirados)**: no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
-* **Matched Events (Eventos coincidentes)**: la suscripción a eventos coincide con el evento del tema.
+* **Eventos expirados**: no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
+* **Eventos coincidentes**: la suscripción a eventos coincide con el evento del tema.
 
 ## <a name="event-subscription-status"></a>Estado de la suscripción a eventos
 

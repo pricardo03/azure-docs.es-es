@@ -4,7 +4,7 @@ description: Solución de problemas comunes que aparecen al iniciar sesión en a
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379271"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468811"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -34,11 +34,11 @@ Hay tres maneras principales en que un usuario puede acceder a una aplicación p
 
 -   Además, para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante **consentimiento del administrador**. Esto significa que un administrador ha determinado que todos los miembros de la organización pueden usar la aplicación, por lo que inicia sesión en la aplicación con una cuenta de administrador global y concede acceso a todos ellos.
 
-Para solucionar el problema, comience con [Áreas problemáticas generales con el acceso a las aplicaciones para tener en cuenta](#general-problem-areas-with-application-access-to-consider) y luego lea el documento [Tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Para solucionar el problema, comience con [Áreas problemáticas generales con el acceso a las aplicaciones para tener en cuenta](#general-problem-areas-with-application-access-to-consider) y luego lea el documento [Tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para obtener más información.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas problemáticas generales con el acceso a las aplicaciones para tener en cuenta
 
-Aquí tiene una lista de las áreas problemáticas generales en las que puede profundizar si sabe por dónde empezar. Para una introducción rápida, le recomendamos que lea [Tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Aquí tiene una lista de las áreas problemáticas generales en las que puede profundizar si sabe por dónde empezar. Para una introducción rápida, le recomendamos que lea el tutorial para comenzar rápidamente: [Tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problemas con la cuenta del usuario](#problems-with-the-users-account)
 
@@ -202,9 +202,9 @@ Para comprobar el estado de la autenticación multifactor de un usuario, siga es
 
 8.  Para encontrar el usuario, filtre u ordene la lista de usuarios, o realice búsquedas en ella.
 
-9.  Seleccione el usuario en la lista y elija **Habilitar**, **Deshabilitar** o **Forzar** la autenticación multifactor.
+9.  Seleccione el usuario de la lista de usuarios y **habilite**, **deshabilite** o **exija** autenticación multifactor, según desee.
 
-  * **Nota**: Si un usuario se encuentra en un estado **Forzado**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
+  * **Nota**: Si un usuario se encuentra en un estado **Exigido**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Comprobar la información de contacto de autenticación de un usuario
 

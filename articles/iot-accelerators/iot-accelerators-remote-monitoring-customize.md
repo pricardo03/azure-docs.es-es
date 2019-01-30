@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345103"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462206"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalización del acelerador de la solución de supervisión remota
 
@@ -77,7 +77,7 @@ Los siguientes pasos describen el proceso para configurar un entorno local para 
 
 ## <a name="customize-the-layout"></a>Personalización del diseño
 
-Cada página de la solución de supervisión remota se compone de un conjunto de controles, que se conocen como *paneles* en el código fuente. La página **Dashboard** (Panel) consta de cinco paneles: Overview (Introducción), Map (Mapa), Alarms (Alarmas), Telemetry (Telemetría) y Analytics (Análisis). Puede encontrar el código fuente que define cada página y sus paneles en el repositorio de GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Por ejemplo, el código que define la página **Dashboard**, su diseño y los paneles de la página se encuentra en la carpeta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Cada página de la solución de supervisión remota se compone de un conjunto de controles, que se conocen como *paneles* en el código fuente. La página **Panel** se compone de cinco paneles: Información general, Mapa, Alertas, Telemetría y Análisis. Puede encontrar el código fuente que define cada página y sus paneles en el repositorio de GitHub [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui). Por ejemplo, el código que define la página **Dashboard**, su diseño y los paneles de la página se encuentra en la carpeta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Dado que los paneles administran su propio diseño y tamaño, puede modificar con facilidad el diseño de una página. Realice los cambios siguientes en el elemento **PageContent** del archivo `src/components/pages/dashboard/dashboard.js`:
 
@@ -335,7 +335,7 @@ El gráfico de telemetría ahora muestra los cinco minutos de datos de telemetr�
 
 ## <a name="add-a-new-kpi"></a>Adición de un nuevo KPI
 
-En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics** (Análisis). Estos KPI se calculan en el archivo `src/components/pages/dashboard/dashboard.js`. Los KPI se representan mediante el archivo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js`. Los siguientes pasos describen cómo calcular y representar un nuevo valor de KPI en la página **Dashboard** (Panel). El ejemplo mostrado refleja cómo agregar un nuevo cambio de porcentaje en el KPI de alarmas de advertencia:
+En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics** (Análisis). Estos KPI se calculan en el archivo `src/components/pages/dashboard/dashboard.js`. Los KPI se representan mediante el archivo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js`. Los siguientes pasos describen cómo calcular y representar un nuevo valor de KPI en la página **Dashboard** (Panel). El ejemplo mostrado refleja cómo agregar un nuevo cambio de porcentaje en el KPI de alertas de advertencia:
 
 1. Abra el archivo `src/components/pages/dashboard/dashboard.js` . Modifique el objeto **initialState** para que incluya una propiedad **warningAlertsChange** de la manera siguiente:
 
@@ -365,7 +365,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

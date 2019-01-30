@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Collaborative Innovation | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Collaborative Innovation | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Collaborative Innovation.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 14dc0befdfe92970c194de852f6ef2dc98080ae7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 402b8be8ea3a569679baa833ef52fef9769bac30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442071"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819567"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: integración de Azure Active Directory con Collaborative Innovation
+# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integración de Azure Active Directory con Collaborative Innovation
 
 En este tutorial, aprenderá a integrar Collaborative Innovation con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.foundry.<companyname>.com/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.foundry.<companyname>.com/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.foundry.<companyname>.com`
     
@@ -132,7 +132,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | emailaddress | user.userprincipalname |
     | Nombre | user.userprincipalname |
 
-    a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
+     a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
 
     ![Configurar inicio de sesión único](./media/collaborativeinnovation-tutorial/url_update.png)
 
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **Collaborative Innovation**, debe enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Collaborative Innovation](https://www.unilever.com/contact/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -177,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/collaborativeinnovation-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

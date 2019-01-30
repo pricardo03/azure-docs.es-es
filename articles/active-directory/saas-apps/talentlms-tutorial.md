@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c903d20d-18e3-42b0-b997-6349c5412dde
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 79e3b853728f6f997ad97a653ac3c119b2760cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eed2906c03bc37608d41963f4a2047a840a5b8b6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430646"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817442"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: integración de Azure Active Directory con TalentLMS
+# <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integración de Azure Active Directory con TalentLMS
 
 En este tutorial, aprenderá a integrar TalentLMS con Azure Active Directory (Azure AD).
 
@@ -46,7 +46,7 @@ Para configurar la integración de Azure AD con TalentLMS, necesita los siguient
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de evaluación de un mes: [Oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de evaluación de un mes aquí: [Oferta de evaluación](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_talentlms_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.TalentLMSapp.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.TalentLMSapp.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://<tenant-name>.talentlms.com`
 
@@ -143,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Inicio de sesión único](./media/talentlms-tutorial/IC777297.png "Inicio de sesión único")   
 
-    a. En la lista **SSO integration type** (Tipo de integración de SSO), seleccione **SAML 2.0**.
+     a. En la lista **SSO integration type** (Tipo de integración de SSO), seleccione **SAML 2.0**.
 
     b. En el cuadro de texto **Identity provider (IDP)** (Proveedor de identidad [IDP]), pegue el valor del **identificador de entidad de SAML** que ha copiado de Azure Portal.
  
@@ -166,7 +166,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Haga clic en **Save**(Guardar).
  
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -192,7 +192,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -214,7 +214,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben a
    
     ![Agregar usuario](./media/talentlms-tutorial/IC777299.png "Agregar usuario")  
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
+     a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
  

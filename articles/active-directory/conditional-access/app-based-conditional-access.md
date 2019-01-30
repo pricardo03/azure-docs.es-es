@@ -5,7 +5,7 @@ services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415396"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448816"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional 
 
 Los empleados usan dispositivos móviles para tareas personales y profesionales. Mientras se asegura de que los empleados pueden ser productivos, también puede evitar la pérdida de datos. Con el acceso condicional de Azure Active Directory (Azure AD), puede restringir el acceso a las aplicaciones en la nube a las aplicaciones cliente aprobadas que pueden proteger los datos corporativos.  
 
@@ -108,15 +108,15 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
-3. **Aplicaciones en la nube:** como aplicación en la nube, debe seleccionar **Office 365 Exchange Online**.
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicación en la nube debe seleccionar **Office 365 Exchange Online**.
 
     ![Acceso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Plataformas de dispositivo** y **Aplicaciones cliente**:
+4. **Condiciones:** como **condiciones**, debe configurar **plataformas de dispositivo** y **aplicaciones cliente**:
 
-    a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
+     a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
 
     ![Acceso condicional](./media/app-based-conditional-access/03.png)
 
@@ -137,16 +137,16 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
 
-3. **Aplicaciones en la nube:** como aplicación en la nube, debe seleccionar **Office 365 Exchange Online**.
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicación en la nube debe seleccionar **Office 365 Exchange Online**.
 
     ![Acceso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Aplicaciones cliente (versión preliminar)**. 
+4. **Condiciones:** como **condiciones**, debe configurar **aplicaciones cliente (versión preliminar)**. 
 
-    a. Como **Aplicaciones cliente (versión preliminar)**, seleccione **Aplicaciones móviles y aplicaciones de escritorio** y **Clientes de Exchange ActiveSync**.
+     a. Como **Aplicaciones cliente (versión preliminar)**, seleccione **Aplicaciones móviles y aplicaciones de escritorio** y **Clientes de Exchange ActiveSync**.
 
     ![Acceso condicional](./media/app-based-conditional-access/92.png)
 
@@ -188,16 +188,16 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
 
-3. **Aplicaciones en la nube:** como aplicaciones en la nube, debe seleccionar **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicaciones en la nube, debe seleccionar **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
 
     ![Acceso condicional](./media/app-based-conditional-access/02.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Plataformas de dispositivo** y **Aplicaciones cliente**:
+4. **Condiciones:** como **condiciones**, debe configurar **plataformas de dispositivo** y **aplicaciones cliente**:
 
-    a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
+     a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
 
     ![Acceso condicional](./media/app-based-conditional-access/03.png)
 
@@ -220,15 +220,15 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
-3. **Aplicaciones en la nube:** como aplicación en la nube, debe seleccionar **Office 365 Exchange Online**. En línea 
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicación en la nube debe seleccionar **Office 365 Exchange Online**. En línea 
 
     ![Acceso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Aplicaciones cliente**:
+4. **Condiciones:** como **condiciones**, debe configurar **aplicaciones cliente**:
 
-    a. Como **Aplicaciones cliente (versión preliminar)**, seleccione **Aplicaciones móviles y aplicaciones de escritorio** y **Clientes de Exchange ActiveSync**.
+     a. Como **Aplicaciones cliente (versión preliminar)**, seleccione **Aplicaciones móviles y aplicaciones de escritorio** y **Clientes de Exchange ActiveSync**.
 
     ![Acceso condicional](./media/app-based-conditional-access/92.png)
 
@@ -273,15 +273,15 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
-3. **Aplicaciones en la nube:** como aplicaciones en la nube, debe seleccionar **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicaciones en la nube, debe seleccionar **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
 
      ![Acceso condicional](./media/app-based-conditional-access/02.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Plataformas de dispositivo** y **Aplicaciones cliente**. 
+4. **Condiciones:** como **condiciones**, debe configurar **plataformas de dispositivo** y **aplicaciones cliente**. 
  
-    a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
+     a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
 
     ![Acceso condicional](./media/app-based-conditional-access/03.png)
 
@@ -309,13 +309,13 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
-3. **Aplicaciones en la nube:** como aplicación en la nube, debe seleccionar **Office 365 Exchange Online**. 
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicación en la nube debe seleccionar **Office 365 Exchange Online**. 
 
     ![Acceso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Aplicaciones cliente**. 
+4. **Condiciones:** como **condiciones**, debe configurar **aplicaciones cliente**. 
 
     Como **Aplicaciones cliente (versión preliminar)**, seleccione **Aplicaciones móviles y aplicaciones de escritorio** y **Clientes de Exchange ActiveSync**.
 
@@ -369,15 +369,15 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
-3. **Aplicaciones en la nube:** como aplicaciones en la nube, debe seleccionar **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicaciones en la nube, debe seleccionar **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
 
      ![Acceso condicional](./media/app-based-conditional-access/02.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Plataformas de dispositivo** y **Aplicaciones cliente**. 
+4. **Condiciones:** como **condiciones**, debe configurar **plataformas de dispositivo** y **aplicaciones cliente**. 
  
-    a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
+     a. Como **Plataformas de dispositivo**, seleccione **Android** e **iOS**.
 
     ![Acceso condicional](./media/app-based-conditional-access/03.png)
 
@@ -405,13 +405,13 @@ Para la directiva de acceso condicional descrita en este paso, debe configurar l
 
 1. El **nombre** de la directiva de acceso condicional.
 
-2. Los **usuarios y grupos**: cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
+2. **Users and groups** (Usuarios y grupos): cada directiva de acceso condicional debe tener al menos un usuario o grupo seleccionado.
 
-3. **Aplicaciones en la nube:** como aplicación en la nube, debe seleccionar **Office 365 Exchange Online**. 
+3. **Cloud apps:** (Aplicaciones en la nube) como aplicación en la nube debe seleccionar **Office 365 Exchange Online**. 
 
     ![Acceso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condiciones:** como **Condiciones**, debe configurar **Aplicaciones cliente (versión preliminar)**. 
+4. **Condiciones:** como **condiciones**, debe configurar **aplicaciones cliente (versión preliminar)**. 
 
     Como **Aplicaciones cliente (versión preliminar)**, seleccione **Aplicaciones móviles y aplicaciones de escritorio** y **Clientes de Exchange ActiveSync**.
 

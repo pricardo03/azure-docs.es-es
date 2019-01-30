@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 794e3f6fe568d76f0687caa36709185f2a538270
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 02aabb9260cb0140b61091a8002f70d464091ddd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integración de Azure Active Directory con Pingboard
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![IDP de información de dominio y direcciones URL de inicio de sesión único de Pingboard](./media/pingboard-tutorial/tutorial_pingboard_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el valor como `http://app.pingboard.com/sp`.
+     a. En el cuadro de texto **Identificador**, escriba el valor como `http://app.pingboard.com/sp`.
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<entity-id>.pingboard.com/auth/saml/consume`.
 
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/pingboard-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -199,7 +199,7 @@ El objetivo de esta sección es crear una usuaria llamada Britta Simon en Pingbo
 
     ![Invitar a contactos](./media/pingboard-tutorial/create_testuser_name.png)
 
-    a. En el cuadro de texto **Nombre completo**, escriba el nombre completo de un usuario; por ejemplo, **Britta Simon**.
+     a. En el cuadro de texto **Nombre completo**, escriba el nombre completo de un usuario; por ejemplo, **Britta Simon**.
 
     b. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario; por ejemplo, **brittasimon@contoso.com**.
 

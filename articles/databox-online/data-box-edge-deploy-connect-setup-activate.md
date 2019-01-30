@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c50aece847119dd0d2421553e9e9827c2168e553
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259621"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451653"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Edge (versión preliminar) 
 
@@ -87,7 +87,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
     - Puede configurar la interfaz de red como IPv4.
 
     >[!NOTE] 
-    > Se recomienda no cambiar la dirección IP local de la interfaz de red de estática a DHCP, a menos que se tenga otra dirección IP para conectarse al dispositivo. Si se usara una interfaz de red y cambiara a DHCP, no habría forma de determinar la dirección DHCP. Si desea cambiar a una dirección DHCP, espere a que el dispositivo se haya registrado con el servicio y, después, realice el cambio. Luego, puede ver las direcciones IP de todos los adaptadores de las **propiedades del dispositivo** de su servicio en Azure Portal.
+    > Se recomienda no cambiar la dirección IP local de la interfaz de red de estática a DHCP, a menos que se tenga otra dirección IP para conectarse al dispositivo. Si se usara una interfaz de red y cambiara a DHCP, no habría forma de determinar la dirección DHCP. Si desea cambiar a una dirección DHCP, espere a que el dispositivo se haya registrado con el servicio y, después, realice el cambio. Después, puede ver las direcciones IP de todos los adaptadores de las **propiedades del dispositivo** de su servicio en Azure Portal.
 
 1. (Opcional) En el panel izquierdo, seleccione **Configuración de proxy web** y, después, configure el servidor proxy web. Aunque la configuración del proxy web es opcional, si usa un proxy web, solo puede configurarlo aquí.
    

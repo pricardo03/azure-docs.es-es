@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 19ac1819c3b098597819ec75adcedeca929e802d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248217"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464551"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implementación del contenedor de detección de idioma en Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ Este procedimiento requiere varias herramientas que se deben instalar y ejecutar
 
 Este procedimiento carga y ejecuta el ejemplo de contenedor de Cognitive Services para la detección de idioma. El ejemplo tiene dos contenedores, uno para la aplicación cliente y otro para el contenedor de Cognitive Services. Debe insertar ambas imágenes en su propio Azure Container Registry. Una vez que estén allí, cree una instancia de Azure Kubernetes Service para acceder a estas imágenes y ejecute los contenedores. Cuando se ejecuten los contenedores, use la CLI **kubectl** para ver su rendimiento. Acceda a la aplicación cliente con una solicitud HTTP y vea los resultados. 
 
-
+![Idea conceptual de la ejecución de contenedores de ejemplo](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>Los contenedores de ejemplo
 
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-> [!div class="nextstepaction"]
-> [Usar el servicio conectado de Text Analytics](../vs-text-connected-service.md)
+* Uso de [Contenedores de Cognitive Services](../../cognitive-services-container-support.md)
+* Uso del servicio conectado de Text Analytics](../vs-text-connected-service.md)
 
 
 <!--

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 73d14ebf8ed365659ec547469cd903d5db22c561
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092464"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428620"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad Ejecutar paquete SSIS. 
@@ -28,7 +28,7 @@ En este artículo se describe cómo ejecutar un paquete de SSIS desde una canali
 **Azure SQL Database**. El tutorial de este artículo usa una instancia de Azure SQL Database que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
-Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial Implementación paquetes de SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md).
+Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Ejecución de un paquete en Azure Portal
 En esta sección, usará la interfaz de usuario de Data Factory para crear una canalización de Data Factory con una actividad Ejecutar paquete de SSIS que invoca un paquete SSIS.
@@ -59,7 +59,7 @@ El primer paso es crear una factoría de datos con Azure Portal.
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que admite Data Factory. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) utilizados por la factoría de datos pueden encontrarse en otras ubicaciones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Create**(Crear).
-8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
@@ -137,7 +137,7 @@ También puede crear un desencadenador programado para la canalización de maner
 ## <a name="run-a-package-with-powershell"></a>Ejecución de un paquete con PowerShell
 En esta sección, usará Azure PowerShell para crear una canalización de Data Factory con una actividad Ejecutar paquete de SSIS que ejecuta un paquete SSIS. 
 
-Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 Puede usar la misma factoría de datos que tiene el IR de SSIS de Azure o crear una factoría de datos independiente. El siguiente procedimiento detalla los pasos para crear una factoría de datos. Creará una canalización con una actividad Ejecutar paquete de SSIS en esta factoría de datos. La actividad Ejecutar paquete de SSIS ejecuta el paquete de SSIS. 
@@ -180,7 +180,7 @@ Tenga en cuenta los siguientes puntos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
-* Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creación de una canalización con una actividad Ejecutar paquete de SSIS 
 En este paso se crea una canalización con una actividad Ejecutar paquete de SSIS. La actividad ejecuta el paquete de SSIS. 

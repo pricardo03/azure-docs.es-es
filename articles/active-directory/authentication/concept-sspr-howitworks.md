@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426211"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435726"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Cómo funciona el autoservicio de restablecimiento de contraseña de Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
 ¿Cómo funciona el autoservicio de restablecimiento de contraseña (SSPR)? ¿Qué significa la opción en la interfaz? Siga leyendo para obtener más información acerca de SSPR de Azure Active Directory (Azure AD).
 

@@ -12,21 +12,65 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 61001d4926dcce68872a368afb5b28f2d3a8e2c0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6c3d3c831be52f56a1e0d3749ea2aa93fee0a955
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819007"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401748"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Restablecimiento de la interfaz de red para VM de Microsoft Azure 
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-No puede conectarse a la máquina virtual (VM) de Microsoft Azure después de deshabilitar la interfaz de red (NIC) predeterminada o de establecer manualmente un IP estático para la NIC. Este artículo muestra cómo restablecer la interfaz de red para la máquina virtual de Microsoft Azure, que resolverá el problema de conexión remota.
+En este artículo, se muestra cómo restablecer la interfaz de red de la máquina virtual Windows de Azure para resolver problemas cuando no se puede conectar a la máquina virtual Windows de Microsoft Azure después de:
+
+* Deshabilitar la interfaz de red (NIC) predeterminada. 
+* Establecer manualmente una dirección IP estática para la NIC. 
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
+
 ## <a name="reset-network-interface"></a>Restablecimiento de la interfaz de red
+
+### <a name="for-vms-deployed-in-resource-group-model"></a>Para máquinas virtuales implementadas en el módulo de grupo de recursos
+
+1.  Vaya a [Azure Portal](https://ms.portal.azure.com).
+2.  Seleccione la máquina virtual afectada.
+3.  Seleccione **Redes** y, a continuación, seleccione la interfaz de red de la máquina virtual.
+
+    ![Ubicación de la interfaz de red](./media/reset-network-interface/select-network-interface-vm.png)
+    
+4.  Seleccione **Configuraciones IP**.
+5.  Seleccione la IP. 
+6.  Si la **Asignación de IP privada** no es  **Estática**, cámbiela a **Estática**.
+7.  Cambie la **Dirección IP** a otra dirección IP disponible en la subred.
+8. La máquina virtual se reiniciará para inicializar la nueva NIC en el sistema.
+9.  Intente utilizar RDP en la máquina. Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea. De lo contrario, manténgala. 
+
+#### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
+
+1. Asegúrese de que tiene la versión de [Azure PowerShell más reciente](https://docs.microsoft.com/powershell/azure/overview) instalada
+2. Abra una sesión de Azure PowerShell con privilegios elevados (ejecución como administrador). Ejecute los comandos siguientes:
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $ResourceGroup = "<Resource Group>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
+
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    ```
+3. Intente utilizar RDP en la máquina.  Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea. De lo contrario, manténgala.
 
 ### <a name="for-classic-vms"></a>Para máquinas virtuales clásicas
 
@@ -40,9 +84,9 @@ Para restablecer la interfaz de red, siga estos pasos:
 4.  Seleccione **Direcciones IP**.
 5.  Si la **Asignación de IP privada** no es  **Estática**, cámbiela a **Estática**.
 6.  Cambie la **Dirección IP** a otra dirección IP disponible en la subred.
-7.  Seleccione Guardar.
+7.  Seleccione **Guardar**.
 8.  La máquina virtual se reiniciará para inicializar la nueva NIC en el sistema.
-9.  Intente utilizar RDP en la máquina. Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea. De lo contrario, manténgala. 
+9.  Intente utilizar RDP en la máquina. Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea.  
 
 #### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
@@ -68,44 +112,6 @@ Para restablecer la interfaz de red, siga estos pasos:
     Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. Intente utilizar RDP en la máquina. Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea. De lo contrario, manténgala. 
-
-### <a name="for-vms-deployed-in-resource-group-model"></a>Para máquinas virtuales implementadas en el módulo de grupo de recursos
-
-1.  Vaya a [Azure Portal]( https://ms.portal.azure.com).
-2.  Seleccione la máquina virtual afectada.
-3.  Seleccione **Interfaces de red**.
-4.  Seleccione la interfaz de red asociada a la máquina.
-5.  Seleccione **Configuraciones IP**.
-6.  Seleccione la IP. 
-7.  Si la **Asignación de IP privada** no es  **Estática**, cámbiela a **Estática**.
-8.  Cambie la **Dirección IP** a otra dirección IP disponible en la subred.
-9. La máquina virtual se reiniciará para inicializar la nueva NIC en el sistema.
-10. Intente utilizar RDP en la máquina. Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea. De lo contrario, manténgala. 
-
-#### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-
-1. Asegúrese de que tiene la versión de [Azure PowerShell más reciente](https://docs.microsoft.com/powershell/azure/overview) instalada
-2. Abra una sesión de Azure PowerShell con privilegios elevados (ejecución como administrador). Ejecute los comandos siguientes:
-
-    ```powershell
-    #Set the variables 
-    $SubscriptionID = "<Suscription ID>"
-    $VM = "<VM Name>"
-    $ResourceGroup = "<Resource Group>"
-    $VNET = "<Virtual Network>"
-    $IP = "NEWIP"
-
-    #Log in to the subscription 
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
-    
-    #Check whether the new IP address is available in the virtual network.
-    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
-
-    #Add/Change static IP. This process will not change MAC address
-    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
-    ```
-3. Intente utilizar RDP en la máquina.  Si la operación se realiza correctamente, puede volver a la dirección IP privada original si lo desea. De lo contrario, manténgala. 
 
 ## <a name="delete-the-unavailable-nics"></a>Eliminación de las NIC no disponibles
 Cuando pueda utilizar el escritorio remoto en la máquina, debe eliminar las NIC antiguas para evitar el posible problema:

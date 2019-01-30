@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 43cec400a21671d47d1a6c390833a5e4c6517709
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976829"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401765"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Optimización del rendimiento de Azure Data Lake Storage Gen2
 
@@ -133,7 +133,7 @@ Además de las directrices generales anteriores, cada aplicación tiene diferent
 
 | Carga de trabajo               | Parámetro para establecer tareas                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [Spark en HDInisight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Memoria del ejecutor</li><li>Executor-cores</li></ul> |
+| [Spark en HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Memoria del ejecutor</li><li>Executor-cores</li></ul> |
 | [Hive en HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [MapReduce en HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm en HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Número de procesos de trabajo</li><li>Número de instancias de ejecutor de spout</li><li>Número de instancias de ejecutor de bolt </li><li>Número de tareas de spout</li><li>Número de tareas de bolt</li></ul>|

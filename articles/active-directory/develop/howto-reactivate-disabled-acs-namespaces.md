@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577976"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438506"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Reactivación de los espacios de nombres deshabilitados de Access Control Service
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Control de Reactivación de los espacios de nombres deshabilitados de Access Control Service
 
 En noviembre de 2017, anunciamos que Microsoft Azure Access Control Service (ACS), un servicio de Azure Active Directory (Azure AD), se va a retirar el 7 de noviembre de 2018.
 
@@ -32,7 +32,7 @@ El 3 de octubre de 2018 anunciamos (mediante un correo electrónico y [una entra
 
 ## <a name="why-your-namespace-is-disabled"></a>¿Por qué se deshabilita el espacio de nombres?
 
-Si no ha optado por recibir una extensión, empezaremos a deshabilitar los espacios de nombres de ACS a partir del 7 de noviembre de 2018. Si no recibió las comunicaciones y aún así desea optar por la extensión hasta el 4 de febrero de 2019, siga las instrucciones de las siguientes secciones.
+Si no ha optado por recibir una extensión, empezaremos a deshabilitar los espacios de nombres de ACS a partir del 7 de noviembre de 2018. Ya debería haber solicitado la extensión al 4 de febrero de 2019. En caso contrario, no podrá habilitar los espacios de nombres mediante PowerShell.
 
 > [!NOTE]
 > Debe ser un administrador de servicio o coadministrador de la suscripción para poder ejecutar los comandos de PowerShell y solicitar una extensión.
@@ -57,7 +57,7 @@ Puede utilizar PowerShell de ACS para enumerar todos los espacios de nombre de A
 
         Para obtener ayuda sobre un comando específico, ejecute:
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -79,18 +79,45 @@ Puede utilizar PowerShell de ACS para enumerar todos los espacios de nombre de A
 
 ## <a name="request-an-extension"></a>Solicitud de una extensión
 
-1. Vaya al portal de administración del espacio de nombres de ACS accediendo a `https://{your-namespace}.accesscontrol.windows.net`.
-1. Seleccione el botón **Leer términos** para leer los [Términos de uso actualizados](https://azure.microsoft.com/support/legal/access-control/), que le llevarán a una página con dichos términos de uso actualizados.
+Vamos a recibir nuevas solicitudes de extensión a partir del 21 de enero de 2019.
 
-    [![Selección del botón Leer términos](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+Se iniciará la deshabilitación de los espacios de nombres para los clientes que hayan solicitado extensiones al 4 de febrero de 2019. Todavía puede volver a habilitar los espacios de nombres mediante PowerShell, pero, de nuevo, se deshabilitarán los espacios de nombres después de 48 horas.
 
-1. Seleccione **Solicitar extensión** en el banner en la parte superior de la página. Solo se habilitará el botón después de leer los [Términos de uso actualizados](https://azure.microsoft.com/support/legal/access-control/).
+Después del 4 de marzo de 2019, los clientes ya no podrán volver a habilitar los espacios de nombres mediante PowerShell.
 
-    [![Selección del botón Solicitar extensión](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+Ya no se aprobarán automáticamente más extensiones. Si necesita tiempo adicional para migrar, póngase en contacto con [Soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support) para proporcionar una escala de tiempo detallada de la migración.
 
-1. Después de registrar la solicitud de extensión, la página se actualizará con un nuevo banner en la parte superior de la página.
+### <a name="to-request-an-extension"></a>Solicitud de una extensión
 
-    [![Página actualizada con banner actualizado](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+1. Inicie sesión en Azure Portal y cree una [nueva solicitud de soporte](https://portal.azure.com/#create/Microsoft.Support).
+1. Rellene el formulario de solicitud de soporte técnico tal como se muestra en el ejemplo siguiente.
+
+    | Campo de solicitud de soporte técnico | Valor |
+    |-----------------------|--------------------|
+    | **Tipo de problema** | `Technical` |
+    | **Suscripción** | Establecimiento de la suscripción |
+    | **Servicio** | `All services` |
+    | **Recurso** | `General question/Resource not available` |
+    | **Tipo de problema** | `ACS to SAS Migration` |
+    | **Asunto** | Descripción del problema |
+
+  ![Nueva solicitud de soporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
+1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
+
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+
+1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
+
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
+
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## <a name="help-and-support"></a>Ayuda y soporte técnico
 
@@ -99,4 +126,4 @@ Puede utilizar PowerShell de ACS para enumerar todos los espacios de nombre de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise la información sobre la retirada de ACS en [Procedimiento para la migración desde Azure Access Control Service](active-directory-acs-migration.md).
+- Revise la información sobre la retirada de ACS en [ Migración desde Azure Access Control Service](active-directory-acs-migration.md).

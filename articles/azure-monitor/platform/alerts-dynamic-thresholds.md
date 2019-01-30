@@ -8,96 +8,75 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: df75ff9a359620781743732f4f12a6d3e7ec51c6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331681"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449017"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Alertas con umbrales dinámicos en Azure Monitor (versión preliminar privada limitada)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas con umbrales dinámicos in Azure Monitor (versión preliminar pública)
 
-Las alertas con umbrales dinámicos constituyen una mejora a alertas de métrica de Azure en Azure Monitor, que aprovechan las funcionalidades avanzadas del aprendizaje automático (ML) para obtener información sobre el comportamiento histórico de las métricas para calcular automáticamente las líneas de base y utilizarlas como umbrales de alerta.
+La alerta de métricas con detección de umbrales dinámicos aprovecha el aprendizaje automático avanzado para obtener información acerca del comportamiento histórico de las métricas e identificar patrones y anomalías que indican problemas posibles para los servicios. Proporciona soporte técnico tanto de una interfaz de usuario simple como de operaciones a escala, ya que permite a los usuarios configurar reglas de alerta a través de la API de Azure Resource Manager de forma totalmente automática.
 
-Las ventajas de utilizar umbrales dinámicos son:
+Una vez que se cree una regla de alerta, solo se activará solo cuando la métrica supervisada no se comporte según lo previsto, en función de sus umbrales personalizados.
 
-- Se evitan las complicaciones asociadas con la configuración de un límite predefinido rígido, ya que el monitor aprende automáticamente el rendimiento histórico de la métrica y aplica a algoritmos de aprendizaje automático para determinar los umbrales de alerta.
-- Pueden identificar comportamientos estacionales y alertar solo en caso de desviaciones del comportamiento estacional esperado. Las alertas de métricas con umbrales dinámicos no se activarán si el servicio está inactivo habitualmente los fines de semana y luego tiene picos todos los lunes. Actualmente admite: estacionalidad por hora, diaria o semanalmente.
-- Aprende continuamente el rendimiento de las métricas y es adaptable a los cambios de métrica.
+Agradecemos sus comentarios, así que puede enviarlos a azurealertsfeedback@microsoft.com.
 
-Las alertas basadas en umbrales dinámicos están disponibles para todos los orígenes de métricas basadas en Azure Monitor que se incluyen en este [artículo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#what-resources-can-i-create-near-real-time-metric-alerts-for).
+## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>¿Por qué y cuándo se recomienda el uso de un tipo de condición dinámica?
 
-## <a name="sign-up-to-access-the-preview"></a>Registro para acceder a la versión preliminar
+1. **Alertas escalable** : las reglas de alertas de umbrales pueden crear umbrales personalizados para cientos de series de métricas a la vez. A pesar de ello, la operación es igual de sencilla que si se definiera una regla de alertas en una sola métrica. El uso de la interfaz de usuario o de la API de Azure Resource Manager reduce el número de reglas de alertas que hay que administrar. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos, como a todos los recursos de la suscripción. Esto se traduce en un importante ahorro del tiempo que se dedica a la administración y creación de reglas de alertas. [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](alerts-metric-create-templates.md).
 
-Para probar esta funcionalidad, [regístrese en la versión preliminar](https://aka.ms/DynamicThresholdMetricAlerts). Como siempre, nos encantaría recibir sus comentarios; envíelos a [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+1. **Reconocimiento de patrones de métricas inteligentes**: mediante nuestra exclusiva tecnología Machine Learning podemos detectar automáticamente patrones de métrica y adaptar los cambios que se producen en las métricas con el tiempo, lo que a menudo puede incluir estacionalidad (cada hora, cada día o cada semana). La adaptación al comportamiento de las métricas con el paso del tiempo y la generación de alertas en función de las desviaciones de su patrón permite que no sea necesario conocer el umbral “correcto” de cada métrica. El algoritmo de Machine Learning que se usa en umbrales dinámicos está diseñado para evitar umbrales con ruido (poca precisión) o amplios (poco recuerdo) que no tengan un patrón esperado.
 
-## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Configuración de alertas con umbrales dinámicos
+1. **Configuración intuitiva**: los umbrales dinámicos permiten configurar alertas de métricas mediante conceptos de alto nivel, lo que alivia la necesidad de tener un amplio conocimiento del dominio acerca de la métrica.
 
-Las alertas con umbrales dinámicos pueden configurarse a través de Alertas en Azure Monitor.
+## <a name="how-to-configure-alerts-rules-with-dynamic-thresholds"></a>¿Cómo se configuran reglas de alertas con umbrales dinámicos?
 
-![Versión preliminar de alertas](media/alerts-dynamic-thresholds/0001.png)
+Las alertas con umbrales dinámicos pueden configurarse a través de alertas de métricas en Azure Monitor. [Más información acerca de cómo configurar alertas de métricas](alerts-metric.md).
 
-## <a name="creating-an-alert-rule-with-dynamic-thresholds"></a>Creación de una regla de alerta con umbrales dinámicos
+## <a name="how-are-the-thresholds-calculated"></a>¿Cómo se calculan los umbrales?
 
-1. Del panel Alertas en Monitor, seleccione el botón **Nueva regla de alertas** para crear una alerta en Azure.
+El umbral dinámico aprende continuamente los datos de las series de métricas e intenta modelarlos mediante un conjunto de algoritmos y métodos. Detecta en los datos patrones como la estacionalidad (cada hora, cada día o cada semana) y puede controlar métricas con ruido (como la memoria o la CPU del equipo), así como las métricas con poca dispersión (como la disponibilidad y la tasa de error).
 
-   ![Nueva regla de alertas](media/alerts-dynamic-thresholds/002.png)
+Los umbrales se seleccionan de forma que una desviación de estos umbrales indica una anomalía en el comportamiento de la métrica.
 
-2. La sección Crear regla se muestra con tres partes, que constan de: _definición de la condición de alerta_, _definición de los detalles de la alerta_ y _definición del grupo de acciones_. En primer lugar, comience por la sección _Definir condición de alerta_, use el vínculo **Seleccionar destino** para especificar el destino, seleccionando un recurso. Una vez que elija un recurso adecuado, haga clic en el botón Listo.
+## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>¿Qué significa el valor "Sensibilidad" en los umbrales dinámicos?
 
-   ![Selección del destino](media/alerts-dynamic-thresholds/0003.png)
+La sensibilidad del umbral de alerta es un concepto de alto nivel que controla la cantidad de desviación del comportamiento de la métrica necesaria para desencadenar una alerta.
+Esta opción no requiere conocimiento acerca del umbral estático similar a una métrica. Las opciones disponibles son:
 
-3. A continuación, use el botón **Agregar criterios** para ver la lista de opciones de señal disponibles para el recurso y elija la opción de **métrica** apropiada de la lista de señales. (Por ejemplo, Porcentaje de CPU).
+- Alto: los umbrales serán estrictos y estarán próximos al patrón de la serie de métricas. La regla de alertas se desencadenará ante la mínima desviación, lo que generará más alertas.
+- Mediano: umbrales menos estrechos y más equilibrados, menos alertas que con la sensibilidad alta (valor predeterminado).
+- Bajo: los umbrales serán laxos y habrá más distancia desde el patrón de la serie de métricas. La regla de alerta solo se desencadenará si la desviación es grande, lo que generará menos alertas.
 
-   ![Agregar criterios](media/alerts-dynamic-thresholds/004.png)
+## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>¿Cuáles son las opciones de configuración de "Operador" en los umbrales dinámicos?
 
-4. En la pantalla Configurar lógica de señal, en la sección Lógica de alerta, tiene la opción para cambiar la condición a un tipo Dinámica, lo que generará automáticamente los umbrales dinámicos (líneas rojas) junto con la métrica (línea azul).
+La regla de alertas de los umbrales dinámicos puede crear umbrales personalizados en función del comportamiento de las métricas en los límites superior e inferior de uso de la misma regla de alerta.
+Puede elegir que la alerta que se va a desencadenar en una de las tres condiciones siguientes:
 
-   ![Dinámica](media/alerts-dynamic-thresholds/005.png)
+- Mayor que el umbral superior o menor que el umbral inferior (valor predeterminado)
+- Mayor que el umbral superior
+- Menor que el umbral inferior
 
-5. Los umbrales que aparecen en el gráfico se calculan según los últimos siete días de datos históricos; una vez que se cree una alerta, los umbrales dinámicos adquirirán datos históricos adicionales que estén disponibles y aprenderá de manera continua en función de nuevos datos para obtener umbrales más precisos.
+## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>¿Qué significa la configuración avanzada de los umbrales dinámicos?
 
-6. Configuración adicional de Lógica de alerta:
-   - Condición: puede elegir que la alerta se active en una de las tres condiciones siguientes:
-       - Mayor que el umbral superior o menor que el umbral inferior (valor predeterminado)
-       - Mayor que el umbral superior
-       - Menor que el umbral inferior
-   - Agregación de tiempo: Promedio (valor predeterminado), sum, mín, máx.
-   - Sensibilidad de la alerta:
-       - Alta: más alertas, la alerta se activará ante la desviación más pequeña.
-       - Media: menos sensible que la alta, menos alertas que con la sensibilidad alta (valor predeterminado)
-       - Baja: el umbral menos sensible.
+**Períodos de error**: los umbrales dinámicos también permiten configurar el número de infracciones necesarias para que se desencadene, que es el número mínimo de desviaciones requeridas en un período concreto para que el sistema genere una alerta (el valor predeterminado es cuatro desviaciones en 20 minutos). El usuario puede configurar los períodos de error y elegir los motivos por los que va a recibir alertas. Para ello solo debe cambiar los períodos de error y el período de tiempo. Esta capacidad reduce el ruido de las alertas que generan los picos transitorios. Por ejemplo: 
 
-    ![Configuración de la lógica de alerta](media/alerts-dynamic-thresholds/00007.png)
+Para desencadenar una alerta cuando el problema es continuo durante 20 minutos, 4 veces consecutivas en un período dado de 5 minutos, utilice la siguiente configuración:
 
-7. Se evaluó basándose en:
-    -  Durante cuánto tiempo la alerta debería buscar la condición especificada elegida en **Período**.
+![La configuración de los períodos de error en un problema que se da de forma continua durante 20 minutos, 4 veces consecutivas en una agrupación de períodos dada de 5 minutos](media/alerts-dynamic-thresholds/0008.png)
 
-    ![Se evaluó basándose en](media/alerts-dynamic-thresholds/007.png)
+Para desencadenar una alerta cuando se ha producido una infracción de un umbral dinámico en 20 minutos de los últimos 30 con un período de 5 minutos, utilice la siguiente configuración:
 
-   > [!NOTE]
-   > Valores del período admitidos: 5 minutos, 10 minutos, 30 minutos y 1 hora.
+![La configuración de los períodos de error en un problema que se da durante 20 minutos, de los últimos 30, con una agrupación de períodos de 5 minutos](media/alerts-dynamic-thresholds/0009.png)
 
-   Para reducir el ruido de alertas generado por picos transitorios, se recomienda utilizar la configuración Number violations to trigger the alert (Número de infracciones que activan la alerta). Esta funcionalidad le permite obtener una alerta solo si se ha infringido el umbral X veces consecutivas o Y veces en los últimos Z períodos. Por ejemplo: 
+**Omitir los datos anteriores a**: los usuarios también tienen la opción de definir la fecha a partir de la que el sistema debe comenzar a calcular los umbrales. Un caso de uso típico puede producirse cuando un recurso se ejecutaba en modo de prueba y ahora se ha promocionado a servir una carga de trabajo de producción y, por lo tanto, no debe tenerse en cuenta el comportamiento de las métrica durante la fase de pruebas.
 
-    Para activar una alerta cuando el problema es continuo durante 15 minutos, 3 veces consecutivas en un período dado de 5 minutos, utilice la siguiente configuración:
+## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>¿Desencadenará una alerta el lento cambio de comportamiento lento en la métrica?
 
-   ![Se evaluó basándose en](media/alerts-dynamic-thresholds/0008.png)
+Probablemente no. Los umbrales dinámicos son buenos para detectar desviaciones importantes, en lugar de problemas de evolución lenta.
 
-    Para activar una alerta cuando se ha producido una infracción de umbral dinámico en 15 minutos de los últimos 30 minutos con un período de 5 minutos, utilice la siguiente configuración:
+## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>¿Cuántos datos se usan para obtener una vista previa y, después, calcular los umbrales?
 
-   ![Se evaluó basándose en](media/alerts-dynamic-thresholds/0009.png)
-
-8. Actualmente los usuarios pueden tener las alertas con criterios de umbral dinámico como único criterio.
-
-   ![Creación de una regla](media/alerts-dynamic-thresholds/010.png)
-
-## <a name="q--a"></a>Preguntas y respuestas
-
-- P: Si la métrica cambia lentamente con el tiempo, ¿activará una alerta con umbrales dinámicos?
-
-- R: Probablemente no. Los umbrales dinámicos son buenos para detectar desviaciones importantes, en lugar de problemas de evolución lenta.
-
-- P: ¿Puedo configurar umbrales de dinámicos a través de una API?
-
-- R: Estamos trabajando en ello.
+Los umbrales que aparecen en el gráfico, antes de que se cree una regla de alertas en la métrica, se calculan en función los últimos diez días de datos históricos; una vez que se cree una alerta, los umbrales dinámicos adquirirán datos históricos adicionales que estén disponibles y aprenderán de manera continua, en función de los datos nuevos, a crear umbrales más precisos.

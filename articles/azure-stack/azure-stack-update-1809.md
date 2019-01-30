@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f4a1bf9e2fee9278713315c98f25dbc820a553a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a5afcbb219d7792325faa03c5319b07a7c68732b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352417"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850510"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -296,7 +296,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
    - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
       1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
-      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
+      2. En la misma suscripción, vaya a **Control de acceso (IAM)** y compruebe que el rol **AzureStack-DiskRP-Client** aparece en la lista.
    2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
 
 - Una máquina virtual 18.04 de Ubuntu creada con la autorización de SSH habilitada no le permitirá usar las claves SSH para iniciar sesión. Como alternativa, utilice el acceso a la VM para la extensión de Linux a fin de implementar las claves SSH después del aprovisionamiento o utilice la autenticación basada en contraseña.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582436"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857019"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -64,6 +64,24 @@ Para ver si tiene activo un límite de gasto, vaya a la [vista de suscripciones 
 
 Haga clic en el mensaje emergente y siga las indicaciones para quitar el límite de gasto. Si no facilitó la información de la tarjeta de crédito cuando se suscribió, deberá facilitarla ahora para quitar el límite de gasto. Para más información, consulte [Límite de gasto de Azure: cómo funciona y cómo habilitarlo o quitarlo](https://azure.microsoft.com/pricing/spending-limits/).
 
+Puede usar el servicio [Cloudyn](https://www.cloudyn.com/) para crear alertas que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Se pueden crear alertas mediante informes que admitan alertas basadas en umbrales de presupuesto y de costo. Para obtener más información sobre el uso de Cloudyn, consulte el [Tutorial: Revisión del uso y los costos](../cost-management/tutorial-review-usage.md).
+
+En este ejemplo se usa el informe **Actual Cost Over Time** (Costo real a lo largo del tiempo) para enviar una notificación cuando el gasto de una máquina virtual de Azure se acerca al presupuesto total. En este escenario, tiene un presupuesto total de 20 000 USD y quiere recibir una notificación cuando los costos se aproximen a la mitad del presupuesto (9000 USD) y una alerta adicional cuando los costos lleguen a 10 000 USD.
+
+1. En el menú de la parte superior del portal de Cloudyn, seleccione **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). 
+2. Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. 
+3. En la parte superior derecha del informe, seleccione **Actions** (Acciones) y, después, seleccione **Schedule report** (Programar informe).
+4. Para enviarse un correo electrónico del informe a intervalos programados, seleccione la pestaña **Scheduling** (Programación) en el cuadro de diálogo **Save or Schedule this report** (Guardar o programar este informe). Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Todas las etiquetas, la agrupación y los filtros que use se incluyen en el informe enviado por correo electrónico. 
+5. Seleccione la pestaña **Threshold** (Umbral) y después seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. 
+   1. En el cuadro de umbral **Red alert** (Alerta roja) escriba 10000. 
+   2. En el cuadro del umbral **Yellow alert** (Alerta amarilla) escriba 9000. 
+   3. En el cuadro **Number of consecutive alerts** (Número de alertas consecutivas), escriba el número de alertas consecutivas que desea recibir. Cuando reciba el número total de alertas que ha especificado, no se enviarán más alertas. 
+6. Seleccione **Guardar**.
+
+    ![Ejemplo que muestra alertas rojas y amarillas según los umbrales de gastos](./media/billing-getting-started/schedule-alert01.png)
+
+También puede elegir la métrica de umbral **Cost Percentage vs. Budget** (Porcentaje de costo frente a presupuesto) para crear alertas. Esto le permite especificar los umbrales como porcentajes del presupuesto,en lugar de los valores de moneda.
+
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Formas de supervisar los costos cuando se usan servicios de Azure
 
 ### <a name="tags"></a> Incorporación de etiquetas a los recursos para agrupar los datos de facturación
@@ -90,7 +108,7 @@ Después de ejecutar los servicios, compruebe regularmente el coste de estos. Pu
 
     ![Captura de pantalla de la vista de análisis de costes en Azure Portal](./media/billing-getting-started/cost-analysis.PNG)
 
-4. Puede filtrar por diferentes propiedades como [etiquetas](#tags), grupo de recursos e intervalo de tiempo. Haga clic en **Aplicar** para confirmar los filtros y en **Descargar** si desea exportar la vista a un archivo de valores separados por comas (.csv).
+4. Puede filtrar por diferentes propiedades como [etiquetas](#tags), tipo de recurso, grupo de recursos e intervalo de tiempo. Haga clic en **Aplicar** para confirmar los filtros y en **Descargar** si desea exportar la vista a un archivo de valores separados por comas (.csv).
 
 5. Además, puede hacer clic en un recurso para ver el historial diario de gastos y cuánto cuesta cada día el recurso.
 

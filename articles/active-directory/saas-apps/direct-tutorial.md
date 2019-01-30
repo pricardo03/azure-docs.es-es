@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092893"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integración de Azure Active Directory con Direct
 
@@ -118,7 +118,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     ![Configurar inicio de sesión único](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://direct4b.com/sso` 
+     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://direct4b.com/sso` 
 
 5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -154,7 +154,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/direct-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -164,7 +164,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="creating-a-direct-test-user"></a>Creación de un usuario de prueba de Direct
 
-En esta sección creará un usuario llamado Britta Simon en Direct. Colabore con el [equipo de soporte técnico de Direct](https://direct4b.com/ja/support.html#inquiry) para agregar los usuarios a la plataforma de Direct. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección creará un usuario llamado Britta Simon en Direct. Trabaje con el [equipo de soporte técnico de Direct](https://direct4b.com/ja/support.html#inquiry) para agregar los usuarios de la plataforma de Direct. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -206,7 +206,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 2. Si desea realizar pruebas en **modo iniciado por SP**:
 
-    a. Haga clic en el icono **Direct** en el panel de acceso y se le redirigirá a la página de inicio de sesión de la aplicación.
+     a. Haga clic en el icono **Direct** en el panel de acceso y se le redirigirá a la página de inicio de sesión de la aplicación.
 
     b. Escriba su `subdomain` en el cuadro de texto que se muestra y presione "次へ (Siguiente)". Iniciará sesión automáticamente en su aplicación **Direct**.
 

@@ -3,18 +3,18 @@ title: Control de errores en runbooks gráficos de Azure Automation
 description: En este artículo se describe cómo implementar la lógica de control de errores en runbooks gráficos de Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192717"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436695"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Control de errores en runbooks gráficos de Azure Automation
 
@@ -30,7 +30,7 @@ Los tipos de errores de PowerShell que se pueden producir durante la ejecución 
 
 * **Error de no terminación**: error que no es grave, lo que permite que la ejecución no se interrumpe. Entre los ejemplos se incluyen errores operativos, como los errores de archivos no encontrados y problemas de permisos.
 
-Los runbooks gráficos de Azure Automation se han mejorado con la funcionalidad de inclusión del control de errores. Ahora es posible convertir las excepciones en errores de no terminación y crear vínculos de error entre las actividades. Este proceso permite a los autores de runbooks detectar errores y administrar cualquier condición realizada o inesperada.  
+Los runbooks gráficos de Azure Automation se han mejorado con la funcionalidad de inclusión del control de errores. Ahora es posible convertir las excepciones en errores de no terminación y crear vínculos de error entre las actividades. Este proceso permite a los autores de runbooks detectar errores y administrar cualquier condición realizada o inesperada.  
 
 ## <a name="when-to-use-error-handling"></a>Cuándo se debe utilizar el control de errores
 
@@ -69,3 +69,4 @@ Fluyen vínculos de errores de flujo de estas actividades a una única actividad
 * Para más información acerca de los vínculos y tipos de vínculo de los runbooks gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md).
+

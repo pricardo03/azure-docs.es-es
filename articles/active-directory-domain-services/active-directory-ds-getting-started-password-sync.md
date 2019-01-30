@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: habilitación de la sincronización de los valores hash de las contraseñas | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Habilitación de la sincronización de hash de contraseñas | Microsoft Docs'
 description: Introducción a Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 01688ad0b72d931b950f98e90be5e98cab4ebe14
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227372"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856899"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services
 En las tareas anteriores, habilitó Azure Active Directory Domain Services para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar la sincronización de los valores hash de las contraseñas necesarios para la autenticación NT LAN Manager (NTLM) y Kerberos en Azure AD Domain Services. Una vez configurada la sincronización de los valores hash de las contraseñas, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.

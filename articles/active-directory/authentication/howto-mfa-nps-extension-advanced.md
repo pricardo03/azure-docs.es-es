@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160617"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429113"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ Dentro de la extensión NPS, puede designar un atributo de Active Directory para
 
 Para configurar identificadores de inicio de sesión alternativos, vaya a `HKLM\SOFTWARE\Microsoft\AzureMfa` y edite los siguientes valores del Registro:
 
-| NOMBRE | type | Valor predeterminado | DESCRIPCIÓN |
+| NOMBRE | Escriba | Valor predeterminado | DESCRIPCIÓN |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vacío | Designe el nombre del atributo de Active Directory que desea usar en lugar del UPN. Este atributo se utiliza como el atributo AlternateLoginId. Si este valor del Registro se establece en un [atributo de Active Directory válido](https://msdn.microsoft.com/library/ms675090.aspx) (por ejemplo, correo electrónico o displayName), a continuación, el valor del atributo se utiliza en lugar del UPN del usuario para la autenticación. Si este valor del registro está vacío o no está configurado, AlternateLoginId se deshabilita y el UPN del usuario se utiliza para la autenticación. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | False | Use esta marca para exigir el uso del catálogo global para búsquedas LDAP al buscar AlternateLoginId. Configure un controlador de dominio como catálogo global, agregue el atributo AlternateLoginId a dicho catálogo y luego habilite esta marca. <br><br> Si LDAP_LOOKUP_FORESTS se ha configurado (no vacío), **se exige que esta marca sea true**, independientemente del valor de la configuración del Registro. En este caso, la extensión NPS requiere que el catálogo global esté configurado con el atributo AlternateLoginId para cada bosque. |
@@ -43,11 +43,11 @@ Si necesita supervisar la disponibilidad del servidor, como si los equilibradore
 
 Para configurar una lista banca de direcciones IP, vaya a `HKLM\SOFTWARE\Microsoft\AzureMfa` y configure el siguiente valor del Registro: 
 
-| NOMBRE | type | Valor predeterminado | DESCRIPCIÓN |
+| NOMBRE | Escriba | Valor predeterminado | DESCRIPCIÓN |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vacío | Proporcione una lista separada por puntos y coma de direcciones IP. Incluya las direcciones IP de las máquinas donde se originan las solicitudes de servicio, como el servidor NAS/VPN. Los intervalos de direcciones IP y las subredes no se admiten. <br><br> Por ejemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Cuando llega una solicitud procedente de una dirección IP que existe en la lista blanca, se omite la verificación en dos pasos. La lista blanca de direcciones IP se compara con la dirección IP que se proporciona en el atributo *ratNASIPAddress* de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra la siguiente advertencia similar a la siguiente: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
+Cuando llega una solicitud procedente de una dirección IP que existe en la lista blanca, se omite la verificación en dos pasos. La lista blanca de direcciones IP se compara con la dirección IP que se proporciona en el atributo *ratNASIPAddress* de la solicitud RADIUS. Si llega una solicitud RADIUS sin el atributo ratNASIPAddress, se registra la siguiente advertencia: "La lista blanca P_WHITE_LIST_WARNING::IP se ha omitido porque la dirección IP de origen falta en la solicitud RADIUS en el atributo NasIpAddress".
 
 ## <a name="next-steps"></a>Pasos siguientes
 

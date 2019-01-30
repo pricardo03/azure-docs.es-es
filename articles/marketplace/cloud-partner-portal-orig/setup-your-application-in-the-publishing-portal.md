@@ -1,6 +1,6 @@
 ---
 title: Configuración de la aplicación en el portal de publicación | Microsoft Docs
-description: Instrucciones sobre cómo configurar la aplicación en el portal de publicación en la nube.
+description: Instrucciones para configurar una aplicación en el Portal de publicación en la nube.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807323"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448490"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
 
@@ -83,8 +83,8 @@ La mayoría de los editores dejará estos campos con los valores predeterminados
 A continuación aparece una explicación de estos campos:
 
 * File name of your package (Nombre de archivo del paquete): el nombre de archivo que creó en el paso anterior cuando se creó el archivo ZIP que es el paquete CRM de AppSource. En el ejemplo anterior, es "Microsoft\_SamplePackage.zip".
-* Url of your package location (Dirección URL de la ubicación del paquete): la dirección URL a la cuenta de Azure Storage que contiene el nombre de archivo de paquete que se especificó anteriormente. Es la dirección URL	 que se creó en el Paso 9 de la sección anterior.
-* Is there more than one crm package in your package file (¿Hay más de un paquete CRM en el archivo de paquete?): seleccione Yes (Sí) **SOLO** si admite varias versiones de CRM con distintos paquetes. El valor sería "No" para la mayoría de los socios. Si selecciona Sí, debe crear paquetes de AppSource para cada versión de la solución. _Nota: Aquí NO se pregunta si tiene varios archivos **ZIP**. Si tiene varios archivos solution.zip pero una sola versión, de todos modos debe seleccionar "No". La herramienta de empaquetado los reunirá automáticamente._
+* Url of your package location (Dirección URL de la ubicación del paquete): la dirección URL de la cuenta de Azure Storage que contiene el nombre de archivo de paquete que se especificó anteriormente. Es la dirección URL	 que se creó en el Paso 9 de la sección anterior.
+* Is there more than one crm package in your package file (¿Hay más de un paquete de CRM en el archivo de paquete?): Seleccione Yes **SOLO** si admite varias versiones de CRM con distintos paquetes. El valor sería "No" para la mayoría de los socios. Si selecciona Sí, debe crear paquetes de AppSource para cada versión de la solución. _Nota: Aquí NO se pregunta si tiene varios archivos **ZIP**. Si tiene varios archivos solution.zip pero una sola versión, de todos modos debe seleccionar "No". La herramienta de empaquetado los reunirá automáticamente._
 
 ### <a name="crm-package-availability"></a>Disponibilidad del paquete CRM
 
@@ -100,7 +100,7 @@ Este es un resumen de la propuesta de valor de la oferta. Aparecerá en la pági
 
 ### <a name="offer-description"></a>Descripción de la oferta
 
-Esta es la descripción que aparecerá en la página de detalles de la aplicación. El máximo permitido es de 1300 caracteres
+Esta es la descripción que aparecerá en la página de detalles de la aplicación. El número máximo de caracteres permitidos es de 1300.
 
 ### <a name="industries"></a>Industrias
 
@@ -108,7 +108,7 @@ Seleccione el sector más afín a la aplicación. Si la aplicación está relaci
 
 ### <a name="categories"></a>Categorías
 
-Seleccione las categorías que son relevantes para la aplicación. Seleccione un máximo de 3.
+Seleccione las categorías que sean pertinentes para su aplicación. Seleccione un máximo de 3.
 
 ### <a name="app-type"></a>Tipo de aplicación
 
@@ -150,11 +150,11 @@ Esta es una clave que se combinará con la dirección URL de la versión prelimi
 
 ### <a name="offer-logo-png-format-48x48"></a>Logotipo de la oferta (formato .png, 48 x 48)
 
-Aparecerá en la página de búsqueda de la aplicación. **Solo se permite el formato .png.** Cargue una imagen .png con una resolución de 48px \* 48px
+Aparecerá en la página de búsqueda de la aplicación. **Solo se permite el formato .png.** Cargue una imagen .png con una resolución de 48 px \* 48 px.
 
 ### <a name="offer-logo-png-format-216x216"></a>Logotipo de la oferta (formato .png, 216 x 216)
 
-Aparecerá en la página de detalles de la aplicación. **Solo se permite el formato .png.** Cargue una imagen .png con una resolución de 216px \* 216px
+Aparecerá en la página de detalles de la aplicación. **Solo se permite el formato .png.** Cargue una imagen .png con una resolución de 216 px \* 216 px.
 
 ### <a name="videos"></a>Vídeos
 
@@ -184,7 +184,7 @@ Escriba la dirección URL de soporte técnico de la aplicación.
 
 ### <a name="lead-destination"></a>Destino de clientes potenciales
 
-Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione "Tabla de Azure" aquí si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo, Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos
+Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione "Tabla de Azure" si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos
 
 * [Tabla de Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
@@ -193,4 +193,4 @@ Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione
 
 ## <a name="storefront-details"></a>Detalles del escaparate
 
-Los detalles de contacto solo se usan para comunicaciones internas entre asociados y Microsoft. Nota: Es importante usar una dirección de correo electrónico que supervisada en estos campos. Usaremos este correo electrónico para comunicarnos con usted con respecto al progreso en la publicación en AppSource. Los clientes solo podrán ver la dirección URL del soporte técnico.
+Los detalles de contacto solo se usan para comunicaciones internas entre asociados y Microsoft. Nota: Es importante usar una dirección de correo electrónico que se supervise en estos campos. Usaremos este correo electrónico para comunicarnos con usted con respecto al progreso en la publicación en AppSource. Los clientes solo podrán ver la dirección URL del soporte técnico.

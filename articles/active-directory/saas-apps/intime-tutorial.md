@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con InTime | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con InTime | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e InTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d4e2c6e1-ae5d-4d2c-8ffc-1b24534d376a
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ee1e1aacec37db476aa5a295c9a3cd84e071a9d5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d41e24c29057fb680aa2465843fbc73a957a5cca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432572"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821301"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutorial: integración de Azure Active Directory con InTime
+# <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutorial: Integración de Azure Active Directory con InTime
 
 En este tutorial, obtendrá información sobre cómo integrar InTime con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de InTime](./media/intime-tutorial/tutorial_intime_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
     b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://auth.intimesoft.com/auth/realms/master`
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **InTime**, es preciso enviar los valores descargados de **XML de metadatos**, **URL de cierre de sesión y URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de InTime](mailto:hdollard@intimesoft.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/intime-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -206,7 +206,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de InTime del Panel de acceso, debería entrar en la página de inicio de sesión de la aplicación InTime. Haga clic en el botón de **inicio de sesión**. Se mostrará una serie de proveedores de identidades en una lista de botones. Haga clic en **Nombre del IDP** proporcionado por el [equipo de soporte técnico de InTime](mailto:hdollard@intimesoft.com) para iniciar sesión en la aplicación InTime. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de InTime del Panel de acceso, debería entrar en la página de inicio de sesión de la aplicación InTime. Haga clic en el botón de **inicio de sesión**. Se mostrará una serie de proveedores de identidades en una lista de botones. Haga clic en **Nombre del IDP** proporcionado por el [equipo de soporte técnico de InTime](mailto:hdollard@intimesoft.com) para iniciar sesión en la aplicación InTime. Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

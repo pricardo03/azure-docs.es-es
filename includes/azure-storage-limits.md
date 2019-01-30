@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249622"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392694"
 ---
 En la tabla siguiente se describen los límites predeterminados para Azure Storage. El límite de *entrada* hace referencia a todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
 
@@ -29,7 +29,7 @@ En la tabla siguiente se describen los límites predeterminados para Azure Stora
 | Salida máxima para cuentas de almacenamiento v1 de uso general (regiones de EE. UU.) | 20 Gbps si RA-GRS o GRS están habilitados; 30 Gbps en el caso de LRS o ZRS <sup>2</sup> |
 | Salida máxima para cuentas de almacenamiento v1 de uso general (regiones no de EE. UU.) | 10 Gbps si RA-GRS o GRS están habilitados; 15 Gbps en el caso de LRS o ZRS <sup>2</sup> |
 
-<sup>1</sup> Las cuentas de almacenamiento de Azure admiten límites más altos para entrada e IOPS por solicitud. Para solicitar un aumento en los límites de cuenta, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Las cuentas de almacenamiento estándar de Azure admiten límites más altos de entrada por solicitud. Para solicitar un aumento en los límites de cuenta para entrada, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [Las opciones de replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluyen:
 * **RA-GRS**: almacenamiento con redundancia geográfica con acceso de lectura. Si RA-GRS está habilitada, los destinos de salida para la ubicación secundaria son idénticos a los de la ubicación principal.

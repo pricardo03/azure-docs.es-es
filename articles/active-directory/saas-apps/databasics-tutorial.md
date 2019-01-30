@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: a37ded45-84c8-4e88-8d9b-c5b9443eb0d4
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b177b4e4e6ef66c03ef6c868dcfde9a5277c36d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a74deb18263e25b95665c709cd62343293d49c0e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420920"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818309"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutorial: integración de Azure Active Directory con DATABASICS
+# <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutorial: Integración de Azure Active Directory con DATABASICS
 
 En este tutorial, obtendrá información sobre cómo integrar DATABASICS con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de DATABASICS](./media/databasics-tutorial/tutorial_databasics_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el valor `DATA-BASICS_SP`.
+     a. En el cuadro de texto **Identificador**, escriba el valor `DATA-BASICS_SP`.
     
     b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sitenumber>.data-basics.net/<clientname>/saml_sso.jsp`.
 
@@ -131,7 +131,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -158,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/databasics-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-databasics-test-user"></a>Crear un usuario de prueba DATABASICS
 
-En esta sección, creará un usuario llamado Britta Simon en DATABASICS. Trabaje con [el equipo de soporte técnico de DATABASICS](https://www.data-basics.com/support/) para agregar los usuarios a la plataforma de DATABASICS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en DATABASICS. Trabaje con el [equipo de soporte técnico de DATABASICS](https://www.data-basics.com/support/) para agregar los usuarios a la plataforma de DATABASICS. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -205,7 +205,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de DATABASICS en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de DATABASICS.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

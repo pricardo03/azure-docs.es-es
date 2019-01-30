@@ -3,19 +3,19 @@ title: Protección de los servicios RESTful mediante la autenticación HTTP bás
 description: Proteja los intercambios de notificaciones de la API REST personalizada en Azure AD B2C mediante la autenticación HTTP básica.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409310"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850691"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 
@@ -30,9 +30,9 @@ Para más información, consulte [Basic authentication in ASP.NET web API](https
 ## <a name="prerequisites"></a>Requisitos previos
 Complete los pasos del artículo [Azure Active Directory B2C: integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación en entradas de usuario](active-directory-b2c-custom-rest-api-netfw.md).
 
-## <a name="step-1-add-authentication-support"></a>Paso 1: Adición de compatibilidad con la autenticación
+## <a name="step-1-add-authentication-support"></a>Paso 1: Incorporación de compatibilidad con la autenticación
 
-### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Paso 1.1 Adición de la configuración de la aplicación al archivo web.config del proyecto
+### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Paso 1.1: Adición de la configuración de la aplicación al archivo web.config del proyecto
 1. Abra el proyecto de Visual Studio que ha creado. 
 
 2. Agregue la siguiente configuración de la aplicación al archivo web.config en el elemento `appSettings`:
@@ -186,7 +186,7 @@ Agregue la clase `ClientAuthMiddleware.cs` a la carpeta *App_Start*. Para ello:
     }
     ```
 
-### <a name="step-14-add-an-owin-startup-class"></a>Paso 1.4: Adición de una clase de inicio de OWIN
+### <a name="step-14-add-an-owin-startup-class"></a>Paso 1.4: Agregar una clase de inicio de OWIN
 Agregue una clase de inicio de OWIN denominada `Startup.cs` a la API. Para ello:
 1. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** > **Nuevo elemento** y luego busque **OWIN**.
 
@@ -219,10 +219,10 @@ Abra Controllers\IdentityController.cs y agregue la etiqueta `[Authorize]` a la 
 ## <a name="step-2-publish-to-azure"></a>Paso 2: Publicación en Azure
 Para publicar el proyecto, en el Explorador de soluciones, haga clic con el botón derecho en el proyecto **Contoso.AADB2C.API** y seleccione **Publicar**.
 
-## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Paso 3: Adición del identificador y del secreto de la aplicación de servicios REST a Azure AD B2C
+## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Paso 3: Adición del secreto y Id. de la aplicación de servicios REST a Azure AD B2C
 Tras proteger el servicio REST con el identificador (nombre de usuario) y el secreto del cliente, debe almacenar las credenciales en su inquilino de Azure AD B2C. Su directiva personalizada proporciona las credenciales al invocar los servicios REST. 
 
-### <a name="step-31-add-a-restful-services-client-id"></a>Paso 3.1: Adición de un identificador de cliente de servicios REST
+### <a name="step-31-add-a-restful-services-client-id"></a>Paso 3.1: Adición de un Id. de cliente de servicios REST
 1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad**.
 
 
@@ -301,7 +301,7 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
 
 6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Paso 6: Prueba de la directiva personalizada con Ejecutar ahora
+## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Paso 6: Probar la directiva personalizada con Ejecutar ahora
 1. Abra **Configuración de Azure AD B2C** y seleccione **Marco de experiencia de identidad**.
 
     >[!NOTE]

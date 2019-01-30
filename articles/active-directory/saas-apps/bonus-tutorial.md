@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 181577c6a170d28679e1ca486dc2a8c5a596f20d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422984"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integración de Azure Active Directory con Bonusly
 
@@ -137,18 +137,18 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Página de diálogo Saml Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
    
-    a. En el cuadro de texto **IdP SSO Target URL** (Dirección URL de destino de SSO de IdP), pegue el valor de la **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
+     a. En el cuadro de texto **IdP SSO Target URL** (Dirección URL de destino de SSO de IdP), pegue el valor de la **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
    
     b. En el cuadro de texto **IdP Issuer** (Emisor de IdP), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal. 
 
     c. En el cuadro de texto **IdP Login URL** (Dirección URL de inicio de sesión de IdP), pegue el valor de la **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
 
-    d. Pegue el valor de **Huella digital** de Azure Portal en el cuadro de texto **Cert Fingerprint** (Huella digital de certificado).
+    d. Pegue el valor de **Huella digital** copiado de Azure Portal en el cuadro de texto **Cert Fingerprint** (Huella digital de certificado).
    
 1. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -174,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Cuadro de diálogo Usuario](./media/bonus-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -214,7 +214,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bonusly, tienen qu
    
     ![Agregar usuario](./media/bonus-tutorial/ic781045.png "Agregar usuario")  
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
+     a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
  

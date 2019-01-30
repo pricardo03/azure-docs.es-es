@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302976"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852327"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
@@ -39,7 +39,7 @@ Cada paso puede realizarse de forma independiente o como parte de un comando de 
 
 El registro del modelo permite almacenar y versionar los modelos en la nube de Azure, en su área de trabajo. El registro de modelo facilita organizar y mantener un seguimiento de los modelos entrenados.
  
-Los modelos registrados se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos. Azure Machine Learning Service admite modelos almacenados con cualquier modelo que pueda cargarse mediante Python 3. 
+Los modelos registrados se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos. Azure Machine Learning Service admite cualquier modelo que pueda cargarse mediante Python 3. 
 
 No se pueden eliminar los modelos que una imagen esté utilizando.
 
@@ -63,13 +63,13 @@ La imagen también puede incluir componentes del SDK para el registro y la super
 Azure Machine Learning admite las plataformas más populares, pero en general vale cualquiera donde se pueda instalar pip.
 
 Al crearse el área de trabajo, también se crearon otros recursos de Azure que esta usa.
-Todos los objetos utilizados para crear la imagen se almacenan en la cuenta de almacenamiento de Azure del área de trabajo. La imagen se crea y se almacena en Azure Container Registry. Puede proporcionar etiquetas de metadatos adicionales al crear la imagen, que también almacena el registro de imagen y se pueden consultar para buscar la imagen.
+Todos los objetos utilizados para crear la imagen se almacenan en la cuenta de almacenamiento de Azure del área de trabajo. Puede proporcionar etiquetas de metadatos adicionales al crear la imagen. El registro de imágenes también almacena las etiquetas de metadatos, que se pueden consultar para encontrar la imagen.
 
 Para más información, consulte la sección de configuración y registro de imágenes de [Implementación de modelos](how-to-deploy-and-where.md#configureimage).
 
 ## <a name="step-3-deploy-image"></a>Paso 3: Implementación de la imagen
 
-Puede implementar imágenes registradas en la nube o en dispositivos perimetrales. En el proceso de implementación se crean todos los recursos necesarios para supervisar, equilibrar la carga y realizar el automático del modelo. El acceso a los servicios implementados se puede proteger con autenticación basada en certificados si se proporcionan los recursos de seguridad durante la implementación. También puede actualizar una implementación existente para usar una imagen más reciente.
+Puede implementar imágenes registradas en la nube o en dispositivos perimetrales. En el proceso de implementación se crean todos los recursos necesarios para supervisar al modelo, equilibrar sus cargas y escalarlo automáticamente. El acceso a los servicios implementados se puede proteger con autenticación basada en certificados si se proporcionan los recursos de seguridad durante la implementación. También puede actualizar una implementación existente para usar una imagen más reciente.
 
 Las implementaciones de servicio web también permiten búsquedas. Por ejemplo, puede buscar todas las implementaciones de una imagen o un modelo específicos.
 

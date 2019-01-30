@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894136"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391227"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
 
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. 
+Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar.
 
 Para cada procedimiento recomendado, explicaremos:
 
@@ -67,10 +67,10 @@ Hay tres [escenarios](https://docs.microsoft.com/azure/service-fabric/service-fa
 -   Seguridad de nodo a nodo: este escenario protege la comunicación entre las máquinas virtuales y los equipos del clúster. Esta forma de seguridad garantiza que solo los equipos que están autorizados a unirse al clúster pueden hospedar aplicaciones y servicios en el clúster.
 En este escenario, los clústeres que se ejecutan en Azure o los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) o la [seguridad de Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) para las máquinas con Windows Server.
 -   Seguridad de cliente a nodo: este escenario protege la comunicación entre un cliente de Service Fabric y los nodos individuales del clúster.
--   Control de acceso basado en roles (RBAC): este escenario utiliza identidades diferentes (certificados, Azure AD, etc) para cada rol de cliente de administrador y usuario que tiene acceso al clúster. Se especifican las identidades de rol cuando se crea el clúster.
+-   Control de acceso basado en rol (RBAC): este escenario utiliza identidades diferentes (certificados, Azure AD, etc) para cada rol de cliente de administrador y usuario que tiene acceso al clúster. Se especifican las identidades de rol cuando se crea el clúster.
 
 >[!NOTE]
->**Recomendación de seguridad para clústeres de Azure:** Use la seguridad de Azure AD para autenticar los clientes y los certificados para la seguridad de nodo a nodo.
+>**Recomendación de seguridad para los clústeres de Azure**: utilice la seguridad de Azure AD para autenticar a los clientes y certificados para la seguridad de nodo a nodo.
 
 Para configurar el clúster de Windows independiente, consulte [Opciones de configuración de un clúster de Windows independiente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
 
@@ -104,9 +104,9 @@ Para más información sobre el uso de certificados X.509, consulte [Agregar o q
 ## <a name="configure-security-policies"></a>Configuración de directivas de seguridad
 Service Fabric también protege los recursos utilizados por las aplicaciones. Los recursos tales como archivos, directorios y certificados se almacenan en las cuentas de usuario cuando se implementa la aplicación. Esta característica aumenta la seguridad entre las aplicaciones en ejecución, incluso en un entorno hospedado compartido.
 
--   Use un usuario o grupo de dominio de Active Directory: ejecute el servicio con las credenciales de una cuenta de usuario o grupo de Active Directory. Asegúrese de utilizar Active Directory local dentro del dominio y no Azure Active Directory. Utilice un usuario o grupo de dominio para tener acceso a otros recursos del dominio en los que se le hayan concedido permisos. Por ejemplo, recursos compartidos de archivos.
+-   Use un usuario o un grupo de dominios de Active Directory: ejecute el servicio con las credenciales de una cuenta de usuario o grupo de Active Directory. Asegúrese de utilizar Active Directory local dentro del dominio y no Azure Active Directory. Utilice un usuario o grupo de dominio para tener acceso a otros recursos del dominio en los que se le hayan concedido permisos. Por ejemplo, recursos compartidos de archivos.
 
--   Asigne una directiva de acceso de seguridad para los puntos de conexión HTTP y HTTPS: especifique la propiedad **SecurityAccessPolicy** para aplicar una directiva **RunAs** a un servicio cuando el manifiesto del servicio declare los recursos del punto de conexión con HTTP. Los puertos asignados a los puntos de conexión HTTP son listas de acceso controlado para la cuenta de usuario RunAs en la que se ejecuta el servicio. Cuando la directiva no está establecida, http.sys no tiene acceso al servicio y pueden aparecer errores en las llamadas del cliente.
+-   Asigne una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS: especifique la propiedad **SecurityAccessPolicy** para aplicar una directiva **RunAs** a un servicio cuando el manifiesto de servicio declare los recursos del punto de conexión con HTTP. Los puertos asignados a los puntos de conexión HTTP son listas de acceso controlado para la cuenta de usuario RunAs en la que se ejecuta el servicio. Cuando la directiva no está establecida, http.sys no tiene acceso al servicio y pueden aparecer errores en las llamadas del cliente.
 
 Para más información sobre el uso de directivas de seguridad en un clúster de Service Fabric, consulte [Configuración de directivas de seguridad para la aplicación](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security).
 
@@ -143,7 +143,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
     >[!NOTE]
     >No se puede obtener un certificado SSL de una entidad de certificación para el dominio __cloudapp__**.net**.
-    
+
 -   Este certificado debe usar un cifrado de 2,048 bits como mínimo.
 
 El protocolo HTTP no es seguro y está sujeto a ataques de interceptación. Los datos que se transmiten a través de HTTP se envían como texto sin formato desde el explorador web al servidor web o entre otros puntos de conexión. Los atacantes pueden interceptar y ver datos confidenciales enviados a través de HTTP, como los detalles de las tarjetas de crédito e inicios de sesión de cuenta. Cuando los datos se envían o se publican a través de un explorador mediante HTTPS, SSL garantiza que esa información se cifra y protege de la interceptación.
@@ -184,5 +184,7 @@ Una vez que haya creado las aplicaciones para representar el clúster, debe asig
 Azure Service Fabric admite dos tipos de control de acceso para los clientes que están conectados a un [clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm): administrador y usuario. El administrador del clúster puede usar el control de acceso para limitarlo a determinadas operaciones del clúster para los diferentes grupos de usuarios. El control de acceso hace que el clúster sea más seguro.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+- [Lista de comprobación de seguridad de Service Fabric](azure-service-fabric-security-checklist.md)
 - Configurar el [entorno de desarrollo](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) de Service Fabric.
 - Más información sobre las [opciones de soporte técnico de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).

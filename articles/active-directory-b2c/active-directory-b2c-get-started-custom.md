@@ -3,19 +3,19 @@ title: Introducción a las directivas personalizadas en Azure Active Directory B
 description: Cómo empezar a usar las directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4ff8b607f9fded02a519b5f2a3abdfeedf93d88
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181791"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852310"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Si ya tiene un [secreto de aplicación de Facebook](active-directory-b2c-setup-f
 
 ## <a name="register-applications"></a>Registrar aplicaciones
 
-Azure AD B2C exige registrar dos aplicaciones usadas para que los usuarios se registren e inicien sesión: IdentityExperienceFramework (una aplicación web) y ProxyIdentityExperienceFramework (una aplicación nativa) con permiso delegado de la aplicación IdentityExperienceFramework. Las cuentas locales solo existen en su inquilino. Los usuarios se registran con una combinación única de dirección de correo electrónico/contraseña para obtener acceso a las aplicaciones registradas en el inquilino.
+Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar usuarios e iniciar su sesión: IdentityExperienceFramework (una aplicación web) y ProxyIdentityExperienceFramework (una aplicación nativa) con permiso delegado de la aplicación IdentityExperienceFramework. Las cuentas locales solo existen en su inquilino. Los usuarios se registran con una combinación única de dirección de correo electrónico/contraseña para obtener acceso a las aplicaciones registradas en el inquilino.
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar la aplicación IdentityExperienceFramework
 

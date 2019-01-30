@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 105ec895635a882d562de48203222702a2c6bfed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50e59c9ab04c1f17d55461b0562491143c21e51d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421754"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integración de Azure Active Directory con ScreenSteps
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Creación de un punto de conexión de autenticación](./media/screensteps-tutorial/ic778526.png "Creación de un punto de conexión de autenticación")
     
-    a. En el cuadro de texto **Título** , escriba un título.
+     a. En el cuadro de texto **Título** , escriba un título.
     
     b. En la lista **Modo**, seleccione **SAML**.
     
@@ -159,7 +159,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Punto de conexión de autenticación remota](./media/screensteps-tutorial/ic778527.png "Punto de conexión de autenticación remota")
 
-    a. Haga clic en **Cargar nuevo archivo de certificado SAML** y cargue el certificado que descargó de Azure Portal.
+     a. Haga clic en **Cargar nuevo archivo de certificado SAML** y cargue el certificado que descargó de Azure Portal.
     
     b. Pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML**, que copió de Azure Portal, en el cuadro de texto de **dirección URL de inicio de sesión remoto**.
     
@@ -176,7 +176,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     h. Haga clic en el botón **Predeterminar para cuenta** para usar este punto de conexión para todos los usuarios que inician sesión en ScreenSteps. También puede hacer clic en el botón **Agregar al sitio** para utilizar este punto de conexión para sitios específicos de **ScreenSteps**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -203,7 +203,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/screensteps-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -213,7 +213,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-screensteps-test-user"></a>Creación de un usuario de prueba de ScreenSteps
 
-En esta sección, creará un usuario llamado Britta Simon en ScreenSteps. Trabaje con el [equipo de soporte técnico de ScreenSteps](https://www.screensteps.com/contact) para agregar los usuarios a la plataforma de ScreenSteps. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en ScreenSteps. Trabaje con el [equipo de soporte técnico de ScreenSteps](https://www.screensteps.com/contact) para agregar los usuarios a la plataforma de ScreenSteps. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -250,7 +250,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de ScreenSteps en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación ScreenSteps.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

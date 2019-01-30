@@ -17,14 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424959"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401884"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimiento: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Control de Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
 Hoy en día, Azure Active Directory (Azure AD) admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
 
@@ -81,7 +81,7 @@ También puede usar las funciones especiales de transformación de notificacione
 
 ## <a name="adding-claims"></a>Incorporación de notificaciones
 
-Al agregar una notificación, puede especificar el nombre del atributo (que no tiene que seguir de forma estricta un patrón de identificador URI según la especificación SAML). Establezca el valor en cualquier atributo de usuario que se almacene en el directorio.
+Al agregar una notificación, puede especificar el nombre del atributo (que no tiene que seguir de forma estricta un patrón de identificador URI según la especificación SAML). Establezca el valor en cualquier atributo de usuario que se almacene en el directorio o use un valor constante como una entrada estática para todos los usuarios de la organización.
 
 ![Agregar atributo de usuario][7]
 

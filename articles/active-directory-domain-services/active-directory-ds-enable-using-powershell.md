@@ -4,7 +4,7 @@ description: Habilitación de Azure Active Directory Domain Services mediante Po
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: ergreenl
-ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5ebb9f706d2e59b9c1227cec6fcc0e0619374069
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240263"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855013"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitación de Azure Active Directory Domain Services mediante PowerShell
 Este artículo muestra cómo habilitar Azure Active Directory (AD) Domain Services mediante PowerShell.
@@ -31,7 +31,7 @@ Este artículo muestra cómo habilitar Azure Active Directory (AD) Domain Servic
 Siga las instrucciones que aparecen en el artículo para [instalar el módulo de Azure AD PowerShell y conectarse a Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Instale y configure Azure PowerShell.
-Siga las instrucciones que aparecen en el artículo para [instalar el módulo de Azure PowerShell y conectarse a la suscripción de Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Siga las instrucciones que aparecen en el artículo para [instalar el módulo de Azure PowerShell y conectarse a la suscripción de Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Tarea 2: Creación de la entidad de servicio necesaria en el directorio de Azure AD
@@ -41,7 +41,7 @@ Escriba el siguiente comando de PowerShell para crear la entidad de servicio nec
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Paso 3: Creación y configuración del grupo "Administradores de controladores de dominio de AAD"
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Tarea 3: Creación y configuración del grupo "Administradores de controladores de dominio de AAD"
 La siguiente tarea consiste en crear el grupo de administrador que se utilizará para delegar tareas de administración en el dominio administrado.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
@@ -74,7 +74,7 @@ Escriba el siguiente comando de PowerShell para registrar el proveedor de recurs
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## <a name="task-5-create-a-resource-group"></a>Tarea 5: Creación de un grupo de recursos
+## <a name="task-5-create-a-resource-group"></a>Tarea 5: Crear un grupo de recursos
 Escriba el siguiente comando de PowerShell para crear un grupo de recursos:
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"

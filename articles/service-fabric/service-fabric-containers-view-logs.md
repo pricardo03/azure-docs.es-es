@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993810"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391248"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualización de registros para un servicio de contenedor de Service Fabric
 Azure Service Fabric es un orquestador de contenedores que admite [contenedores Linux y Windows](service-fabric-containers-overview.md).  Este artículo describe cómo ver los registros de contenedor de un servicio de contenedor en ejecución o de un contenedor no alcanzado para así poder realizar diagnósticos y solucionar problemas.
@@ -43,6 +43,8 @@ Para ayudar a diagnosticar los errores de inicio del contenedor, Service Fabric 
  ```
 
 El valor **ContainersRetentionCount** especifica el número de contenedores que se conservarán cuando se produzca un error en ellos. Si se especifica un valor negativo, se conservarán todos los contenedores con errores. Si no se especifica el atributo **ContainersRetentionCount**, no se conservará ningún contenedor. El atributo **ContainersRetentionCount** también admite parámetros de aplicación, por lo que los usuarios pueden especificar valores diferentes para los clústeres de prueba y de producción. Utilice restricciones de colocación para seleccionar un destino para el servicio de contenedor en un nodo concreto al usar estas características, para impedir que este se mueva a otros nodos. Los contenedores que se conserven mediante esta característica deben quitarse manualmente.
+
+La opción **RunInteractive** se corresponde con las [marcas](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` y `tty` de Docker. Cuando esta opción se establece en true en el archivo de manifiesto, estas marcas se usan para iniciar el contenedor.  
 
 ### <a name="rest"></a>REST
 Use la operación [Obtener registros de contenedor implementados en nodos](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) para obtener los registros de un contenedor bloqueado. Especifique el nombre del nodo que se encontraba en ejecución en el contenedor, el nombre de la aplicación, el nombre del manifiesto de servicio y el nombre del paquete de código.  Especifique `&Previous=true`. La respuesta contendrá los registros de contenedor del contenedor no alcanzado de la instancia del paquete de código.

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 489b5e62-85c2-45c9-8766-326632d48114
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7dc2f13979bb0ea919a78b750160119198ee7d6d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a5730b518ab19591188f0a7f56b706d8cf29e6f1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436614"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integración de Azure Active Directory con Mozy Enterprise
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
    ![Directiva de autenticación](./media/mozy-enterprise-tutorial/ic777315.png "Directiva de autenticación")
    
-   a. Seleccione **Servicio de directorio** como **Proveedor**.
+    a. Seleccione **Servicio de directorio** como **Proveedor**.
    
    b. Seleccione **Use LDAP Push**(Usar inserción de LDAP).
    
@@ -156,7 +156,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    h. Haga clic en **Guardar cambios**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -182,7 +182,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -212,7 +212,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, d
    
    ![Agregar usuarios](./media/mozy-enterprise-tutorial/ic777318.png "Agregar usuarios")
    
-   a. En la lista **Choose a Group** (Elija un grupo), seleccione un grupo.
+    a. En la lista **Choose a Group** (Elija un grupo), seleccione un grupo.
    
    b. En la lista **Tipo de usuario** , seleccione un tipo.
    

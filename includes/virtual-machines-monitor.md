@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242365"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404692"
 ---
 Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) y [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -60,13 +60,11 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 
 - [Guardarlos en una cuenta de almacenamiento](../articles/azure-monitor/platform/archive-diagnostic-logs.md) para auditarlos o para inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante Configuración de diagnóstico de recursos.
 - [Transmitirlos a Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
-- Analizarlos con [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
+- Analizarlos con [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) proporciona funcionalidades de corrección, supervisión y envío de alertas a todos los recursos locales y en la nube. Puede instalar una extensión en una [máquina virtual Linux](../articles/virtual-machines/linux/extensions-oms.md) o [Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala el agente OMS e inscribir la máquina virtual en un área de trabajo OMS existente.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) es un servicio de Operations Management Suite (OMS) que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) es un servicio que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes. Puede instalar una extensión en una [máquina virtual Linux](../articles/virtual-machines/linux/extensions-oms.md) o [Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala el agente de Log Analytics e inscribe la máquina virtual en un área de trabajo de Log Analytics existente.
 
     En máquinas virtuales Windows y Linux, para recopilar registros y métricas se recomienda instalar el agente de Log Analytics. Para instalar al agente de Log Analytics en una máquina virtual, lo más sencillo es utilizar la [extensión de VM de Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). El uso de una extensión simplifica el proceso de instalación y configura automáticamente el agente para enviar datos al área de trabajo de Log Analytics que especifique. El agente también se actualiza automáticamente, garantizando así que disponga de las características y correcciones más recientes.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Sincronización de Azure AD Connect: descripción de la configuración predeterminada | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Introducción a la configuración predeterminada | Microsoft Docs'
 description: En este artículo se describe la configuración predeterminada de sincronización de Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308754"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478576"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: descripción de la configuración predeterminada
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
 
 Para entender los detalles del modelo de configuración, consulte el artículo de información sobre el [aprovisionamiento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md).
@@ -51,7 +51,7 @@ Los siguientes objetos de usuario **no** se sincronizan con Azure AD:
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * No sincronice los objetos que no vayan a funcionar en Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  Esta máscara de bits (&amp; H21C07000) filtraría los objetos siguientes:
+   Esta máscara de bits (& H21C07000) filtraría los objetos siguientes:
   * Carpeta pública habilitada para correo (en versión preliminar a partir de la versión 1.1.524.0)
   * Buzón del operador del sistema
   * Buzón de la base de datos de buzones (buzón del sistema)
@@ -94,7 +94,7 @@ Un objeto de grupo debe cumplir los siguientes requisitos para sincronizarse:
 * Debe tener menos de 50.000 miembros. Estos se cuentan como el número de miembros del grupo local.
   * Si tiene más miembros antes de que la sincronización se inicie por primera vez, el grupo no se sincronizará.
   * Si el número de miembros crece desde que se creara inicialmente, cuando alcance los 50 000 dejará de sincronizarse hasta que la cifra sea de nuevo inferior a 50 000.
-  * Nota: Azure AD también aplicará el número de miembros de 50.000. No podrá sincronizar los grupos con más miembros, aunque modifique o elimine esta regla.
+  * Nota: Azure AD también aplicará el número de miembros de 50 000. No podrá sincronizar los grupos con más miembros, aunque modifique o elimine esta regla.
 * Si el grupo es un **grupo de distribución**, también estar habilitado para correo. Consulte [Reglas integradas de contacto](#contact-out-of-box-rules) para aplicar esta regla.
 
 Los siguientes objetos de grupo **no** se sincronizan con Azure AD:
@@ -145,7 +145,7 @@ Puesto que se trata de una regla integrada, vamos a ver una advertencia al abrir
 
 ![Advertencia del Editor de reglas de sincronización](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-Una regla de sincronización tiene cuatro secciones de configuración: Descripción, Filtro de ámbito, Reglas de unión y Transformaciones.
+Una regla de sincronización tiene cuatro secciones de configuración: descripción, filtro de ámbito, reglas de unión y transformaciones.
 
 #### <a name="description"></a>DESCRIPCIÓN
 La primera sección proporciona información básica como el nombre y la descripción.
@@ -187,7 +187,7 @@ La sección sobre las transformaciones define todos los flujos de atributo que s
 
 Para ponerlo en contexto, en una implementación de bosque cuenta-recurso esperamos encontrar una cuenta habilitada en el bosque de cuenta y una deshabilitada en el bosque de recurso con la configuración de Exchange y Lync. La regla de sincronización que estamos examinando contiene los atributos necesarios para el inicio de sesión y queremos que fluyan desde el bosque en el que hemos encontrado una cuenta habilitada. Todos estos flujos de atributo se combinan en una regla de sincronización.
 
-Una transformación puede tener tipos diferentes: Constante, Directa y Expresión.
+Una transformación puede tener tipos diferentes: constante, directo y expresión.
 
 * En un flujo de tipo constante siempre fluirá un valor codificado. En el caso anterior, se establece siempre el valor **True** en el atributo del metaverso llamado **accountEnabled**.
 * En un flujo de tipo directo fluirá el valor del atributo del origen hacia el atributo de destino.

@@ -8,21 +8,21 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1474bf13a6d364fcbd90adee09a1a60bcafc2ccb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985284"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438565"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obtención de soporte para colaboración B2B
 
 ¿Ha leído la documentación, lo ha hecho todo correctamente, y aun así no consigue que algo funcione? Abra una incidencia de soporte técnico (requiere un plan de soporte técnico):
 
 1. En [Azure portal](https://portal.azure.com), vaya a la hoja Ayuda y soporte técnico y seleccione Nueva solicitud de soporte:
-  - Tipo de problema: Técnico
+  - Tipo de problema: Requisitos previos técnicos
   - Suscripción: elija la suscripción afectada
     - Servicio: Active Directory
     - Plan de soporte técnico: elija el plan de soporte técnico pertinente

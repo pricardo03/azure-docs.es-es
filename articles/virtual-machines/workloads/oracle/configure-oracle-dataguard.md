@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495070"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855829"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementación de Oracle Data Guard en una máquina virtual Linux en Azure 
 
@@ -40,7 +40,7 @@ La imagen de Marketplace que se usa para crear las máquinas virtuales es Oracle
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/reference-index#az_login) y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/reference-index) y siga las instrucciones de la pantalla.
 
 ```azurecli
 az login
@@ -48,7 +48,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westus`:
 
@@ -688,6 +688,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial de creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
+[Tutorial: Creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
 
 [Ejemplos de la CLI de Azure para implementación de máquinas virtuales](../../linux/cli-samples.md)

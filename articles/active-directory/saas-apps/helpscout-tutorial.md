@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0bbdf576c38207349bb45e7b54f3ffc85ecf3d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 367967358d55eda40603b71893333080d7faa81a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449441"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816267"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integración de Azure Active Directory con Help Scout
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integración de Azure Active Directory con Help Scout
 
 En este tutorial, obtendrá información sobre cómo integrar Help Scout con Azure Active Directory (Azure AD).
 
@@ -107,7 +107,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Help Scout](./media/helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. **Identificador** es la opción **"Audience URI (Service Provider Entity ID)"** [URI de audiencia (Identificador de entidad del proveedor de servicios)] de Help Scout y empieza por `urn:`
+     a. **Identificador** es la opción **"Audience URI (Service Provider Entity ID)"** [URI de audiencia (Identificador de entidad del proveedor de servicios)] de Help Scout y empieza por `urn:`
 
     b. **URL de respuesta** es la opción **"Post-back URL (Assertion Consumer Service URL)"** [URL de devolución (URL del Servicio de consumidor de aserciones)] de Help Scout y empieza por `https://` 
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings3.png) 
  
-    a. Copie el valor de **Post-back URL (Assertion Consumer Service URL)** [URL de devolución (URL del Servicio de consumidor de aserciones)] y péguelo en el cuadro **URL de respuesta** en Azure Portal, en la sección **Dominio y direcciones URL** de Help Scout.
+     a. Copie el valor de **Post-back URL (Assertion Consumer Service URL)** [URL de devolución (URL del Servicio de consumidor de aserciones)] y péguelo en el cuadro **URL de respuesta** en Azure Portal, en la sección **Dominio y direcciones URL** de Help Scout.
     
     b. Copie el valor de **Audience URI (Service Provider Entity ID)** [URI de audiencia (Identificador de entidad del proveedor de servicios)] y péguelo en el cuadro **Identificador** en Azure Portal, en la sección **Dominio y direcciones URL** de Help Scout.
 
@@ -155,7 +155,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings4.png) 
  
-    a. En el cuadro de texto **Single Sign-On URL** (Dirección URL de inicio de sesión único), pegue el valor de **Dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
+     a. En el cuadro de texto **Single Sign-On URL** (Dirección URL de inicio de sesión único), pegue el valor de la  **Dirección URL del servicio de inicio de sesión único** que copió de Azure Portal.
     
     b. Haga clic en **Upload Certificate** (Cargar certificado) para cargar el **Certificado (Base64)** que descargó de Azure Portal.
 
@@ -166,7 +166,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     e. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -192,7 +192,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/helpscout-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -241,7 +241,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Help Scout en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Help Scout.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

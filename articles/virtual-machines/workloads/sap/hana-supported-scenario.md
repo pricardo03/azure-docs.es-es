@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576500"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855462"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Escenarios admitidos para instancias grandes de HANA
 En este documento se describen los escenarios admitidos junto con sus detalles de arquitectura para instancias grandes de HANA (HLI).
@@ -32,11 +32,11 @@ Antes de continuar con el aprovisionamiento de unidades HLI, valide el diseño c
 Vamos a describir los términos y definiciones usados en el documento.
 
 - SID: identificador del sistema para sistemas HANA.
-- HLI: instancias grandes de HANA.
+- HLI: Instancias grandes de HANA.
 - Recuperación ante desastres: sitio de recuperación ante desastres.
 - Recuperación ante desastres normal: una configuración del sistema con un recurso dedicado usado únicamente con fines de recuperación ante desastres.
-- Recuperación ante desastres multipropósito: un sistema en el sitio de recuperación ante desastres configurado para usar un entorno que no es de producción junto con una instancia de producción configurada para usar con el evento de recuperación ante desastres. 
-- SID único: un sistema con una instancia instalada.
+- Recuperación ante desastres multipropósito: un sistema en el sitio de recuperación ante desastres configurado para usar un entorno que no es de producción junto con una instancia de producción configurada para usarse con el evento de recuperación ante desastres. 
+- SID único:  un sistema con una instancia instalada.
 - Varios SID: un sistema con varias instancias configuradas. También se conoce como entorno MCOS.
 
 
@@ -56,7 +56,7 @@ En este documento se describen los detalles de los dos componentes de cada arqui
 
 Cada servidor aprovisionado viene preconfigurado con los conjuntos de interfaces Ethernet. Estos son los detalles de las interfaces Ethernet configuradas en cada unidad HLI.
 
-- **A**: esta interfaz se usa en el acceso del cliente.
+- **R.**: esta interfaz se usa en el acceso del cliente.
 - **B**: esta interfaz se usa para la comunicación nodo a nodo. Esta interfaz es común a todos los servidores (sin importar la topología solicitada), pero solo se usa en los 
 - escenarios de escalabilidad horizontal.
 - **C**: esta interfaz se usa para la conectividad del nodo con el almacenamiento.
@@ -235,9 +235,9 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En MCOS: la distribución de tamaño del volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
+- En MCOS: La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 - En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
 
@@ -284,9 +284,9 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En MCOS: la distribución de tamaño del volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
+- En MCOS: La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 - En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
 - En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
@@ -335,7 +335,7 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En MCOS: la distribución de tamaño del volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
+- En MCOS: La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 - STONITH: se configura un SBD para la configuración de STONITH. Sin embargo, un uso de STONITH es opcional.
 
 
@@ -391,11 +391,11 @@ Los puntos de montaje siguientes están preconfigurados:
 
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
-- En MCOS: la distribución de tamaño del volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
+- En MCOS: La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 - STONITH: se configura un SBD para la configuración de STONITH. Sin embargo, un uso de STONITH es opcional.
 - En la recuperación ante desastres: **se necesitan dos conjuntos de volúmenes de almacenamiento** para la replicación de nodo principal y secundaria.
 - En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
 - En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
@@ -559,7 +559,7 @@ Los puntos de montaje siguientes están preconfigurados:
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
 -  En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
-- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
 

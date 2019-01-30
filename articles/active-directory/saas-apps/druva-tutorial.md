@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 985304244acdfafa4fa99dbbe876f35b3e6c58b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24f0a74f5abb625ba7350c2bd3a500fc2f296575
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439368"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: Integración de Azure Active Directory con Druva
 
@@ -132,7 +132,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | ------------------- | -------------------- |
     | insync\_auth\_token |Escriba el valor del token generado |
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
     
     ![Configurar inicio de sesión único](./media/druva-tutorial/tutorial_attribute_04.png)
     
@@ -162,7 +162,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de inicio de sesión único](./media/druva-tutorial/ic795092.png "Configuración de inicio de sesión único")
     
-    a. En el cuadro de texto **ID Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **Dirección URL del servicio de inicio de sesión único** que copió de Azure Portal.
+     a. En el cuadro de texto **ID Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **Dirección URL del servicio de inicio de sesión único** que copió de Azure Portal.
         
     b. En el cuadro de texto **ID Provider Logout URL** (Dirección URL de cierre de sesión del proveedor de identidades), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
         
@@ -178,12 +178,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Token de SSO](./media/druva-tutorial/ic795094.png "Token de SSO")
     
-    a. Haga clic en **Copiar**, pegue el valor copiado en el cuadro de texto **Valor** en la sección **Agregar atributo** de Azure Portal.
+     a. Haga clic en **Copiar**, pegue el valor copiado en el cuadro de texto **Valor** en la sección **Agregar atributo** de Azure Portal.
     
     b. Haga clic en **Cerrar**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -210,7 +210,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/druva-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -238,7 +238,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Druva, tiene que a
    
    ![Creación de un nuevo usuario](./media/druva-tutorial/ic795099.png "Creación de un nuevo usuario")
    
-   a. En el cuadro de texto **Email address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, **brittasimon@contoso.com**.
+    a. En el cuadro de texto **Email address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, **brittasimon@contoso.com**.
    
    b. En el cuadro de texto **Name** (Nombre), escriba el nombre de usuario, por ejemplo, **BrittaSimon**.
    
@@ -282,7 +282,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Druva en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Druva.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

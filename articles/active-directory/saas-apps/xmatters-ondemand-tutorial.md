@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1086343f165ad61b2e4fe91b5d52996722a33646
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160241"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integración de Azure Active Directory con xMatters OnDemand
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -157,7 +157,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuración de SAML")
 
-    a. Seleccione **Habilitar SAML**.
+     a. Seleccione **Habilitar SAML**.
 
     b. En el cuadro de texto **Identity Provider ID** (Identificador del proveedor de identidad), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
 
@@ -192,7 +192,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -216,7 +216,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Agregar un usuario](./media/xmatters-ondemand-tutorial/IC781049.png "Agregar un usuario")
 
-    a. Seleccione **Active**(Activo).
+     a. Seleccione **Active**(Activo).
 
     b. En el cuadro de texto **User ID** (Identificador de usuario), escriba el identificador de usuario, en este caso, Brittasimon@contoso.com.
 

@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627158"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854792"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -46,7 +46,7 @@ Se puede acceder a los sistemas implementados a través de Microsoft Translator 
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>¿Cómo omito la alineación y la separación de oraciones si mis datos ya están alineados por oración?
 
-Custom Translator omite la alineación de oraciones y la separación de oraciones en los archivos TMX y en los archivos de texto con la extensión `.align`. Los archivos `.align` proporcionan a los usuarios una alternativa al proceso de alineación y separación de oraciones de Custom Translator para los archivos que están perfectamente alineados y no necesitan de ningún procesamiento adicional. Se recomienda usar la extensión `.align` solo para los archivos que estén perfectamente alineados.
+Custom Translator omite la alineación de oraciones y la separación de oraciones en los archivos TMX y en los archivos de texto con la extensión `.align`. Los archivos `.align` proporcionan a los usuarios una alternativa para omitir el proceso de alineación y separación de oraciones de Traductor personalizado para los archivos que están perfectamente alineados y no necesitan de ningún procesamiento adicional. Se recomienda usar la extensión `.align` solo para los archivos que estén perfectamente alineados.
 
 Si el número de oraciones extraídas no coincide con los dos archivos del mismo nombre base, Custom Translator ejecutará el proceso de alineación de oraciones en los archivos `.align` de todos modos.
 

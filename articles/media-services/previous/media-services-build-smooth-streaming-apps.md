@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232692"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828322"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming
 
@@ -142,7 +142,7 @@ Después de agregar las referencias, debe seleccionar la plataforma de destino (
    Se usa el control MediaElement para reproducir contenido multimedia. En la lección siguiente se usará el control deslizante llamado sliderProgress para controlar el progreso multimedia.
 3. Presione **CTRL+S** para guardar el archivo.
 
-El control MediaElement no admite contenido Smooth Streaming directamente. Para habilitar la compatibilidad con Smooth Streaming, debe registrar el controlador de esquema de bytes de Smooth Streaming por la extensión del nombre del archivo y el tipo MIME.  Para el registro, debe usar el método MediaExtensionManager.RegisterByteStremHandler del espacio de nombres Windows.Media.
+El control MediaElement no admite contenido Smooth Streaming directamente. Para habilitar la compatibilidad con Smooth Streaming, debe registrar el controlador de esquema de bytes de Smooth Streaming por la extensión del nombre del archivo y el tipo MIME.  Para el registro, debe usar el método MediaExtensionManager.RegisterByteStreamHandler del espacio de nombres Windows.Media.
 
 En este archivo XAML, algunos controladores de eventos están asociados a los controles.  Debe definir dichos controladores de eventos.
 

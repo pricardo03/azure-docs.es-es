@@ -3,23 +3,23 @@ title: Azure Service Bus con .NET y AMQP 1.0 | Microsoft Docs
 description: Uso de Azure Service Bus desde .NET con AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
-ms.author: spelluru
-ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702245"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853211"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
 
@@ -76,7 +76,7 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | double |double |Valor de AMQP |
 | decimal |decimal128 |Valor de AMQP |
 | char |char |Valor de AMQP |
-| Datetime |timestamp |Valor de AMQP |
+| Datetime | timestamp |Valor de AMQP |
 | Guid |uuid |Valor de AMQP |
 | byte[] |binary |Valor de AMQP |
 | string |string |Valor de AMQP |

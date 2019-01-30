@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect: Solucionar problemas de autenticación de paso a través | Documentos de Microsoft'
+title: 'Azure AD Connect: Solución de problemas de autenticación de paso a través | Microsoft Docs'
 description: En este artículo se describe cómo solucionar problemas de autenticación de paso a través de Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Solucionar problemas de autenticación de paso a través de Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686201"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472779"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
@@ -66,7 +66,7 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80002 | El tiempo de espera se agotó para la solicitud de validación de contraseña del agente de autenticación. | Compruebe si Active Directory es accesible desde el agente de autenticación.
 | 80003 | El agente de autenticación recibió una respuesta no válida. | Si el problema puede reproducirse habitualmente a través de varios usuarios, compruebe la configuración de Active Directory.
 | 80004 | Se usó un nombre principal de usuario (UPN) incorrecto en una solicitud de inicio de sesión. | Pida al usuario que inicie sesión con el nombre de usuario correcto.
-| 80005 | Error del agente de autenticación. | Se trata de un error transitorio. Inténtelo de nuevo más tarde.
+| 80005 | Agente de autenticación: Se ha producido un error. | Se trata de un error transitorio. Inténtelo de nuevo más tarde.
 | 80007 | El agente de autenticación no puede conectarse a Active Directory. | Compruebe si Active Directory es accesible desde el agente de autenticación.
 | 80010 | El agente de autenticación no puede descifrar la contraseña. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual. 
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
@@ -95,7 +95,7 @@ Asegúrese de que usa una cuenta de administrador global solo en la nube para to
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Mensaje de advertencia al desinstalar Azure AD Connect
 
-Si la característica Autenticación de paso a través está habilitada en su inquilino e intenta desinstalar Azure AD Connect, aparece el siguiente mensaje de advertencia: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers" (Los usuarios no podrán iniciar sesión en Azure AD, a menos que tenga otros agentes de autenticación de paso a través instalados en otros servidores).
+Si tiene habilitada la autenticación de paso a través en el inquilino y trata de desinstalar Azure AD Connect, se muestra el siguiente mensaje de advertencia: "Los usuarios no podrán iniciar sesión en Azure AD a menos que tenga otros agentes de autenticación de paso a través instalados en otros servidores".
 
 Para no interrumpir el inicio de sesión del usuario, es preciso tener una instalación de [alta disponibilidad](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) en vigor antes de desinstalar Azure AD Connect.
 
@@ -137,7 +137,7 @@ Para solucionar errores de inicio de sesión de losusuarios, busque los registro
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Para obtener una descripción detallada del error ('1328' en el ejemplo anterior), abra el símbolo del sistema y ejecute el siguiente comando (Nota: sustituya '1328' por el número de error real que vea en sus registros):
+Para obtener detalles descriptivos del error ("1328" en el ejemplo anterior), abra el símbolo del sistema y ejecute el siguiente comando (Nota: Reemplace '1328' por el número de error real que ve en los registros):
 
 `Net helpmsg 1328`
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: protección de identidad, acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822153"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468495"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Inicio rápido: bloquear el acceso cuando se detecta riesgo en una sesión con Azure Active Directory Identity Protection  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Inicio rápido: Bloqueo del acceso cuando se detecta riesgo en una sesión con Azure Active Directory Identity Protection  
 
 Para mantener el entorno protegido, puede bloquear el inicio de sesión de los usuarios sospechosos. Azure Active Directory (Azure AD) Identity Protection analiza todos los inicios de sesión y calcula la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya sido el que haya realizado un intento de inicio de sesión. Dicha probabilidad (baja, media, alta) se indica en forma de un valor calculado, que se denomina nivel de riesgo de inicio de sesión. Al establecer la condición de riesgo del inicio de sesión, puede configurar una directiva de acceso condicional por riesgo de inicio de sesión que responda a niveles de riesgo de inicio de sesión concretos. 
 

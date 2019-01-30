@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a161d2223dacb618f1e2eeb6443fffae18cc7259
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354884"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389076"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implementación de Kubernetes en Azure Stack con los Servicios de federación de Active Directory
 
@@ -48,7 +48,7 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
 Deberá trabajar con el administrador de Azure Stack para que configure la entidad de servicio cuando se use AD FS como solución de identidad. La entidad de servicio permite que la aplicación acceda a los recursos de Azure Stack.
 
-1. El administrador de Azure Stack le proporciona un certificado y la información de la entidad de servicio. Dicha información debe verse así:
+1. El administrador de Azure Stack le proporciona un certificado e información de la entidad de servicio. Dicha información debe verse así:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

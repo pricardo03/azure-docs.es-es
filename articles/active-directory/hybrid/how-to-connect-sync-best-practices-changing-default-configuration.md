@@ -1,10 +1,10 @@
 ---
-title: 'Sincronización de Azure AD Connect: cambio de la configuración predeterminada | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Cambio de la configuración predeterminada | Microsoft Docs'
 description: Proporciona procedimientos recomendados para cambiar la configuración predeterminada de Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad19916dc49c2bee870eef77611d120cc66b44cd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f071d97df6932bec5ae4161511ba33369cc1828c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306244"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461184"
 ---
-# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronización de Azure AD Connect: Procedimientos recomendados de cambio de la configuración predeterminada
 El propósito de este tema es describir los cambios admitidos y no admitidos en la sincronización de Azure AD Connect.
 
 La configuración creada por Azure AD Connect funciona "tal cual" para la mayoría de entornos que sincronizan Active Directory local con Azure AD. Sin embargo, en algunos casos, es necesario aplicar algunos cambios a una configuración para satisfacer un requisito o una necesidad en particular.

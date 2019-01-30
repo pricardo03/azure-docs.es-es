@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f7946ece91013696969dafda17b02c972f4b780
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 869deb1b68d30041b6780151a5712099982bd9b7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230410"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807956"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: Integración de Azure Active Directory con Weekdone
 
@@ -33,7 +33,7 @@ La integración de Weekdone con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Weekdone, necesita los siguientes elementos:
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://weekdone.com/a/<tenant>/metadata`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://weekdone.com/a/<tenant>/metadata`
 
     > [!NOTE]
     > El archivo de metadatos de Weekdone puede obtenerse utilizando la misma dirección URL.
@@ -163,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/weekdone-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

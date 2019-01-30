@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434001"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integración de Azure Active Directory con vxMaintain
 
@@ -106,7 +106,7 @@ En esta sección, puede habilitar el inicio de sesión único de Azure AD en Azu
 
     ![Sección Dominio y direcciones URL de vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL que tenga la siguiente sintaxis: `https://<company name>.verisae.com`.
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL que tenga la siguiente sintaxis: `https://<company name>.verisae.com`.
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL que tenga la siguiente sintaxis: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
@@ -151,7 +151,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
  
     ![Cuadro de diálogo Usuario](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario de prueba Britta Simon.
 
@@ -161,7 +161,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
  
 ### <a name="create-a-vxmaintain-test-user"></a>Creación de un usuario de prueba de vxMaintain
 
-En esta sección, creará una usuaria de prueba llamada Britta Simon en vxMaintain. Trabaje con el [equipo de soporte técnico de vxMaintain](https://www.hubspot.com/company/contact) para agregar usuarios a la plataforma de vxMaintain. Antes de usar el inicio de sesión único, cree y active los usuarios.
+En esta sección, creará una usuaria de prueba llamada Britta Simon en vxMaintain. Trabaje con el [equipo de soporte técnico de vxMaintain](https://www.hubspot.com/company/contact) para agregar usuarios a la plataforma de vxMaintain. Antes de usar el inicio de sesión único, cree y active los usuarios.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

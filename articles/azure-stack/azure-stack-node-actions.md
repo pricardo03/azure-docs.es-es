@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302687"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469209"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
@@ -148,10 +148,26 @@ Al ejecutar la acción de reparación, debe especificar la dirección IP de BMC.
 
 Para reanudar la acción de reparación, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Shutdown
+
+La acción de **apagado** mueve primero todas las cargas de trabajo activas a los nodos restantes de la misma unidad de escalado. Después, la acción cierra discretamente el nodo de unidad de escalado.
+
+Después de iniciar un nodo que se ha apagado, deberá ejecutar la acción de [reanudación](#resume). Las cargas de trabajo anteriores que se estuvieran ejecutando en el nodo no conmutan por recuperación.
+
+Si se produce un error en la operación de apagado, intente la operación de [purgado](#drain) seguida de la operación de apagado.
+
+Para ejecutar la acción de apagado, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el módulo de administrador Fabric de Azure Stack, consulte [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0).
+Para más información sobre el módulo de administrador Fabric de Azure Stack, consulte [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

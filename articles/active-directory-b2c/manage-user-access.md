@@ -3,19 +3,19 @@ title: Administración del acceso de usuarios en Azure Active Directory B2C | Mi
 description: Aprenda a identificar a los menores, recopilar datos sobre la fecha y el país de nacimiento y a obtener la aceptación de los términos de uso de la aplicación mediante el uso de Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142955"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852038"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Si se identifica a un usuario como un menor, puede establecer el flujo de usuari
 
 - **Enviar un token JSON sin firmar a la aplicación**: Azure AD B2C notifica a la aplicación que el usuario es un menor y proporciona el estado del consentimiento parental del usuario. A continuación, la aplicación empieza a aplicar reglas de negocio. Un token JSON no completa una autenticación correcta con la aplicación. La aplicación debe procesar al usuario no autenticado según las notificaciones incluidas en el token JSON, entre las cuales puede que se incluyan **name**, **email**, **ageGroup** y **consentProvidedForMinor**.
 
-- **Bloquear al usuario**: si un usuario es menor y no se ha proporcionado el consentimiento parental, Azure AD B2C puede notificar al usuario que está bloqueado. No se emite ningún token, el acceso está bloqueado y no se crea la cuenta de usuario durante una operación de registro. Para implementar esta notificación, puede proporcionar una página de contenido HTML/CSS adecuada para informar al usuario y ofrecer las opciones apropiadas. La aplicación no necesita ninguna otra acción adicional para los nuevos registros.
+- **Bloquear al usuario**: si un usuario es menor de edad y no se ha proporcionado el consentimiento parental, Azure AD B2C puede notificar al usuario que está bloqueado. No se emite ningún token, el acceso está bloqueado y no se crea la cuenta de usuario durante una operación de registro. Para implementar esta notificación, puede proporcionar una página de contenido HTML/CSS adecuada para informar al usuario y ofrecer las opciones apropiadas. La aplicación no necesita ninguna otra acción adicional para los nuevos registros.
 
 ## <a name="get-parental-consent"></a>Obtención del consentimiento de los padres
 
@@ -56,7 +56,7 @@ El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento 
 
 5. Si el menor o el adulto revoca el consentimiento, se puede usar Azure AD Graph API para cambiar **consentProvidedForMinor** a **denegado**. Alternativamente, la aplicación puede elegir eliminar a un menor cuyo consentimiento se haya revocado. Opcionalmente, es posible personalizar el flujo de usuario de modo que el menor autenticado (o el padre que usa la cuenta del menor) pueda revocar el consentimiento. Azure AD B2C registra **consentProvidedForMinor** como **denegado**.
 
-Para más información sobre **legalAgeGroupClassification**, **consentProvidedForMinor** y **ageGroup**, consulte el artículo [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user) (Tipo de recurso del usuario). Para más información acerca de los atributos personalizados, consulte [Uso de atributos personalizados para recopilar información sobre los consumidores](active-directory-b2c-reference-custom-attr.md). Al dirigirse a atributos extendidos mediante Azure AD Graph API, se debe usar la versión extendida del atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Para más información sobre **legalAgeGroupClassification**, **consentProvidedForMinor** y **ageGroup**, consulte el artículo [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user) (Tipo de recurso del usuario). Para más información acerca de los atributos personalizados, consulte [Uso de atributos personalizados para recopilar información sobre los consumidores](active-directory-b2c-reference-custom-attr.md). Al dirigirse a atributos extendidos mediante la Graph API de Azure AD, se debe usar la versión extendida del atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Recopilación de datos sobre la fecha y el país de nacimiento
 
@@ -70,7 +70,7 @@ Los pasos siguientes muestran la lógica que se usa para calcular **ageGroup** a
 
 2. Si el nodo **MinorConsent** existe en el elemento de país:
 
-    a. Calcule la fecha en la que el usuario debe haber nacido para que se considere un adulto. Por ejemplo, si la fecha actual es 14 de marzo de 2015, y **MinorConsent** es 18, la fecha de nacimiento no debe ser posterior al 14 de marzo de 2000.
+     a. Calcule la fecha en la que el usuario debe haber nacido para que se considere un adulto. Por ejemplo, si la fecha actual es 14 de marzo de 2015, y **MinorConsent** es 18, la fecha de nacimiento no debe ser posterior al 14 de marzo de 2000.
 
     b. Compare la fecha de nacimiento mínima con la fecha de nacimiento real. Si la fecha de nacimiento mínima es anterior a la fecha de nacimiento del usuario, el cálculo devuelve **Menor** como grupo de edad.
 

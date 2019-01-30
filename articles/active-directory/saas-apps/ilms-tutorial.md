@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e67e97a68ca333dff366dd5e0222c96a1022557
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a533c4428169a219b131247a044632e614868e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425279"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutorial: Integración de Azure Active Directory con iLMS
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_url.png)
 
-    a. En el cuadro de texto **Identificador**, pegue el valor del **identificador** que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS.
+     a. En el cuadro de texto **Identificador**, pegue el valor del **identificador** que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS.
 
     b. En el cuadro de texto **URL de respuesta**, pegue el valor de **Endpoint (URL)** (Punto de conexión [URL]) que ha copiado de la sección **Proveedor de servicios** de la configuración de SAML en el portal de administración de iLMS, que tiene el siguiente patrón `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`.
 
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | region | user.state |
     | department | user.jobtitle |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/ilms-tutorial/tutorial_ilms_04.png)
 
@@ -168,7 +168,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar inicio de sesión único](./media/ilms-tutorial/1.png) 
 
-    a. Expanda la sección **Service Provider** (Proveedor de servicios) y copie los valores **Identifier** (Identificador) y **Endpoint (URL)** (Punto de conexión [URL]).
+     a. Expanda la sección **Service Provider** (Proveedor de servicios) y copie los valores **Identifier** (Identificador) y **Endpoint (URL)** (Punto de conexión [URL]).
 
     ![Configurar inicio de sesión único](./media/ilms-tutorial/2.png) 
 
@@ -203,7 +203,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/ilms-tutorial/save.png)
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
     
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -228,7 +228,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/ilms-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -252,7 +252,7 @@ Si debe crear un usuario manualmente, siga estos pasos:
 
     ![Agregar empleado](./media/ilms-tutorial/create_testuser_add.png)
 
-    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre Britta.
+     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre Britta.
    
     b. En el cuadro de texto **Last Name** (Apellido), escriba el apellido Simon.
 

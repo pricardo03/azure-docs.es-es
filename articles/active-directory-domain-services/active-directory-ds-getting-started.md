@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: introducción | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Introducción | Microsoft Docs'
 description: Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155089"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850423"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 En este artículo se muestra cómo habilitar Azure Active Directory Domain Services (Azure AD DS) mediante Azure Portal.
@@ -61,11 +61,11 @@ En la página **Conceptos básicos** del asistente, especifique el nombre de dom
 
    > [!NOTE]
    > **Directrices para seleccionar un nombre de dominio DNS**
-   > * **Nombre de dominio integrado:** de forma predeterminada, el asistente especifica el nombre de dominio predeterminado/integrado del directorio (con un sufijo **. onmicrosoft.com**). Si decide habilitar el acceso LDAP seguro en el dominio administrado a través de Internet, cuente con que tendrá problemas para crear un registro DNS público o para obtener un certificado LDAP seguro de una entidad de certificación pública para este nombre de dominio. Microsoft tiene la propiedad del dominio *. onmicrosoft.com* y las entidades de certificación no emitirán certificados que den fe de este dominio.
-   * **Nombres de dominio personalizados:** también puede escribir un nombre de dominio personalizado. En este ejemplo, el nombre de dominio personalizado es *contoso100.com*.
+   > * **Nombre de dominio integrado:** de forma predeterminada, el asistente especifica el nombre de dominio predeterminado o integrado del directorio (con un sufijo **. onmicrosoft.com**). Si decide habilitar el acceso LDAP seguro en el dominio administrado a través de Internet, cuente con que tendrá problemas para crear un registro DNS público o para obtener un certificado LDAP seguro de una entidad de certificación pública para este nombre de dominio. Microsoft tiene la propiedad del dominio *. onmicrosoft.com* y las entidades de certificación no emitirán certificados que den fe de este dominio.
+   * **Nombres de dominio personalizados:** También puede escribir un nombre de dominio personalizado. En este ejemplo, el nombre de dominio personalizado es *contoso100.com*.
    * **Sufijos de dominio no enrutables:** en general, se recomienda evitar un sufijo de nombre de dominio no enrutable. Por ejemplo, es mejor evitar la creación de un dominio con el nombre de dominio DNS "contoso.local". El sufijo DNS ".local" no es enrutable y puede causar problemas con la resolución DNS.
-   * **Restricciones en el prefijo de dominio:** el prefijo del nombre de dominio especificado (por ejemplo, *contoso100* en el nombre de dominio *contoso100.com*) tiene que contener un máximo de 15 caracteres. No puede crear un dominio administrado con un prefijo de más de 15 caracteres.
-   * **Conflictos de nombre en la red:** asegúrese de que el nombre de dominio DNS que ha elegido para el dominio administrado no existe ya en la red virtual. En concreto, compruebe si:
+   * **Restricciones de prefijo de dominio:** El prefijo del nombre de dominio especificado (por ejemplo, *contoso100* en el nombre de dominio *contoso100.com*) debe contener 15 caracteres o menos. No puede crear un dominio administrado con un prefijo de más de 15 caracteres.
+   * **Conflictos de nombres de red:** Asegúrese de que el nombre de dominio DNS que ha elegido para el dominio administrado no existe ya en la red virtual. En concreto, compruebe si:
        * Ya tiene un dominio de Active Directory con el mismo nombre de dominio DNS en la red virtual.
        * La red virtual en la que planea habilitar el dominio administrado tiene una conexión VPN con la red local. En este escenario, asegúrese de que no tiene un dominio con el mismo nombre de dominio DNS de la red local.
        * Si ya dispone de un servicio en la nube con ese nombre en la red virtual.

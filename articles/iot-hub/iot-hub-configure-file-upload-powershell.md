@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: b99874ce87c6e161fcd62ec871c6aee277ec946e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232303"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425618"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
 
@@ -24,7 +24,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* [Cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* [Cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Un centro de Azure IoT. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) para crear uno o usar el portal para [crear un centro de IoT](iot-hub-create-through-portal.md).
 
@@ -96,15 +96,15 @@ Ahora puede configurar el centro de IoT para [cargar archivos en el centro de Io
 
 La configuración requiere los siguientes valores:
 
-* **Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de Azure Storage en la suscripción actual para asociar con IoT Hub. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
+* **Contenedor de almacenamiento**: un contenedor de blobs en una cuenta de Azure Storage en la suscripción actual para asociar con IoT Hub. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
-* **Receive notifications for uploaded files** (Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos.
+* **Recibir notificaciones de archivos cargados**: habilite o deshabilite las notificaciones de carga de archivos.
 
-* **SAS TTL**(TTL SAS): este valor es el periodo de vida de los URI de SAS que IoT Hub devuelve al dispositivo. De forma predeterminada, está establecido en una hora.
+* **SAS TTL**(TTL SAS): este valor es el periodo de vida de los URI de SAS que Azure IoT Hub devuelve al dispositivo. De forma predeterminada, está establecido en una hora.
 
 * **File notification settings default TTL**(TTL predeterminado de configuración de notificación de archivos): el periodo de vida de una notificación de carga de archivos antes de que caduque. De forma predeterminada, está establecido en un día.
 
-* **File notification maximum delivery count**(Número máximo de entregas de notificaciones de archivo): el número de veces que IoT Hub tratará de entregar una notificación de carga de archivos. De forma predeterminada, está establecido en 10.
+* **File notification maximum delivery count**(Número máximo de entregas de notificaciones de archivo): el número de veces que Azure IoT Hub tratará de entregar una notificación de carga de archivos. De forma predeterminada, está establecido en 10.
 
 Use el siguiente cmdlet de PowerShell para configurar la carga de archivos en su centro de IoT:
 

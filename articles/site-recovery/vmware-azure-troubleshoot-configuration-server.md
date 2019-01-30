@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050802"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435981"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -58,6 +58,16 @@ La máquina de origen se registra con el servidor de configuración al instalar 
 
 Este error se produce cuando el servicio no puede leer los datos de la conexión de transporte al instalar el agente de movilidad y registrarse con el servidor de configuración. Para resolver el problema, asegúrese de que TLS 1.0 esté habilitado en su máquina de origen.
 
+## <a name="vcenter-discovery-failures"></a>Errores de detección de vCenter
+
+Con el fin de resolver los errores de detección de vCenter, asegúrese de que ese servidor de vCenter se agrega a la configuración de proxy de la lista byPass. Para realizar esta actividad,
+
+- Descargue la herramienta PsExec desde [aquí](https://aka.ms/PsExec) para acceder al contenido de usuario del sistema.
+- Abra Internet Explorer en el contenido de usuario del sistema mediante la ejecución de la siguiente línea de comandos: psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Agregue la configuración de proxy en Internet Explorer y reinicie el servicio tmanssvc.
+- Para editar la configuración del proxy DRA, ejecute cd C:\Archivos de programa\Microsoft Azure Site Recovery Provider
+- A continuación, ejecute DRCONFIGURATOR. EXE /configure /AddBypassUrls [Agregue la dirección IP/FQDN de vCenter Server que se proporcionó durante el paso **Configurar vCenter Server o vSphere ESXi Server** durante la [implementación del servidor de configuración](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Cambie la dirección IP del servidor de configuración
 
 Recomendamos encarecidamente no cambiar la dirección IP de un servidor de configuración. Asegúrese de que todas las direcciones IP que se asignan al servidor de configuración sean direcciones IP estáticas. No use direcciones IP DHCP.
@@ -70,7 +80,7 @@ Para evitar este error, asegúrese de que la hora de su reloj del sistema no sea
 
 No se puede crear el certificado necesario para autenticarse en Site Recovery. Vuelva a ejecutar el programa de instalación tras asegurarse de que lo ejecuta como un administrador local.
 
-## <a name="register-the-source-machine-with-the-configuration-server"></a>Registrar la máquina de origen con el servidor de configuración
+## <a name="register-source-machine-with-configuration-server"></a>Registrar la máquina de origen con el servidor de configuración
 
 ### <a name="if-the-source-machine-runs-windows"></a>Si la máquina de origen ejecuta Windows
 

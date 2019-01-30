@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Recognize | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Recognize | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Recognize.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448791"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integración de Azure Active Directory con Recognize
 
@@ -46,7 +46,7 @@ Para configurar la integración de Azure AD con Recognize, necesita los siguient
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de evaluación de un mes: [Oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de evaluación de un mes aquí: [Oferta de evaluación](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
@@ -112,12 +112,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_recognize_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/sso`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/sso`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de Recognize](mailto:support@recognizeapp.com) para obtener la dirección URL de inicio de sesión. Puede obtener el valor del identificador abriendo la dirección URL de metadatos del proveedor de servicios desde la sección Configuración de SSO que se explica más adelante en el tutorial. . 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Recognize](mailto:support@recognizeapp.com) para obtener la dirección URL de inicio de sesión. Puede obtener el valor del identificador abriendo la dirección URL de metadatos del proveedor de servicios desde la sección Configuración de SSO que se explica más adelante en el tutorial. . 
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-    a. En **Enable SSO** (Habilitar SSO), seleccione **ON** (Activado).
+     a. En **Enable SSO** (Habilitar SSO), seleccione **ON** (Activado).
 
     b. En el cuadro de texto **IdP Entity ID** (Id. de entidad IdP), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
     
@@ -161,12 +161,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. Abra el vínculo **Dirección URL de metadatos** en un explorador en blanco para descargar el documento de metadatos. Después, copie el valor de EntityDescriptor (entityID) del archivo y péguelo en el cuadro de texto **Identificador** en la sección **Dominio y direcciones URL de Recognize** en Azure Portal.
+1. Abra el vínculo **Dirección URL de metadatos** en un explorador en blanco para descargar el documento de metadatos. Después, copie el valor de EntityDescriptor (entityID) del archivo y péguelo en el cuadro de texto  **Identificador** en la sección **Dominio y direcciones URL de Recognize** en Azure Portal.
     
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -192,7 +192,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -218,7 +218,7 @@ Esta aplicación no admite el aprovisionamiento SCIM, pero tiene una sincronizac
    
    ![Nuevo usuario](./media/recognize-tutorial/tutorial_recognize_005.png "nuevo usuario")
    
-   a. En **Sync Enabled** (Sincronización habilitada), seleccione **ON** (Activado).
+    a. En **Sync Enabled** (Sincronización habilitada), seleccione **ON** (Activado).
    
    b. En **Choose sync provider** (Elegir proveedor de sincronización), seleccione **Microsoft/Office 365**.
    

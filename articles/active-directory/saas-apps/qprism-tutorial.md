@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420281"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828067"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: integración de Azure Active Directory con QPrism
+# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integración de Azure Active Directory con QPrism
 
 En este tutorial, aprenderá a integrar QPrism con Azure Active Directory (Azure AD).
 
@@ -105,14 +105,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de QPrism](./media/qprism-tutorial/tutorial_qprism_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.qmyzone.com/login`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.qmyzone.com/login`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.qmyzone.com/metadata.php`.
          
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de atención al cliente de QPrism](mailto:qsupport-ce@quatrro.com) para obtener estos valores. 
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección  **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
      ![Vínculo de descarga del certificado](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -146,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/qprism-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -156,7 +156,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-qprism-test-user"></a>Creación de un usuario de prueba de QPrism
 
-En esta sección, creará un usuario llamado Britta Simon en QPrism. Trabaje con el [equipo de atención al cliente de QPrism](mailto:qsupport-ce@quatrro.com) para agregar los usuarios a la plataforma de QPrism. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en QPrism. Trabaje con el [equipo de atención al cliente de QPrism](mailto:qsupport-ce@quatrro.com) para agregar usuarios a la plataforma de QPrism. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -193,7 +193,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 En el panel de acceso, al seleccionar el icono de QPrism, debería iniciar sesión automáticamente en la aplicación QPrism.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

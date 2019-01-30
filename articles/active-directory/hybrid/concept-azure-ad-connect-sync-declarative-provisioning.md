@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: conocimiento del aprovisionamiento declarativo | Microsoft Docs'
+title: 'Azure AD Connect: Conocimiento del aprovisionamiento declarativo | Microsoft Docs'
 description: Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310294"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471785"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: Descripción del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.
 
 ## <a name="overview"></a>Información general
@@ -48,7 +48,7 @@ El módulo de ámbito consiste en evaluar un objeto, y determina las reglas que 
 El ámbito se define como cláusulas y grupos. Las cláusulas están dentro de un grupo. Se usa un operador lógico AND entre todas las cláusulas de un grupo. Por ejemplo, (departamento = IT AND país = Dinamarca). Se usa un operador lógico OR entre los grupos.
 
 ![Ámbito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-El ámbito de esta imagen se debe leer como (departamento = IT AND país = Dinamarca) OR (país = Suecia). Si el grupo 1 o el grupo 2 se evalúa como verdadero, la regla está en el ámbito.
+ El ámbito de esta imagen se debe leer como (departamento = IT AND país = Dinamarca) OR (país = Suecia). Si el grupo 1 o el grupo 2 se evalúa como verdadero, la regla está en el ámbito.
 
 El módulo de ámbito admite las siguientes operaciones:
 
@@ -68,13 +68,13 @@ El módulo de ámbito admite las siguientes operaciones:
 ## <a name="join"></a>Unión
 El módulo de unión en la canalización de sincronización es responsable de encontrar la relación entre el objeto en el origen y un objeto en el destino. En una regla de entrada, esta relación sería un objeto en un espacio conector que busca una relación con un objeto en el metaverso.  
 ![Unión entre cs y mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
-El objetivo es ver si ya hay un objeto en el metaverso, creado por otro conector, al que debe estar asociado. Por ejemplo, en un bosque de cuenta-recurso, el usuario del bosque de cuentas debe unirse al usuario del bosque de recursos.
+ El objetivo es ver si ya hay un objeto en el metaverso, creado por otro conector, al que debe estar asociado. Por ejemplo, en un bosque de cuenta-recurso, el usuario del bosque de cuentas debe unirse al usuario del bosque de recursos.
 
 Las uniones se utilizan principalmente en las reglas de entrada para unir objetos del espacio conector para el mismo objeto de metaverso.
 
 Las uniones se definen como uno o varios grupos. Dentro de un grupo hay cláusulas. Se usa un operador lógico AND entre todas las cláusulas de un grupo. Se usa un operador lógico OR entre los grupos. El orden de procesamiento de los grupos es de arriba a abajo. Cuando un grupo encuentra exactamente una coincidencia con un objeto en el destino, no se evalúa ninguna otra regla de unión. Si se encuentran cero o más de un objeto, el procesamiento continúa con el siguiente grupo de reglas. Por este motivo, las reglas deben crearse en el orden de primero la más explícita y la más aproximada al final.  
 ![Definición de unión](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-Las uniones de esta imagen se procesan de arriba a abajo. En primer lugar, la canalización de sincronización ve si hay una coincidencia en employeeID. Si no la hay, la segunda regla ve si el nombre de cuenta puede utilizarse para unir los objetos. Si tampoco hay ninguna coincidencia, la tercera y última regla es una coincidencia más aproximada que utiliza el nombre de usuario.
+ Las uniones de esta imagen se procesan de arriba a abajo. En primer lugar, la canalización de sincronización ve si hay una coincidencia en employeeID. Si no la hay, la segunda regla ve si el nombre de cuenta puede utilizarse para unir los objetos. Si tampoco hay ninguna coincidencia, la tercera y última regla es una coincidencia más aproximada que utiliza el nombre de usuario.
 
 Si se han evaluado todas las reglas de unión y no hay ninguna coincidencia exacta, se usa el valor de **Tipo de vínculo** en la página **Descripción**. Si este valor se establece en **Aprovisionar**, se crea un objeto en el destino.  
 ![Aprovisionar o unir](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -123,7 +123,7 @@ Este es un ejemplo:
 
 En la regla *Out to AD - User Exchange hybrid* se puede encontrar el siguiente flujo:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-Esta expresión se debe leer como: si el buzón del usuario se encuentra en Azure AD, el flujo de atributo va de Azure AD a AD. Si no es así, no vuelve nada a Active Directory. En este caso, se mantiene el valor existente en AD.
+ Esta expresión se debe leer como: si el buzón del usuario se encuentra en Azure AD, el flujo de atributo va de Azure AD a AD. Si no es así, no vuelve nada a Active Directory. En este caso, se mantiene el valor existente en AD.
 
 ### <a name="importedvalue"></a>ImportedValue
 La función ImportedValue es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes:   
@@ -163,4 +163,4 @@ En este escenario, debe cambiar el ámbito de las reglas de sincronización para
 
 **Temas de referencia**
 
-* [Azure AD Connect Sync: referencia de funciones](reference-connect-sync-functions-reference.md)
+* [Sincronización de Azure AD Connect: Referencia de funciones](reference-connect-sync-functions-reference.md)

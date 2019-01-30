@@ -1,10 +1,10 @@
 ---
-title: 'Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para las funcionalidades multigeográficas de Office 365 | Microsoft Docs'
+title: 'Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para las capacidades multigeográficas de Office 365 | Microsoft Docs'
 description: Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623034"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470705"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación preferida para los recursos de Office 365
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Habilitación de la sincronización de la ubicación de datos preferida

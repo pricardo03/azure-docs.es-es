@@ -3,19 +3,19 @@ title: Ejemplos de transformación de notificaciones de fecha para el esquema de
 description: Ejemplos de transformación de notificaciones de fecha para el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a49e940c988d25da1e6f6a3c6f372e15fd2136f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405827"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850066"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -83,7 +83,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 - Notificaciones de entrada:
     - **leftOperand**: 2018-10-01T15:00:00.0000000Z
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
-- Resultado: error emitido
+- Resultado: aparece un error
 
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -113,7 +113,7 @@ En el ejemplo siguiente se muestra la conversión de la notificación `dateOfBir
 - Notificaciones de entrada:
     - **inputClaim**: 2019-06-01
 - Notificaciones de salida:
-    - **outputClaim**: 1559347200 (1 de junio de 2019 12:00:00 a. m.)
+    - **outputClaim**: 1559347200 (1 de junio de 2019 12:00:00 A.M.)
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -134,7 +134,7 @@ Obtenga la fecha y la hora UTC actual y agregue el valor a ClaimType.
 ### <a name="example"></a>Ejemplo
 
 * Notificaciones de salida:
-    * **currentDateTime**: 1534418820 (16 de agosto de 2018 11:27:00 a. m.)
+    * **currentDateTime**: 1534418820 (16 de agosto de 2018 11:27:00 AM)
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 

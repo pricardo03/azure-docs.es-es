@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 92ff93f9836b1ab8157602569c8171f81b976d6f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e144658ed4d4e4ae1f9e1ceb8a822e2b71bc2c0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422678"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integración de Azure Active Directory con Jobscience
 
@@ -46,7 +46,7 @@ Para configurar la integración de Azure AD con Jobscience, necesita los siguien
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de evaluación de un mes: [Oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de evaluación de un mes aquí: [Oferta de evaluación](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configuración de inicio de sesión único](./media/jobscience-tutorial/ic781026.png "Configuración de inicio de sesión único")
     
-    a. Seleccione **SAML habilitado**.
+     a. Seleccione **SAML habilitado**.
 
     b. Haga clic en **Nuevo**.
 
@@ -159,7 +159,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Inicio de sesión único SAML](./media/jobscience-tutorial/ic784365.png "Inicio de sesión único SAML")
     
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
+     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.
 
     b. En el cuadro de texto **Emisor**, pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
 
@@ -196,7 +196,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     Haga clic en el perfil SSO creado en el paso anterior. En esta página se muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -222,7 +222,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -255,7 +255,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben 
    
    ![Edición de usuario](./media/jobscience-tutorial/ic784371.png "Edición de usuario")
    
-   a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
+    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
    
    b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso, Simon.
    

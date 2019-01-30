@@ -5,21 +5,21 @@ services: iot-accelerators
 author: avneet723
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 10/29/2018
+ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 900d75f826830ea7336044a892506d3bec546e30
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d4da1597ebed6c27cf6c12bab4a4e59be742c577
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283937"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383097"
 ---
 ## <a name="download-the-source-code"></a>Descarga del código fuente
 
-Los repositorios de código fuente de Supervisión remota incluyen los archivos de configuración de Docker que necesita para ejecutar las imágenes de Docker de los microservicios.
+Los repositorios de código fuente de Supervisión remota incluyen el código fuente y los archivos de configuración de Docker que necesita para ejecutar las imágenes de Docker de los microservicios.
 
-Para clonar y crear una versión local del repositorio, use el entorno de línea de comandos para ir a una carpeta adecuada en la máquina local. A continuación, ejecute uno de los siguientes conjuntos de comandos para clonar el repositorio de .NET o de Java:
+Para clonar y crear una versión local del repositorio, use el entorno de línea de comandos para ir a una carpeta adecuada en la máquina local. A continuación, ejecute uno de los siguientes conjuntos de comandos para clonar el repositorio de .NET:
 
 Para descargar la versión más reciente de las implementaciones de microservicios de .NET, ejecute:
 
@@ -32,7 +32,7 @@ cd azure-iot-pcs-remote-monitoring-dotnet
 git submodule foreach git pull origin master
 ```
 
-Para descargar la versión más reciente de las implementaciones de microservicios de Java, ejecute:
+En este artículo se da por supuesto que usa los microservicios de .NET. También hay disponible implementaciones de Java. Para descargar la versión más reciente de las implementaciones de microservicios de Java, ejecute:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
@@ -70,11 +70,13 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
 
     El script crea el grupo de recursos en Azure con el nombre de la solución. Este grupo de recursos contiene los recursos de Azure que usa el acelerador de soluciones. Puede eliminar este grupo de recursos cuando ya no necesite los recursos correspondientes.
 
-    El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Al iniciar los contenedores de Docker localmente, leen los valores de configuración de estas variables de entorno.
+    El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Al iniciar los contenedores de Docker o los proyectos de microservicios localmente, leen los valores de configuración de estas variables de entorno.
 
-> [!TIP]
-> Cuando finaliza el script, se muestra una lista de variables de entorno. Si guarda estos valores en el archivo **services\\scripts\\local\\.env**, puede usarlos para las implementaciones futuras del acelerador de soluciones. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalida los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+    > [!TIP]
+    > Cuando se completa el script, también guarda las variables de entorno en un archivo denominado  **\<la carpeta principal\>\\.pcs\\\<nombre de la solución\>.env**. Puede usarlos para las implementaciones del acelerador de soluciones futuras. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalida los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+
+1. Salga del entorno de la línea de comandos.
 
 ### <a name="use-existing-azure-resources"></a>Usar recursos de Azure existentes
 
-Si ya ha creado los recursos de Azure necesarios, cree las variables de entorno correspondientes en el equipo local. Puede haber guardado estos valores en el archivo **services\\scripts\\local\\.env** como parte de la última implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+Si ya ha creado los recursos de Azure necesarios, cree las variables de entorno correspondientes en el equipo local. Pueden guardarse en el archivo  **\<carpeta principal\>\\.pcs\\\<nombre de la solución\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.

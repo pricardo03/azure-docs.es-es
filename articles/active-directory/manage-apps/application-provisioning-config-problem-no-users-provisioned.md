@@ -4,7 +4,7 @@ description: Cómo solucionar problemas habituales que surgen cuando no se ve ap
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3874e6ff6586726577a2c89e3cf45bbd3343b821
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fd5d833656d4ba395857c84ee8386bc7fb6d704e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040693"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465410"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>No se aprovisionan usuarios en una aplicación de la galería de Azure AD
 Una vez que se ha configurado el aprovisionamiento automático de una aplicación (incluida la comprobación de que las credenciales de la aplicación proporcionadas a Azure AD para conectarse a la aplicación son válidas), se aprovisionan los usuarios y los grupos en la aplicación. El aprovisionamiento se determina mediante lo siguiente:
@@ -56,8 +56,8 @@ Cuando un usuario se muestra como "Omitido" en los registros de auditoría, es i
 - **Se ha configurado un filtro de ámbito** **que está filtrando al usuario por un valor de atributo**. Para más información sobre los filtros de ámbito, consulte los [filtros de ámbito](define-conditional-rules-for-provisioning-user-accounts.md).
 - **El usuario no está autorizado de forma efectiva.** Si ve un mensaje de error de este tipo, se debe a que hay un problema con el registro de asignación de usuarios almacenado en Azure AD. Para corregir este problema, desasigne el usuario (o grupo) de la aplicación y vuelva a asignarlo. Para más información sobre la asignación, consulte [Asignación de acceso a usuarios o grupos](assign-user-or-group-access-portal.md).
 - **Un atributo obligatorio falta o no se ha llenado para un usuario.** Una cuestión importante que tener en cuenta al configurar el aprovisionamiento es revisar y configurar las asignaciones de atributos y los flujos de trabajo que definen qué propiedades de usuario (o de grupo) fluyen de Azure AD a la aplicación. Esta configuración incluye la opción de "propiedad de coincidencia" que se usa para identificar de forma exclusiva y emparejar a usuarios y grupos entre ambos sistemas. Para más información sobre este importante proceso, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios](customize-application-attributes.md).
-- **Asignaciones de atributos para grupos:** aprovisionamiento del nombre del grupo y los detalles del grupo, además de los miembros, si se admite para algunas aplicaciones. Puede habilitar o deshabilitar esta funcionalidad habilitando o deshabilitando el valor de **Asignación** para los objetos de grupo que se muestran en la pestaña **Aprovisionamiento**. Si los grupos de aprovisionamiento están habilitados, asegúrese de revisar las asignaciones de atributos para asegurarse de que se use un campo apropiado para el "identificador de coincidencia". El identificador de coincidencia puede ser el alias de correo electrónico o el nombre para mostrar. El grupo y sus miembros no se han aprovisionado si la propiedad de coincidencia está vacía o no se ha rellenado para un grupo en Azure AD.
+- **Asignación de atributos para grupos:** Aprovisionamiento del nombre del grupo y los detalles del grupo, además de los miembros, si se admite para algunas aplicaciones. Puede habilitar o deshabilitar esta funcionalidad habilitando o deshabilitando la **Asignación** para los objetos de grupo que se muestran en la pestaña **Aprovisionamiento**. Si los grupos de aprovisionamiento están habilitados, asegúrese de revisar las asignaciones de atributos para asegurarse de que se use un campo apropiado para el "identificador de coincidencia". El identificador de coincidencia puede ser el alias de correo electrónico o el nombre para mostrar. El grupo y sus miembros no se han aprovisionado si la propiedad de coincidencia está vacía o no se ha rellenado para un grupo en Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Azure AD Connect Sync: conocimiento del aprovisionamiento declarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Sincronización de Azure AD Connect: Descripción del aprovisionamiento declarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

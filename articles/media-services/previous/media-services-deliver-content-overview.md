@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240144"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388153"
 ---
 # <a name="deliver-content-to-customers"></a>Entrega de contenido a los clientes
 Al proporcionar contenido de vídeo bajo demanda o streaming a los clientes, el objetivo consiste en entregar vídeo de alta calidad a varios dispositivos en condiciones de red diferentes.
@@ -61,7 +61,7 @@ Para proporcionar al usuario una dirección URL que pueda utilizarse para transm
 * Localizadores OnDemandOrigin. Se usan para transmitir archivos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o archivos de descarga progresiva.
 * Localizadores de direcciones URL de firma de acceso compartido (SAS). Se usan para descargar archivos multimedia en el equipo local.
 
-Se utiliza una *directiva de acceso* para definir los permisos (como lectura, escritura y lista) y la duración del acceso del cliente a un recurso determinado. Observe que el permiso de lista (AccessPermissions.List) no se debe usar al crear un localizador OnDemandOrigin.
+Se utiliza una *directiva de acceso* para definir los permisos (como lectura, escritura y lista) y la duración del acceso del cliente a un recurso determinado. Observe que el permiso de la lista (AccessPermissions.List) no se debe usar al crear un localizador OnDemandOrigin.
 
 Los localizadores tienen fecha de expiración. El Portal de Azure establece una fecha de expiración de 100 años en el futuro para los localizadores.
 
@@ -77,7 +77,7 @@ Los localizadores no están diseñados para administrar el control de acceso por
 Al crear un localizador, puede haber un retraso de 30 segundos debido a los procesos de almacenamiento y propagación requeridos en Azure Storage.
 
 ## <a name="adaptive-streaming"></a>Streaming adaptativo
-Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para reproductor de vídeo determinar las condiciones de red y seleccionar entre varias velocidades de bits. Cuando se degrada la comunicación de red, el cliente puede seleccionar una velocidad de bits más baja que permita al reproductor seguir reproduciendo el vídeo con una calidad inferior. A medida que mejoren las condiciones de red, el cliente puede cambiar a una velocidad de bits superior con calidad de vídeo mejorada. Azure Media Services admite las siguientes tecnologías de velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG-DASH.
+Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para reproductor de vídeo determinar las condiciones de red y seleccionar entre varias velocidades de bits. Cuando se degrada la comunicación de red, el cliente puede seleccionar una velocidad de bits más baja que permita al reproductor seguir reproduciendo el vídeo con una calidad inferior. A medida que mejoren las condiciones de red, el cliente puede cambiar a una velocidad de bits superior con calidad de vídeo mejorada. Azure Media Services admite la entrega de las siguientes tecnologías de velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG-DASH.
 
 Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para crear una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe **/Manifiest** y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
 

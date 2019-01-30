@@ -3,19 +3,19 @@ title: Agregar sus propios atributos a las directivas personalizadas en Azure Ac
 description: Un tutorial sobre cómo usar las propiedades de extensión y los atributos personalizados, y cómo incluirlos en la interfaz de usuario.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338751"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854061"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: uso de los atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -54,13 +54,13 @@ Se incluyen instrucciones en la sección **Pasos siguientes** de este artículo.
 3. Seleccione **App registrations** (Registros de aplicaciones). Seleccione **Nuevo registro de aplicaciones**.
 4. Proporcione las entradas siguientes:
     * Un nombre para la aplicación web: **WebApp-GraphAPI-DirectoryExtensions**.
-    * El tipo de aplicación: **aplicación web o API**.
+    * El tipo de aplicación: **Aplicación web/API**.
     * La dirección URL de inicio de sesión: **https://{NombreInquilino}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Seleccione **Crear**.
 6. Seleccione la aplicación web recién creada.
 7. Seleccione **Configuración** > **Permisos requeridos**.
 8. Seleccione la API de **Windows Azure Active Directory**.
-9. Ingrese una marca en los permisos de aplicación: **Leer y escribir datos de directorio**. Después, seleccione **Guardar**.
+9. Coloque una marca de verificación en Permisos de la aplicación: **Leer y escribir datos de directorio**. Después, seleccione **Guardar**.
 10. Seleccione **Conceder permisos** y haga clic en **Sí** para confirmar.
 11. Copie los identificadores siguientes en el Portapapeles y guárdelos:
     * **Identificador de aplicación**. Ejemplo: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ Se incluyen instrucciones en la sección **Pasos siguientes** de este artículo.
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modificación de la directiva personalizada para agregar **ApplicationObjectId**
 
-Cuando siguió los pasos que aparecen en [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), descargó y modificó los [archivos de muestra](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) denominados **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** y **PasswordReset.xml**. En este paso, va a realizar más modificaciones en esos archivos.
+Después de seguir los pasos que aparecen en el artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), se descargan y modifican los [archivos](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) denominados **TrustFrameworkBase.xml**,  **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** y **PasswordReset.xml**. En este paso, va a realizar más modificaciones en esos archivos.
 
 * Abra el archivo **TrustFrameworkBase.xml** y agregue la sección `Metadata` tal como se muestra en el ejemplo siguiente. Inserte el id. de objeto que se ha registrado previamente para el valor `ApplicationObjectId` y el id. de aplicación que registró para el valor `ClientId`: 
 
@@ -271,7 +271,7 @@ El token del identificador que se devuelve a la aplicación incluirá la nueva p
 
 2. Use los mismos atributos de extensión entre directivas integradas y personalizadas. Cuando se agregan atributos de extensión (o personalizados) a través de la experiencia del portal, los atributos se registran mediante **b2c-extensions-app** que existe en cada inquilino B2C. Siga estos pasos para usar los atributos de extensión en la directiva personalizada:
 
-  a. En el inquilino B2C en portal.azure.com, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.  
+   a. En el inquilino B2C en portal.azure.com, vaya a **Azure Active Directory** y seleccione **Registros de aplicaciones**.  
   b. Encuentre su **b2c-extensiones-app** y selecciónelo.  
   c. En **Información esencial**, escriba el **Identificador de la aplicación** y el **Identificador del objeto**.  
   d. Inclúyalos en los metadatos de TechnicalProfile de **AAD-Common**:  

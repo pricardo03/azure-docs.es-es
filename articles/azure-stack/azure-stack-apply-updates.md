@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 190d81fc7811e4afdb32555407716f60f5b9a2d1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842193"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476145"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicación de actualizaciones en Azure Stack
 
@@ -50,13 +50,11 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 
 2. En el cuadro de filtro, escriba **update**y seleccione la cuenta de almacenamiento **updateadminaccount**.
 
-    ![Muestra cómo buscar updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
 3. En los detalles de la cuenta de almacenamiento, en **Servicios**, seleccione **Blobs**.
  
     ![Muestra como acceder a Blobs para la cuenta de almacenamiento](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
-4. En **Blob service**, seleccione **+ Contenedor** para crear un contenedor. Escriba un nombre (por ejemplo *Update-1709*) y, después, haga clic en **Aceptar**.
+
+4. En **Blob service**, seleccione **+ Contenedor** para crear un contenedor. Escriba un nombre (por ejemplo *Update-1811*) y, después, seleccione **Aceptar**.
  
      ![Muestra cómo agregar un contenedor en la cuenta de almacenamiento](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
@@ -66,12 +64,12 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 
 6. En **Cargar blob**, haga clic en el icono de la carpeta, vaya al archivo .exe del paquete de actualización y haga clic en **Abrir** en la ventana del explorador de archivos.
   
-7. En **Cargar blob**, haga clic en **Cargar**. 
+7. En **Cargar blob**, haga clic en **Cargar**.
   
     ![Muestra dónde se carga cada archivo de paquete](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. No importe el archivo Supplemental Notice.txt si está incluido.
-9. Cuando haya finalizado, puede revisar las notificaciones (el icono de campana de la esquina superior derecha del portal). Las notificaciones deben indicar que la carga se ha completado. 
+8. Repita los pasos 6 y 7 para los archivos *PackageName*.bin y Metadata.xml. No importe el archivo Supplemental Notice.txt si está incluido.
+9. Cuando haya finalizado, puede revisar las notificaciones (el icono de campana de la esquina superior derecha del portal). Las notificaciones deben indicar que la carga se ha completado.
 10. Vuelva al icono de actualización del panel. El icono debe indicar que hay una actualización disponible. Haga clic en el icono para revisar el paquete de actualización recién agregado.
 11. Para instalar la actualización, seleccione el paquete que está marcado como **Listo** y haga clic con el botón derecho en él y seleccione **Actualizar ahora**, o bien haga clic en la acción **Actualizar ahora** cerca de la parte superior.
 12. Al hacer clic en el paquete de actualización de instalación, puede ver el estado en el área **Update run details** (Detalles de ejecución de actualización). Aquí también puede hacer clic en **Download full logs** (Descargar registros completos) para descargar los archivos de registro.

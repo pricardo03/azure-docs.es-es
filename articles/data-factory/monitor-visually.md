@@ -10,31 +10,31 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: c2967de97e9cc3b6f59eb742ecbfef9acbe64d20
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019782"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54409969"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
-En esta guía de inicio rápido, aprenderá a supervisar visualmente las canalizaciones de factorías de datos v2 sin escribir una sola línea de código.
+
+En esta guía de inicio rápido, aprenderá a supervisar visualmente las canalizaciones de Data Factory sin escribir una sola línea de código.
+
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="monitor-data-factory-pipelines"></a>Supervisión de las canalizaciones de Data Factory
+
+Supervise las ejecuciones de actividad y canalización con una simple interfaz de vista de lista. Se muestran todas las ejecuciones en la zona horaria local del explorador. Puede cambiar la zona horaria y todos los campos de fecha y hora se ajustarán a la seleccionada.  
 
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 2. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 3. Vaya a la hoja de factoría de datos creada en Azure Portal y haga clic en el mosaico "Supervisar & Administrar" para iniciar la experiencia de supervisión visual de Data Factory.
 
-## <a name="list-view-monitoring"></a>Supervisión de la vista de lista
-
-Supervise las ejecuciones de actividad y canalización con una simple interfaz de vista de lista. Se muestran todas las ejecuciones en la zona horaria local del explorador. Puede cambiar la zona horaria y todos los campos de fecha y hora se ajustarán a la seleccionada.  
-
-### <a name="monitoring-pipeline-runs"></a>Supervisión de las ejecuciones de canalización
+## <a name="monitor-pipeline-runs"></a>La supervisión de la canalización se ejecuta
 Vista de lista que muestra cada ejecución de canalización para las canalizaciones de la factoría de datos v2. Columnas incluidas:
 
 | **Nombre de la columna** | **Descripción** |
@@ -51,7 +51,7 @@ Vista de lista que muestra cada ejecución de canalización para las canalizacio
 
 ![La supervisión de la canalización se ejecuta](media/monitor-visually/pipeline-runs.png)
 
-### <a name="monitoring-activity-runs"></a>Supervisión de las ejecuciones de actividad
+## <a name="monitor-activity-runs"></a>Supervisión de las ejecuciones de actividad
 Vista de lista muestra ejecuciones de actividad correspondiente a cada ejecución de canalización. Haga clic en el icono **'Se ejecuta la actividad'** bajo la columna **"Acciones"** para ver que la actividad se ejecuta para cada ejecución de canalización. Columnas incluidas:
 
 | **Nombre de la columna** | **Descripción** |
@@ -69,18 +69,17 @@ Vista de lista muestra ejecuciones de actividad correspondiente a cada ejecució
 
 > [!IMPORTANT]
 > Debe hacer clic en el icono **"Actualizar"** en la parte superior para actualizar la lista de canalizaciones y ejecuciones de actividad. La actualización automática no se admite actualmente.
->
 
 ![Actualizar](media/monitor-visually/refresh.png)
 
-## <a name="monitoring-features"></a>Supervisión de características
-
-### <a name="select-a-data-factory-to-monitor"></a>Selección de una factoría de datos para supervisar
+## <a name="select-a-data-factory-to-monitor"></a>Selección de una factoría de datos para supervisar
 Mantenga el mouse sobre el icono **Data Factory** en la parte superior izquierda. Haga clic en el icono de 'Flecha' para ver una lista de factorías de datos y suscripciones de Azure que puede supervisar.
 
 ![Selección de la factoría de datos](media/monitor-visually/select-datafactory.png)
 
-### <a name="rich-ordering-and-filtering"></a>Orden y filtrado enriquecidos
+## <a name="configure-the-list-view"></a>Configuración de la vista de lista
+
+### <a name="apply-rich-ordering-and-filtering"></a>Orden y filtrado enriquecidos
 
 Las ejecuciones de canalización con orden se ejecutan de forma ascendente o descendente con Inicio de ejecución y las ejecuciones de las canalizaciones con filtro, por las columnas siguientes:
 
@@ -92,15 +91,15 @@ Las ejecuciones de canalización con orden se ejecutan de forma ascendente o des
 
 ![Filtrar](media/monitor-visually/filter.png)
 
-### <a name="addremove-columns-in-list-view"></a>Agregar o quitar columnas en la vista de lista
+### <a name="add-or-remove-columns"></a>Agregar o quitar columnas
 Haga clic con el botón derecho en el encabezado de la vista de lista y elija las columnas que quiere que aparezcan en la vista de lista.
 
 ![Columnas](media/monitor-visually/columns.png)
 
-### <a name="reorder-column-widths-in-list-view"></a>Reordenar los anchos de columna en la vista de lista
+### <a name="adjust-column-widths"></a>Ajustar el ancho de columna
 Aumentar y disminuir los anchos de columna en la vista de lista simplemente manteniendo el puntero sobre el encabezado de columna
 
-### <a name="user-properties"></a>Propiedades de usuario
+## <a name="promote-user-properties-to-monitor"></a>Promocionar las propiedades de usuario para supervisar
 
 Cualquier propiedad de actividad de canalización se puede promover como propiedad de usuario para que se convierta en una entidad que pueda supervisar. Por ejemplo, puede promover las propiedades **Origen** y **Destino** de la actividad de copia de la canalización como propiedades de usuario. También puede seleccionar **Generar automáticamente** para generar las propiedades de usuario **Origen** y **Destino** de una actividad de copia.
 
@@ -117,21 +116,43 @@ Después de crear las propiedades de usuario, puede supervisarlas en las vistas 
 
 ![Lista de ejecuciones de actividad con columnas de propiedades de usuario](media/monitor-visually/monitor-user-properties-image4.png)
 
-### <a name="guided-tours"></a>Visitas guiadas
+## <a name="rerun-activities-inside-a-pipeline"></a>Volver a ejecutar las actividades en una canalización
+
+Ahora puede volver a ejecutar las actividades en una canalización. Haga clic en **Ver ejecuciones de actividad** y seleccione la actividad en la canalización a partir de la cual quiere volver a ejecutar la canalización.
+
+![Ver ejecuciones de actividad](media/monitor-visually/rerun-activities-image1.png)
+
+![Seleccionar una ejecución de actividad](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="view-rerun-history"></a>Ver el historial de repetición de ejecuciones
+
+Puede ver el historial de repetición de ejecuciones de todas las ejecuciones de canalización en la vista de lista.
+
+![Visualización del historial](media/monitor-visually/rerun-history-image1.png)
+
+También puede ver el historial de repetición de ejecuciones de una ejecución de canalización determinada.
+
+![Ver el historial de ejecuciones de una canalización](media/monitor-visually/rerun-history-image2.png)
+
+## <a name="guided-tours"></a>Visitas guiadas
 Haga clic en el 'Icono de información' en la parte inferior izquierda y haga clic en 'Visitas guiadas' para obtener instrucciones paso a paso sobre cómo supervisar las ejecuciones de actividad y canalización.
 
 ![Visitas guiadas](media/monitor-visually/guided-tours.png)
 
-### <a name="feedback"></a>Comentarios
+## <a name="feedback"></a>Comentarios
 Haga clic en el icono "Comentarios" para enviarnos comentarios de varias características o de los problemas a los que quizás se enfrente.
 
 ![Comentarios](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>Alertas
 
-Puede generar alertas en función de métricas admitidas en Data Factory. Para empezar, seleccione Supervisar -> Alertas y métricas en la página de supervisión de Data Factory.
+Puede generar alertas en función de métricas admitidas en Data Factory. Seleccione **Supervisar -> Alertas y métricas**  en la página de supervisión de Data Factory.
 
 ![](media/monitor-visually/alerts01.png)
+
+Si desea una demostración y una introducción de siete minutos de esta característica, vea el siguiente vídeo:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### <a name="create-alerts"></a>Creación de alertas
 

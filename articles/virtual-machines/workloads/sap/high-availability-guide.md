@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 691bb0c5ea6d84bd67b8b1b1fd5a05c25f75ba40
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239328"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437035"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
 
@@ -364,7 +364,7 @@ ms.locfileid: "51239328"
 
 [sap-ha-guide-figure-6003]:media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -475,8 +475,8 @@ Estas notas de SAP están relacionadas con el tema de SAP en Azure:
 
 | Número de nota | Título |
 | --- | --- |
-| [1928533] |SAP Applications on Azure: Supported Products and Sizing (Aplicaciones SAP en Azure: productos y tamaños compatibles) |
-| [2015553] |SAP on Microsoft Azure: Support Prerequisites (SAP en Microsoft Azure: requisitos previos de compatibilidad) |
+| [1928533] |SAP Applications on Azure: Supported Products and Sizing (Aplicaciones de SAP en Microsoft Azure con Base de datos de Oracle: versiones y tamaños compatibles) |
+| [2015553] |SAP on Microsoft Azure: Support Prerequisites (Requisitos previos de soporte técnico de SAP en Microsoft Azure) |
 | [1999351] |Enhanced Azure Monitoring for SAP (Supervisión mejorada de Azure para SAP) |
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure (Métricas de supervisión clave para SAP en Microsoft Azure) |
 | [1999351] |Virtualization on Windows: Enhanced Monitoring (Virtualización en Windows: supervisión mejorada) |
@@ -529,9 +529,9 @@ En la figura 1 se muestra un clúster de dos nodos. Si se produce un error en la
 
 Debido a que este ejemplo usa un clúster de dos nodos, usamos el modo de cuórum Mayoría de recurso compartido de archivos y nodo. Otra opción válida es el modo Mayoría de disco y nodo. En un entorno de producción, se recomienda usar un disco de cuórum. Puede usar tecnología de sistema de almacenamiento y red para hacerlo de alta disponibilidad.
 
-![Figura 1: Ejemplo de una configuración de Clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure][sap-ha-guide-figure-1000]
+![Ilustración 1: Ejemplo de una configuración de clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure][sap-ha-guide-figure-1000]
 
-_**Figura 1:** Ejemplo de una configuración de Clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure_
+_**Ilustración 1:** Ejemplo de una configuración de clústeres de conmutación por error de Windows Server para ASCS/SCS de SAP en Azure_
 
 ### <a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a> Almacenamiento compartido
 En la figura 1 también se muestra un clúster de almacenamiento compartido de dos nodos. En un clúster de almacenamiento compartido local, todos los nodos del clúster detectan el almacenamiento compartido. Un mecanismo de bloqueo protege los datos contra daños. Todos los nodos pueden detectar si se produce un error en otro nodo. Si se produce un error en un nodo, el nodo restante asume la propiedad de los recursos de almacenamiento y garantiza la disponibilidad de los servicios.
@@ -555,9 +555,9 @@ En comparación con las implementaciones de nube privada o sin sistema operativo
 
 En este artículo se analizan los conceptos clave y los pasos adicionales que se requieren para compilar un clúster de servicios centrales de alta disponibilidad de SAP en Azure. Mostramos cómo configurar la herramienta de terceros SIOS DataKeeper y configurar el equilibrador de carga interno de Azure. Puede usar estas herramientas para crear un clúster de conmutación por error de Windows con un testigo de recurso compartido de archivos en Azure.
 
-![Figura 2: Configuración de Clústeres de conmutación por error de Windows Server en Azure sin un disco compartido][sap-ha-guide-figure-1001]
+![Ilustración 2: Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido][sap-ha-guide-figure-1001]
 
-_**Figura 2:** Configuración de Clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
+_**Ilustración 2:** Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
 
 ### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> Disco compartido en Azure con SIOS DataKeeper
 Se necesita almacenamiento compartido de clúster para una instancia de ASCS/SCS de SAP de alta disponibilidad. A partir de septiembre de 2016, Azure no ofrece almacenamiento compartido que puede usar para crear un clúster de almacenamiento compartido. Puede usar el software de terceros SIOS DataKeeper Cluster Edition para crear un almacenamiento reflejado que simula el almacenamiento compartido de clúster. La solución SIOS proporciona replicación sincrónica de datos en tiempo real. Este es el procedimiento para crear un recurso de disco compartido para un clúster:
@@ -568,9 +568,9 @@ Se necesita almacenamiento compartido de clúster para una instancia de ASCS/SCS
 
 Obtenga más información sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 3: Configuración de Clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Ilustración 3: Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Figura 3:** Configuración de Clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper_
+_**Ilustración 3:** Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper_
 
 > [!NOTE]
 > No necesita discos compartidos para obtener alta disponibilidad con algunos productos de DBMS, como SQL Server. SQL Server Always On replica archivos de registro y datos de DBMS desde el disco local de un nodo del clúster hasta el disco local del otro nodo del clúster. En este caso, la configuración de clúster de Windows no necesita un disco compartido.
@@ -595,9 +595,9 @@ Para obtener más información sobre cómo proteger los componentes SAP en escen
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> Alta disponibilidad en los servidores de aplicaciones de SAP
 Por lo general, no se necesita una solución de alta disponibilidad específica para las instancias de diálogo y servidores de aplicaciones de SAP. Obtiene alta disponibilidad mediante redundancia y configurará varias instancias de diálogo en distintas instancias de Azure Virtual Machines. Debe tener, como mínimo, 2 instancias de aplicaciones de SAP instaladas en 2 instancias de Azure Virtual Machines.
 
-![Figura 4: Alta disponibilidad en los servidores de aplicaciones de SAP][sap-ha-guide-figure-2000]
+![Ilustración 4: Alta disponibilidad en los servidores de aplicaciones de SAP][sap-ha-guide-figure-2000]
 
-_**Figura 4**: Alta disponibilidad en los servidores de aplicaciones de SAP_
+_**Ilustración 4:** Alta disponibilidad en los servidores de aplicaciones de SAP_
 
 Debe colocar todas las máquinas virtuales que hospedan instancias de servidores de aplicaciones de SAP en el mismo conjunto de disponibilidad de Azure. Un conjunto de disponibilidad de Azure garantiza lo siguiente:
 
@@ -611,9 +611,9 @@ Como la cuenta de almacenamiento de Azure es un punto único de error potencial,
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> Instancia de ASCS/SCS de SAP de alta disponibilidad
 La figura 5 es un ejemplo de una instancia de ASCS/SCS de SAP de alta disponibilidad.
 
-![Figura 5: Instancia de ASCS/SCS de SAP de alta disponibilidad][sap-ha-guide-figure-2001]
+![Ilustración 5: Instancia de ASCS/SCS de SAP de alta disponibilidad][sap-ha-guide-figure-2001]
 
-_**Figura 5:** Instancia de ASCS/SCS de SAP de alta disponibilidad_
+_**Ilustración 5:** Instancia de ASCS/SCS de SAP de alta disponibilidad_
 
 #### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> Alta disponibilidad de instancia de ASCS/SCS de SAP con Clústeres de conmutación por error de Windows Server en Azure
 En comparación con las implementaciones de nube privada o sin sistema operativo, Azure Virtual Machines requiere pasos adicionales para configurar Clústeres de conmutación por error de Windows Server. A fin de compilar un clúster de conmutación por error de Windows, necesita un disco de clúster compartido, varias direcciones IP, varios nombres de host virtual y un equilibrador de carga interno de Azure para la agrupación en clústeres de una instancia de ASCS/SCS de SAP. Analizaremos esto con más detalle más adelante en el artículo.
@@ -625,9 +625,9 @@ _**Figura 6:** Clústeres de conmutación por error de Windows Server para una c
 ### <a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a>Alta disponibilidad para la instancia de DBMS
 DBMS también es un único punto de contacto de un sistema SAP. Debe protegerlo con una solución de alta disponibilidad. La figura 7 muestra una solución de alta disponibilidad de SQL Server AlwaysOn en Azure mediante el uso de Clústeres de conmutación por error de Windows Server y el equilibrador de carga interno de Azure. SQL Server AlwaysOn replica los archivos de datos y de registro de DBMS con su propia replicación DBMS. En este caso, no se necesitan discos compartidos de clúster, lo que simplifica toda la configuración.
 
-![Figura 7: Ejemplo de DBMS de SAP de alta disponibilidad (SQL Server AlwaysOn)][sap-ha-guide-figure-2003]
+![Figura 7: Ejemplo de DBMS con SAP de alta disponibilidad con SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
-_**Figura 7:** Ejemplo de DBMS de SAP de alta disponibilidad (SQL Server AlwaysOn)_
+_**Figura 7:** Ejemplo de DBMS con SAP de alta disponibilidad con SQL Server AlwaysOn_
 
 Para más información sobre cómo agrupar el clústeres SQL Server en Azure con el modelo de implementación de Azure Resource Manager, consulte estos artículos:
 
@@ -646,7 +646,7 @@ En la figura 8 se muestra un ejemplo de una arquitectura de SAP NetWeaver de alt
 
 ![Figura 8: Plantilla 1 de arquitectura de alta disponibilidad de SAP con un clúster dedicado para ASCS/SCS y DBMS][sap-ha-guide-figure-2004]
 
-_**Figura 8**: Plantilla 1 de arquitectura de alta disponibilidad de SAP con un clúster dedicado para ASCS/SCS y DBMS_
+_**Figura 8:** Plantilla 1 de arquitectura de alta disponibilidad de SAP con un clúster dedicado para ASCS/SCS y DBMS_
 
 ### <a name="deployment-scenario-using-architectural-template-2"></a>Escenario de implementación con la plantilla 2 de arquitectura
 
@@ -688,9 +688,9 @@ Para preparar la plantilla 1 de arquitectura, siga estos pasos:
 
 - En Azure Portal, en la hoja **Parámetros** del cuadro **SYSTEMAVAILABILITY**, seleccione **Alta disponibilidad**.
 
-  ![Figura 11: Especificación de los parámetros de Azure Resource Manager para alta disponibilidad de SAP][sap-ha-guide-figure-3000]
+  ![Figura 11: Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP][sap-ha-guide-figure-3000]
 
-_**Figura 11:** Especificación de los parámetros de Azure Resource Manager para alta disponibilidad de SAP_
+_**Figura 11:** Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP_
 
 
   Las plantillas crean:
@@ -814,7 +814,7 @@ La plantilla implementa una instancia de Azure Load Balancer que admite varios s
 El equilibrador de carga contiene 1 (2 para Linux) VIP, 1 VIP para ASCS/SCS y 1 VIP para ERS (solo Linux).
 
 En la lista siguiente se incluyen todas las reglas de equilibrio de carga (donde x es el número del sistema SAP, por ejemplo, 1, 2, 3, etc.):
-- Puertos específicos de Windows para cada sistema SAP 445, 5985
+- Puertos específicos de Windows para cada sistema SAP: 445, 5985
 - Puertos ASCS (número de instancia x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
 - Puertos SCS (número de instancia x1): 32x1, 33x1, 39x1, 81x1, 5x113, 5x114, 5x116
 - Puertos ASCS ERS en Linux (número de instancia x2): 33x2, 5x213, 5x214, 5x216
@@ -1088,7 +1088,7 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
   ![Figura 19: Escriba el nombre del clúster][sap-ha-guide-figure-3008]
 
-  _**Figura 19:** Escriba el nombre del clúster._
+  _**Figura 19:** Escriba el nombre del clúster_
 
 4.  Una vez creado el clúster, ejecute una prueba de validación del clúster.
 
@@ -1110,7 +1110,7 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
   Por ejemplo, necesitamos asignar una dirección IP (**10.0.0.42** en el ejemplo) para el nombre de host virtual del clúster **pr1-ascs-vir**.
 
-  ![Figura 23: En el cuadro de diálogo Propiedades, cambie la dirección IP.][sap-ha-guide-figure-3012]
+  ![Figura 23: En el cuadro de diálogo Propiedades, cambie la dirección IP][sap-ha-guide-figure-3012]
 
   _**Figura 23:** En el cuadro de diálogo **Propiedades**, cambie la dirección IP_
 
@@ -1134,9 +1134,9 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
 8.  Escriba un nombre para el segundo host del nodo de clúster.
 
-  ![Figura 27: Escriba el segundo nombre de host del nodo de clúster.][sap-ha-guide-figure-3016]
+  ![Figura 27: Escriba el segundo nombre de host del nodo de clúster][sap-ha-guide-figure-3016]
 
-  _**Figura 27:** Escriba el segundo nombre de host del nodo de clúster._
+  _**Figura 27:** Escriba el segundo nombre de host del nodo de clúster_
 
   > [!IMPORTANT]
   > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster** **NO** esté activada.  
@@ -1145,7 +1145,7 @@ Para configurar el clúster de Clústeres de conmutación por error de Windows p
 
   ![Figura 28: No active la casilla][sap-ha-guide-figure-3017]
 
-  _**Figura 28:** **NO** active la casilla_
+  _**Figura 28:** **No** active la casilla_
 
   Puede pasar por alto las advertencias sobre el cuórum y los discos. Establecerá el cuórum y compartirá el disco más adelante, tal como se describe en [Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP][sap-ha-guide-8.12.3].
 
@@ -1184,11 +1184,11 @@ Para configurar un testigo de recurso compartido de archivos de clúster, hay qu
 
 3.  Para agregar el objeto de nombre de clúster a la lista, seleccione **Agregar**. Cambie el filtro para buscar objetos de equipo, además de los que aparecen en la figura 31.
 
-  ![Figura 31: Cambio del tipo de objeto para incluir los objetos de equipo][sap-ha-guide-figure-3020]
+  ![Figura 31: Cambio de los tipos de objeto para incluir los equipos][sap-ha-guide-figure-3020]
 
-  _**Figura 31:** Cambio del tipo de objeto para incluir los equipos_
+  _**Figura 31:** Cambio de los tipos de objeto para incluir los equipos_
 
-  ![Figura 32: Activación de la casilla Equipos][sap-ha-guide-figure-3021]
+  ![Figura 32: Active la casilla Equipos][sap-ha-guide-figure-3021]
 
   _**Figura 32:** Active la casilla **Equipos**_
 
@@ -1204,9 +1204,9 @@ Para configurar un testigo de recurso compartido de archivos de clúster, hay qu
 
 1.  Abra el Asistente para la configuración de cuórum.
 
-  ![Figura 34: Inicio del Asistente para configurar cuórum de clúster][sap-ha-guide-figure-3023]
+  ![Figura 34: Inicio del Asistente para configurar el cuórum de clúster][sap-ha-guide-figure-3023]
 
-  _**Figura 34:** Inicio del Asistente para configurar cuórum de clúster_
+  _**Figura 34:** Inicio del Asistente para configurar el cuórum de clúster_
 
 2.  En la página **Seleccionar opción de configuración de cuórum**, seleccione **Seleccionar el testigo de cuórum**.
 
@@ -1261,7 +1261,7 @@ Hay dos maneras de agregar .NET Framework 3.5:
 
   ![Figura 40: Barra de progreso de instalación cuando instala .NET Framework 3.5 por medio del Asistente para agregar roles y características][sap-ha-guide-figure-3029]
 
-  _**Figura 40**: Barra de progreso de instalación cuando instala .NET Framework 3.5 por medio del Asistente para agregar roles y características_
+  _**Figura 40:** Barra de progreso de instalación cuando instala .NET Framework 3.5 por medio del Asistente para agregar roles y características_
 
 - Utilice la herramienta de línea de comandos dism.exe. Para este tipo de instalación, necesita tener acceso al directorio SxS en los medios de instalación de Windows. En un símbolo del sistema con privilegios elevados, escriba:
 
@@ -1304,13 +1304,13 @@ Para instalar SIOS DataKeeper, siga estos pasos:
 
 4.  Escriba el nombre de usuario y contraseñas de cuenta de dominio que creó para SIOS DataKeeper.
 
-  ![Figura 44: Ingreso del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper][sap-ha-guide-figure-3034]
+  ![Figura 44: Introducción del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper][sap-ha-guide-figure-3034]
 
-  _**Figura 44:** Ingreso del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper_
+  _**Figura 44:** Introducción del nombre de usuario y contraseña de dominio para la instalación de SIOS DataKeeper_
 
 5.  Instale la clave de licencia para la instancia de SIOS DataKeeper, tal como aparece en la figura 45.
 
-  ![Figura 45: Ingreso de la licencia de SIOS DataKeeper][sap-ha-guide-figure-3035]
+  ![Figura 45: Especificación de la licencia de SIOS DataKeeper][sap-ha-guide-figure-3035]
 
   _**Figura 45:** Especificación de la licencia de SIOS DataKeeper_
 
@@ -1328,9 +1328,9 @@ Después de instalar SIOS DataKeeper en ambos nodos, debe iniciar la configuraci
 
 2.  Escriba el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo.
 
-  ![Figura 47: Inserción del nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo][sap-ha-guide-figure-3037]
+  ![Figura 47: Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo][sap-ha-guide-figure-3037]
 
-  _**Figura 47:** Inserción del nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo_
+  _**Figura 47:** Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo_
 
 3.  Cree el trabajo de replicación entre los dos nodos.
 
@@ -1610,9 +1610,9 @@ Es fácil probar y supervisar la conmutación por error de la instancia de ASCS/
 
 El grupo de clústeres **SAP PR1** se ejecuta en el nodo de clúster A. Por ejemplo, en **pr1-ascs-0**. Asigne la unidad de disco compartido S, que forma parte del grupo de clústeres **SAP PR1** y que la instancia de ASCS/SCS usa, al nodo de clúster A.
 
-![Figura 61: Administrador de clústeres de conmutación por error (el grupo de clústeres <SID> de SAP se ejecuta en el nodo del clúster A)][sap-ha-guide-figure-5000]
+![Figura 61: Administrador de clústeres de conmutación por error: El grupo de clústeres <SID> de SAP se ejecuta en el nodo del clúster A][sap-ha-guide-figure-5000]
 
-_**Figura 61:** Administrador de clústeres de conmutación por error: el grupo de clústeres &lt;*SID*&gt; de SAP se ejecuta en el nodo del clúster A_
+_**Figura 61:** Administrador de clústeres de conmutación por error: El grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster A_
 
 En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración, puede ver que los datos del disco compartido se replican sincrónicamente desde la unidad de volumen de origen S en el nodo de clúster A. Por ejemplo, de **pr1-ascs-0 [10.0.0.40]** a **pr1-ascs-1 [10.0.0.41]**.
 
@@ -1641,7 +1641,7 @@ _**Figura 62:** En SIOS DataKeeper, replique el volumen local desde el nodo de c
 
   ![Figura 63: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <SID> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
 
-  _**Figura 63:** En el Administrador de clústeres de conmutación por error, el grupo de clústeres &lt;*SID*&gt; de SAP se ejecuta en el nodo del clúster B_
+  _**Figura 63**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres <*SID*> de SAP se ejecuta en el nodo del clúster B_
 
   Ahora, el disco compartido ahora está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de **pr1-ascs-1 [10.0.0.41]** a **pr1-ascs-0 [10.0.0.40]**.
 

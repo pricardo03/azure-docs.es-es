@@ -3,19 +3,19 @@ title: Predicates y PredicateValidations - Azure Active Directory B2C | Microsof
 description: Ejemplos de transformación de notificaciones de cuentas sociales para el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432178"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850865"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -262,7 +262,7 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
 Después de definir las validaciones básicas, puede combinarlas y crear un conjunto de directivas de contraseña que puede usar en la directiva:
 
 - **SimplePassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64.
-- **StrongPassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64. El último grupo `CharacterClasses` ejecuta un conjunto adicional de predicados con `MatchAtLeast` establecido en 3. La contraseña del usuario debe tener entre 8 y 16 caracteres, y estar formado por los siguientes caracteres: minúsculas, mayúsculas, número o símbolo.
+- **StrongPassword** valida los predicados DisallowedWhitespace, AllowedAADCharacters y IsLengthBetween8And64. El último grupo `CharacterClasses` ejecuta un conjunto adicional de predicados con `MatchAtLeast` establecido en 3. La contraseña del usuario debe tener entre 8 y 16 caracteres e incluir los siguientes caracteres: minúsculas, mayúsculas, números o símbolos.
 - **CustomPassword** solo valida DisallowedWhitespace y AllowedAADCharacters. Por lo tanto, el usuario puede proporcionar cualquier contraseña de cualquier longitud, siempre y cuando los caracteres sean válidos.
 
 ```XML

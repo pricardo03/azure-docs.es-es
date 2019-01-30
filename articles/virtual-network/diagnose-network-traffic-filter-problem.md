@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984235"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424649"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -77,7 +77,7 @@ Aunque las reglas de seguridad vigentes se vieron a través de la máquina virtu
 
 ## <a name="diagnose-using-powershell"></a>Diagnóstico mediante PowerShell
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.0.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions)].
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.0.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions)].
 
 Obtenga las reglas de seguridad vigentes para una interfaz de red con [AzureRmEffectiveNetworkSecurityGroup Get](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). En el ejemplo siguiente se obtienen las reglas vigentes de una interfaz de red denominada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 

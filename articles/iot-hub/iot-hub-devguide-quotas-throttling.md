@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395163"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827387"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -47,9 +47,12 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Operaciones de trabajos<sup>1,3</sup> <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
 | Operaciones de dispositivo de trabajos<sup>1</sup> <br/> (actualizar gemelos, invocar método directo) | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
 | Configuraciones e implementaciones perimetrales<sup>1</sup> <br/> (crear, actualizar, enumerar, eliminar) | 0,33/s/unidad (20/m/unidad) | 0,33/s/unidad (20/m/unidad) | 0,33/s/unidad (20/m/unidad) |
+| Velocidad de iniciación de secuencia de dispositivos<sup>4</sup> | 5 nuevas secuencias/s | 5 nuevas secuencias/s | 5 nuevas secuencias/s |
+| Número máximo de secuencias de dispositivos conectados simultáneamente<sup>4</sup> | 50 | 50 | 50 |
+| Nivel máximo de transferencia de datos de secuencia de dispositivos<sup>4</sup> (volumen agregado por día) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>1</sup>El tamaño del medidor de limitación es de 8 KB. <br/><sup>3</sup>Solo puede tener un trabajo activo de importación o exportación de dispositivos a la vez.
+<sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>1</sup>El tamaño del medidor de limitación es de 8 KB. <br/><sup>3</sup>Solo puede tener un trabajo activo de importación o exportación de dispositivos a la vez. <br/><sup>4</sup>Las secuencias de dispositivo IoT Hub solo están disponibles para los SKU de S1, S2, S3 y F1.
 
 La limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con una instancia de IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación de *conexiones de dispositivo* depende del número de unidades aprovisionadas para el centro de IoT.
 
@@ -68,7 +71,7 @@ IoT Hub exige otros límites operativos:
 
 | Operación | Límite |
 | --------- | ----- |
-| URI de carga de archivos | 10000 URI de SAS pueden estar fuera para una cuenta de almacenamiento al mismo tiempo. <br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
+| URI de carga de archivos | 10000 URI de SAS pueden estar fuera para una cuenta de almacenamiento al mismo tiempo. <br/>  10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
 | Trabajos<sup>1</sup> | El historial de trabajos se conserva durante 30 días como máximo. <br/> El número máximo de trabajos simultáneos es 1 para gratuitos y S1, 5 para S2 y 10 para S3. |
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
 | Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |

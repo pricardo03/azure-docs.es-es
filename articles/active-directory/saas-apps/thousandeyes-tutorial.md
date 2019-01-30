@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con ThousandEyes | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con ThousandEyes | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ThousandEyes.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 790e3f1e-1591-4dd6-87df-590b7bf8b4ba
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6af7a3322b1a01c1d822df78d827121c19e21e1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 046832913a07c99310280d37ac1c6792692dd0cf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444409"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824718"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: integración de Azure Active Directory con ThousandEyes
+# <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integración de Azure Active Directory con ThousandEyes
 
 En este tutorial, obtendrá información sobre cómo integrar ThousandEyes con Azure Active Directory (Azure AD).
 
@@ -46,7 +46,7 @@ Para configurar la integración de Azure AD con ThousandEyes, necesita los sigui
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de evaluación de un mes: [Oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de evaluación de un mes aquí: [Oferta de evaluación](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
@@ -144,7 +144,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/thousandeyes-tutorial/ic790069.png "Configurar inicio de sesión único")
 
-    a. Seleccione **Enable Single Sign-On**(Habilitar inicio de sesión único).
+     a. Seleccione **Enable Single Sign-On**(Habilitar inicio de sesión único).
 
     b. En el cuadro de texto **URL de la página de inicio de sesión**, pegue la **URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
 
@@ -179,7 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/thousandeyes-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -211,7 +211,7 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Thousan
 
     ![Agregar cuentas de usuario](./media/thousandeyes-tutorial/IC790074.png "Agregar cuentas de usuario")
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
+     a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
 
     b. En el cuadro de texto **Correo electrónico**, escriba el correo electrónico del usuario, en el ejemplo **brittasimon@contoso.com**.
 

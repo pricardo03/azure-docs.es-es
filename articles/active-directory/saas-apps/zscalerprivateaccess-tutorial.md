@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5858ab1846ccdc2e2b78f2be4173ea3cc17a3605
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5610316fdadb9a169c90e7e7761d9ddd2a74dcbe
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116579"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integración de Azure Active Directory con Zscaler Private Access (ZPA)
 
@@ -117,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     
     ![Configurar inicio de sesión único](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_01.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`.
 
     b. En el cuadro de texto **Identificador**, escriba: `https://samlsp.private.zscaler.com/auth/metadata`
 
@@ -158,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configuración del inicio de sesión único en la aplicación](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
 
-    a. Haga clic en **Select File** (Seleccionar archivo) y cargue su archivo de metadatos descargado.
+     a. Haga clic en **Select File** (Seleccionar archivo) y cargue su archivo de metadatos descargado.
 
     b. Haga clic en el botón **Guardar** .
     
@@ -187,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
  
     ![Creación de un usuario de prueba de Azure AD](./media/zscalerprivateaccess-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

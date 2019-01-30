@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413496"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382914"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -29,9 +29,9 @@ Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Gri
 
 Al igual que muchos otros servicios que admiten webhooks, EventGrid requiere que demuestre la propiedad de su punto de conexión de Webhook antes de que comience a entregar eventos a ese punto de conexión. Este requisito evita que un usuario malintencionado sature el punto de conexión con eventos. Cuando utiliza cualquiera de los tres servicios de Azure enumerados a continuación, la infraestructura de Azure controla automáticamente esta validación:
 
-* Azure Logic Apps,
-* Azure Automation,
-* Desencadenador de Azure Functions para Event Grid
+* Azure Logic Apps con el [conector de Event Grid](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Automation a través de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Azure Functions con el [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md)
 
 Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure basada en un desencadenador HTTP, el código del punto de conexión debe participar en un protocolo de enlace de validación con EventGrid. Event Grid admite dos formas de validar la suscripción.
 

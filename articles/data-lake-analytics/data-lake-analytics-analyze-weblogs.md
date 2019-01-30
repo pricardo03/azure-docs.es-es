@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246470"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402292"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Análisis de registros de sitios web mediante Azure Data Lake Analytics
 Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, especialmente en lo que se refiere a averiguar qué sitios de referencia presentaban errores cuando intentaron visitar el sitio web.
@@ -165,7 +165,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación.  Par
 
 1. En el **Explorador de servidores**, expanda **Azure**, **Data Lake Analytics**, la cuenta de Data Lake Analytics y **Cuentas de almacenamiento**. A continuación, haga clic con el botón derecho en la cuenta predeterminada de Data Lake Store y después haga clic en **Explorador**.
 2. Haga doble clic en **Ejemplos** para abrir la carpeta y después haga doble clic en **Salidas**.
-3. Haga doble clic en **UnsuccessfulResponsees.log**.
+3. Haga doble clic en **UnsuccessfulResponses.log**.
 4. También puede hacer doble clic en el archivo de salida en la vista de gráfico del trabajo para ir directamente a la salida.
 
 ## <a name="see-also"></a>Otras referencias

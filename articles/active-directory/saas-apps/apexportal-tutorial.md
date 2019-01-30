@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 4c267313e4851e621b57aa1d2bddc73118405776
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 25fb68d3f29e0b3589e582551b88cc1cc7b5392f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054240"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integración de Azure Active Directory con Apex Portal
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de Apex Portal](./media/apexportal-tutorial/tutorial_apexonline_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.apexanalytix.com/saml/sso.aspx`.
 
@@ -129,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | LASTNAME | user.surname |
     | MAIL | user.mail |    
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/apexportal-tutorial/tutorial_attribute_04.png)
 
@@ -152,7 +152,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 8. Para configurar el inicio de sesión único en **Apex Portal**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Apex Portal](mailto:support@apexanalytix.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -178,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/apexportal-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -189,9 +189,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 ### <a name="create-an-apex-portal-test-user"></a>Creación de un usuario de prueba de Apex Portal
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Apex Portal. Apex Portal admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Apex Portal se crea un nuevo usuario, en caso de que no exista.
- 
-> [!NOTE]
-> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Apex Portal](mailto:support@apexanalytix.com).
+ 
+> [!NOTE]
+> Si necesita crear un usuario manualmente, debe ponerse en contacto con el  [equipo de soporte técnico de Apex Portal](mailto:support@apexanalytix.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -228,7 +228,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Apex Portal del panel de acceso, debería iniciar sesión automáticamente en la aplicación Apex Portal.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

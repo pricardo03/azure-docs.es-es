@@ -3,7 +3,7 @@ title: Controles de aplicación adaptables en Azure Security Center | Microsoft 
 description: Este documento le ayuda a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262904"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427141"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicación adaptables en Azure Security Center
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>¿Qué son los controles de aplicación adaptables en Security Center?
-Controles de aplicaciones adaptables es una solución de creación automatizada e inteligente de listas de permitidos para aplicaciones de un extremo a otro de Azure Security Center. Permite controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales que se encuentran en Azure y, entre otras ventajas, le ayuda a proteger las máquinas virtuales frente a malware. Security Center usa el aprendizaje automático para analizar las aplicaciones que se ejecutan en sus máquinas virtuales y le ayuda a aplicar reglas de inclusión en listas específicas de permitidos con esta inteligencia. Esta funcionalidad simplifica enormemente el proceso de configuración y mantenimiento de directivas de listas de aplicaciones permitidas, lo que le permite:
+El control de aplicaciones adaptables es una solución de creación automatizada e inteligente de listas de permitidos para aplicaciones de un extremo a otro de Azure Security Center. Permite controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales que se encuentran en Azure y, entre otras ventajas, le ayuda a proteger las máquinas virtuales frente a malware. Security Center usa el aprendizaje automático para analizar las aplicaciones que se ejecutan en sus máquinas virtuales y le ayuda a aplicar reglas de inclusión en listas específicas de permitidos con esta inteligencia. Esta funcionalidad simplifica enormemente el proceso de configuración y mantenimiento de directivas de listas de aplicaciones permitidas, lo que le permite:
 
 - Bloquear o alertar sobre intentos de ejecución de aplicaciones malintencionadas, incluidas aquellas que podrían ser omitidas por las soluciones antimalware.
 - Cumplir con la directiva de seguridad de la organización que dicta el uso de software con licencia únicamente.
@@ -88,7 +88,6 @@ La sección **Grupos de máquinas virtuales** contiene tres pestañas:
 5. Cuando haya terminado de realizar las selecciones, elija **Crear**. <br>
 Después de seleccionar Crear, Azure Security Center crea automáticamente las reglas adecuadas en la solución integrada de creación de listas de aplicaciones permitidas disponible en los servidores de Windows (AppLocker).
 
-
 > [!NOTE]
 > - Security Center necesita al menos dos semanas de datos para crear una base de referencia y rellenar las recomendaciones únicas para cada grupo de máquinas virtuales. Los clientes nuevos del nivel estándar de Security Center experimentarán un comportamiento en el que, al principio, sus grupos de máquinas virtuales aparecen en la pestaña *Ninguna recomendación*.
 > - Controles de aplicación adaptables de Security Center no admite máquinas virtuales para las que ya esté habilitada una directiva de AppLocker mediante un GPO o una directiva de seguridad local.
@@ -122,7 +121,7 @@ Después de seleccionar Crear, Azure Security Center crea automáticamente las r
    > - Como se mencionó anteriormente, una nueva directiva de control de aplicación siempre se configura en modo *Auditoría* de forma predeterminada. 
    >
 
-4. En **Extensión de directiva**, puede agregar cualquier ruta de acceso de aplicación que quiera permitir. Después de agregar estas rutas de acceso, Security Center actualiza la directiva de inclusión en la lista de aplicaciones permitidas en las VM dentro del grupo seleccionado de VM y crea las reglas adecuadas para estas aplicaciones, además de las reglas que ya están en vigor.
+4. En **Extensión de directiva**, agregue cualquier ruta de acceso de aplicación que quiera permitir. Después de agregar estas rutas de acceso, Security Center actualiza la directiva de inclusión en la lista de aplicaciones permitidas en las VM dentro del grupo seleccionado de VM y crea las reglas adecuadas para estas aplicaciones, además de las reglas que ya están en vigor.
 
 5. Revise las infracciones actuales que aparecen en la sección **Alertas recientes**. Haga clic en cada línea para ser redirigido a la página **Alertas** de Azure Security Center, y vea todas las alertas que detectó Azure Security Center en las máquinas virtuales asociadas.
   - **Alertas**: cualquier infracción que se registró.

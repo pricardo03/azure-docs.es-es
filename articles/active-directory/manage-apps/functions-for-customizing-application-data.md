@@ -4,21 +4,21 @@ description: Obtenga información sobre cómo usar asignaciones de expresiones p
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/21/2019
+ms.author: chmutali
+ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973730"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823683"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -37,7 +37,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 * Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Append
@@ -209,6 +209,32 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 | **key** |Obligatorio |string |**Key** con que se compara el valor de **source**. |
 | **value** |Obligatorio |string |Valor de reemplazo para el **source** que coincide con la clave. |
 
+- - -
+### <a name="tolower"></a>ToLower
+**Función:**<br> ToLower (origen, referencia cultural)
+
+**Descripción:**<br> Toma un valor de cadena de *origen* y se convierte a minúsculas mediante las reglas de referencia cultural que se hayan especificado. Si no hay ninguna información de *referencia cultural* especificada, se usará la referencia cultural invariable.
+
+**Parámetros:**<br> 
+
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
+| --- | --- | --- | --- |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
+| **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+
+- - -
+### <a name="toupper"></a>ToUpper
+**Función:**<br> ToUpper (origen, referencia cultural)
+
+**Descripción:**<br> Toma un valor de cadena de *origen* y se convierte a mayúsculas mediante las reglas de referencia cultural que se hayan especificado. Si no hay ninguna información de *referencia cultural* especificada, se usará la referencia cultural invariable.
+
+**Parámetros:**<br> 
+
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
+| --- | --- | --- | --- |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
+| **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+
 ## <a name="examples"></a>Ejemplos
 ### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido
 Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br>
@@ -283,6 +309,18 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Conversión del valor generado de userPrincipalName (UPN) a minúsculas
+
+En el ejemplo siguiente, el valor de UPN se genera mediante la concatenación de los campos de origen PreferredFirstName y PreferredLastName, y la función ToLower opera en la cadena generada para convertir todos los caracteres a minúsculas. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Entrada/salida de ejemplo:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generación de un valor único para el atributo userPrincipalName (UPN)
 

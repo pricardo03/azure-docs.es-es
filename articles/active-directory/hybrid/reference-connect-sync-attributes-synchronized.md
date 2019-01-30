@@ -4,7 +4,7 @@ description: Enumera los atributos que se sincronizan con Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251805"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468634"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
 Los atributos se agrupan por la aplicación de Azure AD relacionada.
 

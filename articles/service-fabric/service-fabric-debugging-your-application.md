@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f16bf06d03511223b54542ad7a389f78d37f3ea9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 06db540600be323b3129d64d18739582f6d9f2d0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235078"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412662"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar la aplicación de Service Fabric con Visual Studio
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "51235078"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Depurar una aplicación de Service Fabric local
-Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Service Fabric de Azure en un clúster de desarrollo del equipo local. Visual Studio 2017 o Visual Studio 2015 pueden implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación.
+Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Service Fabric de Azure en un clúster de desarrollo del equipo local. Visual Studio 2017 o Visual Studio 2015 pueden implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación. Visual Studio debe ejecutarse como administrador para conectar el depurador.
 
 1. Inicie un clúster de desarrollo local siguiendo los pasos descritos en [Configurar el entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
 2. Presione **F5** o haga clic en **Depurar** > **Iniciar depuración**.

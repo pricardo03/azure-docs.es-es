@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321541"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478644"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -72,7 +72,7 @@ Para más información sobre cómo instalar y configurar el agente de Azure File
 
 - El paquete de instalación del agente debe instalarse con permisos elevados (administrador).
 - El agente no es compatible con las opciones de implementación de Windows Server Core ni Nano Server.
-- El agente solo se admite en Windows Server 2016 y Windows Server 2012 R2.
+- El agente solo se admite en Windows Server 2019, Windows Server 2016 y Windows Server 2012 R2.
 - El agente requiere al menos 2 GB de memoria. Si el servidor se ejecuta en una máquina virtual con la memoria dinámica habilitada, la máquina virtual debe configurarse con un mínimo de 2048 MiB de memoria.
 - El servicio del agente de sincronización de Storage (FileSyncSvc) no admite puntos de conexión de servidor ubicados en un volumen que tiene el directorio de información del volumen del sistema (SVI) comprimido. Esta configuración producirá resultados inesperados.
 - Puede producirse un error de detención 0x3B o un error de detención 0x1E al crear una instantánea de VSS.

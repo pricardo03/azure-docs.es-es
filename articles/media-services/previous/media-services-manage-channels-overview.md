@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246602"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382137"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Información general de streaming en vivo con Azure Media Services
 
@@ -27,6 +27,7 @@ ms.locfileid: "40246602"
 > A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
 
 ## <a name="overview"></a>Información general
+
 Cuando se proporcionan eventos de streaming en vivo con Azure Media Services normalmente participan los siguientes componentes:
 
 * Una cámara que se usa para difundir un evento.
@@ -43,19 +44,19 @@ Cuando se proporcionan eventos de streaming en vivo con Azure Media Services nor
 
 **Microsoft Azure Media Services** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
 
-Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para conseguir esto, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa).  Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Media Services para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Media Services admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH.
+Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para conseguir esto, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa).  Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Media Services para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Media Services admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 En Azure Media Services, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
 Un **canal** representa una canalización para procesar contenido de streaming en vivo. Un canal puede recibir transmisiones de entrada en directo de la siguiente manera:
 
-* Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con velocidades de bits múltiples al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y los transcodificadores Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con velocidades de bits múltiples al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Los transcodificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
   > [!NOTE]
   > El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](https://azure.microsoft.com/pricing/details/media-services/) .
   > 
   > 
-* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). Se sabe que los siguientes codificadores en directo con salida RTMP funcionan con los canales de este tipo: Telestream Wirecast y FMLE. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado). Se sabe que los siguientes codificadores en directo con salida RTMP funcionan con los canales de este tipo: Telestream Wirecast y FMLE. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
 A partir de la versión 2.10 de Media Services, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
@@ -63,6 +64,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal, puede especif
 * **Estándar**: elija este valor si piensa usar Media Services para codificar transmisiones en directo con una sola velocidad de bits en transmisiones de varias velocidades de bits. Este método es más económico para la escalación vertical rápida para eventos poco frecuentes. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 ## <a name="comparison-of-channel-types"></a>Comparación de tipos de canales
+
 La tabla siguiente proporciona a una guía para comparar los dos tipos de canal compatibles en Media Services
 
 | Característica | Canal de paso a través | Canal estándar |
@@ -80,6 +82,7 @@ La tabla siguiente proporciona a una guía para comparar los dos tipos de canal 
 | Apagado automático de canales cuando se pierde la fuente de entrada |Sin  |Después de 12 horas, si no hay ningún programa en ejecución |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales (paso a través)
+
 En el diagrama siguiente se muestran las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de **paso a través** .
 
 ![Flujo de trabajo activo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -87,6 +90,7 @@ En el diagrama siguiente se muestran las partes principales de la plataforma AMS
 Para más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Uso de canales habilitados para realizar la codificación en directo con Azure Media Services
+
 El diagrama siguiente muestra las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo, en la que se habilita un canal para Live Encoding con Media Services.
 
 ![Flujo de trabajo activo](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -94,12 +98,16 @@ El diagrama siguiente muestra las partes principales de la plataforma AMS que in
 Para obtener más información, consulte [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descripción de un canal y sus componentes relacionados
+
 ### <a name="channel"></a>canal
+
 En Media Services, los [canal](https://docs.microsoft.com/rest/api/media/operations/channel)es son los responsables de procesar el contenido de streaming en vivo. Un canal proporciona un extremo de entrada (dirección URL de introducción) que luego se brinda a un transcodificador en vivo. El canal recibe flujos de entrada en vivo desde el transcodificador en vivo y las deja a disposición del streaming a través de uno o más StreamingEndpoints. Los canales también proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de mayor procesamiento y entrega.
 
 Puede obtener la dirección URL de introducción y la dirección URL de vista previa cuando crea el canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado iniciado. Cuando está listo para comenzar a insertar datos desde un transcodificador en vivo al canal, este debe estar iniciado. Una vez que el transcodificar en vivo comienza a introducir datos, puede tener una vista previa de la transmisión.
 
 Cada cuenta de Media Services puede contener varios canales, varios programas y varios StreamingEndpoints. Según las necesidades de ancho de banda y seguridad, los servicios de StreamingEndpoint pueden dedicarse a uno o más canales. Puede extraer cualquier StreamingEndpoint de cualquier canal.
+
+Al crear un canal, puede especificar las direcciones IP permitidas en uno de los siguientes formatos: dirección IpV4 con cuatro números, intervalo de direcciones CIDR.
 
 ### <a name="program"></a>Programa
 Un [programa](https://docs.microsoft.com/rest/api/media/operations/program) le permite controlar la publicación y almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.

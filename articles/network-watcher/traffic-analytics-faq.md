@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582503"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382996"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -35,7 +35,6 @@ Los requisitos previos de Análisis de tráfico son los siguientes:
 
 Debe cumplir alguno de los siguientes requisitos para habilitar Análisis de tráfico:
 
-- Se debe asignar su cuenta a uno de los siguientes roles en el nivel de suscripción: administrador de cuenta, administrador de servicios o coadministrador.
 - Su cuenta debe tener cualquiera de los siguientes roles del control de acceso basado en rol (RBAC) en el ámbito de la suscripción: propietario, colaborador, lector o colaborador de red.
 - Si la cuenta no está asignada a uno de los roles mencionados anteriormente, se debe asignar a un rol personalizado que tenga asignadas las acciones siguientes en el nivel de suscripción.
             
@@ -61,7 +60,7 @@ Para comprobar los roles asignados a un usuario para una suscripción:
 Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más información, consulte [Administración del control de acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>¿Qué regiones de Azure están disponibles en Análisis de tráfico?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>¿En qué regiones de Azure está disponible Análisis de tráfico?
 
 Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
 - Centro de Canadá
@@ -133,7 +132,7 @@ Para que los registros de flujo funcionen correctamente, el proveedor Microsoft
 
 La primera vez, el panel puede tardar hasta 30 minutos en aparecer. La solución tiene que agregar datos suficientes para poder inferir información detallada relevante. Después, genera informes. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>¿Qué sucede si aparece el siguiente mensaje: "No se encontró ningún dato en el área de trabajo para el intervalo de tiempo seleccionado. Intente cambiar el intervalo de tiempo o seleccione otra área de trabajo"?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>¿Qué sucede si aparece un mensaje similar al siguiente: "No se encontró ningún dato en el área de trabajo para el intervalo de tiempo seleccionado. Intente cambiar el intervalo de tiempo o seleccione otra área de trabajo"?
 
 Pruebe lo siguiente:
 - Cambie el intervalo de tiempo en la barra superior.
@@ -142,7 +141,7 @@ Pruebe lo siguiente:
     
 Si el problema persiste, comparta su experiencia en el [foro de UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>¿Qué sucede si aparece este mensaje: "Analizando registros de flujo de grupos de seguridad de red por primera vez? Este proceso puede tardar de 20 a 30 minutos en completarse. Compruébelo de nuevo más tarde. 2) Si el paso anterior no funciona y el área de trabajo está en la SKU gratuita, compruebe aquí el uso del área de trabajo para validar el excedente de la cuota y consulte también las preguntas más frecuentes para más información.
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>¿Qué sucede si aparece un mensaje similar al siguiente: "Analizando registros de flujo de grupos de seguridad de red por primera vez"? Este proceso puede tardar de 20 a 30 minutos en completarse. Compruébelo de nuevo más tarde. 2) Si el paso anterior no funciona y el área de trabajo está en la SKU gratuita, compruebe aquí el uso del área de trabajo para validar el excedente de la cuota y consulte también las preguntas más frecuentes para más información.
 
 Puede que aparezca este mensaje porque:
 - Análisis de tráfico se ha habilitado hace poco tiempo y todavía no se han agregado datos suficientes para inferir información detallada relevante.
@@ -225,9 +224,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-is-traffic-analytics-priced"></a>¿Qué precio tiene Análisis de tráfico?
 
-El análisis de tráfico se puede medir. La medición se basa en el procesamiento de los datos de registro de flujo que realiza el servicio y el almacenamiento de los registros mejorados resultantes en un área de trabajo de Log Analytics. 
+Análisis de tráfico se puede medir. La medición se basa en el procesamiento de los datos de registro de flujo que realiza el servicio y el almacenamiento de los registros mejorados resultantes en un área de trabajo de Log Analytics. 
 
-Por ejemplo, según el [plan de tarifa](https://azure.microsoft.com/pricing/details/network-watcher/), teniendo en cuenta la región Centro-oeste de EE. UU., si los registros de flujo de datos almacenados en una cuenta de almacenamiento procesada por Análisis de tráfico es de 10 GB y los registros mejorados ingeridos en el área de trabajo de Log Analytics es de 1 GB los cargos aplicables son: 10 x 2,3 USD + 1 x 2,76 USD = 25,76 USD
+Por ejemplo, según el [plan de precios](https://azure.microsoft.com/pricing/details/network-watcher/), teniendo en cuenta la región Centro-oeste de EE. UU., si los registros de flujo de datos almacenados en una cuenta de almacenamiento procesada por Análisis de tráfico son de 10 GB y los registros mejorados ingeridos en el área de trabajo de Log Analytics son de 1 GB, los cargos aplicables son: 10 x 2.3 $ + 1 x 2,76 $ = 25,76 $
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 

@@ -3,24 +3,24 @@ title: Definición de un perfil técnico de validación en una directiva persona
 description: Defina un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ab2361eae7dac58adb2739437d0616bcd05f870f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568683"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850389"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
- 
+
 Un perfil técnico de validación es un perfil técnico normal de cualquier protocolo, como [Azure Active Directory](active-directory-technical-profile.md) o una [API de REST](restful-technical-profile.md). El perfil técnico de validación devuelve notificaciones de salida o devuelve un mensaje de error HTTP 409 (código de estado de respuesta de conflicto), con los siguientes datos:
 
 ```JSON
@@ -33,12 +33,11 @@ Un perfil técnico de validación es un perfil técnico normal de cualquier prot
 
 Las notificaciones que se devuelven desde un perfil técnico de validación se vuelven a agregar al contenedor de notificaciones. Puede usar esas notificaciones en los perfiles técnicos de validación siguientes.
 
-Los perfiles técnicos de validación se ejecutan en la secuencia en que aparecen en el elemento **ValidationTechnicalProfiles**. Puede configurar un perfil técnico de validación si la ejecución de los perfiles técnicos de validación posteriores debe continuar, si el perfil técnico de validación genera un error o si es correcto.  
+Los perfiles técnicos de validación se ejecutan en la secuencia en que aparecen en el elemento **ValidationTechnicalProfiles**. Puede configurar un perfil técnico de validación si la ejecución de los perfiles técnicos de validación posteriores debe continuar, si el perfil técnico de validación genera un error o si es correcto.
 
 Un perfil técnico de validación se puede ejecutar condicionalmente en función de las condiciones previas definidas en el elemento **ValidationTechnicalProfile**. Por ejemplo, puede comprobar si existe una notificación específica o si una notificación es igual o no al valor especificado.
 
 Un perfil técnico autoafirmado puede definir un perfil técnico de validación que se use para validar algunas o todas las notificaciones de salida. Todas las notificaciones de entrada del perfil técnico referido tienen que aparecer en las notificaciones de salida del perfil técnico de validación de referencia.
-
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -53,7 +52,7 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | ReferenceId | SÍ | Un identificador de un perfil técnico que ya se ha definido en la directiva o en la directiva principal. |
-|ContinueOnError|Sin | Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). 
+|ContinueOnError|Sin | Indica si la validación de los perfiles técnicos de validación posteriores debe continuar si este perfil técnico de validación genera un error. Los valores posibles: `true` o `false` (de forma predeterminada, se detendrá el procesamiento de más perfiles de validación y se devolverá un error). |
 |ContinueOnSuccess | Sin  | Indica si la validación de los perfiles de validación posteriores debe continuar si este perfil técnico de validación es correcto. Valores posibles: `true` o `false`. El valor predeterminado es `true`, lo que significa que el procesamiento de los perfiles de validación adicionales continuará. |
 
 El elemento **ValidationTechnicalProfile** contiene el elemento siguiente:
@@ -67,67 +66,51 @@ El elemento **Precondition** contiene el atributo siguiente:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | Escriba | SÍ | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Se especifica `ClaimsExist` para asegurar que las acciones deben llevarse a cabo si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario, o `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
-| ExecuteActionsIf | SÍ | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. | 
+| ExecuteActionsIf | SÍ | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. |
 
 El elemento **Precondition** contiene los elementos siguientes:
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
 | Valor | 1:n | Los datos que se usan en la comprobación. Si el tipo de esta comprobación es `ClaimsExist`, este campo especifica un ClaimTypeReferenceId para la consulta. Si el tipo de comprobación es `ClaimEquals`, este campo especifica un ClaimTypeReferenceId para la consulta. Mientras que otro elemento de valor contiene el valor que se va a comprobar.|
-| . | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. El valor de la **Action** está establecido en `SkipThisValidationTechnicalProfile`. Especifica que el perfil técnico de validación asociado no debe ejecutarse. | 
+| . | 1:1 | La acción que debe realizarse si se cumple la comprobación de condición previa dentro de un paso de orquestación. El valor de la **Action** está establecido en `SkipThisValidationTechnicalProfile`. Especifica que el perfil técnico de validación asociado no debe ejecutarse. |
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se usan estos perfiles técnicos de validación: 
+En el ejemplo siguiente se usan estos perfiles técnicos de validación:
 
-1. El primer perfil técnico de validación comprueba las credenciales de usuario y no continúa si se produce un error, como un nombre de usuario no válido o una contraseña incorrecta. 
+1. El primer perfil técnico de validación comprueba las credenciales de usuario y no continúa si se produce un error, como un nombre de usuario no válido o una contraseña incorrecta.
 2. El siguiente perfil técnico de validación no se ejecuta si la notificación userType no existe, o si el valor de userType es `Partner`. El perfil técnico de validación intenta leer el perfil de usuario de la base de datos interna de clientes y continúa si se produce un error, por ejemplo, si el servicio de la API de REST no está disponible o si hay un error interno.
 3. El último perfil técnico de validación no se ejecuta si la notificación userType no ha existido, o si el valor de userType es `Customer`. El perfil técnico de validación intenta leer el perfil de usuario de la base de datos interna del asociado y continúa si se produce un error, por ejemplo, si el servicio de la API de REST no está disponible o si hay un error interno.
 
 ```XML
 <ValidationTechnicalProfiles>
-  <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false"  />
-    
+  <ValidationTechnicalProfile ReferenceId="login-NonInteractive" ContinueOnError="false" />
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromCustomertsDatabase" ContinueOnError="true" >
     <Preconditions>
-       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-          <Value>userType</Value>
-          <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-       <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-         <Value>userType</Value>
-         <Value>Partner</Value>
-         <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-    </Preconditions>          
+      <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+        <Value>userType</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+      <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+        <Value>userType</Value>
+        <Value>Partner</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+    </Preconditions>
   </ValidationTechnicalProfile>
-
   <ValidationTechnicalProfile ReferenceId="REST-ReadProfileFromPartnersDatabase" ContinueOnError="true" >
     <Preconditions>
-       <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-          <Value>userType</Value>
-          <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-       <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-         <Value>userType</Value>
-         <Value>Customer</Value>
-         <Action>SkipThisValidationTechnicalProfile</Action>
-       </Precondition>
-    </Preconditions>          
+      <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+        <Value>userType</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+      <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+        <Value>userType</Value>
+        <Value>Customer</Value>
+        <Action>SkipThisValidationTechnicalProfile</Action>
+      </Precondition>
+    </Preconditions>
   </ValidationTechnicalProfile>
 </ValidationTechnicalProfiles>
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-

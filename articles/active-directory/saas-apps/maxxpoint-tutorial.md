@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 15ba026e-96fc-4ae8-b135-0169da810e99
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: ca10db225947fbd98b8d5919cdaa371710b0ce46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4cf7c8388b0a5a278298fff274ba49d542bae36
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442673"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integración de Azure Active Directory con MaxxPoint
 
@@ -117,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     
     ![Configurar inicio de sesión único](./media/maxxpoint-tutorial/tutorial_maxxpoint_03.png)
 
-    a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
+     a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
 
     b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`.
 
@@ -135,7 +135,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 1. Para configurar el inicio de sesión único para su aplicación, llame al equipo de soporte técnico de MaxxPoint al número de teléfono **888-728-0950** y le ayudarán a proporcionarles el archivo **XML de metadatos** descargado. 
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro del [portal de Azure](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada mediante la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro del [portal de Azure](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada mediante la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/maxxpoint-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

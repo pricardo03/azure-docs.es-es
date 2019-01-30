@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185343"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432770"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola serie de máquina virtual para Windows
 
@@ -53,6 +53,9 @@ La consola serie para las máquinas virtuales solo es accesible mediante Azure P
   1. Desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas** y seleccione la opción **Consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
 
 ## <a name="enable-serial-console-functionality"></a>Habilitación de la funcionalidad de la consola serie
+
+> [!NOTE]
+> Si no ve nada en la consola serie, asegúrese de que el diagnóstico de arranque está habilitado en la máquina virtual.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Habilitación de la consola serie en imágenes personalizadas o antiguas
 Las imágenes más nuevas de Windows Server en Azure tienen la [consola de administración especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitada de forma predeterminada. SAC se admite en versiones de servidor de Windows, pero no está disponible en versiones de cliente (por ejemplo, Windows 10, Windows 8 o Windows 7).
@@ -237,6 +240,7 @@ No se puede escribir en el símbolo del sistema de SAC si la depuración del ker
 Pegar en PowerShell en SAC da como resultado un tercer carácter si el contenido original tenía un carácter repetido. | Una solución alternativa es ejecutar `Remove-Module PSReadLine` para descargar el módulo PSReadLine desde la sesión actual. Esta acción no eliminará ni desinstalará el módulo.
 Algunas entradas de teclado generan resultados extraños de SAC (por ejemplo, **[A**, **[3~**). | Las secuencias de escape [VT100](https://aka.ms/vtsequences) no son compatibles con el símbolo del sistema de SAC.
 El hecho de pegar cadenas largas no funciona. | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres a fin de impedir que el ancho de banda del puerto serie se sobrecargue.
+La consola serie no funciona con un firewall de la cuenta de almacenamiento. | Por su diseño, la consola serie no puede operar con firewalls de la cuenta de almacenamiento habilitados en la cuenta de almacenamiento del diagnóstico de arranque.
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

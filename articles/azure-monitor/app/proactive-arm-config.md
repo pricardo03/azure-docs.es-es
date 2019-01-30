@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020411"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853602"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -154,6 +154,17 @@ Seguidamente se muestra una tabla de nombres de reglas de detección inteligente
 | Detección de una posible fuga de memoria (versión preliminar) | extension_memoryleakextension |
 | Detección de un posible problema de seguridad (versión preliminar) | extension_securityextensionspackage |
 | Detección de un posible problema de uso de recursos (versión preliminar) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>¿Quién recibe las notificaciones de alerta (clásicas)?
+
+Esta sección solo se aplica a las alertas clásicas de detección inteligente y le ayudará a optimizar las notificaciones de alerta para asegurarse de que solo reciban las notificaciones los destinatarios que elija. Para obtener más información sobre la diferencia entre [alertas clásicas](../platform/alerts-classic.overview.md y la nueva experiencia de alertas, consulte el artículo de [información general de alertas](../platform/alerts-overview.md). En este momento, las alertas de detección inteligente admiten únicamente la experiencia de alertas clásicas. La única excepción son [las alertas de detección inteligente en Azure Cloud Services](./proactive-cloud-services.md). Use los [grupos de acciones](../platform/action-groups.md) para controlar las notificaciones para alertas de detección inteligente en Azure Cloud Services.
+
+* Se recomienda el uso de destinatarios específicos para las notificaciones de alerta clásicas o de detección inteligente.
+
+* Si está habilitada la opción de casilla de verificación **masiva o grupo**, las alertas de detección inteligente se envían a los usuarios con roles de propietario, colaborador o lector de la suscripción. De hecho, _todos_ los usuarios con acceso a la suscripción del recurso de Application Insights están dentro del ámbito y recibirán notificaciones. 
+
+> [!NOTE]
+> Si actualmente usa la opción de casilla de verificación **masiva o grupo** y la deshabilita, no podrá revertir el cambio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

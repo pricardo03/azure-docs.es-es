@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4f2343e1c6b95c495f03cd94ee58164c546f4b76
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139510"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382188"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Uso de listas de frases para aumentar la señal de la lista de palabras
 
@@ -27,6 +27,8 @@ Una [lista de frases](luis-concept-feature.md) incluye un grupo de valores (pala
 Una lista de frases se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
 
 ## <a name="add-phrase-list"></a>Incorporación de una lista de frases
+
+LUIS permite hasta 10 listas de frases por aplicación. 
 
 1. Abra la aplicación con un clic en su nombre en la página **Mis aplicaciones**, haga clic en **Compilar** y luego en **Listas de frases** en el panel izquierdo de la aplicación. 
 

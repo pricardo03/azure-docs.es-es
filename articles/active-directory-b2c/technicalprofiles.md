@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: Especifique el elemento TechnicalProfiles de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566540"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856560"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -280,7 +280,7 @@ El elemento **ClaimsProviderSelections** en un recorrido del usuario define la l
 - **OnItemExistenceInStringCollectionClaim**: solo se ejecuta cuando existe un elemento en una notificación de colección de cadenas. 
 - **OnItemAbsenceInStringCollectionClaim**: solo se ejecuta cuando no existe un elemento en una notificación de colección de cadenas.
 
-Para usar **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim**, o **OnItemAbsenceInStringCollectionClaim**, necesita especificar los metadatos siguientes: **ClaimTypeOnWhichToEnable** especifica el tipo de notificación que se evaluará y **ClaimValueOnWhichToEnable** especifica el valor con el que se comparará.
+Para usar **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** o **OnItemAbsenceInStringCollectionClaim** es necesario que proporcione los siguientes metadatos: **ClaimTypeOnWhichToEnable** especifica el tipo de notificación que se va a evaluar, mientras **ClaimValueOnWhichToEnable** especifica el valor que se va a comparar.
 
 El siguiente perfil técnico solo se ejecuta si la colección de cadenas **identityProviders** contiene el valor de `facebook.com`:
 

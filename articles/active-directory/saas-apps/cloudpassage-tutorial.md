@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con CloudPassage | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con CloudPassage | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CloudPassage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c44b9345da32f907efacfe2b7bb1cf09de0a6345
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 10ef9e0c07f6bad393fdb62de85456483284a998
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427540"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821318"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: integración de Azure Active Directory con CloudPassage
+# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: Integración de Azure Active Directory con CloudPassage
 
 En este tutorial, aprenderá a integrar CloudPassage con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/cloudpassage-tutorial/tutorial_cloudpassage_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://portal.cloudpassage.com/saml/init/accountid`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://portal.cloudpassage.com/saml/init/accountid`.
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://portal.cloudpassage.com/saml/consume/accountid`. Para obtener el valor de este atributo, haga clic en **SSO Setup documentation** (Documentación de instalación de inicio de sesión única) en la sección **Single Sign-on Settings** (Configuración de inicio de sesión único) del portal de CloudPassage.
 
@@ -137,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | lastname |user.surname |
     | email |user.mail |
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/cloudpassage-tutorial/tutorial_attribute_04.png)
     
@@ -171,7 +171,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configurar inicio de sesión único][14]
 
-    a. Seleccione la casilla **Enable Single sign-on(SSO)(SSO Setup Documentation)** (Habilitar el inicio de sesión único (SSO) (Documentación de configuración de SSO)).
+     a. Seleccione la casilla **Enable Single sign-on(SSO)(SSO Setup Documentation)** (Habilitar el inicio de sesión único (SSO) (Documentación de configuración de SSO)).
     
     b. Pegue el **identificador de entidad de SAML** en el cuadro de texto **URL del emisor de SAML**.
   
@@ -184,7 +184,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     f. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -209,7 +209,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/cloudpassage-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -237,7 +237,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
    
    ![Creación de un usuario de prueba de CloudPassage][24]
     
-    a. En el cuadro de texto **First Name** (Nombre), escriba Britta. 
+     a. En el cuadro de texto **First Name** (Nombre), escriba Britta. 
   
     b. En el cuadro de texto **Last Name** (Apellidos), escriba Simon.
   

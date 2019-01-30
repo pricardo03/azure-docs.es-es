@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622327"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431664"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -24,7 +24,7 @@ Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento d
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Realización de una implementación piloto con un pequeño subconjunto de su organización.
-   * Puede encontrar información sobre cómo crear un proyecto un piloto en el [Tutorial: Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](tutorial-sspr-pilot.md).
+   * Se puede encontrar más información sobre el procedimiento en el [Tutorial: Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD](tutorial-sspr-pilot.md).
 1. Ofrezca cursos a su departamento de soporte técnico.
    * ¿Cómo ayudarán a los usuarios?
    * ¿Va a exigir que los usuarios usen SSPR y no permitirá que el departamento de soporte técnico les ayude?
@@ -41,9 +41,9 @@ Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento d
 
 Muchos clientes opinan que una campaña de correo electrónico, con instrucciones sencillas, es la manera más fácil de hacer que los usuarios utilicen SSPR. [Hemos creado varios correos electrónicos sencillos y otra documentación y material adjunto que se pueden utilizar como plantillas para facilitar el lanzamiento](https://www.microsoft.com/download/details.aspx?id=56768):
 
-* **Próximamente**: Una plantilla de correo electrónico para usar las semanas o los días previos al lanzamiento con el fin de informar a los usuarios de que deben hacer algo.
-* **Available Now** (Ya disponible): Una plantilla de correo electrónico para que use el día del lanzamiento del programa con el fin de dirigir a los usuarios al registro y a confirmar los datos de autenticación. Si los usuarios se registran ahora, tendrán SSPR disponible para cuando lo necesiten.
-* **Recordatorio de registro**: Una plantilla de correo electrónico para los días o semanas previos a la implementación para recordar a los usuarios que se registren y confirmen los datos de autenticación.
+* **Próximamente**: una plantilla de correo electrónico para usar las semanas o los días previos al lanzamiento con el fin de informar a los usuarios de que deben hacer algo.
+* **Ya disponible**: una plantilla de correo electrónico para que use el día del lanzamiento del programa con el fin de dirigir a los usuarios al registro y a confirmar los datos de autenticación. Si los usuarios se registran ahora, tendrán SSPR disponible para cuando lo necesiten.
+* **Recordatorio de registro**: una plantilla de correo electrónico para los días o semanas previos a la implementación para recordar a los usuarios que se registren y confirmen los datos de autenticación.
 * **Pósteres de SSPR**: pósteres que puede personalizar y mostrar en los días y semanas anteriores y posteriores a la implementación.
 * **Tiendas de mesa de SSPR**: tarjetas de mesa que se pueden colocar en el comedor, en salas de conferencias o en mesas para animar a los usuarios a completar el registro.
 * **Adhesivos de SSPR**: plantillas de adhesivo que puede personalizar e imprimir para colocar en equipos portátiles, monitores, teclados o teléfonos móviles para recordar cómo se obtiene acceso a SSPR.

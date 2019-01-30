@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579240"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448727"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Programación de trabajos U-SQL mediante SQL Server Integration Services (SSIS)
 
@@ -40,13 +40,13 @@ Puede obtener el script U-SQL desde distintos lugares mediante el uso de tareas 
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Escenario 1: Usar funciones TFV de llamada de script alineado y procedimientos almacenados
 
-En el Editor de tareas de Azure Data Lake Analytics, configure **SourceType** como **DiretInput** y coloque las instrucciones U-SQL en **USQLStatemnt**.
+En el Editor de tareas de Azure Data Lake Analytics, configure **SourceType** como **DirectInput** y coloque las instrucciones U-SQL en **USQLStatement**.
 
 Para simplificar la administración del código y el mantenimiento, solo coloque un script U-SQL breve como scripts alineados. Por ejemplo, puede llamar a funciones con valores de tabla existentes y procedimientos almacenados en las bases de datos U-SQL. 
 
 ![Edición de un script U-SQL alineado en la tarea de SSIS](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
-Artículo relacionado: [How to pass parameter to stored procedures](#scenario-6-pass-parameters-to-u-sql-script) (Cómo pasar un parámetro a los procedimientos almacenados)
+Artículo relacionado: [How to pass parameter to stored procedures](#scenario-6-pass-parameters-to-u-sql-script) (Uso de parámetros en los procedimientos almacenados)
 
 ## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Escenario 2: Usar archivos U-SQL en Azure Data Lake Store
 
@@ -119,7 +119,7 @@ En la vista de diseño del paquete SSIS, agregue una **tarea del sistema de arch
 
 Puede usar archivos U-SQL en Azure Blob Storage mediante la **tarea de descarga de Azure Blob** de Azure Feature Pack. Este enfoque le permite usar los scripts en la nube.
 
-Los pasos son similares a los del [Escenario 2: Usar archivos U-SQL en Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Cambie la tarea del sistema de archivos de Azure Data Lake Store a la tarea de descarga de Azure Blob. [Obtenga más información sobre la tarea de descarga de Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Los pasos son similares a los de [Escenario 2: Uso de archivos U-SQL en Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Cambie la tarea del sistema de archivos de Azure Data Lake Store a la tarea de descarga de Azure Blob. [Obtenga más información sobre la tarea de descarga de Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 El flujo de control es el siguiente.
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: d6d5a8500435a540f091a082e7dc0e0d6d455716
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6c6fec968efdd85eaf6249459f8e1a0384f2ea11
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540850"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462188"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información sobre las extensiones de PostgreSQL, vea  [Empaquetar objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -84,9 +84,9 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Proporciona un medio para realizar el seguimiento de las estadísticas de ejecución de todas las instrucciones SQL ejecutadas por un servidor. (Vea a continuación una nota sobre esta extensión). |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Proporciona un medio para mostrar información de bloqueo a nivel de fila. |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Proporciona un medio para mostrar estadísticas de nivel de tupla. |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Se trata de un contenedor de datos externo utilizado para tener acceso a los datos almacenados en los servidores externos de PostgreSQL. |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Se trata de un contenedor de datos externo utilizado para tener acceso a los datos almacenados en los servidores externos de PostgreSQL. (Vea a continuación una nota sobre esta extensión).|
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Proporciona un medio de creación de índices hipotéticos que no consume CPU ni disco. |
-| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Módulo que admite conexiones a otras bases de datos de PostgreSQL desde una sesión de base de datos. (Vea a continuación una nota sobre esta extensión). |
 
 
 ### <a name="postgis-extensions"></a>Extensiones de PostGIS
@@ -104,6 +104,9 @@ La extensión [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/
 La configuración `pg_stat_statements.track`, que controla las instrucciones que la extensión cuenta, se establece de manera predeterminada en `top`, lo que significa que se realiza el seguimiento de todas las instrucciones que los clientes emiten directamente. Los otros dos niveles de seguimiento son `none` y `all`. Esta configuración es configurable como un parámetro de servidor a través de [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) o la [CLI de Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Hay un equilibrio entre la información de ejecución de consulta que pg_stat_statements proporciona y el impacto en el rendimiento del servidor al registrar cada instrucción SQL. Si no está usando activamente la extensión pg_stat_statements, le recomendamos que establezca `pg_stat_statements.track` en `none`. Tenga en cuenta que algunos servicios de supervisión de terceros pueden basarse en pg_stat_statements para entregar información de rendimiento de consultas, por lo que debe confirmar si este es el caso para usted o no.
+
+### <a name="using-dblink-and-postgresfdw"></a>Uso de dblink y postgres_fdw
+dblink y postgres_fdw le permiten conectarse de un servidor PostgreSQL a otro, o a otra base de datos en el mismo servidor. El servidor de recepción debe permitir conexiones del servidor de envío a través de su firewall. Cuando se usan estas extensiones para conectarse entre servidores de Azure Database for PostgreSQL, esto se puede realizar mediante el establecimiento de "Permitir acceso a servicios de Azure" en Activado. Esto también es necesario si desea utilizar las extensiones para volver al mismo servidor. La opción "Permitir el acceso a servicios de Azure" puede encontrarse en la página de Azure Portal para el servidor de Postgres, en Seguridad de la conexión. Si se activa "Permitir el acceso a servicios de Azure", se permitirá en todas las direcciones IP de Azure.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

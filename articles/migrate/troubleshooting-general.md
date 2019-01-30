@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261237"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827948"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -286,7 +286,7 @@ Para recopilar el Seguimiento de eventos para Windows, haga lo siguiente:
 | 751       | UnableToConnectToServer        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;.     | Para obtener más detalles, consulte el mensaje de error.                                                             | Resuelva el problema y vuelva a intentarlo.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | El servidor "%Name;" no es ninguna instancia de vCenter Server.                                  | Proporcione los detalles de vCenter Server.                                                                       | Vuelva a intentar la operación con los detalles correctos de vCenter Server.                                                                                   |
 | 753       | InvalidLoginCredentials        | No se puede conectar con vCenter Server "%Name;" debido al siguiente error: %ErrorMessage;. | Se produjo un error de conexión a vCenter Server porque las credenciales de inicio de sesión no son válidas.                             | Asegúrese de que las credenciales de inicio de sesión proporcionadas sean correctas.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Los datos de rendimiento no están disponibles.                                               | Compruebe el nivel de estadísticas en vCenter Server. Se debe establecer en 3 para que los datos de rendimiento estén disponibles. | Cambie el nivel de estadísticas a 3 (para una duración de 5 minutos, 30 minutos y 2 horas) y vuelva a intentarlo después de esperar, al menos, un día.                   |
+| 754       | NoPerfDataAvailable           | Los datos de rendimiento no están disponibles.                                               | Compruebe el nivel de estadísticas en vCenter Server. Se debe establecer en 3 para que los datos de rendimiento estén disponibles. | Cambie el nivel de estadísticas a 3 (para una duración de 5 minutos, 30 minutos y 2 horas) y vuelva a intentarlo después de esperar, al menos, un día.                   |
 | 756       | NullInstanceUUID               | Se encontró una máquina con un valor de InstanceUUID null                                  | Puede que vCenter Server tenga un objeto inadecuado.                                                      | Resuelva el problema y vuelva a intentarlo.                                                                                                           |
 | 757       | VMNotFound                     | No se encuentra la máquina virtual                                                  | La máquina virtual se puede eliminar: %VMID;                                                                | Asegúrese de que las máquinas virtuales seleccionadas al definir el ámbito del inventario de vCenter existan durante la detección.                                      |
 | 758       | GetPerfDataTimeout             | Se agotó el tiempo de espera de la solicitud de VCenter. Mensaje %Message;                                  | Las credenciales de vCenter Server no son correctas.                                                              | Compruebe las credenciales de vCenter Server y asegúrese de que vCenter Server esté accesible. Vuelva a intentar la operación. Si el problema persiste, póngase en contacto con el soporte técnico. |

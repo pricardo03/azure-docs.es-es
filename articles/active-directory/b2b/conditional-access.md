@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981769"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432054"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -104,6 +104,6 @@ Actualmente, no se pueden aplicar directivas de inicio de sesión basadas en el 
 
 Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
-* [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+* [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 * [Concesión de licencias de colaboración B2B de Azure AD](licensing-guidance.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](faq.md)

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 388203903f33d969a7796cf466078159e9b73ad0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 73acaeff6cbffc16aac1b30b9d63974c930c1537
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218122"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818071"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: integración de Azure Active Directory con &frankly
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: Integración de Azure Active Directory con &frankly
 
 En este tutorial, obtendrá información sobre cómo integrar Aha! con Azure Active Directory (Azure AD).
 
@@ -33,7 +33,7 @@ Integrar &frankly con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con &frankly, necesita los siguientes elementos:
 
@@ -90,7 +90,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con &frankly, e
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de &amp;frankly](#creating-a-frankly-test-user)**: para tener un homólogo de Britta Simon en &amp;frankly que esté vinculado a su representación en Azure AD.
+3. 
+  **
+  [Creación de un usuario de prueba de &frankly](#creating-a-frankly-test-user)**: para tener un homólogo de Britta Simon en &amp;amp;frankly que esté vinculado a su representación en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -112,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/andfrankly-tutorial/tutorial_andfrankly_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`.
 
@@ -135,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 7. Para configurar el inicio de sesión único en el lado de **&frankly**, es preciso enviar los datos descargados de **XML de metadatos** al [equipo de soporte técnico de &frankly](mailto:help@andfrankly.com). 
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -160,7 +162,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/andfrankly-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

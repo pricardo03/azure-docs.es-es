@@ -3,19 +3,19 @@ title: Ejemplos de transformación de notificaciones generales para el esquema d
 description: Ejemplos de transformación de notificaciones generales para el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cae6ec9693c0fadba059e641fb75e68bbbaec92
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431333"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853108"
 ---
 # <a name="general-claims-transformations"></a>Transformaciones de notificaciones generales
 
@@ -60,7 +60,7 @@ Hash del texto sin formato proporcionado con el valor salt y un secreto.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | La notificación de entrada que se va a cifrar. |
 | InputClaim | salt | string | El parámetro salt. Puede crear un valor aleatorio, utilizando la transformación de notificaciones `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Apunta a un **claves de directiva** de Azure AD B2C existentes. Para crear una nueva, en el inquilino de Azure AD B2C seleccione **B2C Settings (Configuración de B2C) > Identity Experience Framework (Marco de experiencia de identidad)**. Seleccione **Policy Keys** (Claves de directiva) para ver las claves disponibles en el inquilino. Seleccione **Agregar**. En **Opciones**, seleccione **Manual**. Proporcione un nombre (es posible que se agregue automáticamente el prefijo B2C_1A_). En el cuadro de secreto, escriba el secreto que quiere usar, por ejemplo, 1234567890. Para usar una clave, seleccione **Secreto**. Seleccione **Crear**. |
+| InputParameter | randomizerSecret | string | Apunta a un **claves de directiva** de Azure AD B2C existentes. Para crear una nueva: En su inquilino de Azure AD B2C, seleccione **B2C Settings (Configuración de B2C) > Marco de experiencia de identidad**. Seleccione **Policy Keys** (Claves de directiva) para ver las claves disponibles en el inquilino. Seleccione **Agregar**. En **Opciones**, seleccione **Manual**. Proporcione un nombre (es posible que se agregue automáticamente el prefijo B2C_1A_). En el cuadro de secreto, escriba el secreto que quiere usar, por ejemplo, 1234567890. Para usar una clave, seleccione **Secreto**. Seleccione **Crear**. |
 | OutputClaim | hash | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. La notificación configurada en el elemento inputClaim `plaintext`. |
 
 ```XML

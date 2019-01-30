@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 76a19668453b35b39359bef442f7f34a06623cbe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2806288378e5fa080164155b97a47a7046ecbba1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433490"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814909"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: integración de Azure Active Directory con HubSpot
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integración de Azure Active Directory con HubSpot
 
 En este tutorial, aprenderá a integrar HubSpot con Azure Active Directory (Azure AD).
 
@@ -117,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de HubSpot](./media/hubspot-tutorial/tutorial_hubspot_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón: `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`.
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón: `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`.
 
     b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`.
 
@@ -156,7 +156,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/hubspot-tutorial/config4.png)
 
-    a. Haga clic en el botón **copy** (copiar) para copiar el valor de **Audience URl(Service Provider Entity ID)** (URI de audiencia [Identificador de entidad de proveedor de servicios]) y pegarlo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal.
+     a. Haga clic en el botón **copy** (copiar) para copiar el valor de **Audience URl(Service Provider Entity ID)** (URI de audiencia [Identificador de entidad de proveedor de servicios]) y pegarlo en el cuadro de texto **Identificador** de la sección **Configuración básica de SAML** de Azure Portal.
 
     b. Haga clic en el botón **copy** (copiar) para copiar el valor de **Sign on URl,ACS,Recipient, or Redirect** (Redireccionamiento, destinatario, ACS o URI de inicio de sesión) y pegarlo en el cuadro de texto **URL de respuesta** de la sección **Configuración básica de SAML** de Azure Portal.
 
@@ -164,7 +164,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    e. Abra el archivo **Certificado (Base64)** en el Bloc de notas. Copie el contenido del mismo en el Portapapeles y, después, péguelo en el cuadro de texto **Certificado X.509**.
+    e. Abra el archivo **Certificate(Base64)** descargado en el Bloc de notas. Copie el contenido del mismo en el Portapapeles y, después, péguelo en el cuadro de texto  **Certificado X.509**.
 
     f. Haga clic en **Comprobar**.
 
@@ -184,7 +184,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/hubspot-tutorial/create_aaduser_02.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c67d794bd5947dc377cbdb7578e23ff3e05390
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7a7a9cffa2dab3cc50a393f15d7419728502f8e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integración de Azure Active Directory con Datahug
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://apps.datahug.com/identity/<uniqueID>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://apps.datahug.com/identity/<uniqueID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://apps.datahug.com/identity/<uniqueID>/acs`.
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/datahug-tutorial/tutorial_datahug_cert.png)
 
-    a. En **Opciones de firma**, seleccione **Firmar aserción SAML**.
+     a. En **Opciones de firma**, seleccione **Firmar aserción SAML**.
     
     b. En **Algoritmo de firma**, seleccione **SHA-1**.
  
@@ -148,7 +148,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **Datahug**, debe enviar el **XML de metadatos**, **SAML Entity ID** (Identificador de entidad de SAML) y la **dirección URL de servicio de inicio de sesión de SAML** al [soporte técnico de Datahug](http://datahug.com/about/contact-us/). Ellos configuran esta aplicación para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -174,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/datahug-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -240,7 +240,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
-Al hacer clic en el icono de Datahug en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Datahug. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Datahug en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Datahug. Para más información sobre el Panel de acceso, consulte la  [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

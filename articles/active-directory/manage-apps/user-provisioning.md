@@ -4,7 +4,7 @@ description: Una introducción sobre cómo puede usar Azure AD para el aprovisio
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311460"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478491"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -133,7 +133,7 @@ Cuando se inicia el servicio de aprovisionamiento, la primera sincronización re
 
 1. Se consultan todos los usuarios y grupos del sistema de origen y se recuperan todos los atributos definidos en la [asignación de atributos](customize-application-attributes.md).
 2. Se filtran los usuarios y grupos devueltos mediante cualquier [asignación](assign-user-or-group-access-portal.md) o [filtro de ámbito basado en atributos](define-conditional-rules-for-provisioning-user-accounts.md) configurados.
-3. Cuando se detecta que un usuario se ha asignado o está en ámbito para el aprovisionamiento, el servicio consulta el sistema de destino en busca de un usuario coincidente mediante los [atributos coincidentes](customize-application-attributes.md#understanding-attribute-mapping-properties) designados. Ejemplo: si el nombre de userPrincipal en el sistema de origen es el atributo coincidente y se asigna a userName en el sistema de destino, el servicio de aprovisionamiento consulta el sistema de destino en busca de valores userName que coincidan con los valores de nombre del sistema de origen.
+3. Cuando se detecta que un usuario se ha asignado o está en ámbito para el aprovisionamiento, el servicio consulta el sistema de destino en busca de un usuario coincidente mediante los [atributos coincidentes](customize-application-attributes.md#understanding-attribute-mapping-properties) designados. Ejemplo: Si el nombre de userPrincipal en el sistema de origen es el atributo coincidente y se asigna a userName en el sistema de destino, el servicio de aprovisionamiento consulta el sistema de destino en busca de valores userName que coincidan con los valores de nombre del sistema de origen.
 4. Si no se encuentra un usuario coincidente en el sistema de destino, se crea mediante los atributos devueltos por el sistema de origen. Una vez que se crea la cuenta de usuario, el servicio de aprovisionamiento detecta y almacena en la caché el identificador del sistema de destino del nuevo usuario, que se usa para realizar todas las futuras operaciones en dicho usuario.
 5. Si se encuentra un usuario coincidente, se actualiza mediante los atributos proporcionados por el sistema de origen. Una vez que la cuenta de usuario coincide, el servicio de aprovisionamiento detecta y almacena en la caché el identificador del sistema de destino del nuevo usuario, que se usa para realizar todas las futuras operaciones en dicho usuario.
 6. Si las asignaciones de atributos contienen atributos de "referencia", el servicio realiza actualizaciones adicionales en el sistema de destino para crear y vincular los objetos a los que se hace referencia. Por ejemplo, un usuario puede tener un atributo "Administrador" en el sistema de destino, que está vinculado a otro usuario creado en el sistema de destino.

@@ -1,7 +1,7 @@
 ---
-title: Ejecución de experimentos e inferencias dentro de una instancia de Virtual Network
+title: Ejecución de experimentos e inferencias en una red virtual
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo ejecutar de forma segura experimentos de aprendizaje automático e inferencias dentro de una instancia de Azure Virtual Network. Este artículo enseña a crear los destinos de proceso utilizados para entrenar modelos y realizar inferencias dentro de una instancia de Azure Virtual Network. También trata sobre los requisitos de las redes virtuales seguras, como la necesidad de puertos de entrada y de salida.
+description: Ejecute experimentos de aprendizaje automático e inferencias seguras dentro de una instancia de Azure Virtual Network. Obtenga información sobre cómo crear destinos de proceso para el entrenamiento de modelos y cómo realizar inferencias dentro de una instancia de Azure Virtual Network. También trata sobre los requisitos de las redes virtuales seguras, como la necesidad de puertos de entrada y de salida.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248607"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856288"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Ejecución de experimentos e inferencias dentro de una instancia de Azure Virtual Network
 

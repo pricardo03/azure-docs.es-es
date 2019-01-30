@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4347254df59c62085b2bfb195496bf479cf7b35
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344594"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447945"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -26,7 +26,7 @@ Al implementar los recursos, debe especificar si la implementación es una actua
 
 Al implementar recursos:
 
-* En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
+* En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla. Sin embargo, los recursos que se especifican, pero que no se implementan porque una condición se ha evaluado como false, no se eliminan.
 * En el modo incremental, Resource Manager **deja sin modificar** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
 
 En ambos modos, Resource Manager intenta crear todos los recursos especificados en la plantilla. Si el recurso ya existe en el grupo de recursos y su configuración es igual, los resultados de la operación no cambian. Si cambia los valores de propiedad de un recurso, el recurso se actualiza con esos nuevos valores. Si intenta actualizar la ubicación o el tipo de un recurso existente, la implementación produce un error. En su lugar, implemente un nuevo recurso con la ubicación o escriba la que necesite.

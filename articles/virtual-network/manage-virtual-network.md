@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247833"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426172"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -29,7 +29,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial, es necesaria la versión 2.0.31 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 - La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
@@ -43,7 +43,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
         - 255.255.255.255/32 (difusión)
         - 127.0.0.0/8 (bucle invertido)
         - 169.254.0.0/16 (local de vínculo)
-        - 168.63.129.16/32 (DNS interno)
+        - 168.63.129.16/32 ([sondeo de estado](../load-balancer/load-balancer-custom-probe-overview.md#probesource) de DNS, DHCP y Azure Load Balancer internos)
 
       Aunque solo se puede definir un único rango de direcciones cuando se crea la red virtual, puede agregar varios rangos de direcciones al espacio de direcciones una vez creada la red virtual. Para obtener información sobre cómo agregar un rango de direcciones a una red virtual existente, consulte [Agregar o quitar un rango de direcciones](#add-or-remove-an-address-range).
 
@@ -111,7 +111,7 @@ No se pueden agregar los siguientes rangos de direcciones:
 - 255.255.255.255/32 (difusión)
 - 127.0.0.0/8 (bucle invertido)
 - 169.254.0.0/16 (local de vínculo)
-- 168.63.129.16/32 (DNS interno)
+- 168.63.129.16/32 ([sondeo de estado](../load-balancer/load-balancer-custom-probe-overview.md#probesource) de DNS, DHCP y Azure Load Balancer internos)
 
 Para agregar o quitar un rango de direcciones:
 
@@ -125,7 +125,7 @@ Para agregar o quitar un rango de direcciones:
 
 **Comandos**
 
-- CLI de Azure: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- CLI de Azure: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>Cambio de los servidores DNS
@@ -147,7 +147,7 @@ Todas las máquinas virtuales que están conectadas a la red virtual se registra
 
 **Comandos**
 
-- CLI de Azure: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- CLI de Azure: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>Eliminar una red virtual

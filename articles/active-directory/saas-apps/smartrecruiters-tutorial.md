@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: e96aeecd-e113-454e-89c3-58c9f44cfd4c
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: jeedes
-ms.openlocfilehash: b248cd7d5d45e4f91bc97a5a29476f9bfa03089d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6624368e0438b8f41a0f90c5da3f7f00f4cbc86c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426992"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutorial: Integración de Azure Active Directory con SmartRecruiters
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SmartRecruiters](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`.
 
@@ -153,14 +153,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de SmartRecruiters](./media/smartrecruiters-tutorial/configure4.png)
 
-    a. En el cuadro de texto **Identity Provider URL** (Dirección URL del proveedor de identidades), pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado en Azure Portal.
+     a. En el cuadro de texto **Identity Provider URL** (Dirección URL del proveedor de identidades), pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado en Azure Portal.
 
     b. Abra el **certificado (Base64)** que ha descargado de Azure Portal y pegue el valor en el cuadro de texto **Identity Provider certificate** (Certificado del proveedor de identidades).
 
 1. Haga clic en **Save Web SSO configuration** (Guardar configuración SSO Web).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -186,7 +186,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/smartrecruiters-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -196,7 +196,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-smartrecruiters-test-user"></a>Creación de un usuario de prueba de SmartRecruiters
 
-En esta sección, creará un usuario llamado Britta Simon en SmartRecruiters. Póngase en contacto con el [equipo de soporte técnico de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/) para agregar los usuarios en la plataforma de SmartRecruiters. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en SmartRecruiters. Póngase en contacto con el [equipo de soporte técnico de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/) para agregar los usuarios en la plataforma de SmartRecruiters. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -233,7 +233,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de SmartRecruiters en el panel de acceso, debería iniciar sesión automáticamente en su aplicación SmartRecruiters.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

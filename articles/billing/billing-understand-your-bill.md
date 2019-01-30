@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584577"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856382"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
 
 Este artículo no es aplicable para clientes de Azure con un Contrato Enterprise. Si es un cliente de Contrato Enterprise, consulte [Descripción de la factura de los clientes de Azure con un Contrato Enterprise](billing-understand-your-bill-ea.md).  
+
+Para obtener una explicación sobre cómo funciona la facturación en el programa Proveedor de soluciones en la nube de Azure (CSP de Azure), incluido el uso, los precios y el ciclo de facturación, consulta [Información general acerca de la funcionalidad de facturación de CSP de Azure](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Revisión de los gastos
 

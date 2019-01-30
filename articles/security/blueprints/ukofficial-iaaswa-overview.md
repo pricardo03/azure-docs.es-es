@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d40e23a7cc113a9db297a7dbf00a2372063dfb52
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059217"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413403"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -145,14 +145,14 @@ Storage
 
 **Red virtual de administración**: esta [VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contiene recursos que implementan funcionalidades de administración y supervisión para las cargas de trabajo que se ejecutan en la red virtual de producción.
 
-**Jumpbox**: también denominado [host bastión](https://en.wikipedia.org/wiki/Bastion_host), que es una máquina virtual segura en la red que los administradores usan para conectarse a las máquinas virtuales en la red virtual de producción. El Jumpbox tiene un NSG que solo permite el tráfico remoto que procede de direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto (RDP), el origen del tráfico debe definirse en el NSG. La administración de recursos de producción se realiza a través del RDP mediante una máquina virtual de Jumpbox segura.
+**Jumpbox**: también denominado [host bastión](https://en.wikipedia.org/wiki/Bastion_host), que es una máquina virtual segura en la red que los administradores usan para conectarse a las máquinas virtuales en la red virtual de producción. El JumpBox tiene un NSG que solo permite el tráfico remoto que procede de direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto (RDP), el origen del tráfico debe definirse en el NSG. La administración de recursos de producción se realiza a través del RDP mediante una máquina virtual de Jumpbox segura.
 
 **Rutas definidas por el usuario**: las [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) se usan para definir el flujo de tráfico IP en redes virtuales de Azure.
 
 **Redes virtuales emparejadas en red**: las redes virtuales de producción y administración están conectadas mediante el [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 Estas redes virtuales se siguen administrando como recursos independientes, pero aparecen como uno con fines de conectividad para estas máquinas virtuales. Estas redes se comunican entre sí directamente mediante direcciones IP privadas. El emparejamiento de redes virtuales está sujeto a que las redes virtuales estén en la misma región de Azure.
 
-**Grupos de seguridad de red**: los [NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contienen listas de control de acceso que permiten o deniegan el tráfico en una red virtual. Los NSG pueden usarse para proteger el tráfico en una subred o a nivel de máquina virtual individual.
+**Grupos de seguridad de red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contienen listas de control de acceso que permiten o deniegan el tráfico en una red virtual. Los NSG pueden usarse para proteger el tráfico en una subred o a nivel de máquina virtual individual.
 
 **Active Directory Domain Services (AD DS)**: esta arquitectura proporciona una implementación dedicada de [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx).
 
@@ -170,11 +170,11 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 **Supervisión**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) es el servicio de plataforma que proporciona un único origen para supervisar el registro de actividad, las métricas y los registros de diagnóstico de todos los recursos de Azure. Azure Monitor se puede configurar para visualizar, consultar, enrutar y archivar las métricas y los registros procedentes de los recursos de Azure, así como tomar medidas relacionadas. Se recomienda usar el control de acceso basado en recursos para proteger el registro de auditoría para ayudar a garantizar que los usuarios no pueden modificar los registros.
 
-**Registros de actividad:** configure los [registros de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) para que proporcionen información sobre las operaciones que se han realizado en los recursos de la suscripción.
+**Registros de actividad**: configure los [registros de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) para que proporcionen información sobre las operaciones que se han realizado en los recursos de la suscripción.
 
-**Registros de diagnóstico:** los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por un recurso. Estos registros pueden incluir los registros del sistema de eventos de Windows y los registros de blobs, tablas y colas.
+**Registros de diagnóstico**: los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por un recurso. Estos registros pueden incluir los registros del sistema de eventos de Windows y los registros de blobs, tablas y colas.
 
-**Registros de firewall:** Application Gateway proporciona registros de diagnóstico y acceso completos. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
+**Registros de firewall**: Application Gateway proporciona registros completos de diagnóstico y acceso. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
 
 **Archivado de registros**: el almacenamiento de datos de registros se puede configurar para escribir en una cuenta de Azure Storage centralizada para archivarse y tener un período de retención definido. Los registros se pueden procesar mediante Azure Log Analytics y sistemas SIEM de terceros.
 
@@ -186,13 +186,13 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 [Directrices para implementar Windows Server Active Directory en Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) o [Active Directory en Azure unido a un bosque local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) o [Active Directory en Azure unido a un bosque local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
 ### <a name="security"></a>Seguridad
 
 **Seguridad de administración**: este plano técnico permite a los administradores conectarse a la red virtual y el Jumpbox de administración con el RDP desde un origen de confianza. El tráfico de red para la red virtual de administración se controla mediante NSG. El acceso al puerto 3389 está restringido para el tráfico de un intervalo IP de confianza que puede tener acceso a la subred que contiene el Jumpbox.
 
-Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y DMZ públicos/privados le ofrece más mejoras de seguridad.
+Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y red perimetral públicos/privados le ofrece más mejoras de seguridad.
 
 **Protección de la red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) se recomiendan para que cada subred proporcione un segundo nivel de protección contra el tráfico entrante que omite una puerta de enlace configurada incorrectamente o deshabilitada. Ejemplo: [Plantilla de Resource Manager para implementar un NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
@@ -210,7 +210,7 @@ Los clientes también puede usar un [modelo administrativo de seguridad mejorada
 
 **Acceso a Internet**: esta arquitectura de referencia usa [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como equilibrador de carga y puerta de enlace accesibles desde Internet. Algunos clientes pueden considerar la opción de usar aplicaciones virtuales de red de terceros para niveles adicionales de seguridad de red como alternativa a [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
-**Azure Security Center**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) proporciona una perspectiva central del estado de seguridad de los recursos de la suscripción y ofrece recomendaciones que ayudan a evitar que se realicen ataques a los recursos. También se puede usar para habilitar directivas más pormenorizadas. Por ejemplo, las directivas pueden aplicarse a grupos de recursos determinados, lo que permite a la empresa adaptar su postura con respecto al riesgo. Se recomienda que los clientes habiliten Azure Security Center en su suscripción de Azure.
+**Azure Security Center**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) proporciona una perspectiva central del estado de seguridad de los recursos de las suscripciones y ofrece recomendaciones que ayudan a evitar que se realicen ataques a los recursos. También se puede usar para habilitar directivas más pormenorizadas. Por ejemplo, las directivas pueden aplicarse a grupos de recursos determinados, lo que permite a la empresa adaptar su postura con respecto al riesgo. Se recomienda que los clientes habiliten Azure Security Center en su suscripción de Azure.
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Documentación de cumplimiento de los principios de seguridad en la nube del NCSC
 

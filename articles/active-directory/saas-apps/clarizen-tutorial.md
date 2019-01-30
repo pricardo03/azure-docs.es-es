@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Clarizen | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158678"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807735"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integración de Azure Active Directory con Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integración de Azure Active Directory con Clarizen
 
 En este tutorial, aprenderá a integrar Azure Active Directory (Azure AD) con Clarizen. Esta integración ofrece las siguientes ventajas:
 
@@ -98,7 +98,7 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
 
     ![Cuadros de identificador y dirección URL de respuesta](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. En el cuadro **Identificador**, escriba el valor: **Clarizen**
+     a. En el cuadro **Identificador**, escriba el valor como: **Clarizen**
 
     b. En el cuadro **URL de respuesta**, escriba la dirección URL según este patrón: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
@@ -145,7 +145,7 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
 
     ![Cuadro de diálogo "Federated Authentication"](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
 
-    a. Seleccione **Habilitar autenticación federada**.
+     a. Seleccione **Habilitar autenticación federada**.
 
     b. Para cargar el certificado descargado, haga clic en **Cargar** .
 
@@ -178,7 +178,7 @@ En Azure Portal, cree un usuario de prueba denominado Britta Simon.
 
     ![Cuadro de diálogo "Usuario" con los campos nombre, dirección de correo electrónico y contraseña cumplimentados](./media/clarizen-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
@@ -208,7 +208,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, debe apr
 
     ![Cuadro de diálogo "Invite People"](./media/clarizen-tutorial/create_aaduser_003.png "Invite People")
 
-    a. En el cuadro **Email** (Correo electrónico), escriba la dirección de correo electrónico de la cuenta de Britta Simon.
+     a. En el cuadro **Email** (Correo electrónico), escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
     b. Haga clic en **Invitar**.
 

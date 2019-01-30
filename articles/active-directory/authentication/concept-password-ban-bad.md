@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739831"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421443"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -30,7 +30,7 @@ Los líderes del sector recomiendan que no se use la misma contraseña en varios
 
 Microsoft se esfuerza siempre por situarse un paso por delante de los delincuentes cibernéticos. Por ello, el equipo de Azure AD Identity Protection busca continuamente las contraseñas que se utilizan normalmente y aquellas que están en peligro. A continuación, se bloquean esas contraseñas que se consideran demasiado comunes en lo que se denomina la lista global de contraseñas prohibidas. Los delincuentes cibernéticos también usan estrategias similares en sus ataques, por lo que Microsoft no publica el contenido de esta lista públicamente. Estas contraseñas vulnerables se bloquean antes de que se conviertan en una amenaza real para los clientes de Microsoft. Para más información sobre los esfuerzos de seguridad actuales, consulte [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report) (Informe de inteligencia de seguridad de Microsoft).
 
-## <a name="preview-custom-banned-password-list"></a>Versión preliminar: Lista personalizada de contraseñas prohibidas
+## <a name="preview-custom-banned-password-list"></a>Vista previa: Lista personalizada de contraseñas prohibidas
 
 Puede que algunas organizaciones quieran ir un paso más allá y agregar sus propias personalizaciones a la lista global de contraseñas prohibidas con lo que Microsoft llama listas personalizadas de contraseñas prohibidas. Los clientes empresariales como Contoso, podrían bloquear variantes de sus nombres de marcas, términos específicos de la empresa u otros elementos.
 
@@ -46,7 +46,7 @@ La protección de cuentas que están solo en la nube es muy útil, pero muchas o
 
 La lista de contraseñas prohibidas busca coincidencias con las contraseñas de la lista convirtiendo la cadena a letras minúsculas y comparándola con contraseñas prohibidas conocidas con una distancia de edición de 1 con una coincidencia aproximada.
 
-Por ejemplo, la palabra "contraseña" está bloqueada para una organización.
+Ejemplo: la palabra "contraseña" está bloqueada para una organización.
    - Un usuario intenta establecer la contraseña "P@ssword" que, posteriormente, se convierte en "contraseña" y esta se bloquea porque es una variante de "contraseña".
    - Un administrador intenta establecer una contraseña de usuarios en "Contraseña123!" que se convierte en "contraseña123!", y como es una variante de "contraseña", se bloquea.
 

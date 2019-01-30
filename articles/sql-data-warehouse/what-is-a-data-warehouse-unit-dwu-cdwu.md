@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1a1da9fd0fff09bab027c4b4cc4e3085c5439f2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301252"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411123"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWUs, cDWUs) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades. 
@@ -91,6 +91,8 @@ SQL Data Warehouse es un sistema de escalado horizontal que puede aprovisionar g
 
 Para cambiar las unidades de almacenamiento de datos es necesario disponer de los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
+Los roles integrados para los recursos de Azure, tales como Colaborador de base de datos SQL y Colaborador de SQL Server, pueden cambiar la configuración de DWU. 
+
 ## <a name="view-current-dwu-settings"></a>Ver la configuración de DWU actual
 
 Para ver la configuración actual de DWU:
@@ -134,7 +136,7 @@ Con T-SQL puede ver la configuración actual de DWU o cDWU, modificarla y compro
 Para cambiar DWU o cDWU:
 
 1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
-2. Use la instrucción TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW. 
+2. Utilice la instrucción TSQL [ALTER DATABAS](/sql/t-sql/statements/alter-database-transact-sql) . En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 667d2a5217f5c2aa29432a99cd0e07fc8d7b3ca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6f2c91a9b94aeff1c0fa7ad7df137a30055230b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Tutorial: Integración de Azure Active Directory con Neota Logic Studio
 
@@ -115,7 +115,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.neotalogic.com/a/<sub application>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.neotalogic.com/a/<sub application>`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.neotalogic.com/wb`
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar SSO para su aplicación, póngase en contacto con el [equipo de soporte técnico de Neota Logic Studio](https://www.neotalogic.com/contact-us/) y proporcione el archivo **XML de metadatos** descargado.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -158,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/neotalogicstudio-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-neota-logic-studio-test-user"></a>Crear un usuario de prueba de Neota Logic Studio
 
-En esta sección, creará un usuario llamado Britta Simon en Neota Logic Studio. Trabaje con el [equipo de soporte de cliente de Neota Logic Studio](https://www.neotalogic.com/contact-us/) para agregar los usuarios a la plataforma de Neota Logic Studio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en Neota Logic Studio. Trabaje con el  [equipo de soporte técnico al cliente de Neota Logic Studio](https://www.neotalogic.com/contact-us/) para agregar los usuarios a la plataforma de Neota Logic Studio. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -204,7 +204,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Haga clic en el icono de Neota Logic Studio en el panel de acceso para que se le redirija a la página de inicio de sesión de la organización. Después de registrarse correctamente, iniciará sesión en la aplicación Neota Logic Studio. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Haga clic en el icono de Neota Logic Studio en el panel de acceso para que se le redirija a la página de inicio de sesión de la organización. Después de registrarse correctamente, iniciará sesión en la aplicación Neota Logic Studio. Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

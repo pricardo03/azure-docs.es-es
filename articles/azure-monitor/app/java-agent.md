@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262139"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412410"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
 
@@ -96,6 +96,23 @@ De forma predeterminada, `reportExecutionTime` es true y `reportCaughtExceptions
 
 > [!NOTE]
 > AI-Agent.xml y el archivo jar del agente deben estar en la misma carpeta. A menudo se colocan juntos en la carpeta `/resources` del proyecto. 
+
+### <a name="spring-rest-template"></a>Spring RestTemplate
+
+A fin de que Application Insights instrumente correctamente las llamadas HTTP realizadas con Spring RestTemplate, se requiere el uso del cliente HTTP Apache. De forma predeterminada, Spring RestTemplate no está configurado para usar el cliente HTTP Apache. Al especificar [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) en el constructor de Spring RestTemplate, usará el cliente HTTP Apache.
+
+A continuación se incluye un ejemplo de cómo hacer esto con beans en Spring. Este es un ejemplo muy sencillo que usa la configuración predeterminada de la clase de fábrica.
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### <a name="enable-w3c-distributed-tracing"></a>Habilitación del seguimiento distribuido de W3C
 

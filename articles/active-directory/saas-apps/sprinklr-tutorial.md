@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 062671313e42e6c936135dafb3d7d2a5c8adef82
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241810"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816643"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: integración de Azure Active Directory con Sprinklr
+# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integración de Azure Active Directory con Sprinklr
 
 En este tutorial, obtendrá información sobre cómo integrar Sprinklr con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.sprinklr.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.sprinklr.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.sprinklr.com`
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Inicios de sesión únicos](./media/sprinklr-tutorial/ic782910.png "Inicios de sesión únicos")
 
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, *WAADSSOTest*).
+     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, *WAADSSOTest*).
 
     b. Seleccione **Habilitado**.
 
@@ -170,7 +170,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -195,7 +195,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/sprinklr-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -223,7 +223,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
    
     ![Edición de usuarios](./media/sprinklr-tutorial/ic782916.png "Edición de usuarios") 
 
-    a. En los cuadros de texto **Correo electrónico**, **Nombre** y **Apellido**, escriba la información de una cuenta de usuario de Azure AD que desee aprovisionar.
+     a. En los cuadros de texto **Correo electrónico**, **Nombre** y **Apellido**, escriba la información de una cuenta de usuario de Azure AD que desee aprovisionar.
 
     b. Seleccione **Password Disabled**(Contraseña deshabilitada).
 
@@ -240,7 +240,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
    
     ![Roles de asociados](./media/sprinklr-tutorial/ic782917.png "Roles de asociados")
 
-    a. En la lista **Global**, seleccione **ALL\_Permissions** (TODOS los permisos).  
+     a. En la lista **Global**, seleccione **ALL\_Permissions** (TODOS los permisos).  
 
     b. Haga clic en **Update**(Actualizar).
 

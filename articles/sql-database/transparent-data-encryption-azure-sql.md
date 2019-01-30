@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959884"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462477"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Cifrado de datos transparente para SQL Database y Data Warehouse
 
@@ -60,6 +60,9 @@ No es necesario descifrar las bases de datos para las operaciones dentro de Azur
 - Replicación geográfica activa
 - Creación de una copia de base de datos
 - Restauración de archivo de copia de seguridad a la Instancia administrada de Azure SQL Database
+
+> [!IMPORTANT]
+> En Instancia administrada de Azure SQL Database no se permite realizar copias de seguridad manuales de una base de datos cifrada por TDE administrada por el servicio, ya que el certificado utilizado para el cifrado no es accesible. Utilice la característica de restauración de punto en el tiempo para mover este tipo de base de datos a otra Instancia administrada.
 
 Al exportar una base de datos protegida por el cifrado de datos transparente, no se cifra el contenido exportado de la base de datos. Este contenido exportado se almacena en archivos BACPAC no cifrados. Asegúrese de proteger adecuadamente los archivos BACPAC y habilitar el cifrado de datos transparente una vez finalizada la importación de la nueva base de datos.
 

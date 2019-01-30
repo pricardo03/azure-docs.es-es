@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6f3fab8398c8f32d4fa89f11c60fec57db516fcb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 81fb00dea08f71b359cbb74d4cd1dcb428bc5237
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439443"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integración de Azure Active Directory con Learningpool Act
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/learningpool-tutorial/tutorial_Learningpoolact_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
@@ -140,7 +140,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |    
     | urn:oid:2.5.4.4 | user.surname |
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/learningpool-tutorial/tutorial_attribute_04.png)
 
@@ -161,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **Learningpool Act**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Learningpool Act](https://www.Learningpool.com/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -187,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/learningpool-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439616"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integración de Azure Active Directory con Teamphoria
 
@@ -142,13 +142,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **DISPLAY NAME**: escriba el nombre para mostrar del complemento en la página de administración.
+     a. **DISPLAY NAME**: escriba el nombre para mostrar del complemento en la página de administración.
 
     b. **BUTTON NAME**: el nombre de la pestaña que se mostrará en la página de inicio de sesión mediante SSO.
 
     c. **CERTIFICATE**: abra el certificado descargado anteriormente desde Azure Portal con el Bloc de notas, copie el contenido del mismo y péguelo en este cuadro de texto.
 
-    d. **ENTRY POINT**: pegue la **dirección URL del servicio Single Sign-On de SAML** copiada anteriormente de Azure Portal.
+    d. **ENTRY POINT**: pegue la **dirección URL del servicio de inicio de sesión único de SAML** copiada anteriormente de Azure Portal.
 
     e. Cambie la opción a **ON** y haga clic en **SAVE**.
 
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/teamphoria-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -203,7 +203,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Teamphoria, deben 
     
     ![Invitar a contactos](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. En el cuadro de texto **EMAIL ADDRESS**, escriba la **dirección de correo electrónico** de Britta Simon.
+     a. En el cuadro de texto **EMAIL ADDRESS**, escriba la **dirección de correo electrónico** de Britta Simon.
 
     b. En el cuadro de texto **FIRST NAME**, escriba **Britta**.
 

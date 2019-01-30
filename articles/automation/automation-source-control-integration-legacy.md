@@ -3,18 +3,18 @@ title: Integración del control de código fuente en Azure Automation (heredado)
 description: En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a6ae91ba768f9aa002c2814133b26dd152c7ef25
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784821"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434876"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integración del control de código fuente en Azure Automation (heredado)
 
@@ -139,7 +139,8 @@ Para desconectarse de la cuenta de GitHub, abra la página Sincronización de re
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la integración del control de código fuente, consulte los siguientes recursos:  
 
-* [Azure Automation: integración del control de código fuente en Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Azure Automation: Integración del control de código fuente en Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Vote por su sistema de control de código fuente favorito](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 * [Azure Automation: integración del control de código fuente de runbook mediante Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d9d145aa5da636574426f1ff4ad978eb857ab252
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885910"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827931"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: integración de Azure Active Directory con Huddle
+# <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: Integración de Azure Active Directory con Huddle
 
 En este tutorial, obtendrá información sobre cómo integrar Huddle con Azure Active Directory (Azure AD).
 
@@ -120,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Huddle](./media/huddle-tutorial/tutorial_huddle_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
     | | |
     |--|--|
@@ -169,7 +169,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![Creación de un usuario de Azure AD][100]
 
@@ -177,13 +177,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/huddle-tutorial/create_aaduser_01.png) 
 
-3. En las propiedades de usuario, realice los siguientes pasos.
+3. En las propiedades Usuario, siga estos pasos.
 
     ![Creación de un usuario de prueba de Azure AD](./media/huddle-tutorial/create_aaduser_02.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -208,7 +208,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Huddle, deben apro
   
     ![Nueva invitación](./media/huddle-tutorial/IC787839.png "Nueva invitación")
   
-    a. En la lista **Choose a team to invite people to join** (Elegir un equipo al que invitar a unirse a los contactos), seleccione **equipo**.
+     a. En la lista **Choose a team to invite people to join** (Elegir un equipo al que invitar a unirse a los contactos), seleccione **equipo**.
 
     b. Escriba la **dirección de correo electrónico** de una cuenta de Azure AD válida que desee aprovisionar en el cuadro de texto **Escriba la dirección de correo electrónico de las personas que desea invitar**.
 
@@ -224,7 +224,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Huddle, deben apro
 
 En esta sección, concederá acceso a Britta Simon a Huddle para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
     ![Asignar usuario][201]
 
@@ -240,7 +240,7 @@ En esta sección, concederá acceso a Britta Simon a Huddle para que use el inic
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
 

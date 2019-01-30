@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992209"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428177"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualización de la topología de una red virtual de Azure
 
@@ -85,7 +85,7 @@ La cuenta que utilice debe tener los [permisos](required-rbac-permissions.md) ne
 
 Puede ejecutar los comandos en los pasos siguientes:
 - En Azure Cloud Shell, mediante la selección **Pruébelo** en la parte superior derecha de cualquier comando. Azure Cloud Shell es un shell interactivo gratis que tiene herramientas comunes de Azure preinstaladas y configuradas para usar con la cuenta.
-- Mediante la ejecución de PowerShell en el equipo. Si ejecuta PowerShell desde su equipo, los pasos de este artículo requieren la versión 5.7.0 o posterior del módulo AzureRm. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+- Mediante la ejecución de PowerShell en el equipo. Si ejecuta PowerShell desde su equipo, los pasos de este artículo requieren la versión 5.7.0 o posterior del módulo AzureRm. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
 La cuenta que utilice debe tener los [permisos](required-rbac-permissions.md) necesarios.
 
@@ -138,12 +138,12 @@ Todos los recursos devueltos en una topología tienen uno de los siguientes tipo
 
 Todos los recursos que se devuelven en una topología tienen las siguientes propiedades:
 
-- **Name**: nombre del recurso.
+- **Nombre**: Nombre del recurso.
 - **Id**: identificador URI del recurso.
-- **Location**: región de Azure en la que existe el recurso.
-- **Associations**: lista de asociaciones para el objeto al que se hace referencia. Cada asociación tiene las siguientes propiedades:
+- **Ubicación**: región de Azure en la que existe el recurso.
+- **Asociaciones**: lista de asociaciones para el objeto al que se hace referencia. Cada asociación tiene las siguientes propiedades:
     - **AssociationType**: hace referencia a la relación entre los objetos secundario y principal. Los valores válidos son *Contains* o *Associated*.
-    - **Name**: nombre del recurso al que se hace referencia.
+    - **Nombre**: nombre del recurso al que se hace referencia.
     - **ResourceId**: identificador URI del recurso al que se hace referencia en la asociación.
 
 ## <a name="next-steps"></a>Pasos siguientes

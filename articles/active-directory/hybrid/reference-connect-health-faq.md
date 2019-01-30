@@ -4,7 +4,7 @@ description: Las preguntas más frecuentes son preguntas y respuestas sobre Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497729"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470331"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -117,7 +117,7 @@ Si necesita configurar a un proxy durante el registro del agente, puede que deba
 
 Consulte la [sección de requisitos](how-to-connect-health-agent-install.md#requirements) para obtener la lista de puertos de firewall y otros requisitos de conectividad.
 
-**P: ¿Por qué veo dos servidores con el mismo nombre en el portal de Azure AD Connect Health?**
+**P: ¿Por qué veo dos servidores con el mismo nombre en el Portal de Azure AD Connect Health?**
 
 Cuando quita un agente de un servidor, el servidor no se quita automáticamente del portal de Azure AD Connect Health. Si quita de forma manual un agente de un servidor o quita el propio servidor, necesita eliminar manualmente la entrada del servidor del portal de Azure AD Connect Health.
 
@@ -140,21 +140,21 @@ El agente de mantenimiento puede presentar errores de registro debido a las sigu
 Azure AD Connect Health genera la alerta si no recibe todos los puntos de datos del servidor en las últimas dos horas. [Más información](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Preguntas sobre operaciones
-**P: ¿Necesito habilitar la auditoría en los servidores proxy de aplicación web?**
+**P: ¿Necesita habilitar la auditoría en los servidores proxy de aplicación web?**
 
 No, la auditoría no debe habilitarse en los servidores proxy de aplicación web.
 
-**P: ¿Cómo se resuelven las alertas de Azure AD Connect Health?**
+**P: ¿Cómo se resuelven las Alertas de Azure AD Connect Health?**
 
 Las alertas de Azure AD Connect Health se resuelven en una condición satisfactoria. Los Agentes de Azure AD Connect Health detectan e informan de las condiciones de éxito al servicio de manera periódica. En el caso de algunas alertas, la supresión depende del tiempo. En otras palabras, si la misma condición de error no se observa dentro de un plazo de 72 horas desde la generación de la alerta, esta se resuelve de forma automática.
 
-**P: recibo un aviso de que "La solicitud de autenticación de prueba (transacción sintética) no pudo obtener un token". ¿Cómo puedo solucionar el problema?**
+**P: Recibo un aviso de que "La solicitud de autenticación de prueba (transacción sintética) no pudo obtener un token". ¿Cómo puedo solucionar el problema?**
 
 Azure AD Connect Health para AD FS genera esta alerta cuando se produce un error en el servidor ADFS para obtener un token como parte de una transacción sintética iniciada por el agente de mantenimiento. El agente de mantenimiento utiliza el contexto de sistema local e intenta obtener un token para un usuario de confianza de autoservicio. Se trata de una prueba minuciosa para asegurarse de que AD FS se encuentra en estado de emisión de tokens.
 
 A menudo, se produce un error en esta prueba porque el agente de mantenimiento no puede resolver el nombre de la granja de servidores de AD FS. Esto puede suceder si los servidores de AD FS están detrás de equilibradores de carga de red y la solicitud consigue iniciarse desde un nodo que esté detrás del equilibrador de carga (en lugar de un cliente normal que aparece delante del equilibrador de carga). Esto puede corregirse actualizando el archivo "hosts" en "C:\Windows\System32\drivers\etc" para incluir la dirección IP del servidor de AD FS o una dirección IP de bucle invertido (127.0.0.1) para el nombre de la granja de servidores de AD FS (por ejemplo, sts.contoso.com). Al agregar el archivo de host, se interrumpe la llamada de red, lo que permite que el agente de mantenimiento obtenga el token.
 
-**P: he recibido un correo electrónico que indica que mis máquinas no se han revisado para contrarrestar los ataques de secuestro de datos recientes. ¿Por qué he recibido este correo electrónico?**
+**P: He recibido un correo electrónico que indica que mis máquinas no se han revisado para contrarrestar los ataques de secuestro de datos recientes. ¿Por qué he recibido este correo electrónico?**
 
 El servicio Azure AD Connect Health analiza todas las máquinas que supervisa para garantizar que se instalaron las revisiones necesarias. El correo electrónico se envía a los administradores de inquilinos si al menos una máquina no tiene las revisiones críticas. Se usó la siguiente lógica para tomar esta decisión.
 1. Busque todas las revisiones instaladas en la máquina.

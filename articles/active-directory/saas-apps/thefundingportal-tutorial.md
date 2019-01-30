@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con The Funding Portal | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con The Funding Portal | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y The Funding Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4663cc8a-976a-4c6c-b3b4-1e5df9b66744
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: d45712a94a6a2eb18088c99d7175b73b29e62ce3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ada7a35f36dbac74fa67111c8fa2571dce70069d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428407"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822134"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: integración de Azure Active Directory con The Funding Portal
+# <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: Integración de Azure Active Directory con The Funding Portal
 
 En este tutorial, obtendrá información sobre cómo integrar The Funding Portal con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_thefundingportal_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.regenteducation.net/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.regenteducation.net/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.regenteducation.net`
 
@@ -129,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | ------------------- | ---------------- |
     | externalId1 | user.extensionattribute1 |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_attribute_04.png)
 
@@ -152,7 +152,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **The Funding Portal**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de The Funding Portal](mailto:info@regenteducation.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -178,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

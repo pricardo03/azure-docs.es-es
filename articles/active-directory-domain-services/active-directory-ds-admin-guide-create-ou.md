@@ -1,10 +1,10 @@
 ---
-title: 'Active Directory Domain Services: guía de administración | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Guía de administración | Microsoft Docs'
 description: Creación de una unidad organizativa (OU) en dominios administrados de Servicios de dominio de Azure AD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cd4964939aa9b9ebd96a2fb29e1a6f7bf422d477
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154835"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856271"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Creación de una unidad organizativa en un dominio administrado de Servicios de dominio de Azure AD
 Los dominios administrados de Servicios de dominio de Azure AD incluyen dos contenedores integrados denominados "AADDC Computers" y "AADDC Users", respectivamente. El contenedor "AADDC Computers" tiene objetos de equipo para todos los equipos que están unidos al dominio administrado. El contenedor "AADDC Users" incluye los usuarios y grupos del inquilino de Azure AD. En ocasiones, puede ser necesario crear cuentas de servicio en el dominio administrado para implementar las cargas de trabajo. Para ello, puede crear una unidad organizativa personalizada en el dominio administrado y crear cuentas de servicio dentro de esa unidad organizativa. En este artículo se muestra cómo crear una unidad organizativa en el dominio administrado.
@@ -83,5 +83,5 @@ Ahora que ha generado una unidad organizativa personalizada, puede seguir y crea
 ## <a name="related-content"></a>Contenido relacionado
 * [Administración de un dominio administrado con Servicios de dominio de Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Centro de administración de Active Directory: introducción](https://technet.microsoft.com/library/dd560651.aspx)
+* [Centro de administración de Active Directory: Introducción](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guía paso a paso de las cuentas de servicio](https://technet.microsoft.com/library/dd548356.aspx)

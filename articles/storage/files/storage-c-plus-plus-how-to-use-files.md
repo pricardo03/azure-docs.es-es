@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.component: files
-ms.openlocfilehash: f2b6a03ce4e2c03f148fda67cfad1c4d51636b7a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a904e7ba269b1fbe03878b23ed35280b6d592f57
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234976"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412995"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desarrollo con C++ para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -38,8 +38,8 @@ Para compilar los ejemplos, debe instalar la biblioteca de cliente de Azure Stor
 
 Para instalar el cliente de Azure Storage 2.4.0 para C++, puede usar uno de los métodos siguientes:
 
-* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **Windows:**: en Visual Studio, haga clic en **Herramientas&gt;Administrador de paquetes de NuGet&gt;Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.
+* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
+* **Windows:** En Visual Studio, haga clic en **Herramientas &gt; Administrador de paquetes NuGet &gt; Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.
   
 ```
 Install-Package wastorage
@@ -159,7 +159,7 @@ azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
 // Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
+azure::storage::list_file_and_directory_result_iterator end_of_results;
 
 for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
 {

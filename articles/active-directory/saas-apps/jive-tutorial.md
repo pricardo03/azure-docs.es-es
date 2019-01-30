@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: cebcfb4614d1f685697bed6914f80237e175fb7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fa802e137f9fb76c531814f6128cabfc11a44f0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436563"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutorial: Integración de Azure Active Directory con Jive
 
@@ -113,7 +113,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/jive-tutorial/tutorial_jive_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instance name>.jivecustom.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<instance name>.jivecustom.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<instance name>.jiveon.com`
 
@@ -134,13 +134,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración del inicio de sesión único en la aplicación](./media/jive-tutorial/tutorial_jive_002.png)
 
-    a. Seleccione **Habilitado** en la pestaña **General**. b. Haga clic en el botón "**Guardar toda la configuración de saml**".
+     a. Seleccione **Habilitado** en la pestaña **General**. b. Haga clic en el botón "**Guardar toda la configuración de saml**".
 
 1. Vaya a la pestaña "**Metadatos de IdP**".
 
     ![Configuración del inicio de sesión único en la aplicación](./media/jive-tutorial/tutorial_jive_003.png)
 
-    a. Copie el contenido del archivo XML de metadatos descargado y, después, péguelo en el cuadro de texto **Identity Provider (IDP) Metadata** (Metadatos del proveedor de identidades [IDP]).
+     a. Copie el contenido del archivo XML de metadatos descargado y, después, péguelo en el cuadro de texto **Identity Provider (IDP) Metadata** (Metadatos del proveedor de identidades [IDP]).
 
     b. Haga clic en el botón "**Guardar toda la configuración de saml**".
 
@@ -148,7 +148,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración del inicio de sesión único en la aplicación](./media/jive-tutorial/tutorial_jive_004.png)
 
-    a. En el cuadro de texto **Email** (Correo electrónico), copie y pegue el nombre del atributo de valor **mail**.
+     a. En el cuadro de texto **Email** (Correo electrónico), copie y pegue el nombre del atributo de valor **mail**.
 
     b. En el cuadro de texto **First Name** (Nombre), copie y pegue el nombre del atributo de valor **givenname**.
 
@@ -177,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/jive-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4fc17daf640e95ab028150cec029471a0c7bc565
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6ec59108652fa928dbbc2a3cbb04c51ae0440dde
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063002"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402409"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Las interrupciones regionales son algo habitual, y Azure Cosmos DB garantiza que
 
 - Las cuentas de varias regiones configuradas con varias regiones de escritura seguirán teniendo una alta disponibilidad para las escrituras y lecturas. Las conmutaciones por error regionales son instantáneas y no requieren cambios de la aplicación.
 
-- Cuentas de varias regiones con una región de solo escritura: durante una interrupción de la región de escritura, estas cuentas permanecerán con alta disponibilidad para las lecturas. Sin embargo, para operaciones de escritura debe "habilitar la conmutación automática por error" en la cuenta de Cosmos para conmutar por error la región afectada a otra región asociada. La conmutación por error se producirá en el orden de prioridad de regiones que especificó. Finalmente, cuando la región afectada vuelva a estar en línea, los datos no replicados presentes en la región de escritura afectado durante la interrupción estarán disponibles a través de la fuente de conflictos. Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en el contenedor de Cosmos según corresponda. Una vez que se recupera la región de escritura previamente afectada, se convierte en disponible automáticamente como una región de lectura. Se puede invocar una conmutación por error manual y configurar la región afectada como la región de escritura. Puede hacer una conmutación por error manual mediante la [CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover).  
+- Cuentas de varias regiones con una región de solo escritura: durante una interrupción de la región de escritura, estas cuentas permanecerán con alta disponibilidad para las lecturas. Sin embargo, para operaciones de escritura debe "habilitar la conmutación automática por error" en la cuenta de Cosmos para conmutar por error la región afectada a otra región asociada. La conmutación por error se producirá en el orden de prioridad de regiones que especificó. Finalmente, cuando la región afectada vuelva a estar en línea, los datos no replicados presentes en la región de escritura afectado durante la interrupción estarán disponibles a través de la fuente de conflictos. Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en el contenedor de Cosmos según corresponda. Una vez que se recupera la región de escritura previamente afectada, se convierte en disponible automáticamente como una región de lectura. Se puede invocar una conmutación por error manual y configurar la región afectada como la región de escritura. Puede hacer una conmutación por error manual mediante la [CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover). **No se produce ninguna pérdida de datos ni de disponibilidad** antes, durante o después de la conmutación por error manual. La aplicación sigue teniendo alta disponibilidad. 
 
 - Cuentas de varias regiones con una región de solo escritura: durante una interrupción de la región de lectura, estas cuentas permanecerán con alta disponibilidad para lecturas y escrituras. La región afectada se desconecta automáticamente de la región de escritura y se marcará como sin conexión. El SDK de Cosmos DB redirigirá las llamadas de lectura a la siguiente región disponible en la lista de regiones preferidas. Si ninguna de las regiones de la lista de las regiones preferidas está disponible, las llamadas se devuelven automáticamente a la región actual de escritura. No es necesario realizar ningún cambio en el código de su aplicación para gestionar la interrupción de la región de lectura. Finalmente, cuando la región afectada se vuelve a conectar, la región de lectura previamente afectada se sincronizará automáticamente con la región de escritura actual y estará disponible de nuevo para atender las solicitudes de lectura. Las siguientes lecturas se redirigen a la región recuperada sin necesidad de realizar cambios en el código de la aplicación. Durante la conmutación por error y cuando se vuelva a unir una región previamente errónea, Cosmos DB seguirá cumpliendo las garantías de coherencia de lectura.
 

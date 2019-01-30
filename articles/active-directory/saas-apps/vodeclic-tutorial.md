@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444630"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integración de Azure Active Directory con Vodeclic
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de inicio de sesión único de dominio y direcciones URL de Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
-    a. En el cuadro **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lms.vodeclic.net/auth/saml`
+     a. En el cuadro **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lms.vodeclic.net/auth/saml`
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/vodeclic-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -170,7 +170,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-vodeclic-test-user"></a>Creación de un usuario de prueba de Vodeclic
 
-En esta sección, creará un usuario llamado Britta Simon en Vodeclic. Colabore con el [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com) para agregar usuarios en la plataforma Vodeclic. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Vodeclic. Colabore con el [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com) para agregar usuarios en la plataforma de Vodeclic. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 > [!NOTE]
 > Según los requisitos de la aplicación, es posible que deba obtener la lista de elementos permitidos de la máquina. Para ello, debe compartir la dirección IP pública con el [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com).
@@ -211,7 +211,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al seleccionar el icono de Vodeclic en el panel de acceso, se inicia sesión automáticamente en la aplicación Vodeclic.
 
-Para más información sobre el panel de acceso, consulte [Introducción al panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

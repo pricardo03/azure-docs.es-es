@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319467"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382627"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -230,7 +230,7 @@ Cuando se aplica una nueva directiva, se sigue la programación y retención de 
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>¿Se cifran los datos que se envían a Azure?
 
-Sí. Los datos se cifran en el equipo local mediante AES256. Los datos se envían a través de un vínculo HTTPS seguro.
+Sí. Los datos se cifran en la máquina local mediante AES256. Los datos se envían a través de un vínculo HTTPS seguro. Los datos se transmiten en la nube protegidos por el vínculo HTTPS solamente entre el servicio de recuperación y el almacenamiento. El protocolo iSCSI protege los datos transmitidos entre el servicio de recuperación y la máquina del usuario. Se usa la tunelización segura para proteger el canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>¿También se cifran los datos de copia de seguridad en Azure?
 

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 224120f01cf6e1a32c85d1f50c6e3a30f50d243a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f21610c0004df802d56df8cf47c3c7f082e391cd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443800"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823273"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: integración de Azure Active Directory con Pega Systems
+# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integración de Azure Active Directory con Pega Systems
 
 En este tutorial, aprenderá a integrar Pega Systems con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Pega Systems](./media/pegasystems-tutorial/tutorial_pegasystems_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`.
 
@@ -144,7 +144,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Se trata de valores específicos del cliente. Proporcione los valores adecuados.
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/pegasystems-tutorial/tutorial_attribute_04.png)
 
@@ -173,7 +173,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
-    a. Seleccione **SAML 2.0** en Tipo.
+     a. Seleccione **SAML 2.0** en Tipo.
 
     b. En el cuadro de texto **Nombre**, escriba cualquier nombre, por ejemplo, SSO de Azure AD.
 
@@ -193,7 +193,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
-    a. Copie el valor de **Entity Identification** (Identificación de la entidad) y péguelo de nuevo en el cuadro de texto **Identificador** de Azure Portal.
+     a. Copie el valor de **Entity Identification** (Identificación de la entidad) y péguelo de nuevo en el cuadro de texto **Identificador** de Azure Portal.
 
     b.  Copie el valor de **Assertion Consumer Service (ACS) location** (Ubicación del servicio de consumidor de aserciones [ACS]) y péguelo de nuevo en el cuadro de texto **URL de respuesta** de Azure Portal.
 
@@ -202,7 +202,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Haga clic en **Guardar**
     
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -228,7 +228,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/pegasystems-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -276,7 +276,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Pega Systems en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de Pega Systems.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52854997"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382447"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Un clúster de AKS se implementa en una sola región. Para protegerse frente a e
 * [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Para su área geográfica, elija dos regiones que estén emparejadas entre sí. Estas regiones coordinan las actualizaciones de la plataforma y dan prioridad a los esfuerzos de recuperación cuando resulta necesario.
 * Nivel de disponibilidad de servicio (frecuente/frecuente, frecuente/flexible, frecuente/en frío)
-  * Desea ejecutar ambas regiones al mismo tiempo, con una región *lista* para empezar a atender el tráfico o una región que necesita tiempo para prepararse para atender el tráfico.
+  * Desea ejecutar ambas regiones al mismo tiempo, con una región *preparada* para empezar a atender el tráfico o una región que necesita tiempo para prepararse para atender el tráfico.
 
 La disponibilidad por región de AKS y las regiones emparejadas son una consideración conjunta. Implemente los clústeres de AKS en regiones emparejadas diseñadas para administrar la recuperación ante desastres de las regiones de forma conjunta. Por ejemplo, AKS está disponible en *Este de EE. UU.* y *Oeste de EE. UU.*. Estas regiones también están emparejadas. Estas dos regiones serían recomendables al crear una estrategia de continuidad empresarial y recuperación ante desastres en AKS.
 

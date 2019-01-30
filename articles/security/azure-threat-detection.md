@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408836"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413675"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -56,7 +56,7 @@ Ejemplos de algunas de las maneras en que Azure Identity Protection puede ayudar
 -   Proporcionar los flujos de trabajo básicos para realizar un seguimiento de las investigaciones.
 -   Proporcionar un acceso fácil a las acciones de corrección, como el restablecimiento de contraseñas.
 
-[Directivas de acceso condicional basadas en riesgos](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Directivas de acceso condicional basadas en riesgos](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -   Mitigar los inicios de sesión peligrosos mediante el bloqueo de los inicios de sesión o requerir desafíos de la autenticación multifactor.
 -   Proteger o bloquear cuentas de usuario peligrosas.
 -   Exigir a los usuarios que se registren en la autenticación multifactor.
@@ -91,13 +91,13 @@ Los paneles de Log Analytics permiten comprender de forma rápida y sencilla la 
 
 El panel Seguridad y auditoría de Log Analytics se divide en cuatro categorías principales:
 
--   **Dominios de seguridad**: permite explorar más los registros de seguridad a lo largo del tiempo, acceder a evaluaciones de malware, actualizar las evaluaciones, ver información de seguridad de la red, identidad y acceso, ver equipos con eventos de seguridad y acceder rápidamente al panel Azure Security Center.
+-   **Dominios de seguridad**: permite explorar más los registros de seguridad a lo largo del tiempo, acceder a evaluaciones de malware, actualizar las evaluaciones, ver información de seguridad de la red, identidad y acceso, ver equipos con eventos de seguridad y acceder rápidamente al panel de Azure Security Center.
 
 -   **Problemas importantes**: permite identificar de forma rápida la cantidad de problemas activos y su gravedad.
 
 -   **Detecciones (versión preliminar)**: permite identificar los patrones de ataque mediante la visualización de alertas de seguridad a medida que se producen contra sus recursos.
 
--   **Inteligencia frente a amenazas**: permite identificar los patrones de ataque mediante la visualización del número total de servidores con tráfico IP malintencionado de salida, el tipo de amenaza malintencionada y un mapa de las ubicaciones IP.
+-   **Información sobre amenazas**: permite identificar los patrones de ataque mediante la visualización del número total de servidores con tráfico IP malintencionado de salida, el tipo de amenaza malintencionada y un mapa de las ubicaciones IP.
 
 -   **Consultas comunes de seguridad**: enumera las consultas de seguridad más comunes que se pueden usar para supervisar el entorno. Al seleccionar cualquier consulta, se abre el panel de búsqueda y se muestran los resultados para esa consulta.
 
@@ -124,7 +124,7 @@ Las soluciones agregan funcionalidad a Log Analytics. Se ejecutan principalmente
 
 El panel Seguridad y auditoría es un ejemplo de estos tipos de solución.
 
-### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automatización y control: alerta sobre la desviación de la configuración de seguridad
+### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automatización y control: desviación de la alerta de configuración de seguridad
 
 Azure Automation automatiza los procesos administrativos con runbooks que se basan en PowerShell y se ejecutan en la nube. Los runbooks pueden ejecutarse en un servidor en el centro de datos local para administrar recursos locales. Azure Automation proporciona administración de configuración con Desired State Configuration (DSC) de PowerShell.
 
@@ -160,15 +160,15 @@ Los recursos telemétricos proceden de diferentes fuentes, como Azure, Office 36
 
 Los investigadores también cuentan con la información de inteligencia sobre amenazas que comparten los principales proveedores de servicios en la nube y que procede de fuentes de terceros. Azure Security Center puede usar todos estos datos para avisarle de las amenazas procedentes de actores malintencionados conocidos. Estos son algunos ejemplos:
 
--   **Aprovechamiento de la energía de Machine Learning**: Azure Security Center tiene acceso a una gran cantidad de datos sobre la actividad de red en la nube, que se puede usar para detectar amenazas dirigidas a las implementaciones de Azure.
+-   **Aprovechamiento de la capacidad del aprendizaje automático**: Azure Security Center tiene acceso a una gran cantidad de datos sobre la actividad de red en la nube, que se puede usar para detectar amenazas dirigidas a las implementaciones de Azure.
 
--   **Detección de fuerza bruta**: Machine Learning se usa para crear un patrón histórico de los intentos de acceso remoto, lo que permite detectar los ataques de fuerza bruta contra los puertos Secure Shell (SSH), Protocolo de escritorio remoto (RDP) y SQL.
+-   **Detección de fuerza bruta**: el aprendizaje automático se usa para crear un patrón histórico de los intentos de acceso remoto, lo que permite detectar los ataques de fuerza bruta contra los puertos Secure Shell (SSH), Protocolo de escritorio remoto (RDP) y SQL.
 
 -   **Salida DDoS y detección de botnet**: un objetivo común de los ataques dirigidos a los recursos de nube consiste en usar la capacidad de proceso de estos recursos para ejecutar otros ataques.
 
--   **Nuevos servidores de análisis de comportamiento y máquinas virtuales**: después de que un servidor o una máquina virtual están en peligro, los atacantes emplean una gran variedad de técnicas para ejecutar código malintencionado en el sistema sin que les detecten, lo que garantiza la persistencia y consigue evitar los controles de seguridad.
+-   **Nuevos servidores de análisis de comportamiento y máquinas virtuales**: después de poner en peligro un servidor o una máquina virtual, los atacantes emplean una gran variedad de técnicas para ejecutar código malintencionado en el sistema sin ser detectados, lo que garantiza la persistencia y consigue evitar los controles de seguridad.
 
--   **Detección de amenazas de Azure SQL Database**: identifica actividades anómalas de la base de datos que indican intentos inusuales o posiblemente dañinos de acceso o ataque a las bases de datos.
+-   **Detección de amenazas de Azure SQL Database**: la detección de amenazas de Azure SQL Database identifica actividades anómalas de la base de datos que indican intentos inusuales o posiblemente dañinos de acceso o ataque a las bases de datos.
 
 ### <a name="behavioral-analytics"></a>Análisis del comportamiento
 
@@ -183,9 +183,9 @@ Además, los patrones se ponen en correlación con otras señales que se comprue
 Estos son algunos ejemplos:
 -   **Ejecución de procesos sospechosos**: los atacantes utilizan varias técnicas para ejecutar software malintencionado sin que se detecte. Por ejemplo, un atacante podría asignar a un malware los mismos nombres que se usan en los archivos legítimos del sistema, pero colocarlos en otras ubicaciones, usar un nombre muy parecido al de un archivo legítimo o enmascarar la verdadera extensión del archivo. Security Center adapta los comportamientos de los procesos y supervisa su ejecución para detectar valores atípicos como estos.
 
--   **Malware oculto e intentos de aprovechamiento**: el malware sofisticado es capaz de eludir los productos antimalware tradicionales, porque evita escribir en los discos o cifra los componentes de software almacenados en disco. Pero este malware se puede detectar mediante un análisis de memoria, ya que, para funcionar, deja rastros en la memoria. En el momento en que el software se bloquea, un volcado de memoria captura una porción de la memoria. Con un análisis de la memoria durante el volcado, Azure Security Center puede detectar las técnicas usadas para aprovechar las vulnerabilidades del software, acceder a información confidencial y permanecer en secreto en un equipo afectado sin que esto afecte a su rendimiento.
+-   **Malware oculto e intentos de aprovecharse de vulnerabilidades de seguridad**: el malware sofisticado puede eludir los productos antimalware tradicionales, para lo que evita escribir en el disco o cifra los componentes de software almacenados en el disco. Pero este malware se puede detectar mediante un análisis de memoria, ya que, para funcionar, deja rastros en la memoria. En el momento en que el software se bloquea, un volcado de memoria captura una porción de la memoria. Con un análisis de la memoria durante el volcado, Azure Security Center puede detectar las técnicas usadas para aprovechar las vulnerabilidades del software, acceder a información confidencial y permanecer en secreto en un equipo afectado sin que esto afecte a su rendimiento.
 
--   **Desplazamiento lateral y reconocimiento interno**: para poder permanecer en una red afectada y localizar y recopilar información valiosa, los atacantes suelen tratar de desplazar lateralmente el contenido de la máquina afectada a otras de la misma red. Security Center supervisa las actividades de los procesos e inicios de sesión para detectar cualquier intento de expandir el punto de apoyo del atacante en la red, como sondeos de redes de ejecución remota de comandos y enumeración de cuentas.
+-   **Movimiento lateral y reconocimiento interno**: para poder permanecer en una red afectada y localizar y recopilar información valiosa, los atacantes suelen tratar de desplazar lateralmente el contenido de la máquina afectada a otras de la misma red. Security Center supervisa las actividades de los procesos e inicios de sesión para detectar cualquier intento de expandir el punto de apoyo del atacante en la red, como sondeos de redes de ejecución remota de comandos y enumeración de cuentas.
 
 -   **Scripts de PowerShell malintencionados**: los atacantes usan PowerShell para ejecutar código malintencionado en las máquinas virtuales objetivo con diferentes propósitos. Security Center analiza la actividad de PowerShell en busca de evidencias de actividad sospechosa.
 
@@ -195,23 +195,23 @@ Estos son algunos ejemplos:
 
 Azure Security Center también utiliza la detección de anomalías para identificar amenazas. A diferencia del análisis del comportamiento, que depende de patrones conocidos obtenidos a partir de grandes conjuntos de datos, la detección de anomalías es una técnica más “personalizada” y se basa en referencias que son específicas de las implementaciones. El aprendizaje automático se aplica para determinar la actividad normal de las implementaciones y, después, se generan reglas para definir condiciones de valores atípicos que podrían constituir un evento de seguridad. Veamos un ejemplo:
 
--   **Ataques por fuerza bruta de RDP/SSH entrantes**: es posible que las implementaciones integren máquinas virtuales con mucha actividad que tengan multitud de inicios de sesión al día y otras máquinas virtuales que tengan pocos inicios de sesión o ninguno. Azure Security Center puede determinar la actividad de referencia de los inicios de sesión de estas máquinas virtuales y utilizar el aprendizaje automático para definir las actividades relacionadas con el inicio de sesión normal. Si hay alguna discrepancia con la línea de base definida para las características relacionadas con el inicio de sesión, es posible que se genere una alerta. Una vez más, es el aprendizaje automático el que se encarga de determinar qué es significativo.
+-   **Ataques ataque por fuerza bruta de RDP/SSH de entrada**: es posible que las implementaciones integren máquinas virtuales con mucha actividad que tengan multitud de inicios de sesión al día y otras máquinas virtuales que tengan pocos inicios de sesión o ninguno. Azure Security Center puede determinar la actividad de referencia de los inicios de sesión de estas máquinas virtuales y utilizar el aprendizaje automático para definir las actividades relacionadas con el inicio de sesión normal. Si hay alguna discrepancia con la línea de base definida para las características relacionadas con el inicio de sesión, es posible que se genere una alerta. Una vez más, es el aprendizaje automático el que se encarga de determinar qué es significativo.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>Supervisión continuada de la información sobre amenazas
 
 Azure Security Center cuenta con equipos de científicos de datos e investigadores de seguridad de todo el mundo que supervisan sin descanso los cambios que se registran en el terreno de las amenazas. Estos son algunas de las iniciativas que llevan a cabo:
 
--   **Supervisión de la inteligencia sobre amenazas**: la inteligencia sobre amenazas incluye mecanismos, indicadores, implicaciones y notificaciones que tienen relación con amenazas nuevas o existentes. Esta información se comparte con la comunidad de seguridad, y Microsoft supervisa sin descanso las fuentes de inteligencia sobre amenazas de orígenes internos y externos.
+-   **Supervisión de la inteligencia sobre amenazas**: la inteligencia sobre amenazas incluye mecanismos, indicadores, implicaciones y notificaciones para las amenazas nuevas o existentes. Esta información se comparte con la comunidad de seguridad, y Microsoft supervisa sin descanso las fuentes de inteligencia sobre amenazas de orígenes internos y externos.
 
 -   **Uso compartido de señales**: se comparte y analiza la información que recopilan los equipos de seguridad a partir de la amplia cartera de servicios de Microsoft en la nube y locales, de servidores y de dispositivos cliente de punto de conexión.
 
--   **Especialistas en seguridad de Microsoft**: colaboración continua con los equipos de Microsoft que trabajan en ámbitos de seguridad especializados, como análisis forense y detección de ataques web.
+-   **Especialistas en seguridad de Microsoft** colaboración continua con equipos de Microsoft que trabajan en campos de seguridad especializados, como análisis forense y detección de ataques web.
 
--   **Ajuste preciso de la detección**: los algoritmos se ejecutan en conjuntos de datos de clientes reales y los investigadores de seguridad trabajan con los clientes para validar los resultados. Los falsos positivos y los positivos verdaderos se utilizan para perfeccionar los algoritmos de aprendizaje automático.
+-   **Ajuste de la detección**: los algoritmos se ejecutan en conjuntos de datos de clientes reales y los investigadores de seguridad trabajan en conjunción con los clientes para validar los resultados. Los falsos positivos y los positivos verdaderos se utilizan para perfeccionar los algoritmos de aprendizaje automático.
 
 Toda esta combinación de esfuerzos culmina en técnicas de detección nuevas y mejoradas, de las que puede beneficiarse al instante. No es necesaria ninguna acción por su parte.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Características de la detección de amenazas avanzada: otros servicios de Azure
+## <a name="advanced-threat-detection-features-other-azure-services"></a>Funciones de detección de amenazas avanzada: Otros servicios de Azure
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Máquinas virtuales: Microsoft Antimalware
 
@@ -225,17 +225,17 @@ Estas son las características de Azure que implementan y habilitan Microsoft An
 
 -   **Análisis programado**: realiza periódicamente exámenes dedicados a detectar malware, lo que incluye programas que se ejecutan activamente.
 
--   **Corrección de malware**: actúa de forma automática sobre el malware detectado y elimina o pone en cuarentena los archivos malintencionados y limpia las entradas del Registro malintencionadas.
+-   **Corrección de malware**: actúa automáticamente sobre el malware detectado y elimina o pone en cuarentena los archivos malintencionados y limpia las entradas del Registro malintencionadas.
 
 -   **Actualizaciones de firmas**: instala de forma automática las firmas de protección (definiciones de virus) más recientes para garantizar que la protección está actualizada con una frecuencia determinada previamente.
 
--   **Actualizaciones de Antimalware Engine**: actualiza automáticamente el motor de Microsoft Antimalware.
+-   **Actualizaciones de Antimalware Engine**: actualiza automáticamente Microsoft Antimalware Engine.
 
--   **Actualizaciones de la plataforma Antimalware**: actualiza automáticamente la plataforma de Microsoft Antimalware.
+-   **Actualizaciones de la plataforma antimalware**: actualiza automáticamente la plataforma de Microsoft Antimalware.
 
 -   **Protección activa**: envía a Microsoft Azure informes de metadatos de telemetría sobre las amenazas detectadas y los recursos sospechosos para garantizar una respuesta rápida a las amenazas en constante evolución, lo que permite la entrega sincrónica de firmas en tiempo real a través del sistema de protección activa de Microsoft.
 
--   **Informes de ejemplos**: proporciona informes de ejemplos al servicio Microsoft Antimalware que ayudan a mejorarlo y permiten la solución de problemas.
+-   **Informes de ejemplos:** proporciona informes de ejemplos al servicio Microsoft Antimalware que ayudan a mejorar el servicio y permiten la solución de problemas.
 
 -   **Exclusiones**: permite a los administradores de aplicaciones y servicios configurar determinados archivos, procesos y unidades para que se excluyan de la protección y el examen por motivos de rendimiento o de otro tipo.
 
@@ -297,7 +297,7 @@ La configuración de WAF en Application Gateway proporciona las siguientes venta
 
 -   Ayuda a cumplir los requisitos de cumplimiento. Algunos controles de cumplimiento requieren que todos los puntos de conexión accesibles desde Internet estén protegidos por una solución WAF.
 
-### <a name="anomaly-detection-api-built-with-azure-machine-learning"></a>API de detección de anomalías: creada con Azure Machine Learning
+### <a name="anomaly-detection-api-built-with-azure-machine-learning"></a>Anomaly Detection API: integrada con Azure Machine Learning
 
 La API de detección de anomalías es una API útil para detectar una variedad de patrones anómalos en datos de series temporales. La API asigna una puntuación de anomalía a cada punto de datos de la serie temporal, que se puede usar para generar alertas, supervisar a través de paneles o conectar con los sistemas de vales.
 
@@ -307,7 +307,7 @@ La [API de detección de anomalías](https://docs.microsoft.com/azure/machine-le
 
 -   **Tendencias positivas y negativas**: cuando se está supervisando el uso de memoria en informática, la reducción del tamaño de memoria libre indica una posible pérdida de memoria. Para supervisar la longitud de la cola del servicio, una tendencia al alza persistente puede indicar un problema de software subyacente.
 
--   **Cambios de nivel y cambios en el intervalo dinámico de valores**: puede ser interesante supervisar los cambios de nivel en las latencias de un servicio después de una actualización o los niveles menores de excepciones después de una actualización.
+-   **Cambios de nivel y cambios en el intervalo dinámico de valores**: puede ser interesante supervisar los cambios de nivel en las latencias de un servicio después de una actualización del servicio o los niveles menores de excepciones después de una actualización.
 
 La API basada en aprendizaje automático permite lo siguiente:
 

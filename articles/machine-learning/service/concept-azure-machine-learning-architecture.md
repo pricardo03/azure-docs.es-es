@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808101"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401984"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -28,7 +28,7 @@ Normalmente, el flujo de trabajo sigue estos pasos:
 
 1. Los scripts de entrenamiento del aprendizaje automático se desarrollan en **Python**.
 1. Se crea y configura un **destino de proceso**.
-1. **Se envían los scripts** al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, el destino de proceso almacena los registros de ejecución en un **almacén de datos**. Allí los registros se guardan en un **experimento**.
+1. **Se envían los scripts** al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, los scripts pueden leer o escribir en el **almacén de datos**. Y los registros de ejecución se guardan como **ejecuciones** en el **área de trabajo**, agrupados en **experimentos**.
 1. **Se consulta el experimento** para las métricas registradas en ejecuciones actuales y anteriores. Si las métricas no ofrecen el resultado deseado, se vuelve en bucle al paso 1 y se repiten los scripts.
 1. Cuando se encuentra una ejecución satisfactoria, se registra el modelo guardado en el **registro de modelos**.
 1. Se desarrolla un script de puntuación.

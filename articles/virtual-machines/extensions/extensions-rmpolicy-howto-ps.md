@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451840"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434996"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en máquinas virtuales Linux
 
 Si desea impedir el uso o la instalación de determinadas extensiones en las máquinas virtuales Windows, puede crear una directiva de Azure mediante PowerShell para restringir las extensiones de las máquinas virtuales dentro de un grupo de recursos. 
 
-En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza constantemente a la versión más reciente. Si decide instalar y usar PowerShell de forma local, para este tutorial necesitará la versión 3.6 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza constantemente a la versión más reciente. Si decide instalar y usar PowerShell de forma local, para este tutorial necesitará la versión 3.6 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Creación de un archivo de reglas
 
@@ -139,7 +139,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Prueba de la directiva
 
-Para probar la directiva, intente usar la extensión de acceso de máquina virtual. Se producirá un error con el mensaje "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy" (Set-AzureRmVMAccessExtension: la directiva no permitió el recurso 'myVMAccess').
+Para probar la directiva, intente usar la extensión de acceso de máquina virtual. Se producirá un error con el mensaje "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy" (Set-AzureRmVMAccessExtension: la directiva no permitió el recurso "myVMAccess").
 
 ```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `

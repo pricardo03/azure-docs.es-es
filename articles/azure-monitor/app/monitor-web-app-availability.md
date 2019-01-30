@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359704"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857155"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -194,7 +194,7 @@ Obtenga más información acerca de la experiencia de diagnósticos de transacci
 
 Haga clic en la fila de excepciones para ver los detalles de la excepción del lado servidor que ha provocado un error en la prueba de disponibilidad sintética. También puede obtener la [instantánea de depuración](../../azure-monitor/app/snapshot-debugger.md) para realizar diagnósticos de nivel de código más completos.
 
-![Diagnósticos del lado servidor](./media/monitor-web-app-availability/open-instance-4.png)
+![Diagnósticos del servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
 ## <a name="alerts"></a> Alertas de disponibilidad
 Puede contar con los siguientes tipos de reglas de alertas relacionadas con la disponibilidad de datos gracias a la experiencia de alertas clásicas:
@@ -297,9 +297,9 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
     * ¿La prueba tiene habilitada la opción "Analizar solicitudes dependientes"? Esta opción da como resultado una comprobación estricta de los recursos, como las secuencias de comandos y las imágenes, entre otros. Estos tipos de errores pueden no ser visibles en un explorador. Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
 
-    * Para reducir las probabilidades de ruido de señales de red transitorias etc., asegúrese de que se comprueba la configuración "Habilitar reintentos para errores de pruebas". También puede probar desde más ubicaciones y administrar el umbral de la regla de alertas en consecuencia para evitar problemas específicos de ubicación que causan las alertas innecesarias.
+    * Para reducir las probabilidades de ruido de señales de red transitorias etc., asegúrese de que se comprueba la configuración "Habilitar reintentos para errores de pruebas". También puede realizar pruebas desde más ubicaciones y administrar el umbral de la regla de alertas en consecuencia para evitar problemas específicos de ubicación que causan las alertas innecesarias.
 
-    * Haga clic en cualquiera de los puntos rojos de la experiencia de disponibilidad o en cualquier error de disponibilidad desde el Explorador de búsqueda para ver los detalles de por qué se notificó el error. El resultado de la prueba, junto con la telemetría del lado servidor correlacionada (si la opción está habilitada), ayudará a comprender el motivo del error de la prueba. Los problemas de conexión o red son las causas más comunes de los problemas transitorios. 
+    * Haga clic en cualquiera de los puntos rojos de la experiencia de disponibilidad o en cualquier error de disponibilidad desde el Explorador de búsqueda para ver los detalles de por qué se notificó el error. El resultado de la prueba, junto con la telemetría del lado servidor correlacionada (si la opción está habilitada) ayudará a comprender el motivo del error de la prueba. Los problemas de conexión o red son las causas más comunes de los problemas transitorios. 
 
     * ¿Se agotó el tiempo de espera de la prueba? Las pruebas se anulan después de 2 minutos. Si la prueba de ping o de varios pasos tarda más de 2 minutos, se notificará como un error. Considere la posibilidad de dividir la prueba en varias partes más pequeñas que puedan completarse en lapsos más cortos.
 
@@ -356,6 +356,22 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 * *¿Cómo se puede ejecutar una prueba con certificados de cliente?*
 
     Lo sentimos, pero eso no está admitido.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>¿Quién recibe las notificaciones de alerta (clásicas)?
+
+Esta sección solo se aplica a las alertas clásicas y le ayudará a optimizar las notificaciones de alerta para asegurarse de que solo reciban las notificaciones los destinatarios que elija. Para más información sobre la diferencia entre [alertas clásicas](../platform/alerts-classic.overview.md) y la nueva experiencia de alertas, consulte el [artículo de información general de alertas](../platform/alerts-overview.md). Para controlar las notificaciones de alertas en la nueva experiencia de alertas, use [grupos de acciones](../platform/action-groups.md).
+
+* Se recomienda el uso de destinatarios específicos para las notificaciones de alerta clásicas.
+
+* Si está habilitada la opción de casilla de verificación **masiva o grupo**, las alertas sobre errores enviadas desde X de Y ubicaciones se envían a los usuarios con roles de administrador o coadministrador.  Básicamente _todos_ los administradores de la _suscripción_ recibirán notificaciones.
+
+* Si está habilitada la opción de casilla de verificación **masiva o grupo**, las alertas basadas en métricas de disponibilidad (o en cualquier otra métrica de Application Insights) se envían a los usuarios con roles de propietario, colaborador o lector de la suscripción. De hecho, _todos_ los usuarios con acceso a la suscripción del recurso de Application Insights están dentro del ámbito y recibirán notificaciones. 
+
+> [!NOTE]
+> Si actualmente usa la opción de casilla de verificación **masiva o grupo** y la deshabilita, no podrá revertir el cambio.
+
+Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real si tiene que enviar notificaciones a los usuarios según sus roles. Con los [grupos de acciones](../platform/action-groups.md), puede configurar el envío de notificaciones por correo electrónico a usuarios con cualquiera de los roles de propietario, colaborador o lector (no combinados conjuntamente como única opción).
+
 
 
 ## <a name="next"></a>Pasos siguientes

@@ -4,7 +4,7 @@ description: Aprenda a aprovisionar y cancelar automáticamente el aprovisionami
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7ee10bcd06877b33669b79e104f0d32f87301c28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348113"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813277"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios con Azure Active Directory
 
@@ -50,7 +50,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 Azure Active Directory usa un concepto que se denomina "asignaciones" para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios y grupos que se han "asignado" a una aplicación de Azure AD.
 
-Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD representan a los usuarios que necesitan acceso a la aplicación ServiceNow. Una vez decidido, puede asignar estos usuarios a la aplicación de ServiceNow según las instrucciones del artículo sobre la [asignación de un usuario o un grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD representan a los usuarios que necesitan acceso a la aplicación ServiceNow. Una vez decidido, puede asignar estos usuarios a la aplicación de ServiceNow siguiendo estas instrucciones: [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]
@@ -78,7 +78,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. En la sección Credenciales de administración, realice los pasos siguientes:
    
-    a. En el cuadro de texto **Nombre de la instancia de ServiceNow** , escriba el nombre de la instancia de ServiceNow.
+     a. En el cuadro de texto **Nombre de la instancia de ServiceNow** , escriba el nombre de la instancia de ServiceNow.
 
     b. En el cuadro de texto del **nombre de usuario de administrador de ServiceNow**, escriba el nombre de usuario de un administrador.
 

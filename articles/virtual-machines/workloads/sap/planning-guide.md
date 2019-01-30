@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262410"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436593"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -235,7 +235,7 @@ ms.locfileid: "51262410"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -337,13 +337,13 @@ Para obtener recursos adicionales, consulte el capítulo [Recursos][planning-gui
 En el documento se utilizarán los términos siguientes:
 
 * IaaS: infraestructura como servicio
-* PaaS: plataforma como servicio
+* PaaS: Plataforma como servicio
 * SaaS: software como servicio
 * Componente de SAP: una aplicación de SAP individual, como ECC, BW, Solution Manager o EP.  Los componentes de SAP pueden basarse en tecnologías tradicionales, como ABAP o Java, o en una aplicación no basada en NetWeaver, como Business Objects.
 * Entorno de SAP: uno o varios componentes de SAP agrupados lógicamente para desempeñar una función empresarial, como desarrollo, control de calidad, aprendizaje, recuperación ante desastres o producción.
 * Infraestructura de SAP: este término hace referencia a todos los recursos de SAP de la infraestructura de TI de un cliente. La infraestructura de SAP incluye todos los entornos, tanto los que son de producción como los que no.
 * Sistema SAP: la combinación de la capa de DBMS y la capa de aplicación de, por ejemplo, un sistema de desarrollo SAP ERP, un sistema de prueba SAP BW, un sistema de producción SAP CRM, etc. En las implementaciones de Azure no se admite la división de estas dos capas entre la infraestructura local y de Azure. Esto significa que un sistema SAP debe implementarse de forma local o en Azure, pero no en ambos. Sin embargo, los diferentes sistemas de una infraestructura de SAP pueden implementarse en Azure o de forma local. Por ejemplo, pueden implementarse sistemas de pruebas y de desarrollo de SAP CRM en Azure, a la vez que se implementa el sistema de producción de forma local.
-* Implementación exclusiva en la nube: una implementación donde la suscripción de Azure no está conectada de sitio a sitio o a través de ExpressRoute a la infraestructura de red local. En la documentación habitual de Azure este tipo de implementaciones se denomina implementaciones "exclusivas en la nube" o "solo en la nube". A las máquinas virtuales implementadas con este método se tiene acceso a través de Internet y una dirección IP pública o un nombre DNS público asignado a Azure Virtual Machines. En Microsoft Windows, el DNS y Active Directory (AD) locales no se extienden a Azure en este tipo de implementaciones. Por lo tanto, las máquinas virtuales no forman parte de Active Directory local. Ocurre lo mismo en implementaciones de Linux en las que se usa, por ejemplo, OpenLDAP y Kerberos.
+* Implementación solo en la nube: una implementación donde la suscripción de Azure no está conectada de sitio a sitio o a través de ExpressRoute a la infraestructura de red local. En la documentación habitual de Azure este tipo de implementaciones se denomina implementaciones "exclusivas en la nube" o "solo en la nube". A las máquinas virtuales implementadas con este método se tiene acceso a través de Internet y una dirección IP pública o un nombre DNS público asignado a Azure Virtual Machines. En Microsoft Windows, el DNS y Active Directory (AD) locales no se extienden a Azure en este tipo de implementaciones. Por lo tanto, las máquinas virtuales no forman parte de Active Directory local. Ocurre lo mismo en implementaciones de Linux en las que se usa, por ejemplo, OpenLDAP y Kerberos.
 
 > [!NOTE]
 > La implementación exclusiva en la nube se define en este documento como infraestructuras de SAP completas ejecutadas exclusivamente en Azure sin extensión de Active Directory/OpenLDAP ni resolución de nombres desde la infraestructura local a la nube pública. No se admiten configuraciones exclusivas en la nube con sistemas de producción SAP, o con configuraciones donde deban usarse SAP STMS u otros recursos locales entre sistemas SAP hospedados en Azure y recursos locales.
@@ -375,15 +375,15 @@ Las siguientes notas de SAP están relacionadas con el tema de SAP en Azure:
 
 | Número de nota | Título |
 | --- | --- |
-| [1928533] |SAP Applications on Azure: Supported Products and Sizing (Aplicaciones SAP en Azure: productos y tamaños compatibles) |
-| [2015553] |SAP on Microsoft Azure: Support Prerequisites (SAP en Microsoft Azure: requisitos previos de compatibilidad) |
+| [1928533] |SAP Applications on Azure: Supported Products and Sizing (Aplicaciones de SAP en Microsoft Azure con Base de datos de Oracle: versiones y tamaños compatibles) |
+| [2015553] |SAP on Microsoft Azure: Support Prerequisites (Requisitos previos de soporte técnico de SAP en Microsoft Azure) |
 | [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP (Solución de problemas de la supervisión mejorada de Azure para SAP) |
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure (Métricas de supervisión clave para SAP en Microsoft Azure) |
 | [1409604] |Virtualization on Windows: Enhanced Monitoring (Virtualización en Windows: supervisión mejorada) |
-| [2191498] |SAP on Linux with Azure: Enhanced Monitoring (SAP en Linux con Azure: supervisión mejorada) |
+| [2191498] |SAP on Linux with Azure: Enhanced Monitoring (Virtualización en Windows: supervisión mejorada) |
 | [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux y máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
-| [1984787] |SUSE LINUX Enterprise Server 12: Installation notes (SUSE Linux Enterprise Server 12: notas de instalación) |
-| [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade (Red Hat Enterprise Linux 7.x: instalación y actualización) |
+| [1984787] |SUSE LINUX Enterprise Server 12: Notas de instalación |
+| [2002167] |Red Hat Enterprise Linux 7.x: Instalación y actualización |
 | [2069760] |Instalación y actualización de SAP en Oracle Linux 7.x |
 | [1597355] |Recomendación de espacio de intercambio para Linux |
 
@@ -535,7 +535,7 @@ Para comprender el concepto de conjuntos de disponibilidad de Azure y la relaci�
 
 Para definir conjuntos de disponibilidad para Azure Resource Manager mediante una plantilla de json, consulte las [especificaciones de API REST](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) y busque "disponibilidad".
 
-### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Almacenamiento: Microsoft Azure Storage y discos de datos
+### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Storage: Microsoft Azure Storage y discos de datos
 Microsoft Azure Virtual Machines usa varios tipos de almacenamiento. Al implementar SAP en los servicios de máquina virtual de Azure, es importante comprender las diferencias entre estos dos tipos principales de almacenamiento:
 
 * Almacenamiento volátil, no persistente.
@@ -544,7 +544,7 @@ Microsoft Azure Virtual Machines usa varios tipos de almacenamiento. Al implemen
 Las máquinas virtuales de Azure ofrecen discos no persistentes después de implementar una máquina virtual. En el caso de un reinicio de máquina virtual, se borrará todo el contenido de esas unidades. Por tanto, es evidente que los archivos de datos y los archivos de registro y fase de puesta al día de las bases de datos no se deben colocar bajo ninguna circunstancia en esas unidades de disco no persistentes. Es posible que haya excepciones para algunas de las bases de datos, donde estas unidades de disco no persistentes podrían ser adecuadas para tempdb y los espacios de tablas temporales. Pero evite usar esas unidades de disco para las máquinas virtuales de la serie A, ya que esas unidades no persistentes tienen un límite de rendimiento con esa familia de máquinas virtuales. Para obtener más información, lea el artículo [Understanding the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Descripción de la unidad temporal en máquinas virtuales de Windows en Azure).
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > La unidad D:\ de una máquina virtual de Azure es una unidad no persistente respaldada por algunos discos locales del nodo de proceso de Azure. Como no es persistente, significa que los cambios realizados en el contenido de la unidad D:\ se perderán cuando se reinicie la máquina virtual. Por "cambios", se refiere a los archivos guardados, los directorios creados, las aplicaciones instaladas, etc.
 > 
@@ -769,19 +769,19 @@ Es posible utilizar el siguiente árbol de decisión aproximado para decidir si 
 
 ![Árbol de decisión para decidir la capacidad de implementación de SAP en Azure][planning-guide-figure-700]
 
-**Paso 1:** La información más importante por la que empezar es el requisito de SAPS de un sistema SAP determinado. Los requisitos de SAPS deben dividirse en la parte de DBMS y en la de la aplicación SAP, aunque el sistema SAP ya esté implementado de forma local en una configuración de dos niveles. Para los sistemas existentes, los SAPS relacionados con el hardware que se usa se suele poder determinar o calcular mediante los bancos de pruebas de SAP existentes. Los resultados se pueden encontrar aquí: <https://sap.com/about/benchmark.html>.
+**Paso 1**: La información más importante por la que empezar es el requisito de SAPS de un sistema SAP determinado. Los requisitos de SAPS deben dividirse en la parte de DBMS y en la de la aplicación SAP, aunque el sistema SAP ya esté implementado de forma local en una configuración de dos niveles. Para los sistemas existentes, los SAPS relacionados con el hardware que se usa se suele poder determinar o calcular mediante los bancos de pruebas de SAP existentes. Los resultados se pueden encontrar aquí: <https://sap.com/about/benchmark.html>.
 En lo que respecta a los sistemas SAP de implementación reciente, tendrá que haber efectuado una tarea de determinación del tamaño con la que se habrán identificado los requisitos de SAPS del sistema.
 Consulte también este blog y el documento adjunto sobre el ajuste de tamaño de SAP en Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
-**Paso 2:** Para los sistemas existentes, se debe medir el volumen de E/S y las operaciones de E/S por segundo en el servidor de DBMS. En el caso de los sistemas planeados recientemente, la tarea de determinación de tamaño para el nuevo sistema también debe aportar una idea aproximada de los requisitos de E/S para DBMS. Si no está seguro, tendrá que terminar realizando una prueba de concepto.
+**Paso 2**: Para los sistemas existentes, se debe medir el volumen de E/S y las operaciones de E/S por segundo en el servidor de DBMS. En el caso de los sistemas planeados recientemente, la tarea de determinación de tamaño para el nuevo sistema también debe aportar una idea aproximada de los requisitos de E/S para DBMS. Si no está seguro, tendrá que terminar realizando una prueba de concepto.
 
-**Paso 3:** Compare el requisito de SAPS del servidor de DBMS con los SAPS que pueden proporcionar los distintos tipos de máquinas virtuales de Azure. La información sobre los SAPS de los diferentes tipos de máquinas virtuales de Azure se incluye en la nota de SAP [1928533]. Primero hay que centrarse en la máquina virtual de DBMS, puesto que la de la base de datos es la capa de un sistema SAP NetWeaver que no se escala horizontalmente en la mayoría de las implementaciones. Por el contrario, la capa de aplicaciones de SAP se puede escalar horizontalmente. Si ninguno de los tipos de máquinas virtuales de Azure compatibles con SAP puede proporcionar los SAP necesarios, la carga de trabajo del sistema SAP planeado no podrá ejecutarse en Azure. Tendrá que implementar el sistema de forma local o cambiar su volumen de carga de trabajo.
+**Paso 3**: Compare el requisito de SAPS del servidor de DBMS con los SAPS que pueden proporcionar los distintos tipos de máquinas virtuales de Azure. La información sobre los SAPS de los diferentes tipos de máquinas virtuales de Azure se incluye en la nota de SAP [1928533]. Primero hay que centrarse en la máquina virtual de DBMS, puesto que la de la base de datos es la capa de un sistema SAP NetWeaver que no se escala horizontalmente en la mayoría de las implementaciones. Por el contrario, la capa de aplicaciones de SAP se puede escalar horizontalmente. Si ninguno de los tipos de máquinas virtuales de Azure compatibles con SAP puede proporcionar los SAP necesarios, la carga de trabajo del sistema SAP planeado no podrá ejecutarse en Azure. Tendrá que implementar el sistema de forma local o cambiar su volumen de carga de trabajo.
 
 **Paso 4**: Como se documenta [aquí (Linux)][virtual-machines-sizes-linux] y [aquí (Windows)][virtual-machines-sizes-windows], Azure exige una cuota de E/S por segundo para cada disco, al margen de si se usa almacenamiento estándar o Premium Storage. El número de discos de datos que se pueden montar varía según el tipo de máquina virtual. Como resultado, puede calcular el número máximo de IOPS que se puede lograr con cada uno de los distintos tipos de máquinas virtuales. Según el diseño del archivo de base de datos, puede seccionar los discos para convertirlos en un volumen en el SO invitado. Sin embargo, si el volumen actual de IOPS de un sistema SAP implementado supera los límites calculados del tipo de máquina virtual más grande de Azure y no hay ninguna posibilidad de compensar con más memoria, la carga de trabajo del sistema SAP puede verse gravemente afectada. En tales casos, se puede llegar a un punto en el que no se debería implementar el sistema en Azure.
 
-**Paso 5:** Especialmente en sistemas SAP que estén implementados localmente en configuraciones de dos niveles, lo más probable es que el sistema deba configurarse en Azure en una configuración de tres niveles. En este paso, debe comprobar si hay algún componente en la capa de aplicaciones de SAP que no se pueda escalar horizontalmente y que no podría encajar con los recursos de memoria y CPU que ofrecen los distintos tipos de máquinas virtuales de Azure. Si, en efecto, se detecta tal componente, no se podrá implementar en Azure el sistema SAP ni su carga de trabajo. Pero, si es posible escalar horizontalmente los componentes de las aplicaciones de SAP en varias máquinas virtuales de Azure, el sistema puede implementarse en Azure.
+**Paso 5**: Especialmente en sistemas SAP que estén implementados localmente en configuraciones de dos niveles, lo más probable es que el sistema deba configurarse en Azure en una configuración de tres niveles. En este paso, debe comprobar si hay algún componente en la capa de aplicaciones de SAP que no se pueda escalar horizontalmente y que no podría encajar con los recursos de memoria y CPU que ofrecen los distintos tipos de máquinas virtuales de Azure. Si, en efecto, se detecta tal componente, no se podrá implementar en Azure el sistema SAP ni su carga de trabajo. Pero, si es posible escalar horizontalmente los componentes de las aplicaciones de SAP en varias máquinas virtuales de Azure, el sistema puede implementarse en Azure.
 
-**Paso 6:** Si los componentes de capa de la aplicación de SAP y DBMS pueden ejecutarse en máquinas virtuales de Azure, se debe definir una serie de opciones de configuración relacionadas con los siguientes aspectos:
+**Paso 6**: Si los componentes de capa de la aplicación de SAP y DBMS pueden ejecutarse en máquinas virtuales de Azure, se debe definir una serie de opciones de configuración relacionadas con los siguientes aspectos:
 
 * Número de máquinas virtuales de Azure
 * Tipos de máquinas virtuales para los componentes individuales
@@ -860,9 +860,9 @@ Planea mover un sistema SAP específico desde un entorno local a Azure. Esto pue
 Debido a los requisitos de revisión específicos de la versión del SO o DBMS, puede que las imágenes proporcionadas en Azure Marketplace no satisfagan sus necesidades. Por lo tanto, se recomienda crear una máquina virtual con su propia imagen privada de máquina virtual de SO o DBMS, que podrá implementarse varias veces más adelante. Para preparar una imagen privada con fines de duplicación, se deben tener en cuenta los siguientes aspectos:
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
-> Consulte más detalles aquí: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> La configuración de Windows (como el nombre de host y el SID de Windows) debe abstraerse o generalizarse en la máquina virtual local mediante el comando sysprep.
+> Para obtener información, consulte: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> La configuración de Windows (como el nombre de host y el SID de Windows) debe abstraerse o generalizarse en la máquina virtual local mediante el comando sysprep.
 >
 >
 > ![Linux][Logo_Linux] Linux
@@ -897,7 +897,7 @@ Estos son los requisitos que se deben cumplir a la hora de preparar su propio di
 * Agregue otras cuentas locales, ya que se podrían necesitar para el escenario de implementación concreto.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > En este escenario, no hace falta generalizar (Sysprep) la máquina virtual para cargarla e implementarla en Azure.
 > Asegúrese de que la unidad D:\ no se esté usando.
@@ -927,7 +927,7 @@ Estos son los requisitos que se deben cumplir a la hora de preparar su propia im
 * Si la imagen contiene una instalación de SAP NetWeaver y es probable que se vaya a modificar el nombre original del host en el momento de la implementación de Azure, se recomienda copiar en la plantilla las últimas versiones del DVD del administrador de aprovisionamiento de software de SAP. Así podrá utilizar fácilmente la función de cambio de nombre de SAP proporciona para adaptar el nombre de host cambiado o modificar al SID del sistema SAP dentro de la imagen de la máquina virtual implementada en cuanto se inicie una nueva copia.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > Asegúrese de que la unidad D:\ no se esté usando. Configure el montaje automático para los discos conectados tal y como se describe en el capítulo [Configuración de montaje automático para discos conectados][planning-guide-5.5.3] del presente documento.
 >
@@ -945,7 +945,7 @@ Si la máquina virtual está lo suficientemente preparada para ser genérica y f
 
 ##### <a name="generalizing-a-vm"></a>Generalización de una máquina virtual
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > El último paso es iniciar sesión en una máquina virtual con una cuenta de administrador. Abra una ventana de comandos de Windows como *administrador*. Vaya a %windir%\windows\system32\sysprep y ejecute sysprep.exe.
 > Se mostrará una pequeña ventana. Es importante marcar la opción **Generalizar** (estará desmarcada de manera predeterminada) y cambiar la opción de apagado de "Reiniciar" (el valor predeterminado) a "Apagar". Para este procedimiento, se supone que el proceso de sysprep se ejecuta localmente en el SO invitado de una máquina virtual.
@@ -1218,7 +1218,7 @@ Lo ideal es que la administración de la estructura de una máquina virtual y lo
 
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > En el caso de muchos clientes, observamos configuraciones en las que, por ejemplo, los archivos binarios de SAP y DBMS no estaban instalados en la unidad c:\ en la que sí lo estaba el sistema operativo. Existían varios motivos para ello, pero cuando nos fijábamos en la causa principal, normalmente se debía a que los discos eran pequeños y actualizaciones del sistema operativo necesitaban más espacio hace 10 o 15 años. Ambas condiciones han dejado de aplicarse actualmente. En la actualidad, la unidad c:\ puede asignarse a máquinas virtuales o discos de gran volumen. A fin de simplificar la estructura de las implementaciones, se recomienda seguir el patrón de implementación para sistemas SAP NetWeaver en Azure que verá a continuación.
 >
@@ -1251,7 +1251,7 @@ La experiencia en implementaciones de SAP que hemos acumulado durante los últim
 * El tráfico de IOPS a los diferentes archivos de datos no es siempre el mismo porque puede que los sistemas existentes del cliente presenten archivos de datos de distinto tamaño, los cuales que representan sus bases de datos de SAP. Por tanto, resultó ser más recomendable usar una configuración de RAID en lugar de varios discos para colocar los LUN de archivos de datos extraídos de estos. Se han producido situaciones, especialmente con Azure Standard Storage, en las que una tasa E/S por segundo alcanzó la cuota de un solo disco en relación con el registro de transacciones del DBMS. En estos casos, se recomienda usar Premium Storage o, como método alternativo, agregar varios discos de Standard Storage con una sección de software.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > * [Procedimientos recomendados para SQL Server en Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
 >
@@ -1274,7 +1274,7 @@ Para más sugerencias e información, en concreto para las máquinas virtuales d
 
 En la mayoría de los escenarios, tendrá que crear discos adicionales para implementar la base de datos de SAP en la máquina virtual. En el capítulo [Estructura de VM/disco para implementaciones de SAP][planning-guide-5.5.1] de este documento ya se trataron las consideraciones sobre el número de discos. Azure Portal permite asociar y desasociar discos una vez implementada una máquina virtual base. Los discos se pueden asociar y desasociar cuando la máquina virtual se está ejecutando, así como cuando se encuentra detenida. Al asociar un disco, Azure Portal ofrece la posibilidad de asociar un disco vacío o uno existente que en ese momento no esté conectado a ninguna otra máquina virtual.
 
-**Note:** Los discos solo pueden estar asociados a una máquina virtual al mismo tiempo.
+**Nota**: Los discos solo pueden estar asociados a una máquina virtual al mismo tiempo.
 
 ![Conexión/desconexión de discos con Azure Standard Storage][planning-guide-figure-1400]
 
@@ -1282,10 +1282,10 @@ Durante la implementación de una nueva máquina virtual, puede decidir si desea
 
 Después, debe decidir si desea crear un disco vacío o si quiere seleccionar un disco existente que se haya cargado con anterioridad y deba asociar ahora a la VM.
 
-**IMPORTANTE**: **no** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
+**IMPORTANTE**: **NO** se recomienda usar el almacenamiento en caché de host con Azure Standard Storage. Debe dejar la preferencia de caché de host en el valor predeterminado, es decir, NINGUNO. Con Azure Premium Storage, debería habilitar el almacenamiento en caché de lectura si la característica de E/S es principalmente de lectura, como es típico del tráfico de E/S relativo a archivos de datos de bases de datos. En el caso del archivo de registro de transacciones, se recomienda no utilizar el almacenamiento en caché.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > [Cómo conectar un disco de datos en Azure Portal][virtual-machines-linux-attach-disk-portal]
 >
@@ -1308,7 +1308,7 @@ La replicación geográfica de Azure funciona localmente en cada disco duro virt
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Configuración de montaje automático para discos conectados
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > En el caso de las máquinas virtuales que se crean a partir de imágenes o discos propios, hay que comprobar y, posiblemente, establecer el parámetro automount. Si se establece este parámetro, la máquina virtual podrá, tras un reinicio o una nueva implementación en Azure, volver a montar automáticamente las unidades asociadas o montadas.
 > El parámetro ya está establecido en las imágenes que proporciona Microsoft en Azure Marketplace.
@@ -1358,7 +1358,7 @@ Para información más detallada sobre este tema consulte este artículo: <http:
 Puede que haga falta configurar el firewall en las máquinas virtuales para permitir el tráfico entrante al sistema SAP.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > De forma predeterminada, el Firewall de Windows está activado en una máquina virtual implementada de Azure. Ahora debe permitir la apertura del puerto de SAP; de lo contrario, la GUI de SAP no podrá conectarse.
 > Para ello, siga estos pasos:
@@ -1686,7 +1686,7 @@ Microsoft ha agregado muchos más tipos de máquinas virtuales que difieren en e
 La configuración de las impresoras de red basadas en TCP/IP locales en una VM de Azure es generalmente la misma que la de la red corporativa, partiendo de la base de que tenga establecidos un túnel VPN de sitio a sitio o una conexión ExpressRoute.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > Para ello, siga estos pasos:
 >
@@ -1721,7 +1721,7 @@ El recurso compartido de impresora se identifica mediante un nombre único en la
 Control de
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > Comparta la impresora local.
 > En la máquina virtual de Azure, abra el Explorador de Windows y escriba el nombre del recurso compartido de impresora.
@@ -1742,7 +1742,7 @@ Control de
 En Azure, la capacidad de los Servicios de Escritorio remoto para permitir a los usuarios que accedan a sus dispositivos de impresora local en una sesión remota no está disponible.
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > Se puede encontrar más información sobre la impresión con Windows aquí: <http://technet.microsoft.com/library/jj590748.aspx>.
 >
@@ -1986,10 +1986,10 @@ La funcionalidad de recuperación ante desastres y de alta disponibilidad del DB
 
 A continuación, se ofrecen dos ejemplos de una arquitectura completa de alta disponibilidad de SAP NetWeaver en Azure: una para Windows y otra para Linux.
 
-Solo discos no administrados: es posible que se deba cuestionar la siguiente explicación de los conceptos cuando se implementen muchos sistemas SAP y que el número de máquinas virtuales implementadas supere el límite máximo de cuentas de almacenamiento por suscripción. En tales casos, se deben combinar los VHD de las máquinas virtuales dentro de una cuenta de almacenamiento. Normalmente, este procedimiento se llevaría a cabo combinando los VHD de las máquinas virtuales de la capa de aplicación de SAP en diversos sistemas SAP.  También se combinan varios VHD de diversas máquinas virtuales del DBMS de sistemas SAP distintos en una sola cuenta de Azure Storage. Por lo tanto, se tienen en cuenta los límites de IOPS de las cuentas de Azure Storage (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
+Solo discos no administrados: Es posible que se deba cuestionar la siguiente explicación de los conceptos cuando se implementen muchos sistemas SAP y que el número de máquinas virtuales implementadas supere el límite máximo de cuentas de almacenamiento por suscripción. En tales casos, se deben combinar los VHD de las máquinas virtuales dentro de una cuenta de almacenamiento. Normalmente, este procedimiento se llevaría a cabo combinando los VHD de las máquinas virtuales de la capa de aplicación de SAP en diversos sistemas SAP.  También se combinan varios VHD de diversas máquinas virtuales del DBMS de sistemas SAP distintos en una sola cuenta de Azure Storage. Por lo tanto, se tienen en cuenta los límites de IOPS de las cuentas de Azure Storage (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
-##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] Alta disponibilidad en Windows
+##### <a name="windowslogowindows-ha-on-windows"></a>![ Windows][Logo_Windows]  Alta disponibilidad en Windows
 
 ![Arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure][planning-guide-figure-3200]
 
@@ -2011,7 +2011,7 @@ En la siguiente figura se ilustra el mismo entorno con la utilización de discos
 
 ![Arquitectura de alta disponibilidad de las aplicaciones de SAP NetWeaver con SQL Server en IaaS de Azure][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] Alta disponibilidad en Linux
+##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux]  Alta disponibilidad en Linux
 
 La arquitectura de alta disponibilidad de SAP en Linux en Azure es básicamente la misma que la descrita anteriormente para Windows. Consulte la nota de SAP [1928533] para obtener una lista de soluciones compatibles y de alta disponibilidad.
 
@@ -2062,7 +2062,7 @@ Se puede efectuar una copa de seguridad de otras máquinas virtuales dentro del 
 > [!NOTE]
 > Desde diciembre de 2015, la copia de seguridad de máquinas virtuales NO conserva el identificador único de VM que se utiliza para la concesión de licencias de SAP. Esto significa que restaurar la copia de seguridad de una máquina virtual requiere instalar una clave de licencia de SAP nueva, ya que se considera que la máquina virtual restaurada es una máquina virtual nueva en lugar de una sustitución de la anterior que estaba guardada.
 >
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 > En teoría, se puede realizar una copia de seguridad de las máquinas virtuales que ejecutan bases de datos de forma coherente si el sistema de DBMS admite Windows VSS (Servicio de instantáneas de volumen de Windows <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) como hace SQL Server, por ejemplo.
 > Sin embargo, se debe tener en cuenta que no se pueden restaurar bases de datos en un momento dado a partir de las copias de seguridad de máquinas virtuales de Azure. Por lo tanto, se recomienda realizar copias de seguridad de las bases de datos con la funcionalidad del DBMS en lugar de confiar en la copia de seguridad de máquinas virtuales de Azure.

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f5eaa61af2c44265f36662e8a3b1f8ff8a747afe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5737bd76e7809035f21103f45a20fa8306061f30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449560"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integración de Azure Active Directory con ASC Contracts
 
@@ -112,12 +112,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/asccontracts-tutorial/tutorial_asccontracts_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.asccontracts.com/shibboleth`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.asccontracts.com/shibboleth`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`.
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el equipo de ASC Networks Inc. (ASC) en el **613-599-6178** para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con ASC Networks Inc. Póngase en contacto con el equipo de ASC en el teléfono **613.599.6178** para obtener estos valores.
 
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -127,10 +127,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/asccontracts-tutorial/tutorial_general_400.png)
 
-1. Para configurar el inicio de sesión único en **ASC Contracts**, llame al soporte técnico de ASC Networks Inc. (ASC) en el **613-599-6178** y proporcióneles el **XML de metadatos** descargado. Ellos configuran esta aplicación para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **ASC Contracts**, póngase en contacto con el soporte técnico de ASC Networks Inc. (ASC) en el teléfono **613.599.6178** y proporcióneles el **XML de metadatos** descargado. Ellos configuran esta aplicación para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -155,7 +155,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/asccontracts-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -201,7 +201,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ASC Contracts en el panel de acceso, debería iniciar sesión automáticamente en su aplicación ASC Contracts. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de ASC Contracts en el panel de acceso, debería iniciar sesión automáticamente en su aplicación ASC Contracts. Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

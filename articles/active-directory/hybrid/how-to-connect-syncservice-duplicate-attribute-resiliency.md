@@ -4,7 +4,7 @@ description: Nuevo comportamiento a la hora de administrar objetos con conflicto
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406201"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464874"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronización de identidades y resistencia de atributos duplicados
 La resistencia de atributos duplicados es una característica de Azure Active Directory que eliminará la fricción causada por los conflictos entre **UserPrincipalName** y **ProxyAddress** al ejecutar una de las herramientas de sincronización de Microsoft.
@@ -133,7 +133,7 @@ Este es un ejemplo del aspecto de la notificación de correo electrónico si hay
 ## <a name="resolving-conflicts"></a>Resolución de conflictos
 La estrategia de solución de problemas y las tácticas de resolución no son diferentes de la forma en que se controlaban los errores de atributo duplicado en el pasado. La única diferencia es que la tarea de temporizador limpiará el inquilino en el servicio para agregar automáticamente el atributo en cuestión al objeto adecuado una vez que se resuelva el conflicto.
 
-En el siguiente artículo se describen diversas estrategias de solución de problemas: [Atributos duplicados o no válidos evitar la sincronización de directorios en Office 365](https://support.microsoft.com/kb/2647098).
+En el siguiente artículo se describen diversas estrategias de solución de problemas: [Atributos duplicados o no válidos evitan la sincronización de directorios en Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Problemas conocidos
 Ninguno de estos problemas conocidos provoca la degradación del servicio o la pérdida de datos. Varios de ellos son estéticos, otros producen errores estándar de atributos duplicados de “*resistencia previa*” que se generan en lugar de poner en cuarentena el archivo en conflicto, y otros que provocan ciertos errores que requieren una solución manual adicional.
@@ -143,7 +143,7 @@ Ninguno de estos problemas conocidos provoca la degradación del servicio o la p
 1. Los objetos con configuraciones de atributos específicos continúan recibiendo errores de exportación, en lugar de que los atributos duplicados se pongan en cuarentena.  
    Por ejemplo: 
    
-    a. Se crea un nuevo usuario en AD con un UPN de **Joe@contoso.com** y ProxyAddress **smtp:Joe@contoso.com**
+     a. Se crea un nuevo usuario en AD con un UPN de **Joe@contoso.com** y ProxyAddress **smtp:Joe@contoso.com**
    
     b. Las propiedades de este objeto entran en conflicto con un grupo existente, donde el valor de ProxyAddress es **SMTP:Joe@contoso.com**.
    
@@ -155,7 +155,7 @@ Ninguno de estos problemas conocidos provoca la degradación del servicio o la p
 1. El mensaje de error detallado para dos objetos en un conjunto de conflictos de UPN es el mismo. Esto indica que se ha modificado o puesto en cuarentena el UPN de ambos cuando, en realidad, solo se modificaron los datos de uno de ellos.
 2. El mensaje de error detallado de un conflicto de UPN muestra la propiedad displayName incorrecta de un usuario cuyo UPN se ha modificado o puesto en cuarentena. Por ejemplo: 
    
-    a. El **usuario A** se sincroniza primero con **UPN = User@contoso.com**.
+     a. El **usuario A** se sincroniza primero con **UPN = User@contoso.com**.
    
     b. A continuación, se trata de sincronizar el **usuario B** con **UPN = User@contoso.com**.
    

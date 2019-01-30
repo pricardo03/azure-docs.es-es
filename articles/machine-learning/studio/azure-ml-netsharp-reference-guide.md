@@ -1,17 +1,17 @@
 ---
-título: Redes neuronales Net# titleSuffix: Azure Machine Learning Studio description: Sintaxis del lenguaje de especificación de redes neuronales de Net#, junto con ejemplos de cómo crear un modelo de red neuronal personalizada mediante Net# con Azure Machine Learning Studio.
+título: Creación de redes neuronales personalizadas con Net# titleSuffix: Azure Machine Learning Studio description: Guía de la sintaxis del lenguaje de especificación de redes neuronales de Net# Aprenda a crear modelos de red neuronal personalizada en Azure Machine Learning Studio.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
 
-Net# es un lenguaje desarrollado por Microsoft que se utiliza para definir las arquitecturas de red neuronal. El uso de Net# para definir la estructura de una red neuronal posibilita la definición de estructuras complejas como redes neuronales profundas o convoluciones de dimensiones arbitrarias, que se sabe que mejoran el aprendizaje en datos tales como imágenes, audio o vídeo.
+NET # es un lenguaje desarrollado por Microsoft que se utiliza para definir arquitecturas de redes neuronales complejas, como las redes neuronales profundas o las convoluciones de dimensiones arbitrarias. Puede usar estructuras complejas para mejorar el aprendizaje en datos, como imágenes, vídeo o audio.
 
 Puede usar una especificación de arquitectura de Net # en estos contextos:
 
 + Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio: [Red neuronal multiclase](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funciones de red neuronal en MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Funciones de red neuronal en Microsoft Machine Learning Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 En este artículo se describen los conceptos básicos y la sintaxis necesaria para desarrollar una red neuronal personalizada con Net#: 
@@ -26,17 +26,17 @@ En este artículo se describen los conceptos básicos y la sintaxis necesaria pa
 
 Una estructura de red neuronal consta de nodos que se disponen en capas y conexiones ponderadas (o bordes) entre los nodos. Las conexiones son direccionales y cada una de ellas tiene un nodo de origen y un nodo de destino.  
 
-Cada una de las capas entrenables (una capa oculta o de salida) tiene uno o varios **conjuntos de conexiones**. Un conjunto de conexiones consta de una capa de origen y una especificación de las conexiones que salen de esa capa de origen. Todas las conexiones de un conjunto determinado comparten la misma capa de origen y la misma capa de destino. En Net#, se considera que un conjunto de conexiones pertenece a la capa de destino del conjunto.
+Cada una de las capas entrenables (una capa oculta o de salida) tiene uno o varios **conjuntos de conexiones**. Un conjunto de conexiones consta de una capa de origen y una especificación de las conexiones que salen de esa capa de origen. Todas las conexiones de un conjunto determinado comparten las capas de origen y destino. En Net#, se considera que un conjunto de conexiones pertenece a la capa de destino del conjunto.
 
-Net# admite varios tipos de conjuntos de conexiones, lo que le permite personalizar la manera en que las entradas se asignan a capas ocultas y posteriormente a salidas.
+Net# admite varios tipos de conjuntos de conexiones, lo que le permite personalizar la forma en que las entradas se asignan tanto a capas ocultas como a las salidas.
 
 El conjunto estándar o predeterminado es un **conjunto completo**, en el cual cada nodo de la capa de origen se conecta a cada uno de los nodos de la capa de destino.
 
 Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avanzados:
 
-+ **Conjuntos filtrados**. El usuario puede definir un predicado mediante las ubicaciones del nodo de la capa de origen y el nodo de la capa de destino. Los nodos se conectan siempre que el predicado sea verdadero.
++ **Conjuntos filtrados**. Para definir un predicado, use las ubicaciones tanto las ubicaciones del nodo de la capa de origen como las del nodo de la capa de destino. Los nodos se conectan siempre que el predicado sea verdadero.
 
-+ **Conjuntos convolucionales**. El usuario puede definir pequeñas vecindades de nodos en la capa de origen. Cada nodo de la capa de destino se conecta con una vecindad de nodos en la capa de origen.
++ **Conjuntos convolucionales**. En la capa de origen se pueden definir pequeñas vecindades de nodos. Cada nodo de la capa de destino se conecta con una vecindad de nodos en la capa de origen.
 
 + **Conjuntos de agrupación** y **conjuntos de normalización de respuesta**. Son similares a los conjuntos convolucionales en cuanto que el usuario define pequeñas vecindades de nodos en la capa de origen. La diferencia es que los usos compartidos de los bordes de estas agrupaciones no son entrenables. En su lugar, se aplica una función predefinida a los valores de nodo de origen para determinar el valor del nodo de destino.
 
@@ -245,7 +245,7 @@ Para obtener más información acerca de las capas de agrupación, consulte esto
 
 ## <a name="response-normalization-bundles"></a>Conjuntos de normalización de respuesta
 
-**Normalización de respuestas** es un esquema de normalización local presentado por primera vez por Geoffrey Hinton, y otros, en el documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Clasificación de ImageNet con redes neuronales convolucionales profundas). 
+La **normalización de respuesta** es un esquema de normalización local que presentó Geoffrey Hinton, y otros, en el documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Clasificación de ImageNet con redes neuronales convolucionales profundas). 
 
 La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza mediante tres parámetros (`α`, `β` y `k`) y una estructura convolucional (o forma de entorno). Cada neurona de la capa de destino **y** se corresponde con una neurona **x** de la capa de origen. El nivel de activación de **y** se determina mediante la fórmula siguiente, donde `f` es el nivel de activación de una neurona y `Nx` es el kernel (o el conjunto que contiene las neuronas en el entorno de **x**) como se define en la siguiente estructura convolucional:  
 

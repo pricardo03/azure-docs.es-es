@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Syncplicity | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Syncplicity | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Syncplicity.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b74ca178d3bf380dc759ce0325d4047891a39d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 657373d1b9ee7e66ffca495bba598c11bd3f3933
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422399"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807573"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: integración de Azure Active Directory con Syncplicity
+# <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integración de Azure Active Directory con Syncplicity
 
 En este tutorial, aprenderá a integrar Syncplicity con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/syncplicity-tutorial/tutorial_syncplicity_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.syncplicity.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.syncplicity.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.syncplicity.com/sp`
 
@@ -143,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Inicio de sesión único \(SSO\)](./media/syncplicity-tutorial/ic769550.png "Single Sign-On \\\(SSO\\\)")   
 
-    a. En el cuadro de texto **Custom Domain** (Dominio personalizado), escriba el nombre de su dominio.
+     a. En el cuadro de texto **Custom Domain** (Dominio personalizado), escriba el nombre de su dominio.
   
     b. Seleccione **Enabled** (Habilitado) como **Single Sign-On Status** (Estado de inicio de sesión único).
 
@@ -158,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     g. Haga clic en **GURDAR CAMBIOS**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -184,7 +184,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/syncplicity-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

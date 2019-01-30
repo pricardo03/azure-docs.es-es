@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4a30259c4aa00530e5aadd2cb98c19b63bd5d8a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425204"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integración de Azure Active Directory con LinkedIn Sales Navigator
 
@@ -122,7 +122,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el **Id.de entidad** que copió de LinkedIn Portal 
+     a. En el cuadro de texto **Identificador**, escriba el **Id.de entidad** que copió de LinkedIn Portal 
 
     b. En el cuadro de texto **URL de respuesta**, escriba la **Assertion Consumer Access (ACS) Url** (Url de Acceso de consumidor de aserciones [ACS]) que copió de LinkedIn Portal
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Creación de un usuario de prueba de Azure AD](./media/linkedinsalesnavigator-tutorial/userattribute.png)
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo de atributos.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo de atributos.
     
     ![Creación de un usuario de prueba de Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
     
@@ -161,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. Realice los pasos siguientes en el atributo **name**.
 
-    a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
+     a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
 
     ![Configurar inicio de sesión único](./media/linkedinsalesnavigator-tutorial/url_update.png)
 
@@ -187,7 +187,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -213,7 +213,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -261,7 +261,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de LinkedIn Sales Navigator del panel de acceso, debería redirigirse a la página de la organización donde tiene que indicar los detalles de su cuenta personal de LinkedIn. Esta página vincula su cuenta personal con su cuenta empresarial de LinkedIn. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de LinkedIn Sales Navigator del panel de acceso, debería redirigirse a la página de la organización donde tiene que indicar los detalles de su cuenta personal de LinkedIn. Esta página vincula su cuenta personal con su cuenta empresarial de LinkedIn. Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123063"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integración de Azure Active Directory con Klue
 
@@ -115,7 +115,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/klue-tutorial/tutorial_klue_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:klue:<Customer ID>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:klue:<Customer ID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`.
 
@@ -140,7 +140,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | last_name           | user.surname |
     | email               | user.userprincipalname|
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/klue-tutorial/tutorial_attribute_04.png)
 
@@ -193,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/klue-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -206,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Klue. Klue admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Klue, se crea un nuevo usuario, en caso de que no exista.
 
 > [!Note]
-> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Klue](mailto:support@klue.com).
+> Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Klue](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -243,7 +243,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Klue en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Klue.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
