@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856645"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203341"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Unión de una máquina virtual con Windows Server a un dominio administrado mediante una plantilla de Resource Manager
 En este artículo se muestra cómo unir una máquina virtual con Windows Server a un dominio administrado con Azure AD Domain Services mediante plantillas de Resource Manager.
@@ -100,7 +100,7 @@ Tras completarse correctamente la implementación, las máquinas virtuales Windo
 
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Introducción a Azure PowerShell](/powershell/azure/overview)
 * [Plantilla de inicio rápido de Azure: Domain join a new VM (Unión a un dominio de una nueva máquina virtual)](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Plantilla de inicio rápido de Azure: Domain join existing VMs (Unión a un dominio de máquinas virtuales existentes)](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

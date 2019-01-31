@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 35b37a5c50346dc116b2f36394feecb82a0d88fd
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f9c8273e82d46c34c36533605c08200c308815af
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845770"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154277"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Unión de una máquina virtual Ubuntu de Azure a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual Linux Ubuntu a un dominio administrado de Azure AD Domain Services.
@@ -124,7 +124,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     ```
 
    > [!NOTE]
-   > **Solución de problemas:** Si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
+   > **Solución de problemas:** si la *detección de dominio kerberos* no puede encontrar el dominio administrado:
      * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).
      * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
      * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.

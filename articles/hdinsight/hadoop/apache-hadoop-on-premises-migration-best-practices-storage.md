@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013716"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911751"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -117,6 +117,7 @@ Para más información, consulte los siguientes artículos.
 
 - [Introducción a Azure Data Lake Storage Gen2 (versión preliminar)](../../storage/data-lake-storage/introduction.md)
 - [Controlador del sistema de archivos de Azure Blob (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Claves seguras de Azure Storage dentro de la configuración del clúster local de Hadoop
 
@@ -204,7 +205,7 @@ Azure Data Lake Storage proporciona almacenamiento con redundancia local (LRS), 
 
 Para más información, consulte los siguientes artículos.
 
-- [Replicación de almacenamiento de Azure](../../storage/common/storage-redundancy.md)
+- [replicación de Azure Storage](../../storage/common/storage-redundancy.md)
 - [Guía de recuperación ante desastres para datos de Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Adjuntar cuentas adicionales de almacenamiento de Azure al clúster

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111191"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182037"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API de cliente Java de Azure Service Fabric
 
@@ -71,7 +71,7 @@ Siga los pasos que se mencionan a continuación para generar el código del clie
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   El siguiente comando toma el archivo de especificación ``servicefabric.json`` como entrada, genera el código de cliente Java en la carpeta ``java-rest-api-     code`` y agrega el código en el espacio de nombres ``servicefabricrest``. Después de este paso, encontraría dos carpetas ``models`` y ``implemenation``, y dos archivos ``ServiceFabricClientAPIs.java`` y ``package-info.java`` generados en la carpeta ``java-rest-api-code``.
+   El siguiente comando toma el archivo de especificación ``servicefabric.json`` como entrada, genera el código de cliente Java en la carpeta ``java-rest-api-     code`` y agrega el código en el espacio de nombres ``servicefabricrest``. Después de este paso, encontraría dos carpetas ``models`` y ``implementation``, y dos archivos ``ServiceFabricClientAPIs.java`` y ``package-info.java`` generados en la carpeta ``java-rest-api-code``.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Inclusión y uso del cliente generado en el proyecto

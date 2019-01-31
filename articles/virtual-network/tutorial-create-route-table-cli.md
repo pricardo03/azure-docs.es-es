@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849216"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157472"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 Una aplicación virtual de red es una máquina virtual que realiza una función de red, como el enrutamiento, el firewall o la optimización de la WAN.
 
-Cree una aplicación virtual de red en la subred *DMZ* con [az vm create](/cli/azure/vm#az_vm_create). Cuando se crea una máquina virtual, Azure crea una dirección IP pública y la asigna a la máquina virtual de forma predeterminada. El parámetro `--public-ip-address ""` indica a Azure que no cree ni asigne una dirección IP pública a la máquina virtual, dado que no es necesario que esta esté conectada a Internet. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
+Cree una aplicación virtual de red en la subred *DMZ* con [az vm create](/cli/azure/vm). Cuando se crea una máquina virtual, Azure crea una dirección IP pública y la asigna a la máquina virtual de forma predeterminada. El parámetro `--public-ip-address ""` indica a Azure que no cree ni asigne una dirección IP pública a la máquina virtual, dado que no es necesario que esta esté conectada a Internet. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ El comando puede tardar un minuto en ejecutarse.
 
 Cree dos máquinas virtuales en la red virtual para poder validar que el tráfico que procede de la subred *Public* se enruta a la subred *Private* mediante la aplicación virtual de red de un paso posterior. 
 
-Cree una máquina virtual en la subred *Public* con [az vm create](/cli/azure/vm#az_vm_create). El parámetro `--no-wait` permite a Azure ejecutar el comando en segundo plano para que pueda continuar con el siguiente comando. Para simplificar los pasos de este artículo, se usa una contraseña. Las claves se utilizan habitualmente en las implementaciones de producción. Si usa claves, también debe configurar el reenvío del agente SSH. Para más información, consulte la documentación del cliente SSH. Reemplace `<replace-with-your-password>` en el siguiente comando por una contraseña de su elección.
+Cree una máquina virtual en la subred *Public* con [az vm create](/cli/azure/vm). El parámetro `--no-wait` permite a Azure ejecutar el comando en segundo plano para que pueda continuar con el siguiente comando. Para simplificar los pasos de este artículo, se usa una contraseña. Las claves se utilizan habitualmente en las implementaciones de producción. Si usa claves, también debe configurar el reenvío del agente SSH. Para más información, consulte la documentación del cliente SSH. Reemplace `<replace-with-your-password>` en el siguiente comando por una contraseña de su elección.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

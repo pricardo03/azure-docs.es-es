@@ -3,19 +3,19 @@ title: Integración de la escritura diferida de contraseñas local con el autose
 description: Escriba en diferido las contraseñas de la nube en la infraestructura de AD local
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 68823ffb7b274b8afc31de9d85bded3da853fcac
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1e90e0499372f78b91f3e21284f37178aff70ff
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438072"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075642"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 

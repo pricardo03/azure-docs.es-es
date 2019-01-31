@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a49ce4e997a21e0db707c851f5ea46817bcb642e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 84a51f65ef46c390f84308ab17cf83859a16c3b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960288"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55428507"
 ---
 En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -24,7 +24,7 @@ En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azu
 | Número de particiones por centro de eventos |Entidad |- |32 |
 | Número de grupos de consumidores por centro de eventos |Entidad |- |20 |
 | Número de conexiones de AMQP por espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. |5.000 |
-| Tamaño máximo de evento de Event Hubs|Entidad |- |256 KB |
+| Tamaño máximo de evento de Event Hubs|Entidad |- |1 MB |
 | Tamaño máximo del nombre de un centro de eventos |Entidad |- |50 caracteres |
 | Número de destinatarios no de época por grupo de consumidores |Entidad |- |5 |
 | Período de retención máximo de datos de eventos |Entidad |- |1-7 días |

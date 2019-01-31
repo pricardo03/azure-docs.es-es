@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c6696d0f22026ac333c526b505732d15a4b01be7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 01d991cff9b7f7a66740f86e537833ffe4e862c7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226275"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Uso de la propiedad "Expected Entity" (Entidad esperada) de las acciones
 
@@ -41,15 +41,15 @@ Al agregar entidades a la propiedad "Expected Entity" (Entidad esperada) de una 
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-model"></a>Creación del modelo
+### <a name="create-the-model"></a>Crear el modelo
 
 1. En la interfaz de usuario web, haga clic en "New Model" (Nuevo modelo).
 2. En el campo "Name" (Nombre), escriba "ExpectedEntities" y presione Entrar.
 3. Haga clic en el botón "Create" (Crear).
 
-### <a name="entity-creation"></a>Creación de la entidad
+### <a name="entity-creation"></a>Crear la entidad
 
-1. En el panel izquierdo, haga clic en "Entities" (Entidades) y después en el botón "New Entity" (Nueva entidad).
+1. En el panel izquierdo, haga clic en “Entities” (Entidades) y, después, en el botón “New Entity” (Nueva entidad).
 2. Seleccione "Custom Trained" (Entrenada de forma personalizada) en "Entity Type" (Tipo de entidad).
 3. Escriba "nombre" en "Entity Name" (Nombre de entidad).
 4. Haga clic en el botón "Create" (Crear).
@@ -84,7 +84,7 @@ Ahora tiene dos acciones.
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 
-1. En el panel izquierdo, haga clic en "Train Dialogs" (Diálogos de entrenamiento) y, después, en el botón "New Train Dialog" (Nuevo diálogo de entrenamiento).
+1. En el panel izquierdo, haga clic en "Train Dialogs" (Diálogos de entrenamiento) y, a continuación, en el botón "New Train Dialog" (Nuevo diálogo de entrenamiento).
 2. En el panel del chat, donde aparece "Type your message..." (Escriba su mensaje…), escriba "hola".
     - Esto simula la parte del usuario de la conversación.
 3. Haga clic en el botón "Score Actions" (Acciones de puntuación).

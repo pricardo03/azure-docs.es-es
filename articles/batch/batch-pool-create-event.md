@@ -2,7 +2,7 @@
 title: Evento de creación de grupo de Azure Batch | Microsoft Docs
 description: Referencia del evento de creación de grupo de Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259847"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470608"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
@@ -57,22 +57,22 @@ ms.locfileid: "54259847"
 |[networkConfiguration](#bk_netconf)|Tipo complejo|La configuración de red para el grupo.|
 |resizeTimeout|Hora|El tiempo de espera para la asignación de nodos de proceso para el grupo especificado para la última operación de cambio de tamaño en el grupo.  (El tamaño inicial cuando se crea el grupo cuenta como un cambio de tamaño).|
 |targetDedicated|Int32|El número de nodos de proceso solicitados para el grupo.|
-|enableAutoScale|Booleano|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
-|enableInterNodeCommunication|Booleano|Especifica si el grupo está configurado para la comunicación directa entre nodos.|
-|isAutoPool|Booleano|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|
+|enableAutoScale|Bool|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
+|enableInterNodeCommunication|Bool|Especifica si el grupo está configurado para la comunicación directa entre nodos.|
+|isAutoPool|Bool|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|
 |maxTasksPerNode|Int32|El número máximo de tareas que pueden ejecutarse simultáneamente en un solo nodo de ejecución en el grupo.|
 |vmFillType|string|Define cómo el servicio de Batch distribuye las tareas entre los nodos de proceso del grupo. Los valores válidos son Spread o Pack.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nombre del elemento|Escriba|Notas|
+|Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
 |osFamily|string|La familia del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> Los valores posibles son:<br /><br /> **2**: familia 2 de SO, que equivale a Windows Server 2008 R2 SP1.<br /><br /> **3**: familia 3 de SO, que equivale a Windows Server 2012.<br /><br /> **4**: familia 4 de SO, que equivale a Windows Server 2012 R2.<br /><br /> Para obtener más información, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |targetOSVersion|string|La versión del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> El valor predeterminado es **\***, que especifica la versión del sistema operativo más reciente para la familia especificada.<br /><br /> Para otros valores permitidos, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nombre del elemento|Escriba|Notas|
+|Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complejo|Especifica información sobre la plataforma o imagen de Marketplace que se usará.|
 |nodeAgentSKUId|string|El SKU agente del nodo de Batch proporcionado en el nodo de ejecución.|
@@ -80,7 +80,7 @@ ms.locfileid: "54259847"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nombre del elemento|Escriba|Notas|
+|Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
 |publisher|string|El publicador de la imagen.|
 |offer|string|La oferta publicador de la imagen.|
@@ -89,12 +89,12 @@ ms.locfileid: "54259847"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nombre del elemento|Escriba|Notas|
+|Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|boolean|Indica si la máquina virtual está habilitada para las actualizaciones automáticas. Si esta propiedad no se especifica, se usa el valor predeterminado.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nombre del elemento|Escriba|Notas|
+|Nombre del elemento|Type|Notas|
 |------------------|--------------|----------|
 |subnetId|string|Especifica el identificador de recursos de la subred en la que se crean los nodos de proceso del grupo.|

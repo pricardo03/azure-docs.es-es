@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427923"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456041"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database mediante T-SQL
 
@@ -207,7 +207,7 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 
 - Puede explorar los registros de auditoría con una herramienta como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). En Azure Storage, los registros de auditoría se guardan como una colección de archivos de blob dentro de un contenedor definido para que almacene los registros de auditoría. Para obtener más información sobre la jerarquía de la carpeta de almacenamiento, las convenciones de nomenclatura y el formato del registro, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) (Introducción a la auditoría de base de datos SQL).
+- Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](sql-database-auditing.md) (Introducción a la auditoría de base de datos SQL).
 
   > [!IMPORTANT]
   > El método para ver los registros de auditoría desde Azure Portal (panel "Registros de auditoría") está disponible actualmente para Instancia administrada.
@@ -242,7 +242,7 @@ Las principales diferencias en la sintaxis de `CREATE AUDIT` para guardar la aud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) (Introducción a la auditoría de base de datos SQL).
+- Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](sql-database-auditing.md) (Introducción a la auditoría de base de datos SQL).
 - Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->

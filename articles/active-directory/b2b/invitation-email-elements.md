@@ -3,19 +3,19 @@ title: 'Elementos del correo electrónico de invitación para la colaboración B
 description: Plantilla de correo electrónico de invitación de colaboración B2B de Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ede9cb7638ccc2c46c265d42ad4c8cb652b8638c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432309"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079977"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 

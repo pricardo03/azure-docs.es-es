@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c198dfc19a350188f500af86c531be9a9ac424ce
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796668"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224180"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Adición de entidades previamente entrenadas
 En este tutorial se muestra cómo agregar entidades previamente entrenadas a un modelo de Conversation Learner.
@@ -35,13 +35,13 @@ Las entidades previamente entrenadas reconocen tipos comunes de entidades, tales
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-model"></a>Creación del modelo
+### <a name="create-the-model"></a>Crear el modelo
 
 1. En la interfaz de usuario web, haga clic en "New Model" (Modelo nuevo).
 2. En el campo "Name" (Nombre), escriba "EntidadesPreviamenteEntrenadas" y pulse Entrar.
 3. Haga clic en el botón "Create" (Crear).
 
-### <a name="entity-creation"></a>Creación de la entidad
+### <a name="entity-creation"></a>Crear la entidad
 
 1. En el panel izquierdo, haga clic en "Entities" (Entidades) y, a continuación, en el botón "New Entity" (Nueva entidad).
 2. Seleccione "Pre-Trained/datetimeV2" (Previamente entrenada/fechahoraV2) para "Entity Type" (Tipo de entidad).
@@ -60,7 +60,7 @@ Las entidades previamente entrenadas reconocen tipos comunes de entidades, tales
 
 ![](../media/tutorial7_actions_a.PNG)
 
-### <a name="create-the-second-action"></a>Creación de la segunda acción
+### <a name="create-the-second-action"></a>Crear la segunda acción
 
 1. En el panel izquierdo, haga clic en "Actions" (Acciones) y, a continuación, en el botón "New Action" (Nueva acción).
 2. En el campo "Bot's response..." (Respuesta del bot), escriba "¿Qué día es hoy?".

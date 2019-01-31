@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34806803c50308a288007bf3bad129075ca8bc6d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796701"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207384"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Uso de entidades negables con un modelo de Conversation Learner
 
@@ -35,13 +35,13 @@ La propiedad "Negatable" (Negable) de una entidad permite etiquetar las instanci
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-model"></a>Creación del modelo
+### <a name="create-the-model"></a>Crear el modelo
 
 1. En la interfaz de usuario web, haga clic en "New Model" (Modelo nuevo).
 2. En el campo "Name" (Nombre), escriba "EntidadNegable" y pulse Entrar.
 3. Haga clic en el botón "Create" (Crear).
 
-### <a name="entity-creation"></a>Creación de la entidad
+### <a name="entity-creation"></a>Crear la entidad
 
 1. En el panel izquierdo, haga clic en "Entities" (Entidades) y, a continuación, en el botón "New Entity" (Nueva entidad).
 2. Seleccione "Custom" (Personalizada) para "Entity Type" (Tipo de entidad).
@@ -59,7 +59,7 @@ La propiedad "Negatable" (Negable) de una entidad permite etiquetar las instanci
 3. En el campo "Disqualifying Entities" (Entidades descalificadoras), escriba "nombre".
 4. Haga clic en el botón "Create" (Crear).
 
-### <a name="create-the-second-action"></a>Creación de la segunda acción
+### <a name="create-the-second-action"></a>Crear la segunda acción
 
 1. En el panel izquierdo, haga clic en "Actions" (Acciones) y, a continuación, en el botón "New Action" (Nueva acción).
 2. En el campo "Bot's response..." (Respuesta del bot), escriba "Sé cómo se llama. Se llama $nombre".

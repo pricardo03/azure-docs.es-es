@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bda6e277d0900795ab7a7dbc5b4440178535fb3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825211"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153137"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
 
@@ -50,7 +50,7 @@ Para usar las vistas de Log Analytics, necesita:
 
 2. Cuando se encuentre en el área de trabajo, seleccione **Workspace Summary** (Resumen del área de trabajo). Debería ver las tres vistas siguientes:
 
-    * **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD): esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
+    * **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD): Esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
     * **Sign-ins Events** (Eventos de inicio de sesión): esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
 
 3. Seleccione cualquiera de estas vistas para pasar a los informes individuales. También puede establecer alertas sobre cualquiera de los parámetros del informe. Por ejemplo, vamos a establecer una alerta para cada vez que se produzca un error de inicio de sesión. Para ello, seleccione primero la vista **Sign-ins Events** (Eventos de inicio de sesión), seleccione **Sign-in errors over time** (Errores de inicio de sesión a lo largo del tiempo) y, a continuación, seleccione **Analytics** (Análisis) para abrir la página de detalles, con la consulta real detrás del informe. 

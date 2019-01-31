@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999992"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207299"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
@@ -234,7 +234,7 @@ Consulte los [límites](luis-boundaries.md#model-boundaries) para saber cuántas
 
 Las entidades compuestas y las entidades jerárquicas tienen relaciones entre elementos primarios y secundarios, y se aprenden mediante el aprendizaje automático. Gracias al aprendizaje automático, LUIS puede comprender las entidades en función de otros contextos (organización de palabras). Las entidades compuestas son más flexibles porque admiten distintos tipos de entidad como elementos secundarios. Los elementos secundarios de una entidad jerárquica son solo entidades simples. 
 
-|Escriba|Propósito|Ejemplo|
+|Type|Propósito|Ejemplo|
 |--|--|--|
 |Jerárquico|Elementos primarios y secundarios de entidades simples|Location.Origin=Nueva York<br>Location.Destination=Londres|
 |Compuesto|Entidades de elementos primarios y secundarios: creada previamente, lista, simple y jerárquica| number=3<br>list=primera clase<br>prebuilt.datetimeV2=5 de marzo|

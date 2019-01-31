@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8d19c2815eb6d7c6ad8cac002716913c329903de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477307"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177804"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería configurada para inicio de sesión único federado
 
@@ -34,7 +34,7 @@ Para solucionar el problema, debe comprobar la configuración de la aplicación 
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
 
-*Error AADSTS70001: No se encontró la aplicación con el identificador "https://contoso.com" en el directorio*.
+*Error AADSTS70001: No se encontró la aplicación con el identificador "https://contoso.com" en el directorio* .
 
 **Causa posible**
 
@@ -66,7 +66,7 @@ Después de actualizar el valor del identificador de Azure AD y de comprobar que
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación.
 
-*Error AADSTS50011: La dirección de respuesta "https://contoso.com" no coincide con las direcciones de respuesta configuradas para la aplicación*.
+*Error AADSTS50011: La dirección de respuesta "https://contoso.com"no coincide con las direcciones de respuesta configuradas para la aplicación*.
 
 **Causa posible**
 

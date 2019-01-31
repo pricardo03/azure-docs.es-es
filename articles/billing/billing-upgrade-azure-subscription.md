@@ -4,7 +4,7 @@ description: En este artículo se describe cómo puede actualizar al plan de pag
 keywords: Actualización al plan de pago por uso
 services: ''
 documentationcenter: ''
-author: jlian
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9e5c877b2989f827eb5b157757708e09f1bbc3f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1cb6f2e35062649038ece7cd834c582ca9dccf7b
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274711"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900109"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso
 

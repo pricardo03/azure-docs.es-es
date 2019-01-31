@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104104"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243647"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
 
@@ -128,7 +129,7 @@ ms.locfileid: "54104104"
 
 ### <a name="identity-information"></a>Información de identidad
 
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | NOMBRE |X |string |[A-Za-z0-9]+ | |
 | Publicador |X |string |[A-Za-z0-9]+ | |
@@ -136,7 +137,7 @@ ms.locfileid: "54104104"
 
 ### <a name="metadata"></a>Metadatos
 
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Se recomiendan 80 caracteres |Es posible que el portal no muestre el nombre del elemento correctamente si tiene más de 80 caracteres. |
 | PublisherDisplayName |X |string |Se recomiendan 30 caracteres |Es posible que el portal no muestre el nombre del editor correctamente si tiene más de 30 caracteres. |
@@ -165,7 +166,7 @@ Todos los elementos de Marketplace deben etiquetarse con una categoría que iden
 
 Cada elemento de Marketplace puede incluir varios vínculos a contenido adicional. Los vínculos se especifican en forma de lista de nombres e identificadores URI:
 
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |64 caracteres como máximo | |
 | Identificador URI |X |URI | | |
@@ -174,7 +175,7 @@ Cada elemento de Marketplace puede incluir varios vínculos a contenido adiciona
 
 Además de los metadatos anteriores, los creadores de Marketplace pueden proporcionar datos con el par clave-valor personalizado de la forma siguiente:
 
-| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Type | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |25 caracteres como máximo | |
 | Valor |X |string |30 caracteres como máximo | |

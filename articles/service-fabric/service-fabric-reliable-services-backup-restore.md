@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727722"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095777"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
 Azure Service Fabric es una plataforma de alta disponibilidad que replica el estado entre varios nodos para mantener esta disponibilidad alta.  Por lo tanto, incluso si se produce un error en un nodo del clúster, los servicios siguen estando disponibles. Aunque esta redundancia integrada proporcionada por la plataforma puede ser suficiente para algunos casos, en otros es conveniente que el servicio haga una copia de seguridad de los datos (en un almacén externo).
@@ -227,7 +227,7 @@ Una vez habilitada la copia de seguridad incremental, crear una copia de segurid
   - La réplica nunca ha realizado una copia de seguridad completa desde que se convirtió en la primaria.
   - Algunos de los registros se truncaron desde que se creó la última copia de seguridad.
 
-Cuando la copia de seguridad incremental está habilitada, `KvsActorStateProvider` no usa un búfer circular para administrar los registros y los trunca de forma periódica. Si el usuario no crea copias de seguridad durante un período de 45 minutos, el sistema trunca automáticamente los registros. Puede configurar este intervalo especificando `logTrunctationIntervalInMinutes` en el constructor `KvsActorStateProvider` (de forma similar a cuando se habilita la copia de seguridad incremental). También es posible que se trunquen los registros si la réplica principal debe crear otra réplica enviando todos sus datos.
+Cuando la copia de seguridad incremental está habilitada, `KvsActorStateProvider` no usa un búfer circular para administrar los registros y los trunca de forma periódica. Si el usuario no crea copias de seguridad durante un período de 45 minutos, el sistema trunca automáticamente los registros. Puede configurar este intervalo especificando `logTruncationIntervalInMinutes` en el constructor `KvsActorStateProvider` (de forma similar a cuando se habilita la copia de seguridad incremental). También es posible que se trunquen los registros si la réplica principal debe crear otra réplica enviando todos sus datos.
 
 Cuando se realiza la restauración a partir de una cadena de copias de seguridad, de manera similar a Reliable Services, BackupFolderPath debe contener subdirectorios con un subdirectorio que contenga la copia de seguridad completa y otros subdirectorios que contengan las copias de seguridad incrementales. La API de restauración iniciará la excepción FabricException con el mensaje de error correspondiente si se produce un error en la validación de la cadena de copias de seguridad. 
 

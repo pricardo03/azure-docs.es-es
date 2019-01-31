@@ -1,7 +1,20 @@
 ---
-título: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V locales en nubes de VMM en Azure con Azure Site Recovery | Microsoft Docs descripción: Obtenga información sobre cómo configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en las nubes de VMM de System Center en Azure, con el servicio Azure Site Recovery.
-services: site-recovery author: rayne-wiselman ms.service: site-recovery ms.topic: conceptual ms.date: 12/27/2018 ms.author: raynew ms.custom: MVC
-
+title: Configuración de la recuperación ante desastres de las máquinas virtuales de Hyper-V locales en nubes de VMM en Azure con Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en las nubes de VMM de System Center en Azure, con el servicio Azure Site Recovery.
+services: site-recovery
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 12/27/2018
+ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 5dfa5bba41785532db07c7b8569f2e1e1d3e0004
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300462"
+---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configuración de la recuperación ante desastres de las máquinas virtuales de Hyper-V locales en nubes de VMM en Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a su estrategia de recuperación ante desastres mediante la administración y la coordinación de la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
