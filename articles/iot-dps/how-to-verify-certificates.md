@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146035"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913621"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning
 
@@ -54,7 +54,7 @@ Ahora tiene que firmar el *código de verificación* con la clave privada asocia
 Microsoft proporciona herramientas y ejemplos que pueden ayudarle a crear un certificado de verificación firmado: 
 
 - El **SDK C de Azure IoT Hub** proporciona scripts de PowerShell (Windows) y Bash (Linux) que le ayudan a crear certificados de entidad de certificación y de hoja para desarrollo y a realizar la prueba de posesión con un código de verificación. Puede descargar los [archivos](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) correspondientes a su sistema en una carpeta de trabajo y seguir las instrucciones que aparecen en el [archivo Léame de administración de certificados de entidad de certificación](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para realizar la prueba de posesión en un certificado de entidad de certificación. 
-- El **SDK de C# de Azure IoT Hub** contiene el [ejemplo de verificación de certificado de grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), que puede usar para realizar la prueba de posesión.
+- El **SDK de C# de Azure IoT Hub** contiene el [ejemplo de verificación de certificado de grupo](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), que puede usar para realizar la prueba de posesión.
  
 > [!IMPORTANT]
 > Además de realizar la prueba de posesión, los scripts de PowerShell y Bash citados anteriormente también permiten crear certificados raíz, certificados intermedios y certificados de hoja que pueden usarse para autenticar y aprovisionar dispositivos. Estos certificados se deben utilizar solamente para desarrollo. Nunca deben utilizarse en un entorno de producción. 

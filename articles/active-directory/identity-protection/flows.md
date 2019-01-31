@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 42a32562eccc86d2516af14a529967a08108c94c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464211"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155296"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiencias de inicio de sesión con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection, puede:
@@ -57,18 +57,13 @@ Los administradores pueden establecer una directiva que requiere que los usuario
 
 1. En el primer paso, el usuario recibe una notificación sobre la necesidad de configurar la cuenta para la autenticación multifactor. 
    
-    ![Corrección](./media/flows/301.png "Corrección")
-
+    ![Corrección](./media/flows/140.png "Corrección")
 2. Para configurar la autenticación multifactor, debe indicar al sistema cómo quiere que se pongan en contacto con usted.
    
-    ![Corrección](./media/flows/302.png "Corrección")
-
-3. Proporcione al sistema su número de teléfono e indique cómo desea que se pongan en contacto con usted.
-
-    ![Corrección](./media/flows/303.png "Corrección")
-
-Para completar el registro, debe responder a una llamada de teléfono o escribir un código. 
-
+    ![Corrección](./media/flows/141.png "Corrección")
+3. El sistema envía una comprobación que debe responder.
+   
+    ![Corrección](./media/flows/142.png "Corrección")
 
 ## <a name="risky-sign-in-recovery"></a>Recuperación de inicios de sesión peligrosos
 Cuando un administrador ha configurado una directiva de riesgo de inicio de sesión, se notifica a los usuarios afectados cuando intentan iniciar sesión. 

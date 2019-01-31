@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: ab2361eae7dac58adb2739437d0616bcd05f870f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850389"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175101"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
@@ -65,7 +65,7 @@ El elemento **Precondition** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Escriba | SÍ | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Se especifica `ClaimsExist` para asegurar que las acciones deben llevarse a cabo si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario, o `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
+| Type | SÍ | El tipo de comprobación o consulta que hay que llevar a cabo para la condición previa. Se especifica `ClaimsExist` para asegurar que las acciones deben llevarse a cabo si las notificaciones especificadas existen en el conjunto de notificaciones actual del usuario, o `ClaimEquals` especifica que las acciones deben realizarse si la notificación especificada existe y su valor es igual al valor especificado. |
 | ExecuteActionsIf | SÍ | Indica si las acciones en la condición previa deben realizarse si la prueba es verdadera o falsa. |
 
 El elemento **Precondition** contiene los elementos siguientes:

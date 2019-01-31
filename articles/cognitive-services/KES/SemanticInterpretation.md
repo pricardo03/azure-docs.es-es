@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129359"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217278"
 ---
 # <a name="semantic-interpretation"></a>Interpretación semántica
 
@@ -33,13 +33,13 @@ Se especifica una variable mediante un identificador de nombre que comienza por 
 
 A continuación se muestra una lista de los tipos de datos que se admiten actualmente:
 
-|Escriba|DESCRIPCIÓN|Ejemplos|
+|Type|DESCRIPCIÓN|Ejemplos|
 |----|----|----|
 |string|Secuencia de 0 o más caracteres|"Hello World!"<br/>""|
-|Booleano|Valor booleano|true<br/>false|
+|Bool|Valor booleano|true<br/>false|
 |Int32|Entero con signo de 32 bits.  -2.1e9 a 2.1e9|123<br/>-321|
 |Int64|Entero con signo de 64 bits. -9.2e18 y 9.2e18|9876543210|
-|Doble|Punto flotante de doble precisión. 1,7e+/-308 (15 dígitos)|123.456789<br/>1.23456789e2|
+|Double|Punto flotante de doble precisión. 1,7e+/-308 (15 dígitos)|123.456789<br/>1.23456789e2|
 |Guid|Identificador único global|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
 |Consultar|Expresión de consulta que especifica un subconjunto de objetos de datos del índice|All()<br/>And(*q1*, *q2*)|
 
@@ -139,10 +139,10 @@ Las variables del ámbito de solicitud se comparten entre todas las interpretaci
 
 Las variables del sistema están predefinidas por el servicio y se pueden usar para recuperar diversas estadísticas acerca del estado actual del sistema.  A continuación se muestra el conjunto de variables del sistema que se admiten actualmente:
 
-|NOMBRE|Escriba|DESCRIPCIÓN|
+|NOMBRE|Type|DESCRIPCIÓN|
 |----|----|----|
-|IsAtEndOfQuery|Booleano|True si la interpretación actual coincidió con todo el texto de la consulta de entrada|
-|IsBeyondEndOfQuery|Booleano|True si la interpretación actual le sugiere finalizaciones más allá del texto de la consulta de entrada|
+|IsAtEndOfQuery|Bool|True si la interpretación actual coincidió con todo el texto de la consulta de entrada|
+|IsBeyondEndOfQuery|Bool|True si la interpretación actual le sugiere finalizaciones más allá del texto de la consulta de entrada|
 
 ### <a name="setvariable-function"></a>Función SetVariable
 

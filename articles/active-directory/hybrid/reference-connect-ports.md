@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5c7a1c56d9df28b8132f240dc3872314f029f78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461049"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155336"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
 El documento siguiente es una referencia técnica sobre los puertos y protocolos para implementar una solución de identidad híbrida. Use la siguiente ilustración y consulte la tabla correspondiente.
@@ -36,7 +36,7 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | Kerberos |88 (TCP/UDP) |Autenticación Kerberos para el bosque de AD. |
 | MS-RPC |135 (TCP/UDP) |Se usa durante la configuración inicial del Asistente para Azure AD Connect, cuando se enlaza con el bosque de AD, además de durante la sincronización de contraseñas. |
 | LDAP |389 (TCP/UDP) |Se usa para la importación de datos de AD. Los datos se cifran con Kerberos Sign & Seal. |
-| RPC | 445 (TCP/UDP) |Lo usa el SSO de conexión directa para crear una cuenta de equipo en el bosque de AD. |
+| SMB | 445 (TCP/UDP) |Lo usa el SSO de conexión directa para crear una cuenta de equipo en el bosque de AD. |
 | LDAP/SSL |636 (TCP/UDP) |Se usa para la importación de datos de AD. La transferencia de datos se firma y se cifra. Solo se utiliza si está usando SSL. |
 | RPC |49152- 65535 (Puerto RCP alto aleatorio)(TCP/UDP) |Se usa durante la configuración inicial de Azure AD Connect, cuando se enlaza con los bosques de AD, además de durante la sincronización de contraseñas. Consulte [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) y [KB224196](https://support.microsoft.com/kb/224196) para más información. |
 
