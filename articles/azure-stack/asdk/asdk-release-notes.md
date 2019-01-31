@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d1ff154c42709f0c672b30f7ec51a436fb44ce13
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/21/2018
+ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724749"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240351"
 ---
 # <a name="asdk-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack 
  
@@ -38,7 +39,7 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 ### <a name="fixed-issues"></a>Problemas corregidos
 
 <!-- TBD - IS ASDK --> 
-- Se ha corregido un problema en el que la dirección IP pública mostraba el mismo valor **EventDateTime** para cada registro en lugar de la marca **TimeDate** que se muestra cuándo se creó el registro. Ya puede usar estos datos para realizar un recuento adecuado del uso de la dirección IP pública.
+- Se ha corregido un problema en el que la dirección IP pública mostraba el mismo valor **EventDateTime** para cada registro en lugar de la marca **TimeDate** que muestra cuándo se creó el registro. Ya puede usar estos datos para realizar un recuento adecuado del uso de la dirección IP pública.
 
 <!-- 3099544 – IS, ASDK --> 
 - Se ha corregido un problema que se producía al crear una máquina virtual (VM) nueva mediante el portal de Azure Stack. Seleccionar el tamaño de la máquina virtual hacía que la columna USD/mes mostrara el mensaje **No disponible**. Esta columna ya no aparece, ya que en Azure Stack no se permite mostrar la columna de precios de la máquina virtual.
@@ -121,7 +122,7 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
    - Si actualiza el valor de la cuota a 0, equivale al valor predeterminado de 2 048 GiB. Como alternativa, establezca el valor de la cuota en 1.
 
 <!-- TBD - IS ASDK --> 
-- Después de aplicar la actualización 1811, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:
+- Después de aplicar la actualización 1811, se pueden producir los siguientes problemas al implementar máquinas virtuales con Managed Disks:
 
    1. Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
       1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
