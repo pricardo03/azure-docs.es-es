@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0fcdb2324868528e62e69fa0ce24ab2334052ced
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 465f9d51f724bf1c8713259cd1d0b6ebabc230fe
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245420"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239764"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
 
@@ -232,9 +233,9 @@ Este escenario tiene dos partes:
 
 Con el lanzamiento de Azure Stack PowerShell 1.3.0 se pueden agregar extensiones de máquina virtual. Por ejemplo: 
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

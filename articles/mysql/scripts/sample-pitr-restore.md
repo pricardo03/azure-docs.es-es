@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 74f187cff5abd54780d064e9e74c33901aa9fb82
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6ad90c2d13ebeaa077dc6264f84a4ebd8a340a8c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410751"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159093"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Restauración de un servidor de Azure Database for MySQL mediante la CLI de Azure
 Este script de la CLI de ejemplo restaura un único servidor de Azure Database for MySQL a un momento anterior.
@@ -35,8 +35,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | **Comando** | **Notas** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Crea un servidor MySQL que hospeda las bases de datos. |
+| [az group create](/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az mysql server create](/cli/azure/mysql/server) | Crea un servidor MySQL que hospeda las bases de datos. |
 | [az mysql server restore](/cli/azure/mysql/server#restore) | Restaura un servidor desde una copia de seguridad. |
 | [az group delete](/cli/azure/group) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 

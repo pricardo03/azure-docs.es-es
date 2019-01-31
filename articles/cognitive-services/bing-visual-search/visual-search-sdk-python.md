@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 91fddb6da12817428fef009e8720a37534a64f24
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 372b7719fd77d1fe52f020a419a756bc769a676d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743619"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187852"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Inicio rápido: Obtención de información detallada de imágenes con el SDK de Bing Visual Search para Python
 
@@ -110,4 +110,4 @@ Use este artículo de inicio rápido para empezar a obtener información detalla
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Compilación una aplicación web de una sola página](tutorial-bing-visual-search-single-page-app.md)
+> [Compilar una aplicación web de una sola página](tutorial-bing-visual-search-single-page-app.md)

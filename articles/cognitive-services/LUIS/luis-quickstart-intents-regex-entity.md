@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 58fa0c36f8c3f630ae7f349bd0f54a497a38f19d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7ce8ba5d35d4c8f8def7b87e96f102c45d39a5d7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976790"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228090"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obtención de datos con formato correcto a partir de la expresión
 En este tutorial va a crear una aplicación para extraer datos con formato de forma coherente a partir de una expresión con la entidad de **expresión regular**.
@@ -173,7 +173,7 @@ Cree una entidad de expresión regular para decirle a LUIS qué es un formato de
 * Conceptos de entidad de [expresión regular](luis-concept-entity-types.md#regular-expression-entity)
 * [Cómo se realiza el entrenamiento](luis-how-to-train.md)
 * [Publicación](luis-how-to-publish-app.md)
-* [Cómo realizar pruebas en el portal de LUIS](luis-interactive-test.md)
+* [Prueba de la aplicación el portal de LUIS](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este tutorial se creó una nueva intención, se agregaron expresiones de ejemplo y luego se creó una entidad de expresión regular para extraer los datos con formato correcto en las expresiones. Después del aprendizaje y de la publicación de la aplicación, una consulta al punto de conexión identificó la intención y devolvió los datos extraídos.

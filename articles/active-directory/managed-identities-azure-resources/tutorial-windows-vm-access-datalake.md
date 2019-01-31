@@ -3,23 +3,23 @@ title: Procedimiento para usar una identidad administrada asignada por el sistem
 description: En este tutorial, se explica cómo se utiliza una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: daveba
-ms.openlocfilehash: abc7d4bea47c84c3fba0ee04e8b1d6293e726b7a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: c1d1152c1f0b5345d91590efbd8826a9f2038f63
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424343"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151012"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure Data Lake Store
 

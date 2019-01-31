@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995520"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900364"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
@@ -162,6 +162,6 @@ Omita esta sección si ya ha instalado el Explorador de Storage y lo ha conectad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha agregado un enlace de salida a una función existente. Para obtener más información sobre los enlaces a Queue Storage, vea [Enlaces de cola de Storage en Azure Functions](functions-bindings-storage-queue.md). 
+En esta guía de inicio rápido, ha agregado un enlace de salida a una función existente. Para obtener más información sobre los enlaces a Queue Storage, vea [Enlaces de cola de Storage en Azure Functions](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]

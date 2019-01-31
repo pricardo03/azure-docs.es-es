@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3a52610365c4e18333084e81a0f69e302fb5c191
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809112"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192050"
 ---
 # <a name="two-step-verification-overview"></a>Introducción a la verificación en dos pasos
-
->[!Important]
->Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Ha recibido un correo electrónico de alguien del departamento de TI o de su jefe que le informa de que la organización ha agregado una comprobación de seguridad adicional a su cuenta. ¿Qué significa? Significa que su organización está llevando a cabo pasos adicionales para asegurarse de que usted es quien pretende al iniciar sesión. Esta comprobación adicional, también conocida como verificación en dos pasos, se realiza a través de una combinación de su nombre de usuario, la contraseña y un dispositivo móvil o teléfono.
 
 La verificación en dos pasos es más segura que solo una contraseña, porque se basa en dos formas de autenticación: algo que usted sabe y algo que usted tiene. Lo que sabe es la contraseña. Lo que tiene con usted es un teléfono o un dispositivo del que suele disponer. La verificación en dos pasos ayuda a impedir que hackers malintencionados finjan ser usted, ya que, incluso si conocen su contraseña, lo más probable es que no tengan también su dispositivo.
+
+>[!Important]
+>Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|

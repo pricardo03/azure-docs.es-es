@@ -5,19 +5,19 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 9a2c7ddc97bacf05cfcab14bffddb18e95c43d68
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: c230547621b853f62e630d3b01066b1870e12548
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446449"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093566"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Suscripción a las ediciones Azure Active Directory Premium
 Puede adquirir ediciones Azure Active Directory (Azure AD) Premium y asociarlas a su suscripción de Azure. Si necesita crear una suscripción de Azure, debe activar también el plan de licencias y el acceso al servicio de Azure AD.

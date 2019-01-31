@@ -3,7 +3,7 @@ title: 'Tutorial: escalado automático de un conjunto de escalado con Azure Powe
 description: Aprenda a escalar automáticamente un conjunto de escalado de máquinas virtuales con Azure PowerShell a medida que la demanda de la CPU aumenta y disminuye
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 96b556e9b96118626d4abe0c5ed82a457091ab9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f73d24bd4c9d3d313fcc396cc4ddc1e18d276cae
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232564"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887808"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]

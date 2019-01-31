@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5848b16624f3b8c307a022b9f79c61910736b83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433737"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167145"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -56,8 +56,8 @@ Para conocer mejor PIM y su documentación, debe revisar los términos siguiente
 
 | Término o concepto | Categoría de asignación de roles | DESCRIPCIÓN |
 | --- | --- | --- |
-| Apto | Escriba | Asignación de roles que requiere que un usuario realice una o varias acciones para usar el rol. Si un usuario es apto para un rol, eso significa que puede activarlo cuando necesite para realizar tareas con privilegios. No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. |
-| active | Escriba | Asignación de roles que no requiere que el usuario realice ninguna acción para usar el rol. Los usuarios asignados como activos tienen privilegios asignados al rol. |
+| Apto | Type | Asignación de roles que requiere que un usuario realice una o varias acciones para usar el rol. Si un usuario es apto para un rol, eso significa que puede activarlo cuando necesite para realizar tareas con privilegios. No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. |
+| active | Type | Asignación de roles que no requiere que el usuario realice ninguna acción para usar el rol. Los usuarios asignados como activos tienen privilegios asignados al rol. |
 | activar |  | Proceso de realizar una o más acciones para usar el rol para el cual es apto un usuario. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados. |
 | asignado | Estado | Usuario que tiene una asignación de roles activa. |
 | activado | Estado | Usuario con una asignación de roles apta, que ha realizado las acciones necesarias para activar el rol y ahora está activo. |

@@ -7,23 +7,23 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1d21a5ad906299ff05110d676490fc587e85cac4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 95ce737e46a23086d336b1972988a2581a869f38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826690"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165751"
 ---
 # <a name="reset-password-overview"></a>Información general del restablecimiento de contraseña
 
+Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado en su cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña.
+
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado en su cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña.
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|

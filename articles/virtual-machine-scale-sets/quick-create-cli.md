@@ -3,7 +3,7 @@ title: 'Guía de inicio rápido: Creación de un conjunto de escalado de máquin
 description: Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Azure PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: zarhoads
-ms.openlocfilehash: 57e7bb04bcf8831b8807e6abdd8959bc2a08de68
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: cynthn
+ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848791"
+ms.locfileid: "54884901"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido creará un conjunto de escalado de máquinas virtuales e implementará una aplicación de ejemplo con la CLI de Azure.

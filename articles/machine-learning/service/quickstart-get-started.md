@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Introducción a Azure Machine Learning Service. Use Azure Portal para crear un área de trabajo, que es el bloque fundamental en la nube que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f04cd2c6d3d4eff0cbc03ee57b9a57c6883db1d6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812461"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239016"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con Azure Machine Learning
 

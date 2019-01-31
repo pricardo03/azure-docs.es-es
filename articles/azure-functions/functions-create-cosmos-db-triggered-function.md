@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: f0173940656581c8bf6b66b0d2a4744e1c751f82
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968295"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904291"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -140,8 +140,6 @@ Una vez que la colección especificada en el enlace de función existe, puede pr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha creado una función que se ejecuta cuando se agrega o modifica un documento en su instancia de Azure Cosmos DB.
+Ha creado una función que se ejecuta cuando se agrega o modifica un documento en su instancia de Azure Cosmos DB. Para más información sobre los desencadenadores de Azure Cosmos DB, consulte [Enlaces de Azure Cosmos DB para Azure Functions](functions-bindings-cosmosdb.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Para más información sobre los desencadenadores de Azure Cosmos DB, consulte [Enlaces de Azure Cosmos DB para Azure Functions](functions-bindings-cosmosdb.md).

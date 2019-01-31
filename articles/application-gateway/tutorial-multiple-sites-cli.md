@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b1f1bb268223eb55270ff5dab5dbb346f6299d09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f9b09982e5552a85ce5800059b114f30b5f4bfad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856254"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178586"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Cree la red virtual y la subred denominada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). A continuación, puede agregar la subred que necesitan los servidores de back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Cree la red virtual y la subred denominada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet). A continuación, puede agregar la subred que necesitan los servidores de back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Desp
 
 ### <a name="add-the-backend-pools"></a>Adición de grupos de back-end
 
-Agregue los grupos de back-end necesarios para contener los servidores de back-end mediante [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address_pool_create).
+Agregue los grupos de back-end necesarios para contener los servidores de back-end mediante [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -223,7 +223,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Creación de un registro CNAME en el dominio
 
-Después de crear la puerta de enlace de aplicaciones con su dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Para obtener la dirección DNS de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. 
+Después de crear la puerta de enlace de aplicaciones con su dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Para obtener la dirección DNS de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ipwork_public_ip_show). Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. 
 
 ```azurecli-interactive
 az network public-ip show \

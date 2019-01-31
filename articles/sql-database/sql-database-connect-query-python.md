@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: b9c33da4f002504a55802e4253d648ff87847d92
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/28/2019
+ms.openlocfilehash: b611eb02203c872e3497b5b7c12acddd9eab14c0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271834"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188395"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Python para consultar una base de datos SQL de Azure
 
@@ -28,8 +28,6 @@ ms.locfileid: "53271834"
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal-firewall.md) para la dirección IP pública del equipo que usa para seguir esta guía de inicio rápido.
   
 - Python y el software relacionado para el sistema operativo:
   

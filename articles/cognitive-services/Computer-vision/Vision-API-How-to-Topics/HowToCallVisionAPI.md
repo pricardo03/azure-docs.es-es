@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4cca3db778347e9bd8c8b881d85f0882f6b90f72
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581715"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216258"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Ejemplo: Cómo llamar a Computer Vision API
 
@@ -150,7 +150,7 @@ Este es un ejemplo:
     }
   }
 ```
-Campo   | Escriba  | Contenido
+Campo   | Type  | Contenido
 ------|------|------|
 Etiquetas    | objeto    | Objeto de nivel superior de la matriz de etiquetas
 tags[].Name | string    | Palabra clave del clasificador de etiquetas
@@ -210,7 +210,7 @@ Para modelos específicos del dominio con la opción dos (análisis mejorado), e
 
 El campo de categorías es una lista de una o varias de las [86 categorías](../Category-Taxonomy.md) de la taxonomía original. Tenga en cuenta también que las categorías que terminan con un guión bajo coincidirán con esa categoría y sus elementos secundarios (por ejemplo, people_ así como people_group, para el modelo de celebridades).
 
-Campo   | Escriba  | Contenido
+Campo   | Type  | Contenido
 ------|------|------|
 Categorías | objeto | Objeto de nivel superior
 categories[].name    | string   | Nombre de la taxonomía de 86 categorías

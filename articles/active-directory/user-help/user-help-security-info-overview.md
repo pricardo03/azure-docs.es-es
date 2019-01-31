@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826163"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189143"
 ---
 # <a name="security-info-preview-overview"></a>Introducción a la información de seguridad (versión preliminar)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+Configure la verificación en dos pasos y la información de restablecimiento de contraseña en **Información de seguridad**. Después de configurar inicialmente la información de seguridad, no tendrá que volver a hacerlo. De todas formas, puede editar la información y cambiar el método predeterminado en cualquier momento.
+
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Configure la verificación en dos pasos y la información de restablecimiento de contraseña en **Información de seguridad**. Después de configurar inicialmente la información de seguridad, no tendrá que volver a hacerlo. De todas formas, puede editar la información y cambiar el método predeterminado en cualquier momento.
 
 Puede agregar cualquiera de los métodos siguientes, incluido:
 

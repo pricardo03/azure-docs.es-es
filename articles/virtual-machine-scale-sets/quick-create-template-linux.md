@@ -3,7 +3,7 @@ title: 'Guía de inicio rápido: Creación de un conjunto de escalado de máquin
 description: Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure Resource Manager que implementa una aplicación de ejemplo y configura reglas de escalado automático.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: zarhoads
-ms.openlocfilehash: 315281124a1fa9af575d1423f66595d297961848
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.author: cynthn
+ms.openlocfilehash: 00f446c545a11b859fe0ee966898fa5c6aa16a1d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037334"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884459"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido, creará un conjunto de escalado de máquinas virtuales e implementará una aplicación de ejemplo con una plantilla de Azure Resource Manager.

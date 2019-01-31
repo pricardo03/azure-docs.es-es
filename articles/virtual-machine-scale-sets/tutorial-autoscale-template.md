@@ -3,7 +3,7 @@ title: 'Tutorial: Escalado automático de un conjunto de escalado con plantillas
 description: Aprenda a usar plantillas de Azure Resource Manager para escalar automáticamente un conjunto de escalado de máquinas virtuales a medida que la demanda de la CPU aumenta y disminuye.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81c33818733b2896f98e1f3a3648b4fe9b823211
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413862"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887775"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Escalado automático de conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:

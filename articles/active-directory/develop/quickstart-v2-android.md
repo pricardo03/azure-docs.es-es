@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 808ee8bb34aa4bb81ce1bcdd50193efa05f5692d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427022"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103771"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guía de inicio rápido: inicie sesión por los usuarios y llame a Microsoft Graph API desde una aplicación de Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -38,8 +38,8 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registro y descarga
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registro y configuración de la aplicación y código de ejemplo
-> #### <a name="step-1-register-your-application"></a>Paso 1: Registro de la aplicación
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registro y configuración de una aplicación y el código de ejemplo
+> #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de aplicación a la solución, siga estos pasos:
 > 1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
 > 1. En el cuadro**Application Name** (Nombre de la aplicación) escriba el nombre de su aplicación.

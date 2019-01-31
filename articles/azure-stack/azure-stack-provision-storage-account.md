@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
-ms.openlocfilehash: c3b1c0e6ed0850e6346d385dc3e86afdcb78fe39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.lastreviewed: 1/18/2019
+ms.openlocfilehash: 4123d4cec25bab116c642f1b89cd8eff4779af42
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478542"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252156"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Cuentas de almacenamiento en Azure Stack
 Las cuentas de almacenamiento incluyen Blob service y Table service y el espacio de nombres único para los objetos de datos de almacenamiento. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta de almacenamiento.

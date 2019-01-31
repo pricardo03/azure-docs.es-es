@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: c0c79e3d85a8ced2b868c9fa7741a14105c1de05
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753056"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211413"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extracción de nombres con una lista de entidades simples y frases
 
@@ -289,7 +289,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitiv
 * Información conceptual sobre [listas de frases](luis-concept-feature.md)
 * [Cómo se realiza el entrenamiento](luis-how-to-train.md)
 * [Publicación](luis-how-to-publish-app.md)
-* [Prueba de la aplicación de LUIS en el portal de LUIS](luis-interactive-test.md)
+* [Prueba de la aplicación el portal de LUIS](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

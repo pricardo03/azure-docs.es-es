@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 30927f4a8213f3ca8b94a2c799e6204be003e2a7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755128"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213215"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 

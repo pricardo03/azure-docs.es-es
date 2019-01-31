@@ -3,7 +3,7 @@ title: 'Tutorial: Creación y administración de un conjunto de escalado de máq
 description: Aprenda a usar Azure PowerShell para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, por ejemplo, cómo iniciar y detener una instancia o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cc82b6e540eb46bf855a84a2e23f4999fbadc41d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0aa4b8fd606c45f2dea702140c34fc93bcd4c5a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428263"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885378"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:

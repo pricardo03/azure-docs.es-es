@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d61d0220a87f81ca68255d40c00a6b7783943231
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 64faed888352e641cb51200d81c038fe5caf7ef4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960212"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098551"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Guía de inicio rápido: Llamada a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -35,7 +35,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
 > [!div renderon="docs" class="sxs-lookup"]
 > Tiene dos opciones para comenzar con la aplicación de inicio rápido:
-> * [Express] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Rápido] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
@@ -46,7 +46,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Paso 1: Registro de la aplicación
+> #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Para registrar la aplicación y agregar la información de registro de la aplicación a la solución, siga estos pasos:
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 > 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.

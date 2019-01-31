@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 17c8a55c27a276fa1e2e04ebb9f748fa6d59a9dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433703"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55204072"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Creación y administración de Azure VPN Gateway con el módulo de Azure PowerShell
 
@@ -126,7 +126,7 @@ Cuando haya completado la creación de la puerta de enlace, puede crear una cone
 Puede cambiar la SKU de la puerta de enlace de VPN después de crear la puerta de enlace. Las distintas SKU de puerta de enlace admiten distintas especificaciones, como capacidades de proceso, número de conexiones, etc. En el ejemplo siguiente se usa [Resize-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Resize-AzureRmVirtualNetworkGateway) para cambiar el tamaño de la puerta de enlace de VpnGw1 a VpnGw2. Consulte [SKU de puertas de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku) para más información.
 
 ```azurepowershell-interactive
-$gw = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Resize-AzureRmVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
@@ -137,7 +137,7 @@ Cambiar el tamaño de una puerta de enlace de VPN también tarda entre 30 y 45 m
 Como parte de los pasos de solución de problemas, puede restablecer la puerta de enlace de VPN de Azure para forzar a la puerta de enlace de VPN a reiniciar las configuraciones de túnel de IPsec/IKE. Use [Reset-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Reset-AzureRmVirtualNetworkGateway) para restablecer la puerta de enlace.
 
 ```azurepowershell-interactive
-$gw = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 

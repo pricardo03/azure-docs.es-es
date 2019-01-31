@@ -3,7 +3,7 @@ title: 'Ejemplos de la CLI de Azure: Instalación de aplicaciones | Microsoft Do
 description: Ejemplos de la CLI de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c1b0d4ea794e5b3ed4f899addef18da2465562a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468461"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882198"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Instalación de aplicaciones en un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu y usa la extensión de script personalizado para instalar una aplicación web básica. Después de ejecutar el script, puede tener acceso a la aplicación web mediante un explorador web.

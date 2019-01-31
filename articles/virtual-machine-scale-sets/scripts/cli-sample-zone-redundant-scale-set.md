@@ -3,7 +3,7 @@ title: 'Ejemplos de la CLI de Azure: Conjunto de escalado con redundancia de zon
 description: Ejemplos de la CLI de Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0a54889a93888ff3cbc50453ec6a10ade8304284
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 4e3ea171e34df27ebce63540f5fb21070a0808ec
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411330"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882368"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales con redundancia de zona con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu en varias zonas de disponibilidad. Después de ejecutar el script, puede acceder a la máquina virtual a través de RDP.

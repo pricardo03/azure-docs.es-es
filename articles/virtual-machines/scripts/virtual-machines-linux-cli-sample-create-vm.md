@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e67cd535235593cc466e7e34506c44f9824e2c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 73492e98d75ddcfe4ef6e40f8a43dcb983320ee1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848502"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192696"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>Creación una máquina virtual completamente configurada
 
@@ -51,7 +51,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Crea una red virtual y una subred de Azure. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | Crea una dirección IP pública con una dirección IP estática y un nombre DNS asociado. |
+| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Crea una dirección IP pública con una dirección IP estática y un nombre DNS asociado. |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | Crea un grupo de seguridad de red (NSG), que es un límite de seguridad entre Internet y la máquina virtual. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Crea una regla de NSG para permitir el tráfico entrante. En este ejemplo, el puerto 22 está abierto al tráfico SSH. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | Crea una tarjeta de máquina virtual y la conecta con la red virtual, la subred y el NSG. |

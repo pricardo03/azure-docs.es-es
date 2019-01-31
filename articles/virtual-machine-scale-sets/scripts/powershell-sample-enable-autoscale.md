@@ -3,7 +3,7 @@ title: 'Ejemplos de Azure PowerShell: habilitación del escalado automático bas
 description: Ejemplos de Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22b1a2748bd34869ea3fd6eb7c98dd971ef0372f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee5103434ed1ad7e123b6ce4ed67809ac11fd2b0
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470938"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882793"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Escalado automático de un conjunto de escalado de máquinas virtuales con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecuta Windows Server 2016 y usa métricas basadas en el host para escalar automáticamente a medida que la carga de CPU cambia.

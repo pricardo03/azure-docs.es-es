@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b3fe6e0249143b27cb763401a8d328922ed1fe99
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958549"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173928"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de PHP para consultar una base de datos SQL de Azure
 
@@ -27,8 +27,6 @@ En este artículo se muestra cómo usar [PHP](http://php.net/manual/en/intro-wha
 Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos previos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal-firewall.md) para la dirección IP pública del equipo que usa.
 
 - Software relacionado con PHP instalado para el sistema operativo:
 

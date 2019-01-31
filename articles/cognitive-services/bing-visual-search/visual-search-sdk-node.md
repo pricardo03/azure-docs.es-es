@@ -6,20 +6,20 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 1dba0f3aacd0e51a9e4d8017a93f18928fd6b2ea
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: fc38cc6aaffbe9353ab55dcee2b0ba73abb4ebd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744300"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171990"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Inicio rápido: Obtención de información sobre imágenes con el SDK de Bing Visual Search para Node.js
 
-Use este artículo de inicio rápido para empezar a obtener información sobre las imágenes desde el servicio Bing Visual Search con el SDK de Node.js. Aunque Bing Visual Search tiene una API de REST compatible con la mayoría de los lenguajes de programación, el SDK proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente correspondiente a este ejemplo se encuentra disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
+Use este artículo de inicio rápido para empezar a obtener información sobre las imágenes desde el servicio Bing Visual Search con el SDK de Node.js. Aunque Bing Visual Search tiene una API de REST compatible con la mayoría de los lenguajes de programación, el SDK proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Node.js](https://www.nodejs.org/)

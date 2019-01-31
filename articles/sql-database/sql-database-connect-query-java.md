@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b748ebdbdc443c5fa44c82323774cd12c82ba38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723302"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197507"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Java para consultar una base de datos de Azure SQL Database
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Java para consultar una base de datos SQL de Azure
 
 En este artículo se muestra cómo usar [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectarse a una instancia de Azure SQL Database. Luego puede usar instrucciones de T-SQL para consultar los datos.
 
@@ -27,8 +27,6 @@ En este artículo se muestra cómo usar [Java](/sql/connect/jdbc/microsoft-jdbc-
 Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos previos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal-firewall.md) para la dirección IP pública del equipo que usa.
 
 - Java y software relacionado instalado para el sistema operativo:
 

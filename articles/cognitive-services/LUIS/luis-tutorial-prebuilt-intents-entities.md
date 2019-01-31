@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 804224898f90aa9af587d6d5b4b80c6afcfa586d
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: d8569bbc2d1befdd2b6fb9c8783dab206e19c7c9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754992"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211974"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificación de intenciones y entidades habituales
 
@@ -168,7 +168,7 @@ Más información acerca del trabajo con la aplicación de LUIS:
 
 * [Cómo se realiza el entrenamiento](luis-how-to-train.md)
 * [Publicación](luis-how-to-publish-app.md)
-* [Prueba de la aplicación de LUIS en el portal de LUIS](luis-interactive-test.md)
+* [Prueba de la aplicación el portal de LUIS](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

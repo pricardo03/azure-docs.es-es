@@ -8,22 +8,20 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 12/07/2018
-ms.openlocfilehash: ca247fc5d5eab925e352fe717365c382427b05b1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/28/2019
+ms.openlocfilehash: bca4443f2c8990dff45922c76df21ad0af7c91b5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438785"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298915"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>¿Qué son Azure HDInsight y la pila de tecnología de Apache Hadoop?
 
 En este artículo se proporciona una introducción a Apache Hadoop en Azure HDInsight. Azure HDInsight es un servicio de análisis, de código abierto, espectro completo y totalmente administrado para empresas. Puede usar plataformas de código abierto como Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, etc. 
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>¿Qué son HDInsight y la pila de tecnología de Hadoop?
-
 
 [Apache Hadoop](https://hadoop.apache.org/) era el entorno de trabajo de código abierto original para el procesamiento distribuido y análisis de macrodatos en clústeres. La pila de tecnología de Hadoop incluye software relacionado y utilidades, incluidas Apache Hive, Apache HBase, Spark, Kafka y muchas otras.
 
@@ -44,7 +42,7 @@ En esta sección se enumeran las funcionalidades de Azure HDInsight.
 |Capacidad  |DESCRIPCIÓN  |
 |---------|---------|
 |Nativo en la nube     |     Azure HDInsight le permite crear clústeres optimizados para [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) y  [ML Services](../r-server/r-server-get-started.md) en Azure. HDInsight también proporciona un Acuerdo de Nivel de Servicio de un extremo a otro en las cargas de trabajo de producción.  |
-|Rentable y escalable     | HDInsight le permite [escalar](../hdinsight-administer-use-portal-linux.md) o reducir verticalmente cargas de trabajo. Puede reducir el costo mediante la  [creación de clústeres a petición](../hdinsight-hadoop-create-linux-clusters-adf.md) y pagar solo por lo que se utiliza. También puede compilar canalizaciones de datos para poner en marcha los trabajos. El procesamiento y el almacenamiento desacoplados ofrecen un mejor rendimiento y flexibilidad. |
+|Rentable y escalable     | HDInsight le permite [escalar](../hdinsight-administer-use-portal-linux.md#scale-clusters) o reducir verticalmente cargas de trabajo. Puede reducir el costo mediante la  [creación de clústeres a petición](../hdinsight-hadoop-create-linux-clusters-adf.md) y pagar solo por lo que se utiliza. También puede compilar canalizaciones de datos para poner en marcha los trabajos. El procesamiento y el almacenamiento desacoplados ofrecen un mejor rendimiento y flexibilidad. |
 |Seguro y conforme    | HDInsight le permite proteger los recursos de datos de la empresa mediante [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), el [cifrado](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) y la integración con [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight también cumple con los [estándares de cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud) más conocidos del sector y de la administración.        |
 |Supervisión    | Azure HDInsight se integra con [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para proporcionar una única interfaz con la que puede supervisar todos los clústeres.        |
 |Disponibilidad global | HDInsight está disponible en más [regiones](https://azure.microsoft.com/regions/services/) que ninguna otra oferta de análisis de macrodatos. También está disponible en Azure Government, China y Alemania, lo que le permite satisfacer las necesidades de su empresa en áreas soberanas clave. |  
@@ -93,7 +91,7 @@ HDInsight incluye tipos de clúster concretos y funcionalidades de personalizaci
 
 * **[Apache HBase](https://hbase.apache.org/)**: base de datos NoSQL en Hadoop que proporciona acceso aleatorio y coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados; potencialmente miles de millones de filas multiplicadas por millones de columnas. Consulte [¿qué es HBase en HDInsight?](../hbase/apache-hbase-overview.md)
 
-* **[ML Services](https://msdn.microsoft.com/microsoft-r/rserver)**: un servidor para hospedar y administrar procesos de R distribuidos en paralelo. Proporciona a los científicos de datos, estadísticos y programadores de R acceso a petición a métodos escalables y distribuidos para realizar análisis en HDInsight. Consulte [Información general de ML Services en HDInsight](../r-server/r-server-overview.md).
+* **[ML Services](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)**: un servidor para hospedar y administrar procesos de R distribuidos en paralelo. Proporciona a los científicos de datos, estadísticos y programadores de R acceso a petición a métodos escalables y distribuidos para realizar análisis en HDInsight. Consulte [Información general de ML Services en HDInsight](../r-server/r-server-overview.md).
 
 * **[Apache Storm](https://storm.incubator.apache.org/)**: sistema distribuido de cálculo en tiempo real para el procesamiento rápido de grandes transmisiones de datos. Storm se ofrece como clúster administrado en HDInsight. Consulte [Análisis de datos de sensor en tiempo real con Storm y Hadoop](../storm/apache-storm-sensor-data-analysis.md).
 
@@ -114,7 +112,7 @@ Los clústeres de HDInsight, como Spark, HBase, Kafka, Hadoop, etc, admiten much
 
 |Lenguaje de programación  |Información  |
 |---------|---------|
-|Compatibilidad con lenguajes de programación predeterminados     | De forma predeterminada, los clústeres de HDInsight admiten lo siguiente:<ul><li>Java</li><li>Python</li></ul> Puede instalar lenguajes adicionales mediante [acciones de script](../hdinsight-hadoop-script-actions-linux.md).       |
+|Compatibilidad con lenguajes de programación predeterminados     | De forma predeterminada, los clústeres de HDInsight admiten lo siguiente:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Go</li></ul>  |
 |Lenguajes de la máquina virtual de Java (JVM)     | Muchos lenguajes distintos de Java se pueden ejecutar en una máquina virtual de Java (JVM). Sin embargo, si ejecuta algunos de estos lenguajes, puede que tenga que instalar componentes adicionales en el clúster. Los siguientes lenguajes basados en JVM son compatibles con clústeres de HDInsight: <ul><li>Clojure</li><li>Jython (Python para Java)</li><li>Scala</li></ul>     |
 |Lenguajes específicos de Hadoop     | Los clústeres de HDInsight son compatibles con los siguientes lenguajes específicos de la pila de tecnología de Hadoop: <ul><li>Pig Latin para trabajos de Pig</li><li>HiveQL para trabajos de Hive y SparkSQL</li></ul>        |
 
@@ -146,9 +144,9 @@ Las herramientas de Business Intelligence (BI) habituales recuperan, analizan y 
 
 * [Conexión de Excel a Apache Hadoop con Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md) (requiere Windows) 
 
-* [Uso de SQL Server Analysis Services con HDInsight](https://msdn.microsoft.com/library/dn749857.aspx)
+* [Uso de SQL Server Analysis Services con HDInsight](https://docs.microsoft.com/previous-versions/msp-n-p/dn749857(v=pandp.10))
 
-* [Uso de SQL Server Reporting Services con HDInsight](https://msdn.microsoft.com/library/dn749856.aspx)
+* [Uso de SQL Server Reporting Services con HDInsight](https://docs.microsoft.com/previous-versions/msp-n-p/dn749856(v=pandp.10))
 
 ## <a name="next-steps"></a>Pasos siguientes
 

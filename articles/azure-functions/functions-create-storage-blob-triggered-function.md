@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cc730650f7bd570f237c06b074afb3678b54448f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999870"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901469"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
 
@@ -113,8 +113,6 @@ Ahora que tiene un contenedor de blobs, puede probar la función. Para ello, car
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha creado una función que se ejecuta cuando se agrega o se actualiza un blob en Blob Storage. 
+Ha creado una función que se ejecuta cuando se agrega o se actualiza un blob en Blob Storage. Para obtener más información sobre los desencadenadores de Blob Storage, vea [Enlaces de Blob Storage en Azure Functions](functions-bindings-storage-blob.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Para obtener más información sobre los desencadenadores de Blob Storage, vea [Enlaces de Blob Storage en Azure Functions](functions-bindings-storage-blob.md).

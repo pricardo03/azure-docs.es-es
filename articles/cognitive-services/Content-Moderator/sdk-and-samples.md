@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: a57f6a312b00d7ec3d927c6fda319f1de8663c9c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e05058be5b1ea8aa8faee3f3328a1b84935a3ac7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220458"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228583"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>SDK y ejemplos de Content Moderator
 
@@ -47,7 +47,7 @@ En la lista siguiente se incluyen vínculos a ejemplos de código compilados med
 > Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
 >
 
-- **Moderación de vídeos**: [examine un vídeo para buscar contenido explícito y para adultos y obtener resultados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consulte el [inicio rápido](video-moderation-api.md).
+- **Moderación de vídeo**: [examine un vídeo para buscar contenido explícito y para adultos y obtener resultados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consulte el [inicio rápido](video-moderation-api.md).
 
 ### <a name="review"></a>Revisión
 - **Trabajos con imágenes**: [inicie un trabajo de moderación que examine y cree revisiones](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Consulte el [inicio rápido](moderation-jobs-quickstart-dotnet.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 0f4b5e5605ed88aac2ffb979e2c009e0f0b99a98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 667d32c825f61751970bbcaa47045929ad708490
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411431"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160277"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Ejemplo de script para el enrutamiento del tráfico mediante una aplicación virtual de red
 
@@ -56,7 +56,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una red
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Crea una interfaz de red virtual y habilita el reenvío IP para ella. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Crea un grupo de seguridad de red (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Crea reglas NSG que permiten puertos HTTP y HTTPS entrantes en la VM. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Asocia los NSG y tablas de rutas a las subredes. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Asocia los NSG y tablas de rutas a las subredes. |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Crea una tabla de rutas para todas las rutas. |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Crea rutas para redirigir el tráfico entre subredes e Internet a través de la VM. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Crea una máquina virtual y conecta la NIC a ella. Este comando también especifica la imagen de máquina virtual que se usará y las credenciales administrativas. |

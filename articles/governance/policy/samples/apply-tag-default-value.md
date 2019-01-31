@@ -6,14 +6,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 10/29/2018
+ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3f9297487c0767a04f503c2408781c0cd5653ce7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9e257c14c952a9458bf6652ec20ef9216bcaaea4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853653"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091570"
 ---
 # <a name="apply-tag-and-its-default-value"></a>Aplicar etiqueta y su valor predeterminado
 
@@ -51,7 +51,7 @@ Código JSON que define los parámetros de la directiva, utilizado por la CLI de
 
 [!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|NOMBRE |Escriba |Campo |DESCRIPCIÓN |
+|NOMBRE |Type |Campo |DESCRIPCIÓN |
 |---|---|---|---|
 |tagName |string |etiquetas |Nombre de la etiqueta, como por ejemplo, costCenter|
 |tagValue |string |etiquetas |Valor de la etiqueta, como por ejemplo, headquarter|
@@ -87,7 +87,7 @@ En este parámetro de ejemplo, se definen el _tagName_ **costCenter** y el _tagV
 # Create the Policy Definition (Subscription scope)
 $definition = New-AzPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' -Mode All
 
-# Set the scope to a resource group; may also be a subscription or management group
+# Set the scope to a resource group; may also be a resource, subscription, or management group
 $scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
@@ -131,7 +131,7 @@ Los scripts de implementación y eliminación usan los siguientes comandos. Cada
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'apply-default-tag-value' --display-name 'Apply tag and its default value' --description 'Applies a required tag and its default value if it is not specified by the user' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json' --mode All)
 
-# Set the scope to a resource group; may also be a subscription or management group
+# Set the scope to a resource group; may also be a resource, subscription, or management group
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)

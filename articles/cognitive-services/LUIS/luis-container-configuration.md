@@ -36,7 +36,7 @@ Este contenedor tiene las siguientes opciones de configuración:
 |SÍ|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |Sin |[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
 |Sin |[Proxy Http](#http-proxy-credentials-settings)|Configure un proxy HTTP para hacer solicitudes salientes.|
-|Sin |[Registro](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
+|Sin |[Logging](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
 |SÍ|[Mounts](#mount-settings)|Leer y escribir datos desde el equipo host al contenedor y del contenedor al equipo host.|
 
 > [!IMPORTANT]

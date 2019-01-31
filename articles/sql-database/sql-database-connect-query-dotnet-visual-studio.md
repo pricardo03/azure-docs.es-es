@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/11/2018
-ms.openlocfilehash: 04a0abd0fba7ec53aebeb481ac80d36653d118b6
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 93249b7d274ce9d7928dfa46eb339da68c92b785
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163303"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de .NET y C# en Visual Studio para conectar a una base de datos de Azure SQL Database y consultarla
 
@@ -28,8 +28,6 @@ En esta guía de inicio rápido se muestra cómo usar [.NET Framework](https://w
 Para completar este inicio rápido necesita instalar:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal-firewall.md) para permitir la dirección IP pública del equipo que usa.
   
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise.
 

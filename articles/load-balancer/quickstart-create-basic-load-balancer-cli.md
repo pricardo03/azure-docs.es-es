@@ -11,17 +11,17 @@ Customer intent: I want to create a Basic Load balancer so that I can load balan
 ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: 18c5b8f31b2a912eade360ebc2c5845782667250
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 884d64c2d7286dde7a62ac5e9a6fd3054b683fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230227"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245972"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guía de inicio rápido: Creación de un equilibrador de carga para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 
@@ -33,7 +33,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupLB* en la ubicación *eastus*:
 
@@ -45,7 +45,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 
 ## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Para obtener acceso a la aplicación web en Internet, necesita una dirección IP pública para el equilibrador de carga. Utilice [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) para crear una dirección IP pública llamada *myPublicIP* en *myResourceGroupLB*.
+Para obtener acceso a la aplicación web en Internet, necesita una dirección IP pública para el equilibrador de carga. Utilice [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) para crear una dirección IP pública llamada *myPublicIP* en *myResourceGroupLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
@@ -61,7 +61,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
 
-Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEndPool** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior.
+Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEndPool** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?
 
 ### <a name="create-the-health-probe"></a>Creación del sondeo de estado
 
-Los sondeos de estado comprueban todas las instancias de máquina virtual para asegurarse de que pueden enviar tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) para supervisar el estado de las máquinas virtuales. 
+Los sondeos de estado comprueban todas las instancias de máquina virtual para asegurarse de que pueden enviar tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para supervisar el estado de las máquinas virtuales. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Los sondeos de estado comprueban todas las instancias de máquina virtual para a
 
 ### <a name="create-the-load-balancer-rule"></a>Creación de la regla de equilibrador de carga
 
-Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myLoadBalancerRuleWeb* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEndPool* y enviar tráfico de red con equilibrio de carga al grupo de direcciones de back-end *myBackEndPool*, que también usan el puerto 80. 
+Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myLoadBalancerRuleWeb* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEndPool* y enviar tráfico de red con equilibrio de carga al grupo de direcciones de back-end *myBackEndPool*, que también usan el puerto 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -108,7 +108,7 @@ Antes de implementar algunas máquinas virtuales y poder probar el equilibrador 
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \

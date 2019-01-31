@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813607"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181833"
 ---
 # <a name="what-is-bing-entity-search"></a>¿Qué es Bing Entity Search?
 
@@ -48,7 +48,7 @@ La respuesta contiene un objeto [SearchResponse](https://docs.microsoft.com/rest
 > [!NOTE]
 > Las respuestas de las entidades admiten múltiples mercados, pero la respuesta de lugares solo admite ubicaciones comerciales en EE. UU. 
 
-El campo `entities` es un objeto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) que contiene una lista de objetos [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (consulte el campo `value`). La lista puede contener una sola entidad dominante, múltiples entidades de desambiguación o ambas. 
+El campo `entities` es un objeto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) que contiene una lista de objetos [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (consulte el campo `value`). La lista puede contener una sola entidad dominante, múltiples entidades de desambiguación o ambas. 
 
 Una entidad dominante es una entidad que, según Bing, es la única entidad que satisface la solicitud (no hay ambigüedades en cuanto a qué entidad satisface la solicitud). Si es posible que varias entidades satisfagan la solicitud, la lista contiene más de una entidad de desambiguación. Por ejemplo, si la solicitud utiliza el título genérico de la franquicia de una película, la lista probablemente contenga entidades de desambiguación. Sin embargo, si la solicitud indica un título específico de esa franquicia, la lista probablemente contenga una sola entidad dominante.
 

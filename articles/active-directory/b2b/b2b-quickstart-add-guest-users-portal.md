@@ -3,19 +3,19 @@ title: 'Inicio rápido: Incorporación de usuarios invitados en Azure Portal'
 description: Use esta guía de inicio rápido para saber cómo los administradores de Azure AD pueden agregar usuarios invitados de B2B en Azure Portal y para hacer un recorrido por el flujo de trabajo de invitaciones de B2B.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e13abc6753c1fe9febcabfd8c19d59c97ca8a12f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431697"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079552"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Inicio rápido: Incorporación de usuarios invitados a su directorio en Azure Portal
 

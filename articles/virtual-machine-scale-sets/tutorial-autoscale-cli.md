@@ -3,7 +3,7 @@ title: 'Tutorial: Escalado automático de un conjunto de escalado con la CLI de 
 description: Aprenda a usar la CLI de Azure para escalar automáticamente un conjunto de escalado de máquinas virtuales a medida que la demanda de la CPU aumenta y disminuye
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471312"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170715"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 
@@ -41,13 +41,13 @@ Si elige instalar y usar la CLI localmente, en este tutorial es preciso que ejec
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#create), como sigue:
+Cree un grupo de recursos con [az group create](/cli/azure/group), como sigue:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#create). En el ejemplo siguiente se crea un conjunto de escalado con *2* instancias y se generan claves SSH (si aún no existen):
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss). En el ejemplo siguiente se crea un conjunto de escalado con *2* instancias y se generan claves SSH (si aún no existen):
 
 ```azurecli-interactive
 az vmss create \
@@ -137,7 +137,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Cuando **stress** muestre resultados similares a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
+Cuando **stress** muestra una salida similar a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
 
 Para confirmar que **stress** genera carga de CPU, examine la carga del sistema activa con la utilidad **top**:
 
@@ -165,7 +165,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-De nuevo, cuando **stress** muestre resultados similares a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
+De nuevo, cuando **stress** muestra una salida similar a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
 
 Cierre la conexión a esta instancia de máquina virtual. **Stress** continuará ejecutándose en la instancia de máquina virtual.
 

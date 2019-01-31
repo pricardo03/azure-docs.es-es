@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463769"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181607"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Linux con la CLI de Azure
 
@@ -169,7 +169,7 @@ Un grupo de seguridad de red puede crearse a la vez como máquina virtual median
 
 En algunos casos, puede resultar útil crear previamente un NSG, por ejemplo, cuando no se deben crear reglas predeterminadas de SSH o cuando el NSG debe asociarse a una subred. 
 
-Utilice el comando [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) para crear un grupo de seguridad de red.
+Utilice el comando [az network nsg create](/cli/azure/network/nsg) para crear un grupo de seguridad de red.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG

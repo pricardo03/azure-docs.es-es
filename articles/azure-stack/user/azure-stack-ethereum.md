@@ -11,12 +11,13 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 1d0e04e4fbc964400e8b5c1544344864f7e757a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.lastreviewed: 11/02/2018
+ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019690"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239237"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Implementación de una red de la cadena de bloques Ethereum en Azure Stack
 
@@ -72,7 +73,7 @@ La plantilla de cliente potencial del consorcio configura la huella del primer m
     NAMEPREFIX | Cadena que se usa como base para asignar nombres a los recursos implementados. | Caracteres alfanuméricos con una longitud de 1 a 6 | eth
     AUTHTYPE. | El método de autenticación en la máquina virtual. | Contraseña o clave pública SSH | Contraseña
     ADMINUSERNAME | Nombre de usuario del administrador de cada una de las máquinas virtuales que se ha implementado | Entre 1 y 64 caracteres | gethadmin
-    ADMINPASSWORD (tipo de autenticación = contraseña)| La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe contener 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial. <br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|
+    ADMINPASSWORD (tipo de autenticación = contraseña)| La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe cumplir 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial. <br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|
     ADMINSSHKEY (tipo de autenticación = sshPublicKey) | La clave de shell seguro que se usa para el inicio de sesión remoto. | |
     GENESISBLOCK | Cadena JSON que representa el bloque génesis personalizado.  La especificación de un valor para este parámetro es opcional. | |
     ETHEREUMACCOUNTPSSWD | La contraseña de administrador que se usa para proteger la cuenta de Ethereum. | |
@@ -122,7 +123,7 @@ Para comprobar la implementación del cliente potencial, examine sitio de admini
     NAMEPREFIX | Cadena que se usa como base para asignar nombres a los recursos implementados. | Caracteres alfanuméricos con una longitud de 1 a 6 | eth
     AUTHTYPE. | El método de autenticación en la máquina virtual. | Contraseña o clave pública SSH | Contraseña
     ADMINUSERNAME | Nombre de usuario del administrador de cada una de las máquinas virtuales que se ha implementado | Entre 1 y 64 caracteres | gethadmin
-    ADMINPASSWORD (tipo de autenticación = contraseña)| La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe contener 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial. <br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|
+    ADMINPASSWORD (tipo de autenticación = contraseña)| La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe cumplir 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial. <br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|
     ADMINSSHKEY (tipo de autenticación = sshPublicKey) | La clave de shell seguro que se usa para el inicio de sesión remoto. | |
     CONSORTIUMMEMBERID | Identificador asociado con cada miembro de la red del consorcio.   | Este identificador debe ser único en la red. | 0
     NUMMININGNODES | Número de nodos de minería. | Entre 2 y 15. | 2

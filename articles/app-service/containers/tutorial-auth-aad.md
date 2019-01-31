@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715246"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296090"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticación y autorización de usuarios de un extremo a otro extremo en Azure App Service en Linux
 
@@ -317,7 +317,7 @@ Haga clic en **PUT** para guardar la configuración.
 
 Ahora las aplicaciones están configuradas. El front-end ahora está listo para acceder al back-end con un token de acceso apropiado.
 
-Para información sobre cómo realizar esta configuración para otros proveedores, consulte [Refresh access tokens](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-access-tokens) (Actualización de los tokens de acceso).
+Para información sobre cómo realizar esta configuración para otros proveedores, consulte [Refresh access tokens](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens) (Actualización de los tokens de acceso).
 
 ## <a name="call-api-securely-from-server-code"></a>Llamada a la API de forma segura desde el código de servidor
 
