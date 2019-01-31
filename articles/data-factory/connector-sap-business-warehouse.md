@@ -166,28 +166,28 @@ Al copiar datos desde SAP BW, se usan las siguientes asignaciones de tipos de da
 
 | Tipo de datos de SAP BW | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ACCP | int |
-| CHAR | string |
-| CLNT | string |
+| ACCP | Int |
+| CHAR | String |
+| CLNT | String |
 | CURR | Decimal |
-| CUKY | string |
-| DEC | DECIMAL |
-| FLTP | Doble |
+| CUKY | String |
+| DEC | Decimal |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | int |
-| LANG | string |
-| LCHR | string |
+| INT4 | Int |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | DECIMAL |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | string |
-| UNIDAD | string |
-| DATS | string |
-| NUMC | string |
-| TIMS | string |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
