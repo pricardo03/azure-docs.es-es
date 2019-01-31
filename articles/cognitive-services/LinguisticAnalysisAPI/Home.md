@@ -6,19 +6,19 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: overview
 ms.date: 10/10/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 17b2cbf26169f2f996dca610bd87d20b72b86114
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 3051f8d25c3591d40d012f2c9041dd0e65c03d12
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237609"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226977"
 ---
-# <a name="what-is-the-linguistic-analysis-api-preview"></a>¿Qué es Linguistic Analysis API? (versión preliminar)
+# <a name="what-is-the-linguistic-analysis-api-preview"></a>¿Qué es Linguistic Analysis API?  (versión preliminar)
 
 > [!IMPORTANT]
 > El 9 de agosto de 2018 se retiró la versión preliminar de Linguistic Analysis. Para el procesamiento y el análisis de texto, se recomienda usar los [módulos de análisis de texto de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).

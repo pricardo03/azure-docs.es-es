@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818513"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integración de Azure Active Directory con Signagelive
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Signagelive, realice
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Signagelive](common/sp-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Signagelive](mailto:support@signagelive.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con Signagelive, realice
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 

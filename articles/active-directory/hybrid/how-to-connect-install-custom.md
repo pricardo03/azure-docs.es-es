@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/04/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 49f1b953784aca0776357cc4071efbbff6064660
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471640"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155347"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -416,7 +416,7 @@ Una vez completada la instalación, cierre la sesión e inicie de sesión de nue
 
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](how-to-connect-post-installation.md).
 
-Obtenga más información acerca de estas características, que se habilitaron con la instalación: [Evitar eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
+Conozca más sobre estas características, que se habilitaron con la instalación: [Evitación de eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](how-to-connect-sync-feature-scheduler.md).
 
