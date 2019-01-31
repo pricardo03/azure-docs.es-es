@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f0c631c765ba95602fb2ac3ab1fd72732793a199
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a775a38d15876850b8a821f9e827e0dd0c3772b6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264280"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147967"
 ---
 <!--author=alkohli last changed: 01/23/18-->
 
@@ -54,7 +54,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
    
     A continuación se muestra una salida de ejemplo para instalar las actualizaciones de primer orden. Para la actualización de primer orden, es preciso que apunte al archivo concreto.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -65,7 +65,7 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 4. Escriba **Y** cuando se le solicite que confirme la instalación de la revisión.
 5. Supervise la actualización mediante el cmdlet `Get-HcsUpdateStatus` . La actualización se completará en primer lugar en el controlador pasivo. Una vez actualizado el controlador pasivo, se producirá una conmutación por error, tras lo cual la actualización se aplicará en el otro controlador. La actualización estará completa cuando ambos controladores se hayan actualizado.
    

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed4bed77267790b10b44486f0e9c8242fe952cd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601974"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207418"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 La <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ La <a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Entrenar una expresión
 
 1. Acceda a la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**. 
@@ -40,13 +41,8 @@ La <a name="train-your-app"></a>
 
     ![Las pruebas interactivas identifican la intención incorrecta](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Borrar el panel Prueba
-Para borrar las expresiones de prueba especificadas y sus resultados de la consola de pruebas, seleccione **Empezar de nuevo** en la esquina superior izquierda del **panel Prueba**. 
-
-## <a name="close-test-panel"></a>Cerrar el panel Prueba
-Para cerrar el panel **Prueba**, vuelva a hacer clic en el botón **Prueba**.
-
 ## <a name="inspect-score"></a>Inspeccionar puntuación
+
 Puede inspeccionar los detalles del resultado de las pruebas en el panel **Inspeccionar**. 
  
 1. Con el panel deslizante **Prueba** abierto, haga clic en **Inspeccionar** para una expresión que quiera comparar. 
@@ -72,9 +68,11 @@ Si el **análisis de sentimiento** está configurado en la página **[Publicar](
 ![Imagen del panel Prueba con el análisis de sentimiento](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corregir la intención del patrón coincidente
+
 Si usa [Patrones](luis-concept-patterns.md) y la expresión coincide con un patrón, pero se predijo una intención incorrecta, seleccione el vínculo **Editar** junto al patrón y haga clic en la intención correcta.
 
 ## <a name="compare-with-published-version"></a>Comparar con la versión publicada
+
 Puede probar la versión activa de la aplicación con la versión del [punto de conexión](luis-glossary.md#endpoint) publicado. En el panel **Inspeccionar**, seleccione **Comparar con el publicado**. Todas las pruebas en el modelo publicado se deducirán del saldo de la cuota de suscripción de Azure. 
 
 ![Comparar con el publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ Puede ver el punto de conexión de JSON devuelto para la comparación si selecci
 ## <a name="additional-settings-in-test-panel"></a>Configuración adicional en el panel de pruebas
 
 ### <a name="luis-endpoint"></a>Punto de conexión de LUIS
+
 Si tiene varios puntos de conexión de LUIS, use el vínculo **Configuración adicional** del panel Publicado de Prueba para cambiar el punto de conexión usado para realizar pruebas. Si no está seguro de qué punto de conexión usar, seleccione el valor predeterminado **Starter_Key**. 
 
 ![Panel Prueba con el vínculo Configuración adicional resaltado](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Ver las correcciones de Bing Spell Check en el panel Prueba
+
 Requisitos para ver las correcciones de ortografía: 
 
 * Aplicación publicada
@@ -124,6 +124,7 @@ Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](ht
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Pruebas por lotes
 Vea los [conceptos](luis-concept-batch-test.md) de las pruebas por lotes y obtenga información sobre [cómo](luis-how-to-batch-test.md) probar un lote de expresiones.
 

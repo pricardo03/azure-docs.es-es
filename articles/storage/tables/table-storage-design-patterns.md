@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238903"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469199"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -197,11 +197,11 @@ Para habilitar la búsqueda por apellido con la estructura de entidad mostrada a
 * Cree entidades de índice en la misma partición que las entidades employee.  
 * Cree entidades de índice en una tabla o una partición independiente.  
 
-<u>Opción n.º 1: Usar el almacenamiento de blobs</u>  
+<u>Opción n.º 1: Uso de Blob Storage</u>  
 
 Para la primera opción, creará un blob para cada apellido único y, en cada almacén de blobs, una lista de valores **PartitionKey** (departamento) y **RowKey** (identificador de empleado) para los empleados que tienen ese apellido. Al agregar o eliminar a un empleado debe asegurarse de que el contenido del blob relevante es coherente con las entidades employee.  
 
-<u>Opción n.º 2:</u> crear entidades de índice en la misma partición  
+<u>Opción n.º 2:</u> Creación de entidades de índice en la misma partición  
 
 Para la segunda opción, utilice las entidades de índice que almacenan los datos siguientes:  
 
@@ -223,7 +223,7 @@ Los siguientes pasos describen el proceso que debe llevar a cabo cuando se neces
 2. Analice la lista de identificadores de empleado en el campo EmployeeIDs.  
 3. Si necesita información adicional sobre cada uno de los empleados (por ejemplo, sus direcciones de correo electrónico), recupere cada una de las entidades de empleado mediante los valores **PartitionKey** "Sales" y **RowKey** de la lista de empleados que obtuvo en el paso 2.  
 
-<u>Opción n.º 3:</u> crear entidades de índice en una tabla o partición independientes  
+<u>Opción n.º 3:</u> Creación de entidades de índice en una tabla o partición independiente  
 
 Para la tercera opción, utilice las entidades de índice que almacenan los datos siguientes:  
 
@@ -916,7 +916,7 @@ En el resto de esta sección se describen algunas de las características de la 
 ### <a name="retrieving-heterogeneous-entity-types"></a>Recuperar tipos de entidad heterogéneos
 Si utiliza la biblioteca de clientes de Storage, tiene tres opciones para trabajar con varios tipos de entidad.  
 
-Si conoce el tipo de la entidad que se almacena con un valor concreto **RowKey** y **PartitionKey**, podrá especificar el tipo de entidad al recuperar la entidad, como se muestra en los dos ejemplos anteriores que recuperan entidades de tipo **EmployeeEntity**: [Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage](#executing-a-point-query-using-the-storage-client-library) y [Recuperar varias entidades con LINQ](#retrieving-multiple-entities-using-linq).  
+Si conoce el tipo de la entidad que se almacena con valores concretos de **RowKey** y **PartitionKey**, podrá especificar el tipo de entidad al recuperar la entidad, tal y como se muestra en los dos ejemplos anteriores que recuperan entidades de tipo **EmployeeEntity**: [Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage](#executing-a-point-query-using-the-storage-client-library) y [Recuperar varias entidades con LINQ](#retrieving-multiple-entities-using-linq).  
 
 La segunda opción es usar el tipo **DynamicTableEntity** (un contenedor de propiedades), en lugar de un tipo concreto de entidad POCO (esta opción también puede mejorar el rendimiento, ya que no es preciso serializar y deserializar la entidad de los tipos .NET). Potencialmente, el siguiente código de C# recupera varias entidades de distintos tipos de la tabla, pero devuelve todas las entidades como instancias de **DynamicTableEntity**. A continuación, usa la propiedad **EntityType** para determinar el tipo de cada entidad:  
 

@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250508"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188633"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -296,7 +296,7 @@ Una expresión matemática puede contener los siguientes símbolos:
 |*|Multiplicación|
 |^|Potencia|
 |!|Factorial|
-|.|DECIMAL|
+|.|Decimal|
 |()|Agrupación de precedencia|
 |[]|Función|
 

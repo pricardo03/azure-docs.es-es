@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186181"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211107"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
 Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -57,7 +57,7 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Encabezado | DESCRIPCIÓN |
 |:--- |:--- |
 | Autorización |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
-| Log-Type |Especifica el tipo de registro de los datos que se envían. Actualmente, el tipo de registro solo admite caracteres alfabéticos. No admite valores numéricos ni caracteres especiales. El límite de tamaño para este parámetro es de 100 caracteres. |
+| Log-Type |Especifica el tipo de registro de los datos que se envían. El límite de tamaño para este parámetro es de 100 caracteres. |
 | x-ms-date |Fecha en que se procesó la solicitud, en formato RFC 1123. |
 | time-generated-field |Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
@@ -140,7 +140,7 @@ Para identificar el tipo de datos de una propiedad, Log Analytics agrega un sufi
 |:--- |:--- |
 | string |_s |
 | boolean |_b |
-| Doble |_d |
+| Double |_d |
 | Fecha/hora |_t |
 | GUID |_g |
 

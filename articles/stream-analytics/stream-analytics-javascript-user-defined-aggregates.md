@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702381"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097986"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agregados definidos por el usuario en JavaScript para Azure Stream Analytics (versión preliminar)
  
@@ -28,7 +28,7 @@ Los agregados definidos por el usuario se usan sobre una especificación de vent
 
 Los agregados de AccumulateOnly solo pueden acumular nuevos eventos a su estado, el algoritmo no permite la desacumulación de valores. Elija este tipo de agregado cuando sea imposible la desacumulación de la información de un evento de su valor de estado. A continuación se muestra la plantilla de JavaScript para los agregados de AccumulatOnly:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>Agregados de AccumulateDeaccumulate
 
 Los agregados de AccumulateDeaccumulate permiten la desacumulación de un valor acumulado anterior del estado; por ejemplo, quitar un par clave-valor de una lista de valores de evento o restar un valor de un estado de agregado de suma. A continuación se muestra la plantilla de JavaScript para los agregados de AccumulateDeaccumulate:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA: declaración de función de JavaScript
 
@@ -129,7 +129,7 @@ Ahora vamos a crear un UDA de JavaScript en un trabajo de ASA mediante estos pas
 1. En la vista Nueva función, seleccione **UDA de JavaScript** como el tipo de función y verá que aparece una plantilla de UDA predeterminada en el editor.
 1. Como alias de UDA use "TWA" y cambie la implementación de función como se indica a continuación:
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ Ahora vamos a crear un UDA de JavaScript en un trabajo de ASA mediante estos pas
             return result;
         }
     }
-    ````
+    ```
 
 1. Tras hacer clic en el botón "Guardar", el UDA aparece en la lista de funciones.
 
@@ -177,7 +177,7 @@ Ahora vamos a crear un UDA de JavaScript en un trabajo de ASA mediante estos pas
 
 En Azure Portal, abra el trabajo, edite la consulta y llame a la función TWA() con el prefijo obligatorio "uda.". Por ejemplo: 
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>Prueba de la consulta con UDA
 
 Cree un archivo JSON local con el contenido siguiente, cárguelo en el trabajo de Stream Analytics y pruebe la consulta anterior.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ Cree un archivo JSON local con el contenido siguiente, cárguelo en el trabajo d
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>Obtención de ayuda
 

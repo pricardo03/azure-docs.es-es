@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166265"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476220"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Aceleración del análisis de macrodatos en tiempo real con el conector de Spark para Azure SQL Database y SQL Server
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Requisito de configuración
 Si usa el modo de autenticación basado en token de acceso, necesitará descargar [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) y sus dependencias e incluirlos en la ruta de compilación Java.
 
-Consulte [Use Azure Active Directory Authentication for authentication with SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) (Uso de la autenticación de Azure Active Directory con SQL Database ) para obtener información sobre cómo obtener un token de acceso para Azure SQL Database.
+Consulte [Use Azure Active Directory Authentication for authentication with SQL Database](sql-database-aad-authentication.md) (Uso de la autenticación de Azure Active Directory con SQL Database ) para obtener información sobre cómo obtener un token de acceso para Azure SQL Database.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002406"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187443"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -187,7 +187,7 @@ Después de modificar el archivo template.json tal como se indicó, vuelva a pub
 
 ### <a name="update-storage-quota"></a>Actualización de la cuota de almacenamiento
 
-Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota, quizá quiera considerar reducir el tamaño de esta. El valor predeterminado es 50 GB y se puede configurar en la plantilla en el campo `overallQuotainMB` de `DiagnosticMonitorConfiguration`
+Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota, quizá quiera considerar reducir el tamaño de esta. El valor predeterminado es 50 GB y se puede configurar en la plantilla en el campo `overallQuotaInMB` de `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",

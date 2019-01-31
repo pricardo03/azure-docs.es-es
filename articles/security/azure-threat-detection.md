@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413675"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228804"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -115,7 +115,7 @@ Cada uno de los orígenes de datos y soluciones crea tipos de registros distinto
 
 La mayor parte de la interacción con Log Analytics se realiza mediante Azure Portal, que se ejecuta en cualquier explorador y proporciona acceso a opciones de configuración y a herramientas para analizar los datos recopilados y realizar acciones en estos. Desde el portal, puede usar:
 * [Búsquedas de registros](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) donde se crean consultas para analizar los datos recopilados.
-* [Paneles](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que se pueden personalizar con vistas gráficas de las búsquedas más valiosas.
+* [Paneles](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), que se pueden personalizar con vistas gráficas de las búsquedas más valiosas.
 * [Soluciones](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que proporcionan herramientas de análisis y funcionalidad adicionales.
 
 ![Herramientas de análisis](./media/azure-threat-detection/azure-threat-detection-fig6.png)

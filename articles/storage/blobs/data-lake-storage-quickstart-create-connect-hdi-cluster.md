@@ -3,17 +3,17 @@ title: 'Configuración de clústeres de Hadoop, Spark, Kafka, HBase o R Server: 
 description: Configure clústeres de Hadoop, Kafka, Spark, HBase, R Server o Storm para HDInsight desde un explorador, la CLI de Azure, Azure PowerShell, REST o el SDK.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a3c6474c6b1c27c3b413d98d86cdadbcb61e2040
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353862"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247296"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Inicio rápido: Configuración de clústeres en HDInsight
 
@@ -142,7 +142,7 @@ Mientras que exista el clúster se le facturará por el uso de nodos. La factura
 
 Cada tipo de clúster tiene su propio número de nodos, terminología para los nodos y tamaño de máquina virtual predeterminado. En la siguiente tabla, el número de nodos de cada tipo de nodo se muestra entre paréntesis.
 
-| Escriba | Nodos | Diagrama |
+| Type | Nodos | Diagrama |
 | --- | --- | --- |
 | Hadoop |Nodo principal (2), nodo de datos (más de 1) |![Nodos de clúster de Hadoop en HDInsight](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/ZooKeeper (3) |![Nodos de clúster de HBase en HDInsight](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-hbase-cluster-type-setup.png) |

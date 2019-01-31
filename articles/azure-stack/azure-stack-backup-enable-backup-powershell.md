@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 8fe7f0ddd630cfca0242af6cc1d728bdef163352
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.lastreviewed: 08/16/2018
+ms.openlocfilehash: 10d7303c4323305e177cf006b9a259a817dc695e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946451"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247483"
 ---
-# <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitación de la copia de seguridad de Azure Stack con PowerShell
+# <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar la copia de seguridad de Azure Stack con PowerShell
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Habilite el servicio Copia de seguridad de infraestructura con Windows PowerShell para realizar copias de seguridad periódicas de:
  - Servicio de identidad interno y certificados raíz.

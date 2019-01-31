@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 574391fd64d0525d3d77b80bb488bea8109729af
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187343"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299143"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Soluciones de administración en Azure Monitor
 Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.
@@ -60,7 +60,7 @@ Haga clic en el nombre de una solución para abrir su página de resumen. Esta p
 ## <a name="install-a-management-solution"></a>Instalación de una solución de administración
 Las soluciones de administración de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente. Al instalar una solución, debe seleccionar un [área de trabajo de Log Analytics](../platform/manage-access.md) donde se instalará la solución y se recopilarán los datos.
 
-1. Desde la [lista de soluciones para la suscripción](#list-installed-monitoring-solutions), haga clic en **Agregar**. 
+1. Desde la [lista de soluciones para la suscripción](#list-installed-management-solutions), haga clic en **Agregar**. 
 1. A la derecha de **Soluciones de administración de**, haga clic en **Más**. 
 1. Localice la solución de administración que quiere y lea su descripción.
 1. Haga clic en **Crear** para iniciar el proceso de instalación.

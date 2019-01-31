@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127172"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228532"
 ---
 # <a name="command-line-interface"></a>Interfaz de línea de comandos
 
@@ -80,7 +80,7 @@ El comando **host_service** hospeda una instancia del servicio Knowledge Explora
 |-----------------|----------------------------|
 | `<grammarFile>` | Ruta de acceso de gramática binaria de entrada         |
 | `<indexFile>`   | Ruta de acceso de índice binario de entrada           |
-| `--port <port>` | Número de puerto local.  Predeterminado: 8000 |
+| `--port <port>` | Número de puerto local.  Valor predeterminado: 8000 |
 
 Estos archivos se pueden especificar mediante rutas de acceso a archivos locales o rutas de dirección URL a blobs de Azure.  Un servicio web se hospedará en http://localhost:&lt;port&gt;/.  Consulte [API web](WebAPI.md) para obtener una lista de las operaciones admitidas.
 

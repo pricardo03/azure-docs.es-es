@@ -3,23 +3,23 @@ title: Cómo usar identidades administradas de recursos de Azure en una máquina
 description: Paso a paso las instrucciones y ejemplos de uso de administran identidades para los recursos de Azure en una máquina virtual para adquirir un token de acceso de OAuth.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: d737f1b17322d4b2ea0ab00a8e0bd386e8cb1747
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166584"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -33,7 +33,7 @@ En este artículo se proporcionan diversos ejemplos de códigos y scripts para o
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Si tiene previsto usar los ejemplos de Azure PowerShell de este artículo, no se olvide de instalar la última versión de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
+Si tiene previsto usar los ejemplos de Azure PowerShell de este artículo, no se olvide de instalar la última versión de [Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 > [!IMPORTANT]

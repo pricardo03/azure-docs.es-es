@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264757"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470607"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 
-En este tutorial, exploraremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de base de datos por inquilino. Se usará la [restauración geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) para recuperar el catálogo y las bases de datos de inquilino a partir de copias de seguridad con redundancia geográfica mantenidas automáticamente en una región de recuperación alternativa. Después de que se resuelva la interrupción, usará la [replicación geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para repatriar las bases de datos cambiadas a su región original.
+En este tutorial, exploraremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de base de datos por inquilino. Se usará la [restauración geográfica](sql-database-recovery-using-backups.md) para recuperar el catálogo y las bases de datos de inquilino a partir de copias de seguridad con redundancia geográfica mantenidas automáticamente en una región de recuperación alternativa. Después de que se resuelva la interrupción, usará la [replicación geográfica](sql-database-geo-replication-overview.md) para repatriar las bases de datos cambiadas a su región original.
 
 ![Arquitectura de restauración geográfica](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ La recuperación ante desastres (DR) es una consideración importante para mucha
 En este tutorial se usan características de Azure SQL Database y la plataforma de Azure para abordar estos desafíos:
 
 * [Plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar toda la capacidad necesaria tan rápido como sea posible. Las plantillas de Azure Resource Manager se utilizan para aprovisionar una imagen reflejada de los servidores originales y los grupos elásticos en la región de recuperación. También se crean un servidor y un grupo independientes para el aprovisionamiento de nuevos inquilinos.
-* [Biblioteca cliente de Elastic Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL), para crear y mantener un catálogo de bases de datos de inquilinos. El catálogo ampliado incluye información de configuración de grupos y bases de datos actualizada periódicamente.
-* [Características de recuperación de administración de particiones](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) de la EDCL, para mantener las entradas de ubicación de base de datos en el catálogo durante la recuperación y repatriación.  
-* [Restauración geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), para recuperar el catálogo y las bases de datos de inquilino a partir de copias de seguridad con redundancia geográfica mantenidas automáticamente. 
+* [Biblioteca cliente de Elastic Database](sql-database-elastic-database-client-library.md) (EDCL), para crear y mantener un catálogo de bases de datos de inquilinos. El catálogo ampliado incluye información de configuración de grupos y bases de datos actualizada periódicamente.
+* [Características de recuperación de administración de particiones](sql-database-elastic-database-recovery-manager.md) de la EDCL, para mantener las entradas de ubicación de base de datos en el catálogo durante la recuperación y repatriación.  
+* [Restauración geográfica](sql-database-disaster-recovery.md), para recuperar el catálogo y las bases de datos de inquilino a partir de copias de seguridad con redundancia geográfica mantenidas automáticamente. 
 * [Operaciones de restauración asincrónicas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas en orden de prioridad de inquilino, que el sistema pone en cola para cada grupo y se procesan por lotes de modo que el grupo no se sobrecarga. Estas operaciones se pueden cancelar antes de la ejecución o durante esta en caso de que sea necesario.   
-* [Replicación geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), para repatriar las bases de datos a la región original después de la interrupción. Cuando se usa la replicación geográfica, no hay pérdida de datos y el impacto en el inquilino es mínimo.
-* [Alias DNS de SQL Server](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), para permitir que el proceso de sincronización del catálogo se conecte al catálogo activo, independientemente de su ubicación.  
+* [Replicación geográfica](sql-database-geo-replication-overview.md), para repatriar las bases de datos a la región original después de la interrupción. Cuando se usa la replicación geográfica, no hay pérdida de datos y el impacto en el inquilino es mínimo.
+* [Alias DNS de SQL Server](dns-alias-overview.md), para permitir que el proceso de sincronización del catálogo se conecte al catálogo activo, independientemente de su ubicación.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtención de los scripts de recuperación ante desastres
 
@@ -378,4 +378,4 @@ Pruebe el tutorial sobre la [recuperación ante desastres de una aplicación Saa
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-[Otros tutoriales basados en la aplicación SaaS de Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Otros tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

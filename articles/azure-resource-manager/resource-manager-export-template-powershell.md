@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c69bab9d2956568473dd6def86ecbd9bbb6577cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359227"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081612"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportación de plantillas de Azure Resource Manager con Azure PowerShell
 
@@ -36,18 +36,18 @@ En este artículo se contemplan ambos métodos.
 Para ilustrar ambos enfoques para exportar una plantilla, empecemos por la implementación de una solución en la suscripción. Si ya tiene un grupo de recursos en la suscripción que desee exportar, no es necesario implementar esta solución. Sin embargo, el resto de este artículo hace referencia a la plantilla para esta solución. El script de ejemplo implementa una cuenta de almacenamiento.
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
 ## <a name="save-template-from-deployment-history"></a>Guardado de una plantilla desde el historial de implementación
 
-Puede recuperar una plantilla desde el historial de implementación mediante el comando [Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate). En el ejemplo siguiente se guarda la plantilla implementada previamente:
+Puede recuperar una plantilla desde el historial de implementación mediante el comando [Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate). En el ejemplo siguiente se guarda la plantilla implementada previamente:
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
 Devuelve la ubicación de la plantilla.
@@ -62,10 +62,10 @@ Abra el archivo y tenga en cuenta que es la misma plantilla que usó para la imp
 
 ## <a name="export-resource-group-as-template"></a>Exportación de un grupo de recursos como una plantilla
 
-En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
+En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [Export-AzureRmResourceGroup](/powershell/module/az.resources/export-azresourcegroup). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
 Devuelve la ubicación de la plantilla.
@@ -111,7 +111,7 @@ Abra el archivo y tenga en cuenta que es diferente de la plantilla en GitHub. Ti
 Puede volver a implementar esta plantilla, pero tendrá que adivinar el nombre único para la cuenta de almacenamiento. El nombre del parámetro es ligeramente diferente.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```

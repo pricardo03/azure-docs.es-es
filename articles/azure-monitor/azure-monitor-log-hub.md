@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/15/2019
+ms.date: 01/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 5c3a61eb4509742f8f5a8732f5d4e81cab59ff78
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a48e252d1dce2d9142249642a6221e8913c1d92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829891"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223432"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -53,8 +53,8 @@ ms.locfileid: "54829891"
                                                                     <p> 
                                                                         <a href="/azure/azure-monitor/overview">¿Qué es Azure Monitor?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Cambios de marca</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/monitoring-data-sources">Supervisión de orígenes de datos</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-service-providers">Consideraciones de diseño para proveedores de servicio</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-sources">Supervisión de orígenes de datos</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">Consideraciones de diseño para proveedores de servicio</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -75,8 +75,8 @@ ms.locfileid: "54829891"
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3>Descripción de la seguridad</h3> 
                                                                     <p>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-data-security">Datos de registro</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-personal-data-mgmt">Control de datos de registro personales</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-security">Datos de registro</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">Control de datos de registro personales</a><br/>
                                                                         <a href="/azure/azure-monitor/platform/roles-permissions-security">Permisos de roles y seguridad</a><br/>
                                                                     </p>
                                                                     <br>
@@ -103,7 +103,7 @@ ms.locfileid: "54829891"
                                                     <h3>Supervisión</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">Métricas y registros</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Tiempo de ingesta de datos de registro</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Tiempo de ingesta de datos de registro</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>Orígenes de datos</h3>
@@ -147,7 +147,7 @@ ms.locfileid: "54829891"
                                                         <br>
                                                         <h3>Respuesta a los incidentes</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified">Información general de las alertas</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-overview">Información general de las alertas</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Autoscale</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-unified-log">Alertas de registro</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-activity-log">Alertas de registros de actividad</a><br/>

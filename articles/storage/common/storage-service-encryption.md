@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: common
+ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384129"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457180"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption para datos en reposo
 Azure Storage Service Encryption para datos en reposo le ayuda a proteger sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Con esta característica, la plataforma de almacenamiento de Azure cifra automáticamente los datos antes de almacenarlos en Azure Managed Disks, Azure Blob, Queue o Table Storage, o Azure Files y los descifra antes de recuperarlos. El control del cifrado, el cifrado en reposo, el descifrado y la administración de claves en Cifrado del servicio Storage es transparente para los usuarios. Todos los datos escritos en la plataforma de almacenamiento de Azure se cifran mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más fuertes disponibles.

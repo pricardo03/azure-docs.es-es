@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre la arquitectura, la terminología y los conceptos que conforman el servicio Azure Machine Learning. También podrá informarse sobre el flujo de trabajo general que supone usar el servicio y sobre los servicios de Azure que usa Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 751a1dc84f81b388a1fffb82cc3dfbc4996eed1f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401984"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249636"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 

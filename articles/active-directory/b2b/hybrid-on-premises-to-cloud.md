@@ -3,19 +3,19 @@ title: Conceder a las cuentas de asociado administradas localmente acceso a recu
 description: Proporcione a los asociados externos administrados localmente acceso a recursos locales y en la nube con las mismas credenciales mediante la colaboración B2B de Azure AD.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: e1041c40ba5932bc43a6e8667446143ae7fd7f82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bdc3e4999eac66e3a21817ac1fc55a46d84aa58a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429045"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076297"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube mediante la colaboración B2B de Azure AD
 

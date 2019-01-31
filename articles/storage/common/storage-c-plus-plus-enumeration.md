@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.component: common
-ms.openlocfilehash: 2f9c7e791bf77c2387dbe9ba58b3ef70abe8fb89
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.subservice: common
+ms.openlocfilehash: 51ee5362a01a846378228a42343cc0e2b9f72497
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411275"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470219"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
 Las operaciones de enumeración son clave para muchos escenarios de desarrollo con Azure Storage. En este artículo se describe cómo enumerar los objetos de Azure Storage de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Microsoft Azure Storage para C++.

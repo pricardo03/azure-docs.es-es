@@ -11,20 +11,22 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: c41420e46a0bd4afbaed96da0e2fb9775d49c6fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606544"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470270"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Supervisión del almacenamiento OLTP en memoria
+
 Cuando se usa [OLTP en memoria](sql-database-in-memory.md), los datos de tablas optimizadas para memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium y Crítico para la empresa tiene un tamaño máximo de almacenamiento OLTP en memoria. Consulte [Límites de los recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-single-databases.md), [Límites de los recursos basados en DTU para grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Límites de los recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [Límites de los recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir el error 41823 para las bases de datos únicas y el 41840 para los grupos elásticos. En ese momento, es necesario eliminar los datos para reclamar memoria o actualizar el nivel de servicio o el tamaño de proceso de la base de datos.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Determinación de si los datos se ajustan al límite de almacenamiento de OLTP en memoria
+
 Determine los extremos de almacenamiento de los diferentes niveles de servicio. Consulte [Límites de los recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-single-databases.md), [Límites de los recursos basados en DTU para grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Límites de los recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [Límites de los recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 La estimación de los requisitos de memoria para una tabla optimizada para memoria funciona de la misma manera para SQL Server tal y como se hace en la base de datos SQL de Azure. Dedique algunos minutos a revisar ese artículo en [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
@@ -40,10 +42,12 @@ Puede supervisar el uso del almacenamiento en memoria como un porcentaje del lí
 
 O bien, use la siguiente consulta para mostrar el uso del almacenamiento en memoria:
 
+```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
-
+```
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Corrección de las situaciones de almacenamiento de OLTP en memoria agotado: errores 41823 y 41840
+
 Al alcanzar el límite de almacenamiento de OLTP en memoria de la base de datos, se producen errores en las operaciones de inserción, actualización, modificación y creación, cuyos mensajes de error son 41823 (para bases de datos únicas) y 41840 (para grupos elásticos). Ambos errores anulan la transacción activa.
 
 Los mensajes de error 41823 y 41840 indican que las tablas optimizadas en memoria y las variables de tabla de la base de datos o el grupo han alcanzado el tamaño máximo de almacenamiento de OLTP en memoria.
