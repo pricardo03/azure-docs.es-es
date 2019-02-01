@@ -3,19 +3,19 @@ title: Actualización de PhoneFactor al Servidor Azure MFA | Microsoft Docs
 description: Introducción al Servidor Azure MFA al actualizar desde una instancia anterior de PhoneFactor Agent.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: e2c3024b16a7ef2fc02abb8bbdb75c166a6962cd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e7e34d3d90191889a87990ab5814e67d4359b8fc
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432377"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078263"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
 

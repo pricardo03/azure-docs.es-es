@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.lastreviewed: 11/6/2018
+ms.openlocfilehash: 7d013fce08f688c49d828b829f84e385455c84fe
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464815"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249704"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Servicio multiinquilino en Azure Stack
 
@@ -41,10 +42,10 @@ Hay algunos requisitos previos que debe tener en cuenta antes de configurar los 
  - Asegúrese de que ha [instalado](azure-stack-powershell-install.md) y [configurado](azure-stack-powershell-configure-admin.md) PowerShell para Azure Stack.
  - [Descargue Azure Stack Tools](azure-stack-powershell-download.md) e importe los módulos Connect e Identity:
 
-    ````PowerShell  
+    ```PowerShell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
-    ````
+    ```
 
 ### <a name="configure-azure-stack-directory"></a>Configurar el directorio de Azure Stack
 
@@ -54,7 +55,7 @@ Incorpore el inquilino de directorio invitado (Fabrikam) a Azure Stack y configu
 
 El administrador de servicios de contoso.onmicrosoft.com ejecuta los comandos siguientes.
 
-````PowerShell  
+```PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -75,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
  -Location $location `
  -ResourceGroupName $ResourceGroupName
-````
+```
 
 ### <a name="configure-guest-directory"></a>Configurar el directorio de invitados
 
@@ -85,7 +86,7 @@ Una vez que el administrador u operador de Azure Stack ha habilitado el director
 
 Mary, la administradora del directorio de Fabrikam, ejecuta los comandos siguientes en el fabrikam.onmicrosoft.com del directorio invitado.
 
-````PowerShell
+```PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
@@ -96,7 +97,7 @@ Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
-````
+```
 
 > [!IMPORTANT]
 > Si el Administrador de Azure Stack instala nuevos servicios o las actualizaciones en el futuro, puede que tenga que volver a ejecutar este script.

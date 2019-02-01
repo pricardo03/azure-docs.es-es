@@ -10,12 +10,13 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283459"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251867"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
@@ -129,7 +130,7 @@ Siga estos pasos para ejecutar Get-AzureStackLog en un equipo que hospede ASDK.
  |   |   |   |    |
  | - | - | - | -  |   
  |ACS                   |CacheService                   |IBC                            |OEM|
- |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP|
+ |ACSDownloadService    |Proceso                        |InfraServiceController         |OnboardRP|
  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|

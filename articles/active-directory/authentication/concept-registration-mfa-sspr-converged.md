@@ -3,19 +3,19 @@ title: Registro convergente para SSPR y MFA de Azure AD (versión preliminar pú
 description: Registro de restablecimiento de contraseña de autoservicio y Multi-Factor Authentication de Azure AD (versión preliminar pública)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 192b88623d2f85efd619e26d51f35b4797706761
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433754"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472684"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication (versión preliminar pública)
 
@@ -74,8 +74,6 @@ En esta página, los usuarios ven los métodos de autenticación previamente reg
 Los registros de auditoría de esta nueva experiencia se encuentran en la categoría Métodos de autenticación del registro de auditoría.  
 
 ## <a name="known-issues"></a>Problemas conocidos
-
-Hemos identificado un error con el registro convergente por el que los usuarios de invitados de B2B que están habilitados para el registro convergente no pueden registrarse para MFA. Cuando se le dirige a la página de registro, la página se bloquea. Nuestros desarrolladores son conscientes del problema y están trabajando para proporcionar una solución. Por ahora, la recomendación es crear un grupo y excluir los usuarios de B2B de ese grupo.
 
 **El método MFA predeterminado se establece en llamada de teléfono cuando un usuario registra un teléfono mediante un mensaje de texto**
 

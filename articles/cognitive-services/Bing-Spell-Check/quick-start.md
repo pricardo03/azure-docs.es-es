@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Bing Spell Check API'
+title: 'Inicio rápido: Bing Spell Check API'
 titlesuffix: Azure Cognitive Services
 description: Se muestra cómo empezar a usar Bing Spell Check API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4af90c0e1ffd6dbadcb31eb6141bc24f746d01f9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e5fa4db8754924b8c2bacfc8bf624380aae063c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148955"
 ---
-# <a name="quickstart-your-first-spell-check-request"></a>Guía de inicio rápido: La primera solicitud de revisión ortográfica
+# <a name="quickstart-your-first-spell-check-request"></a>Inicio rápido: La primera solicitud de corrector ortográfico
 
 Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en **Buscar**.  Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 

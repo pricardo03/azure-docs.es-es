@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 4c9fe269ffa351c1efdb3f94a15a10bae65432d8
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199657"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216027"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solución de administración de Application Insights Connector (versión preliminar)
 
@@ -55,7 +55,7 @@ A diferencia de la mayoría de las demás soluciones de Log Analytics, los agent
 
 ## <a name="configuration"></a>Configuración
 
-1. Habilite la solución Azure Web Apps Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) o mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../../azure-monitor/insights/solutions.md).
+1. Habilite la solución Azure Web Apps Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../../azure-monitor/insights/solutions.md).
 2. Vaya a [Azure Portal](https://portal.azure.com). Seleccione **Todos los servicios** para abrir Application Insights. Después, busque “Application Insights”. 
 3. En **Seleccionar una suscripción**, seleccione una suscripción que tenga recursos de Application Insights y, después, en **Nombre**, seleccione una o más aplicaciones.
 4. Haga clic en **Save**(Guardar).
@@ -174,7 +174,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Escriba | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora del registro |
 | ApplicationId | Clave de instrumentación de la aplicación de Application Insights |
@@ -223,7 +223,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="exception-specific-fields"></a>Campos específicos de excepción
 
-| Escriba | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Excepción |
 | ExceptionType | Tipo de la excepción |
@@ -242,7 +242,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Escriba | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | Solicitud |
 | ResponseCode | Respuesta HTTP enviada al cliente |
 | RequestSuccess | Indica una solicitud correcta o errónea. True o false. |

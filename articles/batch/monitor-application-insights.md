@@ -2,7 +2,7 @@
 title: Supervisión de Batch con Azure Application Insights | Microsoft Docs
 description: Aprenda a instrumentar una aplicación .NET de Azure Batch con la biblioteca de Azure Application Insights.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: danlep
-ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.author: lahugh
+ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119914"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473469"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Supervisión y depuración de una aplicación .NET de Azure Batch con Application Insights
 

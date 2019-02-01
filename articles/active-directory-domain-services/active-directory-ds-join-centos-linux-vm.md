@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 3a321246c948c38abc5840fd4e2113a648151a21
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9ea236718b7fd9b808a5092dddec9574f6b93b48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850406"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167162"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual CentOS Linux a un dominio administrado
 Este artículo muestra cómo unir una máquina virtual CentOS Linux en Azure a un dominio administrado de Azure AD Domain Services.
@@ -87,7 +87,7 @@ Ahora que los paquetes necesarios están instalados en la máquina virtual de Li
     ```
 
     > [!NOTE]
-    > **Solución de problemas:** Si la *detección de dominio kerberos* no puede encontrar el dominio administrado:  
+    > **Solución de problemas:** si la *detección de dominio kerberos* no puede encontrar el dominio administrado:  
       * Asegúrese de que el dominio sea accesible desde la máquina virtual (pruebe con ping).  
       * Compruebe que la máquina virtual se haya implementado realmente en la misma red virtual en la que el dominio administrado está disponible.
       * Compruebe si ha actualizado la configuración del servidor DNS para que la red virtual apunte a los controladores de dominio del dominio administrado.  

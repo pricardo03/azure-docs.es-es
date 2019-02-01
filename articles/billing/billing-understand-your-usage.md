@@ -3,7 +3,7 @@ title: Conocimiento del uso detallado de Azure | Microsoft Docs
 description: Aprenda a leer y entender las secciones del archivo CSV de uso detallado de la suscripción de Azure
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580922"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901316"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Descripción de los términos de los cargos de uso detallados de Microsoft Azure 
 

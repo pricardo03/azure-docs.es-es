@@ -6,16 +6,16 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3476c353a2b5c5eeaaa7406712bebd178ac5c1e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364035"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227750"
 ---
 # <a name="api"></a>API
 
@@ -144,7 +144,7 @@ Aquí `data` es el argumento para la función `callback()`, tal como se describi
 Solo para realizar pruebas, puede llamar a Reward API a través de [cURL](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
-curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
 El efecto esperado es una respuesta HTTP de 200 (OK). Puede ver la recompensa de 1 para este evento en el registro (si se proporcionó una clave de cuenta de almacenamiento de Azure en el portal).

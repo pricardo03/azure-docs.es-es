@@ -7,16 +7,16 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 142d3442db9156876430b196a8e15b506db80018
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54814467"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180405"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)
 

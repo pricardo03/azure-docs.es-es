@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 04e489e6b6841f1038830d0b160e88111be8d838
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301967"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245895"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Creación de particiones de tablas en SQL Data Warehouse
 Recomendaciones y ejemplos para usar las particiones de tabla en Azure SQL Data Warehouse.
@@ -70,7 +70,7 @@ WITH
 ## <a name="migrating-partitioning-from-sql-server"></a>Migración de particiones de SQL Server
 Para migrar las definiciones de particiones de SQL Server a SQL Data Warehouse:
 
-- Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql) de SQL Server.
+- Elimine el [esquema de particiones](/sql/t-sql/statements/create-partition-scheme-transact-sql)de SQL Server.
 - Agregue la definición de [función de partición](/sql/t-sql/statements/create-partition-function-transact-sql) a CREATE TABLE.
 
 Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición. Tenga en cuenta que si se utiliza la misma granularidad de particiones en SQL Data Warehouse, el número de filas por partición se reduce en un factor de 60.  

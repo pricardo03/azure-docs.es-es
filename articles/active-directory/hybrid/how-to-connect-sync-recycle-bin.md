@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468803"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203817"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronización de Azure AD Connect: Habilitar la papelera de reciclaje de AD
 Se recomienda que habilite la característica Papelera de reciclaje de AD en sus instancias locales de Active Directory, que se sincronizan con Azure AD. 
@@ -39,9 +39,6 @@ Esta característica ayuda a restaurar objetos de usuario de Azure AD mediante l
 
 > [!NOTE]
 > De forma predeterminada, Azure AD mantiene los objetos de usuario de Azure AD eliminados en estado de eliminación temporal durante 30 días antes de eliminarlos permanentemente. Sin embargo, los administradores pueden acelerar la eliminación de dichos objetos. Una vez que los objetos se eliminan permanentemente, ya no se puedan recuperar, aunque esté habilitada la característica Papelera de reciclaje de la instancia de AD local.
-
->[!NOTE]
->Anteriormente, cuando se quitaba un usuario del ámbito de sincronización local y se eliminaba de la nube, el estado DirSyncEnabled de la cuenta se establecía erróneamente en "False". Si, posteriormente, ese usuario se restauraba manualmente de la papelera de reciclaje de Azure AD, se mostraba un estado incorrecto de cuenta de "Solo nube". Este problema ya se ha solucionado y el valor del estado DirSyncEnabled siempre se mantiene en "True" cuando un usuario se quita del ámbito de sincronización. A continuación, se elimina temporalmente y se restaura manualmente desde la papelera de reciclaje de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427423"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251697"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticación del acceso a blobs y colas con identidades administradas para los recursos de Azure (versión preliminar)
 
@@ -43,7 +43,7 @@ Para autenticar una identidad administrada desde la aplicación Azure Storage, p
 
 Para autenticarse con una identidad administrada, la aplicación o el script debe adquirir un token de acceso de identidad administrada. Para aprender a adquirir un token de acceso, consulte [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: creación de un blob en bloques
+## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: Creación de un blob en bloques
 
 El ejemplo de código supone que tiene un token de acceso de identidad administrada. El token de acceso se utiliza para autorizar a la identidad administrada para crear un blob en bloques.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: wsturman
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416287"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218016"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de Bing Speech al servicio Voz
 
@@ -90,7 +90,7 @@ Para obtener información sobre compatibilidad de API, SDK y el servicio Voz, vi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Prueba gratuita del servicio Voz](get-started.md)
-* [Inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz](quickstart-csharp-uwp.md)
+* [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Otras referencias
 * [Notas de la versión del servicio Voz](releasenotes.md)

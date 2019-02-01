@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339940"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224452"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introducción a Custom Speech Service
 
@@ -36,7 +36,7 @@ Puede descargar una biblioteca cliente y un ejemplo a través del [SDK](https://
 ## <a name="creating-a-custom-acoustic-model"></a>Crear un modelo acústico personalizado
 Para personalizar el modelo acústico para un dominio en particular, se requiere una colección de datos de voz. Esta colección se compone de un conjunto de archivos de audio de los datos de voz y un archivo de texto de transcripciones de cada archivo de audio. Los datos de audio deben ser representativos del escenario en el que quiere usar el reconocedor.
 
-Por ejemplo: si quiere reconocer mejor la voz en el entorno de una fábrica con ruido, los archivos de audio deben consistir en personas que hablan en una fábrica con ruido.
+Por ejemplo:  Si quiere reconocer mejor la voz en el entorno de una fábrica con ruido, los archivos de audio deben consistir en personas que hablan en una fábrica con ruido.
 Si está interesado en optimizar el rendimiento de un solo hablante, por ejemplo, quiere transcribir todas las Charlas junto al fuego de FDR, los archivos de audio deben consistir en muchos ejemplos de ese único hablante.
 
 Puede encontrar una descripción detallada sobre cómo crear un modelo acústico personalizado [aquí](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

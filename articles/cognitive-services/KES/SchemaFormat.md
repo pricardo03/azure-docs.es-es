@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227308"
 ---
 # <a name="schema-format"></a>Formato de esquema
 
@@ -41,12 +41,12 @@ Los nombres de atributo son identificadores que distinguen entre mayúsculas y m
 
 A continuación se muestra una lista de los tipos de datos de atributos admitidos:
 
-| Escriba | DESCRIPCIÓN | Operaciones | Ejemplo |
+| Type | DESCRIPCIÓN | Operaciones | Ejemplo |
 |------|-------------|------------|---------|
 | string | Cadena (1-1024 caracteres) | equals, starts_with | "hello world" |
 | Int32 | Entero de 32 bits con signo | equals, starts_with, is_between | 2016 |
 | Int64 | Entero de 64 bits con signo | equals, starts_with, is_between | 9876543210 |
-| Doble | Valor de punto flotante de doble precisión | equals, starts_with, is_between | 1.602e-19 |
+| Double | Valor de punto flotante de doble precisión | equals, starts_with, is_between | 1.602e-19 |
 | Date | Fecha (de 01-01-1400 a 31-12-9999) | equals, is_between | "2016-03-14" |
 | Guid | Identificador único global | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | Datos comprimidos internamente no indexados | *None* | "Permitir que todas las personas y organizaciones del mundo puedan llegar aún más lejos" |

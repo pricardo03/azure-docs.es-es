@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7ad9f16e2b153adcdba076a07207d1ab16f9c09e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e45cf028740a05fa35bcf933f727053ab82bdcfa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195077"
 ---
 # <a name="new-offer-menu"></a>Menú Nueva oferta
 
@@ -27,14 +27,14 @@ El menú **Nueva oferta** permite a los asociados crear instancias de tipos de o
 
 |    **Elemento de menú Nueva oferta**     |     **Sección del documento correspondiente**                       |
 |    -----------------------     |     -----------------------------                       |
-| ![Elemento de menú Aplicaciones de Azure](./media/new-offer-menu1.png) |  [Oferta de aplicación de Azure](./../../cloud-partner-portal-orig/cpp-azure-app-offer.md) |
+| ![Elemento de menú Aplicaciones de Azure](./media/new-offer-menu1.png) |  [Oferta de aplicación de Azure](../azure-applications/cpp-azure-app-offer.md) |
 | ![Elemento de menú Servicios de consultoría](./media/new-offer-menu2.png) | [Oferta de servicios de consultoría](./../../cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md) |
 | ![Elemento del menú Containers](./media/new-offer-menu3.png) | [Oferta de Containers](./../containers/cpp-containers-offer.md) |
 | ![Elemento de menú Dynamics 365 Business Central](./media/new-offer-menu4.png) | [Oferta de Dynamics 365 Business Central](./../../cloud-partner-portal-orig/cpp-business-central-offer.md) |
 | ![Elemento de menú Dynamics 365 for Customer Engagement](./media/new-offer-menu5.png) | [Oferta de Dynamics 365 for Customer Engagement](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Elemento de menú Dynamics 365 for Operations](./media/new-offer-menu6.png) | [Oferta de Dynamics 365 for Operations](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![Elemento de menú Módulos de IoT Edge](./media/new-offer-menu7.png) | [Oferta de Módulo de IoT Edge](./../iot-edge-module/cpp-offer-process-parts.md) |
-| ![ Elemento de menú Aplicaciones SasS](./media/new-offer-menu8.png) | [Oferta de aplicación SaaS](./../../cloud-partner-portal-orig/cpp-saas-app-offer.md) |
+| ![ Elemento de menú Aplicaciones SasS](./media/new-offer-menu8.png) | [Oferta de aplicación SaaS](../saas-app/cpp-saas-offer.md) |
 | ![ Elemento de menú Máquinas virtuales](./media/new-offer-menu9.png) | [Oferta de máquina virtual](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |
 

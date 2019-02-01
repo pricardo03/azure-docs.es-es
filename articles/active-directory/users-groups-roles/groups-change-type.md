@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 4cc9c446c1a8ff7c82b08ba9787a40598a8b4cd4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 11175a091ad610470632b52b46270ed27c76e452
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450735"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150638"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Cambio de la pertenencia de un grupo estático a dinámico en Azure Active Directory
 
@@ -120,7 +120,7 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 
 En estos artículos se proporciona información adicional sobre los grupos en Azure Active Directory.
 
-* [Ver los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Crear un nuevo grupo y agregar miembros](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Administrar la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)

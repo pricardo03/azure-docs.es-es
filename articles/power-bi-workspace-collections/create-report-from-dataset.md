@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046661"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170426"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI
 
@@ -32,7 +32,7 @@ Cuando se crea un informe insertado, los tokens emitidos son para un conjunto de
 
 Colección de áreas de trabajo de Power BI usa tokens de inserción, es decir, tokens web JSON con firma HMAC. Los tokens se firman con la clave de acceso de Colección de áreas de trabajo de Power BI. De manera predeterminada, los tokens de inserción se utilizan para proporcionar acceso de solo lectura a un informe para insertarlo en una aplicación. Los tokens de inserción se emiten para un informe concreto y se deben asociar a una dirección URL de inserción.
 
-Los tokens de acceso deben crearse en el servidor, ya que las claves de acceso se utilizan para firmar o cifrar los tokens. Para obtener información sobre cómo crear un token de acceso, consulte [Autenticación y autorización con Power BI Embedded](app-token-flow.md). También puede revisar el método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aquí hay un ejemplo de cómo sería si se usara el SDK de .NET de Power BI.
+Los tokens de acceso deben crearse en el servidor, ya que las claves de acceso se utilizan para firmar o cifrar los tokens. Para obtener información sobre cómo crear un token de acceso, consulte [Autenticación y autorización con Power BI Embedded](app-token-flow.md). También puede revisar el método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Aquí hay un ejemplo de cómo sería si se usara el SDK de .NET de Power BI.
 
 En este ejemplo, tenemos nuestro identificador de conjunto de datos en el deseamos crear el nuevo informe. También es preciso agregar los ámbitos de *Dataset.Read y Workspace.Report.Create*.
 

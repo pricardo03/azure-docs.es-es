@@ -3,7 +3,7 @@ title: Conocimiento de la factura de Azure | Microsoft Docs
 description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581568"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901027"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
 
@@ -100,7 +100,7 @@ La tabla siguiente describe los encabezados de columna de los cargos de uso que 
 | Término |DESCRIPCIÓN |
 | --- | --- |
 | NOMBRE |Identifica el servicio de nivel superior para el uso. |
-| Escriba |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
+| Type |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
 | Recurso |Identifica la unidad de medida del medidor que se está utilizando. |
 | Region |Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. |
 | Consumida |La cantidad del medidor usado durante el período de facturación. |

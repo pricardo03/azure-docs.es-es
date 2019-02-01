@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 5458d83fcc9fad50a2a52273ea6b5573ed90a97e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 246b87e46029c2bf4d7361540939181b3b209acc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796667"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219140"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Uso de devoluciones de llamada de sesión con un modelo de Conversation Learner
 
@@ -74,7 +74,7 @@ Hay cuatro acciones definidas en el modelo. Las acciones existentes se muestran 
 ### <a name="chaining-actions"></a>Acciones encadenadas
 
 1. En el panel izquierdo, haga clic en “Train Dialogs” (Diálogos de entrenamiento) y, después, en el botón “New Train Dialog” (Nuevo diálogo de entrenamiento).
-2. En el panel del chat, donde dice “Type your message…” (Escriba su mensaje…), escriba “hi” (hola).
+2. En el panel del chat, donde se indica "Type your message..." (Escriba su mensaje…), escriba "hola".
 3. Haga clic en el botón “Score Actions” (Puntuar acciones).
 4. Seleccione la respuesta “Hi, I'm Botty. What's your name?” (Hola, soy Botty. ¿Cómo se llama?).
 5. En el panel del chat, donde dice “Type your message…” (Escriba su mensaje…), escriba “Lars”.

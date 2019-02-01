@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259994"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227954"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serialización de datos en Apache Hadoop con Microsoft Avro Library
 
@@ -1351,7 +1351,7 @@ El sexto ejemplo muestra algunas técnicas de programación relacionadas para in
 La muestra hace las siguientes tareas:
 
 * Se conecta a un clúster del servicio HDInsight existente.
-* Serializa varios archivos CSV y carga el resultado en Azure Blob Storage. (Los archivos CSV se distribuyen junto con la muestra y representan un extracto de los datos históricos del mercado de valores AMEX distribuidos por [Infochimps](https://www.infochimps.com/) para el período 1970-2010. La muestra lee los datos de los archivos CSV, convierte los registros en instancias de la clase **Stock** y, después, los serializa mediante el uso de la reflexión. La definición del tipo de valores se crea en un esquema JSON utilizando la utilidad de generación de código de Microsoft Avro Library.
+* Serializa varios archivos CSV y carga el resultado en Azure Blob Storage. (Los archivos CSV se distribuyen junto con la muestra y representan un extracto de los datos históricos del mercado de valores AMEX distribuidos por [Infochimps](https://www.infochimps.org/) para el período 1970-2010. La muestra lee los datos de los archivos CSV, convierte los registros en instancias de la clase **Stock** y, después, los serializa mediante el uso de la reflexión. La definición del tipo de valores se crea en un esquema JSON utilizando la utilidad de generación de código de Microsoft Avro Library.
 * Crea una nueva tabla externa denominada **Stocks** en Hive y la vincula a los datos cargados en el paso anterior.
 * Ejecuta una consulta mediante Hive en la tabla **Stocks** .
 

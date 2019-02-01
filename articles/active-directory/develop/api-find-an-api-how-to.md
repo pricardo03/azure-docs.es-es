@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 8d0b9f219d7a0bc61e3d12acfaae6015963401f9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 8ca892341f064a0b2289e6415658c5d4e2d51ddc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723878"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157583"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Búsqueda de una API específica necesaria para una aplicación desarrollada internamente
 
@@ -31,7 +31,7 @@ Al exponer la API web, la API se muestra en la lista **Seleccionar una API** al 
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>Configuración de una aplicación cliente para acceder a las API web
 
-Al agregar permisos al registro de la aplicación, también puede **agregar acceso a API** a las API web expuestas. Para acceder a API web, siga los pasos descritos en [Para agregar credenciales o permisos para acceder a las API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis).
+Al agregar permisos al registro de la aplicación, también puede **agregar acceso a API** a las API web expuestas. Para acceder a API web, siga los pasos descritos en [Para agregar credenciales o permisos para acceder a las API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

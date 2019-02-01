@@ -10,15 +10,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 3629215dc1f6dfcb28194c487358adb058af3e8e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602926"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453015"
 ---
 # <a name="monitor-and-improve-performance"></a>Supervisión y mejora del rendimiento
+
 Azure SQL Database identifica posibles problemas en la base de datos y recomienda las acciones que pueden mejorar el rendimiento de la carga de trabajo mediante recomendaciones y acciones de optimización inteligentes.
 
 Para revisar el rendimiento de la base de datos, use el icono **Rendimiento** de la página Información general o desplácese hacia abajo hasta la sección "Soporte técnico y solución de problemas":
@@ -34,6 +35,7 @@ En la sección "Soporte técnico y solución de problemas", puede usar las pági
 4. [Ajuste automático](#automatic-tuning) para permitir que Azure SQL Database optimice automáticamente la base de datos.
 
 ## <a name="performance-overview"></a>Información general de rendimiento
+
 Esta vista ofrece un resumen del rendimiento de la base de datos y le ayuda con la optimización y solución de problemas de rendimiento. 
 
 ![Rendimiento](./media/sql-database-performance/performance.png)
@@ -44,6 +46,7 @@ Esta vista ofrece un resumen del rendimiento de la base de datos y le ayuda con 
 * El icono de **Consultas de bases de datos** muestra el resumen del rendimiento de consultas de la base de datos (uso general de DTU y consultas que consumen más recursos). Haga clic en este icono para acceder a **[Información de rendimiento de consultas](#query-performance-insight)**.
 
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
+
 En esta página se proporcionan [recomendaciones de ajuste](sql-database-advisor.md) inteligentes que pueden mejorar el rendimiento de la base de datos. Los siguientes tipos de recomendaciones se muestran en esta página:
 
 * Recomendaciones sobre qué índices se deben crear o quitar.
@@ -57,9 +60,11 @@ También puede encontrar el historial completo de las acciones de ajuste que se 
 Obtenga información sobre cómo buscar y aplicar recomendaciones de rendimiento en el artículo [Búsqueda y aplicación de recomendaciones de rendimiento](sql-database-advisor-portal.md).
 
 ## <a name="automatic-tuning"></a>Ajuste automático
+
 Las bases de datos de Azure SQL Database pueden optimizar automáticamente el rendimiento de base de datos mediante la aplicación de [recomendaciones de rendimiento](sql-database-advisor.md). Para obtener más información, lea el [artículo Ajuste automático](sql-database-automatic-tuning.md). Para habilitarlo, lea [cómo habilitar el ajuste automático](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Información de rendimiento de consultas
+
 [Información de rendimiento de consultas](sql-database-query-performance.md) permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:
 
 * Información más detallada sobre el consumo de recursos (DTU) de las bases de datos. 
@@ -71,6 +76,7 @@ Las bases de datos de Azure SQL Database pueden optimizar automáticamente el re
 Obtenga más información sobre esta página en el artículo **[Cómo usar información de rendimiento de consultas](sql-database-query-performance.md)**.
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
 * [Guía de rendimiento de Azure SQL Database](sql-database-performance-guidance.md)
 * [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
 

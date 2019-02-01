@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522050"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470542"
 ---
 # <a name="design-for-data-modification"></a>Diseño para la modificación de datos
 Este artículo se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección [Patrones de diseño de tabla](#table-design-patterns) se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
@@ -23,10 +23,10 @@ Para actualizar o eliminar una entidad, debe poder identificarla mediante el uso
 
 Los patrones siguientes de la sección [Patrones de diseño de tablas](#table-design-patterns) abordan la optimización del rendimiento o las operaciones de inserción, actualización y eliminación:  
 
-* [Patrón de eliminación de gran volumen](table-storage-design-patterns.md#high-volume-delete-pattern): habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.  
+* [Patrón de eliminación de gran volumen](table-storage-design-patterns.md#high-volume-delete-pattern) : habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.  
 * [Patrón de serie de datos](table-storage-design-patterns.md#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  
 * [Patrón de entidades amplio](table-storage-design-patterns.md#wide-entities-pattern): usar varias entidades físicas para almacenar entidades lógicas con más de 252 propiedades.  
-* [Patrón de entidades de gran tamaño](table-storage-design-patterns.md#large-entities-pattern): use Blob Storage para almacenar valores de propiedad de gran tamaño.  
+* [Patrón de entidades de gran tamaño](table-storage-design-patterns.md#large-entities-pattern) : use el almacenamiento de blobs para almacenar valores de propiedad de gran tamaño.  
 
 ## <a name="ensure-consistency-in-your-stored-entities"></a>Garantía de la coherencia en las entidades almacenadas
 El otro factor clave que afecta a su elección de claves para optimizar las modificaciones de datos es cómo garantizar la coherencia mediante el uso de transacciones atómicas. Solo puede utilizar un EGT para operar en las entidades almacenadas en la misma partición.  
@@ -35,7 +35,7 @@ Los siguientes patrones del artículo [Patrones de diseño de tablas](table-stor
 
 * [Patrón de índice secundario dentro de la partición](table-storage-design-patterns.md#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
 * [Patrón de índice secundario entre particiones](table-storage-design-patterns.md#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
-* [Patrón final coherente de transacciones](table-storage-design-patterns.md#eventually-consistent-transactions-pattern): habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
+* [Patrón final coherente de transacciones](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) : habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
 * [Patrón de entidades de índice](table-storage-design-patterns.md#index-entities-pattern): mantener las entidades de índice para permitir búsquedas eficaces que devuelvan listas de entidades.  
 * [Patrón de desnormalización](table-storage-design-patterns.md#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.  
 * [Patrón de serie de datos](table-storage-design-patterns.md#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  

@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191722"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900296"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluciones de supervisión de redes de Azure en Log Analytics
 
 Log Analytics ofrece las siguientes soluciones para supervisar las redes:
 * Monitor de rendimiento de red (NPM)
- * Supervisión del mantenimiento de la red
+    * Supervisión del mantenimiento de la red
 * Azure Application Gateway Analytics para revisar
- * Registros de Azure Application Gateway
- * Métricas de Azure Application Gateway
+    * Registros de Azure Application Gateway
+    * Métricas de Azure Application Gateway
 * Soluciones para supervisar y auditar la actividad de red en la red de la nube
-* [Análisis de tráfico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure Network Security Group Analytics
+    * [Análisis de tráfico](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Network Performance Monitor (NPM) (monitor de rendimiento de red)
 

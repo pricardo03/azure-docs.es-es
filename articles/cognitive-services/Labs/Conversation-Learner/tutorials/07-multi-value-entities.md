@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2363dde7dc2462adde730fa9a4883ffb6c558f3f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796666"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228311"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Uso de entidades de varios valores con un modelo de Conversation Learner
 Este tutorial muestra la propiedad de varios valores de las entidades.
@@ -36,15 +36,15 @@ Las entidades marcadas como de varios valores tendrán cada instancia reconocida
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-model"></a>Creación del modelo
+### <a name="create-the-model"></a>Crear el modelo
 
 1. En la interfaz de usuario web, haga clic en "New Model" (Modelo nuevo).
 2. En el campo "Name" (Nombre), escriba "EntidadesMultivalor" y pulse Entrar.
 3. Haga clic en el botón "Create" (Crear).
 
-### <a name="entity-creation"></a>Creación de la entidad
+### <a name="entity-creation"></a>Crear la entidad
 
-1. En el panel izquierdo, haga clic en "Entities" (Entidades) y, a continuación, en el botón "New Entity" (Nueva entidad).
+1. En el panel izquierdo, haga clic en “Entities” (Entidades) y, después, en el botón “New Entity” (Nueva entidad).
 2. Seleccione "Custom Trained" (Entrenada de forma personalizada) para "Entity Type" (Tipo de entidad).
 3. Escriba "ingredientes" en "Entity Name" (Nombre de entidad).
 4. Active la casilla "Multi-valued" (Varios valores).
@@ -62,7 +62,7 @@ Las entidades marcadas como de varios valores tendrán cada instancia reconocida
     - El signo del dólar inicial indica una referencia de entidad
 3. Haga clic en el botón "Create" (Crear).
 
-### <a name="create-the-second-action"></a>Creación de la segunda acción
+### <a name="create-the-second-action"></a>Crear la segunda acción
 
 1. En el panel izquierdo, haga clic en "Actions" (Acciones) y, a continuación, en el botón "New Action" (Nueva acción).
 2. En el campo "Bot's response..." (Respuesta del bot), escriba "¿Qué ingredientes quiere?"

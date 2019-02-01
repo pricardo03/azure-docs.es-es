@@ -2,19 +2,18 @@
 title: Modelo de datos de Log Analytics para Azure Backup
 description: En este artículo se explican los detalles del modelo de datos de Log Analytics para los datos de Azure Backup.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877588"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299579"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 Use el modelo de datos de Log Analytics para crear informes. Con el modelo de datos, puede crear consultas y paneles personalizados o puede personalizar los datos Azure Backup, como lo prefiera.
@@ -281,4 +280,4 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 | ResourceType |Texto |Tipo de recurso para el que se recopilan los datos. Por ejemplo: almacenes |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Cuando revise el modelo de datos para crear informes de Azure Backup, puede comenzar a [crear un panel](../azure-monitor/platform/dashboards.md) en Log Analytics.
+Cuando revise el modelo de datos para crear informes de Azure Backup, puede comenzar a [crear un panel](../azure-monitor/learn/tutorial-logs-dashboards.md) en Log Analytics.

@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 1c3b7dc8e027169db51ab9ef50634a69a43cd3e0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462069"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297504"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Instrucciones: Configuración de la directiva de riesgo de inicio de sesión
 
@@ -77,7 +77,7 @@ Sin embargo, por seguridad, esta configuración solo funciona para los usuarios 
 
 Si desea requerir MFA para los inicios de sesión con riesgo, haga lo siguiente:
 
-1. Habilite la [directiva de registro de la autenticación multifactor](#multi-factor-authentication-registration-policy) para los usuarios afectados.
+1. Habilite la [directiva de registro de la autenticación multifactor](howto-mfa-policy.md) para los usuarios afectados.
 
 2. Pida a los usuarios afectados que inicien una sesión sin riesgo para llevar a cabo el registro en MFA.
 

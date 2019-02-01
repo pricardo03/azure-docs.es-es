@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467475"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885854"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -31,7 +31,7 @@ Estos registros de diagnóstico son distintos del [registro de actividad](activi
 
 Estos registros también difieren de los registros de diagnóstico de nivel de sistema operativo invitado. Estos son los recopilados por un agente que se ejecuta dentro de una máquina virtual u otro tipo de recurso admitido. Los registros de diagnóstico de nivel de recursos no requieren ningún agente y capturan datos específicos de recurso de la plataforma Azure, mientras que los registros de diagnóstico de nivel de sistema operativo invitado capturan los datos desde el sistema operativo y las aplicaciones que se ejecutan en una máquina virtual.
 
-No todos los servicios admiten los registros de diagnóstico que se describen aquí. [En este artículo se incluye una sección en la que se muestran los servicios que admiten los registros de diagnóstico](./../../azure-monitor/platform/tutorial-dashboards.md).
+No todos los servicios admiten los registros de diagnóstico que se describen aquí. [En este artículo se incluye una sección en la que se muestran los servicios que admiten los registros de diagnóstico](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Qué se puede hacer con los registros de diagnóstico
 Estas son algunas de las cosas que puede hacer con los registros de diagnóstico:
@@ -229,7 +229,7 @@ Al agregar una opción de configuración de diagnóstico, se abre la vista Confi
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Servicios admitidos, categorías y esquemas para los registros de diagnóstico
 
-[Consulte este artículo](../../azure-monitor/platform/tutorial-dashboards.md) para obtener una lista completa de los servicios admitidos y las categorías de registro y los esquemas utilizados por esos servicios.
+[Consulte este artículo](../../azure-monitor/platform/diagnostic-logs-schema.md) para obtener una lista completa de los servicios admitidos y las categorías de registro y los esquemas utilizados por esos servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

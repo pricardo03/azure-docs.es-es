@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/31/2018
-ms.openlocfilehash: 92a1745f8da9783a22c7cbf417acb0709759f41c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 12beb167c5225f669529dd2db375468fc881c8eb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054325"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468570"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar y catalogar nuevos inquilinos mediante el patrón SaaS de aplicación por inquilino
 
@@ -28,6 +28,7 @@ Este artículo se divide en dos partes principales:
     * Asimismo, el tutorial usa la aplicación SaaS de ejemplo Wingtip Tickets, adaptada al patrón de aplicación por inquilino independiente.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Patrón de aplicación independiente por inquilino
+
 El patrón de aplicación por inquilino independiente es uno de los distintos patrones para aplicaciones SaaS multiinquilino.  En este patrón se aprovisiona una aplicación independiente por cada inquilino. La aplicación consta de componentes de nivel de aplicación y una base de datos SQL.  Cada aplicación de inquilino se puede implementar en la suscripción del proveedor.  Como alternativa, Azure ofrece un [programa de aplicaciones administradas](https://docs.microsoft.com/azure/managed-applications/overview) en el cual una aplicación se puede implementar en la suscripción del inquilino para que el proveedor la administre en nombre del inquilino. 
 
    ![patrón de aplicación por inquilino](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -35,6 +36,7 @@ El patrón de aplicación por inquilino independiente es uno de los distintos pa
 Al implementar una aplicación por inquilino, tanto la aplicación como la base de datos se aprovisionan en un grupo de recursos creado para el inquilino.  Si se usan grupos de recursos independientes se pueden aislar los recursos de la aplicación de cada inquilino, lo que les permite administrarse de forma independiente. Dentro de cada grupo de recursos, cada instancia de la aplicación se configura para que pueda obtener acceso directo a su base de datos correspondiente.  Este modelo de conexión es comparable a otros patrones que usen un catálogo para mediar en las conexiones existentes entre la aplicación y la base de datos.  Asimismo, como no existen los recursos compartidos, la base de datos de cada inquilino debe aprovisionarse con los recursos necesarios para poder manejar su carga máxima. Este patrón se suele usar en aplicaciones SaaS que tienen menos inquilinos y en las que se enfatiza ampliamente el aislamiento del inquilino y se pone menos énfasis en los costos de los recursos.  
 
 ## <a name="using-a-tenant-catalog-with-the-application-per-tenant-pattern"></a>Usar un catálogo de inquilinos con el patrón de aplicación por inquilino
+
 Mientras que la aplicación y la base de datos de cada inquilino estén totalmente aisladas, es posible que varios escenarios de administración y análisis operen entre estos inquilinos.  Por ejemplo, si se aplica un cambio de esquema en una nueva versión de la aplicación, es necesario realizar cambios en el esquema de cada base de datos del inquilino. Asimismo, los escenarios de creación de informes y de análisis deben obtener acceso a todas las bases de datos de inquilino sin importar dónde se hayan implementado.
 
    ![patrón de aplicación por inquilino](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
@@ -42,19 +44,22 @@ Mientras que la aplicación y la base de datos de cada inquilino estén totalmen
 El catálogo de inquilinos contiene una asignación entre un identificador de inquilino y una base de datos de inquilino, lo que permite resolver un identificador en un nombre de servidor y de base de datos.  En la aplicación SaaS de Wingtip, el identificador del inquilino se calcula como un hash del nombre de inquilino, aunque se podrían usar otros esquemas.  Como las aplicaciones independientes no necesitan el catálogo para administrar las conexiones, el catálogo se puede usar para agregar otras acciones a un conjunto de bases de datos de inquilino. Por ejemplo, la consulta Elastic puede usar el catálogo para determinar el conjunto de bases de datos en las que se distribuyen las consultas de los informes entre inquilinos.
 
 ## <a name="elastic-database-client-library"></a>Biblioteca de cliente de Elastic Database
-En la aplicación de ejemplo de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca cliente de Elastic Database](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  La biblioteca permite que una aplicación pueda crear, administrar y usar un mapa de particiones que se almacena en una base de datos. En el ejemplo de Wingtip Tickets, el catálogo se almacena en la base de datos del *catálogo de inquilinos*.  Igualmente, la partición asigna una clave de inquilino a la partición (base de datos) en la que se almacenan los datos de ese inquilino.  Las funciones de EDCL se encargan de administrar un *mapa de particiones global* que se almacena en tablas de la base de datos del *catálogo de inquilinos* y en un *mapa de particiones local* almacenado en cada partición.
+
+En la aplicación de ejemplo de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca cliente de Elastic Database](sql-database-elastic-database-client-library.md) (EDCL).  La biblioteca permite que una aplicación pueda crear, administrar y usar un mapa de particiones que se almacena en una base de datos. En el ejemplo de Wingtip Tickets, el catálogo se almacena en la base de datos del *catálogo de inquilinos*.  Igualmente, la partición asigna una clave de inquilino a la partición (base de datos) en la que se almacenan los datos de ese inquilino.  Las funciones de EDCL se encargan de administrar un *mapa de particiones global* que se almacena en tablas de la base de datos del *catálogo de inquilinos* y en un *mapa de particiones local* almacenado en cada partición.
 
 Asimismo, se pueden usar las funciones de EDCL desde aplicaciones o scripts de PowerShell para crear y administrar las entradas del mapa de particiones. Por otro lado, se pueden usar otras funciones de EDCL para recuperar el conjunto de particiones o para conectarse a la base de datos correspondiente a la clave de inquilino. 
-    
-> [!IMPORTANT] 
+
+> [!IMPORTANT]
 > No modifique directamente los datos de la base de datos del catálogo o el mapa de particiones local en las bases de datos de inquilino. No se permiten actualizaciones directas debido al alto riesgo de daños en los datos. En su lugar, edite los datos de asignación solo mediante las API de EDCL.
 
 ## <a name="tenant-provisioning"></a>Aprovisionamiento de inquilinos 
+
 Cada inquilino requiere un nuevo grupo de recursos de Azure, que debe crearse antes de poder aprovisionar recursos dentro de él. Una vez creado el grupo de recursos, se puede usar una plantilla de Azure Resource Management para implementar los componentes de la aplicación y la base de datos y configurar la conexión de la base de datos. Para inicializar el esquema de la base de datos, la plantilla puede importar un archivo bacpac.  También se puede crear la base de datos como una copia de una base de datos de tipo "template".  A continuación, la base de datos se actualiza con los datos de la ubicación inicial y se registra en el catálogo.
 
 ## <a name="tutorial"></a>Tutorial
 
 En este tutorial, aprenderá a:
+
 * Aprovisionar un catálogo
 * Registrar las bases de datos de inquilino de ejemplo que implementó anteriormente en el catálogo
 * Aprovisionar a un inquilino adicional y registrarlo en el catálogo
@@ -64,12 +69,16 @@ Puede usar una plantilla de Azure Resource Manager para implementar y configurar
 Al final de este tutorial, tendrá un conjunto de aplicaciones de inquilino independientes, cuyas bases de datos estarán registrada en el catálogo.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos: 
+
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Se implementan las tres aplicaciones de inquilino de ejemplo. Para implementar estas aplicaciones en menos de cinco minutos, consulte el artículo [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy) (Implementar y explorar el patrón de la aplicación independiente SaaS Wingtip Tickets).
+* Se implementan las tres aplicaciones de inquilino de ejemplo. Para implementar estas aplicaciones en menos de cinco minutos, consulte el artículo [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](saas-standaloneapp-get-started-deploy.md) (Implementar y explorar el patrón de la aplicación independiente SaaS Wingtip Tickets).
 
 ## <a name="provision-the-catalog"></a>Aprovisionar el catálogo
+
 En esta tarea, aprenderá a aprovisionar el catálogo que se usa para registrar todas las bases de datos de inquilino. Podrá: 
+
 * **Aprovisionar la base de datos del catálogo** mediante una plantilla de administración de recursos de Azure. La base de datos se inicializa al importar un archivo bacpac.  
 * **Registrar las aplicaciones de inquilino de ejemplo** que implementó anteriormente.  Cada inquilino se registra mediante una clave que se creó a partir de un valor hash del nombre de inquilino.  Asimismo, el nombre del inquilino también se almacena en una tabla de extensión del catálogo.
 
@@ -108,6 +117,7 @@ Ahora examinemos los recursos que ha creado.
 ## <a name="provision-a-new-tenant-application"></a>Aprovisionar una nueva aplicación de inquilino
 
 En esta tarea, aprenderá a aprovisionar una aplicación de un solo inquilino. Podrá:  
+
 * **Crear un grupo de recursos** para el inquilino. 
 * **Aprovisionar la aplicación y la base de datos** en el nuevo grupo de recursos mediante una plantilla de administración de recursos de Azure.  Esta acción incluye la inicialización de la base de datos con el esquema común y los datos de referencia, mediante la importación de un archivo bacpac. 
 * **Inicializar la base de datos con información básica del inquilino**. En esta acción tendrá que especificar el tipo de ubicación que se encargará de determinar la fotografía que se usará como fondo en el sitio web de eventos. 
@@ -129,7 +139,7 @@ A continuación, puede examinar los nuevos recursos creados en Azure Portal.
    ![recursos de red maple racing](media/saas-standaloneapp-provision-and-catalog/redmapleracing-resources.png)
 
 
-## <a name="to-stop-billing-delete-resource-groups"></a>Para detener la facturación, elimine los grupos de recursos ##
+## <a name="to-stop-billing-delete-resource-groups"></a>Para detener la facturación, elimine los grupos de recursos
 
 Cuando haya terminado de utilizar el ejemplo, elimine todos los grupos de recursos que haya creado para detener la facturación asociada.
 
@@ -146,4 +156,4 @@ En este tutorial ha obtenido información:
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
-Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md).  

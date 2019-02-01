@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999760"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222922"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referencia de Project URL Preview v7
 
@@ -31,10 +31,10 @@ Debe usar solo los datos de URL Preview para mostrar fragmentos de código de ve
 Para solicitar los resultados de URL Preview, envíe una solicitud al punto de conexión siguiente. Use los encabezados y parámetros de dirección URL para definir especificaciones adicionales.
 
 Solicitud GET del punto de conexión:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 La solicitud debe utilizar el protocolo HTTPS e incluir el parámetro de consulta siguiente:
 
@@ -73,7 +73,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 ## <a name="query-parameters"></a>Parámetros de consulta
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta. La consulta debe ser una dirección URL absoluta con un esquema http o https; no se admiten las direcciones URL relativas ni otros esquemas, como ftp://.
 
-|NOMBRE|Valor|Escriba|Obligatorio|
+|NOMBRE|Valor|Type|Obligatorio|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Mercado de donde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte [Códigos de mercado](#market-codes).<br /><br /> **NOTA:** URL Preview API solo admite actualmente la geografía de Estados Unidos y el idioma inglés.<br /><br />|string|SÍ|
 |<a name="query" />q|Dirección URL para la vista previa.|string|SÍ|
@@ -90,7 +90,7 @@ El esquema de respuesta es un objeto [WebPage] o ErrorResponse, como se muestra 
 ### <a name="error"></a>Error
 Define el error que se produjo.
 
-|Elemento|DESCRIPCIÓN|Escriba|
+|Elemento|DESCRIPCIÓN|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|string|
 |<a name="error-message" />message|Descripción del error.|string|
@@ -102,7 +102,7 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.
 
-|NOMBRE|Valor|Escriba|
+|NOMBRE|Valor|Type|
 |----------|-----------|----------|
 |_type|Sugerencia de tipo.|string|
 |<a name="errors" />errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)[]|
@@ -110,7 +110,7 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="webpage"></a>WebPage
 Define la información acerca de una página web en la vista previa.
 
-|NOMBRE|Valor|Escriba|
+|NOMBRE|Valor|Type|
 |----------|-----------|----------|
 |Nombre|Título de la página (no necesariamente el título HTML).|string|
 |URL|Dirección URL que se rastreó realmente (la solicitud puede tener redireccionamientos con seguimiento)|string|
@@ -119,7 +119,7 @@ Define la información acerca de una página web en la vista previa.
 |primaryImageOfPage/contentUrl|Dirección URL de una imagen representativa que se incluirá en la vista previa.|string|
 
 ### <a name="identifiable"></a>Identifiable
-|NOMBRE|Valor|Escriba|
+|NOMBRE|Valor|Type|
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|string|
 

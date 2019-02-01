@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 149b51707989f6f6e0bf81fea9a2971f4823bec3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188504"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196555"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Uso de un panel de control de recursos para realizar una revisión de acceso
 
@@ -42,4 +42,4 @@ Por debajo de los gráficos, verá el número de usuarios y grupos con nuevas as
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Iniciar una revisión de acceso para los roles de recurso de Azure en PIM](pim-resource-roles-start-access-review.md) 
+- [Inicio de una revisión de acceso para los roles de recurso de Azure en PIM](pim-resource-roles-start-access-review.md) 

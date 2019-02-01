@@ -4,14 +4,14 @@ description: Muestra los tipos de recursos de Azure que admiten etiquetas. Propo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267460"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884952"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md).
@@ -74,7 +74,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | reportFeedback | Sin  | 
-| Azure | SÍ | 
+| service | SÍ | 
 | validateServiceName | Sin  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -407,7 +407,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| aplicaciones de escala de web | SÍ | 
+| applications | SÍ | 
 | updateCommunicationPreference | Sin  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
@@ -459,7 +459,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| áreas de trabajo | SÍ | 
+| workspaces | SÍ | 
 | workspaces/virtualNetworkPeerings | Sin  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -759,7 +759,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| áreas de trabajo | SÍ | 
+| workspaces | SÍ | 
 | workspaces/computes | Sin  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -907,7 +907,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | devices | Sin  | 
 | linkTargets | Sin  | 
 | storageInsightConfigs | Sin  | 
-| áreas de trabajo | SÍ | 
+| workspaces | SÍ | 
 | workspaces/dataSources | Sin  | 
 | workspaces/linkedServices | Sin  | 
 | workspaces/query | Sin  | 
@@ -918,7 +918,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | managementassociations | Sin  | 
 | managementconfigurations | SÍ | 
 | solutions | SÍ | 
-| vistas | SÍ | 
+| views | SÍ | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo de recurso | Compatible con las etiquetas |
@@ -1004,7 +1004,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| aplicaciones de escala de web | SÍ | 
+| applications | SÍ | 
 | saasresources | Sin  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -1084,7 +1084,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| aplicaciones de escala de web | SÍ | 
+| applications | SÍ | 
 | gateways | SÍ | 
 | networks | SÍ | 
 | secrets | SÍ | 
@@ -1101,12 +1101,22 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | applianceDefinitions | SÍ | 
 | appliances | SÍ | 
 | applicationDefinitions | SÍ | 
-| aplicaciones de escala de web | SÍ | 
+| applications | SÍ | 
 | jitRequests | SÍ | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
+| managedInstances | SÍ |
+| managedInstances/databases | SÍ |
+| managedInstances/databases/backupShortTermRetentionPolicies | Sin  |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Sin  |
+| managedInstances/databases/vulnerabilityAssessments | Sin  |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Sin  |
+| managedInstances/encryptionProtector | Sin  |
+| managedInstances/keys | Sin  |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Sin  |
+| managedInstances/vulnerabilityAssessments | Sin  |
 | servers | SÍ | 
 | servers/administrators | Sin  | 
 | servers/communicationLinks | Sin  | 
@@ -1185,7 +1195,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| cuenta | SÍ | 
+| account | SÍ | 
 | account/extension | SÍ | 
 | account/project | SÍ | 
 

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 56662a40df6abeb672992a2da4c04692e7280021
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: eef3f153844be00d0338aa98b8aba21c5b749e46
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451704"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094230"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push localizadas a dispositivos iOS mediante Azure Notification Hubs
 
@@ -112,7 +112,7 @@ A continuación, asegúrese de agregar un IBOutlet en ViewController.h tal como 
 
         [self subscribeWithLocale: locale categories:categories completion:completion];
     }
-    ````
+    ```
 
     Luego modifique el método *subscribe* para incluir la configuración regional:
 

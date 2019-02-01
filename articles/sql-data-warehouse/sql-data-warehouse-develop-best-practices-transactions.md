@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: eb9c66c23440d2fd55c62de02b6c0070245c6d67
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247926"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476271"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimización de transacciones en Azure SQL Data Warehouse
 Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
@@ -417,5 +417,5 @@ Lo mejor es dejar que las transacciones de modificación de datos en curso se co
 * Divida la operación en fragmentos para operar sobre un subconjunto de las filas
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Transacciones en SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) para más información sobre los niveles de aislamiento y los límites transaccionales.  Para información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Consulte [Transacciones en SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) para obtener más información sobre los niveles de aislamiento y los límites transaccionales.  Para información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

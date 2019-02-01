@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020139"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889066"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Orígenes de datos en Azure Monitor
 En este artículo se describen los orígenes de datos que recopila Azure Monitor para supervisar el mantenimiento y el rendimiento de los recursos y las aplicaciones que se ejecutan en ellos. Estos recursos pueden estar en Azure, en otra nube o en el entorno local.  Consulte [Datos recopilados por Azure Monitor](data-collection.md) para obtener más información sobre cómo se almacenan estos datos y cómo puede verlos.
@@ -61,7 +61,7 @@ La mayoría de los servicios de Azure generarán [métricas de plataforma](data-
 
 
 ### <a name="resource-diagnostic-logs"></a>Registros de diagnóstico de recursos
-El registro de actividad proporciona información sobre las operaciones realizadas en recursos de Azure, mientras que el nivel de recursos [Registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) proporciona conclusiones sobre el funcionamiento del propio recurso.   Los requisitos de configuración y el contenido de estos registros [varía según el tipo de recurso](../../azure-monitor/platform/tutorial-dashboards.md).
+El registro de actividad proporciona información sobre las operaciones realizadas en recursos de Azure, mientras que el nivel de recursos [Registros de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) proporciona conclusiones sobre el funcionamiento del propio recurso.   Los requisitos de configuración y el contenido de estos registros [varía según el tipo de recurso](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 No se pueden ver directamente los registros de diagnóstico en Azure Portal, pero puede [enviarlos al almacenamiento de Azure para archivarlos](../../azure-monitor/platform/archive-diagnostic-logs.md) y exportarlos al [centro de eventos](../../event-hubs/event-hubs-about.md) para redirigirlos a otros servicios, o [a Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) para analizarlos. Algunos recursos pueden escribir directamente en Log Analytics, mientras que otros escriben en una cuenta de almacenamiento antes de [importarse a Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
