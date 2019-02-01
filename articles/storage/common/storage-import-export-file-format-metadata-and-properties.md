@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526239"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457010"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato del archivo de propiedades y metadatos de Azure Import/Export
 Puede especificar metadatos y propiedades para uno o más blobs como parte de un trabajo de importación o exportación. Para establecer los metadatos o las propiedades para blobs que se crean como parte de un trabajo de importación, proporcione un archivo de metadatos o propiedades en la unidad de disco duro que contiene los datos que se van a importar. Para un trabajo de exportación, los metadatos y las propiedades se escriben en un archivo de metadatos o propiedades que se incluye en la unidad de disco duro que se le devuelve.  
@@ -30,7 +30,7 @@ El formato de un archivo de metadatos es el siguiente:
 </Metadata>  
 ```
   
-|Elemento XML|Escriba|DESCRIPCIÓN|  
+|Elemento XML|Type|DESCRIPCIÓN|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento raíz|Elemento raíz del archivo de metadatos.|  
 |`metadata-name`|string|Opcional. El elemento XML especifica el nombre de los metadatos para el blob y su valor especifica el valor de la configuración de metadatos.|  
@@ -52,7 +52,7 @@ El formato de un archivo de propiedades es el siguiente:
 </Properties>  
 ```
   
-|Elemento XML|Escriba|DESCRIPCIÓN|  
+|Elemento XML|Type|DESCRIPCIÓN|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento raíz|Elemento raíz del archivo de propiedades.|  
 |`Last-Modified`|string|Opcional. Hora de la última modificación del blob. Solo para trabajos de exportación.|  

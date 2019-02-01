@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605983"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468638"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
 En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
@@ -27,6 +27,7 @@ En este artículo se describen los diferentes tipos de espacio de almacenamiento
 En Azure SQL Database, hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan. Esta condición puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos. El motivo es que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.
 
 Es posible que sea necesario supervisar el uso del espacio de archivo y reducir los archivos de datos en los escenarios siguientes:
+
 - Permitir el crecimiento de datos en un grupo elástico si el espacio de archivo asignado para sus bases de datos alcanza el tamaño máximo del grupo.
 - Permitir la reducción del tamaño máximo de una instancia única de base de datos o grupo elástico.
 - Permitir cambiar una instancia única de base de datos o grupo elástico a un nivel de servicio o un nivel de rendimiento diferente con un tamaño máximo inferior.
@@ -118,6 +119,7 @@ Comprender las cantidades de espacio de almacenamiento siguientes es importante 
 Las consultas siguientes pueden utilizarse para determinar las cantidades de espacio de almacenamiento para un grupo elástico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espacio usado de datos de grupo elástico
+
 Modifique la siguiente consulta para devolver la cantidad de espacio usado de datos del grupo elástico.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
@@ -234,9 +236,9 @@ Después de reducir los archivos de datos de la base de datos, los índices se p
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información sobre los tamaños máximos de base de datos, consulte:
-  - [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md)
+  - [Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-single-databases.md)
+  - [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Para más información sobre el comando `SHRINKDATABASE`, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Para más información sobre la fragmentación y la recompilación de índices, consulte [Reorganizar y volver a generar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
