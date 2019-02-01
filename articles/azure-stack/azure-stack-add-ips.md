@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987104"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251629"
 ---
 # <a name="add-public-ip-addresses"></a>Agregar direcciones IP públicas
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*  
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*  
 
 Obtenga información sobre cómo agregar más direcciones IP públicas a Azure Stack.  En este artículo nos referimos a las Direcciones externas como Direcciones IP públicas, pero tenga en cuenta que en Azure Stack esto hace referencia a la opción para agregar bloques de direcciones IP a su red externa.  Para los fines de este artículo, no es relevante si la red externa es pública y enrutable en Internet o si utiliza un espacio de direcciones privado.  Los pasos son los mismos. 
 
@@ -49,7 +50,7 @@ Lo primero que debe hacer es obtener el bloque de direcciones que quiere agregar
 5.  Haga clic en el icono para usar los grupos de IP públicas.
 6.  Haga clic en el botón Agregar grupo de IP.
 7.  Escriba un nombre para el grupo de IP.  El nombre que elija es solo para permitirle identificar fácilmente el grupo de IP, así que puede llamarlo como quiera.  Es una buena opción que el nombre sea el mismo que el rango de direcciones, pero no es necesario.
-8.   Escriba el bloque de direcciones que quiere agregar en la notación CIDR.  Por ejemplo: 192.168.203.0/24.
+8.   Escriba el bloque de direcciones que quiere agregar en la notación CIDR.  Por ejemplo:  192.168.203.0/24
 9.  Cuando proporcione un rango de CIDR válido en el campo Rango de direcciones (bloque CIDR), los campos Dirección IP inicial, Dirección IP final y Direcciones IP disponibles se completarán automáticamente.  Recuerde que son de solo lectura y que se generan automáticamente; de esta manera no podrá cambiarlos sin modificar el valor del campo Rango de direcciones.
 10. Después de revisar la información en la hoja y confirmar que todo está bien, haga clic en Aceptar para confirmar el cambio y agregar el rango de direcciones a Azure Stack.
 

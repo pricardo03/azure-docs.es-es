@@ -184,7 +184,7 @@ Al copiar datos desde SAP BW, se usan las siguientes asignaciones de tipos de da
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| UNIDAD | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

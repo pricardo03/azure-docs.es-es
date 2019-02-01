@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e91c6fcb7d1943136ab1c110dd81445ab43164a7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062373"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100843"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -235,7 +235,7 @@ A partir de la versión 6.1, Service Fabric integra automáticamente eventos de 
 
 ![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][2]
+![HealthCheckUnhealthyApp][2]
 
 ![HealthCheckUnhealthyDsp][3]
 

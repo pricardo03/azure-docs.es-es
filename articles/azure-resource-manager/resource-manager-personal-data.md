@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 71928be07080ed14fdcb93f33ea64d2572955b53
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 01e2b1608d55d7852db947181482d34d6d8010d2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466031"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215052"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Administración de datos personales asociados a Azure Resource Manager
 
@@ -33,13 +33,13 @@ En el caso de las implementaciones, Resource Manager mantiene los valores de los
 Para enumerar las **implementaciones** en el historial, use:
 
 * [Enumerar por grupo de recursos](/rest/api/resources/deployments/listbyresourcegroup)
-* [Get-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Get-AzureRmResourceGroupDeployment)
+* [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
 * [az group deployment list](/cli/azure/group/deployment#az-group-deployment-list)
 
 Para eliminar **implementaciones** del historial, use:
 
 * [Eliminar](/rest/api/resources/deployments/delete)
-* [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroupDeployment)
+* [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete)
 
 ## <a name="delete-personal-data-in-resource-group-names"></a>Eliminación de datos personales en los nombres de los grupos de recursos
@@ -49,13 +49,13 @@ El nombre del grupo de recursos se conserva hasta que se elimina el grupo de rec
 Para enumerar los **grupos de recursos**, use:
 
 * [Lista](/rest/api/resources/resourcegroups/list)
-* [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/Get-AzureRmResourceGroup)
+* [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
 * [az group list](/cli/azure/group#az-group-list)
 
 Para eliminar los **resource groups**, use:
 
 * [Eliminar](/rest/api/resources/resourcegroups/delete)
-* [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)
+* [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
 ## <a name="delete-personal-data-in-tags"></a>Eliminación de datos personales de etiquetas
@@ -65,13 +65,13 @@ Los nombres y valores de las etiquetas se conservan hasta que se elimina o modif
 Para enumerar las **etiquetas**, use:
 
 * [Lista](/rest/api/resources/tags/list)
-* [Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag)
+* [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
 * [az tag list](/cli/azure/tag#az-tag-list)
 
 Para eliminar las **etiquetas**, use:
 
 * [Eliminar](/rest/api/resources/tags/delete)
-* [Remove-AzureRmTag](/powershell/module/azurerm.tags/remove-azurermtag)
+* [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 
 ## <a name="next-steps"></a>Pasos siguientes
