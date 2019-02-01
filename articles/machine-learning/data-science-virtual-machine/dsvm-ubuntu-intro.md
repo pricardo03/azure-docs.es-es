@@ -10,18 +10,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106777"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477563"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -138,7 +138,7 @@ La VM de Linux ya está provista del servidor X2Go y está preparada para acepta
      * **Puerto SSH**: déjelo en 22, el valor predeterminado.
      * **Tipo de sesión**: cambie el valor a XFCE. Actualmente, la máquina virtual Linux solo admite el escritorio XFCE.
    * **Pestaña Multimedia**: puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas.
-   * **Carpetas compartidas**: si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
+   * **Carpetas compartidas**: si quiere que los directorios de las máquinas cliente se monten en la VM Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
 
 Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, ya podrá empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
 
@@ -220,7 +220,7 @@ Para volver a activar el entorno py35:
 
 Después, para invocar la sesión interactiva de Python, escriba **python** en el shell. 
 
-Instale bibliotecas adicionales de Python con ```conda``` o ````pip````. Para pip, active el entorno correcto en primer lugar si no desea el valor predeterminado:
+Instale bibliotecas adicionales de Python con ```conda``` o ```pip```. Para pip, active el entorno correcto en primer lugar si no desea el valor predeterminado:
 
     source activate root
     pip install <package>
@@ -271,7 +271,7 @@ Antes de ejecutar en el contexto de Spark en Microsoft R Server, debe llevar a c
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Puede detener los servicios relacionados de Hadoop cuando no los necesite; para hacerlo, ejecute ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` En el directorio `/dsvm/samples/MRS` hay disponible un ejemplo que demuestra cómo desarrollar y probar MRS en un contexto de Spark remoto (que es la instancia independiente de Spark en la DSVM). 
+Puede detener los servicios relacionados de Hadoop cuando no los necesite; para hacerlo, ejecute ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` En el directorio `/dsvm/samples/MRS` hay disponible un ejemplo que demuestra cómo desarrollar y probar MRS en un contexto de Spark remoto (que es la instancia independiente de Spark en la DSVM). 
 
 ### <a name="ides-and-editors"></a>IDE y editores
 Puede elegir varios editores de código. Estos incluyen vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio y PyCharm son editores gráficos y necesitará iniciar sesión en un escritorio gráfico para poder usarlos. Puede iniciar estos editores desde los accesos directos del menú de aplicaciones y el escritorio.
@@ -319,7 +319,7 @@ Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 En la VM se instalan las siguientes herramientas de Azure:
 
 * **Interfaz de línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de Microsoft Azure Storage**: explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
+* **Explorador de Microsoft Azure Storage**: el Explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de Storage desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
   * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.

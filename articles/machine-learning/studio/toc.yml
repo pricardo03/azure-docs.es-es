@@ -15,8 +15,6 @@ items:
   - name: Preguntas más frecuentes
     displayName: FAQ
     href: faq.md
-  - name: Novedades
-    href: whats-new.md
   expanded: true
 - name: Tutoriales
   items:
@@ -41,8 +39,6 @@ items:
     - name: 6 -Acceso al servicio web
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: Introducción a R
-    href: r-quickstart.md
 - name: Ejemplos
   items:
   - name: Conjuntos de datos disponibles
@@ -120,6 +116,8 @@ items:
         href: debug-models.md
     - name: Uso de R y Python
       items:
+      - name: Introducción a R
+        href: r-quickstart.md
       - name: Ejecución de scripts de R
         href: extend-your-experiment-with-r.md
       - name: Creación de módulos R personalizados
@@ -208,21 +206,25 @@ items:
     href: /rest/api/machinelearning
 - name: Recursos
   items:
+  - name: Actualizaciones del servicio
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Obtención de soporte técnico
+    href: support-aml-studio.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/regions/services/
   - name: Precios
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Guía del desarrollador de R
     href: ../r-developers-guide.md
-  - name: Redes neuronales personalizadas con Net#
+  - name: Redes neuronales personalizadas (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Obtención de soporte técnico
-    href: support-aml-studio.md
   - name: Comparación entre nuestros productos de aprendizaje automático
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 12fa71315c1cb43570505d2428804f4a5348a266
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 27cd57a52b80006482f50f96120e8eaf8a8cb00e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512200"

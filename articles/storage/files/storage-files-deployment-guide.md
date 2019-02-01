@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: files
+ms.openlocfilehash: d17389af1129c63d2c0eadfac04c034669200620
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242462"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462739"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
@@ -129,7 +129,7 @@ Para reemplazar un recurso compartido de archivos local, es útil montar previam
 > [!Note]  
 > Montar un recurso compartido de archivos de Azure requiere el uso de la clave de la cuenta de almacenamiento como contraseña, por lo que solo se recomienda hacerlo en entornos de confianza. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 Puede usar PowerShell para ejecutar el comando de montaje en varios equipos. En el ejemplo siguiente, `$computers` es rellenar de forma manual, pero puede generar la lista de equipos para montar automáticamente. Por ejemplo, puede rellenar esta variable con resultados de Active Directory.
 
 ```PowerShell

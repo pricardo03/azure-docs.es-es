@@ -5,6 +5,9 @@ items:
   items:
   - name: ¿Qué es Bing News Search API?
     href: search-the-web.md
+    maintainContext: true
+  - name: Comparación entre las versiones de Bing Search API
+    href: ../Bing-Web-Search/bing-api-comparison.md
   expanded: true
 - name: Guías de inicio rápido
   items:
@@ -42,8 +45,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
 - name: Guías de procedimientos
   items:
-  - name: Requisitos de uso y visualización
-    href: UseAndDisplayRequirements.md
   - name: Controlar resaltado de referencias
     href: hit-highlighting.md
   - name: Noticias de página
@@ -80,6 +81,9 @@ items:
       href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
+  - name: Requisitos de uso y visualización
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Recursos
   items:
   - name: Precios
@@ -104,9 +108,9 @@ items:
     href: language-support.md
   - name: Análisis para Bing News Search API
     href: bing-news-stats.md
-ms.openlocfilehash: ed425db68d5c617f6442e9757531f02b0ab1cd38
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 01abbc899166a578f03a778956627c656eea445f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266219"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506114"

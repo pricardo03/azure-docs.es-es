@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472790"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -228,7 +228,7 @@ Instancia administrada no admite instrucciones DBCC no documentadas que estén h
 
 ### <a name="distributed-transactions"></a>Transacciones distribuidas
 
-Actualmente no se admite MSDTC ni las [Transacciones elásticas](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) en una instancia administrada.
+Actualmente no se admite MSDTC ni las [Transacciones elásticas](sql-database-elastic-transactions-overview.md) en una instancia administrada.
 
 ### <a name="extended-events"></a>Eventos extendidos
 
@@ -279,8 +279,8 @@ Operaciones
 - Se admiten los inicios de sesión SQL creados con `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` y `FROM SID`. Consulte [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Se admiten los inicios de sesión de Azure Active Directory (AAD) creados con la sintaxis [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o la sintaxis [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) (**versión preliminar pública**).
 - No se admiten los inicios de sesión de Windows creados con `CREATE LOGIN ... FROM WINDOWS`. Use los usuarios e inicios de sesión de Azure Active Directory.
-- El usuario de Azure Active Directory (Azure AD) que creó la instancia tiene [privilegios de administrador sin restricciones](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Los usuarios de nivel de base de datos de Azure Active Directory (Azure AD) que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- El usuario de Azure Active Directory (Azure AD) que creó la instancia tiene [privilegios de administrador sin restricciones](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Los usuarios de nivel de base de datos de Azure Active Directory (Azure AD) que no son administradores pueden crearse con la sintaxis `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
 
 ### <a name="polybase"></a>PolyBase
 

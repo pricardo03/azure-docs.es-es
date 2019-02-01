@@ -29,7 +29,7 @@ items:
     items:
     - name: Activación de mis roles de directorio
       href: pim-how-to-activate-role.md
-    - name: Activación de mis roles de recurso
+    - name: Activación de mis roles de recursos de Azure
       href: pim-resource-roles-activate-your-roles.md
   - name: Configuración de PIM
     items:
@@ -53,7 +53,7 @@ items:
       href: pim-how-to-configure-security-alerts.md
     - name: Visualización del historial de auditoría
       href: pim-how-to-use-audit-log.md
-  - name: Administración de roles de recurso
+  - name: Administración de roles de recursos de Azure
     items:
     - name: Asignación de roles
       href: pim-resource-roles-assign-roles.md
@@ -81,18 +81,18 @@ items:
         href: pim-how-to-start-security-review.md
       - name: Finalización de una revisión de acceso
         href: pim-how-to-complete-review.md
-    - name: Roles de recursos
+    - name: Roles de recursos de Azure
       items:
-      - name: Revisión de mis roles de recursos
+      - name: Revisión de mis roles de recursos de Azure
         href: pim-resource-roles-perform-access-review.md
       - name: Inicio de una revisión de acceso
         href: pim-resource-roles-start-access-review.md
       - name: Finalización de una revisión de acceso
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 84c50c4d3fe6472f53d64ba42f462a6fdf2783fe
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a7c314bd6fd7fdc96900411db78a37b45b8c3e07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913128"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512370"

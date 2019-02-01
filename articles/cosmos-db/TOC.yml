@@ -80,13 +80,13 @@ items:
       href: consistency-levels.md
     - name: Selección del nivel de coherencia adecuado
       href: consistency-levels-choosing.md
-    - name: Niveles de coherencia y API de Cosmos DB
+    - name: Niveles de coherencia y API de Azure Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Inconvenientes de la coherencia, disponibilidad y rendimiento
       href: consistency-levels-tradeoffs.md
     - name: Alta disponibilidad
       href: high-availability.md
-    - name: Escalado del rendimiento aprovisionado globalmente
+    - name: Escalado global del rendimiento aprovisionado
       href: scaling-throughput.md
     - name: Tipos de conflicto y directivas de resolución de conflictos
       href: conflict-resolution-policies.md
@@ -98,7 +98,7 @@ items:
     items:
     - name: Información general
       href: partitioning-overview.md
-    - name: Particiones lógicas
+    - name: Creación de particiones y escalado horizontal
       href: partition-data.md
     - name: Creación de una clave de partición sintética
       href: synthetic-partition-keys.md
@@ -136,17 +136,17 @@ items:
         href: read-change-feed.md
       - name: Procesador de fuente de cambios
         href: change-feed-processor.md
-      - name: Fuente de cambios con Azure Functions
+      - name: Desencadenar Azure Functions
         href: change-feed-functions.md
     - name: Período de vida
       href: time-to-live.md
     - name: Restricciones de clave únicas
       href: unique-keys.md
-    - name: Transacciones y simultaneidad optimista
+    - name: Transacciones y control de simultaneidad optimista
       href: database-transactions-optimistic-concurrency.md
   - name: Programación en el lado servidor
     items:
-    - name: Procedimientos almacenados, desencadenadores y UDF
+    - name: procedimientos almacenados, desencadenadores y UDF
       href: stored-procedures-triggers-udfs.md
     - name: API de consulta de JavaScript
       href: javascript-query-api.md
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Optimización del costo de varias regiones
       href: optimize-cost-regions.md
-    - name: Optimización de las cargas de trabajo de desarrollo/pruebas
+    - name: Optimización de los costos de desarrollo y pruebas
       href: optimize-dev-test.md
-    - name: Optimización con capacidad reservada
+    - name: Optimización del costo con capacidad reservada
       href: cosmos-db-reserved-capacity.md
   - name: Seguridad
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Adecuado para empresas
     items:
-    - name: Copias de seguridad y restauración en línea
+    - name: Copias de seguridad y restauración a petición en línea
       href: online-backup-and-restore.md
     - name: Cumplimiento normativo
       href: compliance.md
@@ -254,17 +254,9 @@ items:
       items:
       - name: Ajustar rendimiento de consulta
         href: sql-api-query-metrics.md
-      - name: Programación en el lado servidor
-        items:
-        - name: Escritura de procedimientos almacenados, desencadenadores y UDF
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Escritura de procedimientos almacenados y desencadenadores con la API de consulta de JavaScript
-          href: how-to-write-javascript-query-api.md
-        - name: Uso de procedimientos almacenados, desencadenadores y UDF
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Tipos de datos
         items:
-        - name: Datetime
+        - name: DateTime
           href: working-with-dates.md
         - name: Geoespaciales
           href: geospatial.md
@@ -337,7 +329,7 @@ items:
         - name: Aplicación de Node.js y React
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Migración de los datos
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Consulta de datos
         href: tutorial-query-mongodb.md
       - name: 4 - Distribución de datos global
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: Guías de procedimientos
   items:
-  - name: Administración de una cuenta de base de datos
+  - name: Administración de la cuenta de Azure Cosmos
     href: how-to-manage-database-account.md
   - name: Distribución global
     items:
-    - name: Administración de la coherencia
+    - name: Administración de los niveles de coherencia
       href: how-to-manage-consistency.md
-    - name: Administración de conflictos
+    - name: Aprenda a configurar directivas de resolución de conflictos.
       href: how-to-manage-conflicts.md
   - name: Rendimiento aprovisionado
     items:
-    - name: Aprovisionamiento del rendimiento del contenedor
+    - name: Aprovisionamiento del rendimiento en un contenedor
       href: how-to-provision-container-throughput.md
-    - name: Aprovisionamiento del rendimiento de la base de datos
+    - name: Aprovisionamiento del rendimiento en una base de datos
       href: how-to-provision-database-throughput.md
   - name: Uso de contenedores y elementos
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: Configuración del período de vida
       href: how-to-time-to-live.md
+    - name: Uso de datos con el Explorador de Azure Storage
+      href: storage-explorer.md
+    - name: Uso de datos con el Explorador de Azure Cosmos
+      href: data-explorer.md
     - name: Indización
       items:
-      - name: Configuración de la indexación
+      - name: Administración de la indexación
         href: how-to-manage-indexing-policy.md
+  - name: Programación en el lado servidor
+    items:
+    - name: Escritura de procedimientos almacenados, desencadenadores y UDF
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: Escritura de procedimientos almacenados y desencadenadores con la API de consulta de JavaScript
+      href: how-to-write-javascript-query-api.md
+    - name: Uso de procedimientos almacenados, desencadenadores y UDF
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Seguridad
     items:
     - name: Configuración de la dirección IP del firewall
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Configuración del uso compartido de recursos entre orígenes (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Protección con Key Vault
+    - name: Protección de las claves de Azure Cosmos con Key Vault
       href: access-secrets-from-keyvault.md
   - name: Adecuado para empresas
     items:
     - name: Restauración de datos a partir de una copia de seguridad
       href: how-to-backup-and-restore.md
-  - name: administración
+  - name: Administración de recursos de Azure Cosmos DB
     items:
     - name: Administración mediante PowerShell
       href: manage-account-with-powershell.md
     - name: Administración mediante la CLI de Azure
       href: manage-with-cli.md
-    - name: Administración del uso de Explorador de Azure Storage
-      href: storage-explorer.md
-    - name: Administración del uso del explorador de datos
-      href: data-explorer.md
   - name: Registro
     items:
     - name: Registro de diagnósticos
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Aplicaciones de redes sociales
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094485"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511928"

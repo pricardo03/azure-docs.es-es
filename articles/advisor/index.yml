@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: f4f35156f9b2b356e3e47695725351562af9796f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55501181"
+documentType: LandingData
+title: Documentación de Azure Advisor
+metadata:
+  title: Documentación de Azure Advisor | Microsoft Docs
+  description: 
+  services: advisor
+  author: rboucher
+  layout: LandingPage
+  ms.service: advisor
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 02/01/2019
+  ms.author: robb
+abstract:
+  description: Asistente de Azure es un consultor en la nube personalizado que le ayudará a realizar procedimientos recomendadas para optimizar las implementaciones de Azure. Analiza la telemetría de uso y configuración de los recursos y, posteriormente, recomienda soluciones que ayudan a mejorar el rendimiento, la seguridad y la alta disponibilidad de los recursos, al mismo tiempo que busca oportunidades para reducir el gasto general de Azure.
+sections:
+- title: 
+  items:
+  - type: paragraph
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/advisor.svg
+      text: Información acerca de Azure Advisor
+      href: /azure/advisor/advisor-overview
+    - image:
+        src: media/index/get-started.svg
+      text: Introducción a Azure Advisor
+      href: /azure/advisor/advisor-get-started
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">Referencia de API de REST</a></p>
+    - title: Línea de comandos
+      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">Common Language Interface (CLI)</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>

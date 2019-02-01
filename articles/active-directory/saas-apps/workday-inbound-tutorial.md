@@ -7,19 +7,19 @@ documentationcenter: na
 manager: daveba
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: 913304884867751e3e4c929ce6f4cf8819c15ef2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825551"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188599"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -151,8 +151,8 @@ En este escenario, tiene un inquilino de Workday y le gustaría aprovisionar usu
 
 |   |   |
 | - | - |
-| Número de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
-| Número de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | 1 |
+|  No. de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
+|  No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | 1 |
 
   ![Escenario 1.](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -162,7 +162,7 @@ Este escenario implica el aprovisionamiento de usuarios desde Workday en varios 
 
 |   |   |
 | - | - |
-| Número de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
+|  No. de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
 |  No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
 
   ![Escenario 2.](./media/workday-inbound-tutorial/dep_scenario2.png)
@@ -173,8 +173,8 @@ Este escenario implica el aprovisionamiento de usuarios desde Workday en dominio
 
 |   |   |
 | - | - |
-| Número de agentes de aprovisionamiento para implementar de forma local | 3 por cada bosque de AD no contiguo |
-| Número de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
+|  No. de agentes de aprovisionamiento para implementar de forma local | 3 por cada bosque de AD no contiguo |
+|  No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
 
   ![Escenario 3.](./media/workday-inbound-tutorial/dep_scenario3.png)
 

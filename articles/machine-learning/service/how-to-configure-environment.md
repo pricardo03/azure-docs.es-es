@@ -6,18 +6,18 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815878"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247415"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -64,7 +64,7 @@ Si ya tiene un entorno de Python 3, o tan solo quiere los pasos básicos para in
 
 Para comenzar a desarrollar con Azure Notebooks, consulte [Introducción a Azure Machine Learning Service](quickstart-get-started.md).
 
-De forma predeterminada, Azure Notebooks usa un nivel de servicio gratuito que está limitado a 4 GB de memoria y 1 GB de datos. Sin embargo, puede quitar estos límites si adjunta una instancia de Data Science Virtual Machine al proyecto de Azure Notebooks. Para más información, consulte [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) (Administración y configuración de proyectos de Azure Notebooks: nivel de proceso).
+De forma predeterminada, Azure Notebooks usa un nivel de servicio gratuito que está limitado a 4 GB de memoria y 1 GB de datos. Sin embargo, puede quitar estos límites si adjunta una instancia de Data Science Virtual Machine al proyecto de Azure Notebooks. Para más información, consulte [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Administración y configuración de proyectos de Azure Notebooks: nivel de proceso).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
