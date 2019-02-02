@@ -11,7 +11,7 @@ items:
   items:
   - name: Guía de inicio rápido de Base de datos única
     href: sql-database-quickstart-guide.md
-  - name: Inicio rápido de Instancia administrada de SQL Database
+  - name: Guía de inicio rápido de Instancia administrada de SQL Database
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Crear
     items:
@@ -21,7 +21,7 @@ items:
       href: sql-database-managed-instance-get-started.md
   - name: Configuración
     items:
-    - name: Reglas de firewall del servidor de SQL Database
+    - name: Reglas de firewall del servidor de bases de datos
       href: sql-database-get-started-portal-firewall.md
     - name: Conexión de máquina virtual de cliente a una instancia administrada
       href: sql-database-managed-instance-configure-vm.md
@@ -127,12 +127,20 @@ items:
     items:
     - name: Introducción a las bases de datos únicas
       href: sql-database-single-index.yml
-    - name: Servidores de SQL Database
+    - name: Funcionalidades de las bases de datos únicas
+      href: sql-database-single-database.md
+    - name: Referencia de Management API
+      href: sql-database-single-databases-manage.md
+    - name: Diferencias de T-SQL
+      href: sql-database-transact-sql-information.md
+    - name: Recursos y servidores de bases de datos
       items:
       - name: Introducción sobre el servidor de bases de datos
         href: sql-database-servers.md
       - name: Límites de recursos del servidor de bases de datos
         href: sql-database-resource-limits-database-server.md
+      - name: Arquitectura de conectividad
+        href: sql-database-connectivity-architecture.md
     - name: Recursos de bases de datos únicas
       items:
       - name: Límites de los recursos basados en núcleos virtuales
@@ -141,12 +149,6 @@ items:
         href: sql-database-dtu-resource-limits-single-databases.md
       - name: Escalado de recursos
         href: sql-database-single-database-scale.md
-    - name: Creación y administración de servidores y bases de datos
-      href: sql-database-single-databases-manage.md
-    - name: Arquitectura de conectividad
-      href: sql-database-connectivity-architecture.md
-    - name: Diferencias de T-SQL
-      href: sql-database-transact-sql-information.md
   - name: Grupos elásticos
     items:
     - name: Grupos elásticos
@@ -223,7 +225,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: Detección de amenazas
         href: sql-database-threat-detection-overview.md
-    - name: Reglas de firewall
+    - name: Reglas de firewall de la dirección IP del servidor de bases de datos
       items:
       - name: Creación y administración
         href: sql-database-firewall-configure.md
@@ -241,9 +243,9 @@ items:
       href: sql-database-aad-authentication.md
     - name: Auditoría
       items:
-      - name: 'Auditoría: servidores, grupos y bases de datos'
+      - name: 'Auditoría: Bases de datos únicas y grupos elásticos'
         href: sql-database-auditing.md
-      - name: 'Auditoría: instancia administrada'
+      - name: 'Auditoría: Instancia administrada'
         href: sql-database-managed-instance-auditing.md
       - name: Auditoría de tablas (en desuso)
         href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
@@ -662,6 +664,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Recursos
   items:
+  - name: Glosario de términos
+    href: sql-database-glossary-terms.md
   - name: Desarrollo de aptitudes con Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
@@ -700,9 +704,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalación de trabajo elástico (en desuso)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0c34894ea3a09a4cd630938a045e0ab78681c10f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7530d0926cca2b89e532407d32e394e0b3018a60
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471035"
+ms.locfileid: "55512421"
