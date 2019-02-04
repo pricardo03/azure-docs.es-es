@@ -67,7 +67,7 @@
 
 ### [Administración de ofertas](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Creación de oferta](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Publicación de oferta](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Visualización del estado de la oferta](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Actualización de la oferta](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Eliminación de la oferta](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [Creación de recursos técnicos del módulo de IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [Publicación de una oferta del módulo de IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Actualización de oferta existente](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Oferta de la aplicación Power BI](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Requisitos previos](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Creación de oferta de la aplicación Power BI](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Pestaña Configuración de la oferta](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Pestaña Información técnica](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Pestaña Detalles del escaparate](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Pestaña Contactos](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Creación de los recursos técnicos de la aplicación Power BI](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Publicación de la oferta de la aplicación Power BI](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Actualización de oferta existente](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [Oferta de aplicación de Saas](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Requisitos previos](./cloud-partner-portal/saas-app/cpp-prerequisites.md)

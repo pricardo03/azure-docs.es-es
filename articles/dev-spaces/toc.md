@@ -10,16 +10,20 @@
 ## Tutoriales
 ### Java (VS Code y CLI)
 #### [1 - Introducción](get-started-java.md)
-#### [2 - Desarrollo en equipo](team-development-java.md)
+#### [2 - Desarrollo de varios servicios](multi-service-java.md)
+#### [3 - Desarrollo en equipo](team-development-java.md)
 ### .NET Core (VS Code y CLI)
 #### [1 - Introducción](get-started-netcore.md)
-#### [2 - Desarrollo en equipo](team-development-netcore.md)
+#### [2 - Desarrollo de varios servicios](multi-service-netcore.md)
+#### [3 - Desarrollo en equipo](team-development-netcore.md)
 ### .NET Core (Visual Studio 2017)
 #### [1 - Introducción](get-started-netcore-visualstudio.md)
-#### [2 - Desarrollo en equipo](team-development-netcore-visualstudio.md)
+#### [2 - Desarrollo de varios servicios](multi-service-netcore-visualstudio.md)
+#### [3 - Desarrollo en equipo](team-development-netcore-visualstudio.md)
 ### Node.js (VS Code y CLI)
 #### [1 - Introducción](get-started-nodejs.md)
-#### [2 - Desarrollo en equipo](team-development-nodejs.md)
+#### [2 - Desarrollo de varios servicios](multi-service-nodejs.md)
+#### [3 - Desarrollo en equipo](team-development-nodejs.md)
 
 ## Procedimientos
 ### [Creación de un clúster de Kubernetes mediante Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
@@ -28,9 +32,7 @@
 ### [Uso de una fuente NuGet personalizada](how-to/use-custom-nuget-feed.md)
 ### [Uso de kubectl con Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Actualización de las herramientas de Azure Dev Spaces](how-to/upgrade-tools.md)
+### [Uso de CI/CD con Azure Dev Spaces](how-to/setup-cicd.md)
 ### [Continuidad empresarial y recuperación ante desastres para Azure Dev Spaces](how-to/dev-spaces-business-continuity.md)
 
 ## [Solución de problemas](troubleshooting.md)
-
-
-

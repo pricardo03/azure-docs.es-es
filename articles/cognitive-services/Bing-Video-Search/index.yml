@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ff0b711e2c839f81f7f3b68603c2b9e46092316
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7f462bf635eeec0e7a7eba4467aa2567fc09cb83
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152967"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562409"
 documentType: LandingData
-title: Documentación de Bing Video Search
+title: Documentación de Bing Video Search API
 metadata:
-  title: 'Documentación sobre Bing Video Search: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
-  description: Aprenda a usar Bing Video Search API para obtener vídeos desde la web que están relacionados con las consultas del usuario. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  title: 'Documentación sobre Bing Video Search API: tutoriales, inicios rápidos y referencias de API | Microsoft Docs'
+  description: Aprenda a usar Bing Video Search API para buscar vídeos en la Web.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -18,48 +18,69 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/31/2019
   ms.author: v-gedod
 abstract:
-  description: Bing Video Search API proporciona una experiencia similar a Bing Videos al devolver vídeos que Bing determina que están relacionados con la consulta.
+  description: Bing Video Search API le permite integrar las funcionalidades de búsqueda de vídeos de Bing en las aplicaciones. Mediante el envío de consultas de vídeo a la API puede obtener y mostrar vídeos adecuados y de alta calidad de forma parecida a como lo hace bing.com/videos.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-video-search/overview
+      html: <p>Más información acerca de Bing Video Search API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: ¿Qué es Bing Video Search API?
+    - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+      html: <p>Aprenda a enviar consultas de búsqueda de vídeo a Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Envío de consultas de búsqueda
+    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+      html: <p>Aprenda a filtrar los resultados de búsqueda, obtener las miniaturas de vídeo y expandir las consultas de búsqueda</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Obtención de vídeos de la web
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Empiece a trabajar con Bing Video Search API al realizar una consulta y ver la respuesta JSON:'
+    text: 'Busque vídeos en la Web con:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: quickstarts/sdk-csharp-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: quickstarts/sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: quickstarts/nodejs
       text: Node.js
     - image:
         src: media/index/logo_php.svg
-      href: php
+      href: quickstarts/php
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: quickstarts/sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
-      href: ruby
+      href: quickstarts/ruby
       text: Ruby
 - title: Tutoriales detallados
   items:
   - type: paragraph
     text: 'Desarrolle aplicaciones mediante Bing Video Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">Aplicación web de una sola página</a> &#124; <a href="tutorial-bing-video-search-single-page-app-source">código fuente</a>
+    text: <a href="tutorial-bing-video-search-single-page-app">Aplicación web de una sola página</a>
 - title: Ejemplos
   items:
   - type: paragraph
