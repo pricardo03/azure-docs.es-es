@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980583"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095981"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Inicio rápido: Hacer que los usuarios inicien sesión y llamar a Microsoft Graph API desde una aplicación de iOS
 
@@ -35,7 +35,7 @@ En este tutorial de inicio rápido, compilará una aplicación de lista de tarea
 * Obtiene tokens de acceso para llamar a Azure AD Graph API mediante el protocolo de autenticación OAuth 2.0.
 * Busca un directorio para los usuarios con un alias determinado.
 
-Para compilar la aplicación funcional completa, deberá realizar estas acciones:
+Para crear la aplicación de trabajo completa, tendrá que:
 
 1. Registrar la aplicación con Azure AD
 1. Instalar y configurar ADAL.
@@ -45,7 +45,7 @@ Para compilar la aplicación funcional completa, deberá realizar estas acciones
 
 Para empezar, complete estos requisitos previos:
 
-* [Descargue el esqueleto de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) o [descargue el ejemplo completado](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
+* [Descargue el esqueleto de la aplicación](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) o [el ejemplo completado](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
 * Necesita un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](quickstart-create-new-tenant.md).
 
 > [!TIP]

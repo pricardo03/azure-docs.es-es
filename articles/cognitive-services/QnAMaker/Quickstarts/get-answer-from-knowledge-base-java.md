@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y Java'
+title: 'Inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y Java'
 titlesuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido basada en REST de Java le guiará a través del proceso para obtener una respuesta de una base de conocimiento mediante programación.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 630b033428ab6e21afeddf9d4162be015582dae9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 34630b2d2852da37bdcb3e5f097b2d3f6ebc6f1a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977812"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217414"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Obtención de respuestas a una pregunta desde una base de conocimiento con Java
 

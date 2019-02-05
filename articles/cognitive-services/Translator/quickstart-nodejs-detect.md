@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Detección del idioma del texto, Node.js: Translator Text API'
+title: 'Inicio rápido: Detección del idioma del texto, Node.js (Translator Text API)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, obtendrá información sobre cómo identificar el idioma del texto proporcionado con Node.js y Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: d70a420f01c7bf3486093951e89c9f48db148d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ecf762d47a5e8aa9762b67d5b6419bede91c142c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248768"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222055"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Guía de inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Node.js
 
 En esta guía de inicio rápido, aprenderá a detectar el lenguaje del texto proporcionado mediante Node.js y Translator Text REST API.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 El método `request()`, disponible mediante el módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Detección](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Detección](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```javascript
 let options = {

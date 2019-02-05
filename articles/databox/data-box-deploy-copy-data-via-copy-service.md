@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440052"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902386"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para ingerir directamente datos en Azure Data Box (versión preliminar)
 
@@ -24,11 +24,12 @@ Use el servicio de copia de datos:
 - En los entornos de almacenamiento conectado a la red (NAS) donde los hosts intermedios pueden no estar disponibles.
 - Con archivos pequeños que demoran durante semanas la ingesta y carga de datos. Este servicio mejora significativamente el tiempo de ingesta y de carga.
 
-En este tutorial, aprenderá a:
+En este tutorial, obtendrá información sobre lo siguiente:
 
 > [!div class="checklist"]
+> * Requisitos previos
 > * Copia de datos a un dispositivo Data Box
-> * Preparación del envío del dispositivo Data Box
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,13 +61,13 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     |-------------------------------|---------|
     |Nombre del trabajo                       |Un nombre exclusivo de menos de 230 caracteres para el trabajo. En el nombre del trabajo no se permiten los siguientes caracteres: \<, \>, \|, \?, \*, \\, \:, \/, y \\\.         |
     |Ubicación de origen                |Proporcione la ruta de acceso SMB para el origen de datos en el formato: `\\<ServerIPAddress>\<ShareName>` o `\\<ServerName>\<ShareName>`.        |
-    |Nombre de usuario                       |Nombre de usuario para acceder al origen de datos.        |
+    |Nombre de usuario                       |Nombre de usuario en formato `\\<DomainName><UserName>` para acceder al origen de datos.        |
     |Contraseña                       |Contraseña para acceder al origen de datos.           |
     |Cuenta de almacenamiento de destino    |Seleccione la cuenta de almacenamiento de destino para cargar datos desde la lista desplegable.         |
     |Tipo de almacenamiento de destino       |Seleccione el tipo de almacenamiento de destino del blob en bloques, blob en páginas o Azure Files.        |
     |Contenedor o recurso compartido de destino    |Escriba el nombre del contenedor o el recurso compartido para cargar datos en la cuenta de almacenamiento de destino. El nombre puede ser un nombre de recurso compartido o de contenedor. Por ejemplo, `myshare` o `mycontainer`. Además, puede escribir en el formato `sharename\directory_name` o `containername\virtual_directory_name` en la nube.        |
     |Copiar los archivos que coincidan con el patrón    | Escriba el patrón de coincidencia de nombre de archivo en las dos maneras siguientes.<ul><li>**Use expresiones de caracteres comodín**: solo `*` y `?` se admiten en expresiones de caracteres comodín. Por ejemplo, esta expresión `*.vhd` coincide con todos los archivos que tienen la extensión .vhd. De forma similar, `*.dl?` coincide con todos los archivos cuya extensión sea `.dl` o `.dll`. Además, `*foo` coincidirá con todos los archivos cuyos nombres terminan con `foo`.<br>Puede especificar directamente la expresión de caracteres comodín en el campo. De forma predeterminada, el valor especificado en el campo se trata como una expresión comodín.</li><li>**Use expresiones regulares**: se admiten expresiones regulares basadas en POSIX. Por ejemplo, una expresión regular `.*\.vhd` coincidirá con todos los archivos que tienen una extensión `.vhd`. Para la expresión regular, proporcione el `<pattern>` directamente como `regex(<pattern>)`. <li>Para más información sobre las expresiones regulares, acuda a [Lenguaje de expresiones regulares - Referencia rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |Optimización de archivos              |Cuando se habilita, los archivos se empaquetan en la ingesta. Esto acelera la copia de datos para archivos pequeños.        |
+    |Optimización de archivos              |Cuando se habilita, los archivos de menos de 1 MB se empaquetan en la ingesta. Esto acelera la copia de datos para archivos pequeños. Se producen ahorros de tiempo significativos cuando el número de archivos supera el número de directorios.        |
  
 4. Haga clic en **Iniciar**. Se validan las entradas y si la validación es correcta, a continuación, se inicia un trabajo. El trabajo puede tardar unos minutos en iniciarse.
 
@@ -106,9 +107,7 @@ Para copiar datos utilizando el servicio de copia de datos, tendrá que crear un
     - En esta versión no puede eliminar un trabajo.
     
     - Puede crear un número ilimitado de trabajos, pero solo puede ejecutar un máximo de 10 trabajos en paralelo en un momento dado.
-    - Si la optimización de archivos está activada, los archivos pequeños se empaquetan en la ingesta para mejorar el rendimiento de copia. En estos casos, verá un archivo empaquetado (GUID como nombre) como se muestra en la captura de pantalla siguiente.
-
-        ![Ejemplo de un archivo empaquetado](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - Si la optimización de archivos está activada, los archivos pequeños se empaquetan en la ingesta para mejorar el rendimiento de copia. En estos casos, verá un archivo empaquetado (GUID como nombre). No elimine este archivo ya que se desempaquetará durante la carga.
 
 6. Mientras el trabajo está en curso, en la página **Copiar datos**:
 
@@ -139,18 +138,14 @@ Una vez finalizado el trabajo de copia, puede ir a **preparación para el envío
 >[!NOTE]
 > Preparación para el envío no se puede ejecutar mientras que los trabajos de copia están en curso.
 
-## <a name="prepare-to-ship"></a>Preparación para el envío
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
+> * Requisitos previos
 > * Copia de datos a un dispositivo Data Box
-> * Preparación del envío a Data Box
+
 
 En el siguiente tutorial aprenderá a enviar su dispositivo Data Box a Microsoft.
 

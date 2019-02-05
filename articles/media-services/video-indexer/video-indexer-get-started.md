@@ -1,5 +1,5 @@
 ---
-title: Suscripción a Video Indexer y carga del primer vídeo
+title: 'Suscripción a Video Indexer y carga del primer vídeo: Azure'
 titlesuffix: Azure Media Services
 description: Obtenga información acerca de cómo suscribirse y cargar el primer vídeo mediante el portal de Video Indexer.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 72412956d231ea2696c05ba250302faf5f90c91d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e3ba1e12a8b058429f75b1d2aab3942cd843778
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823290"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55090514"
 ---
-# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Tutorial: Suscripción y carga del primer vídeo
+# <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Inicio rápido: Suscripción y carga del primer vídeo
 
 En este tutorial introductorio se muestra cómo iniciar sesión en el sitio web de Video Indexer y cómo cargar su primer vídeo.
 

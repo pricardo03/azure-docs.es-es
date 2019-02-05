@@ -15,13 +15,14 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: ae32138dffa296a4aad9917897e180d364f189fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037845"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240818"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: poner bases de datos SQL a disposición de los usuarios de Azure Stack
 
@@ -66,9 +67,9 @@ Ahora que ha implementado el proveedor de recursos de SQL Server y ha creado una
 
 1. Seleccione **+** > **Datos y almacenamiento** > **SQL Database**.
 2. Mantenga los valores predeterminados o use estos ejemplos en los campos siguientes:
-    - **Nombre de la base de datos**: SQLdb
+    - **Nombre de base de datos**: SQLdb
     - **Tamaño máximo en MB**: 100
-    - **Suscripción**: OfertaDePruebaSQL
+    - **Suscripción**: TestSQLOffer
     - **Grupo de recursos**: SQL-RG
 3. Seleccione **Login Settings** (Configuración de inicio de sesión), escriba las credenciales de la base de datos y, a continuación, seleccione **Aceptar**.
 4. Seleccione **SKU** > seleccione la SKU de SQL que ha creado para el servidor de hospedaje SQL > y, después, seleccione **Aceptar**.

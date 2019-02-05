@@ -6,18 +6,18 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: af65fffaf864fd4d5b7123b4c6b66644ef6624e7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b3b2d7fe3268846546d1727b62018d9ef5b409ce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310871"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219301"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Guía de inicio rápido: comprobación del texto con una lista de términos personalizada en C#
+# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Inicio rápido: Comprobación del texto con una lista de términos personalizada en C#
 
 La lista global predeterminada de términos de Azure Content Moderator es suficiente para la mayoría de las necesidades de moderación de contenido. Sin embargo, puede que deba filtrar términos específicos de la organización. Por ejemplo, es aconsejable etiquetar los nombres de la competencia para revisarlos en profundidad. 
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-up-for-content-moderator-services"></a>Suscribirse a los servicios de Content Moderator
 
-Para poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción. Suscríbase a Content Moderator en [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) para obtener una.
+Para poder usar los servicios de Content Moderator mediante la API de REST o el SDK, necesita una clave de suscripción. Suscríbase a Content Moderator en [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) para obtener una.
 
 ## <a name="create-your-visual-studio-project"></a>Crear un proyecto de Visual Studio
 

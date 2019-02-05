@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Introducción a los resultados de revisión ortográfica mediante Bing Spell Check API'
+title: 'Tutorial: Obtención de resultados de revisión ortográfica mediante Bing Spell Check API'
 titlesuffix: Azure Cognitive Services
 description: Código fuente del tutorial que muestra cómo utilizar Bing Spell Check API en una aplicación web de página única.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 0180c6f2924f921e358ea152c887c5c2e16c34dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165584"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186525"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de página única
+# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
 
 Este es el código fuente completo que se describe en el [tutorial de la aplicación de página única](spellcheck.md) de Bing Spell Check API. Para ejecutar la aplicación, copie el código fuente en un editor de texto y guarde el archivo como `spellcheck.html`. A continuación, abra el archivo guardado en el explorador web.
 

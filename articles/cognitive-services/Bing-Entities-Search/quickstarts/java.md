@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Bing Entity Search API con Java'
+title: 'Inicio rápido: Bing Entity Search API, Java'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Entity Search API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: aahi
-ms.openlocfilehash: 20a9e9b9c52d45c0f1c933f82e81d2d9a6f73edd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 000ae54d578ab7223293fc7c089d91a593931533
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313884"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169474"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-java"></a>Guía de inicio rápido para Bing Entity Search API con Java 
 

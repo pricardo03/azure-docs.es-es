@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247119"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466897"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ejecución manual de una función no desencadenada por HTTP
 
@@ -35,6 +35,9 @@ Para ejecutar una función no desencadenada por HTTP, necesita una manera de env
 - **Nombre de la función:** El nombre de la función que quiere ejecutar.
 
 Puede usar la ubicación de esta solicitud en Postman junto con la clave maestra de la función en la solicitud para que Azure ejecute la función.
+
+> [!NOTE]
+> Cuando se ejecuta localmente, la clave maestra de la función no es necesaria. Puede [llamar a la función](#call-the-function) directamente al omitir el encabezado `x-functions-key`.
 
 ## <a name="get-the-functions-master-key"></a>Obtención de la clave maestra de la función
 

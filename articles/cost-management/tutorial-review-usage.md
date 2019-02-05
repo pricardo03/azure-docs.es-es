@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849981"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098653"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -95,7 +95,7 @@ Azure Cost Management también proporciona recomendaciones de ahorro de costos p
 
 Las alertas le permiten enviar notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Se pueden crear alertas mediante informes que admitan alertas basadas en umbrales de presupuesto y de costo.
 
-En este ejemplo se usa el informe **Actual Cost Over Time** (Costo real a lo largo del tiempo) para enviar una notificación cuando el gasto de un máquina virtual de Azure se acerque al presupuesto total. En este escenario, tiene un presupuesto total de 20 000 USD y desea recibir una notificación cuando los costos se aproximen a la mitad del presupuesto, 9000 USD y una alerta adicional cuando los costos lleguen a 10 000 USD.
+En este ejemplo se usa el informe **Actual Cost Over Time** (Costo real a lo largo del tiempo) para enviar una notificación cuando el gasto de un máquina virtual de Azure se acerque al presupuesto total. En este escenario, tiene un presupuesto total de 20 000 USD y quiere recibir una notificación cuando los costos se aproximen a la mitad del presupuesto (9000 USD) y una alerta adicional cuando los costos lleguen a 10 000 USD.
 
 1. En el menú de la parte superior del portal de Cloudyn, seleccione **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). 
 2. Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. 
@@ -104,7 +104,7 @@ En este ejemplo se usa el informe **Actual Cost Over Time** (Costo real a lo lar
 5. Seleccione la pestaña **Threshold** (Umbral) y después seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. 
    1. En el cuadro de umbral **Red alert** (Alerta roja) escriba 10000. 
    2. En el cuadro del umbral **Yellow alert** (Alerta amarilla) escriba 9000. 
-   3. En el cuadro **Number of consecutive alerts** (Número de alertas consecutivas), escriba el número de alertas consecutivas que desea recibir. Cuando reciba el número total de alertas que ha especificado, no se enviarán más alertas. 
+   3. En el cuadro **Number of consecutive alerts** (Número de alertas consecutivas), escriba el número de alertas consecutivas que desea recibir. Cuando recibe el número total de alertas especificado, no se envían más alertas. 
 6. Seleccione **Guardar**.
 
 ![Ejemplo que muestra alertas rojas y amarillas según los umbrales de gastos](./media/tutorial-review-usage/schedule-alert01.png)

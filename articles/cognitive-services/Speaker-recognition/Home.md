@@ -6,16 +6,16 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016864"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216768"
 ---
 # <a name="speaker-recognition-api"></a>Speaker Recognition API
 
@@ -38,7 +38,7 @@ En la inscripción, la voz del hablante se graba diciendo una frase específica 
 
 En la comprobación, se compara una frase y una voz de entrada con la firma de voz y la frase de la inscripción, con el fin de comprobar si pertenecen o no a la misma persona y si se dice la frase correcta.
 
-Para obtener más información sobre la verificación del hablante, consulte la API [Speaker - Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Para más información acerca de la verificación del hablante, consulte  [Speaker API: verificación](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Identificación del hablante
 
@@ -56,4 +56,4 @@ La inscripción para la identificación del hablante depende del texto, lo que s
 
 Durante la fase de reconocimiento, se proporciona el audio del hablante desconocido, junto con el grupo de posibles hablantes. La voz de entrada se compara con todos los hablantes a fin de determinar a quién pertenece la voz y, en caso de que se encuentre una coincidencia, se devuelve la identidad del hablante.
 
-Para obtener más información sobre la identificación del hablante, consulte la API [Speaker - Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Para más información acerca de la identificación del hablante, consulte  [Speaker API: identificación](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

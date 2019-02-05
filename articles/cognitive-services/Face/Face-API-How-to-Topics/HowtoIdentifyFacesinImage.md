@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129078"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208098"
 ---
 # <a name="example-how-to-identify-faces-in-images"></a>Ejemplo: Identificación de caras en imágenes
 
@@ -41,7 +41,7 @@ Para llevar a cabo la demostración de este ejemplo, es necesario preparar un mo
 - Unas fotos con la cara de la persona. [Haga clic aquí para descargar fotos de ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) para Anna, Bill y Clare.
 - Una serie de fotos de prueba, que pueden o no contener las caras de Anna, Bill o Clare utilizadas para probar la identificación. También puede seleccionar algunas imágenes de muestra del vínculo anterior.
 
-## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada API
+## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada a la API
 
 Cada llamada a Face API requiere una clave de suscripción. Esta clave puede pasarse a través de un parámetro de cadena de consulta o especificarse en la cabecera de la solicitud. Para pasar la clave de suscripción a través de una cadena de consulta, haga referencia a la dirección URL de la solicitud para [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como ejemplo:
 ```
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Como alternativa, también puede especificar la clave de suscripción en el encabezado de solicitud HTTP: **ocp-apim-subscription-key: &lt;clave de suscripción&gt;**. Cuando se utiliza una biblioteca cliente, la clave de suscripción se pasa a través del constructor de la clase FaceServiceClient. Por ejemplo: 
+Como alternativa, también puede especificarse la clave de suscripción en el encabezado de la solicitud HTTP: **ocp-apim-subscription-key: &lt;Clave de suscripción&gt;** Al usar una biblioteca cliente, la clave de suscripción se pasa por el constructor de la clase FaceServiceClient. Por ejemplo: 
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");

@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Transcripción de texto, Node.js: Translator Text API'
+title: 'Inicio rápido: Transliteración de texto, Node.js (Translator Text API)'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial aprenderá a transcribir (convertir) de texto de un script a otro mediante Node.js y Translator Text REST API. En este ejemplo, se transcribe el japonés para que use el alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207928"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Guía de inicio rápido: Uso de Translator Text API para transcribir texto con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Inicio rápido: Uso de Translator Text API para transliterar texto con Node.js
 
 En este tutorial aprenderá a transcribir (convertir) de texto de un script a otro mediante Node.js y Translator Text REST API. En el ejemplo que se proporciona, se transcribe el japonés para que use el alfabeto latino.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 El método `request()`, disponible mediante el módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Transliteración](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: transliteración](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {

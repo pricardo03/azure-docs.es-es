@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Reconocimiento de emociones en las caras de una imagen: Emotion API, Python'
+title: 'Tutorial: Reconocimiento de emociones en las caras de una imagen (Emotion API, Python)'
 titlesuffix: Azure Cognitive Services
 description: Use un cuaderno de Jupyter para saber cómo usar Emotion API con Python. Visualice los resultados mediante bibliotecas populares.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 31e346cd9a3f43f8181ebee4474ae6c9ee2cc6fc
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ea96495fb9fa453f7c7f9d6a870291329d2793b2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237864"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220542"
 ---
 # <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Tutorial: Uso de Emotion API con un cuaderno de Jupyter y Python.
 

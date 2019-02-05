@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial: Caracterización y especificación de características: Custom Decision Service'
+title: 'Tutorial: Caracterización y especificación de características (Custom Decision Service)'
 titlesuffix: Azure Cognitive Services
 description: Un tutorial para la caracterización del aprendizaje automático y la especificación de características en Custom Decision Service.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869605"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226067"
 ---
 # <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: Caracterización y especificación de características
 
 Este tutorial aborda la funcionalidad de aprendizaje automático avanzado en Custom Decision Service. El tutorial consta de dos partes: [caracterización](#featurization-concepts-and-implementation) y [especificación de características](#feature-specification-format-and-apis). Caracterización hace referencia a la representación de datos como "características" para el aprendizaje automático. La especificación de característica cubre el formato JSON y las API complementarias para especificar características.
 
-De forma predeterminada, el aprendizaje automático en Custom Decision Services transparente para el cliente. Las características se extraen automáticamente del contenido y se usa un algoritmo de aprendizaje de refuerzo estándar. La extracción de características usa otros servicios de Azure Cognitive Services: [Entity Linking](../entitylinking/home.md), [Text Analytics](../text-analytics/overview.md), [Emotion](../emotion/home.md) y [Computer Vision](../computer-vision/home.md). Este tutorial puede omitirse si solo se usa la funcionalidad predeterminada.
+De forma predeterminada, el aprendizaje automático en Custom Decision Services transparente para el cliente. Las características se extraen automáticamente del contenido y se usa un algoritmo de aprendizaje de refuerzo estándar. La extracción de características aprovecha otros servicios de Azure Cognitive Services: [Entity Linking](../entitylinking/home.md), [Text Analytics](../text-analytics/overview.md), [Emotion](../emotion/home.md) y [Computer Vision](../computer-vision/home.md). Este tutorial puede omitirse si solo se usa la funcionalidad predeterminada.
 
 ## <a name="featurization-concepts-and-implementation"></a>Caracterización: conceptos e implementación
 

@@ -3,7 +3,7 @@ title: 'Tutorial: Creación y administración de un conjunto de escalado de máq
 description: Obtenga información sobre cómo usar la CLI de Azure para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, como cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466144"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179487"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Crear y administrar un conjunto de escalado con la CLI de Azure
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -51,7 +51,7 @@ El nombre del grupo de recursos se especifica al crear o modificar un conjunto d
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Creará un conjunto de escalado de máquinas virtuales con el comando [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet* y se generan claves SSH si estas no existen aún:
+Creará un conjunto de escalado de máquinas virtuales con el comando [az vmss create](/cli/azure/vmss). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet* y se generan claves SSH si estas no existen aún:
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>Visualización de información de conexión
 Se asigna una dirección IP pública al equilibrador de carga que enruta el tráfico a las instancias de máquina virtual individuales. De manera predeterminada, se agregan reglas de traducción de direcciones de red (NAT) a Azure Load Balancer, que reenvía el tráfico de conexión remota a cada máquina virtual en un puerto dado. Para conectarse a las instancias de máquina virtual de un conjunto de escalado, creará una conexión remota a una dirección IP pública y un número de puerto asignados.
 
-Para mostrar las direcciones y los puertos para conectarse a las instancias de máquina virtual de un conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info).
+Para mostrar las direcciones y los puertos para conectarse a las instancias de máquina virtual de un conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss).
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -202,7 +202,7 @@ En la tabla siguiente se clasifican los tamaños de máquina virtual comunes en 
 | [Alto rendimiento](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Búsqueda de tamaños de instancia de máquina virtual disponibles
-Para ver una lista de tamaños de instancia de máquina virtual disponibles en una región determinada, use el comando [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes).
+Para ver una lista de tamaños de instancia de máquina virtual disponibles en una región determinada, use el comando [az vm list-sizes](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ La salida es similar al siguiente ejemplo reducido, que muestra los recursos asi
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>Creación de un conjunto de escalado con un tamaño específico de instancia de máquina virtual
-Cuando creó un conjunto de escalado al comienzo del tutorial, se proporcionó una SKU de máquina virtual predeterminada de *Standard_D1_v2* para las instancias de máquina virtual. Puede especificar un tamaño de instancia de máquina virtual diferente en función de la salida de [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). En el ejemplo siguiente se crearía un conjunto de escalado con el parámetro `--vm-sku` para especificar un tamaño de instancia de máquina virtual de *Standard_F1*. Como se tarda unos minutos en crear y configurar todos los recursos del conjunto de escalado y las instancias de máquina virtual, no tiene que implementar el siguiente conjunto de escalado:
+Cuando creó un conjunto de escalado al comienzo del tutorial, se proporcionó una SKU de máquina virtual predeterminada de *Standard_D1_v2* para las instancias de máquina virtual. Puede especificar un tamaño de instancia de máquina virtual diferente en función de la salida de [az vm list-sizes](/cli/azure/vm). En el ejemplo siguiente se crearía un conjunto de escalado con el parámetro `--vm-sku` para especificar un tamaño de instancia de máquina virtual de *Standard_F1*. Como se tarda unos minutos en crear y configurar todos los recursos del conjunto de escalado y las instancias de máquina virtual, no tiene que implementar el siguiente conjunto de escalado:
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Cambio de la capacidad de un conjunto de escalado
-Cuando creó un conjunto de escalado al comienzo del tutorial, se implementaron de forma predeterminada dos instancias de máquina virtual. Puede especificar el parámetro `--instance-count` con [az vmss create](/cli/azure/vmss#az_vmss_create) para cambiar el número de instancias creadas con un conjunto de escalado. Para aumentar o disminuir el número de instancias de máquina virtual del conjunto de escalado existente, puede cambiar manualmente la capacidad. El conjunto de escalado crea o quita el número necesario de instancias de máquina virtual y, luego, configura el equilibrador de carga para distribuir el tráfico.
+Cuando creó un conjunto de escalado al comienzo del tutorial, se implementaron de forma predeterminada dos instancias de máquina virtual. Puede especificar el parámetro `--instance-count` con [az vmss create](/cli/azure/vmss) para cambiar el número de instancias creadas con un conjunto de escalado. Para aumentar o disminuir el número de instancias de máquina virtual del conjunto de escalado existente, puede cambiar manualmente la capacidad. El conjunto de escalado crea o quita el número necesario de instancias de máquina virtual y, luego, configura el equilibrador de carga para distribuir el tráfico.
 
 Para aumentar o reducir manualmente el número de instancias de máquina virtual del conjunto de escalado, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). En el ejemplo siguiente se establece el número de instancias de máquina virtual del conjunto de escalado en *3*:
 

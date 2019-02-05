@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716419"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297096"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -293,7 +293,7 @@ Haga clic en **PUT** para guardar la configuración.
 
 Ahora las aplicaciones están configuradas. El front-end ahora está listo para acceder al back-end con un token de acceso apropiado.
 
-Para información sobre cómo realizar esta configuración para otros proveedores, consulte [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens) (Actualización de los tokens de acceso).
+Para más información sobre cómo realizar esta configuración para otros proveedores, consulte [Refresh identity provider tokens](app-service-authentication-how-to.md#refresh-identity-provider-tokens) (Actualización de tokens del proveedor de identidades).
 
 ## <a name="call-api-securely-from-server-code"></a>Llamada a la API de forma segura desde el código de servidor
 
@@ -417,7 +417,7 @@ Felicidades. El código de cliente puede acceder ahora a los datos de back-end e
 
 ## <a name="when-access-tokens-expire"></a>Cuando expiren los tokens de acceso
 
-El token de acceso expira después de un tiempo. Para obtener información sobre cómo actualizar los tokens de acceso sin requerir que los usuarios vuelvan a autenticarse con la aplicación, consulte [Actualización de tokens de acceso](app-service-authentication-how-to.md#refresh-access-tokens).
+El token de acceso expira después de un tiempo. Para obtener información sobre cómo actualizar los tokens de acceso sin requerir que los usuarios vuelvan a autenticarse con la aplicación, consulte [Refresh identity provider tokens](app-service-authentication-how-to.md#refresh-identity-provider-tokens) (Actualización de tokens del proveedor de identidades).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

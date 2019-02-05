@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Conversión de script de texto con Translator Text API en PHP'
+title: 'Inicio rápido: Conversión de script de texto, PHP (Translator Text API)'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, se convierte texto en un lenguaje de un script a otro mediante el uso de Translator Text API con PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e858e33864ddec211f2424c7380b5b421a3db0f5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: becc73438762efb4b8cdda2be32e59feebc7dd20
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649486"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208201"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Guía de inicio rápido: Transcripción de texto con la API REST Translator Text (PHP)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Inicio rápido: Transliteración de texto con Translator Text REST API (PHP)
 
 En esta guía de inicio rápido se convierte texto en un idioma de un script en otro mediante Translator Text API.
 

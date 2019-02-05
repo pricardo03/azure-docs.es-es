@@ -3,19 +3,19 @@ title: Autoservicio de restablecimiento de contraseña de Azure AD desde la pant
 description: En este tutorial va a habilitar el restablecimiento de contraseña en la pantalla de inicio de sesión de Windows 10 para reducir el número de llamadas al departamento de soporte técnico.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430679"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474877"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -28,11 +28,11 @@ En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Actualización de Windows del 10 de abril de 2018 o un cliente más reciente que esté:
-   * [Unido a Azure AD](../device-management-azure-portal.md) o
-   * [Unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), con conectividad de red con un controlador de dominio.
-* El autoservicio de restablecimiento de contraseña de Azure AD debe estar habilitado.
-* Si las máquinas de Windows 10 se encuentran detrás de un servidor proxy o firewall, se debe permitir el tráfico HTTPS (443) a `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com`.
+* Debe ejecutar al menos la actualización de abril de 2018 de Windows 10 y los dispositivos deben estar:
+   * [Unidos a Azure AD](../device-management-azure-portal.md) o
+   * [Unidos a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), con conectividad de red a un controlador de dominio.
+* Debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD.
+* Si los dispositivos Windows 10 se encuentran detrás de un servidor proxy o un firewall, debe agregar las direcciones URL, `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com` a la lista de direcciones URL permitidas (puerto 443) del tráfico HTTPS.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configuración del vínculo de restablecimiento de contraseña con Intune
 

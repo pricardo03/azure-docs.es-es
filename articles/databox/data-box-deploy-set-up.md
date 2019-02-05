@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391157"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902175"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -50,7 +50,7 @@ Realice los pasos siguientes para cablear el dispositivo.
 
 1. Inspeccione el dispositivo para comprobar si hay alguna evidencia de que haya sido alterado o de que haya sufrido algún otro daño evidente. Si el dispositivo está alterado o presenta daños graves, no continúe. Póngase en contacto inmediatamente con el Soporte técnico de Microsoft para que le ayude a evaluar si el dispositivo está en buenas condiciones y si debe devolverlo para que se lo cambien.
 2. Transporte el dispositivo a la ubicación donde desea encenderlo. Coloque el dispositivo en una superficie plana. También se puede colocar el dispositivo en un bastidor estándar.
-3. Conecte los cables de alimentación y red. A continuación se muestra el panel posterior de un dispositivo conectado con una configuración común. 
+3. Conecte los cables de alimentación y red. A continuación se muestra el panel posterior de un dispositivo conectado con una configuración común. Dependiendo de su entorno, puede escoger otras [opciones de cableado](data-box-cable-options.md).
     
     ![Panel posterior del dispositivo Data Box con los cables](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721908"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462263"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una regla de firewall de nivel de servidor para SQL Database mediante Azure Portal
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para SQL Database mediante Azure Portal
 
 Este inicio rápido le guía a través de la creación de una regla de firewall de nivel de servidor para una instancia de Azure SQL Database para que pueda conectarse a ella desde un recurso local.
 
@@ -57,7 +57,7 @@ Siga estos pasos para crear una regla de firewall de nivel de servidor para la d
    > De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Elija **OFF** (Desactivar) en esta página para deshabilitar todos los servicios de Azure.
    >
 
-5. Seleccione **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+5. Seleccione **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor de SQL Database.
 
 6. Cierre la página **Configuración de firewall**.
 
@@ -66,7 +66,6 @@ Mediante SQL Server Management Studio o cualquier otra herramienta que elija, ah
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Guarde estos recursos si desea volver a la sección [Pasos siguientes](#next-steps) y aprender a conectarse y consultar la base de datos mediante una serie de métodos diferentes. Sin embargo, si desea eliminar los recursos que ha creado en esta guía de inicio rápido, siga estos pasos.
-
 
 1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y **myResourceGroup**.
 2. En la página del grupo de recursos, seleccione **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y, después, seleccione **Eliminar**.

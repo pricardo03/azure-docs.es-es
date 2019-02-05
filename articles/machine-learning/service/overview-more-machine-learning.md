@@ -1,7 +1,6 @@
 ---
-title: Comparación de las opciones de productos de aprendizaje automático
-titleSuffix: Microsoft
-description: Compare la variedad de productos de Microsoft para crear, implementar y administrar modelos de aprendizaje automático. Decida qué productos elegir para su solución.
+title: Elección de una tecnología de aprendizaje automático en Microsoft
+description: Compare opciones para crear, implementar y administrar sus modelos de Machine Learning. Decida qué productos de Microsoft elegir para su solución.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
-ms.openlocfilehash: d7c7c383f51d8bcc2b1691724e8f22b43782c5e8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 1/30/2019
+ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242076"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451876"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>¿Cuáles son los productos de aprendizaje automático de Microsoft?
 

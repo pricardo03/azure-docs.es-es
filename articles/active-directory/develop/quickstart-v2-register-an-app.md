@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913285"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093232"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Inicio rápido: Registro de una aplicación con el punto de conexión de Azure Active Directory v2.0
 
@@ -41,10 +41,10 @@ No todas las características ni escenarios de Azure AD son compatibles con el p
 1. Inicie sesión con una cuenta personal o una cuenta profesional o educativa de Microsoft. Si no tiene ninguna de ellas, suscríbase para una nueva cuenta personal.
 1. ¿Ha acabado? Ahora debería estar viendo su lista de aplicaciones de Microsoft, que probablemente esté vacía. Cambiemos eso.
 
-## <a name="step-2-register-an-app"></a>Paso 2: Registro de una aplicación
+## <a name="step-2-register-an-app"></a>Paso 2: Registrar una aplicación
 
 1. Seleccione **Agregar una aplicación** y asígnele un nombre.
-    El portal le asignará a su aplicación un identificador de aplicación único global que usará más adelante en su código. Si su aplicación incluye un componente del lado del servidor que necesita tokens de acceso para llamar a las API (como Office, Azure o su propia API web), aquí también le interesará crear un **Secreto de la aplicación**.
+    El portal le asignará a su aplicación un identificador de aplicación único global que usará más adelante en su código. Si la aplicación incluye un componente en el lado del servidor que necesita tokens de acceso para llamar a las API (piense en: Office, Azure o su propia API web), puede que desee crear un **secreto de aplicación** aquí también.
 1. A continuación, agregue las **plataformas** que usará la aplicación.
     * Para las aplicaciones basadas en web, proporcione un **URI de redirección** al que se puedan enviar los mensajes de inicio de sesión.
     * Para las aplicaciones móviles, copie el URI de redirección predeterminado creado automáticamente para usted.

@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Reconocimiento de intenciones a partir de contenido de voz con SDK de Voz para C#'
+title: 'Tutorial: Reconocimiento de intenciones a partir de contenido de voz con Speech SDK para C#'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial aprenderá a reconocer intenciones a partir de contenido de voz con el SDK de Voz para C#.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 64fa194225c7e9fa4c272ca8a9e95b44282ec1df
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e810450a8934a8df921c5d952a55ab0deaf853ec
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466484"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227985"
 ---
-# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de Voz para C#
+# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
 [!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
@@ -52,13 +52,13 @@ LUIS usa dos tipos de claves:
 |Tipo de clave|Propósito|
 |--------|-------|
 |creación|le permite crear y modificar mediante programación de aplicaciones LUIS|
-|endpoint |autoriza el acceso a una determinada aplicación LUIS|
+|punto de conexión |autoriza el acceso a una determinada aplicación LUIS|
 
-La clave de punto de conexión es la clave de LUIS necesaria para este tutorial. Este tutorial utiliza la aplicación de automatización del hogar de LUIS, que puede crear siguiendo [Uso de la aplicación de automatización del hogar pregenerada](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación LUIS, puede usarla en su lugar.
+La clave de punto de conexión es la clave de LUIS necesaria para este tutorial. Este tutorial utiliza la aplicación de automatización de dispositivos del hogar de LUIS, que puede crear siguiendo [Uso de la aplicación de dispositivos de automatización del hogar pregenerada](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación LUIS, puede usarla en su lugar.
 
-Al crear una aplicación LUIS, se genera automáticamente una clave de inicio para que pueda probar la aplicación mediante consultas de texto. Esta tecla no permite la integración del servicio Voz y no funcionará con este tutorial. Debe crear un recurso de LUIS en el panel de Azure y asignarlo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para este tutorial. 
+Al crear una aplicación LUIS, se genera automáticamente una clave de inicio para que pueda probar la aplicación mediante consultas de texto. Esta clave no permite la integración del servicio Voz y no funcionará con este tutorial. Debe crear un recurso de LUIS en el panel de Azure y asignarlo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para este tutorial. 
 
-Después de crear el recurso de LUIS en el panel de Azure, inicie sesión en el [portal de LUIS](https://www.luis.ai/home), seleccione la aplicación en la página Mis aplicaciones y, después, cambie a la página Manage (Administrar) de la aplicación. Por último, haga clic en **Keys and Endpoints** (Claves y puntos de conexión) en la barra lateral.
+Después de crear el recurso de LUIS en el panel de Azure, inicie sesión en el [portal de LUIS](https://www.luis.ai/home), seleccione la aplicación en la página My Apps (Mis aplicaciones) y, después, cambie a la página Manage (Administrar) de la aplicación. Por último, haga clic en **Keys and Endpoints** (Claves y puntos de conexión) en la barra lateral.
 
 ![Configuración de los puntos de conexión y claves del portal de LUIS](media/sdk/luis-keys-endpoints-page.png)
 
@@ -67,7 +67,7 @@ En la página de configuración Keys and Endpoints (Claves y puntos de conexión
 1. Desplácese hacia abajo hasta la sección Resources and Keys (Recursos y claves) y haga clic en **Assign resource** (Asignar recurso).
 1. En el cuadro de diálogo **Assign a key to your app** (Asignar una clave a la aplicación), elija lo siguiente:
 
-    * Elija Microsoft como el inquilino.
+    * Elija Microsoft en Tenant (Inquilino).
     * En Subscription Name (Nombre de suscripción), elija la suscripción de Azure que contiene el recurso de LUIS que desea usar.
     * En Key (Clave), elija el recurso de LUIS que se va a usar con la aplicación.
 
@@ -107,7 +107,7 @@ En el cuerpo de este nuevo método, agregue este código.
 
 Reemplace los marcadores de posición en este método por su clave de suscripción, región e identificador de aplicación de LUIS, como se indica a continuación.
 
-|Placeholder|Reemplazar por|
+|Marcador de posición|Reemplazar por|
 |-----------|------------|
 |`YourLanguageUnderstandingSubscriptionKey`|La clave de punto de conexión de LUIS. Como se mencionó anteriormente, esta debe ser una clave obtenida en el panel de Azure, no una "tecla de inicio". Puede encontrarla en la página Keys and Endpoints (Claves y puntos de conexión) de la aplicación (en Manage [Administrar]) en el [portal de LUIS](https://www.luis.ai/home).|
 |`YourLanguageUnderstandingServiceRegion`|El identificador corto para la región en la que se encuentra la suscripción a LUIS, como `westus` para Oeste de EE. UU. Consulte [Regiones](regions.md).|
@@ -138,7 +138,7 @@ La adición de intenciones requiere tres argumentos: el modelo LUIS (que se acab
 |intentName |El nombre de la intención, tal como se define en la aplicación LUIS. Debe coincidir exactamente con el nombre de la intención de LUIS.|
 |intentID    |Identificador asignado a una intención reconocida por el SDK de Voz. Puede ser el que quiera; no necesita corresponderse con el nombre de la intención tal y como se define en la aplicación LUIS. Si se controlan varias intenciones con el mismo código, por ejemplo, se puede utilizar el mismo identificador para ellos.|
 
-La aplicación de automatización del hogar de LUIS tiene dos propósitos: uno, encender un dispositivo y otro, apagarlo. En las líneas siguientes se agregan estas intenciones al reconocedor; reemplace las tres líneas `AddIntent` del método `RecognizeIntentAsync()` por este código.
+La aplicación de automatización de dispositivos del hogar de LUIS tiene dos propósitos: uno, encender un dispositivo y otro, apagarlo. En las líneas siguientes se agregan estas intenciones al reconocedor; reemplace las tres líneas `AddIntent` del método `RecognizeIntentAsync()` por este código.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
@@ -178,7 +178,7 @@ Para probar estas características, reemplace el cuerpo del método `RecognizeIn
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-Revise el código para incluir la clave del punto de conexión de LUIS, la región y el identificador de la aplicación y para agregar las intenciones de automatización del hogar, como antes. Cambie `whatstheweatherlike.wav` por el nombre del archivo de audio. Después compílelo y ejecútelo.
+Revise el código para incluir la clave del punto de conexión de LUIS, la región y el identificador de la aplicación y para agregar las intenciones de automatización de dispositivos del hogar, como antes. Cambie `whatstheweatherlike.wav` por el nombre del archivo de audio. Después compílelo y ejecútelo.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Busque el código de este artículo en la carpeta samples/csharp/sharedcontent/console.

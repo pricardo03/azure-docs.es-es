@@ -1,21 +1,21 @@
 ---
-title: 'Ejemplo: Uso de la característica a gran escala - Face API'
+title: 'Ejemplo: Uso de la característica a gran escala (Face API)'
 titleSuffix: Azure Cognitive Services
 description: Use la característica a gran escala en Face API.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123086"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222905"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>Ejemplo: Uso de la característica a gran escala
 
@@ -41,11 +41,11 @@ Si no está familiarizado con los siguiente conceptos de esta guía, encontrará
 
 - LargePersonGroup: colección de personas con capacidad para hasta 1 000 000.
 - LargeFaceList: colección de caras con capacidad para hasta 1 000 000.
-- Train: proceso previo para asegurar el rendimiento de las operaciones Identification/FindSimilar.
-- Identification: identificar una o más caras en PersonGroup o LargePersonGroup.
+- Entrenar: proceso previo que asegurar el rendimiento de las operaciones Identification/FindSimilar.
+- Identification: identificar una o varias caras en PersonGroup o LargePersonGroup.
 - FindSimilar: buscar caras similares en FaceList o LargeFaceList.
 
-## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada API
+## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada a la API
 
 Cuando se utiliza la biblioteca cliente de Face API, la clave de suscripción y el punto de conexión de la suscripción se pasan en el constructor de la clase FaceServiceClient. Por ejemplo: 
 
@@ -212,7 +212,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 Tal y como se mostró anteriormente, la administración de datos y la parte FindSimilar son prácticamente iguales.
 La única excepción es que debe realizarse una operación de entrenamiento totalmente nueva en LargeFaceList para que FindSimilar funcione.
 
-## <a name="step-3-train-suggestions"></a>Paso 3: Entrenamiento de sugerencias
+## <a name="step-3-train-suggestions"></a>Paso 3: Sugerencias de entrenamiento
 
 Aunque la operación Train acelera las operaciones [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) e [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), el tiempo de entrenamiento sufre especialmente cuando se aplica a gran escala.
 En la tabla siguiente se indica el tiempo de entrenamiento estimado de las diferentes escalas:

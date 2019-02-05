@@ -5,16 +5,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632873"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212501"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Ejemplo: Cómo detectar opiniones en Text Analytics
 
@@ -77,7 +77,7 @@ El tamaño del documento debe ser inferior a 5000 caracteres por documento y pue
 
 Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API de análisis de sentimiento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Sentiment Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
 + Establezca el punto de conexión de HTTP para el análisis de opinión, mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
@@ -88,14 +88,14 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 > [!Tip]
 > Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) para estructurar y enviar una solicitud POST al servicio.
 
-## <a name="step-2-post-the-request"></a>Paso 2: Enviar la solicitud
+## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
 El análisis se realiza tras la recepción de la solicitud. El servicio acepta hasta 100 solicitudes por minuto. Cada solicitud puede tener un máximo de 1 MB.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
 
-## <a name="step-3-view-results"></a>Paso 3: Ver los resultados
+## <a name="step-3-view-results"></a>Paso 3: Visualización de los resultados
 
 El analizador de opiniones clasifica el texto como predominantemente positivo o negativo, y le asigna una puntuación de 0 a 1. Los valores próximos a 0,5 son neutros o indeterminados. Una puntuación de 0,5 indica neutralidad. Cuando no se pueden analizar las opiniones de una cadena o no tiene ninguna opinión, el resultado siempre es 0,5 exactamente. Por ejemplo, si se pasa una cadena de español con un código de idioma inglés, la puntuación es 0,5.
 

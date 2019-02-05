@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911871"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098534"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Inicio rápido: Registro de una aplicación con el punto de conexión de Azure Active Directory v1.0
 
@@ -51,12 +51,12 @@ Para comenzar, asegúrese de que tiene un inquilino de Azure AD que puede usar p
 
 1. Cuando aparece la página **Crear**, escriba la información de registro de la aplicación: 
 
-    - **Nombre:** Escriba un nombre de aplicación significativo
+    - **Nombre:** Especifique un nombre de aplicación significativo.
     - **Tipo de aplicación:**
       - Seleccione **Nativo** para las [aplicaciones cliente](developer-glossary.md#client-application) que están instaladas localmente en un dispositivo. Esta configuración se utiliza para [clientes nativos](developer-glossary.md#native-client) públicos de OAuth.
       - Seleccione **Aplicación Web o API** para las [aplicaciones cliente](developer-glossary.md#client-application) y las [aplicaciones de recursos/API](developer-glossary.md#resource-server) que están instaladas en un servidor seguro. Esta configuración se utiliza para [clientes web](developer-glossary.md#web-client) confidenciales de OAuth y [clientes basados en agente de usuario](developer-glossary.md#user-agent-based-client) públicos. La misma aplicación también puede exponer tanto un cliente como un recurso o API.
-    - **URL de inicio de sesión:** Para aplicaciones "Aplicación Web / API", proporcione la dirección URL base de la aplicación. Por ejemplo, `http://localhost:31544` podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web. 
-    - **URI de redireccionamiento:** para aplicaciones "Nativas", proporcione el identificador URI usado por Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo, `http://MyFirstAADApp`
+    - **URL de inicio de sesión**: Para aplicaciones web o aplicaciones de la API, proporcione la dirección URL base de la aplicación. Por ejemplo, `http://localhost:31544` podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web. 
+    - **URI de redirección:** Para aplicaciones nativas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo, `http://MyFirstAADApp`
 
       ![Registro de una nueva aplicación: crear](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

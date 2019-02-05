@@ -1,28 +1,28 @@
 ---
-title: 'Guía de inicio rápido: Creación de una instancia de Load Balancer Estándar público: CLI de Azure | Microsoft Docs'
+title: 'Inicio rápido: Creación de una instancia pública de Standard Load Balancer: CLI de Azure'
+titlesuffix: Azure Load Balancer
 description: Este inicio rápido muestra cómo crear un equilibrador de carga público mediante la CLI de Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c13388ea7a4e3a3016f7560a523c93c1fcb6c0c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bbb2b292f2793a1d157a6ea87aa245ad39b15830
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468325"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241226"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer para equilibrar la carga de máquinas virtuales mediante la CLI de Azure
 

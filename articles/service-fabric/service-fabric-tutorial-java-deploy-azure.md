@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db0b1cd9d61e498430bff417573b63f99c0ae7e4
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996815"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301737"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementación de una aplicación para Java en un clúster de Service Fabric en Azure
 
@@ -247,7 +247,6 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Creación de un clúster seguro de Linux en Azure
 > * Creación de los recursos necesarios para la supervisión con ELK
-> * Opcional: Prueba de Service Fabric con clústeres de entidades
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]

@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Uso de Java para llamar a Text Analytics API'
+title: 'Inicio rápido: Uso de Java para llamar a Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Text Analytics API en Microsoft Cognitive Services en Azure.
 services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fdca883e2637998222bfcc4cdc799fe4dec4ab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283951"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223313"
 ---
-# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Guía de inicio rápido: Uso de Java para llamar a Text Analytics de Cognitive Services
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Java para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
 
 En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con Java.

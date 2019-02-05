@@ -1,6 +1,6 @@
 ---
-title: Protección de una base de datos única en Azure SQL Database | Microsoft Docs
-description: Conozca las técnicas y características para proteger una base de datos única en Azure SQL Database.
+title: Protección de una base de datos independiente o agrupada en Azure SQL Database | Microsoft Docs
+description: Conozca las técnicas y características para proteger una base de datos independiente o agrupada en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: e0311174303fc91767d3f99e6db05927b25aea05
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051669"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461209"
 ---
-# <a name="tutorial-secure-a-single-database"></a>Tutorial: Protección de una base de datos única
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Protección de una base de datos independiente o agrupada
 
-Azure SQL Database protege los datos de una base de datos SQL única de Azure al permitir:
+Azure SQL Database protege los datos de una base de datos independiente o agrupada al permitir:
 
 - Limitar el acceso mediante reglas de firewall
 - Usar mecanismos de autenticación que requieran la identidad
@@ -35,7 +35,7 @@ Puede mejorar la seguridad de la base de datos con unos sencillos pasos. En este
 > - Crear reglas de firewall de nivel de servidor y de base de datos.
 > - Configurar un administrador de Azure Active Directory (Azure AD).
 > - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
-> - Habilitar características de seguridad, como la protección contra amenazas, la auditoría, el enmascaramiento de datos y el cifrado.
+> - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
 
 Para más información, consulte los artículos [Información general sobre las funcionalidades de seguridad de Azure SQL Database](/azure/sql-database/sql-database-security-index) y [Funcionalidades](sql-database-security-overview.md).
 
@@ -45,7 +45,7 @@ Para completar el tutorial, asegúrese de que cuenta con estos requisitos previo
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Un servidor y una base de datos de Azure SQL
-    - Créelos con [Azure Portal](sql-database-get-started-portal.md), la [CLI](sql-database-cli-samples.md) o [PowerShell](sql-database-powershell-samples.md).
+  - Créelos con [Azure Portal](sql-database-get-started-portal.md), la [CLI](sql-database-cli-samples.md) o [PowerShell](sql-database-powershell-samples.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -62,9 +62,9 @@ Establezca **Permitir el acceso a servicios de Azure** en **OFF** (DESACTIVADO) 
 > [!NOTE]
 > SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el administrador abra el puerto 1433.
 
-### <a name="set-up-server-level-firewall-rules"></a>Configuración de reglas de firewall de nivel de servidor
+### <a name="set-up-sql-database-server-firewall-rules"></a>Configuración de reglas de firewall del servidor de SQL Database
 
-Las reglas de firewall de nivel de servidor se aplican a todas las bases de datos dentro del mismo servidor lógico.
+Las reglas de firewall de nivel de servidor se aplican a todas las bases de datos del mismo servidor de SQL Database.
 
 Para configurar una regla de firewall de nivel de servidor:
 
@@ -88,7 +88,7 @@ Ahora puede conectarse a cualquier base de datos del servidor con la dirección 
 > [!IMPORTANT]
 > De forma predeterminada, el acceso mediante el firewall de SQL Database se habilita para todos los servicios de Azure en **Permitir el acceso a servicios de Azure**. Elija **OFF** (DESACTIVADO) para deshabilitar el acceso para todos los servicios de Azure.
 
-### <a name="setup-database-level-firewall-rules"></a>Configuración de las reglas de firewall de nivel de base de datos
+### <a name="setup-database-firewall-rules"></a>Configuración de reglas de firewall para las bases de datos
 
 Las reglas de firewall de nivel de base de datos solo se aplican a bases de datos individuales. Estas reglas son portátiles y seguirán a la base de datos durante una conmutación por error del servidor. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante instrucciones de Transact-SQL (T-SQL) y únicamente después de haber configurado una regla de firewall de nivel de servidor.
 
@@ -231,30 +231,30 @@ Para copiar una cadena de conexión segura:
 
 ## <a name="enable-security-features"></a>Habilitar características de seguridad
 
-Azure SQL Database proporciona características de seguridad que son accesibles mediante Azure Portal. Estas características están disponibles tanto para la base de datos como para el servidor, excepto el enmascaramiento de datos, que solo está disponible en la base de datos. Para más información, consulte [Detección de amenazas avanzada](sql-advanced-threat-protection.md), [Auditoría](sql-database-auditing.md), [Enmascaramiento dinámico de datos](sql-database-dynamic-data-masking-get-started.md) y [Cifrado de datos transparente](transparent-data-encryption-azure-sql.md).
+Azure SQL Database proporciona características de seguridad que son accesibles mediante Azure Portal. Estas características están disponibles tanto para la base de datos como para el servidor, excepto el enmascaramiento de datos, que solo está disponible en la base de datos. Para más información, consulte [Advanced Data Security](sql-advanced-threat-protection.md), [Auditoría](sql-database-auditing.md), [Enmascaramiento dinámico de datos](sql-database-dynamic-data-masking-get-started.md) y [Cifrado de datos transparente](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-threat-protection"></a>Protección contra amenazas avanzada
+### <a name="advanced-data-security"></a>Advanced Data Security
 
-La característica de protección contra amenazas avanzada detecta posibles amenazas a medida que se producen y proporciona alertas de seguridad sobre actividades anómalas. Los usuarios pueden explorar los eventos sospechosos con la característica de autoría y determinar si el evento pretendía acceder a los datos de la base de datos, infringir su seguridad o aprovechar sus vulnerabilidades. Los usuarios también obtienen una visión general de la seguridad que incluye una evaluación de las vulnerabilidades y la herramienta de detección y clasificación de datos.
+La característica Advanced Data Security detecta amenazas a medida que se producen y proporciona alertas de seguridad sobre actividades anómalas. Los usuarios pueden explorar los eventos sospechosos con la característica de autoría y determinar si el evento pretendía acceder a los datos de la base de datos, infringir su seguridad o aprovechar sus vulnerabilidades. Los usuarios también obtienen una visión general de la seguridad que incluye una evaluación de las vulnerabilidades y la herramienta de detección y clasificación de datos.
 
 > [!NOTE]
 > Un ejemplo de amenaza es la inyección de código SQL, un proceso mediante el cual los atacantes insertan SQL malintencionado en los datos de entrada de la aplicación. Después, una aplicación puede ejecutar el código SQL malintencionado sin saberlo y permitir el acceso de los atacantes para infringir la seguridad o modificar los datos de la base de datos.
 
-Para habilitar la protección contra amenazas:
+Para habilitar Advanced Data Security:
 
 1. En Azure Portal, seleccione **Bases de datos SQL** en el menú de la izquierda y seleccione la base de datos en la página **Bases de datos SQL**.
 
 1. En la página **Información general**, seleccione el vínculo **Nombre de servidor**. Se abrirá la página del servidor de bases de datos.
 
-1. En la página **Servidor SQL**, busque la sección **Seguridad** y seleccione **Advanced Threat Protection**.
+1. En la página **Servidor SQL Server**, busque la sección **Seguridad** y seleccione **Advanced Data Security**.
 
-    1. Seleccione **ACTIVADA** en **Advanced Threat Protection** para habilitar la característica. Después, seleccione **Guardar**.
+    1. Seleccione **ACTIVADA** en **Advanced Data Security** para habilitar la característica. Elija una cuenta de almacenamiento para guardar los resultados de la evaluación de vulnerabilidad. Después, seleccione **Guardar**.
 
     ![Panel de navegación](./media/sql-database-security-tutorial/threat-settings.png)
 
     También puede configurar mensajes de correo electrónico para recibir las alertas de seguridad, los detalles de almacenamiento y los tipos de detección de amenazas.
 
-1. Vuelva a la página **Bases de datos SQL** de la base de datos y seleccione **Advanced Threat Protection** en la sección **Seguridad**. Aquí encontrará varios indicadores de seguridad disponibles para la base de datos.
+1. Vuelva a la página **Bases de datos SQL** de la base de datos y seleccione **Advanced Data Security** en la sección **Seguridad**. Aquí encontrará varios indicadores de seguridad disponibles para la base de datos.
 
     ![Estado de amenaza](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ En este tutorial, ha aprendido a mejorar la seguridad de una base de datos con u
 > - Crear reglas de firewall de nivel de servidor y de base de datos.
 > - Configurar un administrador de Azure Active Directory (Azure AD).
 > - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
-> - Habilitar características de seguridad, como la protección contra amenazas, la auditoría, el enmascaramiento de datos y el cifrado.
+> - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
 
 En el siguiente tutorial aprenderá a implementar una distribución geográfica.
 

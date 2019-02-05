@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025052"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095964"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -281,7 +281,7 @@ Puede crear la máquina virtual *myVmPrivate* mientras Azure crea la máquina vi
 
 1. Seleccione **Sí** para conectarse a la máquina virtual.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>Habilitación de ICPM a través del Firewall de Windows
+### <a name="enable-icmp-through-the-windows-firewall"></a>Habilite ICMP mediante el firewall de Windows
 
 En un paso posterior, usará la herramienta trace route para probar el enrutamiento. Trace route usa el Protocolo de mensajes de control de Internet (ICMP), que el Firewall de Windows deniega de manera predeterminada. Habilite ICMP a través del Firewall de Windows.
 

@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y Python'
+title: 'Inicio rápido: Detección de caras en una imagen con la API REST de Azure y Python'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, usará la API REST de Azure Face con Python para detectar caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: d2a98226895bbe5996785ca4726f20df9b98ffdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 606f01059620443c8c42a24f416128d0856eff50
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683617"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213793"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Python
 
 En esta guía de inicio rápido, usará la API REST de Azure Face con Python para detectar caras humanas en una imagen. El script dibujará marcos alrededor de las caras y superpondrá información de género y edad en la imagen.
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: ace77b8a15ace71b5b372564bc10c6f4845e1482
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: files
+ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475716"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar con el protocolo estándar del sector SMB 3 a partir de macOS El Capitan 10.11+. En este artículo se muestran dos maneras diferentes de montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.
@@ -30,30 +30,30 @@ ms.locfileid: "39527225"
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Requisitos previos para el montaje de un recurso compartido de archivos de Azure en macOS
 * **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
 
-* **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
+* **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria). Actualmente no se admiten claves SAS para el montaje.
 
 * **Asegúrese de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445. En el equipo cliente (Mac), compruebe que el firewall no bloquea el puerto TCP 445.
 
 ## <a name="mount-an-azure-file-share-via-finder"></a>Montaje de un recurso compartido de archivos de Azure con Finder
-1. **Abrir Finder**: Finder está abierto en macOS de forma predeterminada, pero puede asegurarse de sea la aplicación seleccionada haciendo clic en el "icono de cara de macOS" en el Dock:  
+1. **Abra Finder**: Finder está abierto en macOS de forma predeterminada, pero para asegurarse de que es la aplicación actualmente seleccionada, haga clic en el "icono de cara de macOS" en el Dock:  
     ![Icono de cara de macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Seleccione "Conectar a servidor" en el menú "Ir"**: en la ruta de acceso UNC de los [requisitos previos](#preq), sustituya la doble barra diagonal inversa (`\\`) por `smb://` y todas las otras barras diagonales inversas (`\`) por barras diagonales (`/`). El vínculo debe ser similar al siguiente: ![Cuadro de diálogo "Conectar a servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Seleccione "Connect to Server" (Conectar a servidor) en el menú "Go" (Ir)**: en la ruta de acceso UNC de los [requisitos previos](#preq), convierta la doble barra diagonal inversa de comienzo (`\\`) en `smb://` y todas las otras barras diagonales inversas (`\`) en barras diagonales (`/`). El vínculo debería tener este aspecto: ![Cuadro de diálogo "Connect to Server" (Conectar a servidor)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Utilice el nombre y la clave de la cuenta de almacenamiento cuando se le solicite un nombre de usuario y contraseña**: al hacer clic en "Conectar" en el cuadro de diálogo "Conectar a servidor", se le pedirá el nombre de usuario y una contraseña (se rellenará automáticamente con el nombre de usuario de macOS). Puede guardar el nombre y la clave de la cuenta de almacenamiento en la cadena de claves de macOS.
+3. **Use el nombre y la clave de la cuenta de almacenamiento cuando se le pida un nombre de usuario y una contraseña**: al hacer clic en "Connect" (Conectar) en el cuadro de diálogo "Connect to Server" (Conectar a servidor), se le solicitará el nombre de usuario y la contraseña (este se rellenará automáticamente con el nombre de usuario de macOS). Puede guardar el nombre y la clave de la cuenta de almacenamiento en la cadena de claves de macOS.
 
-4. **Uso del recurso compartido de archivos de Azure**: después de sustituir el nombre del recurso compartido y la clave de la cuenta de almacenamiento por el nombre de usuario y contraseña, se montará el recurso compartido. Se puede utilizar como lo haría normalmente con una carpeta local o un recurso compartido de archivos, incluido arrastrar y soltar archivos en el recurso compartido de archivos:
+4. **Use el recurso compartido de archivos de Azure de la forma deseada**: después de sustituir el nombre del recurso compartido y la clave de la cuenta de almacenamiento por el nombre de usuario y la contraseña, se montará el recurso compartido. Se puede utilizar como lo haría normalmente con una carpeta local o un recurso compartido de archivos, incluido arrastrar y soltar archivos en el recurso compartido de archivos:
 
     ![Captura de pantalla de un recurso compartido de archivos de Azure montado](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Montaje de un recurso compartido de archivos de Azure con el Terminal
-1. Reemplace `<storage-account-name>` por el nombre de la cuenta de almacenamiento. Proporcione la clave de cuenta de almacenamiento como contraseña cuando se le solicite. 
+1. Sustituya  `<storage-account-name>`  por el nombre de la cuenta de almacenamiento. Proporcione la clave de cuenta de almacenamiento como contraseña cuando se le solicite. 
 
     ```
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
-2. **Uso del recurso compartido de archivos de Azure**: el recurso compartido de archivos de Azure se montará en el punto de montaje especificado por el comando anterior.  
+2. **Use el recurso compartido de archivos de Azure de la forma deseada**: el recurso compartido de archivos de Azure se montará en el punto de montaje especificado por el comando anterior.  
 
     ![Captura de pantalla del recurso compartido de archivos de Azure montado](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 

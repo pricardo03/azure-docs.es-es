@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Project Answer Search con Python'
+title: 'Inicio rápido: Project Answer Search, Python'
 titlesuffix: Azure Cognitive Services
 description: Ejemplo de Python para empezar a usar Project Answer Search.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8d0ddf1d532c77f23a930c46bb261e03bc5822e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465515"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218299"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Guía de inicio rápido de Project Answer Search con Python
 
@@ -41,7 +41,7 @@ Se implementa en los pasos siguientes:
 
 Este es el código completo de esta demostración:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,7 +65,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 ## <a name="next-steps"></a>Pasos siguientes
 - [Inicio rápido de C#](c-sharp-quickstart.md)
 - [Inicio rápido de Java](java-quickstart.md)

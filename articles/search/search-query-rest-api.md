@@ -1,6 +1,6 @@
 ---
 title: 'Creación de un índice en el código mediante la API de REST: Azure Search'
-description: Comandos HTTP y código de la API de REST para crear una consulta de búsqueda en Azure Search. Agregue parámetros de búsqueda para filtrar y ordenar los resultados de la búsqueda.
+description: Comandos HTTP y código de la API REST para crear una consulta de búsqueda en Azure Search. Agregue parámetros de búsqueda para filtrar y ordenar los resultados de la búsqueda.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.custom: seodec2018
-ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e453e05a692e862179dcd78298b215a2384cba2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316950"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092823"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Realización de una consulta al índice de Azure Search con la API de REST
 > [!div class="op_single_selector"]

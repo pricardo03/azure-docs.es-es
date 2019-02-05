@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.subservice: files
+ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452250"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guía de inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Inicio rápido: Creación y administración de recursos compartidos de archivos de Azure con el Explorador de Azure Storage
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) mediante el Explorador de Azure Storage. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
 
 El Explorador de Azure Storage es una herramienta de cliente conocida que está disponible para Windows, macOS y Linux. Puede usar el Explorador de Storage para administrar recursos compartidos de archivos de Azure y otros recursos de almacenamiento.
@@ -34,8 +34,8 @@ No se puede usar el Explorador de Storage para crear nuevos recursos. Para los f
 Cuando se inicia por primera vez el Explorador de Storage, aparece la ventana **Explorador de Microsoft Azure Storage - Conectar**. El Explorador de Storage proporciona varias maneras de conectar con las cuentas de almacenamiento: 
 
 - **Inicio de sesión con la cuenta de Azure**: puede iniciar sesión con las credenciales de usuario de su organización o su cuenta Microsoft. 
-- **Conexión a una cuenta de almacenamiento específica mediante una cadena de conexión o un token de SAS**: una cadena de conexión es una cadena especial que contiene un nombre de cuenta de almacenamiento una clave de cuenta de almacenamiento o un token de SAS. Con el token, el Explorador de Storage accede directamente a la cuenta de almacenamiento (en lugar de simplemente ver todas las cuentas de almacenamiento de una cuenta de Azure). Para más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-- **Conexión a una cuenta de almacenamiento específica con el nombre y la clave de una cuenta de almacenamiento**: use el nombre y la clave de la cuenta de almacenamiento para conectarse a Azure Storage.
+- **Conexión a una cuenta de almacenamiento específica mediante una cadena de conexión o un token de SAS**: una cadena de conexión es una cadena especial que contiene un nombre de cuenta de almacenamiento y una clave de cuenta de almacenamiento o un token de SAS. Con el token, el Explorador de Storage accede directamente a la cuenta de almacenamiento (en lugar de simplemente ver todas las cuentas de almacenamiento de una cuenta de Azure). Para más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- **Conexión a una cuenta de almacenamiento específica mediante el nombre y la clave de la cuenta de almacenamiento**: use el nombre y la clave de la cuenta de almacenamiento para conectarse a Azure Storage.
 
 Para los fines de esta guía de inicio rápido, inicie sesión con su cuenta de Azure. Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y, a continuación, seleccione **Sign In** (Iniciar sesión). Siga las indicaciones para iniciar sesión en su cuenta de Azure.
 

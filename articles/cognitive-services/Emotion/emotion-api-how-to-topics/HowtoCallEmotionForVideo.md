@@ -1,24 +1,24 @@
 ---
-title: 'Ejemplo: Llamada a Emotion API para vídeo'
+title: 'Ejemplo: Llamadas a Emotion API para vídeos'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información acerca de cómo llamar a Emotion API para vídeo en Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026269"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211175"
 ---
-# <a name="example-call-emotion-api-for-video"></a>Ejemplo: Llamada a Emotion API para vídeo
+# <a name="example-call-emotion-api-for-video"></a>Ejemplo: Llamadas a Emotion API para vídeos
 
 > [!IMPORTANT]
 > Emotion API dejará de usarse el 15 de febrero de 2019. La funcionalidad de reconocimiento de emociones está ahora disponible con carácter general como parte de [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -28,7 +28,7 @@ En esta guía se muestra cómo llamar a Emotion API para vídeo. Los ejemplos es
 ### <a name="Prep">Preparación</a>
 Para poder usar Emotion API para vídeo, necesitará un vídeo que incluya personas; de preferencia, un vídeo donde las personas miren a la cámara.
 
-### <a name="Step1">Paso 1: Autorizar la llamada de API</a>
+### <a name="Step1">Paso 1: Autorización de la llamada a la API</a>
 Cada llamada a Emotion API para vídeo requiere una clave de suscripción. Esta clave se debe pasar a través de un parámetro de cadena de consulta o se debe especificar en el encabezado de la solicitud. Para pasar la clave de suscripción a través de una cadena de consulta, haga referencia a la dirección URL de la solicitud a continuación para Emotion API para vídeo, por ejemplo:
 
 ```
@@ -48,7 +48,7 @@ var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
 Para obtener una clave de suscripción, vea [Suscripciones](https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">Paso 2: Cargar un vídeo en el servicio y comprobar el estado</a>
+### <a name="Step2">Paso 2: Carga de un vídeo en el servicio y comprobación del estado</a>
 La manera más sencilla de realizar cualquiera de las llamadas a Emotion API para vídeo es cargar un vídeo directamente. Para esto, se envía una solicitud "POST" con el tipo de contenido application/octet-stream junto con los datos leídos de un archivo de vídeo. El tamaño máximo del vídeo es de 100 MB.
 
 Con la biblioteca cliente, la estabilización por medio de la carga se realiza pasando un objeto de secuencia. Observe el ejemplo siguiente:
@@ -107,7 +107,7 @@ Cuando el estado de VideoOperationResult se muestra como "Correcto", el resultad
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">Paso 3: Recuperar y entender el reconocimiento y el seguimiento de emociones de la salida JSON</a>
+### <a name="Step3">Paso 3: Recuperación y comprensión del reconocimiento de emociones y seguimiento de la salida JSON</a>
 
 El resultado de salida contiene los metadatos de las caras dentro del archivo especificado en formato JSON.
 

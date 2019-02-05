@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359313"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883320"
 ---
-# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integración de la red virtual en Azure Data Lake Storage Gen1: versión preliminar
+# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integración de la red virtual en Azure Data Lake Storage Gen1
 
 En este artículo se presenta la integración de red virtual de Azure Data Lake Storage Gen1. Con la integración de red virtual, puede configurar las cuentas para que acepten el tráfico procedente únicamente de redes virtuales y subredes específicas. 
 

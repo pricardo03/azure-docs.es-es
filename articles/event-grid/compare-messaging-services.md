@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469855"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297113"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Elija entre los servicios de mensajería de Azure: Event Grid, Event Hubs y Service Bus
 
@@ -44,7 +44,7 @@ Un mensaje son datos sin procesar producidos por un servicio que se consumen o a
 
 ## <a name="comparison-of-services"></a>Comparación de servicios
 
-| Servicio | Propósito | Escriba | Cuándo se deben usar |
+| Servicio | Propósito | Type | Cuándo se deben usar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programación reactiva | Distribución de eventos (discretos) | Reacción ante los cambios de estado |
 | Event Hubs | Canalización de macrodatos | Streaming de eventos (serie) | Streaming de datos distribuidos y telemetría |
@@ -97,9 +97,10 @@ En otros casos, puede vincular estas soluciones para formar una canalización de
 ![Información general sobre streaming de datos](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+Consulte los artículos siguientes: 
 
-* Para obtener más información acerca de los servicios de mensajería de Azure, vea la entrada de blog [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventos, puntos de datos y mensajes: Elección del servicio de mensajería de Azure adecuado para sus datos).
-* Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
-* Para comenzar a usar rápidamente Event Grid, vea [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
-* Para comenzar a usar Event Hubs, vea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md).
-* Para comenzar a usar Service Bus, vea [Creación de un espacio de nombres de Service Bus mediante Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md).
+- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventos, puntos de datos y mensajes - Elección del servicio de mensajería de Azure adecuado para los datos).
+- [Colas de Storage y de Service Bus: comparación y diferencias](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Para comenzar a usar rápidamente Event Grid, vea [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
+- Para comenzar a usar Event Hubs, vea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md).
+- Para comenzar a usar Service Bus, vea [Creación de un espacio de nombres de Service Bus mediante Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md).

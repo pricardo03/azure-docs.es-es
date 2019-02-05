@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212223"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226866"
 ---
 # <a name="what-is-qna-maker"></a>¿Qué es QnA Maker?
 
@@ -31,7 +31,7 @@ El [portal web](https://qnamaker.ai) es fácil de usar y le permite crear, admin
 
 QnA Maker proporciona dos servicios clave para los datos:
 
-* **Extraction**: los datos de preguntas y respuestas estructurados se extraen de [orígenes de datos](../Concepts/data-sources-supported.md) estructurados y semiestructurados como preguntas frecuentes y manuales de productos. Esta extracción se puede realizar como parte de la [creación](https://aka.ms/qnamaker-docs-createkb) de la base de conocimiento o, posteriormente, como parte del proceso de edición.
+* **Extracción**: los datos de preguntas y respuestas estructurados se extraen de [orígenes de datos](../Concepts/data-sources-supported.md) estructurados y semiestructurados como preguntas frecuentes y manuales de producto. Esta extracción se puede realizar como parte de la [creación](https://aka.ms/qnamaker-docs-createkb) de la base de conocimiento o, posteriormente, como parte del proceso de edición.
 
 * **Coincidencia**: una vez que la base de conocimientos se ha [entrenado y probado](https://aka.ms/qnamaker-docs-trainkb), se [publica](https://aka.ms/qnamaker-docs-publishkb). Esto habilita un punto de conexión a la base de conocimiento de QnA Maker, que puede usar en su bot o aplicación cliente. Este punto de conexión acepta una pregunta del usuario y responde con la mejor respuesta de la base de conocimiento, junto con una puntuación de confianza para la coincidencia.
 
@@ -57,9 +57,9 @@ QnA Maker proporciona dos servicios clave para los datos:
 
 La arquitectura de QnA Maker consta de los dos siguientes componentes:
 
-1. **Servicios de administración de QnA Maker**: la experiencia de administración para una base de conocimiento de QnA Maker, que incluye la creación inicial, actualización, entrenamiento y publicación. Estas actividades se pueden realizar mediante el [portal](https://qnamaker.ai) o las [API de administración](https://aka.ms/qnamaker-v4-apis). 
+1. **Servicios de administración de QnA Maker**: la experiencia de administración para una base de conocimiento de QnA Maker, que incluye la creación inicial, la actualización, el entrenamiento y la publicación. Estas actividades se pueden realizar mediante el [portal](https://qnamaker.ai) o las [API de administración](https://aka.ms/qnamaker-v4-apis). 
 
-2. **Datos y runtime de QnA Maker**: se implementa en la suscripción de Azure en la región que especifique. El contenido de la base de conocimiento se almacena en [Azure Search](https://azure.microsoft.com/services/search/) y el punto de conexión se implementa como una instancia de [App Service](https://azure.microsoft.com/services/app-service/). También puede elegir implementar un recurso de [Application Insights](https://azure.microsoft.com/services/application-insights/) para el análisis.
+2. **Datos y runtime de QnA Maker**: se implementa en la suscripción de Azure de la región que especifique. El contenido de la base de conocimiento se almacena en [Azure Search](https://azure.microsoft.com/services/search/) y el punto de conexión se implementa como una instancia de [App Service](https://azure.microsoft.com/services/app-service/). También puede elegir implementar un recurso de [Application Insights](https://azure.microsoft.com/services/application-insights/) para el análisis.
 
 ![Arquitectura](../media/qnamaker-overview-learnabout/architecture.png)
 

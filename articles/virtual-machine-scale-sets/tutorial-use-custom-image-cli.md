@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967377"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193495"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -44,7 +44,7 @@ Si decide instalar y usar la CLI localmente, en este tutorial es preciso que eje
 >[!NOTE]
 > Este tutorial le guía por el proceso de creación y uso de una imagen de máquina virtual generalizada. No permite crear un conjunto de escalado a partir de una imagen de máquina virtual especializada.
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create) y luego cree una máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -57,7 +57,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La dirección IP pública de la máquina virtual se muestra en la salida del comando [az vm create](/cli/azure/vm#az_vm_create). Conéctese mediante SSH a la dirección IP pública de la máquina virtual, como se indica a continuación:
+La dirección IP pública de la máquina virtual se muestra en la salida del comando [az vm create](/cli/azure/vm). Conéctese mediante SSH a la dirección IP pública de la máquina virtual, como se indica a continuación:
 
 ```azurecli-interactive
 ssh azureuser@<publicIpAddress>
@@ -96,7 +96,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 La desasignación y generalización de la máquina virtual puede tardar unos minutos.
 
-Ahora cree una imagen de la máquina virtual con [az image create](/cli//azure/image#az_image_create). En el ejemplo siguiente se crea una imagen llamada *myImage* a partir de la máquina virtual:
+Ahora cree una imagen de la máquina virtual con [az image create](/cli//azure/image). En el ejemplo siguiente se crea una imagen llamada *myImage* a partir de la máquina virtual:
 
 ```azurecli-interactive
 az image create \

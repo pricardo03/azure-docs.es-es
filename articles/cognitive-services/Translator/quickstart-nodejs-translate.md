@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Traducción de texto con Translator Text API en Node.js'
+title: 'Inicio rápido: Traducción de texto, Node.js (Translator Text API)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se traduce texto de un idioma a otro mediante Translator Text API con Node.js.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 68c38d289e4095bd602e681171d8409b21920142
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 40b38fdf2773bd58cf1635d089aec7340b04ce07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246548"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214029"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Guía de inicio rápido: Uso de Translator Text API para traducir una cadena con Node.js
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena con Node.js
 
 En esta guía de inicio rápido, aprenderá a traducir una cadena de texto de inglés a italiano y alemán con Node.js y Translator Text REST API.
 
@@ -66,10 +66,10 @@ if (!subscriptionKey) {
 
 ## <a name="configure-the-request"></a>Configuración de la solicitud
 
-El método `request()`, disponible a través del módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
+El método `request()`, disponible mediante el módulo de solicitud, nos permite pasar el método HTTP, la dirección URL, los parámetros de la solicitud, los encabezados y el cuerpo de JSON como un objeto `options`. En este fragmento de código, vamos a configurar la solicitud:
 
 >[!NOTE]
-> Para más información acerca de los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Traducción](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Para más información sobre los puntos de conexión, las rutas y los parámetros de la solicitud, consulte [Translator Text API 3.0: Traducción](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```javascript
 let options = {

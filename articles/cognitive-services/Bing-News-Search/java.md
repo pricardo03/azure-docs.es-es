@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f8a98133d68cb73958664dd04bb2d959c97195cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 71f0ece2ff06ef000092485b8e7e11c5eedb38dd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263856"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174506"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Guía de inicio rápido: Realizar una búsqueda de noticias mediante Java y la API de REST Bing News Search
 
@@ -64,7 +64,7 @@ Consulte también [Precios de Cognitive Services - Bing Search API](https://azur
     }
     ```
 
-## <a name="construct-the-search-request-and-recieve-a-json-response"></a>Construcción de la solicitud de búsqueda y recepción de una respuesta JSON
+## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construcción de la solicitud de búsqueda y recepción de una respuesta JSON
 
 1. Utilice las variables del último paso para dar formato a una dirección URL de búsqueda para la solicitud de API. Tenga en cuenta que el término de búsqueda debe codificarse para URL antes de anexarlo a la solicitud.
 

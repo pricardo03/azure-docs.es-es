@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen con el SDK de Azure Face para .NET'
+title: 'Inicio rápido: Detección de caras en una imagen con el SDK de Azure Face para .NET'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, usará el SDK de Azure Face con C# para detectar caras en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: caaef0f7fdbfc3ad639deddb328c98334ad3e99d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578168"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213331"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Guía de inicio rápido: Detección de caras en una imagen con el SDK de Face para .NET
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Inicio rápido: Detección de caras en una imagen con el SDK de Face para .NET
 
 En esta guía de inicio rápido, usará el SDK del servicio Face con C# para detectar caras humanas en una imagen. Para obtener un ejemplo en funcionamiento del código de esta guía de inicio rápido, consulte el proyecto de Face en el repositorio [Guías de inicio rápido de Cognitive Services Vision para C#](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) en GitHub.
 

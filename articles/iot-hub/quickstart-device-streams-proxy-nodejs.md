@@ -10,22 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 012fdfa4faf10cacaf85819517f358c1af1ab39d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830713"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887434"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Inicio rápido: SSH/RDP mediante flujos de dispositivos de IoT Hub con aplicaciones proxy de Node.js (versión preliminar)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-[Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. En este inicio rápido se describe cómo ejecutar una aplicación de proxy de Node.js en el lado del servicio para permitir el envío de tráfico SSH y RDP al dispositivo mediante un flujo de dispositivo. Consulte [esta página](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) para información general de la configuración. Durante la versión preliminar pública, el SDK para Node.js solo admite flujos de dispositivo en el lado del servicio. Como resultado, este artículo de inicio rápido solo abarca las instrucciones para ejecutar el proxy del lado del servicio. Debe ejecutar un proxy del lado del dispositivo complementaria que esté disponible en las guías de [inicio rápido de C#](./quickstart-device-streams-proxy-c.md) o de [inicio rápido de C](./quickstart-device-streams-proxy-csharp.md).
+[Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. En esta guía de inicio rápido se describe cómo ejecutar una aplicación de proxy de Node.js en el lado del servicio para permitir el envío de tráfico SSH y RDP al dispositivo mediante un flujo de dispositivo. Consulte [aquí](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) para obtener información general de la configuración. Durante la versión preliminar pública, el SDK para Node.js solo admite flujos de dispositivo en el lado del servicio. Como resultado, esta guía de inicio rápido solo abarca las instrucciones para ejecutar el proxy local del servicio. Debe ejecutar un proxy local del dispositivo complementario que esté disponible en las guías de [inicio rápido de C#](./quickstart-device-streams-proxy-c.md) o de [inicio rápido de C](./quickstart-device-streams-proxy-csharp.md).
 
-Primero describiremos la configuración de SSH (con el puerto `22`). A continuación, describiremos cómo modificar la configuración de RDP (que usa el puerto 3389). Puesto que los flujos de dispositivo son independientes del protocolo y de la aplicación, se puede modificar el mismo ejemplo (se suelen cambiar los puertos de comunicación) para dar cabida a otros tipos de tráfico de la aplicación.
+Primero describiremos la configuración de SSH (con el puerto 22). A continuación, describiremos cómo modificar la configuración de RDP (que usa el puerto 3389). Puesto que los flujos de dispositivo son independientes del protocolo y de la aplicación, se puede modificar el mismo ejemplo para dar cabida a otros tipos de tráfico de la aplicación cliente/servidor (normalmente mediante la modificación del puerto de comunicación).
 
-El código mostrará cómo iniciar y usar un flujo de dispositivo, y puede utilizarse para otro tráfico de aplicación (excepto RDP y SSH).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para ejecutar la aplicación del lado del servicio en este inicio rápido se necesita la versión 4.x.x de Node.js o posterior en la máquina de desarrollo.
+Para ejecutar la aplicación local del servicio en este inicio rápido se necesita la versión 4.x.x de Node.js o posterior en la máquina de desarrollo.
 
 Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 
@@ -86,14 +85,14 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>Conexión mediante SSH a un dispositivo mediante flujos de dispositivo
 
-### <a name="run-the-device-side-proxy"></a>Ejecución del proxy del lado del dispositivo
+### <a name="run-the-device-local-proxy"></a>Ejecución del proxy de dispositivo local
 
-Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación del lado del dispositivo, use los programas de proxy de dispositivo complementarios disponibles en las guías de [inicio rápido de C](./quickstart-device-streams-proxy-c.md) o de [inicio rápido de C#](./quickstart-device-streams-proxy-csharp.md). Asegúrese de que el proxy del lado del dispositivo se está ejecutando antes de continuar con el paso siguiente.
+Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación local del dispositivo, use los programas de proxy de dispositivo complementarios disponibles en las guías de [inicio rápido de C](./quickstart-device-streams-proxy-c.md) o de [inicio rápido de C#](./quickstart-device-streams-proxy-csharp.md). Asegúrese de que el proxy local del dispositivo se está ejecutando antes de continuar con el paso siguiente.
 
 
-### <a name="run-the-service-side-proxy"></a>Ejecución del proxy del lado del servicio
+### <a name="run-the-service-local-proxy"></a>Ejecución del proxy local de servicio
 
-Si se supone que el proxy del lado del dispositivo se está ejecutando, siga los pasos a continuación para ejecutar el proxy del lado del servicio escrito en Node.js:
+Si se supone que el [proxy local del dispositivo](#run-the-device-local-proxy) se está ejecutando, siga los pasos que se indican a continuación para ejecutar el proxy local del servicio escrito en Node.js.
 
 - Proporcione las credenciales del servicio, el identificador de dispositivo de destino donde se ejecuta el demonio de SSH y el número de puerto del proxy que se ejecuta en el dispositivo como variables del entorno.
 ```
@@ -107,7 +106,7 @@ Si se supone que el proxy del lado del dispositivo se está ejecutando, siga los
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
 ```
-Cambie `MyDevice` por el identificador que haya elegido para el dispositivo.
+Cambie los valores indicados anteriormente para que coincidan con la cadena de conexión y el identificador de dispositivo.
 
 - Vaya a `Quickstarts/device-streams-service` en la carpeta del proyecto descomprimido y ejecute el proxy local de servicio.
 ```
@@ -124,10 +123,10 @@ Cambie `MyDevice` por el identificador que haya elegido para el dispositivo.
 ### <a name="ssh-to-your-device-via-device-streams"></a>Conexión mediante SSH al dispositivo mediante flujos de dispositivo
 En Linux, ejecute SSH mediante `ssh $USER@localhost -p 2222` en un terminal. En Windows, use el cliente SSH favorito (por ejemplo, PuTTY).
 
-Salida de la consola en el lado del servicio una vez establecida la sesión SSH (el proxy local de servicio escucha en el puerto 2222): ![Alt text](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "salida del terminal de SSH")
+Salida de la consola en el servicio local una vez establecida la sesión SSH (el proxy local de servicio escucha en el puerto 2222): ![Alt text](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "salida del terminal de SSH")
 
 
-Salida de la consola del programa cliente de SSH (el cliente de SSH se comunica con el demonio de SSH mediante la conexión al puerto <code>22</code> en el que escucha el proxy local de servicio): ![Alt text](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Salida del cliente de SSH")
+Salida de la consola del programa cliente de SSH (el cliente de SSH se comunica con el demonio de SSH mediante la conexión al puerto 22 en el que escucha el proxy local de servicio): ![Alt text](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "Salida del cliente de SSH")
 
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>Conexión mediante RDP al dispositivo mediante flujos de dispositivo

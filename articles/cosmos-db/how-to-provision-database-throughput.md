@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7c253141e0e6e76f845d08e68a1d79949fe811e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c648522e689c64de8e7e09b85ca3b6eb26b6945b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034240"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477206"
 ---
-# <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento de una base de datos en Azure Cosmos DB
+# <a name="provision-throughput-on-an-azure-cosmos-database"></a>Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos
 
 En este artículo se explica cómo aprovisionar el rendimiento de una base de datos en Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o el SDK de Cosmos DB.
 

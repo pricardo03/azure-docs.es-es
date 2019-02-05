@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 2966683c086cfcd122c364dd6808f841a85bbee9
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.subservice: blobs
+ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704722"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241396"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Descargar grandes cantidades de datos aleatorios desde Azure Storage
 
@@ -30,7 +30,7 @@ En la tercera parte de la serie, se aprende a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, debe completar el tutorial anterior de Storage: [Upload large amounts of random data in parallel to Azure storage][previous-tutorial] (Cargar en paralelo grandes cantidades de datos aleatorios en Azure Storage).
+Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Carga de grandes cantidades de datos aleatorios en paralelo en Azure Storage][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Sesión remota en la máquina virtual
 

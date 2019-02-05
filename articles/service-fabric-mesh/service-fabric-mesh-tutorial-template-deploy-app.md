@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246371"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158849"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -109,7 +109,7 @@ Al crearse el registro, verá un resultado similar al siguiente:
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Insertar las imágenes en Azure Container Registry
 
-En este tutorial, la aplicación de ejemplo de lista de tareas pendientes se utiliza como ejemplo.  El contenedor de imágenes para los servicios [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) y [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) puede encontrarse en Docker Hub. Consulte [Compilar una aplicación web de Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) para obtener información sobre cómo compilar la aplicación en Visual Studio. Service Fabric Mesh puede ejecutar contenedores Docker de Linux o Windows.  Si está trabajando con contenedores de Linux, seleccione **Cambiar a contenedores de Linux** en Docker.  Si está trabajando con contenedores de Windows, seleccione **Cambiar a contenedores de Windows** en Docker.
+En este tutorial, la aplicación de ejemplo de lista de tareas pendientes se utiliza como ejemplo.  El contenedor de imágenes para los servicios [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) y [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) puede encontrarse en Docker Hub. Para obtener información acerca de cómo compilar la aplicación en Visual Studio, consulte [Compilación de una aplicación web de Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md). Service Fabric Mesh puede ejecutar contenedores Docker de Linux o Windows.  Si está trabajando con contenedores de Linux, seleccione **Cambiar a contenedores de Linux** en Docker.  Si está trabajando con contenedores de Windows, seleccione **Cambiar a contenedores de Windows** en Docker.
 
 Para insertar una imagen en una instancia de ACR, primero debe tener una imagen de contenedor. Si aún no tiene ninguna imagen de contenedor local, use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para extraer las imágenes [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) y [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) de Docker Hub.
 

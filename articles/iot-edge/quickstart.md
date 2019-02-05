@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189361"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911260"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guía de inicio rápido: Implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows (versión preliminar)
 
@@ -104,9 +104,9 @@ Dado que los dispositivos de IoT Edge se comportan y se pueden administrar de ma
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copie la cadena de conexión desde la salida JSON y guárdela. Este valor se usará para configurar el runtime de IoT Edge en la sección siguiente.
+3. Copie el valor de la clave `cs` desde la salida JSON y guárdelo. Este valor es la cadena de conexión del dispositivo. Esta cadena de conexión se usará para configurar el entorno de ejecución de IoT Edge en la sección siguiente.
 
-   ![Recuperación de la cadena de conexión desde la salida de la CLI](./media/quickstart/retrieve-connection-string.png)
+   ![Recuperar la cadena de conexión de la salida de la CLI](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instale e inicie el runtime de IoT Edge
 
@@ -170,6 +170,8 @@ Compruebe que el entorno de ejecución se ha instalado y configurado correctamen
    ```
 
    ![Visualización de un módulo en el dispositivo](./media/quickstart/iotedge-list-1.png)
+
+Puede que pasen varios minutos hasta que la instalación se complete y se inicie el módulo del agente, especialmente si usa un dispositivo con capacidad o acceso a Internet limitados. 
 
 El dispositivo de IoT Edge está ya configurado. Está preparado para ejecutar módulos implementados en la nube.
 

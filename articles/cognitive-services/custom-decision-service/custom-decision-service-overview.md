@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364218"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221358"
 ---
 # <a name="what-is-custom-decision-service"></a>¿Qué es Custom Decision Service?
 
@@ -45,9 +45,9 @@ Custom Decision Service puede aplicarse tanto a páginas web como a aplicaciones
 En esta documentación se repiten varios términos con frecuencia:
 
 * **Conjunto de acciones**: el conjunto de elementos de contenido que Custom Decision Service va a clasificar por orden de prioridad. Este conjunto se puede especificar como un punto de conexión *RSS* o *Atom*.
-* **Clasificar por orden de prioridad**: cada solicitud a Custom Decision Service especifica uno o varios conjuntos de acción. El sistema responde y escoge todas las opciones de contenido de estos conjuntos, que después devuelve por orden de prioridad.
+* **Clasificación por orden de prioridad**: cada solicitud a Custom Decision Service especifica uno o varios conjuntos de acción. El sistema responde y escoge todas las opciones de contenido de estos conjuntos, que después devuelve por orden de prioridad.
 * **Función de devolución de llamada**: esta función, que se especifica, representa el contenido de la interfaz de usuario. El contenido se clasifica por el orden de prioridad devuelto por Custom Decision Service.
-* **Recompensa**: una medida de cómo el usuario respondió al contenido representado. Custom Decision Service mide la respuesta del usuario mediante clics. Se notifican los clics al sistema mediante el código personalizado que se inserta en la aplicación.
+* **Recompensa**: una medida de la forma en que el usuario ha respondido al contenido representado. Custom Decision Service mide la respuesta del usuario mediante clics. Se notifican los clics al sistema mediante el código personalizado que se inserta en la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

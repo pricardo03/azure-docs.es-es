@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: obtención de las longitudes de frase con Java: Translator Text API'
+title: 'Inicio rápido: obtención de las longitudes de frase con Java: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a determinar las longitudes de frase mediante Java y Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888586"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208404"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Guía de inicio rápido: Uso de Translator Text API para determinar las longitudes de frase mediante Java
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Inicio rápido: Uso de Translator Text API para determinar las longitudes de oración con Java
 
 En esta guía de inicio rápido, aprenderá a determinar las longitudes de frase mediante Java y Translator Text API.
 

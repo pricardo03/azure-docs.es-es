@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a39fc2d0e1a57322f3cce63fa298657c1f938e55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959502"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100740"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Inicio rápido: Compilación de una aplicación de página única de AngularJS para el inicio y el cierre de sesión con Azure Active Directory
 
@@ -39,7 +39,7 @@ En este tutorial de inicio rápido, aprenderá a compilar una aplicación de lis
 * Realizar una llamada con seguridad a la API de la lista de tareas pendientes de la aplicación mediante tokens de portador de Azure AD.
 * Cerrar la sesión del usuario en la aplicación
 
-Para compilar la aplicación de trabajo completa, deberá realizar estas acciones:
+Para crear la aplicación de trabajo completa, tendrá que:
 
 1. Registrar la aplicación con Azure AD.
 2. Instalar ADAL y configurar la aplicación de una sola página.
@@ -75,7 +75,7 @@ Para habilitar la aplicación a fin de autenticar a los usuarios y obtener token
 1. Conceda permisos para la aplicación en todo el inquilino. Vaya a **Configuración > Permisos necesarios** y haga clic en el botón **Conceder permisos** de la barra superior.
 1. Seleccione **Sí** para confirmar la acción.
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Paso 2: Instalación de ADAL y configuración de aplicación de una sola página
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Paso 2: Instalación de ADAL y configuración de la aplicación de una sola página
 
 Ahora que tiene una aplicación en Azure AD, puede instalar adal.js y escribir el código relacionado con la identidad.
 

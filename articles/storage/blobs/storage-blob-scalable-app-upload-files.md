@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565741"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240087"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -35,7 +35,7 @@ La [nomenclatura de las particiones](../common/storage-performance-checklist.md?
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, debe haber completado el tutorial de Storage anterior: [Crear una máquina virtual y una cuenta de almacenamiento para una aplicación escalable][previous-tutorial].
+Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Creación de una máquina virtual y una cuenta de almacenamiento para una aplicación escalable][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Sesión remota en la máquina virtual
 

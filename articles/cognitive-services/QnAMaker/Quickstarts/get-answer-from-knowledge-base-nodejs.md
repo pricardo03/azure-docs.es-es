@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y Node.js'
+title: 'Inicio rápido: Obtención de respuestas de la base de conocimiento en QnA Maker con REST y Node.js'
 titlesuffix: Azure Cognitive Services
 description: Esta guía de inicio rápido basada en REST de Node.js le guiará a través del proceso para obtener una respuesta de una base de conocimiento mediante programación.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9a3db996429bbbd0883643e2b7c6622dcff5480f
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 720d249321d20161b6a1ef19bb522ec6c2fc665e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977855"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216687"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Obtención de respuestas a una pregunta desde una base de conocimiento con Node.js
 

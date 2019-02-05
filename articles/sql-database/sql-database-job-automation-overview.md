@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453280"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457214"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
@@ -26,6 +26,7 @@ Puede definir la base de datos o los grupos de instancias de Azure SQL Database 
 Un trabajo gestiona la tarea de iniciar sesión en la base de datos de destino. También definirá, mantendrá y conservará los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
 
 Son varios los escenarios en los que podría usar la automatización de trabajos:
+
 - Automatización de las tareas de administración y, luego, su programación para ejecutarlas todos los días laborables, después de horas, etc.
   - Implementación de cambios de esquema, administración de credenciales, recopilación de datos de rendimiento o recopilación de datos de telemetría de inquilinos (clientes).
   - Actualización de datos de referencia (información común entre todas las bases de datos), carga de datos desde Azure Blob Storage.
@@ -39,14 +40,15 @@ Son varios los escenarios en los que podría usar la automatización de trabajos
  - Cree trabajos que carguen los datos desde o hacia sus bases de datos mediante SQL Server Integration Services (SSIS).
 
 Las siguientes tecnologías de programación de trabajos están disponibles en Azure SQL Database:
-- Los **trabajos del Agente SQL** son componentes de programación de trabajos de SQL Server clásicos y probados que están disponibles en Instancia administrada. Los trabajos del Agente SQL no están disponibles en bases de datos singleton.
+
+- Los **trabajos del Agente SQL** son componentes de programación de trabajos de SQL Server clásicos y probados que están disponibles en Instancia administrada. Los trabajos del Agente SQL no están disponibles en bases de datos únicas.
 - Los **trabajos de Elastic Database** son el servicio de programación de trabajos que ejecuta trabajos personalizados en una o varias instancias de Azure SQL Database.
 
-Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL Database) y el agente de trabajos elásticos de base de datos (ahora disponible para instancias singleton de SQL Database y SQL Data Warehouse).
+Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL Database) y el agente de trabajos elásticos de base de datos (disponible para bases de datos únicas en Azure SQL Database y bases de datos en SQL Data Warehouse).
 
 |  |Trabajos elásticos  |Agente SQL |
 |---------|---------|---------|
-|Ámbito     |  Cualquier número de almacenamientos de datos o bases de datos SQL de Azure en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores lógicos, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
+|Ámbito     |  Cualquier número de almacenamientos de datos o bases de datos SQL de Azure en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores de SQL Database, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
 |Herramientas y API admitidas     |  Azure Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
@@ -54,6 +56,7 @@ Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo loca
 Los trabajos del Agente SQL son una serie especificada de scripts de T-SQL que se ejecutan en la base de datos. Use trabajos para definir una tarea administrativa que se puede ejecutar una o varias veces y supervisar para detectar si lo hace correctamente o con errores.
 Un trabajo se puede ejecutar en un servidor local o en varios servidores remotos. El trabajo del Agente SQL es un componente interno del motor de base de datos que se ejecuta dentro del servicio Instancia administrada.
 En los trabajos del Agente SQL, hay varios conceptos clave que conviene describir:
+
 - **Pasos del trabajo**: conjunto de uno o varios pasos que se deben ejecutar dentro del trabajo. Para cada paso de trabajo se puede definir la estrategia de reintento y la acción que tendrá lugar si el paso del trabajo se realiza correctamente o con errores.
 - **Programaciones**: definen cuándo se debe ejecutar el trabajo.
 - **Notificaciones**: le permiten definir las reglas que se usarán para notificar a los operadores la finalización del trabajo mediante un mensaje de correo electrónico.
@@ -64,11 +67,13 @@ Los pasos del trabajo del Agente SQL son secuencias de acciones que debe ejecuta
 El Agente SQL le permite crear distintos tipos de pasos de trabajo, como pasos de trabajo de Transact-SQL que ejecutan un único lote de Transact-SQL en la base de datos, pasos de PowerShell o de comandos del sistema operativo que pueden ejecutar scripts personalizados del sistema operativo, pasos de trabajo de SSIS que le permiten cargar datos con el entorno de ejecución de SSIS o pasos de [replicación](sql-database-managed-instance-transactional-replication.md) que pueden publicar los cambios de la base de datos en otras bases de datos.
 
 La [replicación transaccional](sql-database-managed-instance-transactional-replication.md) es una característica del motor de base de datos que le permite publicar los cambios realizados en una o varias tablas de una base de datos y publicarlos o distribuirlos a un conjunto de bases de datos del suscriptor. La publicación de los cambios se implementa mediante los siguientes tipos de paso de trabajo del Agente SQL:
+
 - Lector del registro de transacciones.
 - Instantánea.
 - Distribuidor.
 
 Actualmente no se admiten otros tipos de pasos de trabajo, incluidos:
+
 - No se admite el paso de trabajo de replicación de mezcla.
 - Aún no se admite el lector de colas.
 - No se admite Analysis Services.
@@ -77,6 +82,7 @@ Actualmente no se admiten otros tipos de pasos de trabajo, incluidos:
 
 Una programación especifica cuándo se ejecuta un trabajo. Se puede ejecutar más de un trabajo en la misma programación y se puede aplicar más de una programación al mismo trabajo.
 Una programación puede definir las condiciones siguientes para el momento en que se ejecuta un trabajo:
+
 - Cada vez que se reinicie la instancia (o cuando se inicia el Agente SQL Server). El trabajo se activa después de cada conmutación por error.
 - Una vez, en una fecha y a una hora específicas, que sea útil para la ejecución retrasada de algún trabajo.
 - Según una programación periódica.
@@ -215,7 +221,7 @@ Durante la creación del agente de trabajos, se crean un esquema, tablas y un ro
 
 Un *grupo de destino* define el conjunto de bases de datos en las que se ejecutará un paso de trabajo. Un grupo de destino puede contener cualquier número y combinación de los siguientes elementos:
 
-- **Servidor de Azure SQL**: si se especifica un servidor, todas las bases de datos que existen en el servidor en el momento de la ejecución del trabajo forman parte del grupo. Se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda enumerar y actualizar antes de la ejecución del trabajo.
+- **Servidor de SQL Database**: si se especifica un servidor, todas las bases de datos que existen en el servidor en el momento de la ejecución del trabajo forman parte del grupo. Se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda enumerar y actualizar antes de la ejecución del trabajo.
 - **Grupo elástico**: si se especifica un grupo elástico, todas las bases de datos que se encuentran en el grupo elástico en el momento de la ejecución del trabajo forman parte del grupo. Igual que para un servidor, se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda actualizar antes de la ejecución del trabajo.
 - **Base de datos individual**: especifique una o más bases de datos individuales que van a formar parte del grupo.
 - **Mapa de particiones**: bases de datos de un mapa de particiones.
@@ -258,6 +264,7 @@ El resultado de los pasos de un trabajo en cada base de datos de destino se regi
 #### <a name="job-history"></a>Historial de trabajos
 
 El historial de ejecución de los trabajos se almacena en la *base de datos de trabajos*. Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial de menos de 45 días de antigüedad, llame al procedimiento almacenado **sp_purge_history** de la *base de datos de trabajos*.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>Rendimiento, capacidad y limitaciones del agente
 
 Los trabajos elásticos utilizan recursos de proceso mínimos mientras se espera hasta que los trabajos de larga ejecución finalicen.

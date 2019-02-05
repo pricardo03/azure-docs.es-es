@@ -1,21 +1,21 @@
 ---
-title: 'Ejemplo: Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificador - Custom Vision'
+title: 'Ejemplo: Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificador (Custom Vision)'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo usar la API para probar las imágenes mediante programación con el clasificador de Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 3a81f3cef6aaeb5c98022d9fc93f4d84f3f58a6e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 4b65cb6bb8a9a8b7c5546c7859a4ce1544e8feff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363656"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218570"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificación de Custom Vision Service
 

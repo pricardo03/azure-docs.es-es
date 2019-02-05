@@ -3,20 +3,20 @@ title: Guía de inicio rápido para agregar un usuario invitado con PowerShell p
 description: En este tutorial, obtendrá información sobre cómo usar PowerShell para enviar una invitación a un usuario externo de colaboración de Azure AD B2B.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 28a2177089fb3c93670d61da62815ff67bfd544d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986569"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094808"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Guía de inicio rápido: Incorporación de un usuario invitado con PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Inicio rápido: Incorporación de un usuario invitado con PowerShell
 
 Hay muchas maneras de invitar a los asociados externos a sus aplicaciones y servicios con la colaboración de Azure Active Directory B2B. En el tutorial anterior, vimos cómo agregar usuarios invitados directamente en el portal de administración de Azure Active Directory. También puede usar PowerShell para agregar usuarios invitados, uno a uno o de forma masiva. En este tutorial, usará el comando New-AzureADMSInvitation para agregar un usuario invitado a su inquilino de Azure.
 
@@ -29,29 +29,29 @@ Asegúrese de que instala la última versión de Azure AD PowerShell para el mó
 
 En primer lugar, compruebe qué módulos ha instalado. Abra Windows PowerShell como un usuario con privilegios elevados (Ejecutar como administrador) y ejecute el comando siguiente:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Si se muestra el módulo AzureADPreview sin ningún mensaje que indica que hay una versión posterior, significa que está listo. De lo contrario, en función de la salida, realice una de las siguientes acciones:
 
 - Si no se devuelve ningún resultado, ejecute el siguiente comando para instalar el módulo AzureADPreview:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Si solo se muestra el módulo AzureAD en los resultados, ejecute los comandos siguientes para instalar el módulo AzureADPreview: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Si solo se muestra el módulo AzureADPreview en los resultados, pero recibe un mensaje que indica que hay una versión posterior, ejecute los comandos siguientes para actualizar el módulo: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Puede que reciba un mensaje que indica que está instalando el módulo desde un repositorio de confianza. Esto se produce si el repositorio de PSGallery no se ha establecido previamente como un repositorio de confianza. Presione **Y** para instalar el módulo.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Ejemplo: Agregar caras - Face API'
+title: 'Ejemplo: Incorporación de caras (Face API)'
 titleSuffix: Azure Cognitive Services
 description: Use Face API para agregar caras en imágenes.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125109"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222821"
 ---
 # <a name="example-how-to-add-faces"></a>Ejemplo: Incorporación de caras
 
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>Paso 2: Autorización de la llamada API
+## <a name="step-2-authorize-the-api-call"></a>Paso 2: Autorización de la llamada a la API
 
 Al usar una biblioteca cliente, la clave de suscripción se pasa a través del constructor de la clase FaceServiceClient. Por ejemplo: 
 
@@ -82,7 +82,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-to-the-persongroup"></a>Paso 4: Creación de las personas de PersonGroup
+## <a name="step-4-create-the-persons-to-the-persongroup"></a>Paso 4: Creación de las personas del elemento PersonGroup
 
 Las personas se crean de forma simultánea y se aplica también `await WaitCallLimitPerSecondAsync()` para evitar que se supere el límite de llamadas.
 

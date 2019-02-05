@@ -3,7 +3,7 @@ title: 'Tutorial: Creación y uso de discos para conjuntos de escalado con la CL
 description: Aprenda a usar la CLI de Azure para crear y usar discos administrados con conjuntos de escalado de máquinas virtuales, incluido cómo agregar, preparar, enumerar y desconectar discos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469391"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163065"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
@@ -48,7 +48,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 **Disco temporal**: los discos temporales usan una unidad de estado sólido que se encuentra en el mismo host de Azure que la instancia de máquina virtual. Son discos de gran rendimiento y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la instancia de máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal se determina por el tamaño de la instancia de máquina virtual. Los discos temporales llevan la etiqueta */dev/sdb* y tienen un punto de montaje de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
-| Escriba | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| Type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](../virtual-machines/linux/sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](../virtual-machines/linux/sizes-compute.md) | Serie F | 576 |
@@ -62,7 +62,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 Se pueden agregar discos de datos adicionales si necesita instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 4 TB. El tamaño de la instancia de máquina virtual determina cuántos discos de datos se pueden conectar. Para cada vCPU de la máquina virtual, se pueden asociar dos discos de datos.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
-| Escriba | Tamaños comunes | Discos de datos máximos por máquina virtual |
+| Type | Tamaños comunes | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](../virtual-machines/linux/sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](../virtual-machines/linux/sizes-compute.md) | Serie F | 64 |
@@ -132,7 +132,7 @@ Los discos que se crean y conectan a las instancias de máquina virtual del conj
 
 Para automatizar el proceso en varias instancias de máquina virtual en un conjunto de escalado, puede usar la extensión de script personalizado de Azure. Esta extensión puede ejecutar scripts localmente en cada instancia de máquina virtual, por ejemplo, para preparar los discos de datos conectados. Para obtener más información, consulte [Información general de la extensión de script personalizado](../virtual-machines/linux/extensions-customscript.md).
 
-En el ejemplo siguiente, se ejecuta un script desde un repositorio de ejemplo de GitHub en cada instancia de máquina virtual con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set), que prepara todos los discos de datos conectados sin formato:
+En el ejemplo siguiente, se ejecuta un script desde un repositorio de ejemplo de GitHub en cada instancia de máquina virtual con [az vmss extension set](/cli/azure/vmss/extension), que prepara todos los discos de datos conectados sin formato:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ Se muestra información sobre el tamaño del disco, la capa de almacenamiento y 
 
 
 ## <a name="detach-a-disk"></a>Desconexión de un disco
-Cuando ya no se necesita un disco determinado, se puede desconectar del conjunto de escalado. El disco se quita de todas las instancias de máquina virtual del conjunto de escalado. Para desconectar un disco de un conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) y especifique el LUN del disco. Los LUN se muestran en la salida de [az vmss show](/cli/azure/vmss#az_vmss_show), en la sección anterior. En el ejemplo siguiente, se desconecta el LUN *2* del conjunto de escalado:
+Cuando ya no se necesita un disco determinado, se puede desconectar del conjunto de escalado. El disco se quita de todas las instancias de máquina virtual del conjunto de escalado. Para desconectar un disco de un conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk) y especifique el LUN del disco. Los LUN se muestran en la salida de [az vmss show](/cli/azure/vmss#az_vmss_show), en la sección anterior. En el ejemplo siguiente, se desconecta el LUN *2* del conjunto de escalado:
 
 ```azurecli-interactive
 az vmss disk detach \

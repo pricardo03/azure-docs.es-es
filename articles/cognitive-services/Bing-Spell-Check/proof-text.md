@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345715"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149778"
 ---
 # <a name="what-is-bing-spell-check-api"></a>¿Qué es Bing Spell Check API?
 
@@ -39,7 +39,7 @@ Este corrector ortográfico puede controlar cualquier escenario de procesamiento
 La API admite dos modos de corrección, `Proof` y `Spell`.  Vea los ejemplos [aquí](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Proof (para el escenario de documentos)
 El modo predeterminado es `Proof`. El modo de corrección ortográfica `Proof` es el que proporciona las comprobaciones más completas, agrega la capitalización, la puntuación básica y otras características que ayudan en la creación de documentos. Pero está disponible solo en los mercados de en-US (inglés de Estados Unidos), es-ES (español) y pt-BR (portugués) (Nota: en el caso de español y portugués solo en versión beta). Para los restantes mercados, establezca el parámetro de consulta de modo en Ortografía. 
-<br /><br/>**Nota:** si el texto de consulta tiene más de 4096 caracteres, se truncará a 4096 y luego se procesará. 
+<br /><br/>**NOTA:**   Si el texto de la consulta tiene más de 4096 caracteres, se truncará a 4096 y luego se procesará. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell (para el escenario de consultas y búsquedas web)
 `Spell` es más agresivo para devolver mejores resultados de búsqueda. El modo `Spell` busca la mayoría de los errores ortográficos, pero no encuentra algunos de los errores gramaticales que `Proof` detecta, por ejemplo, las palabras repetidas o los errores de mayúsculas y minúsculas.
 

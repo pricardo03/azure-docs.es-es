@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868555"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092802"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -153,7 +153,7 @@ En el siguiente ejemplo se crea una alerta para el uso medio de la CPU.
 5. Opcionalmente, active la casilla *Enviar correo electrónico a propietarios, colaboradores y lectores* para enviar una notificación por correo electrónico. La acción predeterminada es presentar una notificación en el portal.
 6. Seleccione el botón **Aceptar**.
 
-## <a name="manage-package-updates"></a>Administrar actualizaciones de paquetes
+## <a name="manage-software-updates"></a>Administración de actualizaciones de software
 
 Administración de actualizaciones le permite administrar las actualizaciones y revisiones de las máquinas virtuales Linux de Azure.
 Directamente desde la máquina virtual, puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en la máquina virtual.
@@ -175,15 +175,14 @@ Un área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overvie
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran actualizaciones, Azure Automation permite ejecutar runbooks en máquinas virtuales, por ejemplo, para descargar y aplicar actualizaciones.
 
-El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y un trabajo de runbook híbrido de Automation.
-Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización.
+El proceso de validación también comprueba si la máquina virtual se aprovisiona con un agente de Log Analytics y un trabajo de runbook híbrido de Automation. Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización.
 
 Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation, y seleccione **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
 Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Cuenta de Automation](../../automation/automation-offering-get-started.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
 
 Se abre la pantalla **Update Management**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y seleccione **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
@@ -291,22 +290,9 @@ El gráfico muestra los cambios que se han producido con el tiempo. Después de 
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-Puede realizar una supervisión más avanzada de la máquina virtual con soluciones como Update Management y Change and Inventory de [Azure Automation](../../automation/automation-intro.md).
+Puede realizar una supervisión más avanzada de la máquina virtual con una solución como [Azure Monitor para máquinas virtuales](../../azure-monitor/insights/vminsights-overview.md), que supervisa las máquinas virtuales (VM) de Azure a escala y analiza el rendimiento y el estado de las máquinas virtuales Windows y Linux, incluidos los diferentes procesos y las dependencias interconectadas con otros recursos y con procesos externos. La administración de configuración de las máquinas virtuales de Azure se proporciona mediante la solución Change Tracking e Inventario de [Azure Automation](../../automation/automation-intro.md) que permite identificar fácilmente los cambios del entorno. La administración del cumplimiento de actualizaciones se proporciona con la solución Update Management de Azure Automation.   
 
-Cuando tenga acceso al área de trabajo de Log Analytics, puede buscar la clave del área de trabajo y el identificador del área de trabajo en **Configuración avanzada** en **CONFIGURACIÓN**. Reemplace \<workspace-key\> y \<workspace-id\> por los valores del espacio de trabajo de Log Analytics y, a continuación, puede usar **az vm extension set** para agregar la extensión a la máquina virtual:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Después de unos minutos, debería ver la nueva máquina virtual en el área de trabajo de Log Analytics.
+Desde el área de trabajo de Log Analytics a la que la máquina virtual está conectada, también puede recuperar, consolidar y analizar los datos recopilados con el [lenguaje de consulta enriquecido](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

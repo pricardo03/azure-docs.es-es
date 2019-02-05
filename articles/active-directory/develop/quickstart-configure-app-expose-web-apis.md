@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 589ad189a3a157d0116e3991f8df3d6b43afc167
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988773"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095709"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Guía de inicio rápido: Configuración de una aplicación para exponer API web (versión preliminar)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Inicio rápido: Configuración de una aplicación para exponer API web (versión preliminar)
 
 Puede desarrollar una API web y ponerla a disposición de las aplicaciones cliente si expone los [permisos o ámbitos](developer-glossary.md#scopes) y los [roles](developer-glossary.md#roles). Una API web configurada correctamente se pone a disposición de otras aplicaciones del mismo modo que otras API web de Microsoft, incluidas Graph API y las API de Office 365.
 

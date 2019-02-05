@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824582"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168658"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Descarga y uso de un script para acceder a los registros de inicio de sesión
 
@@ -35,7 +35,7 @@ Necesita:
 
 * Un inquilino de Azure Active Directory con una licencia premium (P1 y P2). Tenga en cuenta que si no tuvo ningún dato de actividades antes de la actualización, los datos tardarán un par de días en mostrarse en los informes después de actualizar a una licencia premium. 
 * Un usuario con el rol **Administrador global**, **Administrador de seguridad**, **Lector de seguridad** o **Lector de informes** en el inquilino. Además, cualquier usuario puede acceder a sus propios inicios de sesión. 
-* Si quiere ejecutar el script descargado en la máquina de Windows 10, [configure el módulo AzureRM y establezca la directiva de ejecución](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
+* Si quiere ejecutar el script descargado en la máquina de Windows 10, [configure el módulo de Azure PowerShell y establezca la directiva de ejecución](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Tutorial
 

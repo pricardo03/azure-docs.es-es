@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: d3ee6db382f848a029f3e0355abdfe5eecc80656
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1486ab3240036abedea2cbb3cbe93e5c061691d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035838"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467414"
 ---
-# <a name="manage-database-accounts-in-azure-cosmos-db"></a>Administración de cuentas de base de datos en Azure Cosmos DB
+# <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
 Este artículo describe cómo administrar la cuenta de Azure Cosmos DB. Aprenderá a configurar el hospedaje múltiple, agregar o quitar una región, configurar varias regiones de escritura y configurar las prioridades de la conmutación por error. 
 

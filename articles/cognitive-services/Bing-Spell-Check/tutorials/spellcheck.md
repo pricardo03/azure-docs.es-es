@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Introducción a los resultados de revisión ortográfica mediante Bing Spell Check API'
+title: 'Tutorial: Obtención de resultados de revisión ortográfica mediante Bing Spell Check API'
 titlesuffix: Azure Cognitive Services
 description: Muestra cómo usar Bing Spell Check.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: d0cfc952511ac0d8e1328f7b01fe5eeb2b4f7e48
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4bb558c05a2bade3a9e3dd01976d4cd9bf24cb98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160553"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160770"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de páginas web
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de página web
 
 En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API.
 

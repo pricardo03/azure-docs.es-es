@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: overview
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf94e0ab6ebb3df649b1958503c086feb4fa19e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 555b03be679b0d1ea61371d22ec9865e0e72b558
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237133"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215799"
 ---
 # <a name="what-is-the-emotion-api"></a>¿Qué es Emotion API?
 
@@ -34,7 +34,7 @@ La versión beta de Emotion API toma una imagen como entrada y devuelve la confi
 En la interpretación de los resultados de Emotion API, la emoción detectada debe interpretarse como la emoción con la puntuación más alta, dado que las puntuaciones se normalizan para que sumen uno. Los usuarios pueden elegir establecer un umbral de confianza mayor dentro de su aplicación, dependiendo de sus necesidades.
 
 Para obtener más información sobre detección de emociones, consulte Referencia de API:
-  * Básico: Si un usuario ha llamado ya a Face API, puede enviar el rectángulo facial como entrada opcional y usar el nivel básico. [Referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
-  * Estándar: Si un usuario no envía un rectángulo facial, debe usar el modo estándar.  [Referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
+  * Básico: si un usuario ya ha llamado a Face API, puede enviar el rectángulo facial como entrada y usar el nivel básico. [Referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
+  * Estándar: si un usuario no envía un rectángulo facial, debe usar el modo estándar.  [Referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
 Para obtener un ejemplo sobre cómo interpretar secuencias de vídeo con Emotion API, consulte [Análisis de vídeos en tiempo real](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).

@@ -1,21 +1,21 @@
 ---
-title: 'Ejemplo: Detección de caras en imágenes - Face API'
+title: 'Ejemplo: Detección de caras en imágenes (Face API)'
 titleSuffix: Azure Cognitive Services
 description: Use Face API para detectar caras en imágenes.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124055"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214218"
 ---
 # <a name="example-how-to-detect-faces-in-image"></a>Ejemplo: Detección de caras en imágenes
 
@@ -40,7 +40,7 @@ En este ejemplo, se mostrarán las siguientes funciones:
 
 Para ejecutar estas funciones, deberá preparar una imagen con al menos una cara clara. 
 
-## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada API
+## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada a la API
 
 Cada llamada a Face API requiere una clave de suscripción. Esta clave se debe pasar a través de un parámetro de cadena de consulta o se debe especificar en el encabezado de la solicitud. Para pasar la clave de suscripción a través de una cadena de consulta, haga referencia a la dirección URL de la solicitud para [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como ejemplo:
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription Key>
 ```
 
-Como alternativa, también puede especificar la clave de suscripción en el encabezado de solicitud HTTP: **ocp-apim-subscription-key: &lt;clave de suscripción&gt;**. Cuando se utiliza una biblioteca cliente, la clave de suscripción se pasa a través del constructor de la clase FaceServiceClient. Por ejemplo: 
+Como alternativa, también puede especificarse la clave de suscripción en el encabezado de la solicitud HTTP: **ocp-apim-subscription-key: &lt;Clave de suscripción&gt;** Al usar una biblioteca cliente, la clave de suscripción se pasa por el constructor de la clase FaceServiceClient. Por ejemplo: 
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
@@ -90,7 +90,7 @@ foreach (var face in faces)
 
 La propiedad FaceRectangle que se devuelve con las caras detectadas es básicamente ubicaciones de la cara en píxeles. Por lo general, este rectángulo contiene los ojos, las cejas, la nariz y la boca: la parte superior de la cabeza, las orejas y la barbilla no se incluyen. Si recorta un retrato de medio cuerpo o de cabeza completa (una foto de imagen de tipo de carné de identidad), puede que quiera expandir el área del marco rectangular de la cara, ya que el área de la cara puede ser demasiado pequeña para algunas aplicaciones. Para localizar una cara con más precisión, resultan útiles los puntos de referencia de cara (mecanismos para localizar las características de la cara o la dirección de la cara) descritos en la siguiente sección.
 
-## <a name="step-3-understanding-and-using-face-landmarks"></a>Paso 3: Comprender y usar los puntos de referencia de cara
+## <a name="step-3-understanding-and-using-face-landmarks"></a>Paso 3: Saber qué son los puntos de referencia de la cara y usarlos
 
 Los puntos de referencia de cara son una serie de puntos detallados en una cara; normalmente puntos de componentes de la cara como las pupilas, las comisuras o la nariz. Los puntos de referencia de cara son atributos opcionales que se pueden analizar durante la detección de caras. Puede pasar "true" como valor booleano para el parámetro de consulta returnFaceLandmarks al llamar a [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) o usar el parámetro opcional returnFaceLandmarks para el método DetectAsync de la clase FaceServiceClient a fin de incluir los puntos de referencia de cara en los resultados de la detección.
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811645"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883524"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
@@ -101,10 +101,10 @@ En esta sección se enviarán solicitudes que son significativas para codificar 
 
 1. Obtención del token de Azure AD para la autenticación de la entidad de servicio
 2. Creación de un recurso de salida
-3. Creación de una transformación
-4. Creación de un trabajo 
-5. Creación de un localizador de streaming
-6. Enumeración de las rutas de acceso del localizador de streaming
+3. Creación de una **transformación**
+4. Creación de un **trabajo**
+5. Creación de un objeto **StreamingLocator**
+6. Enumeración de las rutas de acceso del objeto **StreamingLocator**
 
 > [!Note]
 >  En este tutorial se da por hecho que va a crear todos los recursos con nombres únicos.  
@@ -151,7 +151,7 @@ El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacen
 
 ### <a name="create-a-transform"></a>Creación de una transformación
 
-Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos a cada nuevo vídeo, está aplicando esa receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para más información, consulte [Transformaciones y trabajos](transform-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
+Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
 
 Al crear una nueva instancia de la [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto **TransformOutput**. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **valor preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se utilizarán para generar el objeto **TransformOutput** deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. Para más información sobre este valor preestablecido, consulte el artículo sobre la [generación automática de la escala de velocidad de bits](autogen-bitrate-ladder.md).
 
@@ -232,16 +232,16 @@ El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En
 
 ### <a name="create-a-streaming-locator"></a>Creación de un localizador de streaming
 
-Una vez finalizado el trabajo de codificación, el siguiente paso es poner el vídeo del recurso de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: primero, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, en segundo lugar, cree las direcciones URL de streaming que pueden usar los clientes. 
+Una vez finalizado el trabajo de codificación, el siguiente paso es poner el vídeo del **recurso** de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: en primer lugar, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, después, cree las direcciones URL de streaming que pueden usar los clientes. 
 
-El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, a menos que configure las horas de inicio y de finalización opcionales. 
+El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
 Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, va a transmitir contenido no cifrado, de modo que se puede usar la directiva de streaming sin cifrar predefinida, **PredefinedStreamingPolicy.ClearStreamingOnly**.
 
 > [!IMPORTANT]
 > Al utilizar el objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos de cifrado. 
 
-La cuenta de Media Service tiene una cuota para el número de entradas de StreamingPolicy. No debe crear un nuevo objeto StreamingPolicy para cada objeto StreamingLocator.
+La cuenta de Media Service tiene una cuota para el número de entradas de **Streaming Policy**. No debe crear un objeto **StreamingPolicy** para cada objeto **StreamingLocator**.
 
 1. En la ventana izquierda de Postman, seleccione "Streaming Policies" (Directivas de streaming).
 2. A continuación, seleccione "Create a Streaming Locator" (Crear un localizador de streaming).
@@ -267,7 +267,7 @@ La cuenta de Media Service tiene una cuota para el número de entradas de Stream
 
 #### <a name="list-paths"></a>Enumeración de rutas de acceso
 
-Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming
+Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming.
 
 1. En la ventana izquierda de Postman, seleccione "Streaming Policies" (Directivas de streaming).
 2. A continuación, seleccione "List Paths" (Enumerar rutas de acceso).
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Asegúrese de que el punto de conexión de streaming desde el que va a hacer streaming del contenido esté en ejecución.
+> Asegúrese de que el **punto de conexión de streaming** desde el que va a hacer streaming del contenido esté en ejecución.
 
 Para probar el streaming, este artículo usa Azure Media Player. 
 
@@ -350,7 +350,7 @@ Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpieza de los recursos en su cuenta de Media Services
 
-Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (típicamente, reutilizará transformaciones y conservará objetos StreamingLocators, etc.). Si desea que la cuenta esté limpia después de la experimentación, debe eliminar los recursos que no piensa volver a usar.  
+Por lo general, debe limpiar todo excepto los objetos que piensa reutilizar (típicamente, reutilizará **transformaciones** y conservará los objetos **StreamingLocator**, etc.). Si desea que la cuenta esté limpia después de la experimentación, debe eliminar los recursos que no piensa volver a usar.  
 
 Para eliminar un recurso, seleccione la operación "Eliminar..." en el recurso que desea eliminar.
 

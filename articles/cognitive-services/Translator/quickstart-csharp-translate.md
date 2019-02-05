@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Traducción de texto con Translator Text en C#'
+title: 'Inicio rápido: Traducción de texto, C# (Translator Text)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se traduce texto de un idioma a otro mediante Translator Text API con C#.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: fbe89d938157cebd7fa605f07cee8b198de062d2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887685"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214524"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Guía de inicio rápido: Uso de Translator Text API para traducir una cadena mediante C#
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena mediante C#
 
 En esta guía de inicio rápido, aprenderá a traducir una cadena de texto de inglés a italiano y alemán con .NET Core y Translator Text REST API.
 

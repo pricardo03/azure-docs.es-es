@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 3a1054b0c753b3e5dca4cd66ac42e6bc8bdd16ae
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960709"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888930"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
@@ -32,63 +32,61 @@ Para completar esta guía de inicio rápido, asegúrese de que tiene:
 
 ## <a name="create-a-resource-group"></a>Creación de un grupo de recursos
 
-Un grupo de recursos es una recopilación lógica de recursos de Azure. Todos los recursos se implementan y administran en un grupo de recursos. Para crear un grupo de recursos haga lo siguiente:
+Un grupo de recursos es una recopilación lógica de recursos de Azure. Todos los recursos se implementan y administran en un grupo de recursos. Para crear un grupo de recursos:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el panel de la izquierda, seleccione **Grupos de recursos**. A continuación, haga clic en **Agregar**.
 
    ![Grupos de recursos: botón Agregar](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. Escriba un nombre único para el grupo de recursos. El sistema comprueba de forma inmediata para ver si el nombre está disponible en la suscripción de Azure seleccionada actualmente.
-
-3. En **Suscripción** haga clic en el nombre de la suscripción de Azure en la que desea crear el grupo de recursos.
-
-4. Seleccione una ubicación geográfica para el grupo de recursos.
-
-5. Haga clic en **Create**(Crear).
+2. En **Suscripción** seleccione el nombre de la suscripción de Azure en la que desea crear el grupo de recursos.
+3. Escriba un **nombre único para el grupo de recursos**. El sistema comprueba de forma inmediata para ver si el nombre está disponible en la suscripción de Azure seleccionada actualmente.
+4. Seleccione una **región** para el grupo de recursos.
+5. Seleccione **Revisar + crear**.
 
    ![Grupo de recursos: Crear](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. En la página **Revisar + crear**, seleccione **Crear**. 
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
 Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámbito, al que hace referencia su nombre de dominio completo, en el que puede crear uno o varios centros de eventos. Para crear un espacio de nombres en el grupo de recursos mediante el portal, haga lo siguiente:
 
 1. En Azure Portal, haga clic en **Crear un recurso** en la parte superior izquierda de la pantalla.
-
-2. Haga clic en **Internet de las cosas** y, luego, en **Event Hubs**.
-
-3. En **Crear espacio de nombres**, especifique el nombre del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-
-   ![Creación de un espacio de nombres del centro de eventos](./media/event-hubs-create/create-event-hub1.png)
-
-4. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el plan de tarifa (Básico o Estándar). Elija también una suscripción de Azure, el grupo de recursos y la ubicación en la que se va a crear el recurso.
- 
-5. Haga clic en **Crear** para crear el espacio de nombres. Puede que tenga que esperar unos minutos hasta que el sistema aprovisione totalmente los recursos.
-6. Seleccione **Alertas**y, a continuación, seleccione la **implementación** con el mismo nombre que el nombre del espacio de nombres del centro de eventos. 
-
-   ![Grupo de recursos: alerta de creación](./media/event-hubs-quickstart-portal/create-alert.png)
-6. Seleccione el espacio de nombres del centro de eventos en la lista de recursos creados de la implementación. 
-
-   ![Seleccionar el espacio de nombres de la implementación](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. En la página **Espacio de nombres de Event Hubs**, seleccione **Directivas de acceso compartido** y, después, haga clic en **RootManageSharedAccessKey**.
+2. Seleccione **Todos los servicios** en el menú de la izquierda y seleccione el **asterisco (`*`)** junto a **Event Hubs** en la categoría **Análisis**. Confirme que **Event Hubs** se agrega a **FAVORITOS** en el menú de navegación de la izquierda. 
     
-8. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** en el Portapapeles. Guarde esta cadena de conexión en una ubicación temporal, como el Bloc de notas, para usarla más adelante.
+   ![Búsqueda de instancias de Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. Seleccione **Event Hubs** en **FAVORITOS** en el menú de navegación de la izquierda y seleccione **Agregar** en la barra de herramientas.
+
+   ![Agregar botón de la barra de herramientas](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. En la página **Crear espacio de nombres**, realice los pasos siguientes:
+    1. Escriba un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+    2. Elija el plan de tarifa (Básico o Estándar).
+    3. Seleccione la **suscripción** en la que desea crear el espacio de nombres.
+    4. Seleccione una **ubicación** para el espacio de nombres.
+    5. Seleccione **Crear**. Puede que tenga que esperar unos minutos hasta que el sistema aprovisione totalmente los recursos.
+
+       ![Creación de un espacio de nombres del centro de eventos](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. Actualice la página de **Event Hubs** para ver el espacio de nombres del centro de eventos. Puede comprobar el estado de la creación del centro de eventos en las alertas. 
+
+    ![Creación de un espacio de nombres del centro de eventos](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. Seleccione el espacio de nombres. Puede ver la página principal del **espacio de nombres de Event Hubs** en el portal. 
+
+   ![Página principal del espacio de nombres](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 Para crear un centro de eventos en el espacio de nombres, haga lo siguiente:
 
-1. En la página Espacio de nombres de Event Hubs, seleccione **Event Hubs**.
-   
-    ![Seleccionar Event Hubs en el menú de la izquierda](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. En la página Espacio de nombres de Event Hubs, seleccione **Event Hubs** en el menú de la izquierda.
 1. En la parte superior de la ventana, haga clic en **+ Centro de eventos**.
    
     ![Botón Agregar centro de eventos](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Escriba el nombre del centro de eventos y, a continuación, haga clic en **Crear**.
    
     ![Creación de un centro de eventos](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. Puede comprobar el estado de la creación del centro de eventos en las alertas. Una vez creado el centro de eventos, puede verlo en la lista de centros de eventos como se muestra en la siguiente imagen:
 
+    ![Centro de eventos creado](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 Felicidades. Ha usado el portal para crear un espacio de nombres de Event Hubs y un centro de eventos dentro de ese espacio de nombres. 
 

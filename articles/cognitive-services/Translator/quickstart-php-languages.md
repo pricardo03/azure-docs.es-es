@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Obtención de los idiomas admitidos con Translator Text API en PHP'
+title: 'Inicio rápido: Obtención de idiomas admitidos, PHP (Translator Text API)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API con PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e208e66c906531bb084438539c76e0a07c3caa9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8bb3860f1ed81799640d81414f8e00b35585e168
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647262"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206840"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Guía de inicio rápido: Obtención de idiomas admitidos con la API REST Translator Text (PHP)
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Inicio rápido: Obtención de los idiomas admitidos con la API REST Translator Text (PHP)
 
 En esta guía de inicio rápido se obtiene una lista de los idiomas admitidos para la traducción, la transliteración, la búsqueda en el diccionario y ejemplos mediante Translator Text API.
 

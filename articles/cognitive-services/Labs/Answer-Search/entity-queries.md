@@ -1,23 +1,23 @@
 ---
-title: 'Guía de inicio rápido: Consulta de entidades con Project Answer Search'
+title: 'Inicio rápido: Consulta de entidades con Project Answer Search'
 titlesuffix: Azure Cognitive Services
 description: Consultas de entidades mediante Project Answer Search
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2ec11412b5b0e713742029f05c91a6ecbe78c344
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210699"
 ---
-# <a name="quickstart-query-for-entities"></a>Guía de inicio rápido: Consulta de entidades
+# <a name="quickstart-query-for-entities"></a>Inicio rápido: Consulta de entidades
 
 Si la consulta solicita información acerca de una persona, un lugar o una cosa, la respuesta puede contener una respuesta `entities`.  Las consultas siempre devuelven páginas web, y los [hechos](fact-queries.md) y/o las [entidades](entity-queries.md) dependen de las consultas.
 
@@ -33,7 +33,7 @@ Para determinar el escenario de consulta, use el campo `queryScenario` del objet
 -   Attraction 
  
 Para determinar el tipo de entidad que contiene la respuesta, use el campo `entityTypeHints`, tal como se muestra en la consulta de Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ Para determinar el tipo de entidad que contiene la respuesta, use el campo `enti
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 La siguiente es una consulta de Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 La respuesta incluye la respuesta `entities`. Observe los campos `entityScenario` y `entityTypeHints`. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ La respuesta incluye la respuesta `entities`. Observe los campos `entityScenario
       }
     ]
   },
-````
+```
 
 Una consulta puede devolver una lista si es pertinente.
 
 **Consulta:** la consulta siguiente busca una lista de especies amenazadas:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
-**Respuesta:** la respuesta incluye una lista con formato para mostrar valores de tabla:
-````
+**Respuesta:** la respuesta incluye una lista con formato que se muestra en forma de valores de tabla:
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,7 +217,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido de Project Answer Search para Java
+title: 'Inicio rápido: Project Answer Search, Java'
 titlesuffix: Azure Cognitive Services
 description: Empiece a usar Project Answer Search en Java.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0353736b3b66c58288dbd3d351b3b3dd53f467d6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226883"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>Guía de inicio rápido: Consulta con Project Answer Search en Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Inicio rápido: Consulta con Project Answer Search en Java
 En este artículo se usa Java para explicar Bing Answer Search API, parte de Microsoft Cognitive Services en Azure. La API es un servicio web REST compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
  
 El código de ejemplo utiliza Java con dependencias externas mínimas.  También puede ejecutarlo en Linux o Mac OS X con Mono.
@@ -30,7 +30,7 @@ Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de
 
 El siguiente código crea una instancia de `WebRequest`, establece el encabezado de clave de acceso y agrega una cadena de consulta para "Gibraltar".  Después envía la solicitud y asigna la respuesta a una cadena que contiene el texto JSON.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ El siguiente código crea una instancia de `WebRequest`, establece el encabezado
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Código completo
 
@@ -57,7 +57,7 @@ Bing Answer Search API devuelve resultados desde el motor de búsqueda de Bing.
 4. Reemplace el valor subscriptionKey por una clave de acceso válida para la suscripción.
 5. Ejecute el programa.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,7 +148,7 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Inicio rápido de C#](c-sharp-quickstart.md)
