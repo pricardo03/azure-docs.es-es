@@ -1,33 +1,33 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Expensify | Microsoft Docs'
-description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Expensify.
+title: 'Tutorial: Integración de Azure Active Directory con Skyward Qmlativ | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Skyward Qmlativ.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 1e761484-7a2f-4321-91f4-6d5d0b69344e
+ms.assetid: f51ad077-b5d2-49b3-8d24-2e0c8708394a
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/23/2019
+ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: baf0a11f97d4a281578b4eb9a7dadbc9400684ae
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453900"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55105521"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integración de Azure Active Directory con Expensify
+# <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Tutorial: Integración de Azure Active Directory con Skyward Qmlativ
 
-En este tutorial, obtendrá información sobre cómo integrar Expensify con Azure Active Directory (Azure AD).
-Integrar Expensify con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, obtendrá información sobre cómo integrar Skyward Qmlativ con Azure Active Directory (Azure AD).
+La integración de Skyward Qmlativ con Azure AD proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a Expensify.
-* Puede permitir que los usuarios inicien sesión automáticamente en Expensify (inicio de sesión único) con sus cuentas de Azure AD.
+* En Azure AD puede controlar quién tiene acceso a Skyward Qmlativ.
+* Puede permitir que los usuarios inicien sesión automáticamente en Skyward Qmlativ (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Expensify, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Skyward Qmlativ, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para el inicio de sesión único de Expensify
+* Suscripción habilitada para el inicio de sesión único en Skyward Qmlativ
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Expensify admite el inicio de sesión único iniciado por **SP**.
+* Skyward Qmlativ admite el inicio de sesión único iniciado por **SP**
 
-## <a name="adding-expensify-from-the-gallery"></a>Agregar Expensify desde la galería
+## <a name="adding-skyward-qmlativ-from-the-gallery"></a>Adición de Skyward Qmlativ desde la galería
 
-Para configurar la integración de Expensify en Azure AD, deberá agregar Expensify desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de Skyward Qmlativ en Azure AD, será preciso que agregue Skyward Qmlativ desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Expensify desde la galería, siga estos pasos:**
+**Para agregar Skyward Qmlativ desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -64,31 +64,31 @@ Para configurar la integración de Expensify en Azure AD, deberá agregar Expens
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Expensify**, seleccione **Expensify** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Skyward Qmlativ**, seleccione **Skyward Qmlativ** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Expensify en la lista de resultados](common/search-new-app.png)
+     ![Skyward Qmlativ en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Expensify con un usuario de prueba denominado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Expensify.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Skyward Qmlativ utilizando un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Skyward Qmlativ.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Expensify, necesita completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Skyward Qmlativ, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Expensify](#configure-expensify-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Skyward Qmlativ](#configure-skyward-qmlativ-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Expensify](#create-expensify-test-user)**: para tener un homólogo de Britta Simon en Expensify que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Skyward Qmlativ](#create-skyward-qmlativ-test-user)**: para tener un homólogo de Britta Simon en Skyward Qmlativ vinculado a la representación del usuario de Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Expensify, siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con Skyward Qmlativ, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicacionsz de **Expensify**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Skyward Qmlativ**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -102,39 +102,22 @@ Para configurar el inicio de sesión único de Azure AD con Expensify, siga esto
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Expensify](common/sp-identifier.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Skyward Qmlativ](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.expensify.com/authentication/saml/login`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: ` https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
-    b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL: `https://www.expensify.com`
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<BASEURL>/customeridentifierSTS`
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de Skyward Qmlativ](mailto:steveb@skyward.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Vínculo de descarga del certificado](common/metadataxml.png)
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-6. En la sección **Set up Expensify** (Configurar Expensify), copie las direcciones URL adecuadas según sus necesidades.
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+### <a name="configure-skyward-qmlativ-single-sign-on"></a>Configuración del inicio de sesión único de Skyward Qmlativ
 
-    a. URL de inicio de sesión
-
-    b. Identificador de Azure AD
-
-    c. URL de cierre de sesión
-
-### <a name="configure-expensify-single-sign-on"></a>Configuración del inicio de sesión único de Expensify
-
-Para habilitar SSO en Expensify, primero deberá habilitar el **control de dominio** en la aplicación. Se puede habilitar el control de dominio de la aplicación mediante los pasos enumerados [aquí](https://help.expensify.com/domain-control). Para más información, trabaje con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com). Una vez habilitado el control de dominio, siga estos pasos:
-   
-![Configurar inicio de sesión único](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
-1. Inicie sesión en la aplicación Expensify.
-    
-2. En el panel izquierdo, haga clic en **Configuración** y vaya a **SAML**.
-    
-3. Cambie la opción **Inicio de sesión SAML** a **Habilitado**.
-    
-4. Abra el documento de metadatos de federación descargado desde Azure AD en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Metadatos del proveedor de identidades** que se proporciona.
+Para configurar el inicio de sesión único en **Skyward Qmlativ**, hay que enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Skyward Qmlativ](mailto:steveb@skyward.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -163,15 +146,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Expensify.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Skyward Qmlativ.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Expensify**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Skyward Qmlativ**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Expensify**.
+2. En la lista de aplicaciones, seleccione **Skyward Qmlativ**.
 
-    ![Vínculo a Expensify en la lista de aplicaciones](common/all-applications.png)
+    ![El vínculo de Skyward Qmlativ en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -187,15 +170,15 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-expensify-test-user"></a>Creación de un usuario de prueba de Expensify
+### <a name="create-skyward-qmlativ-test-user"></a>Creación de un usuario de prueba de Skyward Qmlativ
 
-En esta sección, creará un usuario denominado Britta Simon en Expensify. Colabore con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com) para agregar los usuarios a la plataforma de Expensify.
+En esta sección, creará el usuario Britta Simon en Skyward Qmlativ. Colabore con el  [equipo de soporte técnico de Skyward Qmlativ](mailto:steveb@skyward.com) para agregar los usuarios en esta plataforma. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Expensify en el panel de acceso, debería iniciar sesión automáticamente en la versión de Expensify para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Skyward Qmlativ en el panel de acceso y debería iniciar sesión automáticamente en la versión de Skyward Qmlativ para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

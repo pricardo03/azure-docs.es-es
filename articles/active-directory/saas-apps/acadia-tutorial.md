@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813450"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integración de Azure Active Directory con Acadia
 
@@ -71,10 +71,10 @@ Para configurar la integración de Acadia en Azure AD, es preciso agregarlo desd
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con [nombre de aplicación] utilizando usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de [nombre de aplicación].
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Acadia con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Acadia.
 
-Para configurar y probar el inicio de sesión único de Azure AD con [nombre de aplicación], es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Acadia, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Configuración del inicio de sesión único de Acadia](#configure-acadia-single-sign-on)**: para configurar los valores de Inicio de sesión único en el lado de la aplicación.
@@ -87,7 +87,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con [nombre de 
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con [nombre de aplicación], siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con Acadia, realice los pasos siguientes:
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Acadia**, seleccione **Inicio de sesión único**.
 
@@ -116,7 +116,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Acadia](https://www.systemsalliance.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > El equipo de Acadia proporcionará los valores de los pasos 4 y 5 en un archivo de metadatos que puede importarse al hacer clic en **Cargar el archivo de metadatos** en la sección **Configuración básica de SAML**. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. También puede consultar los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal para confirmar que los valores de metadatos son correctos. Póngase en contacto con el [equipo de soporte técnico de Acadia](mailto:support@systemsalliance.com) si los valores proporcionados son incorrectos.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -126,7 +126,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -134,7 +134,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 ### <a name="configure-acadia-single-sign-on"></a>Configuración del inicio de sesión único de Acadia
 
-Para configurar el inicio de sesión único en **Acadia**, es preciso enviar el **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Acadia](https://www.systemsalliance.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Acadia**, es preciso enviar el **XML de metadatos** descargado, la **dirección URL de metadatos de federación de aplicaciones** y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Acadia](mailto:support@systemsalliance.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -152,7 +152,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com

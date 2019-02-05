@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b687f45221d968b3a75e6466ccb316273b9e0182
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd3817de9ad7773dd5179d550a8916cb346e6e6b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822865"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integración de Azure Active Directory con Asana
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Asana, realice los p
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -156,7 +156,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -205,7 +205,7 @@ En esta sección, creará un usuario llamado Britta Simon en Asana.
 
 2. Escriba el correo electrónico del usuario como **britta.simon@contoso.com** en el cuadro de texto y, luego, seleccione **Invitar**.
 
-3. Haga clic en **Enviar invitación**. El nuevo usuario recibirá un correo electrónico en su cuenta de correo electrónico. El usuario tendrá que crear y validar la cuenta.
+3. Haga clic en **Enviar invitación**. El nuevo usuario recibirá un correo electrónico en su cuenta de correo. El usuario tendrá que crear y validar la cuenta.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

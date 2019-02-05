@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/05/2018
+ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205131"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>¿Cuál es la diferencia entre una puerta de enlace de red virtual de Azure (VPN Gateway) y un elemento vpngateway de Azure Virtual WAN?
 
@@ -29,7 +29,7 @@ Para conocer estos pasos, consulte [Automatización de asociados de Virtual WAN]
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>¿Debo usar un dispositivo de asociado preferido?
 
-No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de Azure para la compatibilidad con IPsec de IKEv1 o IKEv2.
+ No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de Azure para la compatibilidad con IPsec de IKEv1 o IKEv2.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>¿Cómo automatizan la conectividad con Azure Virtual WAN los asociados de Virtual WAN?
 
@@ -53,11 +53,11 @@ Sí. Al principio, el flujo de tráfico sería del dispositivo local a la instan
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>¿Se admite el emparejamiento de VNet global con Azure Virtual WAN? 
 
- No.
+  No.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>¿Pueden las redes virtuales radiales conectadas a un concentrador virtual comunicarse entre sí?
 
-Sí. Para hacer directamente el emparejamiento de las redes virtuales entre los radios que están conectados a un concentrador virtual. Para más información, consulte [Emparejamiento de redes virtuales](../articles/virtual-network/virtual-network-peering-overview.md).
+Sí. Las redes virtuales radiales pueden comunicarse directamente a través del emparejamiento de red virtual. Sin embargo, no se admiten redes virtuales que se comuniquen de forma transitiva mediante el centro. Para más información, consulte [Emparejamiento de redes virtuales](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>¿Puedo implementar y usar mi dispositivo virtual de red favorito (en una red virtual de NVA) con Azure Virtual WAN?
 
@@ -65,7 +65,7 @@ Sí, puede conectar su aplicación virtual de red (NVA) favorita a Azure Virtual
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>¿Puede una red virtual de NVA tener una puerta de enlace de red virtual?
 
-No. La red virtual de NVA no puede tener una puerta de enlace de red virtual si se conecta al concentrador virtual. 
+ No. La red virtual de NVA no puede tener una puerta de enlace de red virtual si se conecta al concentrador virtual. 
 
 ### <a name="is-there-support-for-bgp"></a>¿Hay compatibilidad con BGP?
 

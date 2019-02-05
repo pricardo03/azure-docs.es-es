@@ -3,7 +3,7 @@ title: Creación de una cuenta de Batch en Azure Portal | Microsoft Docs
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo paralelas a gran escala en la nube
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/18/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724101"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460529"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -44,17 +44,17 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
      a. **Nombre de cuenta**: el nombre que elija debe ser único en la región de Azure en la que se crea cuenta (consulte **Ubicación** a continuación). El nombre de la cuenta solo puede contener caracteres en minúsculas o números, y su longitud debe oscilar entre 3 y 24 caracteres.
 
-    b. **Suscripción**: la suscripción en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
+    b. **Suscripción**: en la que se crea la cuenta de Batch. Si tiene una sola suscripción, se selecciona de forma predeterminada.
 
-    c. **Grupo de recursos**: seleccione un grupo de recursos existente para la nueva cuenta de Batch, o bien cree uno nuevo.
+    c. **Grupo de recursos**: seleccione un grupo de recursos existente para la nueva cuenta de Batch (también se puede crear uno nuevo).
 
-    d. **Ubicación**: la región de Azure en la que se va a crear la cuenta de Batch. Solo se muestran como opciones las regiones admitidas por su suscripción y grupo de recursos.
+    d. **Ubicación**: región de Azure en la que se va a crear la cuenta de Batch. Solo se muestran como opciones las regiones admitidas por su suscripción y grupo de recursos.
 
     e. **Cuenta de almacenamiento** (opcional): cuenta de Azure Storage que se asocia a la cuenta de Batch. Se recomienda su uso para la mayoría de las cuentas de Batch. Para conocer las opciones de cuenta de almacenamiento de Batch, consulte la [introducción a la característica de Batch](batch-api-basics.md#azure-storage-account). En el portal, seleccione una cuenta de almacenamiento existente o cree una.
 
       ![Crear una cuenta de almacenamiento][storage_account]
 
-    f. **Modo de asignación de grupo**: para la mayoría de los escenarios, acepte el valor predeterminado de **Servicio Batch**.
+    f. **Modo de asignación de grupos**: para la mayoría de los escenarios, acepte el **Servicio de Batch** predeterminado.
 
 1. Seleccione **Crear** para crear la cuenta.
 
@@ -65,7 +65,7 @@ Una vez creada la cuenta, selecciónela para acceder a su configuración y propi
 
 ![Página de la cuenta de Batch en Azure Portal][account_blade]
 
-* **Nombre, URL y claves de cuenta de Batch**: al desarrollar una aplicación con las [API de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), se necesita una dirección URL de la cuenta y una clave para acceder a los recursos de Batch. (Batch también admite la autenticación de Azure Active Directory.)
+* **Nombre de la cuenta, dirección URL y claves de Batch**: al desarrollar una aplicación con las [API de Batch](batch-apis-tools.md#azure-accounts-for-batch-development), se necesita una dirección URL de la cuenta y una clave para acceder a los recursos de Batch. (Batch también admite la autenticación de Azure Active Directory.)
 
     Para ver la información de acceso de la cuenta de Batch, seleccione **Claves**.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790181"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224248"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -483,7 +483,14 @@ Este procedimiento le guía en la restauración de datos a una ubicación altern
 > Puede restaurar la base de datos en una instancia de SQL Server en la misma región de Azure. El servidor de destino debe estar registrado en el almacén de Recovery Services.
 >
 
-En el menú **Restaurar configuración**, el cuadro de lista desplegable **Servidor** muestra solo las instancias de SQL Server que están registradas en el almacén de Recovery Services. Si el servidor que desea no está en la lista, consulte [Detección de bases de datos SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) para encontrar el servidor. Durante el proceso de detección, los servidores nuevos se registran en el almacén de Recovery Services.
+En el menú **Restaurar configuración**, el cuadro de lista desplegable **Servidor** muestra solo las instancias de SQL Server que están registradas en el almacén de Recovery Services. Si el servidor que desea no está en la lista, consulte [Detección de bases de datos SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) para encontrar el servidor. Durante el proceso de detección, los servidores nuevos se registran en el almacén de Recovery Services.<br>
+Para restaurar una base de datos SQL, necesitará los siguientes permisos:
+
+* Permisos de **operador de copia de seguridad** permisos en el **almacén** de Recovery Services en el que se realiza la restauración.
+* Acceso de **colaborador (escritura)** a la **máquina virtual SQL de origen** (la máquina virtual de la que se realiza la copia de seguridad y desde la que intenta realizar la restauración).
+* Acceso de **colaborador (escritura)** a la máquina virtual SQL de destino [la máquina virtual en la que se realiza la restauración; en caso de recuperación de ubicación original (OLR), será la misma máquina virtual que la de origen].
+
+Para realizar la restauración en una ubicación alternativa:
 
 1. En el menú **Restaurar configuración**:
 

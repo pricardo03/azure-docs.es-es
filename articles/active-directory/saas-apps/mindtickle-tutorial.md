@@ -1,33 +1,33 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con ASC Contracts | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ASC Contracts.
+title: 'Tutorial: Integración de Azure Active Directory con MindTickle | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y MindTickle.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
+ms.assetid: 49751a98-bfde-48b4-a8f8-b96e1d18aefa
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: d3478e647114749647c18b75d624e0d73482b82a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5e4a7f5e0076485b81f78ccde11a1ebd949df476
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460138"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55105529"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integración de Azure Active Directory con ASC Contracts
+# <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Tutorial: Integración de Azure Active Directory con MindTickle
 
-En este tutorial, va a aprender a integrar ASC Contracts con Azure Active Directory (Azure AD).
-Integrar ASC Contracts con Azure AD proporciona las siguientes ventajas:
+En este tutorial, obtendrá información sobre cómo integrar MindTickle con Azure Active Directory (Azure AD).
+La integración de MindTickle con Azure AD le proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a ASC Contracts.
-* Puede permitir que los usuarios inicien sesión automáticamente en ASC Contracts (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a MindTickle.
+* Puede permitir que los usuarios inicien sesión automáticamente en MindTickle (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con ASC Contracts, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con MindTickle, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para inicio de sesión único en ASC Contracts
+* Una suscripción habilitada para el inicio de sesión único en MindTickle
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* ASC Contracts admite el inicio de sesión único iniciado por **IDP**
+* MindTickle admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-asc-contracts-from-the-gallery"></a>Incorporación de ASC Contracts desde la galería
+* MindTickle admite el aprovisionamiento de usuarios **Just-In-Time**
 
-Para configurar la integración de ASC Contracts en Azure AD, tiene que agregar ASC Contracts desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-mindtickle-from-the-gallery"></a>Adición de MindTickle desde la galería
 
-**Para agregar ASC Contracts desde la galería, realice los pasos siguientes:**
+Para configurar la integración de MindTickle en Azure AD, será preciso que agregue MindTickle desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar MindTickle desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -64,31 +66,31 @@ Para configurar la integración de ASC Contracts en Azure AD, tiene que agregar 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **ASC Contracts**, seleccione **ASC Contracts** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **MindTickle**, seleccione **MindTickle** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![ASC Contracts en la lista de resultados](common/search-new-app.png)
+     ![MindTickle en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, puede configurar y probar el inicio de sesión único de Azure AD con ASC Contracts con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de ASC Contracts.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con MindTickle con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de MindTickle.
 
-Para configurar y probar el inicio de sesión único de Azure AD con ASC Contracts, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con MindTickle, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en ASC Contracts](#configure-asc-contracts-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de MindTickle](#configure-mindtickle-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba de ASC Contracts](#create-asc-contracts-test-user)**: para tener un homólogo de Britta Simon en ASC Contracts vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de MindTickle](#create-mindtickle-test-user)**: para tener un homólogo de Britta Simon en MindTickle que esté vinculado a su representación en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con ASC Contracts, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con MindTickle, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **ASC Contracts**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **MindTickle**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -100,22 +102,30 @@ Para configurar el inicio de sesión único en Azure AD con ASC Contracts, reali
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único en ASC Contracts](common/idp-intiated.png)
+     a. Haga clic en **Cargar el archivo de metadatos**.
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<subdomain>.asccontracts.com/shibboleth`
+    ![Carga del archivo de metadatos](common/upload-metadata.png)
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con ASC Networks Inc. Póngase en contacto con el equipo de ASC en el teléfono **613.599.6178** para obtener estos valores.
+    ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
+
+    c. Una vez que se haya cargado correctamente el archivo de metadatos, el valor de **Identificador** se rellena automáticamente en la sección **Configuración básica de SAML**:
+
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de MindTickle](common/sp-identifier.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.mindtickle.com`
+
+    > [!Note]
+    > Si el valor **Identificador** no se rellena automáticamente, hágalo manualmente según sus necesidades. El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de MindTickle](mailto:support@mindtickle.com) para obtener este valor.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-6. En la sección **Set up ASC Contracts** (Configurar ASC Contracts), copie las direcciones URL que necesite.
+6. En la sección **Set up MindTickle** (Configurar MindTickle), copie las direcciones URL adecuada según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -125,11 +135,11 @@ Para configurar el inicio de sesión único en Azure AD con ASC Contracts, reali
 
     c. URL de cierre de sesión
 
-### <a name="configure-asc-contracts-single-sign-on"></a>Configuración del inicio de sesión único en ASC Contracts
+### <a name="configure-mindtickle-single-sign-on"></a>Configuración del inicio de sesión único de MindTickle
 
-Para configurar el inicio de sesión único en **ASC Contracts**, póngase en contacto con el soporte técnico de ASC Networks Inc. (ASC) en el teléfono **613.599.6178** y proporcióneles el **XML de metadatos de federación** descargado. Ellos configuran esta aplicación para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **MindTickle**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de MindTickle](mailto:support@mindtickle.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -156,15 +166,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ASC Contracts.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a MindTickle.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **ASC Contracts**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **MindTickle**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **ASC Contracts**.
+2. En la lista de aplicaciones, seleccione **MindTickle**.
 
-    ![Vínculo de ASC Contracts en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a MindTickle en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -180,15 +190,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-asc-contracts-test-user"></a>Creación del usuario de prueba de ASC Contracts
+### <a name="create-mindtickle-test-user"></a>Creación de un usuario de prueba de MindTickle
 
-Trabaje con el equipo de soporte técnico de ASC Networks Inc. (ASC) en el **613-599-6178** para agregar a los usuarios a la plataforma ASC Contracts.
+En esta sección, se crea un usuario llamado Britta Simon en MindTickle. MindTickle admite el aprovisionamiento de usuarios **Just-In-Time**, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en MindTickle, se crea uno nuevo después de la autenticación.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ASC Contracts del panel de acceso, debe iniciar sesión automáticamente en la aplicación ASC Contracts para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de MindTickle en el panel de acceso y debería iniciar sesión automáticamente en la versión de MindTickle para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -197,3 +207,4 @@ Al hacer clic en el icono de ASC Contracts del panel de acceso, debe iniciar ses
 - [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

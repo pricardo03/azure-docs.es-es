@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215293"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900891"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
 
@@ -22,9 +22,9 @@ En este tutorial se describen los procedimientos para conectarse a Azure Data Bo
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+> * Requisitos previos
 > * Conexión a Data Box Blob Storage mediante *http* o *https*
 > * Copia de datos a un dispositivo Data Box
-> * Preparación para el envío
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -201,18 +201,17 @@ Si solo desea copiar los recursos de origen que no existen en el destino, especi
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## <a name="prepare-to-ship"></a>Preparación para el envío
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+El siguiente paso consiste en preparar el dispositivo para el envío.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
+> * Requisitos previos
 > * Conexión a Data Box Blob Storage mediante *http* o *https*
 > * Copia de datos a un dispositivo Data Box
-> * Preparación para el envío
+
 
 En el siguiente tutorial aprenderá a enviar su dispositivo Data Box a Microsoft.
 
