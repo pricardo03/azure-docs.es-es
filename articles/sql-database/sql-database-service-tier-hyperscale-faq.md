@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478345"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescalado de Azure SQL
 
@@ -54,7 +54,7 @@ Los niveles de servicio basados en núcleos virtuales se diferencian principalme
 | **Tamaño de almacenamiento** | Base de datos única / grupo elástico | 5 GB – 4 TB | Hasta 100 TB | 5 GB – 4 TB |
 | | Instancia administrada  | 32 GB–8 TB | N/D | 32 GB – 4 TB |
 | **Rendimiento de E/S** | Base de datos única** | 500 IOPS por núcleo virtual con 7000 IOPS como máximo | Desconocido todavía | 5000 IOPS hasta un máximo de 200 000 IOPS|
-| | Instancia administrada | Depende del tamaño del archivo | N/D | Instancia administrada: depende del tamaño de archivo|
+| | Instancia administrada | Depende del tamaño del archivo | N/D | Instancia administrada: Depende del tamaño del archivo|
 |**Disponibilidad**|Todo|1 réplica, sin escalado de lectura, sin caché local | Varias réplicas, hasta el 15 escalados de lectura, caché local parcial | 3 replicas, 1 escalado de lectura, alta disponibilidad con redundancia de zona, caché local completa |
 |**Copias de seguridad**|Todo|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)| RA-GRS, 7 a 35 días (7 días de forma predeterminada), recuperación a un momento dado (PITR) constante | RA-GRS, de 7 a 35 días (7 días de forma predeterminada) |
 
@@ -73,11 +73,11 @@ El nivel de servicio Hiperescalado está pensado principalmente para clientes qu
 
 ### <a name="what-regions-currently-support-hyperscale"></a>¿En qué regiones se admite actualmente Hiperescalado?
 
-Hiperescalado está actualmente disponible para bases de datos únicas en las siguientes regiones: Oeste de EE. UU. 1, Oeste de EE. UU. 2, Este de EE. UU. 1, Centro de EE. UU., Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sudeste Asiático, Este de Japón, Centro de Corea del Sur, Sudeste de Australia y Este de Australia.
+La hiperescala está disponible actualmente en las siguientes regiones:  Oeste de EE. UU. 1, Oeste de EE. UU. 2, Este de EE. UU. 1, Centro de EE. UU., Europa Occidental, Europa del Norte, Oeste de Reino Unido, Sudeste Asiático, Este de Japón, Centro de Corea del Sur, Sudeste de Australia y Este de Australia.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>¿Puedo crear varias bases de datos de hiperescalado por servidor lógico?
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>¿Puedo crear varias bases de datos de hiperescala por servidor de SQL Database?
 
-Sí. Para más información y para conocer los límites en el número de bases de datos de hiperescalado por servidor lógico, consulte [Límites de recursos de SQL Database para bases de datos individuales y agrupadas en un servidor lógico](sql-database-resource-limits-logical-server.md).
+Sí. Para obtener más información y para conocer los límites en el número de bases de datos de hiperescala por servidor de SQL Database, consulte [SQL Database resource limits for single and pooled databases on a SQL Database server](sql-database-resource-limits-database-server.md) (Límites de recursos de SQL Database para bases de datos individuales y agrupadas en un servidor de SQL Database).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>¿Cuáles son las características de rendimiento de una base de datos de hiperescalado?
 
@@ -98,9 +98,9 @@ El hiperescalado de SQL Database proporciona una rápida escalabilidad según la
 
 ## <a name="deep-dive-questions"></a>Preguntas de profundización
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>¿Puedo mezclar bases de datos de hiperescalado y bases de datos únicas en mi servidor lógico?
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>¿Puedo mezclar bases de datos únicas y de hiperescala en mi servidor de SQL Database?
 
-Sí, puede hacerlo.
+ Sí, puede hacerlo.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>¿Requiere Hiperescalado que cambie mi modelo de programación de la aplicación?
 
@@ -128,15 +128,15 @@ Si va a ejecutar análisis de datos a gran escala con consultas complejas y medi
 
 ### <a name="can-i-pause-my-compute-at-any-time"></a>¿Puedo detener el proceso en cualquier momento?
 
-No.
+ No.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>¿Puedo aprovisionar un proceso con memoria RAM adicional para mi carga de trabajo con uso intensivo de memoria?
 
-No. Para obtener más memoria RAM, deberá actualizar a un tamaño de proceso mayor. El hardware de Gen4 ofrece más memoria RAM en comparación con el de Gen5. Para más información, consulte los [tamaños de almacenamiento y proceso de Hiperescalado](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+ No. Para obtener más memoria RAM, deberá actualizar a un tamaño de proceso mayor. El hardware de Gen4 ofrece más memoria RAM en comparación con el de Gen5. Para más información, consulte los [tamaños de almacenamiento y proceso de Hiperescalado](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>¿Puedo aprovisionar varios nodos de proceso de diferentes tamaños?
 
-No.
+ No.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>¿Cuántas réplicas de escalado de lectura se admiten?
 
@@ -212,7 +212,7 @@ Sí. Puede mover las bases de datos SQL de Azure existentes a Hiperescalado. En 
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>¿Puedo mover mis bases de datos de Hiperescalado a otras ediciones?
 
-No. En la versión preliminar pública, no se puede mover una base de datos de Hiperescalado a ningún otro nivel de servicio.
+ No. En la versión preliminar pública, no se puede mover una base de datos de Hiperescalado a ningún otro nivel de servicio.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>¿Pierdo alguna funcionalidad al migrar al nivel de servicio de Hiperescalado?
 
@@ -235,11 +235,11 @@ Aún no se sabe (todavía en versión preliminar)
 
 Puede leer datos de Azure Storage y cargar datos en una base de datos de hiperescalado (al igual que lo haría con una base de datos única normal). Actualmente, Polybase no se admite en Azure SQL Database. Puede hacer que Polybase use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) o ejecute un trabajo de Spark en [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) con el [conector de Spark para SQL](sql-database-spark-connector.md). Este conector admite la inserción masiva.
 
-El modelo de recuperación simple o de registro masivo no se admite en Hiperescalado. Se necesita el modelo de recuperación completa para proporcionar alta disponibilidad. Sin embargo, Hiperescalado proporciona una ingesta de datos mejor en comparación con una base datos única de Azure SQL Database gracias a la nueva arquitectura de registro.
+El modelo de recuperación simple o de registro masivo no se admite en Hiperescalado. Se necesita el modelo de recuperación completa para proporcionar alta disponibilidad. Sin embargo, la hiperescala proporciona una ingesta de datos mejorada en comparación con una base datos única, gracias a la nueva arquitectura de registro.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>¿Permite Hiperescalado de SQL Database el aprovisionamiento de varios nodos para ingerir grandes cantidades de datos?
 
-No. Hiperescalado de SQL Database es una arquitectura SMP y no una arquitectura de multiprocesos asimétricos o multimaestro. Solo se pueden crear varias réplicas para escalar horizontalmente cargas de trabajo de solo lectura.
+ No. Hiperescalado de SQL Database es una arquitectura SMP y no una arquitectura de multiprocesos asimétricos o multimaestro. Solo se pueden crear varias réplicas para escalar horizontalmente cargas de trabajo de solo lectura.
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>¿Cuál es la versión más antigua de SQL Server desde la que se admiten migraciones a Hiperescalado de SQL Database?
 
@@ -273,7 +273,7 @@ El RPO es 0 minutos. El objetivo de RTO es inferior a 10 minutos, sin importar e
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>¿Afectan las copias de seguridad de las bases de datos de gran tamaño al rendimiento de proceso del nodo principal?
 
-No. El subsistema de almacenamiento administra las copias de seguridad y aprovecha las instantáneas de archivos. Estas no afectan a la carga de trabajo del usuario en el nodo principal.
+ No. El subsistema de almacenamiento administra las copias de seguridad y aprovecha las instantáneas de archivos. Estas no afectan a la carga de trabajo del usuario en el nodo principal.
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>¿Puedo realizar la restauración geográfica con una base de datos de hiperescalado de SQL Database?
 
@@ -289,7 +289,7 @@ No durante la versión preliminar pública.
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>¿Puedo realizar una copia de seguridad de una base de datos de hiperescalado de SQL Database y restaurarla en mi servidor local o en SQL Server en una máquina virtual?
 
-No. El formato de almacenamiento de las bases de datos de hiperescalado es diferente al tradicional de SQL Server y no podría controlar las copias de seguridad ni tener acceso a ellas. Para sacar los datos de una base de datos de hiperescalado de SQL Database, use el servicio de exportación o use scripting más BCP.
+ No. El formato de almacenamiento de las bases de datos de hiperescalado es diferente al tradicional de SQL Server y no podría controlar las copias de seguridad ni tener acceso a ellas. Para sacar los datos de una base de datos de hiperescalado de SQL Database, use el servicio de exportación o use scripting más BCP.
 
 ## <a name="cross-feature-questions"></a>Preguntas sobre características transversales
 
@@ -299,15 +299,15 @@ Sí. Algunas de las características de Azure SQL Database no se admiten en Hipe
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>¿Funciona Polybase con Hiperescalado de SQL Database?
 
-No. Polybase no se admite en Azure SQL Database.
+ No. Polybase no se admite en Azure SQL Database.
 
 ### <a name="does-the-compute-have-support-for-r-and-python"></a>¿Es compatible el proceso con R y Python?
 
-No. R y Python no se admiten en Azure SQL Database.
+ No. R y Python no se admiten en Azure SQL Database.
 
 ### <a name="are-the-compute-nodes-containerized"></a>¿Están los nodos de proceso en contenedores?
 
-No. La base de datos reside en una máquina virtual de proceso y no en un contenedor.
+ No. La base de datos reside en una máquina virtual de proceso y no en un contenedor.
 
 ## <a name="performance-questions"></a>Preguntas sobre rendimiento
 
@@ -321,7 +321,7 @@ Aún no se sabe (todavía en versión preliminar)
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>¿Afectan las copias de seguridad a mi rendimiento?
 
-No. El proceso está desacoplado de la capa de almacenamiento para evitar cualquier efecto en el proceso.
+ No. El proceso está desacoplado de la capa de almacenamiento para evitar cualquier efecto en el proceso.
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>¿Se ve afectado el rendimiento cuando aprovisiono nodos de proceso adicionales?
 
@@ -335,7 +335,7 @@ Varios minutos
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>¿Está mi base de datos sin conexión mientras que la operación de escalado y reducción vertical está en curso?
 
-No. El escalado y reducción vertical se realiza en línea.
+ No. El escalado y reducción vertical se realiza en línea.
 
 ### <a name="should-i-expect-connection-drop-when-the-scaling-operations-are-in-progress"></a>¿Se puede esperar una interrupción de la conexión cuando las operaciones de escalado están en curso?
 
@@ -351,7 +351,7 @@ Sí. Temp db se escalará verticalmente de forma automática a medida que crezca
 
 ### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>¿Puedo aprovisionar varios procesos principales como un sistema multimaestro en los que los nodos principales pueden impulsar un mayor nivel de simultaneidad?
 
-No. Solo el nodo de proceso principal acepta solicitudes de lectura y escritura. Los nodos de proceso secundarios aceptan únicamente solicitudes de solo lectura.
+ No. Solo el nodo de proceso principal acepta solicitudes de lectura y escritura. Los nodos de proceso secundarios aceptan únicamente solicitudes de solo lectura.
 
 ## <a name="read-scale-questions"></a>Preguntas sobre escalado de lectura
 
@@ -365,11 +365,11 @@ Puede conectarse a estos nodos de proceso adicionales de solo lectura establecie
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>¿Puedo crear un punto de conexión dedicado para la réplica de escalado de lectura?
 
-No. En la versión preliminar pública, solo puede conectarse a la réplica de escalado de lectura especificando `ApplicationIntent=ReadOnly`.
+ No. En la versión preliminar pública, solo puede conectarse a la réplica de escalado de lectura especificando `ApplicationIntent=ReadOnly`.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>¿Realiza el sistema un equilibrio de carga inteligente de la carga de trabajo de lectura?
 
-No. En la versión preliminar, la carga de trabajo de solo lectura se redirige a una réplica de escalado de lectura aleatoria.
+ No. En la versión preliminar, la carga de trabajo de solo lectura se redirige a una réplica de escalado de lectura aleatoria.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>¿Se puede realizar un escalado y reducción vertical de los nodos de proceso secundarios independientemente del nodo de proceso principal?
 
@@ -377,11 +377,11 @@ No durante la versión preliminar pública.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>¿Puedo obtener un tamaño de temp db diferente para mi nodo de proceso principal y los secundarios adicionales?
 
-No. `tempdb` está configurada según el aprovisionamiento del tamaño de proceso, durante la versión preliminar pública, y los nodos de proceso secundarios son del mismo tamaño que el principal.
+ No. `tempdb` está configurada según el aprovisionamiento del tamaño de proceso, durante la versión preliminar pública, y los nodos de proceso secundarios son del mismo tamaño que el principal.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>¿Puedo agregar índices y vistas en mis nodos de proceso secundarios?
 
-No. Las bases de datos de hiperescalado tienen el almacenamiento compartido, lo que significa que todos los nodos de proceso ven las mismas tablas, índices y vistas. Si desea índices adicionales optimizados para lecturas en el nodo secundario, debe primero agregarlos en el nodo principal.
+ No. Las bases de datos de hiperescalado tienen el almacenamiento compartido, lo que significa que todos los nodos de proceso ven las mismas tablas, índices y vistas. Si desea índices adicionales optimizados para lecturas en el nodo secundario, debe primero agregarlos en el nodo principal.
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-node"></a>¿Cuánto retraso va a haber entre el nodo de proceso principal y los secundarios?
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Clever | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Clever | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clever.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 483d03fcc72e0a93111d10b0221164459de27d12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e65f0cb3ef30fb5b001acdb72481c1c3b55ca058
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431868"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197320"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: integración de Azure Active Directory con Clever
+# <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: Integración de Azure Active Directory con Clever
 
 En este tutorial, obtendrá información sobre cómo integrar Clever con Azure Active Directory (Azure AD).
 
@@ -110,14 +110,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Clever](./media/clever-tutorial/tutorial_clever_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://clever.com/in/<companyname>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://clever.com/in/<companyname>`.
 
     b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/) para obtener este valor.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la  **dirección URL de metadatos de federación de la aplicación**  y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/clever-tutorial/tutorial_metadataurl.png)
 
@@ -136,7 +136,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Firstname  | user.givenname |
     | Lastname  | user.surname |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/clever-tutorial/tutorial_attribute_04.png)
     
@@ -167,7 +167,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
       ![Inicio de sesión instantáneo](./media/clever-tutorial/ic798985.png "Inicio de sesión instantáneo")
     
-      a. Escriba la **Dirección URL de inicio de sesión**.
+       a. Escriba la **Dirección URL de inicio de sesión**.
     
       >[!NOTE]
       >La **URL de inicio de sesión** es un valor personalizado. Póngase en contacto con el [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/) para obtener este valor.
@@ -202,7 +202,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/clever-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -214,7 +214,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 Para habilitar a los usuarios de Azure AD para que inicien sesión en Clever, tienen que aprovisionarse en Clever.
 
-Para ello trabaje con el [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/) para agregar los usuarios a la plataforma de Clever. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+Para ello trabaje con el  [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/)  para agregar los usuarios a la plataforma de Clever. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Clever ofrecida por Clever para aprovisionar cuentas de usuario de Azure AD.
@@ -254,7 +254,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Clever en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Clever.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

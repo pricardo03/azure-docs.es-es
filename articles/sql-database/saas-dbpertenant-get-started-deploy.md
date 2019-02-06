@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232909"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453678"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -64,12 +64,12 @@ Elija los nombres ahora y escríbalos.
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. Es recomendable crear un grupo de recursos nuevo. No use grupos de recursos, servidores o grupos existentes. No use esta aplicación, los scripts ni ninguno de los recursos de implementación para producción. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
 
     - **Grupo de recursos**: seleccione **Crear nuevo** y proporcione el nombre único que eligió antes para el grupo de recursos.
-    - **Ubicación**: seleccione una ubicación de la lista desplegable.
-    - **Usuario**: use el valor de nombre de usuario que eligió antes.
+    - **Ubicación**: seleccione una ubicación en la lista desplegable.
+    - **User**: use el valor de nombre de usuario que eligió antes.
 
 1. Implemente la aplicación.
 
-    a. Seleccione para aceptar los términos y condiciones.
+     a. Seleccione para aceptar los términos y condiciones.
 
     b. Seleccione **Comprar**.
 
@@ -129,7 +129,7 @@ La aplicación Wingtip usa  [*Azure Traffic Manager*](../traffic-manager/traffi
 
     | Elemento de URL        | DESCRIPCIÓN       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *independiente* de aplicación por inquilino (*-sa*) o de *base de datos multiinquilino* (*-mt*). |
+    | http://events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *única* de aplicación por inquilino (*-sa*) o de *base de datos multiinquilino* (*-mt*). |
     | .*&lt;usuario&gt;* | *af1* en el ejemplo. |
     | .trafficmanager.NET/ | Traffic Manager, URL base. |
     | fabrikamjazzclub | Identifica el inquilino denominado Fabrikam Jazz Club. |
@@ -248,7 +248,7 @@ Vaya al servidor **tenants1-dpt-&lt;usuario&gt;** y seleccione  **selectPool1to
 - El primer gráfico, con la etiqueta **Uso de recursos** muestra el uso de eDTU del grupo.
 - El segundo gráfico muestra el uso de eDTU de las cinco bases de datos más activas del grupo.
 
-Estos dos gráficos ilustran que los grupos elásticos y SQL Database funcionan bien para las cargas de trabajo impredecibles de una aplicación SaaS. Los gráficos muestran 4 bases de datos que emiten ráfagas de hasta 40 eDTU por base de datos y, aún así, un grupo de 50 eDTU las admite cómodamente. El grupo de 50 eDTU puede admitir cargas de trabajo incluso superiores. Si las bases de datos se aprovisionaron como únicas, cada una debe ser de tipo S2 (50 DTU) para admitir las ráfagas. El costo de 4 bases de datos S2 independiente S2 es casi 3 veces superior al del grupo. En situaciones reales, los clientes de SQL Database ejecutan hasta 500 bases de datos en grupos de 200 eDTU. Para más información consulte el [tutorial de supervisión de rendimiento](saas-dbpertenant-performance-monitoring.md).
+Estos dos gráficos ilustran que los grupos elásticos y SQL Database funcionan bien para las cargas de trabajo impredecibles de una aplicación SaaS. Los gráficos muestran 4 bases de datos que emiten ráfagas de hasta 40 eDTU por base de datos y, aún así, un grupo de 50 eDTU las admite cómodamente. El grupo de 50 eDTU puede admitir cargas de trabajo incluso superiores. Si las bases de datos se aprovisionaron como únicas, cada una debe ser de tipo S2 (50 DTU) para admitir las ráfagas. El costo de 4 bases de datos S2 únicas es casi tres veces superior al del grupo. En situaciones reales, los clientes de SQL Database ejecutan hasta 500 bases de datos en grupos de 200 eDTU. Para más información consulte el [tutorial de supervisión de rendimiento](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

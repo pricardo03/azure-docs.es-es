@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306747"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462552"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Preguntas más frecuentes de SQL Data Warehouse
 
@@ -49,7 +49,7 @@ A. Si tiene una solicitud de característica, envíala a nuestra página [UserVo
 
 P: ¿Cómo puedo hacer una determinada acción?
 
-A. Para obtener ayuda con las tareas de desarrollo con SQL Data Warehouse, puede hacer preguntas en nuestra [Desbordamiento de la pila]. 
+A. Para obtener ayuda con las tareas de desarrollo con SQL Data Warehouse, puede hacer preguntas en nuestra [Stack Overflow]. 
 
 P: ¿Cómo puedo enviar una vale de asistencia técnica?
 
@@ -82,21 +82,21 @@ P: ¿Qué controladores de cliente se admiten?
 
 A. La compatibilidad de los controladores con SQL Data Warehouse puede encontrarse en la página [Cadenas de conexión].
 
-P.: ¿Qué formatos de archivo admite PolyBase con SQL Data Warehouse?
+P: ¿Qué formatos de archivo admite PolyBase con SQL Data Warehouse?
 
-R.: Orc, RC, Parquet y texto delimitado sin formato.
+R: Orc, RC, Parquet y texto delimitado sin formato.
 
-P.: ¿Qué puedo conectar desde SQL Data Warehouse con PolyBase? 
+P: ¿Qué puedo conectar desde SQL Data Warehouse con PolyBase? 
 
-R.: [Azure Data Lake Store] e instancias de [Blobs de Azure Storage].
+R: [Azure Data Lake Store] e instancias de [Blobs de Azure Storage].
 
-P.: ¿Se puede usar el cálculo de aplicación al conectarse a instancias de Azure Storage Blob o ADL? 
+P: ¿Se puede usar el cálculo de aplicación al conectarse a instancias de Azure Storage Blob o ADLS? 
 
-R.: No, PolyBase de SQL Data Warehouse interactúa solo con los componentes de almacenamiento. 
+R: No, PolyBase de SQL Data Warehouse interactúa solo con los componentes de almacenamiento. 
 
-P.: ¿Puedo conectarlo a HDI?
+P: ¿Puedo conectarlo a HDI?
 
-R.: HDI puede usar ADL o WASB como la capa HDFS. Si tiene uno de los dos como la capa HDFS, puede cargar datos en SQL Data Warehouse. Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI. 
+R: HDI puede usar ADLS o WASB como capa HDFS. Si tiene uno de los dos como la capa HDFS, puede cargar datos en SQL Data Warehouse. Sin embargo, no se puede generar el cálculo de aplicación en la instancia HDI. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre SQL Data Warehouse, vea nuestra página [Información general].
@@ -105,7 +105,7 @@ Para obtener más información sobre SQL Data Warehouse, vea nuestra página [In
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Cadenas de conexión]: ./sql-data-warehouse-connection-strings.md
-[Desbordamiento de la pila]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Vales de asistencia técnica]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Seguridad]: ./sql-data-warehouse-overview-manage-security.md
 [Cumplimiento de Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings

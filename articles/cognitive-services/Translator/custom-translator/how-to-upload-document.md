@@ -5,16 +5,16 @@ description: Mediante la característica de carga de documentos, puede cargar do
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217227"
 ---
 # <a name="upload-a-document"></a>Cargar un documento
 
@@ -38,24 +38,24 @@ Desde el portal de [Custom Translator](https://portal.customtranslator.azure.ai)
      a.  Tipo de documento:
 
     -  Aprendizaje: estos documentos se usarán para el conjunto de aprendizaje.
-    -  Ajuste: estos documentos se usarán para el conjunto de ajuste.
-    -  Pruebas: estos documentos se usarán para el conjunto de pruebas.
+    -  Optimización: estos documentos se usarán para el conjunto de optimización.
+    -  Prueba: estos documentos se usarán para el conjunto de pruebas.
     -  Diccionario de frases: estos documentos se usarán para el diccionario de frases.
-    -  Diccionario de oraciones: estos documentos se usarán para el diccionario de oraciones
+    -  Diccionario de oraciones: estos documentos se usarán para el diccionario de oraciones.
 
     b.  Par de idiomas
 
-    c.  Override document if exists (Reemplazar el documento si ya existe): active esta casilla si desea sobrescribir los documentos existentes con el mismo nombre.
+    c.  Override document if exists (Reemplazar el documento si existe): active esta casilla si quiere sobrescribir los documentos existentes con el mismo nombre.
 
     d.  Rellene la sección correspondiente para los datos en paralelo o los datos combinados.
 
     -  Datos en paralelo:
-        -  Archivo de origen: seleccione el archivo en el idioma de origen desde el equipo local.
-        -  Archivo de destino: seleccione el archivo en el idioma de destino desde el equipo local.
+        -  Archivo de origen: seleccione el archivo en el idioma de origen del equipo local.
+        -  Archivo de destino: seleccione el archivo en el idioma de destino del equipo local.
         -  Nombre del documento: solo se usa si está cargando archivos paralelos.
 
     - Datos combinados:
-        -  Archivo combinado: seleccione el archivo combinado desde el equipo local. El archivo combinado tiene las oraciones tanto en el idioma de origen como en el de destino. La [convención de nomenclatura](document-formats-naming-convention.md) es importante para los archivos combinados.
+        -  Archivo combinado: seleccione el archivo combinado del equipo local. El archivo combinado tiene las oraciones tanto en el idioma de origen como en el de destino. La [convención de nomenclatura](document-formats-naming-convention.md) es importante para los archivos combinados.
 
     e.  Haga clic en Cargar
 

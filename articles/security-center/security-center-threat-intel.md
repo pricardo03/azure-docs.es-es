@@ -1,6 +1,6 @@
 ---
 title: Inteligencia sobre amenazas y mapa de alertas de seguridad de Azure Security Center | Microsoft Docs
-description: Aprenda a usar la funcionalidad de inteligencia sobre amenazas y mapa de alertas de seguridad de Azure Security Center para identificar posibles amenazas en las VM y los equipos.
+description: Aprenda a usar la funcionalidad de mapa de alertas e inteligencia sobre amenazas de seguridad de Azure Security Center para identificar posibles amenazas en las máquinas virtuales y los equipos.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 85930ef8d0753c28cf4bfa2eb2eb487e419ed5f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241726"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092138"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mapa de alertas de seguridad e información sobre amenazas
 En este artículo obtendrá ayuda para usar el mapa de alertas de seguridad y el mapa de inteligencia sobre amenazas basada en eventos de seguridad de Azure Security Center para solucionar problemas relacionados con la seguridad.
@@ -70,7 +70,7 @@ Para ver el mapa de inteligencia de amenazas basadas en eventos de seguridad sin
 
 6. Este panel se divide en cuatro iconos:
 
-    a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
+     a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
 
     b.  **País de origen**. Agrega la cantidad de tráfico en función de su ubicación de origen.
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 04ae99064723b1dba35dfe53721c185229f96252
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476910"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174625"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
@@ -42,7 +42,7 @@ Configure qué atributos adicionales desea sincronizar en la ruta de acceso de c
 
 
 >[!NOTE]
-> Azure AD Connect admite la sincronización de los atributos de Active Directory con varios valores a Azure AD como extensiones de directorio con varios valores. Pero ninguna característica de Azure AD admite actualmente el uso de extensiones de directorio con varios valores.
+> Aunque Azure AD Connect admite la sincronización con varios valores de atributos de Active Directory con Azure AD como extensiones de directorio con varios valores, actualmente no hay forma de recuperar o consumir los datos cargados en los atributos de extensiones de directorio con varios valores.
 
 La lista de atributos se lee de la memoria caché de esquemas creada durante la instalación de Azure AD Connect. Si ha ampliado el esquema de Active Directory con atributos adicionales, se debe [actualizar el esquema](how-to-connect-installation-wizard.md#refresh-directory-schema) para que los nuevos atributos estén visibles.
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 3467b823e6c91d34ebd48c7f8bc29558a79c59e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3009cb42ac477b18d45ab5968d6f5793ce1cd36c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229553"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integración de Azure Active Directory con moconavi
 
@@ -34,7 +34,7 @@ La integración de moconavi con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con moconavi, necesita estos elementos:
 
@@ -109,7 +109,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de moconavi](./media/moconavi-tutorial/tutorial_moconavi_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourserverurl>/moconavi-saml2/saml/login`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourserverurl>/moconavi-saml2/saml/login`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<yourserverurl>/moconavi-saml2`
 
@@ -152,7 +152,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/moconavi-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -162,7 +162,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-moconavi-test-user"></a>Creación de un usuario de prueba de moconavi
 
-En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje con el [equipo de soporte técnico de moconavi](mailto:support@recomot.co.jp) para agregar los usuarios a la plataforma de moconavi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección creará un usuario llamado Britta Simon en moconavi. Trabaje con el  [equipo de soporte técnico de moconavi](mailto:support@recomot.co.jp)  para agregar los usuarios en la plataforma de moconavi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -212,7 +212,7 @@ En esta sección habilitará a Britta Simon para que use el inicio de sesión ú
 
     ![Prueba del inicio de sesión único ](./media/moconavi-tutorial/testing3.png)
 
-    a. Escriba la **clave de autenticación** `azureAD` en el cuadro de texto **Input Authentication Key** (Indique la clave de autenticación).
+     a. Escriba la **clave de autenticación** `azureAD` en el cuadro de texto **Input Authentication Key** (Indique la clave de autenticación).
 
     b. Escriba el **id. de usuario** `your ad account` en el cuadro de texto **Input User ID** (Indique el id. de usuario).
 

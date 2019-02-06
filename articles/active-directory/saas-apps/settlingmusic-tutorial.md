@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6f86a8a2-4bd0-40cc-b1b4-752fce123328
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fda6ca2efb670c8087252428e417a3e0901fa748
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 900254e42410aafa0d8e58048c7d88efa94dfed5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449070"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integración de Azure Active Directory con Settling music
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de inicio de sesión único de dominio y direcciones URL de Settling music](./media/settlingmusic-tutorial/tutorial_settlingmusic_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Paso 5 de Settling music](./media/settlingmusic-tutorial/tutorial_settlingmusic_step4.png)
 
-    a. Haga clic **To enable** (Para habilitar).
+     a. Haga clic **To enable** (Para habilitar).
 
     b. En el cuadro de texto **ID Provider Login URL**  (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal.
 
@@ -179,7 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/settlingmusic-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -189,7 +189,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-settling-music-test-user"></a>Creación de un usuario de prueba de Settling music
 
-En esta sección, creará un usuario llamado Britta Simon en Settling music. Trabaje con el [equipo de soporte técnico al cliente de Settling music](https://rakurakuseisan.jp/) para agregar los usuarios a la plataforma de Settling music. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Settling music. Trabaje con el  [equipo de soporte técnico al cliente de Settling music](https://rakurakuseisan.jp/) para agregar los usuarios a la plataforma de Settling music. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -226,7 +226,7 @@ En esta sección, concederá acceso a Britta Simon a Settling music para que use
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Settling music en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Settling music.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

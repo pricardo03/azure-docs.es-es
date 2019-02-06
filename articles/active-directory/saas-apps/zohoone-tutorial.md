@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bbc3038c-0d8b-45dd-9645-368bd3d01a0f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 22563ec52459d4cd332a6e97df95348a74c3ae16
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438280"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integración de Azure Active Directory con Zoho One
 
@@ -108,7 +108,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_url.png)
 
-    a. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL: `one.zoho.com`
+     a. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL: `one.zoho.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://accounts.zoho.com/samlresponse/<saml-identifier>`.
 
@@ -145,7 +145,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Ini. Zoho One](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
-    a. Copie el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal en el cuadro de texto **URL de inicio de sesión**.
+     a. Copie el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal en el cuadro de texto **URL de inicio de sesión**.
 
     b. En el cuadro de texto **Dirección URL de cierre de sesión**, pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
 
@@ -165,7 +165,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Agregar dominio de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
-    a. En el cuadro de texto **Nombre de dominio**, escriba el dominio, por ejemplo **contoso.com**.
+     a. En el cuadro de texto **Nombre de dominio**, escriba el dominio, por ejemplo **contoso.com**.
 
     b. Haga clic en **Agregar**.
 
@@ -196,7 +196,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/zohoone-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -220,7 +220,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoho One, deben ap
 
     ![Agregar usuario de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-    a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
+     a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
     
     b. En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, por ejemplo, **brittasimon@contoso.com**.
 
@@ -264,7 +264,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Zoho One en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Zoho One.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

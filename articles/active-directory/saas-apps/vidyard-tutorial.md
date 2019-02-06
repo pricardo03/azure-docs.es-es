@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bed7df23-6e13-4e7c-b4cc-53ed4804664d
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 871942db15d6a3cff45584e33b2191e21d2281a0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 683cdc43c8d671c14142d0770cd2594ad862b7ac
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426462"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integración de Azure Active Directory con Vidyard
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Vidyard](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://secure.vidyard.com/sso/saml/<unique id>/consume`.
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de Vidyard](./media/vidyard-tutorial/configure3.png)
 
-    a. Escriba el nombre de perfil general en el cuadro de texto **Nombre de perfil**.
+     a. Escriba el nombre de perfil general en el cuadro de texto **Nombre de perfil**.
 
     b. Copie el valor de **SSO User Login Page** (Página de inicio de sesión de usuario de SSO) y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** de la sección **Dominio y direcciones URL de Vidyard** de Azure Portal.
 
@@ -203,7 +203,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/vidyard-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -215,7 +215,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Vidyard. Vidyard admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Vidyard, se crea un usuario, en caso de que no exista.
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Vidyard](mailto:support@vidyard.com).
+>Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el  [equipo de soporte técnico de Vidyard](mailto:support@vidyard.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -252,7 +252,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Vidyard en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Vidyard.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

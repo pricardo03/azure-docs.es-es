@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444358"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integración de Azure Active Directory con OpsGenie
 
@@ -144,7 +144,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. En el cuadro de texto **SAML 2.0 Endpoint** (Punto de conexión SAML 2.0), pegue el valor de la **dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
+     a. En el cuadro de texto **SAML 2.0 Endpoint** (Punto de conexión SAML 2.0), pegue el valor de la **dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
     
     b. En el cuadro de texto **URL de metadatos**, pegue el valor de **Dirección URL de metadatos de federación de la aplicación** que copió en Azure Portal.
     
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/opsgenie-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -197,7 +197,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
    
    ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-   a. En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de BrittaSimon en Azure Active Directory.
+    a. En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de BrittaSimon en Azure Active Directory.
    
    b. En el cuadro de texto **Nombre completo**, escriba **Britta Simon**.
    

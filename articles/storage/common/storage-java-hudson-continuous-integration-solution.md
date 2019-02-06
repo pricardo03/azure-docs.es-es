@@ -8,13 +8,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: a62af881efd4f6f3422db19850a0ce9987c6ae7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245127"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467839"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Hudson
 ## <a name="overview"></a>Información general
@@ -73,7 +73,7 @@ Para usar Blob service con Hudson, necesitará instalar el complemento de Azure 
 2. En la página **Administrar Hudson**, haga clic en **Configurar sistema**.
 3. En la sección **Microsoft Azure Storage Account Configuration** (Configuración de la cuenta de almacenamiento de Microsoft Azure):
    
-    a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Azure Portal](https://portal.azure.com).
+     a. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Azure Portal](https://portal.azure.com).
    
     b. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en el [Azure Portal](https://portal.azure.com).
    
@@ -116,7 +116,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 13. En el panel de Hudson, haga clic en **Build Now** (Compilar ahora) para ejecutar **MyJob**. Examine el resultado de la consola para consultar el estado. Los mensajes de estado sobre Azure Storage se incluirán en los resultados de la consola cuando la acción posterior a la compilación comience a cargar los artefactos de compilación.
 14. Tras completar el trabajo satisfactoriamente, abra el blob público si desea examinar los artefactos de compilación.
     
-    a. Inicie sesión en [Azure Portal](https://portal.azure.com).
+     a. Inicie sesión en [Azure Portal](https://portal.azure.com).
     
     b. Haga clic en **Storage**(Almacenamiento).
     
@@ -144,10 +144,10 @@ Después de ejecutar una compilación, puede comprobar la salida de la consola d
 ## <a name="components-used-by-the-blob-service"></a>Componentes usados por Blob service
 A continuación se ofrece información general acerca de los componentes de Blob service.
 
-* **Cuenta de almacenamiento:** todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
-* **Contenedor**: un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
-* **Blob**: archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Azure Storage: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **Formato de dirección URL**: los blobs son direccionables con el siguiente formato de dirección URL:
+* **Cuenta de almacenamiento**: Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
+* **Contenedor**: Un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
+* **Blob**: Un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Azure Storage: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Formato de dirección URL**: Los blobs son direccionables con el siguiente formato de dirección URL:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   

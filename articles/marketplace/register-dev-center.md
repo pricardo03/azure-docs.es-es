@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834832"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179844"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -68,7 +68,7 @@ Para ayudar a asegurarse de que no está registrado en una cuenta de explorador 
 
 9.  En la sección `Registration - Review`, revise la información de la cuenta y confirme que todo es correcto.  
 
-    Lea los términos y condiciones del contrato del anunciante de Microsoft Azure Marketplace.  
+    Lea los términos y condiciones del [contrato del anunciante](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) de Microsoft Azure Marketplace.  
 
     Haga clic en la casilla para indicar que ha leído y aceptado estos términos.  
     

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con DigiCert | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con DigiCert | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y DigiCert.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: f37ac37d80562a402d6891ffaa2a687e04c3a8c0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 68f62fb51559c4eac49041c7c9653e76de95ee9f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181085"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integración de Azure Active Directory con DigiCert
+# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integración de Azure Active Directory con DigiCert
 
 En este tutorial, aprenderá a integrar DigiCert con Azure Active Directory (Azure AD).
 
@@ -128,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!Note]
     > El valor del atributo **company** no es real. Actualícelo con el código real de la empresa. Para obtener el valor del atributo **company**, póngase en contacto el [equipo de soporte técnico de DigiCert](mailto:support@digicert.com).
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/digicert-tutorial/tutorial_attribute_04.png)
 
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/digicert-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

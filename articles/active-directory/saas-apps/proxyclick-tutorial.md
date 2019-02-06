@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c58a859-71c2-4542-ae92-e5f16a8e7f18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
-ms.openlocfilehash: d93c5486d9c23558995742fc27e1222834cf4452
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b1ef02112261c612fec3297815ab8683f3236d3f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446320"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integración de Azure Active Directory con Proxyclick
 
@@ -108,7 +108,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Proxyclick](./media/proxyclick-tutorial/tutorial_proxyclick_url2.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://saml.proxyclick.com/init/<companyId>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://saml.proxyclick.com/init/<companyId>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://saml.proxyclick.com/consume/<companyId>`.
 
@@ -147,7 +147,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Configuración de Proxyclick](./media/proxyclick-tutorial/configure3.png)
 
-    a. Copie el valor **SAML Consumer URL** (URL de consumidor SAML) y péguelo en el cuadro de texto **URL de respuesta** de la sección **Dominio y direcciones URL de Proxyclick** de Azure Portal.
+     a. Copie el valor **SAML Consumer URL** (URL de consumidor SAML) y péguelo en el cuadro de texto **URL de respuesta** de la sección **Dominio y direcciones URL de Proxyclick** de Azure Portal.
 
     b. Copie el valor **SAML SSO Redirect URL** (URL de redireccionamiento de SSO de SAML) y péguelo en los cuadros de texto **URL de inicio de sesión** e **Identificador** de la sección **Dominio y direcciones URL de Proxyclick** de Azure Portal.
 
@@ -185,7 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/proxyclick-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -213,7 +213,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Proxyclick, deben 
 
     ![Agregar empleado](./media/proxyclick-tutorial/user3.png)
 
-    a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario; por ejemplo, **brittasimon@contoso.com**.
+     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario; por ejemplo, **brittasimon@contoso.com**.
 
     b. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
 
@@ -256,7 +256,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Proxyclick en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Proxyclick.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

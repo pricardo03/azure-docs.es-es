@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334200"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102437"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
@@ -90,15 +90,15 @@ En el archivo de personalización, cada versión de sistema operativo admitida t
 >
 >
 
-Si edita el archivo de personalización, puede modificar una o todas las reglas. Cada conjunto de reglas incluye una sección denominada *Reglas* dividida en tres categorías denominadas Registro, Directiva de auditoría y Directiva de seguridad, tal como se muestra a continuación:
+Si edita el archivo de personalización, puede modificar una o todas las reglas. Cada conjunto de reglas incluye una sección *rule* que se divide en tres categorías: Registro, directiva de auditoría y directiva de seguridad, como se muestra aquí:
 
 ![Tres categorías del conjunto de reglas](media/security-center-customize-os-security-config/rules-section.png)
 
 Cada categoría tiene su propio conjunto de atributos. Puede cambiar los siguientes atributos:
 
-- **expectedValue**: el tipo de datos de campo de este atributo debe coincidir con los valores admitidos por cada *tipo de regla*, por ejemplo:
+- **expectedValue**: el tipo de datos de campo de este atributo debe coincidir con los valores que se admiten en cada *tipo de regla*, por ejemplo:
 
-  - **baselineRegistryRules**: el valor debe coincidir con el valor de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) que se define en esa regla.
+  - **baselineRegistryRules**: el valor debe coincidir con el valor de [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) que se define en la regla.
 
   - **baselineAuditPolicyRules**: use uno de los siguientes valores de cadena:
 
@@ -110,9 +110,9 @@ Cada categoría tiene su propio conjunto de atributos. Puede cambiar los siguien
 
     - *No one*
 
-    - Lista de grupos de usuarios admitidos, por ejemplo: *Administrators*, *Backup Operators*
+    - Lista de grupos de usuarios permitidos, por ejemplo: *Administrators*, *Backup Operators*
 
--   **state**: cadena que puede contener las opciones *Disabled* o *Enabled*. En esta versión preliminar privada, la cadena distingue mayúsculas y minúsculas.
+-   **state**: la cadena puede contener las opciones *Disabled* o *Enabled*. En esta versión preliminar privada, la cadena distingue mayúsculas y minúsculas.
 
 Estos son los únicos campos que se pueden configurar. Si se infringe el formato o el tamaño de archivo, no se podrá guardar el cambio. Recibirá un error que indica que necesita cargar un archivo de configuración JSON válido.
 
@@ -121,7 +121,7 @@ Para obtener una lista de otros posibles errores, consulte [Códigos de error](#
 Las tres secciones siguientes contienen ejemplos de las reglas anteriores. Los atributos *expectedValue* y *state* se pueden cambiar.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Las tres secciones siguientes contienen ejemplos de las reglas anteriores. Los a
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Las tres secciones siguientes contienen ejemplos de las reglas anteriores. Los a
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -216,7 +216,7 @@ Las nuevas reglas personalizadas se marcan con un nuevo origen personalizado (! 
 Ejemplo de una nueva regla personalizada:
 
 **Registro**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Ejemplo de una nueva regla personalizada:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Ejemplo de una nueva regla personalizada:
     }
 ```
 **Directiva de seguridad**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Ejemplo de una nueva regla personalizada:
    }
 ```
 **Directiva de auditoría**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Todos los posibles errores se mencionan en la siguiente tabla:
 
 | **Error**                                | **Descripción**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | La propiedad *schemaVersion* no es válida o está vacía. El valor se debe establecer en *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | La propiedad *schemaVersion* no es válida o está vacía. El valor se debe establecer en *{0}*.                                                         |
 | BaselineInvalidStringError               | La propiedad *{0}* no puede contener *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | La lista de reglas de configuración de línea de base contiene una regla con el valor *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | El CCE-ID *{0}* no es único.                                                                                                                  |
@@ -298,7 +298,7 @@ Todos los posibles errores se mencionan en la siguiente tabla:
 | BaselineRuleTypeDoesntMatchError         | El tipo real de la regla es *{0}*, pero la propiedad *ruleType* es *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Solo se pueden cambiar las propiedades *expectedValue* y *state*.                                                                       |
 | BaselineTooManyRules                     | El número máximo permitido de reglas personalizadas es de {0}. La configuración establecida contiene reglas de {1}, reglas predeterminadas de {2} y reglas personalizadas de {3}. |
-| ErrorNoConfigurationStatus               | No se encontró ningún estado de configuración. Defina el estado de configuración que quiere usar: *Default* o *Custom*.                                    |
+| ErrorNoConfigurationStatus               | No se encontró ningún estado de configuración. Defina el estado de configuración que desea usar: *Default* o *Custom*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | El estado de la configuración está establecido como predeterminado. La lista *BaselineRulesets* debe ser nula o estar vacía.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | El estado de configuración proporcionado es *Custom*, pero la propiedad *baselineRulesets* es nula o está vacía.                                             |
 | ErrorParsingBaselineConfig               | La configuración dada no es válida. Uno o varios de los valores definidos tienen un valor nulo o un tipo no válido.                                  |

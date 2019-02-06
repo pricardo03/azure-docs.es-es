@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168250"
 ---
 <a name="create-a-microsoft-developer-account"></a>Crear una cuenta de desarrollador de Microsoft
 ====================================
@@ -72,7 +72,7 @@ Siga estas instrucciones si más de una persona necesitará acceso a la cuenta m
 
 ## <a name="register-your-account-in-microsoft-developer-center"></a>Registre la cuenta en el Centro para desarrolladores de Microsoft
 
-El Centro para desarrolladores de Microsoft se usa para registrar la información de la empresa una sola vez. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal, como una forma de validar su identidad. La persona que se inscriba debe usar una cuenta Microsoft que se comparta en la empresa, **y esa misma cuenta debe usarse en Cloud Partner Portal.** Debe asegurarse de que su compañía no tenga ya una cuenta del Centro para desarrolladores de Microsoft antes de intentar crear una nueva. Durante el proceso, recopilaremos la información de dirección, los datos de la cuenta bancaria y la información fiscal de la compañía. Normalmente, estos datos se pueden obtener de contactos financieros o comerciales.
+El Centro para desarrolladores de Microsoft se usa para registrar la información de la empresa una sola vez. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal, como una forma de validar su identidad. La persona que se inscriba debe usar una cuenta Microsoft que se comparta en la empresa, **y esa misma cuenta debe usarse en Cloud Partner Portal.**  Debe asegurarse de que su compañía no tenga ya una cuenta del Centro para desarrolladores de Microsoft antes de intentar crear una nueva. Durante el proceso, recopilaremos la información de dirección, los datos de la cuenta bancaria y la información fiscal de la compañía. Normalmente, estos datos se pueden obtener de contactos financieros o comerciales.
 
 >[!IMPORTANT]
 >Debe completar los siguientes componentes del perfil de desarrollador para avanzar por las distintas fases de la creación e implementación de ofertas.
@@ -181,7 +181,8 @@ Para publicar ofertas comerciales de compra, necesitará agregar información de
     - Seleccione **Next** (Siguiente).
 4.  Escriba la información fiscal y, después, seleccione **Siguiente**.
 
->[ADVERTENCIA] No podrá insertar las ofertas comerciales en producción sin proporcionar sus datos bancarios y fiscales en la cuenta del Centro para desarrolladores de Microsoft.
+>[!WARNING]
+>No podrá insertar las ofertas comerciales en producción sin proporcionar sus datos bancarios y fiscales en la cuenta del Centro para desarrolladores de Microsoft.
 
 ### <a name="developer-center-registration-issues"></a>Problemas de registro del Centro para desarrolladores
 

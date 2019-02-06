@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812546"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079263"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -33,7 +33,7 @@ Azure Migrate es un servicio de evaluación que le ayuda a detectar las cargas d
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>¿Cuál es la diferencia entre usar Azure Migrate para evaluaciones y MAP Tookit?
 
-[Azure Migrate](migrate-overview.md) permite la evaluación de la migración específicamente para ayudarle en la preparación de la migración y la evaluación de cargas de trabajo en el entorno local a Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) tiene otras funcionalidades. Por ejemplo, el plan de la migración de las versiones más recientes de los sistemas operativos cliente y servidor de Windows, el seguimiento del uso de software, etc. Para esos escenarios, siga usando MAP Toolkit.
+[Azure Migrate](migrate-overview.md) permite la evaluación de la migración específicamente para ayudarle en la preparación de la migración y la evaluación de cargas de trabajo en el entorno local a Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) tiene otras funcionalidades como planeamiento de migración para versiones más recientes de los sistemas operativos cliente y servidor de Windows y el seguimiento del uso de software. Para esos escenarios, siga usando MAP Toolkit.
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>¿En qué se diferencia Azure Migrate de Azure Site Recovery Deployment Planner?
@@ -198,7 +198,7 @@ No, el informe de visualización de dependencias no se puede exportar. Sin embar
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>¿Cómo puedo automatizar la instalación de Microsoft Monitoring Agent (MMA) y el agente de dependencia?
 
-[Aquí](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) hay un script que puede usar para la instalación del agente de dependencia. Para MMA, [aquí](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) hay un script disponible en TechNet que puede aprovechar.
+[Aquí](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) hay un script que puede usar para la instalación del agente de dependencia. [Aquí](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) tiene las instrucciones sobre cómo puede instalar MMA utilizando la línea de comandos o métodos automatizados. Para MMA, también puede aprovechar un script que está disponible [aquí](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) en Technet.
 
 Además de los scripts, también puede aprovechar las herramientas de implementación como System Center Configuration Manager (SCCM) o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), etc. para implementar los agentes.
 
@@ -213,10 +213,10 @@ La lista de los sistemas operativos de Linux compatibles con MMA la encontrará 
 La lista de los sistemas operativos de Linux compatibles con el agente de dependencias la encontrará [aquí](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>¿Puedo visualizar las dependencias de Azure Migrate durante más de una hora?
-No, Azure Migrate le permite visualizar las dependencias durante un máximo de una hora. Azure Migrate le permite volver atrás a una fecha concreta en el historial de hasta el último mes, pero el tiempo máximo durante el que se pueden visualizar las dependencias es de una hora. Por ejemplo, puede usar la característica de duración de tiempo en el mapa de dependencias para ver las dependencias de ayer, pero solo puede verlas durante un período de una hora.
+No, Azure Migrate le permite visualizar las dependencias durante un máximo de una hora. Azure Migrate le permite volver atrás a una fecha concreta en el historial de hasta el último mes, pero el tiempo máximo durante el que se pueden visualizar las dependencias es de una hora. Por ejemplo, puede usar la característica de duración de tiempo en el mapa de dependencias para ver las dependencias de ayer, pero solo puede verlas durante un período de una hora. De todas formas, puede usar Log Analytics para [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) durante un período más largo.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>¿Se admite la visualización de dependencias para grupos con más de diez máquinas virtuales?
-Puede [visualizar las dependencias de grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que tengan un máximo de diez máquinas virtuales. Si tiene un grupo con más de diez, recomendamos dividirlo en grupos más pequeños y visualizar las dependencias.
+También puede [visualizar las dependencias de grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que tengan un máximo de diez máquinas virtuales. Si tiene un grupo con más de diez máquinas virtuales, recomendamos dividirlo en grupos más pequeños y visualizar las dependencias.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

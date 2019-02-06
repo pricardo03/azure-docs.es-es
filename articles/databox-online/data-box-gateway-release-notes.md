@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450497"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302128"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de la versión preliminar de Azure Data Box Gateway
 
@@ -50,7 +50,9 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de la
 | **5.** |Tipos de archivo | No se admiten los siguientes tipos de archivos de Linux: archivos de caracteres, archivos de bloqueo, sockets, canalizaciones y vínculos simbólicos.  |Al copiar estos archivos, se crean archivos de longitud 0 en el recurso compartido NFS. Estos archivos permanecen en estado de error y también se notifican en *error.xml*. |
 | **6.** |Eliminación | Debido a un error en esta versión, si se elimina un recurso compartido NFS, es posible que el recurso compartido no se pueda eliminar. El estado del recurso compartido será *Deleting* (Eliminando).  |Esto solo se produce cuando el recurso compartido usa un nombre de archivo no admitido. |
 | **7.** |Actualizar | En una operación de actualización, no se conservan los permisos y las listas de control de acceso (ACL).  | |
-| **8.** |Ayuda en línea |Los vínculos de Ayuda en Azure Portal podrían no conducir a la documentación.|Los vínculos de Ayuda funcionarán en la versión de disponibilidad general. |
+| **8.** |Copiar | La copia de datos produce un error con el mensaje Error:  no se pudo completar la operación solicitada por una limitación del sistema de archivos.  |Este error se produce cuando la secuencia de datos alternativa (ADS) asociada con el archivo supera los 128 KB (límite máximo de ReFS).  |
+| **9.** |Vínculos simbólicos |No se admiten los vínculos simbólicos.  |Como resultado de los vínculos simbólicos a directorios, estos nunca se marcan como sin conexión. Por este motivo, no puede ver la cruz gris que indica que los directorios están disponibles sin conexión y que todo el contenido asociado se cargó por completo en Azure. |
+| **10.** |Ayuda en línea |Los vínculos de Ayuda en Azure Portal podrían no conducir a la documentación.|Los vínculos de Ayuda funcionarán en la versión de disponibilidad general. |
 
 
 

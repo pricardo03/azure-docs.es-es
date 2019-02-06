@@ -3,7 +3,7 @@ title: Escalado automático de nodos de proceso en un grupo de Azure Batch | Mic
 description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330733"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459849"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
 
@@ -160,8 +160,8 @@ Estas operaciones se permiten en los tipos que constan en la sección anterior.
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operador* double |*, / |timeinterval |
 | timeinterval *operador* timeinterval |+, - |timeinterval |
-| timeinterval *operador* timestamp |+ |timestamp |
-| timestamp *operador* timeinterval |+ |timestamp |
+| timeinterval *operador* timestamp |+ | timestamp |
+| timestamp *operador* timeinterval |+ | timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
 | *operador*double |-, ! |double |
 | *operador*timeinterval |- |timeinterval |
@@ -195,7 +195,7 @@ Estas **funciones** predefinidas están disponibles para que las use al definir 
 | std(doubleVecList) |double |Devuelve la desviación de muestra estándar de los valores en doubleVecList. |
 | stop() | |Detiene la evaluación de la expresión de escalado automático. |
 | sum(doubleVecList) |double |Devuelve la suma de todos los componentes de doubleVecList. |
-| time(string dateTime="") |timestamp |Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123. |
+| time(string dateTime="") | timestamp |Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123. |
 | val(doubleVec v, double i) |double |Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero. |
 
 Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de *double* y *doubleVec*. Por ejemplo: 
@@ -579,7 +579,7 @@ Error:
 ## <a name="example-autoscale-formulas"></a>Ejemplo de fórmulas de escalado automático
 Echemos un vistazo a algunas fórmulas que muestran distintas formas de ajustar la cantidad de recursos de proceso de un grupo.
 
-### <a name="example-1-time-based-adjustment"></a>Ejemplo 1: Ajuste basado en la fecha y hora
+### <a name="example-1-time-based-adjustment"></a>Ejemplo 1: Ajuste basado en tiempo
 Imagínese que quiere ajustar el tamaño del grupo en función de la hora y el día de la semana. En este ejemplo se muestra cómo aumentar o disminuir en consecuencia el número de nodos del grupo.
 
 En primer lugar, la fórmula obtiene la hora actual. Si se trata de un día laborable (1-5) y dentro del horario laboral (de 8 a.m. a 6 p.m.), el tamaño del grupo de destino se establece en 20 nodos. De lo contrario, se establece en 10 nodos.

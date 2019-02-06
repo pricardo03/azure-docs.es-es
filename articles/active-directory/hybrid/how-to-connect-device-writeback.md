@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: db11ddc275b1e47b728cdc0f9b7d9bf6b6aa9652
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412825"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189534"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitación de la escritura diferida de dispositivo
 > [!NOTE]
@@ -89,7 +89,7 @@ Si la casilla para la reescritura de dispositivos no se habilita a pesar de habe
 
 En primer lugar:
 
-* Asegúrese de que al menos un bosque tenga Windows Server 2012 R2. Debe existir el tipo de objeto de dispositivo.
+* El bosque donde están los dispositivos deben tener el esquema de bosque actualizado al nivel de Windows 2012 R2 para que existan el objeto de dispositivo y los atributos asociados.
 * Si el Asistente para la instalación ya se está ejecutando, algunos cambios no se detectarán. En este caso, complete el Asistente para la instalación y ejecútelo de nuevo.
 * Asegúrese de que la cuenta que proporciona en el script de inicialización sea realmente la del usuario correcto usado por Active Directory Connector. Para ello, siga estos pasos:
   * En el menú Inicio, abra **Servicio de sincronización**.

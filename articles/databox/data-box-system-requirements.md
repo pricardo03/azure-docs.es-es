@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794012"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206754"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos del sistema de Azure Data Box
 
@@ -48,13 +48,18 @@ Aquí se proporciona una lista de los sistemas operativos compatibles para la op
 
 ### <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 
-Aquí se proporciona una lista de los tipos de almacenamiento compatibles con el dispositivo Data Box.
+Aquí se proporciona una lista de los tipos de cuentas de almacenamiento compatibles y de almacenamiento para el dispositivo Data Box. Para una lista completa de todos los tipos distintos de cuentas de almacenamiento y todas sus funcionalidades, consulte [Tipos de cuentas de almacenamiento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
-| **Cuenta de almacenamiento** | **Notas** |
-| --- | --- |
-| Clásico | Estándar |
-| Uso general  |Estándar; se admiten V1 y V2. |
-| Blob |Se admiten frecuentes y esporádicos. |
+| **Tipos de cuenta de almacenamiento/almacenamiento compatible** | **Blob en bloques** |**Blob en páginas*** |**Archivos de Azure** |**Notas**|
+| --- | --- | -- | -- | -- |
+| Estándar clásico | Y | Y | Y |
+| Estándar de uso general v1  | Y | Y | Y | Se admiten frecuentes y esporádicos.|
+| Premium de uso general v1  |  | Y| | |
+| Estándar de uso general v2  | Y | Y | Y | Se admiten frecuentes y esporádicos.|
+| Premium de uso general v2  |  |Y | | |
+| Estándar de Blob Storage |Y | | |Se admiten frecuentes y esporádicos. |
+
+\* *- Los datos cargados en blobs en páginas deben tener 512 bytes alineados como discos duros virtuales.*
 
 >[!NOTE]
 > No se admiten las cuentas de Azure Data Lake Storage Gen 2.
@@ -85,7 +90,7 @@ Presentamos una lista de los exploradores web compatibles con la interfaz de usu
 
 ## <a name="networking-requirements"></a>Requisitos de red
 
-El centro de datos debe tener una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE para copiar datos, pero la velocidad de copia resultará afectada.
+El centro de datos debe tener una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión 10 GbE, se puede usar un vínculo de datos de 1 GbE para copiar datos, pero la velocidad de copia resultará afectada.
 
 ## <a name="next-step"></a>Paso siguiente
 
