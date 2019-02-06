@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: 668f14d491fe3e47a445e6d80efda69c017024e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470926"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477512"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -99,7 +99,7 @@ La salida es similar a la del ejemplo siguiente:
 
 En este caso, *sdc* es el disco que queremos. 
 
-### <a name="partion-a-new-disk"></a>Partición de un disco nuevo
+### <a name="partition-a-new-disk"></a>Partición de un disco nuevo
 Si usa un disco existente que contiene datos, omita el paso de montaje de disco. Si está conectando un disco nuevo, deberá crear particiones en el disco.
 
 Use `fdisk` para particionar el disco, convertirlo en un disco principal en la partición 1 y aceptar los demás valores predeterminados. En el ejemplo siguiente se inicia el proceso `fdisk` en */dev/sdc*:

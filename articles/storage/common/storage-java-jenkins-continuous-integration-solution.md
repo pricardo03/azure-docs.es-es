@@ -7,13 +7,13 @@ author: tarcher
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.component: common
-ms.openlocfilehash: 040f7ef8d9b50998ac2b84ed9d4e3712f4ed5835
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246878"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476900"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Jenkins
 
@@ -127,10 +127,10 @@ Después de ejecutar una compilación, puede comprobar la salida de la consola d
 ## <a name="components-used-by-the-blob-service"></a>Componentes usados por Blob service
 Esta sección ofrece información general acerca de los componentes de Blob Service.
 
-* **Cuenta de almacenamiento**: todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Una cuenta de almacenamiento es el nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
-* **Contenedor**: un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
-* **Blob**: archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Azure Storage: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **Formato de dirección URL**: los blobs son direccionables con el siguiente formato de dirección URL:
+* **Storage Account** (Cuenta de almacenamiento): Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Una cuenta de almacenamiento es el nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
+* **Contenedor**: Un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
+* **Blob**: Un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Azure Storage: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Formato de dirección URL**: Los blobs son direccionables mediante el siguiente formato de dirección URL:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   

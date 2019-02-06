@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/08/2019
-ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: 0d55b5d4c8d42a89a51fa5342d1ed747659a441b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212946"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465102"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveles de servicio de núcleo virtual, ventaja híbrida de Azure y migración
 
@@ -52,7 +52,7 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 > [!NOTE]
 > Si quiere explorar Azure, puede obtener una instancia gratuita de Azure SQL Database en el nivel de servicio Básico junto con una cuenta gratuita de Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
 
-- Para obtener más información, consulte [vCore resource limits in Single database](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de núcleo virtual en una base de datos única) y [Límites de recursos de núcleo virtual en una Instancia administrada](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Para más información, consulte [Límites de recursos de núcleo virtual para una base de datos única](sql-database-vcore-resource-limits-single-databases.md) y [Límites de recursos de núcleo virtual en una Instancia administrada](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Para obtener más información acerca de los niveles de servicio de uso general y crítico para la empresa, consulte [Niveles de servicio de uso general y críticos para la empresa](sql-database-service-tiers-general-purpose-business-critical.md).
 - Para obtener información sobre el nivel de servicio de hiperescala en el modelo de compra basado en núcleos virtuales, consulte [Capa de servicio de hiperescala](sql-database-service-tier-hyperscale.md).  
 

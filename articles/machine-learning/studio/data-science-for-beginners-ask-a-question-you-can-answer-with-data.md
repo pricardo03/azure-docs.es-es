@@ -1,6 +1,6 @@
 ---
-título: Formulación de una pregunta que pueda responderse con datos titleSuffix: Azure Machine Learning Studio description: Aprenda a formular una buena pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Formulación de una pregunta que pueda responderse con datos titleSuffix: Azure Machine Learning Studio description: Aprenda a formular una buena pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---

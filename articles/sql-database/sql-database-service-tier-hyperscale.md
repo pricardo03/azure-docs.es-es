@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476186"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Nivel de servicio Hiperescalado (versión preliminar) para hasta 100 TB
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres modelos de arquitectura que se usan en Azure SQL Database:
+
 - De uso general/Estándar 
 - Crítico para la empresa/Premium
 - Hiperescala
@@ -40,7 +41,7 @@ El nivel de servicio de Hiperescalado en Azure SQL Database es el nivel de servi
 El nivel de servicio de Hiperescalado en Azure SQL Database proporciona las siguientes funcionalidades adicionales:
 
 - Compatibilidad con bases de datos con un tamaño de hasta 100 TB
-- Copias de seguridad de base de datos casi instantáneas (basadas en las instantáneas almacenadas en Azure Blob Storage) independientemente del tamaño sin efecto de la E/S en proceso
+- Copias de seguridad de base de datos casi instantáneas (basadas en las instantáneas almacenadas en Azure Blob Storage) independientemente del tamaño sin efecto de la E/S en proceso   
 - Restauraciones rápidas de base de datos (basadas en instantáneas de archivos) en minutos en lugar de horas o días (no el tamaño de la operación de datos)
 - Mayor rendimiento general debido a un mayor rendimiento de los registros y tiempos más rápidos de confirmación de las transacciones, independientemente de los volúmenes de datos
 - Rápido escalado horizontal: puede aprovisionar uno o varios de solo lectura nodos para la descarga de la carga de trabajo de lectura y para su uso como esperas activas
@@ -133,9 +134,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> El [cifrado de datos transparente (TDE)](transparent-data-encryption-azure-sql.md) debe desactivarse antes de modificar una base de datos que no sea Hiperescala a Hiperescala.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Conexión a una réplica de escalado de lectura de una base de datos de Hiperescala
 
 En las bases de datos de Hiperescala, el argumento `ApplicationIntent` de la cadena de conexión proporcionado por el cliente dictamina si la conexión se enruta a la réplica de escritura o a una réplica de solo lectura secundaria. Si el argumento `ApplicationIntent` establecido en `READONLY` y la base de datos no tienen una réplica secundaria, la conexión se enrutará a la réplica principal y de forma predeterminada es el comportamiento `ReadWrite`.
@@ -153,17 +151,18 @@ El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar
 
 | Problema | DESCRIPCIÓN |
 | :---- | :--------- |
-| El panel Administrar copias de seguridad para un servidor lógico no muestra las bases de datos de Hiperescala que se van a filtrar desde SQL server->  | Hiperescala tiene un método independiente para administrar las copias de seguridad y, por lo tanto, la configuración de la retención de copias de seguridad correspondiente a la retención a largo plazo y a un momento dado no se aplican o se invalidan. En consecuencia, las bases de datos de Hiperescala no aparecen en el panel Administración de copias de seguridad. |
+| El panel Administrar copias de seguridad de un servidor de SQL Database no muestra las bases de datos de hiperescala que se van a filtrar desde SQL server->  | Hiperescala tiene un método independiente para administrar las copias de seguridad y, por lo tanto, la configuración de la retención de copias de seguridad correspondiente a la retención a largo plazo y a un momento dado no se aplican o se invalidan. En consecuencia, las bases de datos de Hiperescala no aparecen en el panel Administración de copias de seguridad. |
 | Restauración a un momento dado | Una vez que se migra una base de datos en el nivel de servicio Hiperescalado, no se admite la restauración a un momento dado antes de la migración.|
 | Si un archivo de base de datos crece durante la migración debido a una carga de trabajo activa y cruza el límite de 1 TB por archivo, se produce un error en la migración. | Mitigaciones: <br> - Si es posible, debe migrar la base de datos cuando no haya ninguna carga de trabajo de actualización en ejecución.<br> - Vuelva a intentar la migración; se realizará correctamente siempre y cuando no se traspase el límite de 1 TB durante la migración.|
 | Instancia administrada no se admite actualmente. | No se admite actualmente. |
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescalado, no puede migrarse directamente a un nivel de servicio que no sea Hiperescalado. En este momento, la única forma de migrar una base de datos de Hiperescalado a otro nivel de servicio es con la exportación e importación mediante un archivo BACPAC.|
-| En este momento, no se admite la migración de bases de datos con objetos en memoria. | Los objetos en memoria deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescalado.
+| En este momento, no se admite la migración de bases de datos con objetos en memoria. | Los objetos en memoria deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescalado.|
+| Actualmente no se admite la opción para cambiar el seguimiento de datos. | No podrá usar la opción para cambiar el seguimiento de datos con las bases de datos de hiperescala.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para consultar preguntas frecuentes sobre Hiperescala, consulte [Preguntas más frecuentes acerca de Hiperescala](sql-database-service-tier-hyperscale-faq.md).
 - Para más información sobre los niveles de servicio, consulte [Niveles de servicio](sql-database-service-tiers.md).
-- Consulte [Introducción a los límites de recursos de un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
+- Consulte [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Introducción a los límites de recursos de un servidor de SQL Database) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para conocer los límites del modelo de compras para una base de datos única, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md).
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).

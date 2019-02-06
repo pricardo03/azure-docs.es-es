@@ -1,25 +1,25 @@
 ---
 title: Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona en Azure (versión preliminar pública)
-description: En este artículo se proporciona información acerca de las listas de exclusión y los límites de tamaño de solicitud del firewall de aplicaciones web en Application Gateway con Azure Portal.
+description: En este artículo se presenta la SKU de la Aplicación de Azure v2, que incluye características de escalabilidad automática y redundancia de zona.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/31/2019
 ms.author: victorh
-ms.openlocfilehash: f5885fd2ac76550990c9a56a1d200bbe11555918
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213763"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461447"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)
 
 Application Gateway y Firewall de aplicaciones web (WAF) ahora están disponibles en versión preliminar pública en una nueva SKU v2 que ofrece mejoras de rendimiento y agrega compatibilidad para nuevas características esenciales, como escalabilidad automática, redundancia de zona y compatibilidad con VIP estáticas. La nueva SKU v2 sigue admitiendo las características existentes en la SKU de disponibilidad general, salvo algunas excepciones que se indican en la sección de limitaciones conocidas. La nueva SKU v2 incluye las siguientes mejoras:
 
 - **Escalabilidad automática**: Las implementaciones de Application Gateway o WAF en la SKU de escalado automática pueden escalarse o reducirse verticalmente en función de los cambiantes patrones de la carga de tráfico. La escalabilidad automática también elimina el requisito de tener elegir un tamaño de implementación o un número de instancias durante el aprovisionamiento. Por lo tanto, la SKU ofrece verdadera elasticidad. En la nueva SKU, Application Gateway puede funcionar con una capacidad fija (escalabilidad automática deshabilitada) y en modo de escalabilidad automática habilitada. El modo de capacidad fija es útil para escenarios con cargas de trabajo coherentes y predecibles. El modo de escalabilidad automática es útil en aplicaciones que tendrán una gran variación en el tráfico de las aplicaciones.
-   
+
    > [!NOTE]
    > La escalabilidad automática no está actualmente disponible para la SKU de WAF. Configure WAF con el modo de capacidad fija en lugar del modo de escalabilidad automática.
 - **Redundancia de zona**: una implementación de Application Gateway o WAF puede abarcar varias zonas de disponibilidad, lo que elimina la necesidad de aprovisionar y anclar instancias de Application Gateway independientes en cada zona con una instancia de Traffic Manager. Puede elegir una o varias zonas donde se implementarán las instancias de Application Gateway, lo que garantiza la resistencia a errores de zona. El grupo de back-end de las aplicaciones se puede distribuir de manera similar entre las zonas de disponibilidad.
@@ -33,10 +33,12 @@ Application Gateway y Firewall de aplicaciones web (WAF) ahora están disponible
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regiones admitidas
-La SKU de escalabilidad automática está disponible en las zonas siguientes: Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU. 2, Centro-norte de EE. UU., Oeste de EE. UU.Centro-sur de EE. UU., Centro de Francia, Este de Europa, Norte de Europa, Oeste de Reino Unido, Sudeste Asiático y Este de Japón.
+
+La SKU de escalabilidad automática está disponible en las siguientes regiones: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus (BL), centralus (DM), japanwest (OS).
 
 ## <a name="pricing"></a>Precios
-Durante la versión preliminar, no hay ningún cargo. Se le cobrarán los recursos que no sean la puerta de enlace de aplicaciones, como el almacén de claves, las máquinas virtuales, etcétera. 
+
+Durante la versión preliminar, no hay ningún cargo. Se le cobrarán los recursos que no sean la puerta de enlace de aplicaciones, como el almacén de claves, las máquinas virtuales, etcétera.
 
 ## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones
 
@@ -51,9 +53,9 @@ Durante la versión preliminar, no hay ningún cargo. Se le cobrarán los recurs
 |Modo FIPS, WebSocket|Actualmente no se admiten.|
 |Solo modo ILB|Actualmente no se admite. Se admiten los modos público e ILB juntos.|
 |Escalabilidad automática de firewall de aplicaciones web|WAF no admite el modo de escalabilidad automática. Se admite el modo de capacidad fija.|
+|Integración de Netwatcher|No se admite en la versión preliminar pública.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una puerta de enlace de aplicaciones con redundancia de zona, escalabilidad automática y una dirección IP virtual reservada con Azure PowerShell](tutorial-autoscale-ps.md)
 - Más información acerca de [Application Gateway](overview.md).
-- Más información acerca de [Azure Firewall](../firewall/overview.md). 
-
+- Más información acerca de [Azure Firewall](../firewall/overview.md).

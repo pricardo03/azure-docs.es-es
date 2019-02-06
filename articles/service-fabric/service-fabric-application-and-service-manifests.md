@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653559"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465630"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -53,7 +53,7 @@ El manifiesto de servicio define mediante declaración el tipo de servicio y la 
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -96,7 +96,7 @@ Para más información acerca de cómo configurar SetupEntryPoint, consulte [Con
 </Settings>
 ```
 
-Los **recursos** que utilizará el servicio, como puntos de conexión, se declaran o modifican sin cambiar el código compilado.  El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de **SecurityGroup** en el manifiesto de aplicación.  Cuando se define un recurso de **punto de conexión** en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente.  Obtenga más información sobre la [especificación o reemplazo de los recursos de punto de conexión](service-fabric-service-manifest-resources.md).
+Un **punto de conexión** del servicio Service Fabric es un ejemplo de un recurso de Service Fabric; un recurso de Service Fabric puede declararse o cambiarse sin cambiar el código compilado. El acceso a los recursos de Service Fabric especificados en el manifiesto de servicio puede controlarse a través de **SecurityGroup** en el manifiesto de aplicación. Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Obtenga más información sobre la [especificación o reemplazo de los recursos de punto de conexión](service-fabric-service-manifest-resources.md).
 
 
 <!--

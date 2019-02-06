@@ -1,6 +1,6 @@
 ---
 title: 'Grupos de conmutación por error: Azure SQL Database | Microsoft Docs'
-description: Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error automática o coordinada de un grupo de bases de datos de un servidor lógico o todas las bases de datos de la instancia administrada.
+description: Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error automática o coordinada de un grupo de bases de datos en un servidor de SQL Database o de todas las bases de datos de la instancia administrada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468706"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
-Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error de un grupo de bases de datos de un servidor lógico, o todas las bases de datos de una instancia administrada, a otra región (actualmente en versión preliminar pública para Instancia administrada). Emplea la misma tecnología subyacente que la [replicación geográfica activa](sql-database-active-geo-replication.md). Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de SQL Database según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad del servicio SQL Database en la región primaria. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los servidores principales y los secundarios para las bases de datos del grupo de conmutación por error deben estar en la misma suscripción. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a un servidor secundario en otra región.
+Los grupos de conmutación por error automática son una característica de SQL Database que le permite administrar la replicación y la conmutación por error de un grupo de bases de datos de un servidor de SQL Database, o todas las bases de datos de una instancia administrada, a otra región (actualmente en versión preliminar pública para Instancia administrada). Emplea la misma tecnología subyacente que la [replicación geográfica activa](sql-database-active-geo-replication.md). Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de SQL Database según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad del servicio SQL Database en la región primaria. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los servidores principales y los secundarios para las bases de datos del grupo de conmutación por error deben estar en la misma suscripción. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a un servidor secundario en otra región.
 
 > [!NOTE]
-> Al trabajar con bases de datos únicas o agrupadas en un servidor lógico, si quiere varias bases de datos secundarias en la misma región u otra diferente, use la [replicación geográfica activa](sql-database-active-geo-replication.md).
+> Al trabajar con bases de datos independientes o agrupadas en un servidor de SQL Database, si quiere varias bases de datos secundarias en la misma región u otra diferente, use la [replicación geográfica activa](sql-database-active-geo-replication.md).
 
 Cuando se usan grupos de conmutación por error automática con una directiva de conmutación por error automática, cualquier interrupción que afecte a una o varias de las bases de datos del grupo tiene como resultado la conmutación por error automática. Además, los grupos de conmutación por error automática proporcionan puntos de conexión de agentes de escucha de lectura-escritura y de solo lectura que no se modifican durante las conmutaciones por error. Ya sea que use la activación de conmutación por error automática o manual, la conmutación por error transforma todas las bases de datos secundarias del grupo en primarias. Después de que la conmutación por error de una base de datos finaliza, el registro de DNS se actualiza automáticamente para redirigir los puntos de conexión a la nueva región. Para información sobre los datos específicos de RPO y RTO, consulte [Introducción a la continuidad empresarial](sql-database-business-continuity.md).
 
-Cuando se usan grupos de conmutación por error automática con la directiva de conmutación por error automática, cualquier interrupción que afecte a las bases de datos del servidor lógico o de la instancia administrada tiene como resultado la conmutación por error automática. Puede administrar el grupo de conmutación por error automática mediante:
+Cuando se usan grupos de conmutación por error automática con la directiva de conmutación por error automática, cualquier interrupción que afecte a las bases de datos del servidor de SQL Database o de la instancia administrada tiene como resultado la conmutación por error automática. Puede administrar el grupo de conmutación por error automática mediante:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: grupo de conmutación por error](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,27 +42,27 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Grupo de conmutación por error**
 
-  Un grupo de conmutación por error es un grupo de bases de datos administradas por un único servidor lógico o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria.
+  Un grupo de conmutación por error es un grupo de bases de datos administradas por un único servidor de SQL Database o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria.
 
-  - **Servidores lógicos**
+  - **Servidores de SQL Database**
 
-     Con los servidores lógicos, algunas o todas las bases de datos de usuario de un único servidor pueden colocarse en un grupo de conmutación por error. Además, un servidor lógico admite varios grupos de conmutación por error en un único servidor.
+     Con los servidores de SQL Database, algunas o todas las bases de datos de usuario de un único servidor de SQL Database pueden colocarse en un grupo de conmutación por error. Además, un servidor de SQL Database admite varios grupos de conmutación por error en un único servidor de SQL Database.
 
   - **Instancias administradas**
   
-     Con Instancia administrada, un grupo de conmutación por error contiene todas las bases de datos de usuario de la instancia administrada y, por tanto, una instancia administrada solo admite un grupo de conmutación por error.
+     Con una instancia administrada, un grupo de conmutación por error contiene todas las bases de datos de usuario de la instancia administrada y, por tanto, una instancia administrada solo admite un grupo de conmutación por error.
 
 - **Principal**
 
-  El servidor lógico o la instancia administrada que hospedan las bases de datos principales del grupo de conmutación por error.
+  El servidor de SQL Database o la Instancia administrada que hospedan las bases de datos principales del grupo de conmutación por error.
 
 - **Secundario**
 
-  El servidor lógico o la instancia administrada que hospedan las bases de datos secundarias del grupo de conmutación por error. La base de datos secundaria no puede estar en la misma región que la principal.
+  El servidor de SQL Database o la Instancia administrada que hospedan las bases de datos secundarias del grupo de conmutación por error. La base de datos secundaria no puede estar en la misma región que la principal.
 
-- **Incorporación de bases de datos al grupo de conmutación por error en un servidor lógico**
+- **Incorporación de bases de datos al grupo de conmutación por error en un servidor de SQL Database**
 
-  Puede colocar varias bases de datos únicas o agrupadas dentro de un grupo elástico en el mismo servidor lógico en el mismo grupo de conmutación por error. Si agrega una única base de datos al grupo de conmutación por error, se crea automáticamente una base de datos secundaria con la misma edición y el mismo tamaño de proceso. Si la base de datos principal está en un grupo elástico, la base de datos secundaria se crea automáticamente en el grupo elástico con el mismo nombre. Si agrega una base de datos que ya tenga una base de datos secundaria en el servidor secundario, el grupo hereda esa replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el servidor secundario.
+  Puede colocar varias bases de datos únicas o agrupadas dentro de un grupo elástico en el mismo servidor de SQL Database en el mismo grupo de conmutación por error. Si agrega una única base de datos al grupo de conmutación por error, se crea automáticamente una base de datos secundaria con la misma edición y el mismo tamaño de proceso. Si la base de datos principal está en un grupo elástico, la base de datos secundaria se crea automáticamente en el grupo elástico con el mismo nombre. Si agrega una base de datos que ya tenga una base de datos secundaria en el servidor secundario, el grupo hereda esa replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el servidor secundario.
   
 > [!IMPORTANT]
   > En una instancia administrada, se replican todas las bases de datos de usuario. No se puede seleccionar un subconjunto de bases de datos de usuario para la replicación en el grupo de conmutación por error.
@@ -71,9 +71,9 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   Un registro de CNAME de DNS formado que apunta a la dirección URL de la base de datos principal actual. Permite que las aplicaciones SQL de lectura y escritura se reconecten sin problemas a la base de datos principal cuando cambia después de la conmutación por error.
 
-  - **Registro CNAME de DNS del servidor lógico para el agente de escucha de lectura y escritura**
+  - **Registro CNAME de DNS del servidor de SQL Database para el agente de escucha de lectura y escritura**
 
-     En un servidor lógico, el registro CNAME de DNS para el grupo de conmutación por error que apunta a la dirección URL de la base de datos principal tiene el formato `failover-group-name.database.windows.net`.
+     En un servidor de SQL Database, el registro CNAME de DNS para el grupo de conmutación por error que apunta a la dirección URL de la base de datos principal actual tiene el formato `failover-group-name.database.windows.net`.
 
   - **Registro CNAME de DNS de Instancia administrada para el agente de escucha de lectura y escritura**
 
@@ -83,9 +83,9 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Permite que las aplicaciones SQL de solo lectura se conecten sin problemas a la base de datos secundaria mediante las reglas de equilibrio de carga especificadas.
 
-  - **Registro CNAME de DNS del servidor lógico para el agente de escucha de solo lectura**
+  - **Registro CNAME de DNS del servidor de SQL Database para el agente de escucha de solo lectura**
 
-     En un servidor lógico, el registro CNAME de DNS para el agente de escucha de solo lectura que apunta a la dirección URL de base de datos secundaria tiene el formato `failover-group-name.secondary.database.windows.net`.
+     En un servidor de SQL Database, el registro CNAME de DNS para el agente de escucha de solo lectura que apunta a la dirección URL de base de datos secundaria tiene el formato `failover-group-name.secondary.database.windows.net`.
 
   - **Registro CNAME de DNS de Instancia administrada para el agente de escucha de solo lectura**
 
@@ -128,7 +128,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y grupos elásticos
 
-El grupo de conmutación por error automática debe estar configurado en el servidor lógico principal y se conectará al servidor lógico secundario de una región de Azure diferente.  Los grupos pueden incluir todas las bases de datos de estos servidores o algunas de ellas. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa varias bases de datos y un grupo de conmutación por error automática.
+El grupo de conmutación por error automática debe estar configurado en el servidor de SQL Database principal y se conectará al servidor de SQL Database secundario de una región de Azure diferente.  Los grupos pueden incluir todas las bases de datos de estos servidores o algunas de ellas. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica que usa varias bases de datos y un grupo de conmutación por error automática.
 
 ![conmutación por error automática](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -331,7 +331,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Quita un grupo de conmutación por error.|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Administración de grupos de conmutación por error de base de datos SQL con bases de datos únicas y agrupadas
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>API REST: Administración de grupos de conmutación por error de SQL Database con bases de datos independientes y agrupadas
 
 | API | DESCRIPCIÓN |
 | --- | --- |

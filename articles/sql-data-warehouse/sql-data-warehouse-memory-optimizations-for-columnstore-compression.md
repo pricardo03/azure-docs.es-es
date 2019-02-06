@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306839"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463368"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
@@ -67,9 +67,9 @@ from cte;
 ```
 
 trim_reason_desc indica si el grupo de filas se ha recortado (trim_reason_desc = NO_TRIM implica que no ha habido ningún recorte y que el grupo de filas es de calidad óptima). Los siguientes motivos de recorte indican el recorte prematuro del grupo de filas:
-- BULKLOAD: este motivo de recorte se usa cuando el lote entrante de filas de la carga tenía menos de 1 millón de filas. El motor creará grupos de filas comprimidos si hay más de 100.000 filas que se van a insertar (en lugar de insertar en el almacén delta), pero establece el motivo de recorte en BULKLOAD. En este escenario, considere la posibilidad de aumentar la ventana de carga por lotes para acumular más filas. Además, vuelva a evaluar el esquema de partición para asegurarse de que no es demasiado granular si los grupos de filas no pueden abarcar los límites de partición.
-- MEMORY_LIMITATION: para crear grupos de filas con 1 millón de filas, el motor necesita una determinada cantidad de memoria de trabajo. Cuando la memoria disponible de la sesión de carga es inferior a la memoria de trabajo necesaria, los grupos de filas se recortan prematuramente. En las siguientes secciones se explica cómo estimar la memoria necesaria y asignar más.
-- DICTIONARY_SIZE: este motivo de recorte indica que el recorte del grupo de filas se ha producido porque había al menos una columna de cadena con cadenas de cardinalidad anchas o altas. El tamaño del diccionario está limitado a 16 MB de memoria y, cuando se alcanza este límite, se comprime el grupo de filas. Si ejecuta en esta situación, considere la posibilidad de aislar la columna problemática en una tabla independiente.
+- BULKLOAD: Este motivo de recorte se usa cuando el lote entrante de filas de la carga tenía menos de 1 millón de filas. El motor creará grupos de filas comprimidos si hay más de 100.000 filas que se van a insertar (en lugar de insertar en el almacén delta), pero establece el motivo de recorte en BULKLOAD. En este escenario, considere la posibilidad de aumentar la ventana de carga por lotes para acumular más filas. Además, vuelva a evaluar el esquema de partición para asegurarse de que no es demasiado granular si los grupos de filas no pueden abarcar los límites de partición.
+- MEMORY_LIMITATION: Para crear grupos de filas con 1 millón de filas, el motor necesita una determinada cantidad de memoria de trabajo. Cuando la memoria disponible de la sesión de carga es inferior a la memoria de trabajo necesaria, los grupos de filas se recortan prematuramente. En las siguientes secciones se explica cómo estimar la memoria necesaria y asignar más.
+- DICTIONARY_SIZE: Este motivo de recorte indica que el recorte del grupo de filas se ha producido porque había al menos una columna de cadena con cadenas de cardinalidad anchas o altas. El tamaño del diccionario está limitado a 16 MB de memoria y, cuando se alcanza este límite, se comprime el grupo de filas. Si ejecuta en esta situación, considere la posibilidad de aislar la columna problemática en una tabla independiente.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Cómo calcular los requisitos de memoria
 
@@ -88,7 +88,7 @@ donde las columnas de cadena corta emplean tipos de datos de cadena de ≤32 byt
 
 Las cadenas largas que se comprimen con un método de compresión diseñado para comprimir texto. Este método de compresión utiliza un *diccionario* para almacenar patrones de texto. El tamaño máximo de un diccionario es de 16 MB. Hay solo un diccionario para cada columna de cadena larga del grupo de filas.
 
-Para ver una discusión en profundidad sobre los requisitos de memoria del almacén de columnas, eche un vistazo al vídeo [Azure SQL Data Warehouse scaling: configuration and guidance](https://myignite.microsoft.com/videos/14822) (Escalado de Azure SQL Data Warehouse: configuración y directrices).
+Para ver una discusión en profundidad sobre los requisitos de memoria del almacén de columnas, eche un vistazo al vídeo [Azure SQL Data Warehouse scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) (Escalado de Azure SQL Data Warehouse: configuración y directrices).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reducir los requisitos de memoria
 
@@ -124,10 +124,10 @@ Cada distribución comprime los grupos de filas en el almacén de columnas en pa
 
 Para reducir la presión de memoria, puede usar la sugerencia de consulta MAXDOP a fin de forzar la operación de carga con el objetivo de que se ejecute en modo serie dentro de cada distribución.
 
-```
+```sql
 CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota
+AS SELECT * FROM FactSalesQuota
 OPTION (MAXDOP 1);
 ```
 

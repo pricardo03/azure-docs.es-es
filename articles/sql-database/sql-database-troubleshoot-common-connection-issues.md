@@ -11,21 +11,23 @@ author: dalechen
 ms.author: daleche
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: d278fd6ed06b58db052154e632e565de36853e77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600563"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464898"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Solución de problemas de conexión de Azure SQL Database
+
 Cuando la conexión a Azure SQL Database no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Azure SQL Database. Se presentan [las causas habituales](#cause) de los problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que lo ayuda a identificar el problema y se proporcionan pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-persistent-errors). 
 
 Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="cause"></a>Causa
+
 Los problemas de conexión pueden tener alguna de las siguientes causas:
 
 * Error al aplicar los procedimientos recomendados y las directrices de diseño durante el proceso de diseño de aplicaciones.  Para comenzar, consulte [Información general de desarrollo de SQL Database](sql-database-develop-overview.md) .
@@ -41,6 +43,7 @@ Por lo general, los problemas de conexión de Azure SQL Database se pueden clasi
 * [Errores persistentes o no transitorios (errores que se repiten con frecuencia)](#troubleshoot-persistent-errors)
 
 ## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>Pruebe el solucionador de problemas para los problemas de conectividad de Azure SQL Database
+
 Si se produce un error de conexión específico, pruebe [esta herramienta](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database), que le ayudará a identificar y resolver el problema.
 
 ## <a name="troubleshoot-transient-errors"></a>Solución de problemas de errores transitorios
@@ -56,13 +59,13 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 > 
 > 
 
-Este error se produce cuando la base de datos de Azure se está moviendo (o reconfigurando) y la aplicación pierde la conexión con la base de datos SQL. Los eventos de reconfiguración de la base de datos SQL se producen debido a un evento planeado (por ejemplo, una actualización de software) o a un evento no planeado (por ejemplo, el bloqueo de un proceso o un equilibrio de carga). La mayoría de los eventos de reconfiguración son generalmente de corta duración y se completarán en menos de 60 segundos. Sin embargo, ocasionalmente estos eventos pueden tardar más tiempo de finalizar, por ejemplo, cuando una transacción grande produce una recuperación de larga duración.
+Este error se produce cuando la base de datos se está moviendo (o reconfigurando) y la aplicación pierde la conexión con la base de datos. Los eventos de reconfiguración de la base de datos se producen debido a un evento planeado (por ejemplo, una actualización de software) o a un evento no planeado (por ejemplo, el bloqueo de un proceso o un equilibrio de carga). La mayoría de los eventos de reconfiguración son generalmente de corta duración y se completarán en menos de 60 segundos. Sin embargo, ocasionalmente estos eventos pueden tardar más tiempo de finalizar, por ejemplo, cuando una transacción grande produce una recuperación de larga duración.
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Pasos para resolver los problemas de conectividad transitorios
 
 1. Compruebe el [panel de Estado de Microsoft Azure](https://azure.microsoft.com/status) para comprobar si hay interrupciones conocidas que se hayan producido durante el tiempo en el que la aplicación informó de los errores.
 2. Para las aplicaciones que se conectan a un servicio en la nube, como Azure SQL Database, se deben prever eventos periódicos de reconfiguración e implementación de la lógica de reintento para gestionar estos errores en lugar de mostrarlos como errores de la aplicación. Consulte la sección [Errores transitorios](sql-database-connectivity-issues.md), así como los procedimientos recomendados e instrucciones de diseño en [Información general de desarrollo de SQL Database](sql-database-develop-overview.md), donde encontrará más información e instrucciones para las estrategias generales de reintento. Después, para información específica, consulte ejemplos de código en [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md) .
-3. Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Consulte [Límites de los recursos](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
+3. Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Consulte [Límites de los recursos](sql-database-resource-limits-database-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Si los problemas de conectividad continúan, si el tiempo de detección del error por parte de la aplicación supera los 60 segundos o si el error se repite varias veces en un día determinado, realice una solicitud de soporte técnico a Azure; para ello, seleccione **Obtener soporte** en el sitio [Soporte técnico de Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Solución de problemas de los errores persistentes

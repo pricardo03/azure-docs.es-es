@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468281"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Creación de bases de datos secundarias legibles mediante la replicación geográfica activa
 
-La replicación geográfica activa es la característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor lógico en el mismo centro de datos u otro diferente (región).
+La replicación geográfica activa es la característica de Azure SQL Database que permite crear bases de datos secundarias legibles de bases de datos individuales en un servidor de SQL Database en el mismo centro de datos u otro diferente (región).
 
 > [!NOTE]
-> La replicación geográfica activa no es compatible con Instancia administrada.
+> La replicación geográfica activa no es compatible con Instancia administrada. Para la conmutación por error geográfica de las instancias administradas, use [Grupos de conmutación por error automática](sql-database-auto-failover-group.md).
 
 La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite que la aplicación realice una rápida recuperación ante desastres de bases de datos individuales en el caso de que se produzca un desastre regional o una interrupción a gran escala. Si la replicación geográfica está habilitada, la aplicación puede iniciar la conmutación por error en una base de datos secundaria de otra región de Azure. Se admiten hasta cuatro bases de datos secundarias en las mismas o en otras regiones, y las secundarias también se pueden usar para las consultas de acceso de solo lectura. La aplicación o el usuario deben iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. En el siguiente diagrama se ilustra una configuración típica de una aplicación de nube con redundancia geográfica mediante la replicación geográfica activa.
 
@@ -122,7 +122,7 @@ Debido a la elevada latencia de las redes de área extensa, la copia continua us
 
 Como se dijo antes, la replicación geográfica activa también puede administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Administración de la conmutación por error de bases de datos únicas y agrupadas
+### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Administración de la conmutación por error de bases de datos independientes y agrupadas
 
 > [!IMPORTANT]
 > Estos comandos de Transact-SQL solo se aplican a la replicación geográfica activa, no a los grupos de conmutación por error. Por lo tanto, tampoco se aplican a las instancias administradas, ya que solo admiten grupos de conmutación por error.
@@ -132,13 +132,13 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error. |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Se utiliza REMOVE SECONDARY ON SERVER para finalizar una replicación de datos entre una instancia de SQL Database y la base de datos secundaria especificada. |
-| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devuelve información sobre todos los vínculos de replicación existentes para cada base de datos del servidor lógico de Azure SQL Database. |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devuelve información sobre todos los vínculos de replicación existentes para cada base de datos del servidor de Azure SQL Database. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtiene la hora de la última replicación, el retraso de la última replicación y otro tipo de información sobre el vínculo de replicación para una base de datos SQL determinada. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Muestra el estado de todas las operaciones de base de datos, incluido el estado de los vínculos de replicación. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |Hace que la aplicación espere a que se repliquen todas las transacciones confirmadas y a que las reconozca la base de datos secundaria activa. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Administración de la conmutación por error de bases de datos únicas y agrupadas
+### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Administración de la conmutación por error de bases de datos independientes y agrupadas
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
@@ -152,7 +152,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 > [!IMPORTANT]
 > Si desea scripts de ejemplo, consulte [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) y [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: Administración de la conmutación por error de bases de datos únicas y agrupadas
+### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>API REST: Administración de la conmutación por error de bases de datos independientes y agrupadas
 
 | API | DESCRIPCIÓN |
 | --- | --- |

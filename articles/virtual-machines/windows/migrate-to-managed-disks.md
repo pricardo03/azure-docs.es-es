@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474224"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467924"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migración de VM de Azure a Managed Disks en Azure
 
@@ -37,7 +37,7 @@ Puede migrar a Managed Disks en los escenarios siguientes:
 | Migrar...                                            | Vínculo de documentación                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Conversión de VM independientes y VM de un conjunto de disponibilidad para establecer discos administrados   | [Conversión de VM para usar discos administrados](convert-unmanaged-to-managed-disks.md) |
-| Una VM única desde el modelo clásico a Resource Manager en discos administrados     | [Migración de una VM única](migrate-single-classic-to-resource-manager.md)  | 
+| Una VM única desde el modelo clásico a Resource Manager en discos administrados     | [Creación de una VM desde un disco duro virtual clásico](create-vm-specialized-portal.md)  | 
 | Todas las VM de una red virtual desde el modelo clásico a Resource Manager en discos administrados     | [Migración de recursos de IaaS desde el modelo clásico a Resource Manager](migration-classic-resource-manager-ps.md) y luego [Conversión de una VM desde discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md) | 
 
 

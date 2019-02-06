@@ -1,6 +1,6 @@
 ---
-título: Repetición del entrenamiento de modelos de Machine Learning Studio mediante programación titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo repetir el entrenamiento mediante programación de un modelo con C# y el servicio de ejecución de lotes de Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Repetición del entrenamiento de modelos de Machine Learning Studio mediante programación titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo repetir el entrenamiento mediante programación de un modelo con C# y el servicio de ejecución de lotes de Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

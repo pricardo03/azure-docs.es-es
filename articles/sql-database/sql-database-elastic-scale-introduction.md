@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867093"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463028"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Azure SQL Database
 Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Elastic Database**. Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
@@ -67,8 +67,8 @@ La mayoría de las aplicaciones de bases de datos a escala de la nube usan una c
 ## <a name="sharding"></a>Particionamiento
 *Particionamiento* es una técnica para distribuir grandes cantidades de datos estructurados de manera idéntica entre un número de bases de datos independientes. Su uso se ha extendido entre los desarrolladores de nube que crean ofertas de software como servicio (SAAS) para empresas o clientes finales. Estos clientes finales a menudo se conocen como "inquilinos". El particionamiento puede ser necesario por diversos motivos:  
 
-* La cantidad total de datos es demasiado grande para caber dentro de las restricciones de una base de datos
-* El rendimiento de transacciones de la carga de trabajo total supera la capacidad de una sola base de datos
+* La cantidad total de datos es demasiado grande para caber dentro de las restricciones de una base de datos individual
+* El rendimiento de transacciones de la carga de trabajo total supera la capacidad de una base de datos individual
 * Los inquilinos pueden requerir el aislamiento físico entre sí, por lo que se necesitan bases de datos independientes para cada inquilino
 * Es posible que distintas secciones de una base de datos tengan que residir en diferentes geografías por motivos de cumplimiento, rendimiento o geopolíticos.
 

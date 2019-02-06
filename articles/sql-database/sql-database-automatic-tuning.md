@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a0b7d3f059001aec28dd52c9666ea7b5af3c6f95
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603802"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478175"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 
@@ -65,6 +65,7 @@ Para obtener información general sobre cómo funciona el ajuste automático y l
 ## <a name="automatic-tuning-options"></a>Opciones de ajuste automático
 
 Las opciones de ajuste automático disponibles en Azure SQL Database son:
+
  1. **CREATE INDEX**: identifica los índices que pueden mejorar el rendimiento de la carga de trabajo, crea índices y comprueba automáticamente que el rendimiento de las consultas ha mejorado.
  2. **DROP INDEX**: identifica diariamente los índices duplicados y redundantes, excepto los índices únicos, y aquellos que no se han usado durante mucho tiempo (más de 90 días). Tenga en cuenta que, en este momento, la opción es incompatible con las aplicaciones que usan sugerencias de índice y cambios de partición.
  3. **FORCE LAST GOOD PLAN**: identifica consultas SQL que usan un plan de ejecución más lento que el plan correcto anterior, y consultas que usan el último plan correcto conocido, en lugar del plan revertido.
@@ -73,7 +74,7 @@ El ajuste automático identifica las recomendaciones de **CREATE INDEX**, **DROP
 
 Puede aplicar manualmente las recomendaciones de ajuste mediante el portal, o bien puede dejar que Ajuste automático aplique de forma autónoma las recomendaciones de ajuste. Las ventajas de dejar que el sistema aplique las recomendaciones de ajuste de forma autónoma es que valida automáticamente y se produce una ganancia positiva en el rendimiento de la carga de trabajo y, si se detecta que no hay una mejora significativa, revertirá automáticamente la recomendación de ajuste. Tenga en cuenta de que si las consultas implicadas en las recomendaciones de ajuste no se ejecutan con frecuencia, la fase de validación puede durar hasta 72 horas intencionadamente. En caso de que aplique las recomendaciones de ajuste de forma manual, ni la validación automática del rendimiento ni los mecanismos de inversión estarán disponibles.
 
-Las opciones de ajuste automático se pueden habilitar o deshabilitar en cada base de datos de forma independiente o pueden configurarse en servidores lógicos y aplicarse en todas las bases de datos que hereden la configuración del servidor. Los servidores lógicos pueden heredar valores predeterminados de Azure para la configuración de optimización automática. Los valores predeterminados de Azure en este momento son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (habilitado) y DROP_INDEX (deshabilitado).
+Las opciones de ajuste automático se pueden habilitar o deshabilitar en cada base de datos de forma independiente o pueden configurarse en servidores de SQL Database y aplicarse en todas las bases de datos que hereden la configuración del servidor. Los servidores de SQL Database pueden heredar valores predeterminados de Azure para realizar la configuración de optimización automática. Los valores predeterminados de Azure en este momento son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (habilitado) y DROP_INDEX (deshabilitado).
 
 El método recomendado para configurar el ajuste automático es configurar las opciones de ajuste automático en un servidor y utilizar la configuración heredada en las bases de datos que pertenecen al servidor primario. De ese modo, resulta más fácil administrar las opciones de ajuste automático en un gran número de bases de datos.
 

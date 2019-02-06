@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: f68cb2d1c34ca351811050546c0eae818e84300a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6198c451442bde3f19b44d6c4d6216d8ea8b226d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651765"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478209"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 

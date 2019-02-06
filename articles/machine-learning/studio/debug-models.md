@@ -1,6 +1,6 @@
 ---
-título: Depuración del modelo titleSuffix: Azure Machine Learning Studio description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Depuración del modelo titleSuffix: Azure Machine Learning Studio description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
 ---

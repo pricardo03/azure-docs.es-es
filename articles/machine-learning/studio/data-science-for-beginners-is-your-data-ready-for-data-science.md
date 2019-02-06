@@ -1,6 +1,6 @@
 ---
-título: Evaluación de datos titleSuffix: Azure Machine Learning Studio description: Cuatro criterios que sus datos deben cumplir para estar listos para la ciencia de datos. Este vídeo presenta ejemplos concretos para facilitar la evaluación de datos básicos.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Evaluación de datos titleSuffix: Azure Machine Learning Studio description: Cuatro criterios que sus datos deben cumplir para estar listos para la ciencia de datos. Este vídeo presenta ejemplos concretos para facilitar la evaluación de datos básicos.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---

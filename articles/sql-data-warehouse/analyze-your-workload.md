@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248100"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476764"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Análisis de la carga de trabajo en Azure SQL Data Warehouse
 Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.

@@ -1,6 +1,6 @@
 ---
-título: Administración de servicios web de Machine Learning Studio con API Management titleSuffix: Azure Machine Learning Studio description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API. Administre los puntos de conexión de la API REST mediante la definición del acceso del usuario, la limitación de uso y la supervisión del panel.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Administración de servicios web de Machine Learning Studio con API Management titleSuffix: Azure Machine Learning Studio description: Una guía que muestra cómo administrar los servicios web de AzureML mediante la Administración de API. Administre los puntos de conexión de la API REST mediante la definición del acceso del usuario, la limitación de uso y la supervisión del panel.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/11/2017
 ---

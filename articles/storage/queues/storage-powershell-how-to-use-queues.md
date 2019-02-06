@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
-ms.component: queues
-ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.subservice: queues
+ms.openlocfilehash: 10b85b2efd4359617ea9aab5838129e7e96ed605
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213236"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463215"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
 
@@ -35,7 +35,7 @@ No hay ningún cmdlet de PowerShell para el plano de datos de las colas. Para re
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando `Connect-AzAccount` y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción a Azure con el comando `Connect-AzAccount` y siga las instrucciones de la pantalla.
 
 ```powershell
 Connect-AzAccount
@@ -111,15 +111,15 @@ En el siguiente ejemplo le mostraremos cómo agregar un mensaje a la cola.
 $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
   -ArgumentList "This is message 1"
 # Add a new message to the queue
-$queue.CloudQueue.AddMessage($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 # Add two more messages to the queue 
 $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
   -ArgumentList "This is message 2"
-$queue.CloudQueue.AddMessage($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($QueueMessage)
 $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
   -ArgumentList "This is message 3"
-$queue.CloudQueue.AddMessage($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
 Si usa el [Explorador de Azure Storage](http://storageexplorer.com), puede conectarse a su cuenta de Azure, ver las colas de la cuenta de almacenamiento y explorar una de ellas para ver los mensajes de la cola. 
@@ -140,25 +140,29 @@ En el ejemplo siguiente, leerá los tres mensajes de la cola y, después, espera
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
 # Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queueMessage 
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queueMessage 
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
 
 # After 10 seconds, these messages reappear on the queue. 
 # Read them again, but delete each one after reading it.
 # Delete the message.
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queue.CloudQueue.DeleteMessage($queueMessage)
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queue.CloudQueue.DeleteMessage($queueMessage)
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
 ```
 
 ## <a name="delete-a-queue"></a>Eliminación de una cola
+
 Para eliminar una cola y todos los mensajes que contenga, llame al cmdlet Remove-AzStorageQueue. En el siguiente ejemplo se muestra cómo eliminar la cola específica utilizada en este ejercicio mediante el cmdlet Remove-AzStorageQueue.
 
 ```powershell
@@ -187,7 +191,9 @@ En este artículo de ayuda, ha aprendido conceptos básicos sobre la administrac
 > * Eliminación de una cola
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de almacenamiento de Microsoft Azure PowerShell
+
 * [Cmdlets de PowerShell de almacenamiento](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de almacenamiento de Microsoft Azure
+
 * El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

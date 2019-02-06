@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232994"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466599"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Clasificación y detección de datos de Azure SQL Database
 
@@ -28,7 +28,7 @@ Las funciones de detección y clasificación de la información confidencial má
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 
-Data Discovery & Classification forma parte de la oferta de [protección contra amenazas avanzada (ATP) de SQL](sql-advanced-threat-protection.md). Dicha oferta es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Se puede acceder y administrar Data Discovery & Classification a través del portal de ATP de SQL.
+Data Discovery & Classification forma parte de la oferta de [Advanced Data Security (ADS) de SQL](sql-advanced-threat-protection.md). Dicha oferta es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Se puede acceder y administrar Data Discovery & Classification a través del portal de ADS de SQL.
 
 > [!NOTE]
 > Este documento tiene relación solo con Azure SQL Database. Para SQL Server (local), consulte [Clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-2. Navegue a **Protección contra amenazas avanzada** en el encabezado de Seguridad en el panel dela base de datos de Azure SQL. Haga clic para habilitar Advanced Threat Protection, y haga clic en la tarjeta **Data discovery & classification (preview)** (Data discovery & classification [versión preliminar])
+2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de Azure SQL Database. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Data discovery & classification (preview)** (Data discovery & classification [versión preliminar]).
 
    ![Examen de una base de datos](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -123,7 +123,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 ## <a id="subheading-3"></a>Auditoría del acceso a datos confidenciales
 
-Un aspecto importante del paradigma de protección de la información es la capacidad de supervisar el acceso a información confidencial. La [auditoría de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado *data_sensitivity_information*, que registra la clasificación de confidencialidad (etiquetas) de los datos reales que devuelve la consulta.
+Un aspecto importante del paradigma de protección de la información es la capacidad de supervisar el acceso a información confidencial. La [auditoría de Azure SQL Database](sql-database-auditing.md) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado *data_sensitivity_information*, que registra la clasificación de confidencialidad (etiquetas) de los datos reales que devuelve la consulta.
 
 ![Registro de auditoría](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -134,8 +134,8 @@ Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así 
 > [!NOTE]
 > Al usar T-SQL para administrar las etiquetas, no se valida que las etiquetas que se agregan a una columna existan en la directiva de protección de información de la organización (el conjunto de etiquetas que aparecen en las recomendaciones del portal). Por lo tanto, validarlas es su responsabilidad.
 
-- Agregue o actualice la clasificación de una o varias columnas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql) (Agregar la clasificación de la confidencialidad)
-- Quite la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar la clasificación de la confidencialidad)
+- Agregue o actualice la clasificación de una o varias columnas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql) (Agregar clasificación de confidencialidad)
+- Quite la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar clasificación de la confidencialidad)
 - Vea todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 También puede usar las API de REST para administrar las clasificaciones mediante programación. Las API de REST publicadas se admiten las siguientes operaciones:
@@ -147,8 +147,8 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 
 ## <a id="subheading-5"></a>Pasos siguientes
 
-- Obtenga más información sobre [Protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md).
-- Considere la posibilidad de configurar la [auditoría de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para supervisar y auditar el acceso a los datos confidenciales clasificados.
+- Obtenga más información sobre [Advanced Data Security de SQL](sql-advanced-threat-protection.md).
+- Considere la posibilidad de configurar la [auditoría de Azure SQL Database](sql-database-auditing.md) para supervisar y auditar el acceso a los datos confidenciales clasificados.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

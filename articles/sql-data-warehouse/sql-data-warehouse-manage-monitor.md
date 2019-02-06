@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301089"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466990"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
 En este artículo se describe cómo usar vistas de administración dinámica (DMV) para supervisar la carga de trabajo. Esto incluye la investigación de la ejecución de consultas en Azure SQL Data Warehouse.
@@ -45,7 +45,7 @@ Todas las consultas ejecutadas en SQL Data Warehouse se registran en [sys.dm_pdw
 
 Estos son los pasos que deben seguirse para investigar los planes de ejecución de consultas y las horas de una consulta determinada.
 
-### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>PASO 1: Identificación de la consulta que quiere investigar
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>PASO 1: Identificar la consulta que quiere investigar
 ```sql
 -- Monitor active queries
 SELECT * 
@@ -80,7 +80,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>PASO 2: investigación del plan de consulta
+### <a name="step-2-investigate-the-query-plan"></a>PASO 2: Investigar el plan de consulta
 Use el identificador de la solicitud para recuperar el plan de SQL distribuido (DSQL) de la consulta desde [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
@@ -96,10 +96,10 @@ Si un plan DSQL tarda más de lo esperado, es posible que sea un plan complejo c
 
 Para investigar más detalles acerca de un solo paso, compruebe la columna *operation_type* del paso de consulta de larga ejecución y anote el valor de **Índice de pasos**:
 
-* Continúe con el paso 3a sobre **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
-* Continúe con el paso 3b sobre **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Vaya al paso 3a para **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
+* Vaya al paso 3b para **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASO 3a: investigación de SQL en las bases de datos distribuidas
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASO 3a: Investigar SQL en las bases de datos distribuidas
 Use el identificador de la solicitud y el índice de pasos para recuperar información de [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], que contiene detalles sobre la ejecución del paso de la consulta en todas las instancias distribuidas.
 
 ```sql
@@ -119,7 +119,7 @@ Si dicho paso se está ejecutando, se puede utilizar [DBCC PDW_SHOWEXECUTIONPLAN
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASO 3b: investigación del movimiento de datos en las bases de datos distribuidas
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>PASO 3b: Investigar el movimiento de datos en las bases de datos distribuidas
 Use el identificador de la solicitud y el índice de paso para recuperar información acerca del paso de movimiento de datos que se ejecuta en cada distribución desde [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

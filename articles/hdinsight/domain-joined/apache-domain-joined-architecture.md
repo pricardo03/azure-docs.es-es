@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462439"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso de Enterprise Security Package en HDInsight
 
@@ -55,9 +55,41 @@ Para más información, consulte [Configuración de clústeres de HDInsight con 
 
 Si tiene una instancia de Active Directory local o configuraciones más complejas de Active Directory para el dominio, puede sincronizar esas identidades con Azure AD mediante Azure AD Connect. Luego puede habilitar Azure AD DS en ese inquilino de Active Directory. 
 
-Como Kerberos se basa en valores hash de contraseña, deberá [habilitar la sincronización de hash de contraseñas en Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Si usa la federación con Servicios de federación de Active Directory (AD FS), tiene la posibilidad de configurar la sincronización de hash de contraseñas como copia de seguridad en caso de error en la infraestructura de AD FS. Para más información, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Como Kerberos se basa en valores hash de contraseña, debe [habilitar la sincronización de hash de contraseñas en Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Si usa la federación mediante Servicios de federación de Active Directory (AD FS), debe habilitar la sincronización de hash de contraseñas (para un configuración recomendada, consulte [esto](https://youtu.be/qQruArbu2Ew)), que también ayuda con la recuperación ante desastres en caso de error en la infraestructura de AD FS y con la protección de las credenciales filtradas. Para más información, consulte [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 El uso de Active Directory local o de Active Directory solo en máquinas virtuales de IaaS, sin Azure AD ni Azure AD DS, no es una configuración compatible con los clústeres de HDInsight con ESP.
+
+Si se está usando federación y los hashes de contraseñas están sincronizados correctamente, pero recibe errores de autenticación, compruebe si la autenticación de contraseñas en la nube de la entidad de servicio de PowerShell está habilitada, si no lo está, debe establecer una [directiva de detección de dominio principal (HRD)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para su inquilino de AAD. Para comprobar y establecer la directiva de HRD:
+
+ 1. Instale el módulo de AzureAD PowerShell
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` usando las credenciales de un administrador global (administrador de inquilinos)
+
+ 3. Compruebe si ya se ha creado la entidad de servicio "Microsoft Azure PowerShell"
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. Si no existe (es decir, si ($powershellSPN -q $null)), cree la entidad de servicio
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Cree y asocie la directiva a la entidad de servicio: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 00ce83a7ec52e24ce858c720e834b8396c2f808c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: files
+ms.openlocfilehash: 68f21ef70b402fe45613fdcbda3074bac1d4eb5a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464966"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adición o eliminación de un punto de conexión de servidor de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -36,9 +36,9 @@ Para agregar un punto de conexión de servidor, vaya al grupo de sincronización
 
 La siguiente información es necesaria en **Agregar punto de conexión del servidor**:
 
-- **Servidor registrado**: nombre del servidor o el clúster en el que crear el punto de conexión de servidor.
-- **Ruta de acceso**: ruta de acceso del servidor de Windows Server que se va a sincronizar como parte del grupo de sincronización.
-- **Niveles de la nube**: un conmutador para habilitar o deshabilitar los niveles de la nube. Cuando está habilitada, la característica de niveles de nube *apilará* los archivos en los recursos compartidos de archivos de Azure. Esto convierte los recursos compartidos de archivos locales en una caché, en lugar de en una copia completa del conjunto de datos, para ayudarlo a administrar la eficiencia del espacio en su servidor.
+- **Servidor registrado**: el nombre del servidor o el clúster en el que crear el punto de conexión de servidor.
+- **Ruta de acceso**: la ruta de acceso de la instancia de Windows Server que se va a sincronizar como parte del grupo de sincronización.
+- **Nube por niveles**: un conmutador para habilitar o deshabilitar la nube por niveles. Cuando está habilitada, la característica de niveles de nube *apilará* los archivos en los recursos compartidos de archivos de Azure. Esto convierte los recursos compartidos de archivos locales en una caché, en lugar de en una copia completa del conjunto de datos, para ayudarlo a administrar la eficiencia del espacio en su servidor.
 - **Espacio disponible del volumen**: cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en niveles en Azure Files. Con independencia de si la característica de niveles en la nube está habilitada, el recurso compartido de archivos de Azure siempre tiene una copia completa de los datos en el grupo de sincronización.
 
 Seleccione **Crear** para agregar el punto de conexión de servidor. Los archivos de un espacio de nombres de un grupo de sincronización se mantienen ahora sincronizados. 
@@ -70,3 +70,4 @@ Para quitar el punto de conexión de servidor:
 ## <a name="next-steps"></a>Pasos siguientes
 - [Registro y cancelación del registro de un servidor con Azure File Sync](storage-sync-files-server-registration.md)
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
+- [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)

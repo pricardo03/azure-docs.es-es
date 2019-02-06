@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 818dbf84f7b706d6f4a89354291775f091bb1afc
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/30/2019
+ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215480"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461073"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos
 
@@ -260,5 +260,5 @@ En la tabla siguiente se describen las propiedades de las bases de datos agrupad
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) para conocer las respuestas a las preguntas más frecuentes.
-- Consulte [Introducción a los límites de recursos de un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
+- Consulte [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Introducción a los límites de recursos de un servidor de SQL Database) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).

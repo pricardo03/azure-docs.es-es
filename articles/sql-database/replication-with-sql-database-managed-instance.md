@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467670"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configuración de la replicación con Instancia administrada de Azure SQL Database
 
-La replicación transaccional permite replicar datos de las bases de datos de SQL Server o Instancia administrada de Azure SQL Database en la Instancia administrada, así como insertar los cambios realizados en las bases de datos de Instancia administrada en otra instancia de SQL Server, Base de datos única de Azure o Instancia administrada. La replicación está disponible en su versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Consulte [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) (Configuraciones de replicación transaccional) para ver las configuraciones disponibles.
+La replicación transaccional le permite replicar datos de las bases de datos de SQL Server o Instancia administrada de Azure SQL Database en la Instancia administrada, así como insertar los cambios realizados en las bases de datos de Instancia administrada en otra instancia de SQL Server, base de datos única o grupo elástico de SQL Database, u otra Instancia administrada. La replicación está disponible en su versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Consulte [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) (Configuraciones de replicación transaccional) para ver las configuraciones disponibles.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -46,7 +46,7 @@ Admite:
 
 - Mezcla de replicación de instantáneas y transaccional de instancias locales y de Instancia administrada de Azure SQL Database.
 
-- Los suscriptores pueden ser bases de datos únicas y locales de Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
+- Los suscriptores pueden ser bases de datos únicas y locales de Azure SQL Database, o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
 
 - Replicación unidireccional o bidireccional.
 
@@ -71,7 +71,7 @@ No se admiten las siguientes características:
 
    En los scripts de ejemplo siguientes, use `<SQL_USER>` y `<PASSWORD>` con el usuario y la contraseña de la base de datos de esta cuenta de SQL Server.
 
-5. [Conéctese a Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Conéctese a Instancia administrada de Azure SQL Database](sql-database-connect-query-ssms.md).
 
 6. Ejecute la consulta siguiente para agregar el distribuidor y la base de datos de distribución.
 
@@ -172,4 +172,4 @@ No se admiten las siguientes características:
 ## <a name="see-also"></a>Otras referencias
 
 - [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
-- [¿Qué es la Instancia administrada?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [¿Qué es la Instancia administrada?](sql-database-managed-instance.md)

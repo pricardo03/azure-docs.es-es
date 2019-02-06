@@ -1,6 +1,6 @@
 ---
-título: Volver a entrenar un nuevo servicio web de Machine Learning Studio con PowerShell titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Volver a entrenar un nuevo servicio web de Machine Learning Studio con PowerShell titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 28/03/2017
 ---

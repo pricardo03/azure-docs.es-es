@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390939"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477869"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -25,12 +25,12 @@ En este artículo se presentan consultas genéricas de Hive que crean tablas de 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
-* Creado una cuenta de almacenamiento de Azure. Para obtener instrucciones, vea [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md).
-* Aprovisionado un clúster de Hadoop personalizado con el servicio HDInsight.  Si necesita instrucciones, consulte [Personalización de clústeres de Hadoop de HDInsight de Azure para análisis avanzado](customize-hadoop-cluster.md).
-* Habilitado el acceso remoto para el clúster, iniciado sesión y abierto la consola de la línea de comandos de Hadoop. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster Hadoop](customize-hadoop-cluster.md).
+* Creado una cuenta de almacenamiento de Azure. Para obtener instrucciones, vea [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-introduction.md).
+* Aprovisionado un clúster de Hadoop personalizado con el servicio HDInsight.  Si necesita instrucciones, consulte [Configuración de clústeres en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+* Habilitado el acceso remoto para el clúster, iniciado sesión y abierto la consola de la línea de comandos de Hadoop. Si necesita instrucciones, consulte [Administración de clústeres de Apache Hadoop](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carga de datos en el almacenamiento de blobs de Azure
-Si creó una máquina virtual de Azure siguiendo las instrucciones dadas en [Configuración de una máquina virtual de Azure para análisis avanzado](../data-science-virtual-machine/setup-virtual-machine.md), este archivo de script debió descargarse en el directorio *C:\\Users\\\<nombre de usuario\>\\Documents\\Data Science Scripts* de la máquina virtual. Estas consultas de subárbol solo requieren que conecte sus propios esquemas de datos y la configuración de almacenamiento de blobs de Azure en los campos adecuados para estar preparado para su envío.
+Si creó una máquina virtual de Azure siguiendo las instrucciones dadas en [Configuración de una máquina virtual de Azure para análisis avanzado](../../machine-learning/data-science-virtual-machine/overview.md), este archivo de script debió descargarse en el directorio *C:\\Users\\\<nombre de usuario\>\\Documents\\Data Science Scripts* de la máquina virtual. Estas consultas de subárbol solo requieren que conecte sus propios esquemas de datos y la configuración de almacenamiento de blobs de Azure en los campos adecuados para estar preparado para su envío.
 
 Se supone que los datos de las tablas de Hive están en un formato tabular **sin comprimir** y que se han cargado los datos en el contenedor predeterminado (o en otro adicional) de la cuenta de almacenamiento que usa el clúster Hadoop.
 
@@ -38,7 +38,7 @@ Si desea practicar con el grupo **NYC Taxi Trip Data**, necesita hacer lo siguie
 
 * **Descargue** los 24 archivos de [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) (12 archivos de carreras y 12 archivos de tarifas).
 * **Descomprima** todos los archivos en archivos .csv.
-* **cargue** los archivos en el contenedor predeterminado (o el contenedor pertinente) de la cuenta de Azure Storage que se creó mediante el procedimiento descrito en el tema [Personalización de los clústeres de Hadoop de HDInsight de Azure para el proceso de ciencia de datos en equipos](customize-hadoop-cluster.md) . En esta [página](hive-walkthrough.md#upload)encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
+* **cárguelos** en la cuenta predeterminada (o contenedor adecuado) de Azure Storage; las opciones de este tipo de cuenta aparecen en el tema que explica [cómo usar Azure Storage con los clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). En esta [página](hive-walkthrough.md#upload)encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
 
 ## <a name="submit"></a>Envío de consultas de Hive
 Las consultas de subárbol se pueden enviar mediante:

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/25/2018
+ms.openlocfilehash: 03ea4a7db27e32b370be89adf308ded9a22f9e37
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304286"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478430"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync entre Azure SQL Database e instancias locales de SQL Server
 
@@ -71,17 +71,17 @@ En la sección **Base de datos central**, escriba las credenciales existentes de
 
 ### <a name="to-add-an-azure-sql-database"></a>Incorporación de una instancia de Azure SQL Database
 
-En la sección **Base de datos de miembros**, tiene la opción de agregar una instancia de Azure SQL Database al grupo de sincronización si selecciona **Agregar una base de datos de Azure**. Se abre la página **Configurar base de datos de Azure**.
+En la sección **Base de datos de miembros**, tiene la opción de agregar una instancia de Azure SQL Database al grupo de sincronización si selecciona **Agregar una instancia de Azure SQL Database**. Se abre la página **Configurar una instancia de Azure SQL Database**.
 
   ![Paso 2: Configuración de la base de datos](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  En la página **Configurar base de datos de Azure**, cambie la siguiente configuración:
+  En la página **Configurar instancia de Azure SQL Database**, cambie las siguientes opciones de configuración:
 
   | Configuración                       | DESCRIPCIÓN |
   | ----------------------------- | ------------------------------------------------- |
   | **Nombre del miembro de sincronización** | Proporcione un nombre para el nuevo miembro de sincronización. Este nombre es distinto del de la base de datos. |
   | **Suscripción** | Seleccione la suscripción de Azure asociada para fines de facturación. |
-  | **Azure SQL Server** | Seleccione el servidor de bases de datos SQL existente. |
+  | **Azure SQL Server** | Seleccione el servidor de SQL Database existente. |
   | **Azure SQL Database** | Seleccione la base de datos SQL existente. |
   | **Direcciones de sincronización** | Seleccione **Sincronización bidireccional**, **Al concentrador** o **Desde el concentrador**. |
   | **Nombre de usuario** y **Contraseña** | Escriba las credenciales existentes para el servidor de SQL Database en el que se encuentra la base de datos miembro. No escriba *nuevas* credenciales en esta sección. |

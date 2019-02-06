@@ -1,5 +1,5 @@
 ---
-título: Administración del ciclo de vida de las aplicaciones titleSuffix: Azure Machine Learning Studio description: Aplique los procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Administración del ciclo de vida de las aplicaciones titleSuffix: Azure Machine Learning Studio description: Aplique los procedimientos recomendados de administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio Services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 27/10/2016
 ---

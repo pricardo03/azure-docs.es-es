@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467703"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en base de datos agrupadas y únicas de SQL Database
 
-La replicación de SQL Server puede configurarse para bases de datos únicas y agrupadas en un [servidor lógico](sql-database-logical-servers.md) de Azure SQL Database.  
+La replicación de SQL Server puede configurarse para bases de datos únicas y agrupadas en un [servidor de SQL Server](sql-database-servers.md) en Azure SQL Database.  
 
 ## <a name="supported-configurations"></a>**Configuraciones admitidas:**
   
@@ -65,7 +65,7 @@ La replicación de SQL Server puede configurarse para bases de datos únicas y a
 
 1. Cree una publicación de replicación transaccional en una base de datos de SQL Server local.  
 2. En la instancia de SQL Server local, use el **Asistente para nueva suscripción** o las instrucciones Transact-SQL para crear una inserción en la suscripción de Azure SQL Database.  
-3. Con las bases de datos individuales y agrupadas de Azure SQL Database, el conjunto de datos inicial es una instantánea creada por el Agente de instantáneas y distribuida y aplicada por el Agente de distribución. Con Instancia administrada de Azure SQL Database, también puede utilizar una copia de seguridad de la base de datos para propagar la base de datos del suscriptor.
+3. Con las bases de datos individuales y agrupadas de Azure SQL Database, el conjunto de datos inicial es una instantánea creada por el Agente de instantáneas y distribuida y aplicada por el Agente de distribución. Con una base de datos de instancia administrada, también puede usar una copia de seguridad de la base de datos para propagar la base de datos del suscriptor.
 
 ### <a name="data-migration-scenario"></a>Escenario de migración de datos  
 
@@ -107,7 +107,7 @@ Las siguientes opciones no se admiten para las suscripciones de Azure SQL Databa
 Cree una publicación y una suscripción de inserción. Para más información, consulte:
   
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción) mediante el nombre del servidor lógico de Azure SQL Database como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'**) y el nombre de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
+- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'**) y el nombre de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
 
 ## <a name="see-also"></a>Otras referencias  
 

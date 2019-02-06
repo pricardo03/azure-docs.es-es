@@ -1,5 +1,5 @@
 ---
-título: Implementación y consumo titleSuffix: Azure Machine Learning Studio description: Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones en Internet para que realicen predicciones en tiempo real o en un modo por lotes. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Implementación y consumo titleSuffix: Azure Machine Learning Studio description: Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones en Internet para que realicen predicciones en tiempo real o en un modo por lotes. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

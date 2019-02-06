@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044576"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462807"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
 Azure SQL Database, los grupos elásticos, Instancia administrada y las bases de datos de Instancia administrada pueden transmitir métricas y registros de diagnóstico para facilitar la supervisión del rendimiento. Puede configurar una base de datos para optimizar el uso de recursos, los trabajos y sesiones, y la conectividad en uno de los siguientes recursos de Azure:
 
-- **Azure SQL Analytics**: para obtener supervisión inteligente de sus bases de datos de Azure que incluye informes de rendimiento, alertas y recomendaciones de mitigación.
+- **Azure SQL Analytics**: para obtener supervisión inteligente de sus bases de datos de Azure SQL que incluya informes de rendimiento, alertas y recomendaciones de mitigación.
 - **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
 - **Azure Storage**: para archivar grandes cantidades de telemetría por una fracción del precio.
 
@@ -68,7 +68,7 @@ Puede configurar instancias de Azure SQL Databases y bases de datos de Instancia
 | [Todas las métricas](sql-database-metrics-diag-logging.md#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | SÍ | Sin  |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | SÍ | SÍ |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como la CPU, el registro y el bloqueo. | SÍ | SÍ |
-| [Errores](sql-database-metrics-diag-logging.md#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | SÍ | Sin  |
+| [Errores](sql-database-metrics-diag-logging.md#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | SÍ | SÍ |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | SÍ | Sin  |
 | [Tiempos de expiración](sql-database-metrics-diag-logging.md#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | SÍ | Sin  |
 | [Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | SÍ | Sin  |
@@ -414,7 +414,7 @@ Consulte la siguiente tabla en busca de detalles sobre los registros para Instan
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: ResourceUsageStats |
 |Recurso|Nombre del recurso |
@@ -443,7 +443,7 @@ Consulte las siguientes tablas en busca de detalles sobre los registros para las
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics |
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent |
@@ -494,7 +494,7 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: QueryStoreWaitStatistics |
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent |
@@ -532,7 +532,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQ |
 |Categoría|Nombre de la categoría Siempre: Errors |
 |nombreOperación|Nombre de la operación. Siempre: ErrorEvent |
@@ -561,7 +561,7 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: DatabaseWaitStatistics |
 |nombreOperación|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: Tiempos de expiración |
 |nombreOperación|Nombre de la operación. Siempre: TimeoutEvent |
@@ -613,7 +613,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: Blocks |
 |nombreOperación|Nombre de la operación. Siempre: BlockEvent |
@@ -637,7 +637,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC] |Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: Interbloqueos |
 |nombreOperación|Nombre de la operación. Siempre: DeadlockEvent |
@@ -658,7 +658,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino |
 |SourceSystem|Siempre: Azure |
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro |
-|Escriba|Siempre: AzureDiagnostics |
+|Type|Siempre: AzureDiagnostics |
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL |
 |Categoría|Nombre de la categoría Siempre: AutomaticTuning |
 |Recurso|Nombre del recurso |

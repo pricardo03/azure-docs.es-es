@@ -1,6 +1,6 @@
 ---
-título: Uso del portal de servicios web de Azure Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Uso del portal de servicios web de Azure Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 28/02/2017
 ---

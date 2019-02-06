@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600053"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461600"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual del rendimiento de consultas en Azure SQL Database
 
@@ -235,18 +235,18 @@ Si una carga de trabajo contiene un conjunto de consultas repetidas, con frecuen
 
 ### <a name="cross-database-sharding"></a>Particionamiento entre bases de datos
 
-Como Azure SQL Database se ejecuta en hardware estándar, los límites de capacidad para una base de datos única son inferiores a los de una instalación local de SQL Server tradicional. Algunos clientes usan técnicas de particionamiento para repartir las operaciones de base de datos entre varias bases de datos cuando las operaciones no entran en los límites de una base de datos única en Azure SQL Database. La mayoría de los clientes que usan técnicas de particionamiento en Azure SQL Database divide sus datos en una única dimensión entre varias bases de datos. En este enfoque, debe comprender que las aplicaciones OLTP a menudo realizan transacciones que se aplican a una sola fila o a un pequeño grupo de filas del esquema.
+Como Azure SQL Database se ejecuta en hardware estándar, los límites de capacidad para una base de datos individual son inferiores a los de una instalación local de SQL Server tradicional. Algunos clientes usan técnicas de particionamiento para repartir las operaciones de base de datos entre varias bases de datos cuando las operaciones no entran en los límites de una base de datos individual en Azure SQL Database. La mayoría de los clientes que usan técnicas de particionamiento en Azure SQL Database divide sus datos en una única dimensión entre varias bases de datos. En este enfoque, debe comprender que las aplicaciones OLTP a menudo realizan transacciones que se aplican a una sola fila o a un pequeño grupo de filas del esquema.
 
 > [!NOTE]
 > Tenga en cuenta que SQL Database ahora proporciona una biblioteca para ayudar con el particionamiento. Para obtener más información, consulte [Información general de la biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).
 
-Por ejemplo, si una base de datos tiene el nombre del cliente, el pedido y los detalles del pedido (como la base de datos tradicional de ejemplo Northwind que se incluye con SQL Server), podría dividir estos datos en varias bases de datos mediante la agrupación de un cliente con el pedido relacionado y la información detallada del pedido. Puede garantizar que los datos del cliente permanecen en una base de datos única. La aplicación dividiría los distintos clientes entre las bases de datos, repartiendo la carga eficazmente entre varias bases de datos. El particionamiento no solo permite que los clientes eviten el límite de tamaño máximo de la base de datos, sino también que Azure SQL Database procese cargas de trabajo que sean mucho mayores que los límites de los distintos tamaños de proceso, siempre y cuando cada base de datos se ajuste a sus DTU.
+Por ejemplo, si una base de datos tiene el nombre del cliente, el pedido y los detalles del pedido (como la base de datos tradicional de ejemplo Northwind que se incluye con SQL Server), podría dividir estos datos en varias bases de datos mediante la agrupación de un cliente con el pedido relacionado y la información detallada del pedido. Puede garantizar que los datos del cliente permanezcan en una base de datos individual. La aplicación dividiría los distintos clientes entre las bases de datos, repartiendo la carga eficazmente entre varias bases de datos. El particionamiento no solo permite que los clientes eviten el límite de tamaño máximo de la base de datos, sino también que Azure SQL Database procese cargas de trabajo que sean mucho mayores que los límites de los distintos tamaños de proceso, siempre y cuando cada base de datos se ajuste a sus DTU.
 
 Aunque el particionamiento de base de datos no reduce la capacidad de recursos agregados para una solución, es muy eficaz a la hora de admitir soluciones muy grandes que se distribuyen entre varias bases de datos. Cada base de datos se puede ejecutar con un tamaño de proceso diferente para admitir bases de datos "eficaces" muy grandes con requisitos elevados de recursos.
 
 ### <a name="functional-partitioning"></a>Creación de particiones funcional
 
-Los usuarios de SQL Server suelen combinar varias funciones en una base de datos única. Por ejemplo, si una aplicación contiene lógica para administrar el inventario de un almacén, esa base de datos podría contener lógica asociada con el inventario, el seguimiento de los pedidos de compra, los procedimientos almacenados y las vistas indizadas o materializadas que administran los informes de fin de me. Esta técnica facilita la administración de la base de datos para operaciones como la copia de seguridad, pero también requiere ajustar el tamaño del hardware para administrar la carga máxima en todas las funciones de una aplicación.
+Los usuarios de SQL Server suelen combinar varias funciones en una base de datos individual. Por ejemplo, si una aplicación contiene lógica para administrar el inventario de un almacén, esa base de datos podría contener lógica asociada con el inventario, el seguimiento de los pedidos de compra, los procedimientos almacenados y las vistas indizadas o materializadas que administran los informes de fin de me. Esta técnica facilita la administración de la base de datos para operaciones como la copia de seguridad, pero también requiere ajustar el tamaño del hardware para administrar la carga máxima en todas las funciones de una aplicación.
 
 Si usa una arquitectura de escalado horizontal en Azure SQL Database, es una buena idea repartir las distintas funciones de una aplicación en diferentes bases de datos. Mediante esta técnica, cada aplicación se escala de forma independiente. A medida que una aplicación realiza una actividad mayor (y aumenta la carga en la base de datos), el administrador puede elegir tamaños de proceso independientes para cada función de la aplicación. En el límite, una aplicación con esta arquitectura puede ser más grande de lo que puede controlar una única máquina estándar por lo que la carga se reparte entre varias máquinas.
 

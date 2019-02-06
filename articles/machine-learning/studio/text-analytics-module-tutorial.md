@@ -1,5 +1,5 @@
 ---
-título: Creación de un modelo de análisis de opiniones titleSuffix: Azure Machine Learning Studio description: Cómo crear modelos de análisis de texto en Azure Machine Learning Studio mediante módulos de preprocesamiento de texto, n-gramas o hash de características services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Creación de un modelo de análisis de opiniones titleSuffix: Azure Machine Learning Studio description: Cómo crear modelos de análisis de texto en Azure Machine Learning Studio mediante módulos de preprocesamiento de texto, n-gramas o servicios de hash de características: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2018
 ---

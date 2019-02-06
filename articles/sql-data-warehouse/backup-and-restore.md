@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465180"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462348"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Utilice instantáneas de almacenamiento de datos para recuperar o copiar el almacenamiento de datos en un punto de restauración en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica. 
@@ -73,7 +73,7 @@ Las copias de seguridad geográficas están activadas de manera predeterminada. 
 
 
 ## <a name="backup-and-restore-costs"></a>Costos de copia de seguridad y restauración
-Observará que la factura de Azure tiene un elemento de línea para Storage y un elemento de línea para Storage de recuperación ante desastres. El cargo de Storage corresponde al costo total del almacenamiento de sus datos en la región primaria con los cambios incrementales que capturan las instantáneas. Para una explicación más detallada sobre cómo se realizan actualmente las instantáneas, consulte esta [documentación](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). El cargo con redundancia geográfica abarca el costo de almacenamiento de las copias de seguridad geográficas.  
+Observará que la factura de Azure tiene un elemento de línea para Storage y un elemento de línea para Storage de recuperación ante desastres. El cargo de Storage corresponde al costo total del almacenamiento de sus datos en la región primaria con los cambios incrementales que capturan las instantáneas. Para obtener una explicación más detallada de cómo se cobran las instantáneas, consulte [Understanding how Snapshots Accrue Charges](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios) (Cómo se acumulan los cargos de instantáneas). El cargo con redundancia geográfica abarca el costo de almacenamiento de las copias de seguridad geográficas.  
 
 El costo total del almacenamiento de datos principal y de los siete días de cambios de instantánea se redondea al TB más cercano. Por ejemplo, si el almacenamiento de datos es de 1,5 TB y las capturas de instantáneas 100 GB, se le facturan 2 TB de datos según las tarifas de Azure Premium Storage. 
 

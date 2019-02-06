@@ -1,6 +1,6 @@
 ---
 title: Introducción a Instancia administrada de Azure SQL Database | Microsoft Docs
-description: En este tema se describe una instancia de Instancia administrada de Azure SQL Database y se explica cómo funciona y cómo difiere de una base de datos única de Azure SQL Database.
+description: En este tema se describe una instancia de Instancia administrada de Azure SQL Database y se explica cómo funciona y cómo difiere de una base de datos única y agrupada en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994766"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465714"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Usar Instancia administrada de SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -34,7 +34,7 @@ La Instancia administrada de Azure SQL Database está diseñada para aquellos cl
 
 En cuanto a la disponibilidad general, Instancia administrada quiere proporcionar una compatibilidad de área expuesta cercana al 100% con la última versión de SQL Server local mediante un plan de lanzamiento gradual.
 
-Para decidir entre la base de datos única de Azure SQL Database, la instancia administrada de Azure SQL Database y la IaaS de SQL Server hospedada en la máquina virtual, consulte [cómo elegir la versión correcta de SQL Server en Azure Cloud](sql-database-paas-vs-sql-server-iaas.md).
+Para decidir entre la base de datos única de Azure SQL Database, la base de datos agrupada, la instancia administrada y SQL Server hospedado en Virtual Machine, consulte [cómo elegir la versión correcta de SQL Server en Azure Cloud](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Funcionalidades y características clave
 
@@ -185,7 +185,7 @@ El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob 
 - Para obtener información sobre la restauración desde una URL, vea [Restauración de copias de seguridad nativas desde la dirección URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Solo se pueden restaurar las copias de seguridad de una instancia administrada en otra instancia administrada. No puede restaurarse en una instancia local de SQL Server o en una base de datos única o agrupada del servidor lógico de Azure SQL Server.
+> Solo se pueden restaurar las copias de seguridad de una instancia administrada en otra instancia administrada. No puede restaurarse a una instancia de SQL Server local ni a una base de datos única ni grupo elástico.
 
 ### <a name="data-migration-service"></a>Data Migration Service
 
@@ -210,7 +210,7 @@ Instancia administrada tiene la ventaja de estar siempre actualizada en la nube,
 - Instancia administrada no permite especificar las rutas de acceso físicas completas, por lo que todos los escenarios correspondientes tienen que ser compatibles de manera diferente: RESTORE DB no es compatible con WITH MOVE, CREATE DB no permite rutas de acceso físicas, BULK INSERT funciona solo con Azure Blobs, etc.
 - Instancia administrada admite la [autenticación de Azure AD](sql-database-aad-authentication.md) como alternativa en la nube a la autenticación de Windows.
 - Instancia administrada administra automáticamente el grupo de archivos XTP y los archivos de bases de datos que contienen objetos de OLTP en memoria
-- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database y la Instancia administrada, consulte [Compare SQL Database logical server and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance) (Comparación entre el servidor lógico de SQL Database y la Instancia administrada).
+- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database y la Instancia administrada, consulte [Compare Azure SQL Database single databases/elastic pools and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance) (Comparación entre bases de datos únicas/grupos de bases de datos elásticas de Azure SQL Database e Instancia administrada).
 
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada
 

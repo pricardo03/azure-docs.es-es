@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 49da7704c3b1c3c119528201f34f1352b0afbba4
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 01/25/2019
+ms.openlocfilehash: 6153fbdb6e085d1c817fac5db5eddb5e2c6ae7fa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362133"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465449"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Control de acceso a Azure SQL Database y SQL Data Warehouse
 
@@ -40,7 +40,7 @@ SQL Database admite dos tipos de autenticación:
 
 - **Autenticación de SQL**:
 
-  Este método de autenticación usa un nombre de usuario y una contraseña. Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". 
+  Este método de autenticación utiliza un nombre de usuario y una contraseña. Al crear el servidor de SQL Database para la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". 
 - **Autenticación con Azure Active Directory**:
 
   Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Consulte el tutorial [Conectar a la SQL Database mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md) , para obtener información acerca de cómo crear un administrador de Azure AD y así habilitar la autenticación de Azure Active Directory.

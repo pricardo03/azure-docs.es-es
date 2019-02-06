@@ -11,24 +11,28 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
-ms.date: 08/27/2018
-ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603056"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462977"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a Elastic Database Tools
+
 Este documento es una introducción a la experiencia del desarrollador con la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md) que le ayuda a ejecutar una aplicación de ejemplo. La aplicación de ejemplo crea una aplicación particionada sencilla y explora las funcionalidades clave de la característica Elastic Database Tools de Azure SQL Database. Se centra en casos de uso para la [administración de asignación de particiones](sql-database-elastic-scale-shard-map-management.md), el [enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md) y las [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md). La biblioteca de cliente está disponible para. NET, así como para Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database Tools para Java
+
 ### <a name="prerequisites"></a>Requisitos previos
+
 * Kit para desarrolladores de Java (JDK) versión 1.8 o posterior
 * [Maven](http://maven.apache.org/download.cgi)
-* Un servidor lógico en Azure o una instancia local de SQL Server
+* Un servidor de SQL Database en Azure o una instancia local de SQL Server
 
 ### <a name="download-and-run-the-sample-app"></a>Descarga y ejecución de la aplicación de ejemplo
+
 Siga estos pasos para compilar los archivos JAR y empezar a trabajar con el proyecto de ejemplo: 
 1. Clone el [repositorio de GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) que contiene la biblioteca de cliente junto con la aplicación de ejemplo. 
 
@@ -65,12 +69,15 @@ Para agregar la biblioteca de cliente a su propio proyecto de Maven, agregue la 
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>Elastic Database Tools para .NET 
+## <a name="elastic-database-tools-for-net"></a>Elastic Database Tools para .NET
+
 ### <a name="prerequisites"></a>Requisitos previos
+
 * Visual Studio 2012 o posterior con C#. Descargue una versión gratuita desde [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 o posterior. Para obtener la versión más reciente, vea [Installing NuGet (Instalación de NuGet)](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Descarga y ejecución de la aplicación de ejemplo
+
 Para instalar la biblioteca, vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). La biblioteca se instala con la aplicación de ejemplo que se describe en la siguiente sección.
 
 Para descargar y ejecutar el ejemplo, siga estos pasos: 
@@ -91,10 +98,9 @@ Felicidades. Ha creado y ejecutado correctamente su primera aplicación con part
 
 > [!IMPORTANT]
 > Se recomienda usar siempre la versión más reciente de Management Studio para poder estar al día de las actualizaciones de Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Piezas clave del ejemplo de código
+
 * **Administración de particiones y mapas de particiones**: el código ilustra cómo trabajar con particiones, rangos y asignaciones en el archivo *ShardManagementUtils.cs*. Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).  
 
 * **Enrutamiento dependiente de los datos**: el enrutamiento de transacciones a la partición correcta se muestra en el archivo *DataDependentRoutingSample.cs*. Para más información, vea [Enrutamiento dependiente de los datos](https://go.microsoft.com/?linkid=9862596). 
@@ -104,11 +110,13 @@ Felicidades. Ha creado y ejecutado correctamente su primera aplicación con part
 * **Incorporación de particiones vacías**: la incorporación iterativa de nuevas particiones vacías se realiza mediante código en el archivo *CreateShardSample.cs*. Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).
 
 ## <a name="other-elastic-scale-operations"></a>Otras operaciones de escalado elástico
+
 * **División de una partición existente**: la funcionalidad de dividir particiones se proporciona mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
 
 * **Combinación de particiones existentes**: las combinaciones de particiones también se realizan mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Coste
+
 La biblioteca de Elastic Database Tools es gratuita. Si usa Elastic Database Tools, no tendrá ningún cargo adicional al costo del uso de Azure. 
 
 Por ejemplo, la aplicación de ejemplo crea nuevas bases de datos. El costo de esta funcionalidad depende de la edición de SQL Database que elija y del uso de Azure de la aplicación.
@@ -116,6 +124,7 @@ Por ejemplo, la aplicación de ejemplo crea nuevas bases de datos. El costo de e
 Para obtener información sobre los precios, vea [SQL Database Precios](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre Elastic Database Tools, consulte los artículos siguientes:
 
 * Ejemplos de código: 

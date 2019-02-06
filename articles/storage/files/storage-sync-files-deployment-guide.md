@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 1b3e33c47d4188ba273fb232e2e166a2c33cb1b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: files
+ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463837"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465833"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -417,3 +417,4 @@ Para más información, consulte [Interoperabilidad de Azure File Sync con el si
 ## <a name="next-steps"></a>Pasos siguientes
 - [Adición o eliminación de un punto de conexión de servidor de Azure File Sync ](storage-sync-files-server-endpoint.md)
 - [Registro y cancelación del registro de un servidor con Azure File Sync](storage-sync-files-server-registration.md)
+- [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)

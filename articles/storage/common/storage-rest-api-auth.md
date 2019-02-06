@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529832"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476203"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso de la API de REST de Azure Storage
 
@@ -58,15 +58,15 @@ La aplicación de ejemplo muestra los contenedores de una cuenta de almacenamien
 
 Si examina la [API de REST de Blob service](/rest/api/storageservices/Blob-Service-REST-API), verá todas las operaciones que puede realizar en el almacenamiento de blobs. Las bibliotecas de cliente de almacenamiento son contenedores de las API de REST, que permiten acceder de forma fácil al almacenamiento sin usar directamente las API de REST. Pero como se ha mencionado anteriormente, en ocasiones querrá usar la API de REST en lugar de una biblioteca de cliente de almacenamiento.
 
-## <a name="rest-api-reference-list-containers-api"></a>Referencia de la API de REST: API List Containers
+## <a name="rest-api-reference-list-containers-api"></a>Referencia de la API REST: List Containers API
 
 Echemos un vistazo a la página de la referencia de API de REST de la operación [ListContainers](/rest/api/storageservices/List-Containers2) para que comprenda de dónde vienen algunos de los campos en la solicitud y respuesta de la sección siguiente con el código.
 
 **Método de solicitud**: GET. Este verbo es el método HTTP que se especifica como una propiedad del objeto de solicitud. Otros valores de este verbo incluyen HEAD, PUT y DELETE, según la API a la que llame.
 
-**URI de solicitud**: https://myaccount.blob.core.windows.net/?comp=list se crea desde el punto de conexión de la cuenta de almacenamiento de blobs `http://myaccount.blob.core.windows.net` y la cadena de recurso `/?comp=list`.
+**URI de solicitud**: https://myaccount.blob.core.windows.net/?comp=list; se crea desde el punto de conexión de la cuenta de almacenamiento de blobs `http://myaccount.blob.core.windows.net` y la cadena de recurso `/?comp=list`.
 
-[Parámetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): hay parámetros de consulta adicionales que puede usar al llamar a ListContainers. Dos de estos parámetros son *timeout* para la llamada (en segundos) y *prefix*, que se usa para el filtrado.
+[Parámetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): existen parámetros de consulta adicionales que puede usar al llamar a ListContainers. Dos de estos parámetros son *timeout* para la llamada (en segundos) y *prefix*, que se usa para el filtrado.
 
 Otro parámetro útil es *maxresults:* si hay un número de contenedores disponibles superior a este valor, el cuerpo de respuesta contendrá un elemento *NextMarker* que indica el siguiente contenedor que se devuelve en la solicitud siguiente. Para usar esta característica, proporcionará el valor *NextMarker* como el parámetro *marker* en el identificador URI cuando realice la solicitud siguiente. El uso de esta característica es análogo a la paginación a través de los resultados. 
 
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Cuerpo de respuesta (XML):** con ListContainers, muestra la lista de contenedores y sus propiedades.
+**Cuerpo de la respuesta (XML):** con ListContainers, muestra la lista de contenedores y sus propiedades.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,24 +283,24 @@ Este fragmento de código muestra el formato de la cadena de firma de clave comp
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 La mayoría de estos campos se usan muy poco. Con Blob Storage, especificará VERB, md5, longitud de contenido, encabezados con formato canónico y recursos con formato canónico. Puede dejar los demás en blanco (pero ponga la `\n` para que se sepa que están en blanco).
 
-¿Qué son CanonicalizedHeaders y CanonicalizedResource? Buena pregunta. De hecho, ¿qué significa formato canónico? Ni siquiera Microsoft Word lo reconoce como una palabra. Esto es lo que la [Wikipedia dice de la canonización](http://en.wikipedia.org/wiki/Canonicalization): *en informática, la canonización (en ocasiones la estandarización o la normalización) es un proceso para convertir los datos que tienen más de una posible representación en forma canónica, "normal" o "estándar".* En terminología normal, esto significa tomar la lista de elementos (como los encabezados en el caso de los encabezados con formato canónico) y estandarizarlos en un formato requerido. Básicamente, Microsoft se decidió por un formato y hay que buscar la coinciencia con él.
+¿Qué son CanonicalizedHeaders y CanonicalizedResource? Buena pregunta. De hecho, ¿qué significa formato canónico? Ni siquiera Microsoft Word lo reconoce como una palabra. Esto es lo que [Wikipedia dice acerca de la canonización](http://en.wikipedia.org/wiki/Canonicalization): *en informática, la canonización (en ocasiones la estandarización o la normalización) es un proceso para convertir los datos que tienen más de una posible representación en forma canónica, "normal" o "estándar".* En terminología normal, esto significa tomar la lista de elementos (como los encabezados en el caso de los encabezados con formato canónico) y estandarizarlos en un formato requerido. Básicamente, Microsoft se decidió por un formato y hay que buscar la coinciencia con él.
 
 Comencemos con esos dos campos con formato canónico, puesto que son necesarios para crear el encabezado de autorización.
 
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Cuerpo de respuesta (XML):** esta respuesta XML muestra la lista de blobs y sus propiedades. 
+**Cuerpo de la respuesta (XML):** esta respuesta XML muestra la lista de blobs y sus propiedades. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136195"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478498"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
@@ -64,20 +64,23 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 
 1. Asegúrese de que la base de datos y las tablas se crean en la base de datos de SQL Server de destino. Este es un ejemplo de cómo realizar esa tarea con los comandos `Create Database` y `Create Table`:
 
-        CREATE DATABASE <database_name>
+```sql
+CREATE DATABASE <database_name>
 
-        CREATE TABLE <tablename>
-        (
-            <columnname1> <datatype> <constraint>,
-            <columnname2> <datatype> <constraint>,
-            <columnname3> <datatype> <constraint>
-        )
+CREATE TABLE <tablename>
+(
+    <columnname1> <datatype> <constraint>,
+    <columnname2> <datatype> <constraint>,
+    <columnname3> <datatype> <constraint>
+)
+```
+
 2. Genere el archivo de formato que describe el esquema de la tabla emitiendo el siguiente comando desde la línea de comandos de la máquina donde está instalado bcp.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 3. Inserte los datos en la base de datos usando el comando bcp de la siguiente manera. Esto debería funcionar desde la línea de comandos suponiendo que SQL Server esté instalado en la misma máquina:
 
-    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
 > **Optimización de inserciones de BCP** Consulte el siguiente artículo ['Directrices para optimizar la importación masiva'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) para optimizar este tipo de inserciones.
 >
@@ -87,46 +90,47 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 Si los datos que está moviendo son grandes, puede acelerar las cosas ejecutando simultáneamente varios comandos BCP en paralelo en un script de PowerShell.
 
 > [!NOTE]
-> **Ingesta de Big Data** Para optimizar la carga de datos para conjuntos de datos grandes y muy grandes, cree particiones de sus tablas de bases de datos lógicas y físicas con varios grupos de archivos y tablas de particiones. Para obtener más información acerca de cómo crear y cargar datos en las tablas de partición, consulte [Tablas de particiones de SQL de carga paralela](parallel-load-sql-partitioned-tables.md).
+> **Ingesta de macrodatos**: para optimizar la carga de datos para conjuntos de datos grandes y muy grandes, puede crear particiones de sus tablas de bases de datos lógicas y físicas con varios grupos de archivos y tablas de particiones. Para obtener más información acerca de cómo crear y cargar datos en las tablas de partición, consulte [Tablas de particiones de SQL de carga paralela](parallel-load-sql-partitioned-tables.md).
 >
 >
 
-El script de PowerShell de ejemplo siguiente muestra inserciones paralelas con bcp:
+El script de PowerShell de ejemplo que se muestra a continuación, indica inserciones paralelas mediante bcp:
 
-    $NO_OF_PARALLEL_JOBS=2
+```powershell
+$NO_OF_PARALLEL_JOBS=2
 
-     Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
-     # Define what each job does
-       $ScriptBlock = {
-           param($partitionnumber)
+Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
+# Define what each job does
+$ScriptBlock = {
+    param($partitionnumber)
 
-           #Explictly using SQL username password
-           bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
+    #Explicitly using SQL username password
+    bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
 
-            #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
-            #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
-      }
-
-
-    # Background processing of all partitions
-    for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
-    {
-      Write-Debug "Submit loading partition # $i"
-      Start-Job $ScriptBlock -Arg $i      
-    }
+    #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
+    #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
+}
 
 
-    # Wait for it all to complete
-    While (Get-Job -State "Running")
-    {
-      Start-Sleep 10
-      Get-Job
-    }
+# Background processing of all partitions
+for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
+{
+    Write-Debug "Submit loading partition # $i"
+    Start-Job $ScriptBlock -Arg $i      
+}
 
-    # Getting the information back from the jobs
-    Get-Job | Receive-Job
-    Set-ExecutionPolicy Restricted #reset the execution policy
 
+# Wait for it all to complete
+While (Get-Job -State "Running")
+{
+    Start-Sleep 10
+    Get-Job
+}
+
+# Getting the information back from the jobs
+Get-Job | Receive-Job
+Set-ExecutionPolicy Restricted #reset the execution policy
+```
 
 ### <a name="insert-tables-bulkquery"></a>Consulta SQL de inserción masiva
 La [Consulta SQL de inserción masiva](https://msdn.microsoft.com/library/ms188365) se puede usar para importar datos en la base de datos desde archivos basados en fila o columnas [los tipos admitidos se tratan en el tema [Preparar los datos para exportar o importar de forma masiva (SQL Server)](https://msdn.microsoft.com/library/ms188609)].
@@ -135,18 +139,22 @@ Estos son algunos ejemplos de comandos de inserción masiva:
 
 1. Analice sus datos y establezca las opciones personalizadas antes de importar para asegurarse de que la base de datos de SQL Server asume el mismo formato para todos los campos especiales, como las fechas. Este es un ejemplo de cómo establecer el formato de fecha como año-mes-día (si los datos contienen la fecha en formato año-mes-día):
 
-        SET DATEFORMAT ymd;    
+```sql
+SET DATEFORMAT ymd;
+```
 2. Importar datos mediante instrucciones de importación en bloque:
 
-        BULK INSERT <tablename>
-        FROM    
-        '<datafilename>'
-        WITH
-        (
-        FirstRow=2,
-        FIELDTERMINATOR =',', --this should be column separator in your data
-        ROWTERMINATOR ='\n'   --this should be the row separator in your data
-        )
+```sql
+BULK INSERT <tablename>
+FROM
+'<datafilename>'
+WITH
+(
+    FirstRow = 2,
+    FIELDTERMINATOR = ',', --this should be column separator in your data
+    ROWTERMINATOR = '\n'   --this should be the row separator in your data
+)
+```
 
 ### <a name="sql-builtin-utilities"></a>Utilidades integradas de SQL Server
 Puede utilizar los servicios de integraciones de SQL Server (SSIS) para importar datos en la VM de SQL Server de Azure desde un archivo plano.

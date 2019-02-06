@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.subservice: common
+ms.openlocfilehash: 7cc051697f3928e360ec0b3c6647a3a718315c18
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984271"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477274"
 ---
 # <a name="azure-storage-samples-using-java"></a>Ejemplos de Azure Storage con Java
 
@@ -210,5 +210,5 @@ Consulte las guías siguientes si busca instrucciones sobre cómo instalar las b
 
 Para información sobre ejemplos para otros lenguajes:
 
-* .NET: [ejemplos de Azure Storage con .NET](storage-samples-dotnet.md)
-* Todos los otros lenguajes: [ejemplos de Azure Storage](storage-samples.md)
+* .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md) (Ejemplos de Azure Storage con .NET)
+* El resto de lenguajes: [Ejemplos de Azure Storage](storage-samples.md)

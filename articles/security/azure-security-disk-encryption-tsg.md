@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103172"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468400"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -33,7 +33,23 @@ Este error suele ocurrir cuando se intenta el cifrado del disco del sistema oper
 - Las unidades de datos se han montado recursivamente en el directorio /mnt/ o entre sí (por ejemplo, /mnt/datos1, /mnt/datos2, /datos3 + /datos3/datos4).
 - No se cumplen otros [requisitos previos](azure-security-disk-encryption-prerequisites.md) de Azure Disk Encryption para Linux.
 
-## <a name="unable-to-encrypt"></a>No se puede cifrar
+## <a name="bkmk_Ubuntu14"></a> Actualización del kernel predeterminado para Ubuntu 14.04 LTS
+
+La imagen de Ubuntu 14.04 LTS se suministra con una versión de kernel predeterminada de 4.4. Esta versión de kernel tiene un problema conocido por el cual el cancelador de procesos por memoria insuficiente (OOM Killer) finaliza incorrectamente el comando dd durante el proceso de cifrado del sistema operativo. Este error se ha corregido en el kernel Linux más reciente ajustado para Azure. Para evitar este error, antes de habilitar el cifrado en la imagen, actualice al [kernel optimizado para Azure 4.15](https://packages.ubuntu.com/trusty/linux-azure) o posterior con los siguientes comandos:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+Una vez la VM se haya reiniciado en el nuevo kernel, la nueva versión del kernel se puede confirmar con:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>No se pueden cifrar los discos de Linux
 
 En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensaje que indica que se inició el cifrado de disco del sistema operativo, y SSH se deshabilita. El proceso de cifrado puede tardar entre 3 y 16 horas en completarse en una imagen de la galería de existencias. Si se agregan discos de datos de varios terabytes, el proceso puede tardar días.
 
@@ -71,7 +87,7 @@ Cuando la conectividad está limitada por un firewall, la configuración del gru
 Parte de la configuración del grupo de seguridad de red que se aplica debe permitir todavía que el punto de conexión cumpla con los [requisitos previos](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) documentados de la configuración de red para el cifrado del disco.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault detrás de un firewall
-La máquina virtual debe poder tener acceso al almacén de claves. Consulte la documentación sobre el acceso al almacén de claves desde detrás de un firewall que el equipo de [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) mantiene. 
+Cuando el cifrado se habilita con [credenciales de Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la VM de destino debe tener acceso a los puntos de conexión de autenticación de Azure AD, así como a los puntos de conexión de Key Vault.  Para más información sobre este proceso, consulte la guía sobre el acceso al almacén de claves desde detrás de un firewall que mantiene el equipo de [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
 
 ### <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure 
 La máquina virtual debe poder acceder al punto de conexión de [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) que utiliza una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede acceder desde la máquina virtual.

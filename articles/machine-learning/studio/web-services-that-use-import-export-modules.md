@@ -9,18 +9,18 @@ ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ca4c8c2d16e2cc44768785c26ffa070b59d5f8d7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251392"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478022"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web de Azure Machine Learning Studio que usan módulos de importación y exportación de datos
 
@@ -44,9 +44,9 @@ Para leer los datos de la tabla de SQL de Azure:
 5. En el panel de propiedades, seleccione **Azure SQL Database** in the **Origen de datos** .
 6. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Nombre de usuario** y **Contraseña**, escriba la información apropiada para la base de datos.
 7. En el campo Consulta de base de datos, escriba la siguiente consulta.
-   
+
      select [age],
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ Para leer los datos de la tabla de SQL de Azure:
 A continuación, configure el experimento predictivo desde el que se implementa el servicio web.
 
 1. En la parte inferior del lienzo del experimento, haga clic en **Set Up Web Service** (Configurar servicio web) y seleccione **Predictive Web Service [Recommended]** (Servicio web predictivo [recomendado]).
-2. Quite los módulos *Web Service Input* (Entrada del servicio web) y *Web Service Output* (Salida del servicio web) del experimento predictivo. 
+2. Quite los módulos *Web Service Input* (Entrada del servicio web) y *Web Service Output* (Salida del servicio web) del experimento predictivo.
 3. En el cuadro de búsqueda de componentes, escriba export.
 4. En la lista de resultados, agregue un módulo *Exportar datos* al lienzo del experimento.
-5. Conecte la salida del módulo *Score Model* (Puntuar modelo) a la entrada del módulo *Export Data* (Exportar datos). 
+5. Conecte la salida del módulo *Score Model* (Puntuar modelo) a la entrada del módulo *Export Data* (Exportar datos).
 6. En el panel de propiedades, seleccione **Azure SQL Database** en el menú desplegable Origen de datos.
 7. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Server user account name** (Nombre de la cuenta de usuario del servidor) y **Server user account password** (Contraseña de la cuenta de usuario del servidor) escriba la información apropiada para la base de datos.
 8. En el campo **Comma separated list of columns to be saved** (Lista de elementos separados por comas de las columnas que guardar) escriba Scored Labels.
 9. En el campo **Data table name**(Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
 10. En el campo **Comma separated list of datatable columns** (Lista de elementos separados por comas de las columnas de tablas de datos) escriba ScoredLabels.
 
-Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio Web, consulte la entrada [AzureML Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Parámetros del servicio web AzureML) en Cortana Intelligence and Machine Learning Blog (blog de aprendizaje automático e inteligencia de Cortana).
+Cuando se escribe una aplicación que llama al servicio web final, puede especificar una consulta de entrada diferente u otra tabla de destino en tiempo de ejecución. Para configurar estas entradas y salidas, utilice la característica de parámetros del servicio web para establecer la propiedad *Origen de datos* del módulo *Importar datos* y la propiedad de destino de datos del módulo *Exportar datos*.  Para obtener más información sobre los parámetros del servicio web, consulte la entrada [Azure Machine Learning studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) (Parámetros del servicio web de Azure Machine Learning Studio) en el blog de Cortana Intelligence y Machine Learning.
 
 Para configurar los parámetros del servicio web para la consulta de importación y la tabla de destino:
 
@@ -108,22 +108,22 @@ Para realizar la implementación como un servicio web clásico y crear una aplic
 7. Copie y pegue el ejemplo de código de C# en el archivo Program.cs y quite todas las referencias al Almacenamiento de blobs.
 8. Actualice el valor de la variable *apiKey* con la clave de API guardada anteriormente.
 9. Busque la declaración de solicitud y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. Ejecute la aplicación. 
+10. Ejecute la aplicación.
 
 Al término de la ejecución, se agrega una nueva tabla a la base de datos que contiene los resultados de puntuación.
 
 ### <a name="deploy-a-new-web-service"></a>Implementación de servicios web nuevos
 
-> [!NOTE] 
-> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
 
 Para realizar la implementación como un servicio web nuevo y crear una aplicación para usarla:
 
@@ -136,9 +136,9 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
 7. Copie y pegue el ejemplo de código de C# en el archivo Program.cs.
 8. Actualice el valor de la variable *apiKey* con la **clave principal** ubicada en la sección **Basic consumption info** (Información básica de consumo).
 9. Busque la declaración *scoreRequest* y actualice los valores de los parámetros del servicio web que se pasan a los módulos *Import Data* (Importar datos) y *Export Data* (Exportar datos). En este caso, utilice la consulta original, pero defina un nuevo nombre de tabla.
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. Ejecute la aplicación. 
+10. Ejecute la aplicación.
 

@@ -1,6 +1,6 @@
 ---
-título: Administración de iteraciones de experimentos en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Administración de iteraciones de experimentos en Azure Machine Learning Studio. Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Administración de iteraciones de experimentos en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Administración de iteraciones de experimentos en Azure Machine Learning Studio. Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
 ---

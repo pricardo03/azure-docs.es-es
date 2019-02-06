@@ -1,5 +1,5 @@
 ---
-título: Migración de Analytics desde Excel a Azure Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Una comparación de los modelos de regresión lineal en Excel y en Azure Machine Learning Studio services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Migración de Analytics desde Excel a Azure Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Una comparación de los modelos de regresión lineal en Excel y en Azure Machine Learning Studio services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

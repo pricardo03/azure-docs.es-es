@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270015"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469556"
 ---
 # <a name="the-azure-sql-database-service"></a>Servicio Azure SQL Database
 
@@ -26,8 +26,8 @@ SQL Database es un servicio administrado de base de datos relacional de uso gene
 
 Azure SQL Database proporciona las siguientes opciones de implementación para una base de datos SQL de Azure:
 
-- Como una base de datos única con su propio conjunto de recursos administrados mediante un servidor lógico
-- Como una base de datos agrupada en un [grupo elástico](sql-database-elastic-pool.md) con un conjunto de recursos compartido que se administra a través de un servidor lógico
+- Como una base de datos única con su propio conjunto de recursos administrados mediante un servidor de SQL Database
+- Como una base de datos agrupada en un [grupo elástico](sql-database-elastic-pool.md) con un conjunto de recursos compartido que se administra a través de un servidor de SQL Database
 - Como parte de una colección de bases de datos que se conoce como [instancia administrada](sql-database-managed-instance.md) que contiene bases de datos de usuario y de sistema, y que comparten un conjunto de recursos
 
 En la siguiente ilustración se muestran estas opciones de implementación:
@@ -68,7 +68,7 @@ La primera aplicación se puede compilar en una base de datos pequeña con un co
 > [!IMPORTANT]
 > El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) está actualmente en versión preliminar pública. No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio de hiperescala.
 
-La escalabilidad dinámica es diferente del escalado automático. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual sin tiempo de inactividad. La versión de Azure SQL Database sencilla admite la escalabilidad dinámica manual, pero no el escalado automático. Para ganar experiencia con el uso *automático*, considere los grupos elásticos, que permiten que las bases de datos compartan recursos en un grupo en función de las necesidades individuales de las bases de datos. Pero hay scripts que pueden ayudar a automatizar la escalabilidad en una única instancia de Azure SQL Database. En [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/sql-database-monitor-and-scale-database-powershell.md) encontrará un ejemplo.
+La escalabilidad dinámica es diferente del escalado automático. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual sin tiempo de inactividad. Una base de datos única admite la escalabilidad dinámica manual, pero no la escalabilidad automática. Para ganar experiencia con el uso *automático*, considere los grupos elásticos, que permiten que las bases de datos compartan recursos en un grupo en función de las necesidades individuales de las bases de datos. Pero hay scripts que pueden ayudar a automatizar la escalabilidad en una base de datos única. Consulte [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/sql-database-monitor-and-scale-database-powershell.md) encontrará un ejemplo.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Grupos elásticos para maximizar la utilización de los recursos
 
@@ -148,7 +148,7 @@ SQL Database proporciona varias [características integradas de seguridad y cump
 
 ### <a name="advance-threat-protection"></a>Protección contra amenazas avanzada
 
-SQL Advanced Threat Protection es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye una funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
+Advanced Data Security de SQL es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye una funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
 
 - [Clasificación y detección de datos](sql-database-data-discovery-and-classification.md):
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388577"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468128"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creación y administración de grupos elásticos en Azure SQL Database
 
@@ -39,7 +39,7 @@ Desde aquí puede realizar cualquier combinación de los siguientes cambios y gu
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: administración de grupos elásticos y bases de datos agrupadas
 
-Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar los servidores lógicos para un grupo elástico, consulte el artículo sobre cómo [crear y administrar servidores lógicos](sql-database-logical-servers.md). Para crear y administrar reglas de firewall, consulte la sección [Administración de reglas de firewall mediante Azure PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar servidores de SQL Database para un grupo elástico, consulte [Create and manage SQL Database servers](sql-database-servers.md) (Creación y administración de servidores de SQL Database). Para crear y administrar reglas de firewall, consulte la sección [Administración de reglas de firewall mediante Azure PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Para obtener scripts de ejemplo de PowerShell, vea [Creación de grupos elásticos y traslado de bases de datos de un grupo a otro y fuera de un grupo mediante PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) y [Uso de PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -47,11 +47,11 @@ Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Dat
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Crea un grupo de bases de datos elásticas en un servidor SQL Server lógico.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtiene los grupos elásticos y los valores de sus propiedades de un servidor SQL Server lógico.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica las propiedades de un grupo de bases de datos elásticas en un servidor SQL Server lógico. Por ejemplo, use la propiedad **StorageMB** para modificar el almacenamiento máximo de un grupo elástico.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elimina un grupo de bases de datos elásticas en un servidor SQL Server lógico.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtiene el estado de las operaciones en un grupo elástico en un servidor SQL Server lógico.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Crea un grupo elástico.|
+|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtiene los grupos elásticos y sus valores de propiedad.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica las propiedades de un grupo de bases de datos elásticas. Por ejemplo, use la propiedad **StorageMB** para modificar el almacenamiento máximo de un grupo elástico.|
+|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elimina un grupo elástico.|
+|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtiene el estado de las operaciones en un grupo elástico.|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Crea una nueva base de datos en un grupo existente o como una sola base de datos. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtiene una o más bases de datos.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Establece las propiedades de una base de datos o mueve una base de datos existente a un grupo elástico, fuera de él o entre grupos elásticos.|
@@ -90,7 +90,7 @@ Para crear y mover bases de datos en grupos elásticos existentes o para devolve
 |[CREAR BASE DE DATOS (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crea una nueva base de datos en un grupo existente o como una sola base de datos. Debe estar conectado a la base de datos maestra para crear una base de datos.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mueve una base de datos a un grupo elástico, fuera de él o entre grupos elásticos.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Permite eliminar una base de datos.|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devuelve estadísticas de uso de recursos de todos los grupos de bases de datos elásticas de un servidor lógico. Para cada grupo de bases de datos elásticas hay una fila por cada ventana de informe de 15 segundos (cuatro filas por minuto). Esto incluye uso de CPU, E/S, registro, almacenamiento y empleo simultáneo de solicitudes o sesiones por parte de todas las bases de datos del grupo.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devuelve estadísticas de uso de recursos de todos los grupos elásticos de un servidor de SQL Database. Para cada grupo elástico hay una fila por cada ventana de informe de 15 segundos (cuatro filas por minuto). Esto incluye uso de CPU, E/S, registro, almacenamiento y empleo simultáneo de solicitudes o sesiones por parte de todas las bases de datos del grupo.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una base de datos SQL de Azure o una instancia de Azure SQL Data Warehouse. Si inició sesión en la base de datos maestra en un servidor de Azure SQL Database, devuelve información sobre todas las bases de datos. Para Azure SQL Data Warehouse, debe estar conectado a la base de datos maestra.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API REST: administración de grupos elásticos y bases de datos agrupadas
@@ -99,17 +99,17 @@ Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Dat
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[Grupos elásticos: creación o actualización](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuevo grupo elástico o actualiza uno ya existente.|
+|[Elastic pools - Create or update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuevo grupo elástico o actualiza uno ya existente.|
 |[Grupos elásticos: eliminación](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina el grupo elástico.|
 |[Grupos elásticos: obtención](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtiene un grupo elástico.|
-|[Grupos elásticos: enumeración por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Devuelve una lista de grupos elásticos de un servidor.|
+|[Elastic pools - List by server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Devuelve una lista de grupos elásticos de un servidor.|
 |[Grupos elásticos: actualización](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Actualiza un grupo elástico ya existente.|
-|[Actividades de los grupos elásticos](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devuelve las actividades de los grupos elásticos.|
-|[Actividades de las bases de datos de grupos elásticos](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devuelve la actividad de las bases de datos de un grupo elástico.|
-|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
+|[Elastic pool activities](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devuelve las actividades de los grupos elásticos.|
+|[Elastic pool database activities](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devuelve la actividad de las bases de datos de un grupo elástico.|
+|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
 |[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtiene una base de datos.|
-|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
-|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
+|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
+|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
 |[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Actualiza una base de datos existente.|
 
 ## <a name="next-steps"></a>Pasos siguientes

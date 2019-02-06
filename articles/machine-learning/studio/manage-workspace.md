@@ -1,5 +1,5 @@
 ---
-título: Administración de un área de trabajo de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Administre el acceso a áreas de trabajo de Azure Machine Learning, e implemente y administre los servicios web de la API de ML services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Administración de un área de trabajo de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Administre el acceso a áreas de trabajo de Azure Machine Learning, e implemente y administre los servicios web de la API de ML services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 27/02/2017
 ---

@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744571"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478226"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Inicio rápido: Importación de un archivo BACPAC en una base de datos de Azure SQL Database
 
@@ -33,7 +33,7 @@ En esta sección se muestra cómo crear, en [Azure Portal](https://portal.azure.
 > [!NOTE]
 > [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md) permite importar desde un archivo BACPAC mediante los otros métodos que se describen en este artículo, pero actualmente no admite la migración mediante Azure Portal.
 
-Para importar una base de datos en Azure Portal, abra la página del servidor lógico que hospedará la importación y, en la barra de herramientas, seleccione **Importar base de datos**.  
+Para importar una base de datos en Azure Portal, abra la página del servidor de SQL Database que hospedará la importación y, en la barra de herramientas, seleccione **Importar base de datos**.  
 
    ![Importación de base de datos](./media/sql-database-import/import.png)
 
@@ -41,7 +41,7 @@ Seleccione la cuenta de almacenamiento, el contenedor y el archivo BACPAC que qu
 
 ### <a name="monitor-imports-progress"></a>Supervisión del progreso de la importación
 
-Para supervisar el progreso de una importación, abra la página del servidor lógico de la base de datos importada y, en **Configuración**, seleccione **Historial de importación y exportación**. Cuando se realiza correctamente, la importación tiene el estado **Completada**.
+Para supervisar el progreso de una importación, abra la página del servidor de la base de datos importada y, en **Configuración**, seleccione **Historial de importación y exportación**. Cuando se realiza correctamente, la importación tiene el estado **Completada**.
 
 Para comprobar que la base de datos está activa en el servidor, seleccione **Bases de datos SQL** y compruebe que la base de datos nueva está **En línea**.
 
@@ -51,14 +51,14 @@ Para importar una base de datos SQL mediante la utilidad de línea de comandos [
 
 Para escalado y rendimiento, se recomienda usar SqlPackage en la mayoría de los entornos de producción. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
 
-El comando SqlPackage siguiente importa la base de datos **AdventureWorks2008R2** desde el almacenamiento local a un servidor lógico de Azure SQL Database denominado **mynewserver20170403**. Crea una base de datos llamada **myMigratedDatabase** con un nivel de servicio **Premium** y un objetivo de servicio **P6**. Cambie estos valores según corresponda para su entorno.
+El comando SqlPackage siguiente importa la base de datos **AdventureWorks2008R2** desde el almacenamiento local a un servidor de Azure SQL Database denominado **mynewserver20170403**. Crea una base de datos llamada **myMigratedDatabase** con un nivel de servicio **Premium** y un objetivo de servicio **P6**. Cambie estos valores según corresponda para su entorno.
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Un servidor lógico de Azure SQL Database escucha en el puerto 1433. Para conectarse a un servidor lógico desde detrás de un firewall corporativo, el firewall debe tener abierto este puerto.
+> Un servidor de SQL Database escucha en el puerto 1433. Para conectarse a un servidor de SQL Database desde detrás de un firewall corporativo, el firewall debe tener abierto este puerto.
 >
 
 Este ejemplo muestra cómo importar una base de datos con SqlPackage con Autenticación universal de Active Directory.
@@ -107,7 +107,7 @@ Para ver otro ejemplo de script, consulte [Importación de una base de datos des
 
 ## <a name="limitations"></a>Limitaciones
 
-No se admite la importación a una base de datos que esté en un grupo elástico. Puede importar los datos en una base de datos única y después moverla a un grupo.
+No se admite la importación a una base de datos que esté en un grupo elástico. Puede importar los datos en una base de datos única y después moverla a un grupo elástico.
 
 ## <a name="import-using-wizards"></a>Importación mediante asistentes
 

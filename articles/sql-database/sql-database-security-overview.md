@@ -11,37 +11,135 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 5bb3dc0245371248b005d642debb5b60026b9f4c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.date: 01/29/2019
+ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635482"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462025"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
-Este artículo describe los fundamentos de la protección de la capa de datos de una aplicación que use Azure SQL Database. Con este artículo, podrá empezar a trabajar con recursos para proteger datos, controlar el acceso y realizar una supervisión proactiva.
+En este artículo se detallan los fundamentos de la protección de la capa de datos de una aplicación con Azure SQL Database. La estrategia de seguridad descrita sigue el enfoque por capas de defensa en profundidad, como se muestra en la siguiente imagen, y se mueve desde el exterior hacia el centro:
 
-Para obtener una descripción completa de las características de seguridad disponibles en todas las versiones de SQL, consulte [Seguridad y protección (motor de base de datos)](https://msdn.microsoft.com/library/bb510589). Asimismo, tiene información adicional disponible en las [Notas del producto técnicas acerca de la seguridad y Azure SQL Database](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (en PDF).
+![sql-security-layer.png](media/sql-database-security-overview/sql-security-layer.png)
 
-## <a name="protect-data"></a>Protección de datos
+## <a name="network-security"></a>Seguridad de las redes
 
-### <a name="encryption"></a>Cifrado
+Microsoft Azure SQL Database ofrece un servicio de base de datos relacional para la nube y aplicaciones empresariales. Para ayudar a proteger los datos del cliente, los firewalls impiden el acceso de red al servidor de base de datos hasta que se concede explícitamente el acceso según la dirección IP o el origen del tráfico de red virtual de Azure.
 
-Para proteger los datos, SQL Database cifra los datos en movimiento a través del protocolo de [Seguridad de la capa de transporte](https://support.microsoft.com/kb/3135244), los datos en reposo a través del [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) y los datos en uso a través de [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
+### <a name="ip-firewall-rules"></a>Reglas de firewall por IP
+
+Las reglas de firewall por IP otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](sql-database-firewall-configure.md).
+
+### <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
+
+Los [puntos de conexión del servicio de redes virtuales](../virtual-network/virtual-network-service-endpoints-overview.md) amplía la conectividad de red virtual a través de la red troncal de Azure y permite que Azure SQL Database identifique la subred de la red virtual desde la que se origina el tráfico. Para permitir que el tráfico llegue a Azure SQL Database, use las [etiquetas de servicio](../virtual-network/security-overview.md) de SQL para permitir el tráfico saliente a través de grupos de seguridad de red.
+
+Las [reglas de red virtual](sql-database-vnet-service-endpoint-rule-overview.md) permiten que Azure SQL Database solo acepte comunicaciones que se envían desde subredes seleccionadas en una red virtual.
+
+> [!NOTE]
+> El control de acceso con reglas de firewall *no* se aplica a **Instancia administrada de Azure SQL Database**. Para más información sobre la configuración de red necesaria, consulte [Conexión a Instancia administrada](sql-database-managed-instance-connect-app.md).
+
+## <a name="access-management"></a>administración de acceso
+
+> [!IMPORTANT]
+> La administración de bases de datos y servidores de bases de datos en Azure se controla mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).
+
+### <a name="authentication"></a>Autenticación
+
+La autenticación es el proceso por el cual se demuestra que el usuario es quien dice ser. Azure SQL Database admite dos tipos de autenticación:
+
+- **Autenticación de SQL**:
+
+    La autenticación de SQL Database hace referencia a la autenticación de un usuario al conectarse a [Azure SQL Database](sql-database-technical-overview.md) con el nombre de usuario y la contraseña. Durante la creación del servidor de base de datos para la base de datos, se debe especificar un inicio de sesión de "administrador del servidor" con un nombre de usuario y contraseña. Con estas credenciales, un "administrador del servidor" puede autenticarse en cualquier base de datos en ese servidor de base de datos como propietario de la base de datos. Después de eso, pueden crearse inicios de sesión SQL y usuarios adicionales mediante el administrador del servidor, lo que permite a los usuarios conectarse usando el nombre de usuario y contraseña.
+
+- **Autenticación con Azure Active Directory**:
+
+    La autenticación de Azure Active Directory es un mecanismo de conexión a [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (AD). La autenticación de Azure AD permite a los administradores administrar centralmente las identidades y los permisos de los usuarios de la base de datos, junto con otros servicios de Microsoft, en una ubicación central. Esto incluye la minimización de almacenamiento de contraseñas y permite directivas centralizadas de rotación de contraseñas.
+
+     Debe crearse un administrador del servidor denominado **Administrador de Active Directory** para usar la autenticación de Azure AD con SQL Database. Para más información, consulte [Usar la autenticación de Azure Active Directory para autenticación con SQL](sql-database-aad-authentication.md). La autenticación de Azure AD admite cuentas tanto administradas como federadas. Las cuentas federadas admiten usuarios y grupos de Windows para un dominio de cliente federado con Azure AD.
+
+    Las opciones adicionales de autenticación de Azure AD disponibles son conexiones de [autenticación universal con SQL Server Management Studio](sql-database-ssms-mfa-authentication.md), incluidas [autenticación multifactor](../active-directory/authentication/concept-mfa-howitworks.md) y [acceso condicional](sql-database-conditional-access.md).
+
+> [!IMPORTANT]
+> La administración de bases de datos y servidores en Azure se controla mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md). El control de acceso con reglas de firewall *no* se aplica a **Instancia administrada de Azure SQL Database**. Para obtener más información sobre la configuración de red necesaria, vea el artículo siguiente sobre cómo [conectarse a una instancia administrada](sql-database-managed-instance-connect-app.md).
+
+Autorización hace referencia a los permisos asignados a un usuario dentro de Azure SQL Database, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) que definen los permisos de nivel de base de datos o conceden al usuario determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
+
+Como procedimiento recomendado, agregue usuarios al rol con los privilegios mínimos necesarios para realizar su función de trabajo. La cuenta de administrador del servidor es un miembro del rol db_owner, que tiene amplios permisos, y se debe conceder con precaución a los usuarios. Al usar aplicaciones con Azure SQL Database, use [Roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esto garantiza que la aplicación que se conecta a la base de datos tenga los privilegios mínimos necesarios para la aplicación.
+
+### <a name="row-level-security"></a>Seguridad de nivel de fila
+
+La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
+
+![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
+
+  Este método de autenticación utiliza un nombre de usuario y una contraseña. 
+
+Para información general de los permisos en Azure SQL Database, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md#permissions)
+
+## <a name="threat-protection"></a>Protección contra amenazas
+
+SQL Database protege los datos de los clientes al ofrecer capacidades de auditoría y detección de amenazas.
+
+### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Auditoría de SQL en Log Analytics y Event Hubs
+
+SQL Database Auditing hace un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento de los estándares de seguridad mediante la grabación de eventos de la base de datos en un registro de auditoría en una cuenta de Azure Storage propiedad del cliente. La auditoría permite a los usuarios supervisan las actividades de la base de datos en curso, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte la introducción a la [auditoría de base de datos de SQL](sql-database-auditing.md).  
+
+### <a name="sql-threat-detection"></a>Detección de amenazas de SQL
+
+La detección de amenazas mejora las auditorías mediante el análisis de registros de auditoría para un comportamiento poco habitual e intentos potencialmente peligrosos de acceder o aprovechar las bases de datos. Las alertas se crean para las actividades sospechosas o patrones anómalos de acceso, como ataques por inyección de código SQL, infiltración potencial de datos y los ataques de fuerza bruta a contraseñas. Las alertas de detección de amenazas se ven desde [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan detalles de las actividades sospechosas y recomendaciones para una investigación más minuciosa, junto con las acciones para mitigar la amenaza. Detección de amenazas cuesta 15 USD/servidor/mes. Puede probarse gratis durante los primeros 60 días. Para más información, consulte [Introducción a Detección de amenazas de SQL Database](sql-database-threat-detection.md).
+
+![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
+
+## <a name="information-protection-and-encryption"></a>Protección y cifrado de información
+
+### <a name="transport-layer-security-tls-encryption-in-transit"></a>Seguridad de la capa de transporte (TLS) (cifrado en tránsito)
+
+SQL Database protege los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Azure SQL Database aplica cifrado (SSL/TLS) en todo momento para todas las conexiones, lo que garantiza que todos los datos se cifran "en tránsito" entre la base de datos y el cliente. Esto ocurre independientemente del valor de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
 >
-> En la cadena de conexión de la aplicación, asegúrese de especificar una conexión cifrada y *no* confiar en el certificado de servidor (para el controlador ADO.NET, este es **Encrypt=True** y  **TrustServerCertificate=False**). Esto contribuye a evitar que la aplicación sea objeto de un ataque de tipo "Man in the middle", al obligar a la aplicación a comprobar el servidor e imponer el cifrado. Si obtiene la cadena de conexión en Azure Portal, tendrá la configuración correcta.
+> En la cadena de conexión de la aplicación, asegúrese de especificar una conexión cifrada y _no_ confiar en el certificado de servidor (para el controlador ADO.NET, este es **Encrypt=True** y  **TrustServerCertificate=False**). Esto contribuye a evitar que la aplicación sea objeto de un ataque de tipo "Man in the middle", al obligar a la aplicación a comprobar el servidor e imponer el cifrado. Si obtiene la cadena de conexión en Azure Portal, tendrá la configuración correcta.
 >
 > Para información sobre TLS y la conectividad, consulte [Consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
-Si desea conocer otras formas de cifrar datos, considere:
+### <a name="transparent-data-encryption-encryption-at-rest"></a>Cifrado de datos transparente (cifrado en reposo)
 
-- [Cifrado de nivel de celda](https://msdn.microsoft.com/library/ms179331.aspx) para cifrar columnas concretas, o incluso celdas de datos, con distintas claves de cifrado.
--  Si necesita un módulo de seguridad de hardware o tecnología BYOK (Bring Your Own Key) para el cifrado transparente de datos, considere la posibilidad de utilizar [Cifrado de datos transparente de Azure SQL: compatibilidad con Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
+[Cifrado de datos transparente (TDE) para Azure SQL Database](transparent-data-encryption-azure-sql.md) agrega una capa de seguridad para ayudar a proteger los datos en reposo frente al acceso no autorizado o sin conexión a archivos sin formato o copias de seguridad. Entre los escenarios habituales se incluyen el robo del centro de datos o la eliminación no segura de hardware o medios, como unidades de disco y cintas de copia de seguridad. TDE cifra toda la base de datos mediante un algoritmo de cifrado de AES, lo que no requiere que los desarrolladores de aplicaciones hagan cambios en las aplicaciones existentes.
+
+En Azure, todas las bases de datos SQL recién creadas se cifran de forma predeterminada, y la clave de cifrado de la base de datos se protege mediante un certificado de servidor integrado.  El servicio administra el mantenimiento y la rotación de certificados, y no se requiere ninguna acción por parte del usuario. Los clientes que prefieren tomar el control de las claves de cifrado pueden administrar las claves en [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+
+### <a name="key-management-with-azure-key-vault"></a>Administración de claves con Azure Key Vault
+
+La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) para  [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) permite a los clientes apropiarse de la administración y la rotación de claves con  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), el sistema externo de administración de claves basado en la nube de Azure. Si se revoca el acceso de la base de datos al almacén de claves, una base de datos no se puede descifrar y leer en la memoria. Azure Key Vault ofrece una plataforma de administración central de claves, aprovecha los módulos de seguridad de hardware (HSM) extremadamente supervisados y permite la separación de obligaciones entre la administración de claves y los datos para ayudar a cumplir los requisitos de cumplimiento de seguridad.
+
+### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (cifrado en uso)
+
+![azure-database-ae.png](media/sql-database-security-overview/azure-database-ae.png)
+
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado.  La clave de cifrado nunca se expone a SQL y se pueden almacenar en el [almacén de certificados de Windows](sql-database-always-encrypted.md) o en [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
+
+### <a name="masking"></a>Enmascaramiento
+
+![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
+
+#### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
+
+El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. La característica Enmascaramiento dinámico de datos detecta automáticamente información potencialmente confidencial en Azure SQL Database y proporciona recomendaciones accionables para enmascarar estos campos, con un impacto mínimo en el nivel de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Enmascaramiento dinámico de datos de SQL Database](sql-database-dynamic-data-masking-get-started.md).
+
+#### <a name="static-data-masking"></a>Enmascaramiento de datos estáticos
+
+El [enmascaramiento de datos estáticos](/sql/relational-databases/security/static-data-masking) en una herramienta de cliente disponible en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 versión preliminar 5 y superior.  El enmascaramiento de datos estáticos permite a los usuarios crear una copia de una base de datos donde los datos de ciertas columnas se han enmascarado de forma permanente. Las funciones de enmascaramiento disponibles incluyen enmascaramiento NULL, enmascaramiento de valor único, enmascaramiento grupal y de ofuscación grupal, y enmascaramiento compuesto de cadena. Con la copia enmascarada de la base de datos, las organizaciones pueden separar los entornos de producción y prueba al compartir la copia enmascarada. La información confidencial está lo suficientemente protegida, y se han mantenido todas las otras características de base de datos. Se recomienda el enmascaramiento de bases de datos cuando se requiera acceso de terceros a las bases de datos.
+
+## <a name="security-management"></a>Administración de la seguridad
+
+### <a name="sql-vulnerability-assessment"></a>Evaluación de vulnerabilidades de SQL
+
+La [evaluación de vulnerabilidad de SQL](sql-vulnerability-assessment.md) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y corregir posibles puntos vulnerables en la base de datos con el objetivo de mejorar de manera proactiva la seguridad general de las bases de datos. La evaluación de vulnerabilidades (VA) forma parte de la oferta de Advanced Data Security (ADS) de SQL, que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la evaluación de vulnerabilidad y administrarla a través del portal central de ADS de SQL.
 
 ### <a name="data-discovery--classification"></a>Clasificación y detección de datos
 
@@ -53,68 +151,9 @@ La opción Clasificación y detección de datos (actualmente en su versión prel
 
 Para obtener más información, consulte [Azure SQL Database Data Discovery and Classification](sql-database-data-discovery-and-classification.md) (Detección y clasificación de datos de Azure SQL Database).
 
-## <a name="control-access"></a>Control de acceso
-
-SQL Database protege los datos mediante la limitación del acceso a la base de datos a través de reglas de firewall, de mecanismos de autenticación que requieren que los usuarios prueben su identidad y de la autorización a través de pertenencias y permisos basados en roles, así como la seguridad de nivel de fila y el enmascaramiento dinámico de datos. Para obtener información acerca del uso de las características de control de acceso en SQL Database, consulte [Control de acceso](sql-database-control-access.md).
-
-> [!IMPORTANT]
-> La administración de bases de datos y servidores lógicos en Azure se controlan mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md). El control de acceso con reglas de firewall *no* se aplica a **Instancia administrada de Azure SQL Database**. Para obtener más información sobre la configuración de red necesaria, vea el artículo siguiente sobre cómo [conectarse a una instancia administrada](sql-database-managed-instance-connect-app.md).
-
-### <a name="firewall-and-firewall-rules"></a>Firewall y reglas de firewall
-
-Para ayudarle a proteger los datos, los firewalls impiden todo acceso al servidor de bases de datos hasta que especifique los equipos que tienen permiso mediante [reglas de firewall](sql-database-firewall-configure.md). Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud.
-
-### <a name="authentication"></a>Autenticación
-
-La autenticación de SQL Database indica cómo probar su identidad al conectarse a la base de datos. SQL Database admite dos tipos de autenticación:
-
-- **Autenticación de SQL**
-
-  Este método de autenticación utiliza un nombre de usuario y una contraseña. Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo".
-
-- **Autenticación con Azure Active Directory**
-
-  Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://msdn.microsoft.com/library/ms144284.aspx). Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Consulte el tutorial [Conectar a la SQL Database mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md) , para obtener información acerca de cómo crear un administrador de Azure AD y así habilitar la autenticación de Azure Active Directory.
-
-### <a name="authorization"></a>Autorización
-
-Autorización indica las acciones que pueden realizar los usuarios en Azure SQL Database, algo que controlan los permisos de nivel de objeto y las pertenencias a roles de bases de datos de la cuenta de usuario. Como procedimiento recomendado, debe conceder a los usuarios los privilegios mínimos necesarios. La cuenta de administrador de servidor con la que se está conectando forma parte de db_owner, que tiene autoridad para realizar cualquier acción en la base de datos. Guarde esta cuenta para implementar las actualizaciones de los esquemas y otras operaciones de administración. Utilice la cuenta "ApplicationUser" con permisos más limitados para conectarse desde la aplicación a la base de datos con los privilegios mínimos que necesita la aplicación.
-
-### <a name="row-level-security"></a>Seguridad de nivel de fila
-
-La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). Para más información, consulte [Seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
-
-### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
-
-El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. La característica Enmascaramiento dinámico de datos detecta automáticamente información potencialmente confidencial en Azure SQL Database y proporciona recomendaciones accionables para enmascarar estos campos, con un impacto mínimo en el nivel de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Enmascaramiento dinámico de datos de SQL Database](sql-database-dynamic-data-masking-get-started.md).
-
-## <a name="proactive-monitoring"></a>Supervisión proactiva
-
-SQL Database protege los datos proporcionando funcionalidades de auditoría y detección de amenazas.
-
-### <a name="auditing"></a>Auditoría
-
-SQL Database Auditing realiza un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento normativo, para lo que graba eventos de base de datos en un registro de auditoría de su cuenta de Azure Storage. La auditoría permite conocer las actividades en curso de la base de datos, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para obtener más información, consulte [Introducción a la auditoría de SQL Database](sql-database-auditing.md).  
-
-### <a name="threat-detection"></a>Detección de amenazas
-
-Detección de amenazas complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio de Azure SQL Database que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques por inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza. Detección de amenazas cuesta 15 USD/servidor/mes. Pruébelo gratis durante los primeros 60 días. Para más información, consulte [Introducción a Detección de amenazas de SQL Database](sql-database-threat-detection.md).
-
-## <a name="compliance"></a>Cumplimiento normativo
+### <a name="compliance"></a>Cumplimiento normativo
 
 Además de las anteriores características y funcionalidades que pueden ayudar a la aplicación a cumplir distintos requisitos de seguridad, Azure SQL Database también participa en las auditorías regulares y ha obtenido la certificación de una serie de normas de cumplimiento. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
-
-## <a name="security-management"></a>Administración de la seguridad
-
-SQL Database le ayuda a administrar la seguridad de los datos con análisis de bases de datos y un panel de seguridad centralizado mediante la [evaluación de vulnerabilidades de SQL](sql-vulnerability-assessment.md).
-
-**[Evaluación de vulnerabilidades de SQL](sql-vulnerability-assessment.md)**: es una herramienta fácil de configurar que se integra en Azure SQL Database y permite detectar, realizar un seguimiento y corregir posibles vulnerabilidades de la base de datos. La evaluación ejecuta un análisis de vulnerabilidades en la base de datos y genera un informe que proporciona visibilidad sobre el estado de seguridad, incluidos los pasos útiles para resolver problemas de seguridad y mejorar la seguridad de la base de datos. Es posible personalizar un informe de evaluación para su entorno estableciendo una línea de base aceptable para las configuraciones de permisos, configuraciones de características y configuración de base de datos. Esto puede ayudarle a:
-
-- Satisfacer los requisitos de cumplimiento que requieren los informes de análisis de base de datos.
-- Cumplir los estándares de privacidad de datos.
-- Supervisar un entorno de base de datos dinámico en el que es complicado realizar un seguimiento de los cambios.
-
-Para más información, vea [Evaluación de vulnerabilidad de SQL](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

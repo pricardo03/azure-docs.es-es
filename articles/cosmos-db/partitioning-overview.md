@@ -6,14 +6,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 20e869d30f9e7b8102b723870f0102e041e064d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d9bd1bec6d1df6fab634c5d929cb778abbd3d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478413"
 ---
-# <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
+# <a name="partitioning-in-azure-cosmos-db---overview"></a>Creación de particiones en Azure Cosmos DB: introducción
 
 La creación de particiones es la técnica empleada por Cosmos DB para escalar contenedores individuales en una base de datos para satisfacer las necesidades de rendimiento de la aplicación. Mediante el uso de la creación de particiones, los elementos de un contenedor se dividen en distintos subconjuntos, que se denominan particiones lógicas. Las particiones lógicas se crean en función del valor de una propiedad de clave de partición asociada con cada elemento.
 

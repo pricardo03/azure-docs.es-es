@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258721"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464847"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Uso de la CLI de Azure clásica con Azure Storage
 
@@ -35,7 +35,7 @@ En esta guía se supone que conoce los conceptos básicos de Azure Storage. La g
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Introducción de 5 minutos a Azure Storage y a la CLI de Azure clásica
 En esta guía se usa Ubuntu para los ejemplos, pero el funcionamiento debe ser similar en otros sistemas operativos.
 
-**Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
+**¿Acaba de llegar a Azure?** Obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
 
 Para obtener más información sobre las suscripciones a Azure, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) .
 
@@ -78,7 +78,7 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 5. En el equipo local, abra el editor de texto que desee (por ejemplo, vim). Escriba el script anterior en un editor de texto.
 6. Ahora deberá actualizar las variables del script basadas en la configuración.
 
-   * **&lt;storage_account_name&gt;** Use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
+   * **&lt;storage_account_name&gt;** Use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** El nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
    * **&lt;storage_account_key&gt;** La clave de acceso de su cuenta de almacenamiento.
    * **&lt;container_name&gt;** Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
    * **&lt;image_to_upload&gt;** Escriba una ruta de acceso a una imagen en el equipo local, por ejemplo: "~/images/HolaMundo.png".

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/17/2018
 ms.custom: seodec18
-ms.openlocfilehash: 749c139e35118ac8b83281bd255b152f61accc0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 608cc7a9e7c3b09c4b033397cbae6ac68e0a503a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542567"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478447"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Linux 
 
@@ -24,7 +24,7 @@ Tome una [instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.m
 >[!WARNING]
 > - Si ha usado anteriormente [Azure Disk Encryption con la aplicación Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para cifrar esta VM, tendrá que seguir usando esta opción para cifrar la VM. No puede usar [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) en esta VM cifrada ya que no es un escenario compatible, lo que significa que el cambio desde la aplicación de AAD para esta VM cifrada aún no es compatible.
  > - Azure Disk Encryption requiere que Key Vault y las máquinas virtuales se coloquen en la misma región. Cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar.
-> - Al cifrar los volúmenes del sistema operativo Linux, el proceso puede tardar unas horas. Es normal que los volúmenes del sistema operativo Linux tarden más en cifrarse que los volúmenes de datos. 
+> - Al cifrar los volúmenes del sistema operativo Linux, la máquina virtual no estará disponible y se deshabilitará el protocolo SSH. Para comprobar el progreso, puede usar los comandos [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) o [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). Este proceso puede tardar unas horas si trabaja con un volumen de sistema operativo de 30 GB; además, deberá tener en cuenta el tiempo necesario para realizar el cifrado de los volúmenes de datos. El tiempo de cifrado del volumen de datos será proporcional al tamaño y la cantidad de los volúmenes de datos, a menos que se use la opción "all" del formato de cifrado. 
 > - Solo se puede deshabilitar el cifrado en máquinas virtuales Linux para volúmenes de datos. No se admite en volúmenes de datos o volúmenes del sistema operativo si el volumen del sistema operativo se ha cifrado.  
 
 
@@ -211,9 +211,9 @@ Use el cmdlet [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurer
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+    ```
 
-
--  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
+-  **Cifrado de un conjunto de escalado de máquinas virtuales en ejecución mediante KEK para ajustar la clave**:
     ```powershell
      $rgName= "MySecureRg";
      $VmssName = "MySecureVmss";

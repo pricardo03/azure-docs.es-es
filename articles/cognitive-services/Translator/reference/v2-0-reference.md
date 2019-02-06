@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127865"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463232"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -64,7 +64,7 @@ Traduce una cadena de texto de un idioma a otro.
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/Translate`.
 
-**Valor devuelto:** una cadena que representa el texto traducido.
+**Valor devuelto:** Una cadena que representa el texto traducido.
 
 Si anteriormente se usaba `AddTranslation` o `AddTranslationArray` para introducir una traducción con una clasificación de 5 o superior para la misma oración de origen, `Translate` devuelve solo la principal opción que está disponible para el sistema. "Misma oración de origen" significa exactamente lo mismo (coincidencia 100 %), excepto en el caso del uso de mayúsculas y minúsculas, espacio en blanco, valores de etiquetas y puntuación al final de una oración. Si no se almacena ninguna clasificación con una puntuación de 5 o superior, el resultado devuelto será la traducción automática de Microsoft Translator.
 
@@ -84,7 +84,7 @@ Tipo de contenido de la respuesta: application/xml
 |to|(vacío) |Necesario. Una cadena que representa el código de idioma al que se va a traducir el texto.|query|string|
 |contentType|(vacío)    |Opcional. El formato del texto que se va a traducir. Los formatos admitidos son text/plain (valor predeterminado) y text/html. El código HTML debe ser un elemento completo y bien formado.|query|string|
 |categoría|(vacío)   |Opcional. Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".|query|string|
-|Autorización|(vacío)  |Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización: "Portador" + " " + "access_token".|encabezado|string|
+|Autorización|(vacío)  |Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)  |Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
 
 
@@ -129,29 +129,29 @@ El formato del cuerpo de la solicitud debe ser como se indica a continuación:
 Los elementos dentro de `TranslateArrayRequest` son:
 
 
-* `appid`: obligatorio. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.
-* `from`: opcional. Una cadena que representa el código de idioma del que se va a traducir el texto. Si se deja vacía, la respuesta incluirá el resultado de la detección automática de idioma.
-* `options`: opcional. Un objeto `Options` que contiene los valores que se indican a continuación. Son opcionales y los valores predeterminados son las opciones de configuración más comunes. Los elementos especificados deben incluirse en orden alfabético.
-    - `Category`: una cadena que contiene la categoría (dominio) de la traducción. De manera predeterminada, su valor es `general`.
-    - `ContentType`: el formato del texto que se va a traducir. Los formatos admitidos son `text/plain` (valor predeterminado), `text/xml` y `text/html`. El código HTML debe ser un elemento completo y bien formado.
-    - `ProfanityAction`: especifica cómo se tratan las blasfemias según se explicó anteriormente. Los valores aceptados de `ProfanityAction` son `NoAction` (valor predeterminado), `Marked` y `Deleted`.
-    - `State`: estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Se devolverá el mismo contenido en la respuesta.
-    - `Uri`: filtrar los resultados por este URI. Valor predeterminado: `all`.
-    - `User`: filtrar los resultados por este usuario. Valor predeterminado: `all`.
-* `texts`: obligatorio. Matriz que contiene los textos para la traducción. Todas las cadenas deben ser del mismo idioma. El total de todos los textos que se deben traducir no debe superar los 10000 caracteres. El número máximo de elementos de la matriz es 2000.
-* `to`: obligatorio. Una cadena que representa el código de idioma al que se va a traducir el texto.
+* `appid`: Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.
+* `from`: Opcional. Una cadena que representa el código de idioma del que se va a traducir el texto. Si se deja vacía, la respuesta incluirá el resultado de la detección automática de idioma.
+* `options`: Opcional. Un objeto `Options` que contiene los valores que se indican a continuación. Son opcionales y los valores predeterminados son las opciones de configuración más comunes. Los elementos especificados deben incluirse en orden alfabético.
+    - `Category`: Una cadena que contiene la categoría (dominio) de la traducción. De manera predeterminada, su valor es `general`.
+    - `ContentType`: El formato del texto que se va a traducir. Los formatos admitidos son `text/plain` (valor predeterminado), `text/xml` y `text/html`. El código HTML debe ser un elemento completo y bien formado.
+    - `ProfanityAction`: Especifica cómo se tratan las blasfemias según se explicó anteriormente. Los valores aceptados de `ProfanityAction` son `NoAction` (valor predeterminado), `Marked` y `Deleted`.
+    - `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Se devolverá el mismo contenido en la respuesta.
+    - `Uri`: Filtrar los resultados por este URI. Valor predeterminado: `all`.
+    - `User`: Filtrar los resultados por este usuario. Valor predeterminado: `all`.
+* `texts`: Necesario. Matriz que contiene los textos para la traducción. Todas las cadenas deben ser del mismo idioma. El total de todos los textos que se deben traducir no debe superar los 10000 caracteres. El número máximo de elementos de la matriz es 2000.
+* `to`: Necesario. Una cadena que representa el código de idioma al que se va a traducir el texto.
 
 Los elementos opcionales pueden omitirse. Los elementos que son elementos secundarios directos de TranslateArrayRequest deben aparecer en orden alfabético.
 
 El método TranslateArray acepta `application/xml` o `text/xml` para `Content-Type`.
 
-**Valor devuelto:** una matriz `TranslateArrayResponse`. Cada `TranslateArrayResponse` tiene los siguientes elementos:
+**Valor devuelto:** Una matriz `TranslateArrayResponse`. Cada `TranslateArrayResponse` tiene los siguientes elementos:
 
-* `Error`: indica un error si se ha producido uno. En caso contrario, se establece en null.
-* `OriginalSentenceLengths`: una matriz de enteros que indica la longitud de cada oración del texto de origen original. La longitud de la matriz indica el número de oraciones.
-* `TranslatedText`: el texto traducido.
-* `TranslatedSentenceLengths`: una matriz de enteros que indica la longitud de cada oración del texto traducido. La longitud de la matriz indica el número de oraciones.
-* `State`: estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Devuelve el mismo contenido que la solicitud.
+* `Error`: Indica un error si se ha producido uno. En caso contrario, se establece en null.
+* `OriginalSentenceLengths`: Una matriz de enteros que indica la longitud de cada oración del texto de origen original. La longitud de la matriz indica el número de oraciones.
+* `TranslatedText`: El texto traducido.
+* `TranslatedSentenceLengths`: Una matriz de enteros que indica la longitud de cada oración del texto traducido. La longitud de la matriz indica el número de oraciones.
+* `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Devuelve el mismo contenido que la solicitud.
 
 El formato del cuerpo de la respuesta es el siguiente.
 
@@ -183,7 +183,7 @@ Tipo de contenido de la respuesta: application/xml
 
 |Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
-|Autorización|(vacío)) |Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización: "Portador" + " " + "access_token".|encabezado|string|
+|Autorización|(vacío)) |Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
 
 ### <a name="response-messages"></a>Mensajes de respuesta
@@ -211,7 +211,7 @@ El cuerpo de la solicitud incluye una matriz de cadenas que representa los códi
 </ArrayOfstring>
 ```
 
-**Valor devuelto:** una matriz de cadenas que contiene los nombres de idiomas que admite el servicio de Traductor, localizados en el idioma solicitado.
+**Valor devuelto:** Una matriz de cadenas que contiene los nombres de idiomas que admite el servicio de Traductor, localizados en el idioma solicitado.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 Una matriz de cadenas que contiene los nombres de idiomas que admite el servicio de Traductor, localizados en el idioma solicitado.
@@ -245,7 +245,7 @@ Obtenga una lista de códigos de idioma que represente los idiomas que admite el
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
-**Valor devuelto:** una matriz de cadenas que contiene los códigos de idioma que admiten los servicios de Traductor.
+**Valor devuelto:** Una matriz de cadenas que contiene los códigos de idioma que admiten los servicios de Traductor.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 Una matriz de cadenas que contiene los códigos de idioma que admiten los servicios de Traductor.
@@ -278,7 +278,7 @@ Recupera los idiomas disponibles para la síntesis de voz.
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
-**Valor devuelto:** una matriz de cadenas que contiene los códigos de idioma que admite la síntesis de voz de los servicios de Traductor.
+**Valor devuelto:** Una matriz de cadenas que contiene los códigos de idioma que admite la síntesis de voz de los servicios de Traductor.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 Una matriz de cadenas que contiene los códigos de idioma que admite la síntesis de voz de los servicios de Traductor.
@@ -311,7 +311,7 @@ Devuelve una secuencia con formato WAVE o mp3 del texto que se ha pasado reprodu
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
 
-**Valor devuelto:** una secuencia con formato WAVE o mp3 del texto que se ha pasado reproducido en el idioma deseado.
+**Valor devuelto:** Una secuencia con formato WAVE o mp3 del texto que se ha pasado reproducido en el idioma deseado.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 
@@ -347,7 +347,7 @@ Use el método `Detect` para identificar el idioma de una parte de texto selecci
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
 
-**Valor devuelto:** una cadena que contiene un código de idioma de dos caracteres para el texto indicado. .
+**Valor devuelto:** Una cadena que contiene un código de idioma de dos caracteres para el texto indicado. .
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 
@@ -390,9 +390,9 @@ El formato del cuerpo de la solicitud debe ser como se indica a continuación.
 </ArrayOfstring>
 ```
 
-El tamaño del texto no debe superarlos 10000 caracteres.
+El tamaño del texto no debe superarlos 10 000 caracteres.
 
-**Valor devuelto:** una matriz de cadenas que contiene un código de idioma de dos caracteres para cada fila de la matriz de entrada.
+**Valor devuelto:** Una matriz de cadenas que contiene un código de idioma de dos caracteres para cada fila de la matriz de entrada.
 
 El formato del cuerpo de la respuesta es el siguiente.
 
@@ -432,7 +432,7 @@ Tipo de contenido de la respuesta: application/xml
 ### <a name="implementation-notes"></a>Notas de implementación
 
 > [!IMPORTANT]
-> **NOTA DE DESUSO:** después del 31 de enero de 2018, este método no aceptará envíos de nuevas oraciones y el usuario obtendrá un mensaje de error. Consulte este anuncio acerca de los cambios realizados en las funciones de Collaborative Translation.
+> **NOTA DE DESUSO:** Después del 31 de enero de 2018, este método no aceptará envíos de nuevas oraciones, y el usuario obtendrá un mensaje de error. Consulte este anuncio acerca de los cambios realizados en las funciones de Collaborative Translation.
 
 Agrega una traducción a la memoria de traducción.
 
@@ -476,7 +476,7 @@ Tipo de contenido de la respuesta: aplicación: xml
 ### <a name="implementation-notes"></a>Notas de implementación
 
 > [!IMPORTANT]
-> **NOTA DE DESUSO:** después del 31 de enero de 2018, este método no aceptará envíos de nuevas oraciones y el usuario obtendrá un mensaje de error. Consulte este anuncio acerca de los cambios realizados en las funciones de Collaborative Translation.
+> **NOTA DE DESUSO:** Después del 31 de enero de 2018, este método no aceptará envíos de nuevas oraciones, y el usuario obtendrá un mensaje de error. Consulte este anuncio acerca de los cambios realizados en las funciones de Collaborative Translation.
 
 Agrega una matriz de traducciones para agregar memoria de traducción. Se trata de una versión de la matriz de `AddTranslation`.
 
@@ -508,11 +508,11 @@ El formato del cuerpo de la solicitud es el siguiente.
 
 Los elementos dentro del elemento AddtranslationsRequest son:
 
-* `AppId`: obligatorio. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.
-* `From`: obligatorio. Una cadena que contiene el código de idioma del idioma de origen. Debe ser uno de los idiomas devueltos por el método `GetLanguagesForTranslate`.
-* `To`: obligatorio. Una cadena que contiene el código de idioma del idioma de destino. Debe ser uno de los idiomas devueltos por el método `GetLanguagesForTranslate`.
-* `Translations`: obligatorio. Una matriz de traducciones para agregar memoria de traducción. Cada traducción debe contener: originalText, translatedText y la clasificación. El tamaño de cada originalText y translatedText está limitado a 1000 caracteres. El total de todos los originalText y translatedText no debe superar los 10000 caracteres. El número máximo de elementos de la matriz es 100.
-* `Options`: obligatorio. Un conjunto de opciones, incluidos la categoría, el tipo de contenido, el URI y el usuario. El usuario es obligatorio. La categoría, el tipo de contenido y el URI son opcionales. Los elementos especificados deben incluirse en orden alfabético.
+* `AppId`: Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.
+* `From`: Necesario. Una cadena que contiene el código de idioma del idioma de origen. Debe ser uno de los idiomas devueltos por el método `GetLanguagesForTranslate`.
+* `To`: Necesario. Una cadena que contiene el código de idioma del idioma de destino. Debe ser uno de los idiomas devueltos por el método `GetLanguagesForTranslate`.
+* `Translations`: Necesario. Una matriz de traducciones para agregar memoria de traducción. Cada traducción debe contener: originalText, translatedText y la clasificación. El tamaño de cada originalText y translatedText está limitado a 1000 caracteres. El total de todos los originalText y translatedText no debe superar los 10000 caracteres. El número máximo de elementos de la matriz es 100.
+* `Options`: Necesario. Un conjunto de opciones, incluidos la categoría, el tipo de contenido, el URI y el usuario. El usuario es obligatorio. La categoría, el tipo de contenido y el URI son opcionales. Los elementos especificados deben incluirse en orden alfabético.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 El método AddTranslationArray fue correcto. Después del 31 de enero de 2018, no se aceptarán envíos de oraciones. El servicio responderá con el código de error 410.
@@ -525,7 +525,7 @@ Tipo de contenido de la respuesta: application/xml
 
 |Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
-|Autorización|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización: "Portador" + " " + "access_token".|encabezado|string|
+|Autorización|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
 
 ### <a name="response-messages"></a>Mensajes de respuesta
@@ -545,7 +545,7 @@ Divide un fragmento de texto en oraciones y devuelve una matriz que contiene la 
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/BreakSentences`.
 
-**Valor devuelto:** una matriz de enteros que representan las longitudes de las oraciones. La longitud de la matriz es el número de oraciones y los valores son la longitud de cada oración.
+**Valor devuelto:** Una matriz de enteros que representan las longitudes de las oraciones. La longitud de la matriz es el número de oraciones y los valores son la longitud de cada oración.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 Una matriz de enteros que representan las longitudes de las oraciones. La longitud de la matriz es el número de oraciones y los valores son la longitud de cada oración.
@@ -561,7 +561,7 @@ Tipo de contenido de la respuesta: application/xml
 |appid|(vacío)  |Necesario. Si se usa el encabezado Ocp-Apim-Subscription-Key o de autorización, deje el campo appid vacío o incluya una cadena que contenga "Portador" + " " + "access_token".|query| string|
 |text|(vacío)   |Necesario. Una cadena que representa el texto que se va a dividir en oraciones. El tamaño del texto no debe superarlos 10 000 caracteres.|query|string|
 |language   |(vacío)    |Necesario. Una cadena que representa el código de idioma del texto de entrada.|query|string|
-|Autorización|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización: "Portador" + " " + "access_token".    |encabezado|string|
+|Autorización|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".    |encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
 
 ### <a name="response-messages"></a>Mensajes de respuesta
@@ -595,19 +595,19 @@ El cuerpo de la solicitud incluye el objeto opcional TranslationOptions, que tie
 
 El objeto `TranslateOptions` contiene los valores que se indican a continuación. Son opcionales y los valores predeterminados son las opciones de configuración más comunes. Los elementos especificados deben incluirse en orden alfabético.
 
-* `Category`: una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".
-* `ContentType`: la única opción admitida, así como la predeterminada, es "text/plain".
+* `Category`: Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".
+* `ContentType`: La única opción admitida, así como la predeterminada, es "text/plain".
 * `IncludeMultipleMTAlternatives`: una marca booleana para determinar si se debe devolver más de una alternativa del motor de traducción automática. Los valores válidos son true y false (distingue mayúsculas de minúsculas). El valor predeterminado es false e incluye solo una alternativa. El establecimiento de la marca en true permite generar alternativas artificiales en la traducción, totalmente integradas con Collaborative Translation Framework (CTF). La característica permite la devolución de alternativas de oraciones que no tienen ninguna alternativa en CTF, agregando alternativas artificiales de la lista de las mejores opciones del descodificador.
-    - Clasificaciones: las clasificaciones se aplican de la siguiente manera: 1) La mejor traducción automática tiene una clasificación de 5. (2) Las alternativas de CTF reflejan la autoridad del revisor, de -10 a + 10. (3) Las alternativas de traducción (las mejores opciones) generadas automáticamente tienen una clasificación de 0 y un grado de coincidencia de 100.
+    - Clasificaciones: las clasificaciones se aplican como sigue: (1) La mejor traducción automática tiene una clasificación de 5. (2) Las alternativas de CTF reflejan la autoridad del revisor, de -10 a + 10. (3) Las alternativas de traducción (las mejores opciones) generadas automáticamente tienen una clasificación de 0 y un grado de coincidencia de 100.
     - Número de alternativas: el número de alternativas devueltas va hasta maxTranslations, pero puede ser menor.
     - Pares de idiomas: esta funcionalidad no está disponible para las traducciones entre chino simplificado y tradicional, ambas direcciones. Está disponible para el resto de pares de idiomas admitidos de Microsoft Translator.
-* `State`: estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Se devolverá el mismo contenido en la respuesta.
-* `Uri`: filtrar los resultados por este URI. Si no se establece ningún valor, el valor predeterminado es todo.
-* `User`: filtrar los resultados por este usuario. Si no se establece ningún valor, el valor predeterminado es todo.
+* `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Se devolverá el mismo contenido en la respuesta.
+* `Uri`: Filtrar los resultados por este URI. Si no se establece ningún valor, el valor predeterminado es todo.
+* `User`: Filtrar los resultados por este usuario. Si no se establece ningún valor, el valor predeterminado es todo.
 
 La solicitud `Content-Type` debe ser `text/xml`.
 
-**Valor devuelto:** el formato de la respuesta es el siguiente.
+**Valor devuelto:** El formato de la respuesta es el siguiente.
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
@@ -628,18 +628,18 @@ La solicitud `Content-Type` debe ser `text/xml`.
 
 Esto incluye un elemento `GetTranslationsResponse` que contiene los valores siguientes:
 
-* `Translations`: una matriz de las coincidencias encontradas, almacenadas en objetos TranslationMatch (ver a continuación). Las traducciones pueden incluir ligeras variantes del texto original (coincidencia aproximada). Las traducciones se ordenarán del siguiente modo: las coincidencias 100 % en primer lugar y las aproximadas a continuación.
-* `From`: si el método no especificó un idioma de origen, será el resultado de la detección automática de idioma. En caso contrario, será el idioma de origen indicado.
-* `State`: estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Contiene el mismo valor tal como se indica en el parámetro TranslateOptions.
+* `Translations`: Una matriz de las coincidencias encontradas, almacenadas en objetos TranslationMatch (ver a continuación). Las traducciones pueden incluir ligeras variantes del texto original (coincidencia aproximada). Las traducciones se ordenarán: las coincidencias del 100 % en primer lugar, luego las coincidencias aproximadas.
+* `From`: Si el método no especificó un idioma de origen, será el resultado de la detección automática de idioma. En caso contrario, será el idioma de origen indicado.
+* `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Contiene el mismo valor tal como se indica en el parámetro TranslateOptions.
 
 El objeto TranslationMatch consta del siguiente contenido:
 
-* `Error`: si se ha producido un error de una cadena de entrada específica, se almacena el código de error. En caso contrario, el campo está vacío.
-* `MatchDegree`: el sistema hace coincidir las oraciones según el almacén, incluidas las coincidencias inexactas.  MatchDegree indica el grado de coincidencia del texto de entrada con el texto original encontrado en el almacén. El valor no devuelto oscila entre 0 y 100, donde 0 equivale a ninguna similitud y 100 a una coincidencia exacta con distinción de mayúsculas y minúsculas.
-MatchedOriginalText: el texto original del que se encontraron coincidencias para este resultado. Solo se devuelve si el texto original de la coincidencia era diferente del texto de entrada. Se utiliza para devolver el texto de origen de una coincidencia aproximada. No se devuelve para los resultados de Microsoft Translator.
-* `Rating`: indica la autoridad de la persona que toma la decisión de calidad. Los resultados de la traducción automática tendrán una clasificación de 5. Las traducciones proporcionadas de forma anónima normalmente tendrán una clasificación de 1 a 4, mientras que las proporcionadas de forma autoritativa normalmente tendrán una clasificación de 6 a 10.
-* `Count`: el número de veces que se ha seleccionado esta traducción con esta clasificación. El valor será 0 para la respuesta traducida automáticamente.
-* `TranslatedText`: el texto traducido.
+* `Error`: Si se ha producido un error de una cadena de entrada específica, se almacena el código de error. En caso contrario, el campo está vacío.
+* `MatchDegree`: El sistema hace coincidir las oraciones según el almacén, incluidas las coincidencias inexactas.  MatchDegree indica el grado de coincidencia del texto de entrada con el texto original encontrado en el almacén. El valor no devuelto oscila entre 0 y 100, donde 0 equivale a ninguna similitud y 100 a una coincidencia exacta con distinción de mayúsculas y minúsculas.
+MatchedOriginalText: El texto original del que se encontraron coincidencias para este resultado. Solo se devuelve si el texto original de la coincidencia era diferente del texto de entrada. Se utiliza para devolver el texto de origen de una coincidencia aproximada. No se devuelve para los resultados de Microsoft Translator.
+* `Rating`: Indica la autoridad de la persona que toma la decisión de calidad. Los resultados de la traducción automática tendrán una clasificación de 5. Las traducciones proporcionadas de forma anónima normalmente tendrán una clasificación de 1 a 4, mientras que las proporcionadas de forma autoritativa normalmente tendrán una clasificación de 6 a 10.
+* `Count`: El número de veces que se ha seleccionado esta traducción con esta clasificación. El valor será 0 para la respuesta traducida automáticamente.
+* `TranslatedText`: El texto traducido.
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)
 Un objeto `GetTranslationsResponse` en el formato que se ha descrito anteriormente.
@@ -700,27 +700,27 @@ El formato del cuerpo de la solicitud es el siguiente.
 
 `GetTranslationsArrayRequest` incluye los siguientes elementos:
 
-* `AppId`: obligatorio. Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.
-* `From`: obligatorio. Una cadena que representa el código de idioma del texto de traducción.
-* `MaxTranslations`: obligatorio. Un entero que representa el número máximo de traducciones que se van a devolver.
-* `Options`: opcional. Un objeto de Opciones que contiene los valores que se indican a continuación. Son opcionales y los valores predeterminados son las opciones de configuración más comunes. Los elementos especificados deben incluirse en orden alfabético.
-    - Categoría`: una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es general.
-    - `ContentType`: la única opción admitida, así como la predeterminada, es text/plain.
+* `AppId`: Necesario. Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.
+* `From`: Necesario. Una cadena que representa el código de idioma del texto de traducción.
+* `MaxTranslations`: Necesario. Un entero que representa el número máximo de traducciones que se van a devolver.
+* `Options`: Opcional. Un objeto de Opciones que contiene los valores que se indican a continuación. Son opcionales y los valores predeterminados son las opciones de configuración más comunes. Los elementos especificados deben incluirse en orden alfabético.
+    - Categoría: Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es general.
+    - `ContentType`: La única opción admitida, así como la predeterminada, es text/plain.
     - `IncludeMultipleMTAlternatives`: una marca booleana para determinar si se debe devolver más de una alternativa del motor de traducción automática. Los valores válidos son true y false (distingue mayúsculas de minúsculas). El valor predeterminado es false e incluye solo una alternativa. El establecimiento de la marca en true permite generar alternativas artificiales en la traducción, totalmente integradas con Collaborative Translation Framework (CTF). La característica permite la devolución de alternativas de oraciones que no tienen ninguna alternativa en CTF, agregando alternativas artificiales de la lista de las mejores opciones del descodificador.
-        - Clasificaciones: las clasificaciones se aplican de la siguiente manera: 1) La mejor traducción automática tiene una clasificación de 5. (2) Las alternativas de CTF reflejan la autoridad del revisor, de -10 a + 10. (3) Las alternativas de traducción (las mejores opciones) generadas automáticamente tienen una clasificación de 0 y un grado de coincidencia de 100.
+        - Clasificaciones: las clasificaciones se aplican como sigue: (1) La mejor traducción automática tiene una clasificación de 5. (2) Las alternativas de CTF reflejan la autoridad del revisor, de -10 a + 10. (3) Las alternativas de traducción (las mejores opciones) generadas automáticamente tienen una clasificación de 0 y un grado de coincidencia de 100.
         - Número de alternativas: el número de alternativas devueltas va hasta maxTranslations, pero puede ser menor.
         - Pares de idiomas: esta funcionalidad no está disponible para las traducciones entre chino simplificado y tradicional, ambas direcciones. Está disponible para el resto de pares de idiomas admitidos de Microsoft Translator.
-* `State`: estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Se devolverá el mismo contenido en la respuesta.
-* `Uri`: filtrar los resultados por este URI. Si no se establece ningún valor, el valor predeterminado es todo.
-* `User`: filtrar los resultados por este usuario. Si no se establece ningún valor, el valor predeterminado es todo.
-* `Texts`: obligatorio. Matriz que contiene los textos para la traducción. Todas las cadenas deben ser del mismo idioma. El total de todos los textos que se deben traducir no debe superar los 10000 caracteres. El número máximo de elementos de la matriz es 10.
-* `To`: obligatorio. Una cadena que representa el código de idioma al que se va a traducir el texto.
+* `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Se devolverá el mismo contenido en la respuesta.
+* `Uri`: Filtrar los resultados por este URI. Si no se establece ningún valor, el valor predeterminado es todo.
+* `User`: Filtrar los resultados por este usuario. Si no se establece ningún valor, el valor predeterminado es todo.
+* `Texts`: Necesario. Matriz que contiene los textos para la traducción. Todas las cadenas deben ser del mismo idioma. El total de todos los textos que se deben traducir no debe superar los 10000 caracteres. El número máximo de elementos de la matriz es 10.
+* `To`: Necesario. Una cadena que representa el código de idioma al que se va a traducir el texto.
 
 Los elementos opcionales pueden omitirse. Los elementos que son elementos secundarios directos de `GetTranslationsArrayRequest` deben aparecer en orden alfabético.
 
 La solicitud `Content-Type` debe ser `text/xml`.
 
-**Valor devuelto:** el formato de la respuesta es el siguiente.
+**Valor devuelto:** El formato de la respuesta es el siguiente.
 
 ```
 <ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -749,17 +749,17 @@ La solicitud `Content-Type` debe ser `text/xml`.
 
 Cada elemento `GetTranslationsResponse` contiene los valores siguientes:
 
-* `Translations`: una matriz de las coincidencias encontradas, almacenadas en objetos `TranslationMatch` (ver a continuación). Las traducciones pueden incluir ligeras variantes del texto original (coincidencia aproximada). Las traducciones se ordenarán del siguiente modo: las coincidencias 100 % en primer lugar y las aproximadas a continuación.
-* `From`: si el método no especificó un idioma de `From`, será el resultado de la detección automática de idioma. En caso contrario, será el idioma de origen indicado.
-* `State`: estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Contiene el mismo valor tal como se indica en el parámetro `TranslateOptions`.
+* `Translations`: Una matriz de las coincidencias encontradas, almacenadas en objetos `TranslationMatch` (ver a continuación). Las traducciones pueden incluir ligeras variantes del texto original (coincidencia aproximada). Las traducciones se ordenarán: las coincidencias del 100 % en primer lugar, luego las coincidencias aproximadas.
+* `From`: Si el método no especificó un idioma `From`, será el resultado de la detección automática de idioma. En caso contrario, será el idioma de origen indicado.
+* `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Contiene el mismo valor tal como se indica en el parámetro `TranslateOptions`.
 
 Un objeto `TranslationMatch` consta de lo siguiente:
-* `Error`: si se ha producido un error de una cadena de entrada específica, se almacena el código de error. En caso contrario, el campo está vacío.
-* `MatchDegree`: el sistema hace coincidir las oraciones según el almacén, incluidas las coincidencias inexactas.  `MatchDegree` indica el grado de coincidencia del texto de entrada con el texto original encontrado en el almacén. El valor no devuelto oscila entre 0 y 100, donde 0 equivale a ninguna similitud y 100 a una coincidencia exacta con distinción de mayúsculas y minúsculas.
-* `MatchedOriginalText`: el texto original del que se encontraron coincidencias para este resultado. Solo se devuelve si el texto original de la coincidencia era diferente del texto de entrada. Se utiliza para devolver el texto de origen de una coincidencia aproximada. No se devuelve para los resultados de Microsoft Translator.
-* `Rating`: indica la autoridad de la persona que toma la decisión de calidad. Los resultados de la traducción automática tendrán una clasificación de 5. Las traducciones proporcionadas de forma anónima normalmente tendrán una clasificación de 1 a 4, mientras que las proporcionadas de forma autoritativa normalmente tendrán una clasificación de 6 a 10.
-* `Count`: el número de veces que se ha seleccionado esta traducción con esta clasificación. El valor será 0 para la respuesta traducida automáticamente.
-* `TranslatedText`: el texto traducido.
+* `Error`: Si se ha producido un error de una cadena de entrada específica, se almacena el código de error. En caso contrario, el campo está vacío.
+* `MatchDegree`: El sistema hace coincidir las oraciones según el almacén, incluidas las coincidencias inexactas.  `MatchDegree` indica el grado de coincidencia del texto de entrada con el texto original encontrado en el almacén. El valor no devuelto oscila entre 0 y 100, donde 0 equivale a ninguna similitud y 100 a una coincidencia exacta con distinción de mayúsculas y minúsculas.
+* `MatchedOriginalText`: El texto original del que se encontraron coincidencias para este resultado. Solo se devuelve si el texto original de la coincidencia era diferente del texto de entrada. Se utiliza para devolver el texto de origen de una coincidencia aproximada. No se devuelve para los resultados de Microsoft Translator.
+* `Rating`: Indica la autoridad de la persona que toma la decisión de calidad. Los resultados de la traducción automática tendrán una clasificación de 5. Las traducciones proporcionadas de forma anónima normalmente tendrán una clasificación de 1 a 4, mientras que las proporcionadas de forma autoritativa normalmente tendrán una clasificación de 6 a 10.
+* `Count`: El número de veces que se ha seleccionado esta traducción con esta clasificación. El valor será 0 para la respuesta traducida automáticamente.
+* `TranslatedText`: El texto traducido.
 
 
 ### <a name="response-class-status-200"></a>Clase de respuesta (estado 200)

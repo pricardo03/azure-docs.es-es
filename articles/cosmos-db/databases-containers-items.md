@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107742"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468145"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabajar con bases de datos, contenedores y artículos de Azure Cosmos.
+# <a name="work-with-databases-containers-and-items"></a>Uso de bases de datos, contenedores y elementos
 
 Después de crear una [cuenta de Azure Cosmos DB](account-overview.md) en su suscripción a Azure, puede administrar los datos en su cuenta mediante la creación de bases de datos, contenedores y elementos. En este artículo se describe cada una de estas entidades: bases de datos, contenedores y elementos. En la siguiente imagen se muestra la jerarquía de diferentes entidades en una cuenta de Azure Cosmos:
 

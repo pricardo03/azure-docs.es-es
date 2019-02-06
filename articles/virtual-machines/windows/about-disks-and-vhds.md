@@ -8,13 +8,13 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 968c8aa74a35bf753d92e7c417aaec2a1361f425
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234721"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467975"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Acerca del almacenamiento de discos para máquinas virtuales Windows en Azure
 
@@ -55,7 +55,7 @@ Puede agregar discos de datos a una máquina virtual en cualquier momento **cone
 
 Para consultar los tamaños en versión preliminar, vea nuestras [preguntas más frecuentes](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para obtener información sobre en qué regiones están disponibles.
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Una última recomendación: utilice TRIM con los discos estándar no administrados
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Una última recomendación: Use TRIM con los discos estándar no administrados
 
 Si utiliza discos estándar no administrados (HDD), debería habilitar TRIM. TRIM descarta los bloques sin utilizar del disco, por lo que solo se le facturará el almacenamiento que utiliza realmente. Esto puede suponerle un ahorro si crea archivos grandes y, luego, los elimina.
 

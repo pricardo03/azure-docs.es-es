@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 8d108df187e7d1fe549f284cffe3c5cbe4d56f7c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 26445017553435454e929d9852dfd9fc173c3b2e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389939"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460104"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referencia sobre la API de administración de la Instancia administrada de Azure SQL Database
 
@@ -27,9 +27,9 @@ Puede crear y administrar Instancias administradas de Azure SQL Database mediant
 
 Para consultar un artículo de inicio rápido que muestra cómo crear una Instancia administrada de Azure SQL Database, consulte [Inicio rápido: Creación de una Instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started.md).
 
-## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: Creación y administración de una Instancia administrada
+## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Creación y administración de instancias administradas
 
-Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
+Para crear y administrar instancias administradas con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
 > Para los scripts de ejemplo de PowerShell, consulte [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) (Script de inicio rápido: Creación de una Instancia administrada de Azure SQL Database mediante una biblioteca de PowerShell).
@@ -45,9 +45,9 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 |[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Elimina una base de datos de Instancia administrada de Azure SQL Database|
 |[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura una base de datos de Instancia administrada de Azure SQL Database|
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>CLI de Azure: Administración de servidores lógicos y bases de datos
+## <a name="azure-cli-create-and-manage-managed-instances"></a>CLI de Azure: Creación y administración de instancias administradas
 
-Para crear y administrar servidores, bases de datos y firewalls SQL Azure con la [CLI de Azure](/cli/azure), use los siguientes comandos de [Instancia administrada de la CLI de Azure SQL Database](/cli/azure/sql/mi). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS.
+Para crear y administrar instancias administradas con la [CLI de Azure](/cli/azure), use los siguientes comandos de [Instancia administrada de la CLI de Azure SQL](/cli/azure/sql/mi). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS.
 
 > [!TIP]
 > Para consultar un artículo de inicio rápido acerca de la CLI de Azure, consulte [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) (Uso de Instancia administrada de Azure SQL Database mediante la CLI de Azure).
@@ -64,9 +64,9 @@ Para crear y administrar servidores, bases de datos y firewalls SQL Azure con la
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura una base de datos administrada|
 |[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Elimina una base de datos administrada|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Administración de servidores lógicos y bases de datos
+## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: Creación y administración de bases de datos de instancia
 
-Para crear y administrar una base de datos de Instancia administrada de Azure SQL Database una vez creada la instancia, use los siguientes comandos de T-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio) y [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), o cualquier otro programa que se pueda conectar a un servidor de Azure SQL Database y pasar comandos de Transact-SQL.
+Para crear y administrar una base de datos de instancia después de crear Instancia administrada, use los siguientes comandos de T-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio) y [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), o cualquier otro programa que se pueda conectar a un servidor de Azure SQL Database y pasar comandos de Transact-SQL.
 
 > [!TIP]
 > Para consultar artículos de inicio rápido que describan la configuración y conexión a una instancia administrada mediante SQL Server Management Studio en Microsoft Windows, consulte [Inicio rápido: Configuración de una máquina virtual de Azure para la conexión a Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vm.md) y [Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md).
@@ -78,9 +78,9 @@ Para crear y administrar una base de datos de Instancia administrada de Azure SQ
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea una nueva base de datos de instancias administradas. Debe estar conectado a la base de datos maestra para crear una base de datos.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica una base de datos de Instancia administrada de Azure SQL Database.|
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>API REST: Administración de servidores lógicos y bases de datos
+## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: Creación y administración de instancias administradas
 
-Para crear y administrar una Instancia administrada de Azure SQL Database, use estas solicitudes de la API REST.
+Para crear y administrar instancias administradas, use estas solicitudes de la API de REST.
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |

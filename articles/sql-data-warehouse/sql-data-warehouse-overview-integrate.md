@@ -2,20 +2,20 @@
 title: Creación de soluciones integradas con SQL Data Warehouse | Microsoft Docs
 description: 'Herramientas y asociados con soluciones que se integran con SQL Data Warehouse. '
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d9d10214f8bc61a914de3f72ddae13679f2811e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 08e144022c79182a63fd99dbce48a5e505aba3f2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358514"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478005"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrar otros servicios con SQL Data Warehouse
 Además de su funcionalidad básica, SQL Data Warehouse permite a los usuarios integrar muchos de los otros servicios de Azure. Algunos de estos servicios son:
@@ -31,7 +31,7 @@ SQL Data Warehouse se sigue integrando con más servicios en Azure y más [asoci
 La integración de Power BI le permite combinar la capacidad de procesamiento de SQL Data Warehouse con los informes dinámicos y la visualización de Power BI. La integración de Power BI actualmente incluye:
 
 * **Direct Connect**: una conexión más avanzada con aplicación de lógica en SQL Data Warehouse. La aplicación proporciona un análisis más rápido a mayor escala.
-* **Open in Power BI**: el botón "Open in Power BI" (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida.
+* **Open in Power BI**: El botón "Open in Power BI" (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida.
 
 Para más información, consulte [Integración con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) o la [documentación de Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 

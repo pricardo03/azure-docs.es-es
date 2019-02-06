@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035430"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477818"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -42,7 +42,7 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
 ## <a name="how-long-are-backups-kept"></a>Cuánto tiempo se conservan las copias de seguridad
 
-Cada instancia de SQL Database tiene un período de retención de copia de seguridad predeterminado de entre siete y 35 días que depende del modelo de compra y el nivel de servicio. Puede actualizar el período de retención de copia de seguridad de una base de datos en un servidor lógico de Azure. Para más información, consulte [Cambio del período de retención de Azure Backup](#how-to-change-the-pitr-backup-retention-period).
+Cada instancia de SQL Database tiene un período de retención de copia de seguridad predeterminado de entre siete y 35 días que depende del modelo de compra y el nivel de servicio. Puede actualizar el período de retención de copia de seguridad de una base de datos en un servidor de SQL Database. Para más información, consulte [Cambio del período de retención de Azure Backup](#how-to-change-the-pitr-backup-retention-period).
 
 Si elimina una base de datos, SQL Database mantendrá las copias de seguridad de la misma manera que para una base de datos en línea. Por ejemplo, si elimina una base de datos básica que tiene un período de retención de siete días, una copia de seguridad con cuatro días de antigüedad se guarda durante tres días más.
 
@@ -63,7 +63,7 @@ El período de retención predeterminado de una base de datos creada mediante el
 
 #### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
 
-Si va a usar el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), el período de retención de copia de seguridad predeterminado es de 7 días (para bases de datos únicos, agrupadas y de Instancia administrada). Para todas las bases de datos Azure SQL (únicas, agrupadas y de Instancia administrada) puede [cambiar el período de retención de copia de seguridad hasta 35 días](#how-to-change-the-pitr-backup-retention-period).
+Si va a usar el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), el período de retención de copia de seguridad predeterminado es de 7 días (para bases de datos únicas, agrupadas y de instancia). Para todas las bases de datos de Azure SQL (únicas, agrupadas y de instancia) puede [cambiar el período de retención de copia de seguridad hasta 35 días](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Si reduce el período de retención actual, todas las copias de seguridad existentes anteriores al período de retención nuevo dejan de estar disponibles. Si aumenta el período de retención actual, SQL Database mantendrá las copias de seguridad existentes hasta que se alcance el nuevo período de retención.
@@ -80,7 +80,7 @@ Para más información, consulte [Restauración a un momento dado](sql-database-
 
 ### <a name="backups-for-long-term-retention"></a>Copias de seguridad para retención a largo plazo
 
-SQL Database hospedado en servidor lógico ofrece la opción de configurar la retención a largo plazo (LTR) de las copias de seguridad completas durante un período máximo de 10 años en Azure Blob Storage. Si la directiva LTR está habilitada, las copias de seguridad completas semanales se copian de forma automática en otro contenedor de almacenamiento de RA-GRS. Para satisfacer los distintos requisitos de cumplimiento, puede seleccionar distintos períodos de retención para copias de seguridad semanales, mensuales o anuales. El consumo de almacenamiento depende de la frecuencia seleccionada de las copias de seguridad y de los períodos de retención. Para estimar el costo del almacenamiento de LTR, se puede usar la [calculadora de precios de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database).
+Las bases de datos únicas y agrupadas le ofrecen la opción de configurar la retención a largo plazo (LTR) de las copias de seguridad completas durante un período máximo de 10 años en Azure Blob Storage. Si la directiva LTR está habilitada, las copias de seguridad completas semanales se copian de forma automática en otro contenedor de almacenamiento de RA-GRS. Para satisfacer los distintos requisitos de cumplimiento, puede seleccionar distintos períodos de retención para copias de seguridad semanales, mensuales o anuales. El consumo de almacenamiento depende de la frecuencia seleccionada de las copias de seguridad y de los períodos de retención. Para estimar el costo del almacenamiento de LTR, se puede usar la [calculadora de precios de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database).
 
 Como sucede con PITR, las copias de seguridad LTR tienen redundancia geográfica y se protegen mediante la [replicación entre regiones de Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -111,7 +111,7 @@ Puede cambiar el período de retención predeterminado de copia de seguridad de 
 
 Para cambiar el periodo de retención de copia de seguridad de PITR mediante Azure Portal, vaya al objeto de servidor cuyo período de retención desea cambiar dentro del Portal y luego seleccione la opción apropiada basada en el objeto de servidor que se modifica.
 
-#### <a name="change-pitr-for-a-logical-server"></a>Cambio de PITR para un servidor lógico
+#### <a name="change-pitr-for-a-sql-database-server"></a>Cambiar PITR para un servidor de SQL Database
 
 ![Cambio de PITR en Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 

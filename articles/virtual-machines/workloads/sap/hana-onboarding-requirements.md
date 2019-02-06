@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d287f79f4161c509f96b679d4b794c2906f2e020
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030660"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477864"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de incorporación
 
@@ -28,12 +28,12 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 **Microsoft Azure**
 
 - Una suscripción de Azure que se pueda vincular a SAP HANA en Azure (Instancias grandes).
-- Contrato de soporte técnico Premier de Microsoft. Consulte [SAP Support Note #2015553 – SAP on Microsoft Azure: Support Prerequisites](https://launchpad.support.sap.com/#/notes/2015553) (Nota de SAP sobre soporte 2015553: Requisitos previos de soporte técnico de SAP en Microsoft Azure) para información específica relacionada con la ejecución de SAP en Azure. Si usa unidades de HANA (instancias grandes) con 384 o más CPU, también necesita extender el contrato de soporte técnico Premier para incluir Respuesta rápida de Azure.
+- Contrato de soporte técnico Premier de Microsoft. Para obtener información específica relacionada con la ejecución de SAP en Azure, consulte [SAP Support Note #2015553 – SAP on Microsoft Azure: Support Prerequisites (Nota de soporte técnico 2015553 de SAP en Microsoft Azure: requisitos previos de soporte técnico)](https://launchpad.support.sap.com/#/notes/2015553). Si usa unidades de HANA (instancias grandes) con 384 o más CPU, también necesita extender el contrato de soporte técnico Premier para incluir Respuesta rápida de Azure.
 - Conocimiento de las SKU de HANA (instancias grandes) que necesita después de realizar un ajuste de tamaño con SAP.
 
 **Conectividad de red**
 
-- ExpressRoute entre la infraestructura local y la de Azure: asegúrese de pedir a su ISP una conexión de 1 Gbps como mínimo para conectar el centro de datos local a Azure. 
+- ExpressRoute entre el entorno local y el de Azure: asegúrese de pedir a su ISP una conexión de 1 Gbps como mínimo para conectar el centro de datos local a Azure. La conectividad entre las unidades de instancia grande de HANA y Azure también usa la tecnología ExpressRoute. Esta conexión de ExpressRoute entre las unidades de instancia grande de HANA y Azure está incluida en el precio de las unidades de instancia grande de HANA. Por lo tanto, como cliente, no debe pagar costos adicionales más allá de su vínculo de ExpressRoute entre el entorno local y el de Azure.
 
 **Sistema operativo**
 
@@ -50,7 +50,7 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 
 - Red Hat Subscription Manager implementado en Azure en una máquina virtual. Red Hat Subscription Manager proporciona la funcionalidad para que SAP HANA en Azure (instancias grandes) sea registrado y actualizado respectivamente por Red Hat. (No hay ningún acceso directo a Internet desde el inquilino implementado en la demarcación de instancias grandes de Azure).
 - SAP requiere que también disponga de un contrato de soporte con el proveedor de Linux. Este requisito no se elimina con la solución de HANA (instancias grandes) ni por el hecho de ejecutar Linux en Azure. A diferencia de lo que ocurre con algunas de las imágenes de la galería de Azure para Linux, la tarifa del servicio *no* se incluye en la oferta de la solución HANA (instancias grandes). Es su responsabilidad cumplir los requisitos de SAP en relación con los contratos de soporte técnico con el distribuidor de Linux. 
-   - Si se trata de SUSE Linux, busque los requisitos del contrato de soporte técnico en [SAP Note #1984787 - SUSE Linux Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota de SAP 1984787: SUSE Linux Enterprise Server 12: notas de instalación) y [SAP Note #1056161 - SUSE Priority Support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Nota de SAP 1056161: Soporte con prioridad de SUSE para aplicaciones SAP).
+   - Para SUSE Linux, busque los requisitos de los contratos de soporte técnico en [SAP Note # 1984787 - SUSE Linux Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota de SAP 1984787: SUSE Linux Enterprise Server 12) y [SAP Note #1056161 - SUSE priority support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Nota de SAP 1056161: soporte técnico prioritario de SUSE para aplicaciones de SAP).
    - Para Red Hat Linux, necesita tener los niveles de suscripción adecuados que incluyan soporte técnico y actualizaciones del servicio de los sistemas operativos de HANA (instancias grandes). Red Hat recomienda la suscripción a Red Hat Enterprise Linux para soluciones de SAP. Consulte https://access.redhat.com/solutions/3082481. 
 
 Para la matriz de compatibilidad de las distintas versiones de SAP HANA con las diferentes versiones de Linux, consulte la [Nota de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
@@ -66,10 +66,10 @@ Para la matriz de compatibilidad del sistema operativo y de las versiones de fir
 
 - Las licencias y los componentes de instalación de software para SAP HANA (Platform Edition o Enterprise Edition).
 
-**Applications**
+**Aplicaciones**
 
 - Licencias y componentes de instalación de software para todas las aplicaciones de SAP que se conecten a SAP HANA y contratos de soporte de SAP relacionados.
-- Las licencias y componentes de instalación de software para aplicaciones que no sean de SAP utilizadas en relación con el entorno de SAP HANA en Azure (instancias grandes) y los contratos de soporte relacionados.
+- Licencias y componentes de instalación de software para aplicaciones que no sean de SAP y que se usan con el entorno de SAP HANA en Azure (instancias grandes) y los contratos de soporte técnico relacionados.
 
 **Habilidades**
 

@@ -1,6 +1,6 @@
 ---
-título: Solución de problemas del reentrenamiento de un servicio web clásico de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Identifique y corrija los problemas comunes que se encuentran al volver a entrenar el modelo para un servicio web de Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Solución de problemas del reentrenamiento de un servicio web clásico de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Identifique y corrija los problemas comunes que se encuentran al volver a entrenar el modelo para un servicio web de Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/11/2017
 ---

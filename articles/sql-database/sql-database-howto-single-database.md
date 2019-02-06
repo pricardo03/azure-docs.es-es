@@ -1,6 +1,6 @@
 ---
-title: 'Cómo configurar Azure SQL Database: Singleton | Microsoft Docs'
-description: 'Aprenda cómo configurar y administrar Azure SQL Database: base de datos única.'
+title: 'Cómo configurar Azure SQL Database: base de datos independiente | Microsoft Docs'
+description: 'Aprenda a configurar y administrar Azure SQL Database: base de datos independiente'
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477801"
 ---
-# <a name="how-to-use-single-database"></a>Cómo usar la base de datos única
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Cómo usar una base de datos única en Azure SQL Database
 
-En esta sección puede encontrar diferentes guías, scripts y explicaciones que pueden ayudarle a administrar y configurar Azure SQL Database: base de datos única.
+En esta sección puede encontrar diferentes guías, scripts y explicaciones que pueden ayudarle a administrar y configurar una base de datos única en Azure SQL Database.
 
 ## <a name="migrate"></a>Migrar
 
-- [Migración a SQL Database](sql-database-cloud-migrate.md): obtenga información sobre el proceso de migración y las herramientas que se recomiendan para la migración a Instancia administrada.
+- [Migración a SQL Database](sql-database-cloud-migrate.md): obtenga información sobre el proceso de migración y las herramientas que se recomiendan para la migración a una instancia administrada.
 - Aprenda cómo [administrar SQL Database después de la migración](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configuración de características
@@ -74,4 +74,4 @@ En esta sección puede encontrar diferentes guías, scripts y explicaciones que 
 - [Uso de la plataforma Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar los datos con particiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre las [guías de procedimientos en Instancia administrada](sql-database-howto-managed-instance.md).
+- Obtenga más información sobre las [guías de procedimientos para una instancia administrada](sql-database-howto-managed-instance.md).

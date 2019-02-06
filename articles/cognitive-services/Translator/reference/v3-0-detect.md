@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 892a029c3a51aa3574d92b838a51359438a6bdb6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126129"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465000"
 ---
-# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detección
+# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
 
 Identifica el idioma de un fragmento de texto.
 
@@ -85,15 +85,15 @@ Se aplican las siguientes limitaciones:
 
 Una respuesta correcta es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
-  * `language`: código del idioma detectado.
+  * `language`: Código del idioma detectado.
 
-  * `score`: es un valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
+  * `score`: valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
 
-  * `isTranslationSupported`: un valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la traducción de texto.
+  * `isTranslationSupported`: Valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la traducción de texto.
 
-  * `isTransliterationSupported`: un valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la transliteración.
+  * `isTransliterationSupported`: Valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la transliteración.
   
-  * `alternatives`: una matriz de otros idiomas posibles. Cada elemento de la matriz es otro objeto con las mismas propiedades enumeradas anteriormente: `language`, `score`, `isTranslationSupported` y `isTransliterationSupported`.
+  * `alternatives`: Matriz de otros idiomas posibles. Cada elemento de la matriz es otro objeto con las mismas propiedades enumeradas anteriormente: `language`, `score`, `isTranslationSupported` y `isTransliterationSupported`.
 
 Un ejemplo de respuesta JSON es:
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460836"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -147,9 +147,9 @@ Normalmente, un explorador no permitirá que haya código JavaScript en una pág
 Estas dos tecnologías pueden ayudarle a evitar una carga innecesaria (y cuellos de botella) en la aplicación web.  
 
 #### <a name="useful-resources"></a>Recursos útiles
-Para obtener más información acerca de SAS, consulte [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).  
+Para más información sobre SAS, consulte [Uso de firmas de acceso compartido, parte 1: Descripción del modelo SAS](../storage-dotnet-shared-access-signature-part-1.md).  
 
-Para obtener más información sobre CORS, vea [Compatibilidad del Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Para obtener más información sobre CORS, vea [Compatibilidad del Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Almacenamiento en caché
 #### <a name="subheading7"></a>Obtención de datos
@@ -255,10 +255,10 @@ Para cargar blobs rápidamente, la primera pregunta es: ¿carga un blob o muchos
 #### <a name="subheading21"></a>Carga de un blob grande rápidamente
 Para cargar un solo blob grande rápidamente, la aplicación cliente debe cargar sus bloques o páginas en paralelo (teniendo en cuenta los objetivos de escalabilidad para blobs individuales y la cuenta de almacenamiento como un todo).  Tenga en cuenta que las bibliotecas del cliente de Storage RTM proporcionadas por Microsoft (.NET y Java) tienen la capacidad de hacer esto.  Para cada una de las bibliotecas, use el objeto o propiedad que se especifica a continuación para establecer el nivel de simultaneidad:  
 
-* .NET: establezca ParallelOperationThreadCount en un objeto BlobRequestOptions para usar.
-* Java/Android: use BlobRequestOptions.setConcurrentRequestCount()
-* Node.js: use parallelOperationThreadCount en las opciones de solicitud o Blob service.
-* C++: use el método blob_request_options::set_parallelism_factor.
+* .NET: Establezca ParallelOperationThreadCount en un objeto BlobRequestOptions para usar.
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
+* Node.js: Use parallelOperationThreadCount en las opciones de solicitud o Blob service.
+* C++: Use el método blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Carga de muchos blobs rápidamente
 Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es más rápido que cargar blobs de uno en uno con cargas de bloque paralelas porque distribuye la carga entre varias particiones del servicio Storage. Un solo blob únicamente admite un rendimiento de 60 MB/segundo (aproximadamente 480 Mbps). En el momento de escribir estas líneas, una cuenta LRS con sede en Estados Unidos admite entradas de hasta 20 Gbps, que es mucho más que la capacidad de proceso admitida por un blob individual.  [AzCopy](#subheading18) realiza cargas en paralelo de forma predeterminada y se recomienda para este escenario.  
@@ -286,7 +286,7 @@ En esta sección se enumeran varias configuraciones rápidas que puede usar para
 #### <a name="subheading25"></a>Uso de JSON
 A partir de la versión del 15 de agosto de 2013 del servicio Storage, Table service admite el uso de JSON en lugar del formato AtomPub basado en XML para transferir datos de tabla. Esto puede reducir los tamaños de carga hasta en un 75 % y puede mejorar significativamente el rendimiento de la aplicación.
 
-Para más información, consulte la publicación [Tablas de Microsoft Azure: introducción a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones de Table service).
+Para más información, consulte la publicación [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tablas de Microsoft Azure: Introducción a JSON) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones del servicio de tablas).
 
 #### <a name="subheading26"></a>Desactivación de Nagle
 El algoritmo de Nagle está ampliamente implementado en redes TCP/IP como medio de mejorar el rendimiento de la red. Sin embargo, no es óptimo en todas las situaciones (como por ejemplo en entornos altamente interactivos). En el caso de Azure Storage, el algoritmo de Nagle tiene un impacto negativo en el rendimiento de solicitudes que se realizan a los servicios Table y Queue; si es posible, debe deshabilitarlo.  
@@ -303,8 +303,8 @@ La forma de representar los datos y realizar consultas en los mismos es el facto
 #### <a name="subheading27"></a>Tablas y particiones
 Las tablas se dividen en dos particiones. Cada entidad almacenada en una partición comparte la misma clave de partición y tiene una clave de fila única para identificarla dentro de esa partición. Las particiones proporcionan ventajas pero también presentan limitaciones de escalabilidad.  
 
-* Ventajas: puede actualizar entidades de la misma partición en una sola transacción por lotes atómica que contenga hasta 100 operaciones de almacenamiento independientes (límite de tamaño total de 4 MB). Suponiendo que se recupera el mismo número de entidades, también puede consultar datos dentro de una sola partición más eficientemente que los datos que se extienden por particiones (siga leyendo para conocer más recomendaciones sobre la consulta de datos de tabla).
-* Limite de escalabilidad: no se puede realizar el equilibrio de carga en el acceso a entidades almacenadas en una sola partición porque las particiones admiten transacciones por lotes atómicas. Por esta razón, el objetivo de escalabilidad para una partición de tabla individual es inferior al de Table service como un todo.  
+* Ventajas: Puede actualizar entidades de la misma partición en una sola transacción por lotes atómica que contenga hasta 100 operaciones de almacenamiento independientes (límite de tamaño total de 4 MB). Suponiendo que se recupera el mismo número de entidades, también puede consultar datos dentro de una sola partición más eficientemente que los datos que se extienden por particiones (siga leyendo para conocer más recomendaciones sobre la consulta de datos de tabla).
+* Límite de escalabilidad: No se puede equilibrar la carga del acceso a entidades almacenadas en una sola partición porque las particiones admiten transacciones por lotes atómicas. Por esta razón, el objetivo de escalabilidad para una partición de tabla individual es inferior al de Table service como un todo.  
 
 Debido a estas características de tablas y particiones, debe adoptar los siguientes principios de diseño:  
 
@@ -359,8 +359,8 @@ En Azure Storage, las transacciones por lotes son conocidas como transacciones c
 ##### <a name="subheading36"></a>Upsert
 Use operaciones **Upsert** de tabla siempre que sea posible. Hay dos tipos de operaciones **Upsert**; ambos pueden ser más eficientes que las operaciones **Insert** y **Update** tradicionales:  
 
-* **InsertOrMerge**: se usa cuando se desea cargar un subconjunto de propiedades de la entidad sin tener la certeza de que la entidad existe. Si la entidad ya existe, esta llamada actualiza las propiedades incluidas en la operación **Upsert** y deja todas las propiedades existentes tal y como están; si la entidad no existe, inserta la nueva entidad. Esto es similar a usar proyección en una consulta, donde solamente necesita actualizar las propiedades que cambian.
-* **InsertOrReplace**: se usa cuando se desea cargar una entidad completamente nueva sin tener la certeza de que existe. Solamente debe usar este tipo cuando sabe que la entidad recién cargada es totalmente correcta porque sobrescribe la entidad antigua completamente. Por ejemplo, desea actualizar la entidad que almacena la ubicación actual de un usuario independientemente de si la aplicación ha almacenado los datos de ubicación del usuario anteriormente; la entidad de la nueva ubicación está completa y no necesita información de ninguna otra entidad anterior.
+* **InsertOrMerge**: Use este tipo cuando quiera cargar un subconjunto de propiedades de la entidad sin estar seguro de si la entidad ya existe o no. Si la entidad ya existe, esta llamada actualiza las propiedades incluidas en la operación **Upsert** y deja todas las propiedades existentes tal y como están; si la entidad no existe, inserta la nueva entidad. Esto es similar a usar proyección en una consulta, donde solamente necesita actualizar las propiedades que cambian.
+* **InsertOrReplace**: Use este tipo cuando quiera cargar una nueva entidad completamente sin estar seguro de si ya existe o no. Solamente debe usar este tipo cuando sabe que la entidad recién cargada es totalmente correcta porque sobrescribe la entidad antigua completamente. Por ejemplo, desea actualizar la entidad que almacena la ubicación actual de un usuario independientemente de si la aplicación ha almacenado los datos de ubicación del usuario anteriormente; la entidad de la nueva ubicación está completa y no necesita información de ninguna otra entidad anterior.
 
 ##### <a name="subheading37"></a>Almacenamiento de series de datos en una sola entidad
 A veces, una aplicación almacena una serie de datos que necesita recuperar de una sola vez con frecuencia: por ejemplo, un aplicación podría hacer un seguimiento del uso de CPU a lo largo del tiempo para representar un gráfico dinámico de los datos de las últimas 24 horas. Un enfoque es tener una entidad de tabla por hora, de forma que cada entidad represente una hora específica y almacene el uso de CPU para esa hora. Para representar estos datos, la aplicación necesita recuperar las entidades que contienen los datos de las 24 horas más recientes.  
@@ -395,7 +395,7 @@ Para obtener información de costo actualizada, consulte [Precios de Azure Stora
 ### <a name="subheading44"></a>UpdateMessage
 Puede usar **UpdateMessage para** aumentar el tiempo de espera de invisibilidad o para actualizar la información de estado de un mensaje. Aunque esto es muy eficiente, recuerde que cada operación **UpdateMessage** cuenta para el objetivo de escalabilidad. Sin embargo, esto puede ser un enfoque mucho más eficiente que tener un flujo de trabajo que pasa un trabajo de una cola a la siguiente, cuando cada paso del trabajo se completa. El uso de la operación **UpdateMessage** permite que la aplicación guarde el estado del trabajo en el mensaje y, a continuación, continúe trabajando, en lugar de volver a poner en cola el mensaje para el próximo paso del trabajo cada vez que se completa un paso.  
 
-Para obtener más información, consulte [Cambio del contenido de un mensaje en cola](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Para más información, consulte el artículo [Control de contenido de un mensaje en cola](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Arquitectura de la aplicación
 Debe usar colas para que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para que la aplicación sea más escalable:  
