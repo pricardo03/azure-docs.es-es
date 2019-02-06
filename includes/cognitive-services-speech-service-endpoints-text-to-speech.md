@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: e0a00ffac1921adab3ce120d65fcccaa8b2d231f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 933ee0ce6885960d5b35f67a0a4ee50602fe55c8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381666"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147952"
 ---
 ### <a name="neural-voices"></a>Voces neuronales
 
@@ -20,6 +20,9 @@ Las voces neuronales están disponibles en estas regiones:
 | Este de EE. UU | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Sudeste asiático | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Europa occidental | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
+
+> [!IMPORTANT]
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) solo está disponible desde el punto de conexión de Asia Suroriental: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1. Para ver una lista completa de voces neuronales, consulte los [idiomas que se admiten](../articles/cognitive-services/speech-service/language-support.md).
 
 ### <a name="standard-voices"></a>Voces estándar
 

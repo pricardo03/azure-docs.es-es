@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530475"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473772"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage
 A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios de blob, tablas, colas y archivos. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](http://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
@@ -71,7 +71,7 @@ A continuación se describen todos los elementos incluidos en la regla de CORS:
 * **AllowedMethods**: los métodos (verbos de solicitud HTTP) que el dominio de origen puede usar para una solicitud de CORS. En el ejemplo anterior, solo se permiten las solicitudes PUT y GET.
 * **AllowedHeaders**: los encabezados de solicitud que el dominio de origen puede especificar en la solicitud de CORS. En el ejemplo anterior, se permiten todos los encabezados de metadatos que comienzan por x-ms-meta-data, mx-ms-meta-target y x-ms-meta-abcm. Tenga en cuenta que el carácter comodín '*' indica que se permite cualquier encabezado que empiece con el prefijo especificado.
 * **ExposedHeaders**: los encabezados de respuesta que se pueden enviar en la respuesta a la solicitud de CORS y que el explorador expone al emisor de la solicitud. En el ejemplo anterior, se pide al explorador que exponga todos los encabezados que empiecen por x-ms-meta.
-* **MaxAgeInSeconds**: el tiempo máximo que un explorador debe almacenar en memoria caché la solicitud preparatoria OPTIONS.
+* **MaxAgeInSeconds**: el tiempo máximo que un explorador debe almacenar en la memoria caché la solicitud preparatoria OPTIONS.
 
 Los servicios de almacenamiento de Azure permiten especificar encabezados con prefijo para los elementos **AllowedHeaders** y **ExposedHeaders**. Para permitir una categoría de encabezados, puede especificar un prefijo común a esa categoría. Por ejemplo, si se especifica *x-ms-meta*\* como un encabezado con prefijo, se establece una regla que coincidirá con todos los encabezados que empiecen por x-ms-meta.
 

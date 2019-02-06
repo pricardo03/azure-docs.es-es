@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: c3b30085e1036e49706d73fd68b80221e5177d03
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451046"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095743"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integración de Machine Learning en Análisis de transmisiones
 Stream Analytics proporciona compatibilidad con las funciones definidas por el usuario que llamen a puntos de conexión de Azure Machine Learning. La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
@@ -26,7 +26,7 @@ Microsoft Azure Machine Learning proporciona una herramienta colaborativa de arr
 * **Punto de conexión**: los *puntos de conexión* son objetos de Azure Machine Learning que se usan para tomar características como entradas, aplicar un modelo de aprendizaje automático especificado y devolver la salida con puntuación.
 * **Servicio web de puntuación**: un *servicio web de puntuación* es una colección de puntos de conexión, como se mencionó anteriormente.
 
-Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Stream Analytics usa la ejecución sincrónica. El servicio específico se denomina un [servicio de solicitud/respuesta](../machine-learning/studio/consume-web-services.md) en Estudio de aprendizaje automático de Azure.
+Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Stream Analytics usa la ejecución sincrónica. El servicio específico se denomina un [servicio de solicitud/respuesta](../machine-learning/studio/consume-web-services.md) en Azure Machine Learning Studio.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necesarios para trabajos de Stream Analytics
 Para el procesamiento de trabajos de Stream Analytics, para la correcta ejecución se necesitan un punto de conexión de solicitud/respuesta, una [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)y una definición de Swagger. Stream Analytics tiene un punto de conexión adicional que construye la dirección URL de Swagger, busca en la interfaz y devuelve una definición de función definida por el usuario predeterminada al usuario.
@@ -44,11 +44,11 @@ Mediante las API de REST, puede configurar el trabajo para llamar a funciones de
 ## <a name="creating-a-udf-with-basic-properties"></a>Creación de una función definida por el usuario con las propiedades básicas
 Por ejemplo, el siguiente código de ejemplo crea una función definida por el usuario escalar denominada *newudf* que enlaza a un punto de conexión de Azure Machine Learning. Tenga en cuenta que el *punto de conexión* (URI de servicio) se puede encontrar en la página de ayuda de API para el servicio seleccionado y la *apiKey* puede encontrarse en la página principal de servicios.
 
-````
-    PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
-````
+```
+    PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+```
 
-Ejemplo del cuerpo de solicitud:  
+Ejemplo del cuerpo de solicitud:
 
 ```json
     {
@@ -71,11 +71,11 @@ Ejemplo del cuerpo de solicitud:
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Llamada al punto de conexión RetrieveDefaultDefinition para la función definida por el usuario predeterminada
 Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetrieveDefaultDefinition ayuda a obtener la definición predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Stream Analytics llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia desde el principio. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
 
-````
+```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
-````
+```
 
-Ejemplo del cuerpo de solicitud:  
+Ejemplo del cuerpo de solicitud:
 
 ```json
     {
@@ -87,7 +87,7 @@ Ejemplo del cuerpo de solicitud:
     }
 ```
 
-Un ejemplo de salida tendría el aspecto siguiente.  
+Un ejemplo de salida tendría el aspecto siguiente.
 
 ```json
     {
@@ -130,9 +130,9 @@ Un ejemplo de salida tendría el aspecto siguiente.
 ## <a name="patch-udf-with-the-response"></a>Revisión de la función definida por el usuario con la respuesta
 Ahora se debe revisar la función definida por el usuario con la respuesta anterior, tal como se muestra a continuación.
 
-````
+```
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Cuerpo de la solicitud (salida de RetrieveDefaultDefinition):
 
@@ -175,7 +175,7 @@ Cuerpo de la solicitud (salida de RetrieveDefaultDefinition):
 ```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementación de una transformación de Stream Analytics que llame a la función definida por el usuario
-Ahora consulte la función definida por el usuario (aquí llamada scoreTweet) para cada evento de entrada y escriba una respuesta para ese evento en una salida.  
+Ahora consulte la función definida por el usuario (aquí llamada scoreTweet) para cada evento de entrada y escriba una respuesta para ese evento en una salida.
 
 ```json
     {

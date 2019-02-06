@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600869"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455072"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
@@ -38,7 +38,7 @@ Intelligent Insights detecta automáticamente los problemas de rendimiento con l
 | [Presión de memoria](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Los trabajos que solicitaron concesiones de memoria deben esperar a las asignaciones de memoria durante cantidades de tiempo considerables desde el punto de vista estadístico. O bien, existe una mayor acumulación de trabajos que solicitaron concesiones de memoria. Esto afecta al rendimiento de SQL Database. | Los trabajos que solicitaron concesiones de memoria esperan asignaciones de memoria durante un tiempo considerable desde el punto de vista estadístico. Esto afecta al rendimiento de la base de datos. |
 | [Bloqueo](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Se detectó un bloqueo excesivo de la base de datos que afecta al rendimiento de SQL Database. | Se detectó un bloqueo excesivo de la base de datos que afecta al rendimiento de la base de datos. |
 | [Aumento de MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | La opción de grado máximo de paralelismo (MAXDOP) ha cambiado y afecta a la eficacia de la ejecución de consultas. Esto afecta al rendimiento de SQL Database. | La opción de grado máximo de paralelismo (MAXDOP) ha cambiado y afecta a la eficacia de la ejecución de consultas. Esto afecta al rendimiento de la base de datos. |
-| [Contención de Pagelatch](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Hay varios subprocesos que están intentando acceder de forma simultánea a las mismas páginas de búfer de datos en memoria, lo cual provoca un aumento de los tiempos de espera y contención de Pagelatch. Esto afecta al rendimiento de SQL Database. | Hay varios subprocesos que están intentando acceder de forma simultánea a las mismas páginas de búfer de datos en memoria, lo cual provoca un aumento de los tiempos de espera y contención de Pagelatch. Esto afecta al rendimiento de la base de datos. |
+| [Contención de PAGELATCH](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Hay varios subprocesos que están intentando acceder de forma simultánea a las mismas páginas de búfer de datos en memoria, lo cual provoca un aumento de los tiempos de espera y contención de Pagelatch. Esto afecta al rendimiento de SQL Database. | Hay varios subprocesos que están intentando acceder de forma simultánea a las mismas páginas de búfer de datos en memoria, lo cual provoca un aumento de los tiempos de espera y contención de Pagelatch. Esto afecta al rendimiento de la base de datos. |
 | [Carencia de un índice](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Se detectó que falta un índice que afecta al rendimiento de SQL Database. | Se detectó que falta un índice que afecta al rendimiento de la base de datos. |
 | [Nueva consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Se detectó una nueva consulta que afecta al rendimiento global de SQL Database. | Se detectó una nueva consulta que afecta al rendimiento global de la base de datos. |
 | [Estadística de espera aumentada](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Se detectaron tiempos de espera aumentados de la base de datos que afectan al rendimiento de SQL Database. | Se detectaron tiempos de espera aumentados de la base de datos que afectan al rendimiento de la base de datos. |
@@ -50,7 +50,7 @@ Intelligent Insights detecta automáticamente los problemas de rendimiento con l
 | [Degradación del plan de tarifa](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | El cambio a un plan de tarifa anterior produjo una disminución de los recursos disponibles. Esto afecta al rendimiento de SQL Database. | El cambio a un plan de tarifa anterior produjo una disminución de los recursos disponibles. Esto afecta al rendimiento de la base de datos. |
 
 > [!TIP]
-> Para optimizar el rendimiento continuo de SQL Database, habilite el [ajuste automático de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esta característica única de inteligencia incorporada de SQL Database supervisa continuamente la base de datos SQL, optimiza automáticamente los índices y aplica las correcciones del plan de ejecución de consultas.
+> Para optimizar el rendimiento continuo de SQL Database, habilite el [ajuste automático de Azure SQL Database](sql-database-automatic-tuning.md). Esta característica única de inteligencia incorporada de SQL Database supervisa continuamente la base de datos SQL, optimiza automáticamente los índices y aplica las correcciones del plan de ejecución de consultas.
 >
 
 En la siguiente sección se describen los patrones de rendimiento detectables con más detalle.
@@ -61,7 +61,7 @@ En la siguiente sección se describen los patrones de rendimiento detectables co
 
 Este patrón de rendimiento detectable combina los problemas de rendimiento relacionados con el alcance de los límites de recursos disponibles, los límites de trabajo y los límites de sesión. Una vez que se detecta este problema de rendimiento, un campo de descripción del registro de diagnóstico indica si el problema de rendimiento está relacionado con el recurso, el trabajo o los límites de la sesión.
 
-Los recursos de SQL Database se conocen normalmente como recursos de [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) o [núcleo virtual](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
+Los recursos de SQL Database se conocen normalmente como recursos de [DTU](sql-database-what-is-a-dtu.md) o [núcleo virtual](sql-database-service-tiers-vcore.md). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
 
 El recurso de límites de sesión denota el número de inicios de sesión simultáneos disponibles en SQL Database. Este patrón de rendimiento se reconoce cuando las aplicaciones que se conectan a las bases de datos SQL han alcanzado el número de inicios de sesión simultáneos disponibles para la base de datos. Si las aplicaciones intenten usar más sesiones que las que hay disponibles en una base de datos, el rendimiento de consultas resultará afectado.
 
@@ -73,7 +73,7 @@ El registro de diagnóstico genera códigos hash de consultas que han afectado a
 
 Si se han alcanzado los límites de sesión disponibles, puede optimizar las aplicaciones mediante la reducción del número de inicios de sesión realizados en la base de datos. Si no puede reducir el número de inicios de sesión de las aplicaciones en la base de datos, considere la posibilidad de aumentar el plan de tarifa de la base de datos. O bien, puede mover la base de datos y dividirla en varias bases de datos para una distribución más uniforme de la carga de trabajo.
 
-Para más sugerencias sobre cómo resolver los límites de sesión, consulte [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) (Cómo abordar los límites del número máximo de inicios de sesión de Azure SQL Database). Consulte [Introducción a los límites de recursos de un servidor lógico](sql-database-resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
+Para más sugerencias sobre cómo resolver los límites de sesión, consulte [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) (Cómo abordar los límites del número máximo de inicios de sesión de Azure SQL Database). Consulte [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Introducción a los límites de recursos de un servidor de SQL Database) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 
 ## <a name="workload-increase"></a>Aumento de la carga de trabajo
 

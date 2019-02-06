@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124990"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458540"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
 Identifica el posicionamiento de los límites de las oraciones en un fragmento de texto.
 
@@ -96,11 +96,11 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
   * `sentLen`: es una matriz de enteros que representan las longitudes de las oraciones en el elemento de texto. La longitud de la matriz es el número de oraciones y los valores son la longitud de cada oración. 
 
-  * `detectedLanguage`: es un objeto que describe el idioma detectado a través de las siguientes propiedades:
+  * `detectedLanguage`: objeto que describe el idioma detectado mediante las siguientes propiedades:
 
      * `language`: código del idioma detectado.
 
-     * `score`: es un valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
+     * `score`: valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
      
     Tenga en cuenta que la propiedad `detectedLanguage` solo está presente en el objeto de resultado cuando se solicita la detección automática del idioma.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052043"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913582"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -198,20 +198,18 @@ En primer lugar, un dispositivo se suscribe a `$iothub/twin/res/#` para recibir 
 
 El identificador de la solicitud puede ser cualquier valor válido de propiedad de mensaje, según la [guía del desarrollador de mensajería de IoT Hub][lnk-messaging], y se comprueba que el estado sea un entero.
 
-El cuerpo de la respuesta contiene la sección de propiedades del dispositivo gemelo. El siguiente fragmento de código muestra el cuerpo de la entrada del registro de identidad limitado al miembro "properties", por ejemplo:
+El cuerpo de la respuesta contiene la sección de propiedades del dispositivo gemelo, como se muestra en la siguiente respuesta de ejemplo:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -220,7 +218,7 @@ Los códigos de estado posibles son:
 
 |Status | DESCRIPCIÓN |
 | ----- | ----------- |
-| 200 | Correcto |
+| 204 | Correcto (sin contenido) |
 | 429 | Demasiadas solicitudes (limitadas), según el artículo sobre [limitaciones de IoT Hub][lnk-quotas] |
 | 5** | Errores del servidor |
 

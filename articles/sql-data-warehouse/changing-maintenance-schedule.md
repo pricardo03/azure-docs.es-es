@@ -6,16 +6,16 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c1029d5efe0c8e87cd9bc84887826ddf837d32c5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713272"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456262"
 ---
 # <a name="change-a-maintenance-schedule"></a>Cambiar una programación de mantenimiento 
 
@@ -41,7 +41,7 @@ Para cambiar la programación de mantenimiento del almacenamiento de datos, comp
 
 5. Elija las ventanas de mantenimiento principales y secundarias que prefiera con el cuadro de lista desplegable:
    - **Día**: día preferido para realizar el mantenimiento durante el período seleccionado.
-   - **Hora de inicio**: hora de inicio preferida de la ventana de mantenimiento.
+   - **Hora de inicio:** hora de inicio preferida de la ventana de mantenimiento.
    - **Período de tiempo**: duración preferida del período de tiempo.
 
    El área **Resumen de la programación** de la parte inferior de la hoja se actualiza según los valores que seleccione. 

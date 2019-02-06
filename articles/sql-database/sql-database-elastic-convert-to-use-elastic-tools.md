@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251600"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455599"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
 Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Azure SQL Database (como la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md)). Primero convierta un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
@@ -69,11 +69,11 @@ Para un modelo de un solo inquilino, cree un mapa de particiones de **asignació
 
 ![Asignación de lista][1]
 
-El modelo de varios inquilinos asigna varios inquilinos a una base de datos única (y puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**. 
+El modelo de varios inquilinos asigna varios inquilinos a una base de datos individual (además, puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**. 
 
 ![Asignación de intervalo][2]
 
-O puede implementar un modelo de base de datos multiinquilino mediante una *asignación de lista* para asignar varios inquilinos a una base de datos única. Por ejemplo, DB1 se usa para almacenar información sobre el identificador de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10. 
+O bien puede implementar un modelo de base de datos de varios inquilinos mediante una *asignación de lista* para asignar varios inquilinos a una base de datos individual. Por ejemplo, DB1 se usa para almacenar información sobre el identificador de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10. 
 
 ![Varios inquilinos en una sola base de datos][3] 
 
@@ -98,7 +98,7 @@ Para usar este patrón de asignación, los valores del identificador de inquilin
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Opción 3: asignaciones de lista en una base de datos única
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opción 3: Asignaciones de lista en una base de datos individual
 La configuración de este patrón también requiere la creación de un mapa de lista, tal como se muestra en el paso 2, opción 1.
 
 ## <a name="step-3-prepare-individual-shards"></a>Paso 3: preparar particiones individuales
@@ -138,7 +138,7 @@ Agregue las asignaciones de intervalo para todas las asociaciones de base de dat
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Paso 4, opción 3: asignar los datos para varios inquilinos en una sola base de datos
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Paso 4, opción 3: asignar los datos para varios inquilinos en una base de datos individual
 Para cada inquilino, ejecute Add-ListMapping (opción 1). 
 
 ## <a name="checking-the-mappings"></a>Comprobación de las asignaciones

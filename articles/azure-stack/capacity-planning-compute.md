@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962188"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242440"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planeamiento de la capacidad de proceso de Azure Stack
 Los [tamaños de máquinas virtuales admitidos en Azure Stack](./user/azure-stack-vm-sizes.md) son un subconjunto de los admitidos por Azure. Azure impone límites de recursos junto con varios vectores para evitar el consumo excesivo de recursos (nivel de servicio y local del servidor). Sin la imposición de algunos límites sobre el consumo del inquilino, las experiencias de este se verán afectadas cuando otros inquilinos consuman recursos en exceso. Para la salida de redes de la máquina virtual, hay extremos de ancho de banda en Azure Stack que coinciden con las limitaciones de Azure. En el caso de los recursos de almacenamiento, los límites de IOPS de almacenamiento se han implementado en Azure Stack para evitar el consumo excesivo básico de recursos por parte de los inquilinos para el acceso de almacenamiento.  
@@ -29,10 +30,7 @@ Los [tamaños de máquinas virtuales admitidos en Azure Stack](./user/azure-stac
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>Selección de ubicación de la máquina virtual y aprovisionamiento en exceso del núcleo virtual en el núcleo físico
 En Azure Stack, no hay ninguna manera de que un inquilino especifique un servidor determinado para usarlo para la selección de ubicación de la máquina virtual. La única consideración que se debe tener al colocar las máquinas virtuales es si hay suficiente memoria en el host para ese tipo de máquina virtual. Azure Stack no excede la asignación de memoria. Sin embargo, se permite una asignación excesiva del número de núcleos. Dado que los algoritmos de selección de ubicación no observan la relación de aprovisionamiento en exceso del núcleo virtual en el núcleo físico existente como un factor, cada host podría tener una relación diferente. 
 
-En Azure, para conseguir la alta disponibilidad de un sistema de producción con varias máquinas virtuales, las máquinas virtuales se colocan en un conjunto de disponibilidad para que se distribuyan a varios dominios de error. Esto significa que las máquinas virtuales colocadas en un conjunto de disponibilidad se aíslan físicamente entre sí en bastidores para permitir la resistencia ante errores, tal como se muestra en el diagrama siguiente:
-
-![Dominios de error y de actualización](media/azure-stack-capacity-planning/domains.png)
-
+En Azure, para conseguir la alta disponibilidad de un sistema de producción con varias máquinas virtuales, las máquinas virtuales se colocan en un conjunto de disponibilidad para que se distribuyan a varios dominios de error. En Azure Stack, un dominio de error en un conjunto de disponibilidad se define como un único nodo en la unidad de escalado.
 
 Si bien la infraestructura de Azure Stack es resistente ante errores, la tecnología subyacente (clústeres de conmutación por error) de todos modos tiene cierto tiempo de inactividad de las máquinas virtuales en un servidor físico que se ve afectado en la eventualidad de que se produzca un error de hardware. Actualmente, Azure Stack admite un conjunto de disponibilidad con un máximo de tres dominios de error para coherencia con Azure. Las máquinas virtuales colocadas en conjuntos de disponibilidad se aislarán físicamente entre sí al distribuirlas de la manera más uniforme que sea posible en varios dominios de error (nodos de Azure Stack). Si se produce un error de hardware, las máquinas virtuales del dominio de error que presente el error se reiniciarán en otros nodos, pero, si es posible, se mantendrán en dominios de error independientes de las otras máquinas virtuales que se encuentran en el mismo conjunto de disponibilidad. Cuando el hardware vuelva a estar en línea, las máquinas virtuales se volverán a equilibrar para mantener la alta disponibilidad.
 

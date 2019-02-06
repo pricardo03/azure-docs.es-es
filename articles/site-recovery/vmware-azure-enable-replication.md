@@ -1,17 +1,17 @@
 ---
 title: Habilitación de la replicación de máquinas virtuales de VMware para la recuperación ante desastres de VMware en Azure con Azure Site Recovery| Microsoft Docs'
 description: En este artículo, se describe cómo se habilita la replicación de máquinas virtuales de VMware para la recuperación ante desastres en Azure utilizando Azure Site Recovery.
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226340"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -86,18 +86,20 @@ Después, compruebe las propiedades de la máquina de origen. Recuerde que el no
 
 1. Haga clic en **Configuración** > **Elementos replicados** > y después seleccione la máquina. En la página **Información esencial** se detalla la configuración y el estado de las máquinas.
 2. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
-3. En **Compute y Network** > **Propiedades de Compute**, puede especificar el nombre y el tamaño de destino de la máquina virtual de Azure. Modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
+3. En **Compute and network** (Proceso y red) > **Propiedades de Compute**, puede cambiar varias propiedades de la máquina virtual:
+* Nombre de la máquina virtual de Azure: modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
+* Tamaño o tipo de la máquina virtual de destino: el tamaño predeterminado de máquina virtual se elige en función del tamaño de máquina virtual de origen. Puede seleccionar un tamaño de máquina virtual diferente según sea necesario en cualquier momento anterior a la conmutación por error. Tenga en cuenta que el tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco [estándar](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) y [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) y las IOPS.
 
     ![Propiedades de proceso y red](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  Puede seleccionar un [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) del cual la máquina formará parte de la conmutación por error posterior. Puede cambiar esta configuración en cualquier momento antes de una conmutación por error. Después de la conmutación por error, si se migra la máquina a otro grupo de recursos, la configuración de protección para dicha máquina se interrumpirá.
-5. Puede seleccionar un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si su máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta lo siguiente:
+*  Grupo de recursos: puede seleccionar un [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) del cual la máquina formará parte después de la conmutación por error. Puede cambiar esta configuración en cualquier momento antes de una conmutación por error. Después de la conmutación por error, si se migra la máquina a otro grupo de recursos, la configuración de protección para dicha máquina se interrumpirá.
+* Conjunto de disponibilidad: puede seleccionar un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si su máquina debe formar parte de una conmutación por error posterior. Al seleccionar un conjunto de disponibilidad, tenga en cuenta lo siguiente:
 
     * Solo se mostrarán los conjuntos de disponibilidad que pertenecen al grupo de recursos especificado.  
     * Las máquinas con distintas redes virtuales no pueden formar parte del mismo conjunto de disponibilidad.
     * Solo las máquinas virtuales del mismo tamaño pueden formar parte de un conjunto de disponibilidad.
-5. También puede ver y agregar la información sobre la red, la subred y la dirección IP de destino que se asigna a la máquina virtual de Azure.
-6. En **Discos** puede ver los discos de datos y del sistema operativo en la máquina virtual que se va a replicar.
+4. También puede ver y agregar la información sobre la red, la subred y la dirección IP de destino que se asigna a la máquina virtual de Azure.
+5. En **Discos** puede ver los discos de datos y del sistema operativo en la máquina virtual que se va a replicar.
 
 ### <a name="configure-networks-and-ip-addresses"></a>Configuración de redes y direcciones IP
 
@@ -120,7 +122,7 @@ Más información sobre la [Ventaja híbrida de Azure](https://aka.ms/azure-hybr
 
 ## <a name="common-issues"></a>Problemas comunes
 
-* Cada disco debe tener menos de 1 TB de tamaño.
+* Cada disco debe tener menos de 4 TB de tamaño.
 * El disco del sistema operativo debe ser un disco básico y no uno dinámico.
 * Para las máquinas virtuales de generación 2 o habilitadas para UEFI, la familia del sistema operativo debe ser Windows y el disco de arranque debe ser menor de 300 GB.
 
@@ -128,4 +130,5 @@ Más información sobre la [Ventaja híbrida de Azure](https://aka.ms/azure-hybr
 
 Una vez finalizada la protección y que la máquina ha alcanzado un estado protegido, puede intentar una [conmutación por error](site-recovery-failover.md) para comprobar si su aplicación aparece en Azure o no.
 
-Si desea deshabilitar la protección, consulte cómo [borrar el registro y la configuración de la protección](site-recovery-manage-registration-and-protection.md).
+* Consulte cómo [borrar el registro y la configuración de la protección](site-recovery-manage-registration-and-protection.md) para deshabilitar la replicación.
+* Obtenga información sobre cómo [automatizar la replicación de las máquinas virtuales con Powershell](vmware-azure-disaster-recovery-powershell.md)

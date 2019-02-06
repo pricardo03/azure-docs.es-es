@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539796"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103401"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Optimizar el vaciado automático en un servidor de Azure Database for PostgreSQL 
 En este artículo se describe cómo puede optimizar el vaciado automático en Azure Database for PostgreSQL.
@@ -63,7 +63,7 @@ El vaciado automático se activa cuando el número de tuplas desactivadas excede
 
 La limpieza que se realiza con el vaciado automático debe estar actualizada en función de la carga de la base de datos; de lo contrario, podría quedarse sin almacenamiento y experimentar una desaceleración general en las consultas. Como se amortiza con el tiempo, la velocidad a la que el vaciado limpia las tuplas desactivadas debe ser igual a la velocidad a la que se crean las tuplas desactivadas.
 
-Tenga en cuenta que las bases de datos con muchas actualizaciones y eliminaciones tienen más tuplas desactivadas y necesitan más espacio. En general, las bases de datos con muchas actualizaciones y eliminaciones se benefician de los valores bajos de autovacuum_vacuum_scale_factor y de autovacuum_vacuum_threshold para evitar la acumulación prolongada de tuplas desactivadas. De todas formas, puede usar valores más altos para ambos parámetros con bases de datos más pequeñas porque la necesidad de vaciado es menos urgente. Le recordamos que el proceso frecuente de vaciado conlleva un costo en el procesamiento y la memoria.
+Tenga en cuenta que las bases de datos con muchas actualizaciones y eliminaciones tienen más tuplas desactivadas y necesitan más espacio. En general, las bases de datos con muchas actualizaciones y eliminaciones se benefician de los valores bajos de autovacuum_vacuum_scale_factor y de autovacuum_vacuum_threshold para evitar la acumulación prolongada de tuplas desactivadas. De todas formas, puede usar valores más altos para ambos parámetros con bases de datos más pequeñas porque la necesidad de vaciado es menos urgente. Le recordamos que el proceso frecuente de vaciado conlleva un costo de procesamiento y memoria.
 
 El factor de escala predeterminado del 20 por ciento funciona bien en tablas con un bajo porcentaje de tuplas desactivadas, pero no en tablas con un alto porcentaje de tuplas desactivadas. Por ejemplo, en una tabla de 20 GB esto se traduce en 4 GB de tuplas desactivadas; si se trata de una tabla de 1 TB, le corresponderían son 200 GB de tuplas desactivadas.
 
@@ -97,6 +97,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 El vaciado automático es un proceso sincrónico que se realiza por tabla. Cuanto mayor es el porcentaje de tuplas desactivadas que tiene una tabla, mayor es el "costo" del vaciado automático.  Si divide las tablas que tienen una alta tasa de actualizaciones y eliminaciones en varias tablas, podrá paralelizar el vaciado automático y reducirá el "costo" de completar la operación de vaciado automático en una tabla. También puede aumentar el número de trabajos paralelos de vaciado automático para asegurarse de que los trabajos se programan de forma independiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Revise la siguiente documentación de PostgreSQL para obtener más información sobre el uso y optimización del vaciado automático:
+Para más información acerca del uso y la optimización del vaciado automático, consulte la siguiente documentación de PostgreSQL:
  - Documentación de PostgreSQL: [Chapter 18, Server Configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html) (Capítulo 18; configuración del servidor)
  - Documentación de PostgreSQL: [Chapter 24, Routine Database Maintenance Tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html) (Capítulo 24; tareas rutinarias de mantenimiento de base de datos)

@@ -1,6 +1,6 @@
 ---
-título: Escalado de un servicio web de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Aprenda a ampliar la simultaneidad en los servicios web de Azure Machine Learning Studio incorporando puntos de conexión adicionales.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Escalado de un servicio web de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Aprenda a ampliar la simultaneidad en los servicios web de Azure Machine Learning Studio incorporando puntos de conexión adicionales.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 23/01/2017
 ---

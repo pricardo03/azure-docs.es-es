@@ -6,22 +6,22 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 778a9e1e2767d5bae8d661dcd70a42d0d7d0caae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a1ebb1d818c0085a1741245ed236cf511b1db768
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218060"
 ---
 # <a name="bing-speech-client-samples"></a>Ejemplos de cliente de Bing Speech
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
  
-Bing Speech proporciona ejemplos de un extremo a otro que muestran distintos casos de uso; por ejemplo, reconocimiento de comandos, reconocimiento continuo y detección de intenciones. Todos los ejemplos están disponibles en GitHub y se pueden descargar con los vínculos siguientes: el archivo README.md que se encuentra en todos los repositorios y la página de [bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) proporcionan información detallada sobre cómo compilar y ejecutar los ejemplos.
+Bing Speech proporciona ejemplos de un extremo a otro que muestran distintos casos de uso; por ejemplo, reconocimiento de comandos, reconocimiento continuo y detección de intenciones. Todos los ejemplos están disponibles en GitHub y se pueden descargar mediante los vínculos siguientes: En el archivo README.md de cada repositorio, así como en la página de [bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) se proporcionan detalles sobre cómo compilar y ejecutar los ejemplos.
 
 - [Ejemplos de API REST](https://github.com/Azure-Samples/SpeechToText-REST)
 

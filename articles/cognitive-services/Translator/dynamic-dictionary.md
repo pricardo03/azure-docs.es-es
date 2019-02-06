@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e1a80de1e6d0deebaff81207717886a4a8bbcc63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e524df191bc7e621d5b048a373a8c424fbe2a721
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259486"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214150"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Descripción del uso de la característica de diccionario dinámico de Translator Text API
 
@@ -27,7 +27,7 @@ Si ya conoce la traducción que quiere aplicar a una palabra o frase, puede prop
 
 **Ejemplo: en-de:**
 
-Entrada de origen: The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry (La palabra "wordomatic" es una entrada del diccionario).
+Entrada de origen: La palabra <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> es una entrada de diccionario.
 
 Salida de destino: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 

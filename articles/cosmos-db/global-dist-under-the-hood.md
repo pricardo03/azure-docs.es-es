@@ -1,5 +1,5 @@
 ---
-title: 'Distribución global de Azure Cosmos DB: aspectos técnicos'
+title: Aspectos técnicos de la distribución global con Azure Cosmos DB
 description: En este artículo se ofrecen detalles técnicos relacionados con la distribución global de Azure Cosmos DB
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038949"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475387"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribución global de Azure Cosmos DB: aspectos técnicos
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Aspectos técnicos de la distribución de datos global con Azure Cosmos DB
 
 Azure Cosmos DB es un servicio fundamental de Azure, de modo que se implementa en todas las regiones de Azure del mundo, incluidas las nubes públicas, soberanas, gubernamentales y del Departamento de Defensa (DoD). En un centro de datos, implementamos y administramos Azure Cosmos DB en sellos masivos de máquinas, cada uno con almacenamiento local dedicado. En un centro de datos, Azure Cosmos DB se implementa en muchos clústeres, cada uno de los cuales puede ejecutar varias generaciones de hardware. Las máquinas de un clúster suelen repartirse entre una cantidad de dominios de error comprendida entre 10 y 20. La siguiente imagen muestra la topología del sistema de distribución global de Cosmos DB:
 

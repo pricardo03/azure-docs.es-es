@@ -1,6 +1,6 @@
 ---
-título: Copia de otros ejemplos de ciencia de datos titleSuffix: Azure Machine Learning Studio description: "Secreto comercial de ciencia de datos: Consiga que otras personas hagan el trabajo por usted. Obtenga ejemplos de aprendizaje automático en Azure AI Gallery".
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Copia de otros ejemplos de ciencia de datos titleSuffix: Azure Machine Learning Studio description: "Secreto comercial de ciencia de datos: Consiga que otras personas hagan el trabajo por usted. Obtenga ejemplos de aprendizaje automático en Azure AI Gallery".
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
 ---

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841456"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302366"
 ---
 Es importante proteger la máquina virtual (VM) para las aplicaciones que se ejecutan. Proteger las máquinas virtuales puede suponer que se incluyan uno o varios servicios y características de Azure que abarcan un acceso seguro a las máquinas virtuales y al almacenamiento seguro de los datos. Este artículo proporciona información que le permite proteger las máquinas virtuales y las aplicaciones.
 
@@ -20,6 +20,8 @@ El panorama moderno de amenazas para los entornos de nube es dinámico, lo que a
 ## <a name="azure-security-center"></a>Azure Security Center
 
 [Azure Security Center](../articles/security-center/security-center-intro.md) ayuda a evita y a detectar las amenazas para las máquinas virtuales, además de a responder a ellas. Security Center proporciona funcionalidades de administración de directivas y supervisión de la seguridad integradas en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+
+El acceso Just-In-Time de Security Center se puede aplicar en toda la implementación de la máquina virtual para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando Just-In-Time está habilitado y un usuario solicita acceso a una máquina virtual, Security Center comprueba qué permisos tiene el usuario para la máquina virtual. Si tiene los permisos correctos, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos seleccionados durante un período de tiempo limitado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. 
 
 ## <a name="encryption"></a>Cifrado
 
@@ -33,7 +35,7 @@ Los secretos y los certificados pueden ser modelados como recursos y ser proporc
 
 Las directivas de acceso a los almacenes de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la [directiva de acceso de un almacén de claves](../articles/key-vault/key-vault-secure-your-key-vault.md) no admite permisos de nivel de objeto.
 
-Cuando se conecte a máquinas virtuales (VM), debe usar la criptografía de clave pública para proporcionar una forma más segura de iniciar sesión en ellas. Este proceso implica un intercambio de claves públicas y privadas mediante el comando de Secure Shell (SSH) para autenticarse, en lugar de un nombre de usuario y una contraseña. Las contraseñas son vulnerables a ataques por fuerza bruta, sobre todo en máquinas virtuales con acceso a Internet, como los servidores web. Con un par de claves de shell seguro (SSH), puede crear una [máquina virtual Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) en Azure que use claves SSH para la autenticación, lo que elimina la necesidad de usar contraseñas para iniciar sesión. También puede usar claves de SSH para conectarse desde una [máquina virtual Windows](../articles/virtual-machines/linux/ssh-from-windows.md) a una máquina virtual Linux.
+Cuando se conecte a máquinas virtuales (VM), debe usar la criptografía de clave pública para proporcionar una forma más segura de iniciar sesión en ellas. Este proceso implica un intercambio de claves públicas y privadas mediante el comando de Secure Shell (SSH) para autenticarse, en lugar de un nombre de usuario y una contraseña. Las contraseñas son vulnerables a ataques por fuerza bruta, sobre todo en máquinas virtuales con acceso a Internet, como los servidores web. Con un par de claves de Secure Shell (SSH) puede crear una [máquina virtual Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) en Azure que use claves SSH para la autenticación, lo que elimina la necesidad de usar contraseñas para iniciar sesión. También puede usar claves de SSH para conectarse desde una [máquina virtual Windows](../articles/virtual-machines/linux/ssh-from-windows.md) a una máquina virtual Linux.
 
 ## <a name="managed-identities-for-azure-resources"></a>Identidades administradas de recursos de Azure
 

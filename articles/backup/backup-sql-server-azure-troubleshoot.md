@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339525"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296128"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
@@ -37,6 +37,15 @@ Para configurar la protección de una base de datos de SQL Server en una máquin
 ## <a name="troubleshooting-errors"></a>Solución de errores
 
 La información de las tablas siguientes se usa para solucionar problemas y errores detectados durante la protección de SQL Server en Azure.
+
+## <a name="alerts"></a>Alertas
+
+### <a name="backup-type-unsupported"></a>Tipo de copia de seguridad no compatible
+
+| Gravedad | DESCRIPCIÓN | Causas posibles | Acción recomendada |
+|---|---|---|---|
+| Advertencia | La configuración actual de esta base de datos no admite determinados tipos de copia de seguridad presentes en la directiva asociada. | <li>**Base de datos principal**: En la base de datos principal solo se puede realizar una operación de copia de seguridad completa de la base de datos; no se admite la copia de seguridad **diferencial** ni la copia de seguridad de **registros** de transacciones. </li> <li>Ninguna base de datos del **modelo de recuperación simple** admite la realización de copias de seguridad de **registros** de transacciones.</li> | Modifique la configuración de la base de datos de tal forma que se admitan todos los tipos de copia de seguridad de la directiva. De forma alternativa, cambie la directiva actual para incluir solo los tipos de copia de seguridad compatibles. De lo contrario, se omitirán los tipos de copia de seguridad durante la copia de seguridad programada o el trabajo de copia de seguridad generará errores en caso de que se trate de una copia de seguridad ad hoc.
+
 
 ## <a name="backup-failures"></a>Errores de copia de seguridad
 

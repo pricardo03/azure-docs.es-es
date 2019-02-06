@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d9e877fd648c28564f5eccc46f9c20741fe446f8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578677"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076322"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
@@ -45,12 +45,12 @@ Para calcular la aserción, puede usar una de las muchas bibliotecas de [JSON We
 
 | Parámetro |  Comentarios |
 | --- | --- |
-| `aud` | Público: debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| `aud` | Audience: Debe ser **https://login.microsoftonline.com/*tenant_Id* /oauth2/token** |
 | `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
 | `iss` | Emisor: debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
 | `jti` | GUID: el identificador de JWT |
 | `nbf` | No antes de: fecha antes de la cual el token no se puede usar. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se emitió el token. |
-| `sub` | Asunto: al igual que para `iss`, debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
+| `sub` | Asunto: En cuanto a `iss` debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
 
 ### <a name="signature"></a>Firma
 

@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c1c4b8e5c2701f3c419a58bc3fdc33f7e629bbd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ded91c6de498b130cc26109a70e89955dd70d862
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238548"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208999"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Preguntas frecuentes sobre Emotion API
 
@@ -49,11 +49,11 @@ ms.locfileid: "48238548"
 
 **Pregunta**: *¿Hay alguna forma de pasar una secuencia de vídeo en directo a la API y obtener el resultado simultáneamente?*
 
-**Respuesta**: Use una instancia de Emotion API basada en imágenes y llámela en cada fotograma u omita fotogramas para mejor rendimiento.  Hay ejemplos disponibles del análisis de fotograma a fotograma.
+**Respuesta**: Use una instancia de Emotion API basada en imágenes y llámela en cada fotograma u omita fotogramas para un mejor rendimiento.  Hay ejemplos disponibles del análisis de fotograma a fotograma.
 
 -----
 
-**Pregunta**: *Paso los datos de imagen binarios, pero me devuelve un mensaje de imagen no válida.**
+**Pregunta**: *Paso los datos de imagen binarios, pero me devuelve el mensaje: "Imagen de rostro no válida.**
 
 **Respuesta**: Este mensaje implica que el algoritmo ha tenido un problema al analizar la imagen.  
 * Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF(el primer fotograma) y BMP.

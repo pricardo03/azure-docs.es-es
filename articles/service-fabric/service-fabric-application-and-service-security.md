@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207917"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097918"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Seguridad del servicio y la aplicación de Service Fabric
 Una arquitectura de microservicios puede aportar [muchas ventajas](service-fabric-overview-microservices.md). Administrar la seguridad de los microservicios, sin embargo, es un desafío y no es lo mismo que administrar la seguridad de las aplicaciones tradicionales monolíticas. 
@@ -46,7 +46,7 @@ La [autorización de ASP.NET Core](/dotnet/standard/microservices-architecture/s
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restricción y protección del acceso mediante una puerta de enlace de API
 Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. Una [puerta de enlace de API](/azure/architecture/microservices/gateway) se ubica entre los clientes y los servicios, y es el punto de entrada a todos los servicios que proporciona la aplicación. Actúa como un proxy inverso, enrutando las solicitudes de los clientes a los servicios. También puede realizar diversas tareas transversales como la autenticación, la autorización, la terminación SSL y la limitación de velocidad. Si no implementa una puerta de enlace, los clientes deben enviar las solicitudes directamente a los servicios front-end.
 
-En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Træfik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) o [Azure API Management](https://docs.microsoft.com/azure/api-management).
+En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) o [Azure API Management](https://docs.microsoft.com/azure/api-management).
 
 API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric.  Puede proteger el acceso a servicios back-end, evitar ataques DOS usando la limitación, o verificar las claves API, los tokens JWT, los certificados y otras credenciales. Para obtener más información, consulte [Información general de Service Fabric con Azure API Management](service-fabric-api-management-overview.md).
 

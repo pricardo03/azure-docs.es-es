@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974377"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888573"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -414,15 +414,19 @@ Si desea analizar los archivos Parquet o escribir los datos en formato Parquet, 
 }
 ```
 
-> [!IMPORTANT]
-> Para copias habilitadas por Integration Runtime autohospedado, por ejemplo, entre almacenes de datos locales y en la nube, si no va a copiar archivos Parquet **como están**, necesita instalar el JRE 8 (Java Runtime Environment) en la máquina de IR. IR de 64 bits requiere JRE de 64 bits. Puede encontrar las dos versiones [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Tenga en cuenta los siguientes puntos:
 
 * No se admiten tipos de datos complejos (MAP, LIST).
 * No se admiten espacios en blanco en el nombre de columna.
 * El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos de archivos Parquet en todos estos formatos comprimidos excepto LZO. Este usa el códec de compresión de los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento.
+
+> [!IMPORTANT]
+> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos Parquet **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
+
+En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos Parquet, para encontrar el entorno de ejecución de Java, ADF consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK. 
+
+- **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Asignación de tipos de datos para archivos PARQUET
 
@@ -436,13 +440,13 @@ Tenga en cuenta los siguientes puntos:
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/binario | UInt64 | DECIMAL |
+| UInt64 | Int64/binario | UInt64 | Decimal |
 | Single | Float | N/D | N/D |
-| Doble | Doble | N/D | N/D |
-| DECIMAL | Binary | DECIMAL | DECIMAL |
+| Double | Double | N/D | N/D |
+| Decimal | Binary | Decimal | Decimal |
 | string | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/D | N/D |
-| timespan | Int96 | N/D | N/D |
+| DateTime | Int96 | N/D | N/D |
+| TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
 | Guid | Binary | Utf8 | Utf8 |
@@ -460,15 +464,19 @@ Si desea analizar los archivos ORC o escribir los datos en formato ORC, establez
 }
 ```
 
-> [!IMPORTANT]
-> Para copias habilitadas por Integration Runtime autohospedado, por ejemplo, entre almacenes de datos locales y en la nube, si no va a copiar archivos ORC **como están**, necesita instalar el JRE 8 (Java Runtime Environment) en la máquina de IR. IR de 64 bits requiere JRE de 64 bits. Puede encontrar las dos versiones [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Tenga en cuenta los siguientes puntos:
 
 * No se admiten tipos de datos complejos (STRUCT, MAP, LIST, UNION).
 * No se admiten espacios en blanco en el nombre de columna.
 * El archivo ORC tiene tres [opciones relacionadas con la compresión](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB Y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
+
+> [!IMPORTANT]
+> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
+
+En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos ORC, para encontrar el entorno de ejecución de Java, ADF consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK. 
+
+- **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Asignación de tipos de datos para archivos ORC
 
@@ -484,12 +492,12 @@ Tenga en cuenta los siguientes puntos:
 | Int64 | long |
 | UInt64 | string |
 | Single | Float |
-| Doble | Doble |
-| DECIMAL | DECIMAL |
+| Double | Double |
+| Decimal | Decimal |
 | string | string |
-| Datetime | Timestamp |
+| DateTime | Timestamp |
 | DateTimeOffset | Timestamp |
-| timespan | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binary |
 | Guid | string |
 | Char | Char(1) |

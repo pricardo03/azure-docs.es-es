@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343034"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215867"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech API
 
@@ -179,7 +179,7 @@ Microsoft Text-to-Speech API admite SSML 1.0, tal como se define en W3C [Speech 
   ```
 
 > [!NOTE]
-> Tenga en cuenta que los datos de audio deben ser un archivo wav de 8k o 16k en el formato siguiente: **código CRC** (CRC-32): 4 bytes (DWORD) con rango válido 0x00000000 ~ 0xFFFFFFFF; **Marca de formato de audio**: 4 bytes (DWORD) con rango válido 0x00000000 ~ 0xFFFFFFFF; **Cuenta de muestras**: 4 bytes (DWORD) con rango válido 0x00000000 ~ 0x7FFFFFFF; **Tamaño de cuerpo binario**: 4 bytes (DWORD) con rango válido 0x00000000 ~ 0x7FFFFFFF; **Cuerpo binario**: n bytes.
+> Tenga en cuenta que los datos de audio se deben archivar como .wav de 8 k o 16 k en el siguiente formato: **Código CRC** (CRC-32): 4 bytes (DWORD) con el intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Marca de formato de audio**: 4 bytes (DWORD) con el intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Recuento de muestras**: 4 bytes (DWORD) con el intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamaño del cuerpo binario**: 4 bytes (DWORD) con el intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Cuerpo binario**: n bytes.
 
 ## <a name="SampleApp"></a>Aplicación de ejemplo
 
@@ -214,9 +214,9 @@ en-IE | Hombre | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | Hombre | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
-es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
-es-ES | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
+en-US | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
+en-US | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
 es-ES | Hombre | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)"

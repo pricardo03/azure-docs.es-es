@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901284"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150881"
 ---
 # <a name="query-expression-syntax"></a>Sintaxis de expresión de consulta
 
@@ -25,7 +25,7 @@ También puede crear sus propias expresiones de consulta y usarlas en una solici
 
 Cada atributo de entidad que se puede incluir en una expresión de consulta tiene un tipo de datos específico y un conjunto de posibles operadores de consulta. El conjunto de atributos de entidad y los operadores admitidos para cada atributo se especifican en [Atributos de entidad](EntityAttributes.md). Una consulta de valor único requiere el atributo para admitir la operación *Equals*. Una consulta de prefijo requiere el atributo para admitir la operación *StartsWith*. Las consultas de rango numérico requieren el atributo para admitir la operación *IsBetween*.
 
-Algunos de los datos de entidad se almacenan como atributos compuestos, como se indica mediante un punto '.' en el nombre del atributo. Por ejemplo, la información de autor/afiliación se representa como un atributo compuesto. Contiene 4 componentes: AuN, AuId, AfN, AfId. Estos componentes son partes independientes de datos que forman un valor de atributo de entidad única.
+Algunos de los datos de entidad se almacenan como atributos compuestos, como se indica mediante un punto '.' en el nombre del atributo. Por ejemplo, la información de autor/afiliación se representa como un atributo compuesto. Contiene 4 componentes: AuN, AuId, AfN y AfId. Estos componentes son partes independientes de datos que forman un valor de atributo de entidad única.
 
 
 **Atributo de cadena: valor único** (incluye coincidencias con sinónimos)  
@@ -40,10 +40,10 @@ Composite(AA.AuN=='susan t dumais')
 Ti = 'indexación por análisis semán'...  
 Composite(AA.AuN='sue du'...)
 
-**Atributo numérico: valor único**  
+**Atributo numérico: Valor único**  
 Y=2010
  
-**Atributo numérico: valor de intervalo**  
+**Atributo numérico: valor de rango**  
 Y>2005  
 Y>=2005  
 Y<2010  
@@ -57,7 +57,7 @@ Y='19'... (cualquier valor numérico que empiece por 19)
 **Atributo de fecha: valor único**  
 D='2010-02-04'
 
-**Atributo de fecha: valor de intervalo**  
+**Atributo de fecha: valor de rango**  
 D>'2010-02-03'  
 D=['2010-02-03','2010-02-05']
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465904"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094111"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge (versión preliminar)
 
@@ -98,7 +98,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
 
 1. En Visual Studio Code, seleccione **View > Command Palette** (Ver > Paleta de comandos) para abrir la paleta de comandos de VS Code.
 2. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
-3. En la paleta de comandos, escriba el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge) y ejecútelo. En la paleta de comandos, proporcione la siguiente información para crear la solución:
+3. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). En la paleta de comandos, proporcione la siguiente información para crear la solución:
 
     1. Seleccione la carpeta en la que desea crear la solución.
     2. Proporcione un nombre para la solución o acepte el valor predeterminado: **EdgeSolution**.
@@ -143,7 +143,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > Anote los valores de `InputFolderPath` y `OutputFolderPath`. Deberá proporcionar estas rutas de acceso al implementar este módulo.

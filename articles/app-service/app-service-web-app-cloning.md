@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 9d4b664c9b1fc0deb10794a5f0b29c2b600d19e2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17ea8545855cd926a393e9e40d3eccaabd6dba53
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712670"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886533"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonación de aplicaciones de Azure App Service mediante PowerShell
 Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a `New-AzureRMWebApp` que permite clonar una aplicación de App Service existente en una aplicación nueva que se crea en una región diferente o en la misma región. Esta opción permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
@@ -116,7 +116,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest
 ```
 
 ## <a name="current-restrictions"></a>Restricciones actuales
-Esta característica está actualmente en versión preliminar; con el tiempo, se agregarán nuevas funcionalidades. Estas son las restricciones conocidas de la versión actual de la clonación de aplicaciones:
+Estas son las restricciones conocidas de la clonación de aplicaciones:
 
 * No se clona la configuración de escalado automático.
 * No se clona la configuración de programación de copia de seguridad.

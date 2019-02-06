@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425350"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097051"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Control de Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
 Si ofrece una aplicación de software como servicio (SaaS) a muchas organizaciones, puede configurar la aplicación para que acepte inicios de sesión de cualquier inquilino de Azure Active Directory (Azure AD). Esta operación se conoce como *convertir una aplicación en multiinquilino*. Los usuarios de cualquier inquilino de Azure AD podrán iniciar sesión en su aplicación después de dar su consentimiento al uso de su cuenta con ella. 
 
@@ -59,7 +59,7 @@ En una aplicación de un solo inquilino, las solicitudes de inicio de sesión se
 
 Con una aplicación multiempresa, la aplicación no sabe de antemano de qué inquilino procede el usuario, así que no puede enviar solicitudes al punto de conexión de uno de los inquilinos. En su lugar, las solicitudes se envían a un punto de conexión que las multiplexa en todos los inquilinos de Azure AD: `https://login.microsoftonline.com/common`
 
-Cuando Azure AD recibe una solicitud en el punto de conexión /common, inicia la sesión del usuario y, como consecuencia, detecta cuál es el inquilino del que procede. El punto de conexión /common funciona con todos los protocolos de autenticación compatibles con Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 y WS-Federation.
+Cuando Azure AD recibe una solicitud en el punto de conexión /common, inicia la sesión del usuario y, como consecuencia, detecta cuál es el inquilino del que procede. El punto de conexión /common funciona con todos los protocolos de autenticación compatibles con Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 y WS-Federation.
 
 La respuesta de inicio de sesión a la aplicación contiene un token que representa al usuario. El valor issuer del token indica a una aplicación el inquilino del que procede el usuario. Cuando el punto de conexión /common devuelva una respuesta, el valor issuer del token corresponderá al inquilino del usuario. 
 

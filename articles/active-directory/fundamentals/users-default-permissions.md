@@ -5,27 +5,27 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: e1ec57dd058caff076d3fe8877928efb293ee5fa
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5780090f155b3e09792aeb78c4e1d573808028ca
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451347"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299357"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
-En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [pertenencias a roles](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados.
+En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [pertenencias a roles](active-directory-users-assign-role-azure-portal.md) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados.
 
 ## <a name="member-and-guest-users"></a>Usuarios miembros e invitados
-El conjunto de permisos predeterminados recibido depende de si el usuario es miembro nativo del inquilino (usuario miembro) o si el usuario es un invitado de la colaboración B2B (usuario invitado). Para más información acerca de la colaboración B2B, consulte [¿Qué es la colaboración B2B de Azure AD?](../b2b/what-is-b2b.md) para más información acerca de los usuarios invitados. 
+El conjunto de permisos predeterminados recibido depende de si el usuario es miembro nativo del inquilino (usuario miembro) o si el usuario se incorpora desde otro directorio como un invitado de la colaboración B2B (usuario invitado). Vea [¿Qué es el acceso de usuarios invitados de B2B?](../b2b/what-is-b2b.md) para más información sobre la adición de usuarios invitados.
 * Los usuarios miembro pueden registrar aplicaciones, administrar el número de teléfono móvil y la fotografía de su propio perfil, cambiar su contraseña e invitar a los invitados de B2B. Además, los usuarios pueden leer toda la información del directorio (con algunas excepciones). 
-* Los usuarios invitados de B2B de Azure AD tienen permisos de directorio restringidos. Por ejemplo, los usuarios invitados no pueden buscar la información del inquilino más allá de su propia información de perfil. Sin embargo, un usuario invitado puede recuperar información acerca de otro usuario si proporciona el nombre principal de usuario u objectId. Un invitado no puede ver información acerca de otros objetos del inquilino como los grupos y las aplicaciones.
+* Los usuarios invitados tienen permisos de directorio restringidos. Por ejemplo, los usuarios invitados no pueden buscar la información del inquilino más allá de su propia información de perfil. Sin embargo, un usuario invitado puede recuperar información acerca de otro usuario si proporciona el nombre principal de usuario u objectId. Un usuario invitado puede leer las propiedades de los grupos a los que pertenecen, incluida la pertenencia, con independencia de la configuración **Los permisos de los usuarios invitados están limitados**. Un invitado no puede ver información sobre cualquier otro objeto de inquilino.
 
 De forma predeterminada, los permisos predeterminados de los invitados son restrictivos. Los invitados se pueden agregar a los roles de administrador, que les conceden permisos completos de lectura y escritura incluidos en el rol. Hay una restricción adicional disponible, la capacidad que tienen los invitados para invitar a otros. Si **Los invitados pueden invitar** se establece en **No** se evita que los invitados puedan invitar a otros. Consulte [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](../b2b/delegate-invitations.md) para aprender a hacerlo. Para conceder a los usuarios invitados los mismos permisos que a los usuarios miembros de forma predeterminada, establezca **Los permisos de los usuarios invitados están limitados** en **No**. Esta configuración concede a todos los miembros permisos de usuario para usuarios invitados de forma predeterminada y permite que se agreguen invitados a los roles administrativos.
 
@@ -34,7 +34,7 @@ De forma predeterminada, los permisos predeterminados de los invitados son restr
 **Ámbito** | **Permisos de usuarios miembros** | **Permisos de usuarios invitados**
 ------------ | --------- | ----------
 Usuarios y contactos | Leer todas las propiedades públicas de usuarios y contactos<br>Invitar a los invitados<br>Cambiar la contraseña propia<br>Administrar el número de teléfono móvil propio<br>Administrar la fotografía propia<br>Invalidar tokens de actualización propios | Leer las propiedades propias<br>Leer el nombre para mostrar, el correo electrónico, el nombre de inicio de sesión, la fotografía, el nombre principal de usuario y las propiedades de tipo de usuario de otros usuarios y contactos<br>Cambiar la contraseña propia
-Grupos | Crear grupos de seguridad<br>Crear grupos de Office 365<br>Leer todas las propiedades de los grupos<br>Leer las pertenencias a grupos no ocultos<br>Leer las pertenencias a grupos de Office 365 ocultos para los grupos a los que se ha unido<br>Administrar las propiedades, la propiedad y la pertenencia de los grupos que se poseen<br>Agregar invitados a los grupos que se poseen<br>Administrar la configuración de pertenencia dinámica<br>Eliminar los grupos que se poseen<br>Restaurar los grupos de Office 365 que se poseen | Leer todas las propiedades de los grupos<br>Leer las pertenencias a grupos no ocultos<br>Leer las pertenencias a grupos de Office 365 ocultos para los grupos a los que se ha unido<br>Administrar los grupos que se poseen<br>Agregar invitados a los grupos que se poseen (si se permite)<br>Eliminar los grupos que se poseen<br>Restaurar los grupos de Office 365 que se poseen 
+Grupos | Crear grupos de seguridad<br>Crear grupos de Office 365<br>Leer todas las propiedades de los grupos<br>Leer las pertenencias a grupos no ocultos<br>Leer las pertenencias a grupos de Office 365 ocultos para los grupos a los que se ha unido<br>Administrar las propiedades, la propiedad y la pertenencia de los grupos que se poseen<br>Agregar invitados a los grupos que se poseen<br>Administrar la configuración de pertenencia dinámica<br>Eliminar los grupos que se poseen<br>Restaurar los grupos de Office 365 que se poseen | Leer todas las propiedades de los grupos<br>Leer las pertenencias a grupos no ocultos<br>Leer las pertenencias a grupos de Office 365 ocultos para los grupos a los que se ha unido<br>Administrar los grupos que se poseen<br>Agregar invitados a los grupos que se poseen (si se permite)<br>Eliminar los grupos que se poseen<br>Restaurar los grupos de Office 365 que se poseen<br>Leer las propiedades de los grupos a los que pertenecen, incluida la pertenencia.
 APLICACIONES | Registrar aplicaciones nuevas<br>Leer las propiedades de las aplicaciones registradas y empresariales<br>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<br>Crear o eliminar contraseña de la aplicación para el usuario<br>Eliminar las aplicaciones que se poseen<br>Restaurar las aplicaciones que se poseen | Leer las propiedades de las aplicaciones registradas y empresariales<br>Administrar las propiedades, asignaciones y credenciales de las aplicaciones que se poseen<br>Eliminar las aplicaciones que se poseen<br>Restaurar las aplicaciones que se poseen
 Dispositivos | Leer todas las propiedades de los dispositivos<br>Administrar todas las propiedades de los dispositivos que se poseen<br> | Sin permisos<br>Eliminar los dispositivos que se poseen<br>
 Directorio | Leer toda la información de la compañía<br>Leer todos los dominios<br>Leer todos los contratos de los asociados | Leer el nombre para mostrar y los dominios comprobados

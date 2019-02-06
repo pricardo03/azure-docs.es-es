@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306495"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078787"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
 ## <a name="executive-summary"></a>Resumen ejecutivo
-En los últimos años, Internet de las cosas (IoT), las fuentes de energía alternativas y los macrodatos se han combinado para crear grandes oportunidades en los sectores de los servicios públicos y la energía. Al mismo tiempo, tanto el sector de los servicios públicos como el de la energía han presenciado una reducción del consumo y, al mismo tiempo, la exigencia por parte de los clientes de formas mejores de controlar su uso de la energía. De ahí que tanto las compañías de sectores públicos como las de redes de distribución eléctrica inteligentes necesitan imperiosamente innovar y renovarse. Además, muchas de las redes eléctricas y de servicios públicos se han quedado obsoletas y son muy caras de mantener y administrar. Durante el último año, el equipo ha trabajado en varios contratos con el sector energético. Durante ese tiempo, hemos encontrado muchos casos en los que los servicios públicos o los ISV (fabricantes de software independientes) han evaluado las previsiones de demanda energética en el futuro. Estas previsiones desempeñan un rol importante en su negocio actual y futuro, y se han convertido en la base de varios casos de uso. Aquí se incluye la previsión de carga energética a corto y largo plazo, su comercialización, el equilibrio de carga, la optimización de la red. Los macrodatos y los métodos de análisis avanzado (AA), como Machine Learning (ML), son las principales habilitadores de la generación de previsiones precisas y confiables.  
+En los últimos años, Internet de las cosas (IoT), las fuentes de energía alternativas y los macrodatos se han combinado para crear grandes oportunidades en los sectores de los servicios públicos y la energía. Al mismo tiempo, tanto el sector de los servicios públicos como el de la energía han presenciado una reducción del consumo y, al mismo tiempo, la exigencia por parte de los clientes de formas mejores de controlar su uso de la energía. De ahí que tanto las compañías de sectores públicos como las de redes de distribución eléctrica inteligentes necesitan imperiosamente innovar y renovarse. Además, muchas de las redes eléctricas y de servicios públicos se han quedado obsoletas y son muy caras de mantener y administrar. Durante el último año, el equipo ha trabajado en varios contratos con el sector energético. Durante ese tiempo, hemos encontrado muchos casos en los que los servicios públicos o los ISV (fabricantes de software independientes) han evaluado las previsiones de demanda energética en el futuro. Estas previsiones desempeñan un rol importante en su negocio actual y futuro, y se han convertido en la base de varios casos de uso. Aquí se incluye la previsión de carga energética a corto y largo plazo, su comercialización, el equilibrio de carga, la optimización de la red. Los macrodatos y los métodos de análisis avanzado (AA), como Machine Learning (ML), son las principales habilitadores de la generación de previsiones precisas y confiables.
 
 En este cuaderno de estrategias se combinan las directrices analíticas y empresariales necesarias para desarrollar e implementar correctamente una solución de predicción de la demanda energética. Estas directrices propuestas pueden ayudar a los servicios públicos, científicos de datos e ingenieros de datos a establecer soluciones en la nube de previsión de demanda totalmente operativas. En el caso de las compañías que acaban de empezar su andadura en el análisis avanzado y en los macrodatos, esta solución puede representar el inicio de su estrategia a largo plazo para las redes de distribución eléctrica inteligentes.
 
 > [!TIP]
-> Para descargar un diagrama que proporcione una introducción a la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de la demanda de energía](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> Para descargar un diagrama que proporcione una introducción a la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de la demanda de energía](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## <a name="overview"></a>Información general
-Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Azure Machine Learning (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:  
+Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Azure Machine Learning (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:
 
-1. Conocimiento del negocio  
-2. Conocimiento de los datos  
+1. Conocimiento del negocio
+2. Conocimiento de los datos
 3. Implementación técnica
 
 La parte del **conocimiento del negocio** describe el aspecto del negocio que es preciso conocer y tener en cuenta antes de tomar cualquier decisión sobre inversiones. En ella se explica cómo calificar el problema empresarial disponible para asegurarse de que tanto el análisis predictivo como el aprendizaje automático son realmente eficaces y pueden aplicarse. El documento también explica los datos básicos del aprendizaje automático y cómo se utiliza para tratar los problemas de previsión energética. Describe los requisitos previos y los criterios de cualificación de un caso de uso. También se proporcionan varios escenarios de casos de uso y casos de negocio de ejemplo.
@@ -43,7 +43,7 @@ La tercera parte del documento trata del aspecto de la **implementación técnic
 
 Además, el documento incluye material de referencia que permite conocer aún mejor la tecnología y el dominio.
 
-Es importante tener en cuenta que en este documento no se pretende tratar el proceso profundo de la ciencia de datos, ni sus aspectos técnicos y matemáticos. Estos detalles se pueden encontrar en la [documentación de Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) y estos [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Es importante tener en cuenta que en este documento no se pretende tratar el proceso profundo de la ciencia de datos, ni sus aspectos técnicos y matemáticos. Estos detalles se pueden encontrar en la [documentación de Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/) y en estos [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Audiencia de destino
 Este documento va destinado a personal técnico y comercial que desee obtener conocimientos acerca de las soluciones basadas en Machine Learning y de su uso en el entorno de la previsión de la demanda energética.
@@ -87,7 +87,7 @@ En el contexto de la demanda de energía, la previsión de carga a corto plazo (
 * Equilibrio de carga y prevención de sobrecargas
 * Previsión de carga a largo plazo
 * Detección de fallos y anomalías
-* Reducción o redistribución de los picos 
+* Reducción o redistribución de los picos
 
 Los modelos STLF se basan principalmente en datos de consumo recientes (último día o semana) y usan la temperatura prevista como indicador importante. En la actualidad, la obtención de una previsión precisa de la temperatura de la próxima hora y hasta un máximo de 24 horas es una tarea cada vez más sencilla. Estos modelos son menos sensibles a los patrones estacionales o a las tendencias de consumo a largo plazo.
 
@@ -189,9 +189,9 @@ A continuación se describe este proceso de cuatro pasos:
 
 1. **Recopilación de datos**: todas las soluciones basadas en el análisis avanzado confían en los datos (consulte **Conocimiento de los datos**). En concreto, en lo relativo al análisis predictivo y a la previsión, confiamos en un flujo dinámico continuo de datos. En el caso de la previsión de la demanda energética, estos datos pueden proceder directamente de los medidores inteligentes o estar ya agregados a una base de datos local. También confiamos en otros orígenes externos de datos, como el tiempo y la temperatura. Este flujo continuo de datos debe orquestarse, programarse y almacenarse. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) es nuestro producto estrella para llevar a cabo esta tarea.
 2. **Modelado** : para que las previsiones de la demanda de energía sean precisos y confiables, es preciso desarrollar (entrenar) y mantener un modelo excelente que haga uso de los datos históricos y extraiga los patrones significativos y predictivos en los datos. El área de Machine Learning (ML) ha crecido rápidamente y ahora se desarrollan de manera habitual algoritmos más avanzados. Azure ML Studio proporciona al usuario una excelente experiencia que le ayuda a utilizar los algoritmos de Machine Learning más avanzados en un flujo de trabajo completo. Dicho flujo se trabajo se ilustra en un diagrama de flujo intuitivo e incluye la preparación de los datos, la extracción de características, el modelado y la evaluación de modelos. El usuario puede atraer cientos de modelos que se incluyen en este entorno. Al final de esta fase, los científicos de datos tendrán un modelo de trabajo totalmente evaluado y listo para su implementación.
-   
+
    El siguiente diagrama ilustra un flujo de trabajo típico:
-   
+
    ![Flujo de trabajo de modelado](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Implementación** : con un modelo de trabajo a mano, el paso siguiente es la implementación. Aquí, el modelo se convierte en un servicio web que expone una API de RESTful que se puede invocar simultáneamente a través de Internet de distintos clientes de consumo. Azure Machine Learning proporciona una manera sencilla de implementar un modelo directamente desde Azure Machine Learning Studio, con un solo clic de un botón. Todo el proceso de implementación se realiza internamente. Esta solución se puede escalar automáticamente para satisfacer el consumo requerido.
 4. **Consumo** : en esta fase es en la que realmente se utiliza el modelo de previsión para generar las previsiones. El consumo se puede controlar desde una aplicación de usuario (*por ejemplo,*, el panel) o directamente desde un sistema operativo como un sistema de equilibrado de demanda/suministro o una solución de optimización de la red de distribución de electricidad. Desde un modelo individual se pueden controlar varios casos de uso.
@@ -321,8 +321,8 @@ En los últimos años han desarrollado algoritmos avanzados para acomodar el pro
 
 > [!NOTE]
 > Esta sección no pretende utilizarse como una introducción al aprendizaje automático y a la previsión, sino como un breve examen de las técnicas de modelado que se suelen utilizar para la previsión de la demanda. Para más información y material educativo acerca de la predicción de series temporales, se recomienda encarecidamente el Libro en pantalla [Forecasting: principios y prácticas](https://www.otexts.org/)(Previsión: principios y práctica).
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (media móvil)**
 La media móvil fue una de las primeras técnicas de análisis que se utilizó para la previsión de una serie temporal y aún hoy sigue siendo de las más usadas. También es la base de técnicas de previsión más avanzadas. Con la media móvil, la previsión del siguiente punto de datos se realiza mediante la obtención del promedio de los K puntos más recientes, donde K denota el orden de la media móvil.

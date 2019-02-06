@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436014"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206976"
 ---
 # <a name="production-readiness-checklist"></a>Lista de comprobación sobre la preparación de producción
 
@@ -27,15 +27,15 @@ ms.locfileid: "53436014"
 
 
 ## <a name="pre-requisites-for-production"></a>Requisitos previos para la producción
-1. Los [procedimientos recomendados de Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) son: 
+1. Los [procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) son: 
 * Uso de certificados X.509
 * Configuración de directivas de seguridad
 * Configuración de SSL para Azure Service Fabric
 * Uso de aislamiento y seguridad de red con Azure Service Fabric
 * Configuración de Azure Key Vault para la seguridad
-* Asignación de usuarios a roles
+* Usuarios de Microsoft.Network/loadBalancersAssign a roles
 * Implementación de la configuración de seguridad de Reliable Actors si se usa el modelo de programación Actores
-2. Para los clústeres con más de 20 núcleos o 10 nodos, cree un tipo de nodo principal dedicado para los servicios del sistema. Agregue [restricciones de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar el tipo de nodo principal para los servicios del sistema. 
+2. Para los clústeres con más de 20 núcleos o 10 nodos, cree un tipo de nodo principal dedicado para los servicios del sistema. Agregue [restricciones de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar el tipo de nodo principal para los servicios del sistema.
 3. Use una SKU D2v2 o una versión superior para el tipo de nodo principal. Se recomienda seleccionar una SKU con 50 GB de capacidad de disco duro como mínimo.
 4. Los clústeres de producción deben ser [seguros](service-fabric-cluster-security.md). Para obtener un ejemplo de cómo configurar un clúster seguro, consulte esta [plantilla del clúster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use nombres comunes para los certificados y evite el uso de certificados autofirmados.
 5. Agregue [restricciones de recursos en contenedores y servicios](service-fabric-resource-governance.md), de modo que no consuman más del 75 % de los recursos del nodo. 
@@ -61,8 +61,8 @@ Si usa el modelo de programación de Reliable Services o Reliable Actors de Serv
 22. Actualice las aplicaciones durante el desarrollo local para comprobar que el código de servicio respeta el token de cancelación en el método `RunAsync` y cierra los agentes de escucha de comunicación personalizada.
 23. Evite [errores comunes](service-fabric-work-with-reliable-collections.md) al utilizar Reliable Collections.
 24. Supervise los contadores de rendimiento de memoria de CLR de .NET al ejecutar pruebas de carga y busque tasas altas de crecimiento descontrolado en el montón o de recolección de elementos no utilizados.
-25. Mantenga la copia de seguridad sin conexión de [Reliable Services y Reliable Actors](service-fabric-reliable-services-backup-restore.md) y pruebe el proceso de restauración. 
-
+25. Mantenga la copia de seguridad sin conexión de [Reliable Services y Reliable Actors](service-fabric-reliable-services-backup-restore.md) y pruebe el proceso de restauración.
+26. Idealmente, el número de instancias de máquina virtual de NodeType principal debe ser igual al mínimo para el nivel de confiabilidad de clústeres; las condiciones cuando es adecuado exceder el mínimo del nivel incluyen las siguientes: temporalmente cuando se escala de manera vertical la SKU del conjunto de escalado de máquinas virtuales de NodeTypes principal.
 
 ## <a name="optional-best-practices"></a>Procedimientos recomendados opcionales
 

@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195167"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -69,7 +69,7 @@ En este ejemplo, modifique un usuario y establezca el valor de extensionAttribut
 
 Un usuario puede ser miembro de varios grupos con licencias. Estos son algunos aspectos que hay que tener en cuenta:
 
-- Se pueden superponer varias licencias para el mismo producto y, como resultado, todos los servicios habilitados se aplican al usuario. El ejemplo siguiente muestra dos grupos de licencias. *E3: servicios básicos*, que contiene los servicios fundamentales que se implementarán en primer lugar para todos los usuarios. Y, además, *E3: servicios extendidos*, que contiene los servicios adicionales (Sway y Planner) que se van a implementar solo en algunos usuarios. En este ejemplo, el usuario se agregó a los dos grupos:
+- Se pueden superponer varias licencias para el mismo producto y, como resultado, todos los servicios habilitados se aplican al usuario. En el ejemplo siguiente se muestran dos grupos de licencias: *E3: servicios de base* contiene los servicios fundamentales que debe implementar primero en todos los usuarios. Y, además, *E3: servicios extendidos*, que contiene los servicios adicionales (Sway y Planner) que se van a implementar solo en algunos usuarios. En este ejemplo, el usuario se agregó a los dos grupos:
 
   ![Captura de pantalla de los servicios habilitados](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -187,7 +187,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 > ```
 
 3. Para ver el registro completo de cómo se procesa un grupo, incluidos todos los cambios de usuario, establezca los siguientes filtros:
-  - **Iniciado por (actor)**: "Microsoft Azure AD Group-Based Licensing" (Licencias basadas en grupos de Microsoft Azure AD)
+  - **Iniciado por (actor)**: "Licencias basadas en grupos de Microsoft Azure AD"
   - **Intervalo de fechas** (opcional): intervalo personalizado para cuando se sabe que un grupo específico inició y finalizó el procesamiento
 
 Esta salida de ejemplo muestra el inicio del procesamiento, todos los cambios de usuario resultantes y el fin del procesamiento.

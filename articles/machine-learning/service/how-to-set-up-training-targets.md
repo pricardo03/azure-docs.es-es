@@ -7,37 +7,38 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246337"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250714"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo
 
-Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-target). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  
+Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-target). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
 Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal o la CLI de Azure. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
  
-En este artículo, aprenderá a usar diversos destinos de proceso.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
+En este artículo, aprenderá a usar diversos destinos de proceso para el entrenamiento de modelos.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
 1. __Crear__ un destino de proceso si aún no tiene uno.
 2. __Asociar__ el destino de proceso al área de trabajo.
 3. __Configurar__ el destino de proceso para que contenga las dependencias de paquete y entorno de Python necesarias por el script.
 
+
 >[!NOTE]
 > El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.6.
 
-## <a name="supported-compute-targets"></a>Destinos de proceso admitidos
+## <a name="compute-targets-for-training"></a>Destinos de proceso para entrenamiento
 
 Azure Machine Learning Service tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
 
 
-|Destino de proceso| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado</br> aprendizaje automático | Canalización descriptiva|
+|Destinos de proceso para entrenamiento| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado</br> aprendizaje automático | Canalización descriptiva|
 |----|:----:|:----:|:----:|:----:|
 |[Equipo local](#local)| Es posible | &nbsp; | ✓ | &nbsp; |
 |[Proceso de Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |

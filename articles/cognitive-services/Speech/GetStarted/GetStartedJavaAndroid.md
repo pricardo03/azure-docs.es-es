@@ -6,20 +6,20 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345261"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222497"
 ---
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API en Java en Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Inicio rápido: Uso de Bing Speech Recognition API en Java en Android
 
 Con Bing Speech Recognition API, puede desarrollar aplicaciones Android que usen el servicio Bing Speech basado en la nube para convertir el audio hablado en texto. La API admite el streaming en tiempo real, por lo que la aplicación puede recibir simultánea y asincrónicamente resultados parciales del reconocimiento al mismo tiempo que envía audio al servicio.
 
@@ -116,9 +116,9 @@ void initializeRecoClient()
 
 La biblioteca cliente proporciona clases de cliente de reconocimiento implementadas previamente para los escenarios típicos de reconocimiento de voz:
 
-* `DataRecognitionClient`: reconocimiento de voz con datos PCM (por ejemplo, desde un origen de archivo o audio). Los datos se dividen en búferes y cada búfer se envía al servicio de voz. No se realiza ninguna modificación en los búferes, por lo que el usuario puede aplicar su propia detección de silencio, si lo desea. Si se proporcionan datos desde archivos WAV, puede enviar datos desde el archivo directamente al servicio de voz. Si tiene datos sin procesar, por ejemplo, audio procedente de Bluetooth, en primer lugar envíe un encabezado de formato al servicio de voz seguido por los datos.
+* `DataRecognitionClient`: reconocimiento de voz con datos de PCM (por ejemplo, desde un archivo o un origen de audio). Los datos se dividen en búferes y cada búfer se envía al servicio Voz. No se realiza ninguna modificación en los búferes, por lo que el usuario puede aplicar su propia detección de silencio, si lo desea. Si se proporcionan datos desde archivos WAV, puede enviar datos desde el archivo directamente al servicio de voz. Si tiene datos sin procesar, por ejemplo, audio procedente de Bluetooth, en primer lugar envíe un encabezado de formato al servicio de voz seguido por los datos.
 * `MicrophoneRecognitionClient`: reconocimiento de voz con audio procedente del micrófono. Asegúrese de que el micrófono esté encendido y de que los datos del micrófono se envían al servicio de reconocimiento de voz. Se aplica una "latencia de silencio" integrada a los datos de micrófono antes de que se envíen al servicio de reconocimiento.
-* `DataRecognitionClientWithIntent` y `MicrophoneRecognitionClientWithIntent`: estos clientes devuelven, además del texto de reconocimiento, información estructurada sobre la intención del orador, que puede usarse para controlar acciones adicionales de las aplicaciones. Para usar la "intención", primero debe entrenar un modelo mediante [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` y `MicrophoneRecognitionClientWithIntent`: estos clientes devuelven, además del texto de reconocimiento, información estructurada sobre la intención del orador, que puede usarse para controlar acciones adicionales en las aplicaciones. Para usar la "intención", primero debe entrenar un modelo mediante [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Idioma de reconocimiento
 
@@ -135,10 +135,10 @@ También debe especificar `SpeechRecognitionMode` cuando cree el cliente con `Sp
 
 Puede conectar varios controladores de eventos al cliente que creó:
 
-* **Eventos de resultados parciales**: se llama a este evento cada vez que el servicio de voz predice lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
-* **Eventos de error**: se llama cuando el servicio detecta un error.
-* **Eventos de intención**: se llama en los clientes "WithIntent" (solo en modo `ShortPhrase`) después de que se analice el resultado final del reconocimiento en una intención JSON estructurada.
-* **Eventos de resultado**:
+* **Evento de resultados parciales**: Este evento se llamará cada vez que el servicio de voz prediga lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
+* **Eventos de error**: se llaman cuando el servicio detecta un error.
+* **Eventos intención**: se llaman en los clientes "WithIntent" (solo en modo `ShortPhrase`) después de que se analice el resultado final del reconocimiento en una intención JSON estructurada.
+* **Eventos de resultados**:
   * En modo `ShortPhrase`, se llama a este evento y devuelve los n resultados mejores cuando termina de hablar.
   * En modo `LongDictation`, se llama al controlador de eventos varias veces, en función de dónde identifica el servicio las pausas en la frase.
   * **Para cada una de las n opciones mejores**, se devuelve un valor de confianza y unos cuantos formatos diferentes del texto reconocido. Para más información, consulte [Output format](../Concepts.md#output-format) (Formato de salida).

@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230563"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220399"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Cómo usar el reconocimiento de entidades con nombre en Text Analytics (versión preliminar)
 
@@ -41,7 +41,7 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos admitidos para el reconocimiento de entidades con nombre
 
-| Escriba  | SubType | Ejemplo |
+| Type  | SubType | Ejemplo |
 |:-----------   |:------------- |:---------|
 | Persona        | N/D\*         | "Jeff", "Bill Gates"     |
 | Ubicación      | N/D\*         | "Redmond, Washington", "París"  |
@@ -54,14 +54,14 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Cantidad      | Moneda      | "10,99 $"     | 
 | Cantidad      | Dimension Data     | "10 millas", "40 cm"     | 
 | Cantidad      | Temperatura   | "32 grados"    |
-| Datetime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
-| Datetime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
+| DateTime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
+| DateTime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
 | Date Time     | Hora          | "8 a. m.", "8:00"  | 
-| Datetime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
-| Datetime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
-| Datetime      | Duration      | "1 minuto y 45 segundos"   | 
-| Datetime      | Set           | "Todos los martes"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
+| DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
+| DateTime      | Duration      | "1 minuto y 45 segundos"   | 
+| DateTime      | Set           | "Todos los martes"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "http://www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 \* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.
@@ -93,7 +93,7 @@ El tamaño del documento debe ser inferior a 5000 caracteres por documento y pue
 
 Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
 + Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
@@ -104,13 +104,13 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 > [!Tip]
 > Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estructurar y enviar una solicitud POST al servicio.
 
-## <a name="step-2-post-the-request"></a>Paso 2: Enviar la solicitud
+## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
 El análisis se realiza tras la recepción de la solicitud. El servicio acepta hasta 100 solicitudes por minuto. Cada solicitud puede tener un máximo de 1 MB.
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
-## <a name="step-3-view-results"></a>Paso 3: Ver los resultados
+## <a name="step-3-view-results"></a>Paso 3: Visualización de los resultados
 
 Todas las solicitudes POST devolverán una respuesta con formato JSON con los identificadores y las propiedades detectadas.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 775c9b155f080c8996a7680514cb2fb004a4e3fb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212534"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152264"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
 Azure Service Fabric presenta un [modelo de estado](service-fabric-health-introduction.md) diseñado para marcar las condiciones poco favorables del clúster o de la aplicación en entidades específicas. El modelo de mantenimiento utiliza **informadores de estado** (componentes del sistema y guardianes). El objetivo es obtener un diagnóstico y reparación sencillo y rápido. Los escritores de servicio deben pensar por adelantado sobre el estado. Cualquier condición que pueda afectar al estado debe notificarse, sobre todo si puede ayudar a marcar la causa raíz de los problemas. La información de estado puede ahorrar tiempo y esfuerzo en la depuración y la investigación. La utilidad resulta especialmente clara una vez que el servicio está en funcionamiento a escala en la nube (privada o Azure).
@@ -59,7 +59,7 @@ Los informes de mantenimiento se envían al almacén de estado por medio de un c
 
 * **HealthReportSendInterval**: el retraso entre el momento en que el informe se agrega al cliente y el momento en que se envía al almacén de estado. Se usa para procesar por lotes los informes en un único mensaje, en lugar de enviar un mensaje para cada informe. El procesamiento por lotes mejora el rendimiento. Valor predeterminado: 30 segundos.
 * **HealthReportRetrySendInterval**: el intervalo en el que el cliente de mantenimiento reenvía los informes de mantenimiento acumulados al almacén de estado. Valor predeterminado: 30 segundos.
-* **HealthOperationTimeout**: el período de tiempo de espera para un mensaje de informe enviado al almacén de estado. Si un mensaje supera el tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el almacén de estado confirme que el informe se ha procesado. Valor predeterminado: dos minutos.
+* **HealthOperationTimeout**: el período de tiempo de expiración de un mensaje de informe enviado al almacén de estado. Si un mensaje supera el tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el almacén de estado confirme que el informe se ha procesado. Valor predeterminado: dos minutos.
 
 > [!NOTE]
 > Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el almacén de estado no es capaz de aplicarlos debido a errores transitorios, el cliente de Fabric debe mantenerse activo más tiempo para darle una oportunidad de volver a intentarlo.
@@ -155,7 +155,7 @@ Cuando los detalles del guardián hayan finalizado, debe determinar un identific
 > 
 > 
 
-El siguiente punto de decisión trata de en qué entidad informar. La mayor parte de las veces, la condición identifica claramente la entidad. Elija la entidad con la mejor granularidad posible. Si una condición afecta a todas las réplicas de una partición, haga un informe sobre la partición, no sobre el servicio. Hay casos excepcionales en los que es necesario dedicar más esfuerzo. Si la condición afecta a una entidad (por ejemplo, a una réplica) pero lo que se quiere es marcar la condición durante un período superior al de la duración de la réplica, se debe notificar en la partición. De lo contrario, cuando se elimina la réplica, el almacén de estado limpia todos sus informes. Los escritores guardianes deben tener en cuenta la duración de la entidad y del informe. Debe quedar claro cuándo se debe limpiar un informe de un almacén (por ejemplo, cuándo deja de aplicarse un error notificado en una entidad).
+El siguiente punto de decisión trata de en qué entidad informar. La mayor parte de las veces la condición identifica claramente la entidad. Elija la entidad con la mejor granularidad posible. Si una condición afecta a todas las réplicas de una partición, haga un informe sobre la partición, no sobre el servicio. Hay casos excepcionales en los que es necesario dedicar más esfuerzo. Si la condición afecta a una entidad (por ejemplo, a una réplica) pero lo que se quiere es marcar la condición durante un período superior al de la duración de la réplica, se debe notificar en la partición. De lo contrario, cuando se elimina la réplica, el almacén de estado limpia todos sus informes. Los escritores guardianes deben tener en cuenta la duración de la entidad y del informe. Debe quedar claro cuándo se debe limpiar un informe de un almacén (por ejemplo, cuándo deja de aplicarse un error notificado en una entidad).
 
 Veamos un ejemplo que reúne los puntos descritos. Considere una aplicación de Service Fabric compuesta de un servicio persistente con estado maestro y varios servicios sin estado secundario implementados en todos los nodos (un tipo de servicio secundario para cada tipo de tarea). El servicio maestro tiene una cola de procesamiento con comandos que ejecutarán los servicios secundarios. Estos últimos ejecutan las solicitudes entrantes y devuelven señales de confirmación. Una condición que puede supervisarse es la longitud de la cola de procesamiento maestra. Si la longitud de la cola maestra alcanza un umbral, se devuelve una advertencia La advertencia que indica que los servicios secundarios no pueden controlar la carga. Si la cola alcanza la longitud máxima y se quitan los comandos, se notifica un error, ya que el servicio no se puede recuperar. Los informes pueden estar en la propiedad **QueueStatus**. El guardián reside dentro del servicio y se envía periódicamente en la réplica principal maestra. El período de vida es de dos minutos y se envía periódicamente cada 30 segundos. Si el principal deja de funcionar, el informe se limpia automáticamente del almacén. Si la réplica de servicio está activa, pero se ha interbloqueado o tiene otros problemas, el informe expira en el Almacén de estado. En este caso, la entidad se evalúa con error.
 

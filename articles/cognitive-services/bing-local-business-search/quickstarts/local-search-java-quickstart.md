@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307115"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148463"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guía de inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
 
 Use esta guía de inicio rápido para empezar a enviar solicitudes a Bing Local Business Search API, que es un servicio de Azure Cognitive Services. Si bien esta aplicación sencilla está escrita en Java, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
@@ -35,7 +35,7 @@ Esta aplicación de ejemplo obtiene los datos de respuesta local de la consulta 
 
 El siguiente código crea una instancia de `WebRequest`, establece el encabezado de la clave de acceso y agrega una cadena de consulta para "hotel en Bellevue".  Después envía la solicitud y asigna la respuesta a una cadena que contiene el texto JSON.
 
-````
+```
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -47,7 +47,7 @@ El siguiente código crea una instancia de `WebRequest`, establece el encabezado
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="run-the-complete-application"></a>Ejecución de la aplicación completa
 
@@ -58,7 +58,7 @@ Bing Local Business Search API devuelve resultados del motor de búsqueda de Bin
 4. Reemplace el valor subscriptionKey por una clave de acceso válida para la suscripción.
 5. Ejecute el programa.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -162,7 +162,7 @@ public class LocalSearchCls {
         }
     }
 
-````
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Guía de inicio rápido de Local Business Search](local-quickstart.md)

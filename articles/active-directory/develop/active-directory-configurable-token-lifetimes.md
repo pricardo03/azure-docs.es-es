@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069512"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912721"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
@@ -85,8 +85,6 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 | Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 
 * <sup>1</sup>365 días es la vigencia explícita máxima que se puede establecer para estos atributos.
-* <sup>2</sup>Si no se establece **MaxAgeSessionSingleFactor**, este valor adquiere el valor de **MaxAgeSingleFactor**. Si no se establece ningún parámetro, la propiedad adquiere el valor predeterminado (hasta que se revoca).
-* <sup>3</sup>Si **MaxAgeSessionMultiFactor** no se establece, este valor adquiere entonces el valor de **MaxAgeMultiFactor**. Si no se establece ningún parámetro, la propiedad adquiere el valor predeterminado (hasta que se revoca).
 
 ### <a name="exceptions"></a>Excepciones
 | Propiedad | Afecta a | Valor predeterminado |
@@ -114,7 +112,7 @@ Todos los intervalos de tiempo usados aquí tienen formato según el objeto [Tim
 > [!NOTE]
 > Este es un escenario de ejemplo.
 >
-> Un usuario desea tener acceso a dos aplicaciones web: aplicación web A y aplicación web B.
+> Un usuario desea acceder a dos aplicaciones web: Aplicación web A y B.
 > 
 > Factores:
 > * Ambas aplicaciones web están en la misma organización primaria.
@@ -136,16 +134,16 @@ Todos los intervalos de tiempo usados aquí tienen formato según el objeto [Tim
 ### <a name="access-token-lifetime"></a>Vigencia del token de acceso
 **Cadena:** AccessTokenLifetime
 
-**Afecta a:** tokens de acceso, tokens de identificador
+**Afecta a:** Tokens de acceso, tokens de identificador
 
 **Resumen:** esta directiva controla cuánto tiempo se consideran válidos los token de acceso y de identificador para este recurso. Reducir la vigencia de los tokens de acceso disminuye el riesgo de que un individuo malintencionado use un token de acceso o de identificador durante un período de tiempo prolongado. (Estos tokens no se pueden revocar). El inconveniente es que afecta negativamente al rendimiento, ya que los tokens tendrán que reemplazarse con más frecuencia.
 
 ### <a name="refresh-token-max-inactive-time"></a>Tiempo máximo de inactividad del token de actualización
 **Cadena:** MaxInactiveTime
 
-**Afecta a:** tokens de actualización
+**Afecta a:** Tokens de actualización
 
-**Resumen:** esta directiva controla la antigüedad máxima que puede tener un token de actualización antes de que un cliente ya no pueda usarlo para recuperar un nuevo par de tokens de acceso/actualización al intentar acceder a este recurso. Dado que un nuevo token de actualización normalmente se devuelve cuando se usa un token de actualización, esta directiva impedirá el acceso si el cliente intenta acceder a algún recurso con el token de actualización actual durante el período de tiempo especificado.
+**Resumen:** esta directiva controla la antigüedad máxima que puede tener un token de actualización hasta que un cliente ya no pueda usarlo para recuperar un nuevo par de tokens de acceso/actualización al intentar acceder a este recurso. Dado que un nuevo token de actualización normalmente se devuelve cuando se usa un token de actualización, esta directiva impedirá el acceso si el cliente intenta acceder a algún recurso con el token de actualización actual durante el período de tiempo especificado.
 
 Esta directiva obligará a los usuarios que no hayan estado activos en su cliente a volver a autenticarse para recuperar un nuevo token de actualización.
 
@@ -154,7 +152,7 @@ El tiempo máximo de inactividad del token de actualización debe establecerse e
 ### <a name="single-factor-refresh-token-max-age"></a>Antigüedad máxima del token de actualización (un solo factor)
 **Cadena:** MaxAgeSingleFactor
 
-**Afecta a:** tokens de actualización
+**Afecta a:** Tokens de actualización
 
 **Resumen:** esta directiva controla cuánto tiempo un usuario puede seguir usando tokens de actualización para obtener nuevos pares de tokens de acceso/actualización desde la última vez que se autenticara correctamente con un solo factor. Después de que un usuario se autentica y recibe un nuevo token de actualización, este puede utilizar el flujo del token de actualización durante el período de tiempo especificado. (Esto ocurre siempre que el token de actualización actual no esté revocado y no se quede sin usar más tiempo que el período de inactividad). En ese momento, el usuario se verá obligado a volver a autenticarse para recibir un nuevo token de actualización.
 
@@ -163,7 +161,7 @@ Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más fre
 ### <a name="multi-factor-refresh-token-max-age"></a>Antigüedad máxima del token de actualización (varios factores)
 **Cadena:** MaxAgeMultiFactor
 
-**Afecta a:** tokens de actualización
+**Afecta a:** Tokens de actualización
 
 **Resumen:** esta directiva controla cuánto tiempo un usuario puede seguir usando tokens de actualización para obtener nuevos pares de tokens de acceso/actualización desde la última vez que se autenticara correctamente con varios factores. Después de que un usuario se autentica y recibe un nuevo token de actualización, este puede utilizar el flujo del token de actualización durante el período de tiempo especificado. (Esto ocurre siempre que el token de actualización actual no esté revocado y no se quede sin usar más tiempo que el período de inactividad). En ese momento, los usuarios se verán obligados a volver a autenticarse para recibir un nuevo token de actualización.
 
@@ -172,7 +170,7 @@ Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más fre
 ### <a name="single-factor-session-token-max-age"></a>Antigüedad máxima del token de sesión (un solo factor)
 **Cadena:** MaxAgeSessionSingleFactor
 
-**Afecta a:** tokens de sesión (persistentes y no persistentes)
+**Afecta a:** Tokens de sesión (persistentes y no persistentes)
 
 **Resumen:** esta directiva controla cuánto tiempo un usuario puede seguir usando tokens de actualización para obtener un nuevo token de identificador y de sesión desde la última vez que se autenticara correctamente con un solo factor. Después de que un usuario se autentica y recibe un nuevo token de sesión, este puede utilizar el flujo del token de sesión durante el período de tiempo especificado. (Esto ocurre siempre que el token de sesión actual no esté revocado y no haya expirado). Tras el período de tiempo especificado, el usuario se ve obligado a autenticarse para recibir un nuevo token de sesión.
 
@@ -181,7 +179,7 @@ Reducir la antigüedad máxima obliga a los usuarios a autenticarse con más fre
 ### <a name="multi-factor-session-token-max-age"></a>Antigüedad máxima del token de sesión (varios factores)
 **Cadena:** MaxAgeSessionMultiFactor
 
-**Afecta a:** tokens de sesión (persistentes y no persistentes)
+**Afecta a:** Tokens de sesión (persistentes y no persistentes)
 
 **Resumen:** esta directiva controla cuánto tiempo un usuario puede seguir usando tokens de actualización para obtener un nuevo token de identificador y de sesión desde la última vez que se autenticara correctamente con varios factores. Después de que un usuario se autentica y recibe un nuevo token de sesión, este puede utilizar el flujo del token de sesión durante el período de tiempo especificado. (Esto ocurre siempre que el token de sesión actual no esté revocado y no haya expirado). Tras el período de tiempo especificado, el usuario se ve obligado a autenticarse para recibir un nuevo token de sesión.
 
@@ -219,7 +217,7 @@ Para comenzar, realice uno de los pasos siguientes:
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>Ejemplo: Administración de una directiva predeterminada de una organización
+### <a name="example-manage-an-organizations-default-policy"></a>Ejemplo: Administrar una directiva predeterminada de una organización
 En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesión con menos frecuencia en toda su organización. Para ello, creamos una directiva de vigencia del token para tokens de actualización de un solo factor que se aplica en toda la organización. Esta directiva se aplicará a todas las aplicaciones de su organización y a todas las entidades de servicio que aún no tengan una directiva establecida en ella.
 
 1. Cree una directiva de vigencia del token.
@@ -256,7 +254,7 @@ En este ejemplo, crearemos una directiva que permita a sus usuarios iniciar sesi
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-### <a name="example-create-a-policy-for-web-sign-in"></a>Ejemplo: Creación de una directiva para inicio de sesión web
+### <a name="example-create-a-policy-for-web-sign-in"></a>Ejemplo: Crear una directiva para inicio de sesión web
 
 En este ejemplo, va a crear una directiva que requerirá que los usuarios se autentiquen con más frecuencia en la aplicación web. Esta directiva establecerá la vigencia de los tokens de acceso y de identificador y la antigüedad máxima de un token de sesión de varios factores en la entidad de servicio de su aplicación web.
 
@@ -287,7 +285,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
         ```
 
 
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Ejemplo: Creación de una directiva para una aplicación nativa que llama a una API web
+### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Ejemplo: Crear una directiva para una aplicación nativa que llama a una API web
 En este ejemplo, va a crear una directiva que requerirá que los usuarios se autentiquen con menos frecuencia. La directiva también aumenta la cantidad de tiempo que un usuario puede estar inactivo antes de que este deba volver a autenticarse. La directiva se aplica a la API web. Cuando la aplicación nativa solicita la API web como recurso, se aplica esta directiva.
 
 1. Cree una directiva de vigencia del token.
@@ -313,7 +311,7 @@ En este ejemplo, va a crear una directiva que requerirá que los usuarios se aut
         ```
 
 
-### <a name="example-manage-an-advanced-policy"></a>Ejemplo: Administración de una directiva avanzada
+### <a name="example-manage-an-advanced-policy"></a>Ejemplo: Administrar una directiva avanzada
 En este ejemplo, va a crear algunas directivas para obtener información sobre cómo funciona el sistema de prioridad. También puede aprender a administrar varias directivas que se aplican a varios objetos.
 
 1. Cree una directiva de vigencia del token.

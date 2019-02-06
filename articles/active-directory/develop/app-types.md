@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816351"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093128"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicaciones en v1.0
 
@@ -33,11 +33,11 @@ En el diagrama siguiente, se ilustran los escenarios y los tipos de aplicación,
 
 Estos son los cinco escenarios principales de aplicación que admite Azure AD:
 
-- **[Aplicación de una sola página (SPA)](single-page-application.md)**: un usuario tiene que iniciar sesión en una aplicación de una sola página protegida por Azure AD.
-- **[Explorador web para aplicación web](web-app.md)**: un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
-- **[Aplicación nativa para API web](native-app.md)**: una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
-- **[Aplicación web para API web](web-api.md)**: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
-- **[Aplicación de servidor o demonio para API web](service-to-service.md)**: una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
+- **[Aplicación de página única (SPA)](single-page-application.md)**: un usuario tiene que iniciar sesión en una aplicación de página única protegida por Azure AD.
+- **[Explorador web a aplicación web](web-app.md)**: un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
+- **[Aplicación nativa a API web](native-app.md)**: una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
+- **[Aplicación web a API web](web-api.md)**: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
+- **[Aplicación de servidor o de demonio a API web](service-to-service.md)**: una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
 
 Siga los vínculos para obtener más información acerca de cada tipo de aplicación y entender los escenarios generales antes de empezar a trabajar con el código. También puede obtener información sobre las diferencias que necesita saber al escribir una aplicación específica que funcione con el punto de conexión v1.0 o v2.0.
 

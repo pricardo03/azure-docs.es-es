@@ -5,16 +5,16 @@ description: La pestaña de modelos en todos los proyectos muestra los detalles 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 80ee99fc4490f1fdc591093f357c8db55a97abb9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627192"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219128"
 ---
 # <a name="view-model-details"></a>Ver detalles de los modelos
 
@@ -28,7 +28,7 @@ Para cada modelo en el proyecto, se muestran los siguientes detalles.
 
     -  Enviado: especifica que el back-end está procesando los documentos para ese modelo.
 
-    -  TrainingQueued (Entrenamiento en cola): especifica que el entrenamiento se pondrá en la cola del sistema de traducción automática para ese modelo.
+    -  Entrenamiento en cola: especifica que el entrenamiento se pondrá en la cola del sistema de traducción automática para ese modelo.
 
     -  En ejecución: especifica que el entrenamiento se está ejecutando en el sistema de traducción automática para ese modelo.
 
@@ -40,25 +40,25 @@ Para cada modelo en el proyecto, se muestran los siguientes detalles.
 
     -  Implementación anulada: especifica que el proceso de anulación de la implementación de un modelo se ha completado correctamente.
 
-    -  Training Failed (Error de entrenamiento): especifica que hubo un error en el entrenamiento. Si se produce un error de entrenamiento, vuelva a ejecutar el trabajo de entrenamiento. Si el error continúa, póngase en contacto con nosotros. No elimine el modelo con errores.
+    -  Error de entrenamiento: especifica que no se pudo realizar el entrenamiento. Si se produce un error de entrenamiento, vuelva a ejecutar el trabajo de entrenamiento. Si el error continúa, póngase en contacto con nosotros. No elimine el modelo con errores.
 
-    - DataProcessingFailed (Error de procesamiento de datos): especifica que hubo un error en el procesamiento de datos para uno o varios documentos que pertenecen al modelo.
+    - Error de procesamiento de datos: especifica que hubo un error en el procesamiento de datos en uno o varios documentos que pertenecen al modelo.
 
-    - DeploymentFailed (Error de implementación): especifica que la implementación de modelos ha devuelto un error.
+    - Error de implementación: especifica que la implementación de modelos ha devuelto un error.
 
-    - MigratedDraft (Borrador migrado): especifica que el modelo está en estado de borrador después de la migración del centro de conectividad a Custom Translator.
+    - Borrador migrado: especifica que el modelo está en estado de borrador después de la migración del centro de conectividad al Traductor personalizado.
 
 4.  Puntuación BLEU: muestra la puntuación BLEU (suplente de evaluación bilingüe) del modelo, que indica la calidad de su sistema de traducción. Esta puntuación le indica qué tanto se acercan las traducciones del sistema de traducción creado con este entrenamiento a las oraciones de referencia incluidas en el conjunto de datos de prueba. La puntuación BLEU aparece si se ha completado correctamente el entrenamiento. Si el entrenamiento no se completa o devuelve errores, no verá ninguna puntuación BLEU.
 
-5.  Recuento de oraciones de aprendizaje: muestra el número total de oraciones que se usaron como conjunto de aprendizaje.
+5.  Recuento de oraciones de entrenamiento: muestra el número total de oraciones usadas como conjunto de entrenamiento.
 
-6.  Recuento de oraciones de ajuste: muestra el número total de oraciones que se usaron como conjunto de ajuste.
+6.  Recuento de oraciones de optimización: muestra el número total de oraciones usadas como conjunto de optimización.
 
-7.  Recuento de oraciones de pruebas: muestra el número total de oraciones que se usaron como conjunto de pruebas.
+7.  Recuento de oraciones de entrenamiento: muestra el número total de oraciones usadas como conjunto de pruebas.
 
-8.  Recuento de oraciones monolingües: muestra el número total de oraciones que se usaron como conjunto monolingüe.
+8.  Recuento de oraciones monolingües: muestra el número total de oraciones usadas como conjunto monolingüe.
 
-9.  Botón de acción para implementar: para cada modelo entrenado correctamente, muestra un botón "Implementar" si aún no se implementa. Si el modelo se ha implementado, se muestra un botón "Anular la implementación".
+9.  Botón Implementar acción: para cada modelo entrenado correctamente, se muestra un botón "Implementar" si aún no está implementado. Si el modelo se ha implementado, se muestra un botón "Anular la implementación".
 
 10. Eliminar: puede usar este botón si desea eliminar el modelo. La eliminación de un modelo no elimina ninguno de los documentos que se utilizaron para crearlo.
 
@@ -75,17 +75,17 @@ La página del modelo tiene dos pestañas: Detalles de entrenamiento y Prueba.
 
 1.  **Detalles de entrenamiento:** en esta pestaña se muestra la lista de documentos que se usaron en el entrenamiento:
 
-    -  Nombre de documentos: en este campo se muestra el nombre del documento
+    -  Nombre del documento: en este campo se muestra el nombre del documento.
 
     -  Tipo de documento: en este campo se muestra si este documento es paralelo o monolingüe.
 
-    -  Recuento de oraciones en el idioma de origen: en este campo se muestra el número de oraciones que forman parte del idioma de origen.
+    -  Recuento de oraciones en el idioma de origen: en este campo se muestra el número de oraciones que son parte del idioma de origen.
 
-    -  Recuento de oraciones en el idioma de destino: en este campo se muestra el número de oraciones que forman parte del idioma de destino.
+    -  Recuento de oraciones en el idioma de destino: en este campo se muestra el número de oraciones que son parte del idioma de destino.
 
-    -  Oraciones alineadas: en este campo se muestra el número de oraciones que Custom Translator ha alineado durante el proceso de alineación.
+    -  Oraciones alineadas: en este campo se muestra el número de oraciones que el Traductor personalizado ha alineado durante el proceso de alineación.
 
-    -  Oraciones utilizadas: en este campo se muestra el número de oraciones que Custom Translator ha utilizado durante el entrenamiento.
+    -  Oraciones usadas: en este campo se muestra el número de oraciones que el Traductor personalizado ha usado durante el entrenamiento.
 
     ![Detalles del entrenamiento de los modelos](media/how-to/how-to-model-training-details.png)
 

@@ -1,6 +1,6 @@
 ---
-título: Repetición del entrenamiento de un servicio web predictivo existente en Studio titleSuffix: Azure Machine Learning Studio description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web para que utilice este modelo en Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Repetición del entrenamiento de un servicio web predictivo existente en Studio titleSuffix: Azure Machine Learning Studio description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web para que utilice este modelo en Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 07/11/2017
 ---

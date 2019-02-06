@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613102"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249687"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Preguntas frecuentes sobre Windows Server en el Marketplace de Azure Stack
 
@@ -38,9 +39,9 @@ A continuación, si las instancias de Virtual Machine Scale Sets hacen referenci
 Microsoft ofrece dos versiones de imágenes de Windows Server a través del Marketplace de Azure Stack:
 
 - **Pago por uso**: estas imágenes ejecutan los medidores de precio completo de Windows. 
-   Esta oferta es perfecta para aquellos clientes con contratos Enterprise (EA) que usan el *modelo de facturación de consumo*; o para CSP que no desean usar licencias de SPLA.
-- **Traiga su propia licencia (BYOL)**: estas imágenes ejecutan medidores básicos.
-   Esta oferta es perfecta para aquellos clientes con EA y con una licencia de Windows Server; o para CSP que usan licencias de SPLA.
+   ¿Quién debe usarlo?: Clientes con contratos Enterprise (EA) que usan el *modelo de facturación de consumo*; o para CSP que no desean usar licencias de SPLA.
+- **Traiga su propia licencia (BYOL)**: Estas imágenes ejecutan medidores básicos.
+   ¿Quién debe usarlo?: Clientes con EA y con una licencia de Windows Server; o para CSP que usan licencias de SPLA.
 
 Ventaja de uso híbrido de Azure (AHUB) no se admite en Azure Stack. Los clientes que obtienen licencias a través del modelo "Capacidad" deben usar la imagen BYOL. Si va a realizar pruebas con el Kit de desarrollo de Azure Stack (ASDK), puede usar cualquiera de estas opciones.
 

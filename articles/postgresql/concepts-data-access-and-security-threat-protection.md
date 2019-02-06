@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 68027526fb98db4cb5b7eaf75f117692222c6039
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549027"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910719"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Advanced Threat Protection para Azure Database for PostgreSQL
 
@@ -22,6 +22,9 @@ Threat Protection forma parte de la oferta Advanced Threat Protection (ATP), que
 > [!NOTE]
 > La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y Azure Government: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China y Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.
 >
+
+> [!NOTE]
+> Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for PostgreSQL para servidores de uso general y optimizados para memoria.
 
 ## <a name="what-is-advanced-threat-protection"></a>¿Qué es Advanced Threat Protection?
 

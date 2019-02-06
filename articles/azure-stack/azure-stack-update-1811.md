@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853245"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246541"
 ---
 # <a name="azure-stack-1811-update"></a>Actualización de Azure Stack 1811
 
@@ -186,8 +187,7 @@ Esta actualización instala las actualizaciones de seguridad siguientes:
 - [CVE-2018-8566](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8566)
 - [CVE-2018-8584](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8584)
 
-
-Para obtener más información sobre estas vulnerabilidades, haga clic en los vínculos anteriores o vea los artículos de Microsoft Knowledge Base [4467684](https://support.microsoft.com/help/4467684).
+Para más información sobre estas vulnerabilidades, haga clic en los vínculos anteriores o consulte los artículos de Microsoft Knowledge Base [4478877](https://support.microsoft.com/help/4478877).
 
 ## <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
@@ -353,6 +353,8 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
     No se admiten las demás opciones como etiquetas de origen en Azure Stack. De forma similar, si agrega una regla de seguridad de salida y selecciona **Etiqueta de servicio** como destino, se muestra la misma lista de opciones para **Etiqueta de origen**. Las únicas opciones válidas son los mismas que para **Etiqueta de origen**, tal y como se describe en la lista anterior.
 
 - El cmdlet **New-AzureRmIpSecPolicy** de PowerShell no admite la configuración **DHGroup24** para el parámetro `DHGroup`.
+
+- Los grupos de seguridad de red (NSG) no funcionan en Azure Stack de la misma manera que en Azure global. En Azure, se pueden establecer varios puertos en una regla de NSG (mediante el portal, PowerShell y plantillas de Resource Manager). En Azure Stack, no se pueden establecer varios puertos en una regla de NSG a través del portal. Para solucionar este problema, use una plantilla de Resource Manager para establecer estas reglas adicionales.
 
 ### <a name="infrastructure-backup"></a>Copia de seguridad de infraestructura
 

@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471154"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 
-En este tutorial, veremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de una base de datos por inquilino. Para proteger la aplicación frente a interrupciones, use la [_replicación geográfica_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para crear réplicas de las bases de datos de catálogo y de inquilinos en una región de recuperación alternativa. En caso de interrupción, rápidamente se produce una conmutación por error a estas réplicas para reanudar las operaciones normales de la empresa. En la conmutación por error, las bases de datos en la región original se convierten en réplicas secundarias de las bases de datos en la región de recuperación. Una vez que estas réplicas estén en línea de nuevo, se actualizan automáticamente al estado de las bases de datos en la región de recuperación. Una vez resuelta la interrupción, se producirá una conmutación por recuperación a las bases de datos en la región de producción original.
+En este tutorial, veremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de una base de datos por inquilino. Para proteger la aplicación frente a interrupciones, use la [_replicación geográfica_](sql-database-geo-replication-overview.md) para crear réplicas de las bases de datos de catálogo y de inquilinos en una región de recuperación alternativa. En caso de interrupción, rápidamente se produce una conmutación por error a estas réplicas para reanudar las operaciones normales de la empresa. En la conmutación por error, las bases de datos en la región original se convierten en réplicas secundarias de las bases de datos en la región de recuperación. Una vez que estas réplicas estén en línea de nuevo, se actualizan automáticamente al estado de las bases de datos en la región de recuperación. Una vez resuelta la interrupción, se producirá una conmutación por recuperación a las bases de datos en la región de producción original.
 
 Este tutorial describe los flujos de trabajo de la conmutación por error y la conmutación por recuperación. Aprenderá a:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Sincronizar la información de configuración de la base de datos y los grupos elásticos en el catálogo de inquilinos
 >* Configurar un entorno de recuperación en una región alternativa, que incluye aplicaciones, servidores y grupos
@@ -53,9 +53,9 @@ Un plan de recuperación ante desastres basado en la replicación geográfica co
 Todas las partes deben evaluarse cuidadosamente, especialmente si se trabaja a escala. En general, el plan debe lograr varios objetivos:
 
 * Configuración
-    * Establecer y mantener un entorno con una imagen reflejada en la región de recuperación. Al crear los grupos elásticos y replicar alguna base de datos única en este entorno de recuperación, se reserva la capacidad en la región de recuperación. En el mantenimiento del entorno se incluye la replicación de las nuevas bases de datos de inquilino a medida que se aprovisionen.  
+    * Establecer y mantener un entorno con una imagen reflejada en la región de recuperación. Al crear los grupos elásticos y replicar alguna base de datos en este entorno de recuperación, se reserva la capacidad en la región de recuperación. En el mantenimiento del entorno se incluye la replicación de las nuevas bases de datos de inquilino a medida que se aprovisionen.  
 * Recuperación
-    * Si se usa un entorno de recuperación de escala reducida para minimizar los costos diarios, los grupos y las bases de datos únicas deben escalarse verticalmente para que tengan una capacidad operativa completa en la región de recuperación
+    * Si se usa un entorno de recuperación de escala reducida para minimizar los costos diarios, los grupos y las bases de datos deben escalarse verticalmente para que tengan una capacidad operativa completa en la región de recuperación
     * Habilitar el aprovisionamiento de nuevos inquilinos en la región de recuperación lo antes posible  
     * Optimizar el entorno para restaurar los inquilinos en orden de prioridad
     * Optimizar el entorno para que inquilinos vuelvan a estar en línea tan rápido como sea posible. Realice los pasos en paralelo cuando sea conveniente
@@ -67,10 +67,10 @@ Todas las partes deben evaluarse cuidadosamente, especialmente si se trabaja a e
 En este tutorial, estos desafíos se abordan con las características de Azure SQL Database y la plataforma de Azure:
 
 * [Plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar toda la capacidad necesaria tan rápido como sea posible. Las plantillas de Azure Resource Manager se utilizan para aprovisionar una imagen reflejada de los servidores de producción y los grupos elásticos en la región de recuperación.
-* [Replicación geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), para crear réplicas secundarias de solo lectura y replicación asincrónica para todas las bases de datos. Durante una interrupción, se produce una conmutación por error a las réplicas en la región de recuperación.  Una vez resuelta la interrupción, se produce una conmutación por recuperación a las bases de datos en la región original sin pérdida de datos.
+* [Replicación geográfica](sql-database-geo-replication-overview.md), para crear réplicas secundarias de solo lectura y replicación asincrónica para todas las bases de datos. Durante una interrupción, se produce una conmutación por error a las réplicas en la región de recuperación.  Una vez resuelta la interrupción, se produce una conmutación por recuperación a las bases de datos en la región original sin pérdida de datos.
 * Operaciones de conmutación por error [asincrónicas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), que se envían en el orden de prioridad de los inquilinos para minimizar el tiempo de conmutación por error si hay un gran número de bases de datos.
-* [Características de recuperación de administración de particiones](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) para cambiar las entradas de las bases de datos en el catálogo durante la recuperación y la repatriación. Estas características permiten a la aplicación conectarse a bases de datos de inquilinos independientemente de la ubicación sin tener que volver a configurar la aplicación.
-* [Alias DNS de SQL Server](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), para habilitar el aprovisionamiento de nuevos inquilinos independientemente de la región en la que esté funcionando la aplicación. Los alias DNS también se utilizan para que el proceso de sincronización del catálogo se pueda conectar al catálogo activo, independientemente de su ubicación.
+* [Características de recuperación de administración de particiones](sql-database-elastic-database-recovery-manager.md) para cambiar las entradas de las bases de datos en el catálogo durante la recuperación y la repatriación. Estas características permiten a la aplicación conectarse a bases de datos de inquilinos independientemente de la ubicación sin tener que volver a configurar la aplicación.
+* [Alias DNS de SQL Server](dns-alias-overview.md), para habilitar el aprovisionamiento de nuevos inquilinos independientemente de la región en la que esté funcionando la aplicación. Los alias DNS también se utilizan para que el proceso de sincronización del catálogo se pueda conectar al catálogo activo, independientemente de su ubicación.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtención de los scripts de recuperación ante desastres 
 
@@ -92,7 +92,7 @@ Más adelante, en un paso de repatriación diferente, se conmutarán por error e
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
 1. En el explorador web, abra el centro de eventos de Wingtip Tickets (http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net; sustituya &lt;usuario&gt; por el valor del usuario de la implementación).
     * Desplácese hasta la parte inferior de la página y observe el nombre y la ubicación del servidor del catálogo en el pie de página. La ubicación es la región en la que se implementó la aplicación.
-    *Sugerencia: mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla.*
+    *SUGERENCIA: Mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla.*
     ![Estado correcto del centro de eventos en la región original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Haga clic en el inquilino Contoso Concert Hall y abra su página de eventos.
@@ -126,7 +126,7 @@ Deje la ventana de PowerShell ejecutándose en segundo plano y continúe con el 
 En esta tarea, se inicia un proceso que implementa una instancia de aplicación duplicada y se replican el catálogo y todas las bases de datos de inquilinos a una región de recuperación.
 
 > [!Note]
-> Este tutorial agrega protección por replicación geográfica a la aplicación de ejemplo Wingtip Tickets. En un escenario de producción para una aplicación que utiliza replicación geográfica, cada inquilino se aprovisionaría con una base de datos de replicación geográfica desde el principio. Consulte [Diseño de servicios de alta disponibilidad con Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> Este tutorial agrega protección por replicación geográfica a la aplicación de ejemplo Wingtip Tickets. En un escenario de producción para una aplicación que utiliza replicación geográfica, cada inquilino se aprovisionaría con una base de datos de replicación geográfica desde el principio. Consulte [Diseño de servicios de alta disponibilidad con Azure SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. En *PowerShell ISE*, abra el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 y establezca los siguientes valores:
     * **$DemoScenario = 2**, crear el entorno de recuperación con imagen reflejada y replicar el catálogo y las bases de datos de inquilinos
@@ -135,12 +135,14 @@ En esta tarea, se inicia un proceso que implementa una instancia de aplicación 
 ![Proceso de sincronización](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Revisión del estado normal de la aplicación
+
 En este punto, la aplicación se ejecuta con normalidad en la región original y ahora está protegida por replicación geográfica.  Existen réplicas secundarias de solo lectura en la región de recuperación para todas las bases de datos. 
+
 1. En Azure Portal, examine los grupos de recursos y observe que se ha creado un grupo de recursos con el sufijo -recovery en la región de recuperación. 
 
-1. Revise los recursos del grupo de recursos de recuperación.  
+2. Revise los recursos del grupo de recursos de recuperación.  
 
-1. Haga clic en la base de datos Contoso Concert Hall en el servidor _tenants1-dpt -&lt;usuario&gt;-recovery_.  Haga clic en Replicación geográfica en el lado izquierdo. 
+3. Haga clic en la base de datos Contoso Concert Hall en el servidor _tenants1-dpt -&lt;usuario&gt;-recovery_.  Haga clic en Replicación geográfica en el lado izquierdo. 
 
     ![Vínculo de replicación geográfica de Contoso Concert](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Supongamos ahora que hay una interrupción en la región en la que la aplicació
 > Para explorar el código de los trabajos de recuperación, revise los scripts de PowerShell en la carpeta ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs.
 
 ### <a name="review-the-application-state-during-recovery"></a>Revisión del estado de la aplicación durante la recuperación
+
 Mientras que el punto de conexión de la aplicación esté deshabilitado en Traffic Manager, la aplicación no está disponible. Después de la conmutación por error del catálogo a la región de recuperación y de que todos los inquilinos sean marcados como sin conexión, la aplicación se pone de nuevo en línea. Aunque la aplicación está disponible, cada inquilino aparece como sin conexión en el centro de eventos hasta que se realiza la conmutación por error de su base de datos. Es importante diseñar la aplicación para controlar las bases de datos de inquilino sin conexión.
 
 1. Inmediatamente después de recuperar la base de datos de catálogo, actualice el centro de eventos de Wingtip Tickets en el explorador web.
@@ -301,7 +304,7 @@ Las bases de datos de inquilino pueden distribuirse en regiones de recuperación
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Sincronizar la información de configuración de la base de datos y los grupos elásticos en el catálogo de inquilinos
 >* Configurar un entorno de recuperación en una región alternativa, que incluye aplicaciones, servidores y grupos
@@ -313,4 +316,4 @@ Puede aprender más acerca de las tecnologías que proporciona Azure SQL Databas
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la aplicación SaaS de Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Otros tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

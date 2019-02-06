@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037385"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475880"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restricciones de clave únicas de Azure Cosmos DB
 
 Las claves únicas proporcionan la capacidad de agregar una capa de integridad de datos a un contenedor de Cosmos. Cree una directiva de clave única al crear un contenedor de Cosmos. Con las claves únicas, se garantiza la exclusividad de uno o varios valores dentro de una partición lógica (puede garantizar la exclusividad con la [clave de partición](partition-data.md)). Una vez creado un contenedor con una directiva de clave única, impide la creación de cualquier elemento duplicado nuevo o actualizado dentro de una partición lógica, según especifique la restricción de clave única. La clave de partición combinada con la clave única garantiza la exclusividad de un elemento dentro del ámbito del contenedor.
 

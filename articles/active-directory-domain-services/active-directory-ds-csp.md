@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155231"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187103"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services para Azure Cloud Solution Providers (CSP)
 En este artículo se explica cómo puede usar Azure AD Domain Services en una suscripción a Azure CSP.
@@ -72,18 +72,18 @@ Este modelo de implementación puede ser adecuado para escenarios en que un ISV 
 ## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>Administración de dominios administrados de Azure AD Domain Services en suscripciones a CSP
 Cuando se administra un dominio administrado en una suscripción a Azure CSP, se aplican las siguientes consideraciones importantes:
 
-* **Los agentes de administración de CSP pueden aprovisionar un dominio administrado con sus credenciales:** Azure AD Domain Services admite suscripciones a Azure CSP. Por lo tanto, los usuarios que pertenecen al grupo de agentes de administración de asociado CSP pueden aprovisionar un nuevo dominio administrado de Azure AD Domain Services.
+* **Los agentes de administrador de CSP pueden aprovisionar un dominio administrado mediante sus credenciales:** Azure AD Domain Services admite suscripciones a Azure CSP. Por lo tanto, los usuarios que pertenecen al grupo de agentes de administración de asociado CSP pueden aprovisionar un nuevo dominio administrado de Azure AD Domain Services.
 
-* **Los CSP pueden generar scripts de creación de nuevos dominios administrados para sus clientes con PowerShell:** vea [Habilitación de Azure Active Directory Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md) para obtener más información.
+* **Los CSP pueden crear con scripts nuevos dominios administrados para sus clientes mediante PowerShell:** Consulte [cómo puede habilitar Azure AD Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md) para ver detalles.
 
-* **Los agentes de administración de CSP no pueden realizar tareas de administración continuas en el dominio administrado usando sus credenciales:** los usuarios de administración de CSP no pueden realizar tareas de administración rutinarias dentro del dominio administrado con sus credenciales. Estos usuarios son externos al directorio de Azure AD del cliente y sus credenciales no están disponibles en el directorio de Azure AD del cliente. Por lo tanto, Azure AD Domain Services no tiene acceso a los valores de hash de contraseña de Kerberos y NTLM para estos usuarios. Como resultado, estos usuarios no se pueden autenticar en dominios administrados de Azure AD Domain Services.
+* **Los agentes de administrador de CSP no pueden realizar tareas de administración continuas en el dominio administrado con sus credenciales:** Los agentes de administrador de CSP llevan a cabo tareas de administración de rutina dentro del dominio administrado mediante el uso de sus credenciales. Estos usuarios son externos al directorio de Azure AD del cliente y sus credenciales no están disponibles en el directorio de Azure AD del cliente. Por lo tanto, Azure AD Domain Services no tiene acceso a los valores de hash de contraseña de Kerberos y NTLM para estos usuarios. Como resultado, estos usuarios no se pueden autenticar en dominios administrados de Azure AD Domain Services.
 
   > [!WARNING]
   > **Debe crear una cuenta de usuario en el directorio del cliente para realizar tareas de administración en curso en el dominio administrado.**
   > No puede iniciar sesión en el dominio administrado usando credenciales de usuario de administrador de CSP. Para ello, use las credenciales de una cuenta de usuario que pertenezca al directorio de Azure AD. Necesita estas credenciales para tareas como unir máquinas virtuales al dominio administrado, administrar DNS, administrar directivas de grupo, etc.
   >
 
-* **La cuenta de usuario creada para la administración continuada debe agregarse al grupo "Administradores de controladores de dominio de AAD":** el grupo "Administradores de controladores de dominio de AAD" tiene privilegios para realizar ciertas tareas de administración delegada en el dominio administrado. Estas tareas incluyen la configuración de DNS, la creación de unidades organizativas, la administración de directivas de grupos, etc. Para que un asociado de CSP realice estas tareas en un dominio administrado, es necesario crear una cuenta de usuario en el directorio de Azure AD del cliente. Las credenciales para esta cuenta se deben compartir con los agentes de administración del asociado de CSP. Además, esta cuenta de usuario debe agregarse al grupo "Administradores de controladores de dominio de AAD" para permitir que las tareas de configuración del dominio administrado se realicen mediante esta cuenta de usuario.
+* **La cuenta de usuario creada para la administración continua se debe agregar al grupo "Administradores de controladores de dominio de AAD":** El grupo "Administradores de controladores de dominio de AAD" tiene privilegios para realizar ciertas tareas de administración delegada en el dominio administrado. Estas tareas incluyen la configuración de DNS, la creación de unidades organizativas, la administración de directivas de grupos, etc. Para que un asociado de CSP realice estas tareas en un dominio administrado, es necesario crear una cuenta de usuario en el directorio de Azure AD del cliente. Las credenciales para esta cuenta se deben compartir con los agentes de administración del asociado de CSP. Además, esta cuenta de usuario debe agregarse al grupo "Administradores de controladores de dominio de AAD" para permitir que las tareas de configuración del dominio administrado se realicen mediante esta cuenta de usuario.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

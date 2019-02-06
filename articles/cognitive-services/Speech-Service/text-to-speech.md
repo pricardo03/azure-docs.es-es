@@ -1,22 +1,22 @@
 ---
 title: 'Acerca de Text to Speech: servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: Text to Speech API ofrece más de 75 voces en más de 45 idiomas y configuraciones regionales. Para utilizar estas fuentes de voz estándar, basta con especificar el nombre de voz con algunos otros parámetros al llamar al servicio Voz.
+description: La API de Text-to-Speech ofrece más de 75 voces en más de 45 idiomas y configuraciones regionales. Para utilizar estas fuentes de voz estándar, basta con especificar el nombre de voz con algunos otros parámetros al llamar al servicio Voz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343214"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251561"
 ---
 # <a name="about-the-text-to-speech-api"></a>Acerca de Text-to-Speech API
 
@@ -37,6 +37,9 @@ Entre los escenarios en los que se está adoptando la síntesis de voz se incluy
 ## <a name="voice-support"></a>Compatibilidad con Voz
 
 El servicio de Microsoft **Text-to-Speech** ofrece más de 75 voces en más de 45 idiomas y configuraciones regionales. Para utilizar estas "fuentes de voz" estándar, basta con especificar el nombre de voz con algunos otros parámetros al llamar a la API REST del servicio. Para más información acerca de los idiomas, las configuraciones regionales y las voces compatibles, consulte los [idiomas que se admiten](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> Los costes varían para voces estándar, personalizadas y neuronales. Para obtener más información, consulte el apartado [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices"></a>Voces neuronales
 

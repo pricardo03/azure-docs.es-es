@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289502"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100222"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -37,7 +37,7 @@ El identificador URI de *GET* tiene todos los parámetros necesarios. No es nece
 
 ### <a name="responses"></a>Respuestas
 
-|NOMBRE  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -127,9 +127,9 @@ Si es necesario personalizar la creación de una máquina virtual a partir de lo
 
 Desencadenar la restauración de discos es una solicitud *POST*. Para más información acerca de la operación de restauración de discos, consulte la [API REST "desencadenar restauración"](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 `{containerName}` y `{protectedItemName}` son tal y como se construyen [aquí](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` es "Azure" y el `{recoveryPointId}` es el `{name}` campo del punto de recuperación mencionado [anteriormente](#example-response).
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Para desencadenar una restauración de disco desde una copia de seguridad de máquina virtual de Azure, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |propiedades     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Para obtener una lista completa de las definiciones del cuerpo de la solicitud y
 
 El cuerpo de solicitud siguiente define las propiedades necesarias para desencadenar una restauración del disco.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ El cuerpo de solicitud siguiente define las propiedades necesarias para desencad
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Response
 
 La activación de un disco de restauración es una [operación asincrónica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
-Devuelve dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
+Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |202 - Aceptado     |         |     Accepted    |
 
@@ -243,7 +243,7 @@ Una vez completado el trabajo de larga duración, los discos y la configuración
 
 El cuerpo de solicitud siguiente define las propiedades necesarias para desencadenar una restauración de la máquina virtual.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ El cuerpo de solicitud siguiente define las propiedades necesarias para desencad
       }
     }
 }
-````
+```
 
 La respuesta debe controlarse de la misma manera que [se explicó anteriormente para restaurar los discos](#response).
 

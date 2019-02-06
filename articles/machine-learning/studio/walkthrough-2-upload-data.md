@@ -1,6 +1,6 @@
 ---
-título: "Paso 2: Cargar datos en un experimento de Machine Learning Studio" titleSuffix: Azure Machine Learning Studio description: "Paso 2 del tutorial de desarrollo de una solución predictiva: Carga de datos públicos almacenados en Azure Machine Learning Studio".
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: "Paso 2: Cargar datos en un experimento de Machine Learning Studio" titleSuffix: Azure Machine Learning Studio description: "Paso 2 del tutorial de desarrollo de una solución predictiva: Carga de datos públicos almacenados en Azure Machine Learning Studio".
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

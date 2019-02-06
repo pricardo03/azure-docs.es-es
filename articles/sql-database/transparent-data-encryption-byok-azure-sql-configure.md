@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell y CLI: Habilitación de TDE de SQL con la propia clave, en Azure SQL Database | Microsoft Docs'
+title: 'PowerShell y CLI: Habilitación de SQL TDE - clave- Azure SQL Database | Microsoft Docs'
 description: Aprenda a configurar una base de datos de Azure SQL Database y Data Warehouse para comenzar a usar Cifrado de datos transparente (TDE) para cifrado en reposo mediante PowerShell o CLI.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165082"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900331"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con la propia clave desde Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con una clave propia de Azure Key Vault
 
 En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrado de datos transparente (TDE) en una base de datos SQL Database o en Data Warehouse. Para más información sobre TDE con compatibilidad con Bring Your Own Key (BYOK), visite [BYOK de TDE con Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
 
@@ -186,7 +186,7 @@ Compruebe lo siguiente si se produce un problema:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a rotar el protector de TDE de un servidor para cumplir con los requisitos de seguridad: [Rotación del protector de Cifrado de datos transparente con PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- Aprenda a cambiar el protector de TDE de un servidor para cumplir con los requisitos de seguridad: [Rotación del protector de Cifrado de datos transparente (TDE) mediante PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - En caso de riesgo de seguridad, aprenda a quitar un protector de TDE potencialmente comprometido: [Eliminación de una clave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>Requisitos previos para la CLI
@@ -208,7 +208,7 @@ Compruebe lo siguiente si se produce un problema:
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>Paso 1. Crear un servidor y asignar una identidad de Azure AD al servidor
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

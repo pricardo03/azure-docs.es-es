@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432770"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104458"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola serie de máquina virtual para Windows
 
@@ -136,6 +136,13 @@ Las teclas de función están habilitadas para usarse en la consola serie en má
 
 ### <a name="use-wsl-in-serial-console"></a>Uso de WSL en la consola serie
 Subsistema de Windows para Linux (WSL) se ha habilitado para Windows Server 2019 o versiones posteriores, por lo que también es posible habilitar WSL para usarlo dentro de la consola serie si se ejecuta Windows Server 2019 o posterior. Esto puede resultar útil para los usuarios que también conocen los comandos de Linux. Para obtener instrucciones que permitan habilitar WSL para Windows Server, consulte la [Guía de instalación](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>Reinicie la máquina virtual Windows en la consola serie
+Para reiniciar la máquina virtual de la consola serie, vaya al botón de encendido y haga clic en "Reiniciar VM". Así se iniciará un reinicio de la máquina virtual, y verá una notificación en Azure Portal relativa al reinicio.
+
+Esto es útil en aquellas situaciones en que es posible que desee acceder al menú de arranque de la máquina virtual sin salir de la consola serie.
+
+![Reinicio de la consola serie Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Deshabilitación de la consola serie
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado para todas las VM. Puede deshabilitar la consola serie en el nivel de la suscripción o de la máquina virtual.

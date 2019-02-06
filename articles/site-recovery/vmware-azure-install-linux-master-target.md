@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811866"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217992"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -130,7 +130,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 
     ![Selección de software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. En la selección de instalación del cargador de arranque GRUB, seleccione **Yes** (Sí) y, luego, seleccione **ENTRAR**.
+1. En la selección de instalación del cargador de arranque GRUB, seleccione **Yes** (Sí) y, luego, seleccione **Entrar**.
      
     ![Instalador de arranque de GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 

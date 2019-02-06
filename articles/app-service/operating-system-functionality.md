@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653516"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901792"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
@@ -128,6 +128,10 @@ Las áreas de seguimiento y registro de diagnóstico que no están disponibles p
 Las aplicaciones disponen de acceso de solo lectura a la mayor parte del registro (no a todo él) de la máquina virtual que están ejecutando. En la práctica, esto significa que las aplicaciones pueden disponer de acceso a las claves de registro que permiten acceso de solo lectura al grupo de usuarios local. Un área de registro no compatible actualmente para el acceso de lectura y escritura es el subárbol HKEY\_CURRENT\_USER.
 
 El acceso de escritura al registro está bloqueado, incluido el acceso a las claves de registro por usuario. Desde una perspectiva de la aplicación, el acceso de escritura al registro no debe basarse nunca en el entorno de Azure, puesto que se pueden migrar aplicaciones entre distintas máquinas virtuales y, de hecho, se hace. El único almacenamiento persistente en el que se puede escribir y que puede depender de la aplicación es la estructura de directorios de contenido por aplicación almacenada en recursos compartidos UNC de App Service. 
+
+## <a name="remote-desktop-access"></a>Acceso de Escritorio remoto
+
+App Service no proporciona acceso mediante Escritorio remoto a las instancias de la máquina virtual.
 
 ## <a name="more-information"></a>Más información
 

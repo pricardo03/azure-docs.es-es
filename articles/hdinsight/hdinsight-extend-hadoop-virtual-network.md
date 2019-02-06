@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725973"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076833"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -308,7 +308,7 @@ Para más información, vea la sección [Control del tráfico de red](#networktr
 
 ## <a id="hdinsight-ports"></a> Puertos necesarios
 
-Si está planeando usar un **firewall de aplicación virtual** de red para proteger la red virtual, debe permitir el tráfico de salida en los siguientes puertos:
+Si planea usar un **firewall** para proteger la red virtual y tener acceso al clúster en determinados puertos, debe permitir el tráfico en los puertos necesarios para su escenario. De forma predeterminada, no necesita poner en la lista blanca los siguientes puertos:
 
 * 53
 * 443

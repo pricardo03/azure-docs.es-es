@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969114"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228362"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Actualización de un registro clásico
 
@@ -52,7 +52,7 @@ Durante el proceso de conversión, todas las operaciones `docker push` se bloque
 
 No elimine ni modifique el contenido de la cuenta de almacenamiento en que se almacena el registro clásico durante el proceso de conversión. Si lo hace, se pueden dañar las imágenes de contenedor.
 
-Una vez completada la migración, ACR deja de usar la cuenta de almacenamiento de su suscripción que hospedaba inicialmente el registro clásico. Después de haber verificado que la migración se realizó correctamente, considere la posibilidad de eliminar la cuenta de almacenamiento para minimizar los costos.
+Una vez finalizada la migración, ACR deja de usar la cuenta de almacenamiento de su suscripción que hospedaba inicialmente el Registro clásico. Después de haber verificado que la migración se realizó correctamente, considere la posibilidad de eliminar la cuenta de almacenamiento para minimizar los costos.
 
 >[!IMPORTANT]
 > La actualización de un registro clásico a una de las SKU administradas es un **proceso unidireccional**. Una vez que se convierte un registro clásico a un registro del nivel Básico, Estándar o Premium, ya no se puede revertir a clásico. Sin embargo, puede cambiar libremente entre las SKU administradas que tengan capacidad suficiente para el registro.

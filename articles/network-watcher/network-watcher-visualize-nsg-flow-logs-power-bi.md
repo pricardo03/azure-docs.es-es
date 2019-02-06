@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822881"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913315"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
 
@@ -46,7 +46,7 @@ La plantilla que se proporciona es editable, por lo que puede modificarla agrega
 
 ## <a name="setup"></a>Configuración
 
-Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de red habilitado en uno o más grupos de seguridad de red de su cuenta. Para ver instrucciones para habilitar los registros de flujo de grupo de seguridad de red, consulte el artículo siguiente: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introducción al registro de flujo para grupos de seguridad de red).
+Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de red habilitado en uno o más grupos de seguridad de red de su cuenta. Para obtener instrucciones sobre cómo habilitar los registros de flujo de grupo de seguridad de red, consulte el artículo siguiente: [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
 
 También tiene que tener el cliente de Power BI Desktop instalado en su equipo y suficiente espacio disponible en el mismo para descargar y cargar los datos del registro que existen en la cuenta de almacenamiento.
 
@@ -123,7 +123,7 @@ Puede personalizar esta plantilla para que se adapte a sus necesidades. Hay much
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a visualizar los registros de flujo del grupo de seguridad de red con la pila Elastick visitando [Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Aprenda a visualizar los registros de flujo del grupo de seguridad de red con la pila Elastic visitando [Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md).
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

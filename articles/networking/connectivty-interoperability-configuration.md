@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidad de las características de conectividad del back-end de Azure: detalles de configuración | Microsoft Docs'
+title: 'Interoperabilidad de las características de conectividad del back-end de Azure: Detalles de configuración | Microsoft Docs'
 description: En este artículo se describen los detalles de configuración que puede usar para analizar la interoperabilidad entre ExpressRoute, una VPN de sitio a sitio y el emparejamiento de redes virtuales en Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: a460a8f4c652182a7916cba5aef0520834432909
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aa594769a3665908f0adce498a4a2bf3a4f4f83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614827"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189075"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidad de las características de conectividad del back-end de Azure: detalles de la configuración de prueba
+# <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Detalles de configuración de prueba
 
 En este artículo se describen los detalles de la [configuración de la prueba][Setup]. La configuración de prueba ayuda a analizar cómo los servicios de redes de Azure interactúan en el nivel del plano de control y en el nivel del plano de datos.
 

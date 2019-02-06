@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246691"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094434"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introducción a un ejemplo de colecciones de áreas de trabajo de Power BI
 
@@ -24,7 +24,7 @@ Con las **colecciones de áreas de trabajo de Microsoft Power BI**, puede integr
 > [!IMPORTANT]
 > Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Antes de seguir avanzando, hay que guardar los siguientes recursos, pues ayudan a integrar los informes de Power BI en la aplicación de ejemplo y también sus propias aplicaciones.
+Antes de seguir, deseará guardar los recursos siguientes: Ellos nos permitirán integrar informes de Power BI en la aplicación de ejemplo y también sus propias aplicaciones.
 
 * [Aplicación web de área de trabajo de ejemplo](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referencia de API de colecciones de áreas de trabajo de Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
@@ -128,7 +128,7 @@ La cadena de conexión debe tener el formato siguiente:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-No se pueden utilizar correctamente los atributos comunes de servidor y base de datos. Por ejemplo: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+No se pueden utilizar correctamente los atributos comunes de servidor y base de datos. Por ejemplo:  Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>Ver
 
@@ -228,7 +228,7 @@ Cuando tenga un **informe**, puede usar **IFrame** para insertar el **informe** 
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];

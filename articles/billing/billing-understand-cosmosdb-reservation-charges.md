@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: cwatson
+ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582759"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904495"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
@@ -70,7 +70,7 @@ El descuento por reserva se aplica a los costos de rendimiento de Azure Cosmos D
 
 Tenga en cuenta los siguientes requisitos para una reserva:
 
-* Rendimiento necesario: 50 000 RU/s  
+* Capacidad de proceso necesaria: 50 000 RU/s  
 * Regiones que usa: 2 
 
 En este caso, sus gastos totales por demanda serían de 500 unidades de la métrica de 100 RU/s en estas dos regiones. El consumo total es de 100 000 RU/s por hora. 
@@ -79,7 +79,7 @@ En este caso, sus gastos totales por demanda serían de 500 unidades de la métr
 
 Por ejemplo, suponga que necesita implementaciones de Azure Cosmos DB en las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.". Cada región tiene un consumo de rendimiento de 50 000 RU/s. Una compra de reserva de 100 000 RU/s. equilibrará por completo los gastos por demanda.
 
-El descuento que cubre una reserva se calcula como: consumo de rendimiento x proporción_descuento_por_reservas_para_región. Para las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.", la proporción de descuento por reserva es 1. Por lo tanto, se descuentan en total 100 000 RU/s. Este valor se calcula de la siguiente forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. No deberá pagar cargos adicionales en las tarifas de pago por uso normales. 
+El descuento que cubre una reserva se calcula como: consumo de rendimiento x proporción_descuento_por_reservas_para_región. Para las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.", la proporción de descuento por reserva es 1. Por lo tanto, se descuentan en total 100 000 RU/s. Este valor se calcula de la siguiente forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. No deberá pagar cargos adicionales en las tarifas de pago por uso normales. 
 
 |Descripción de la métrica | Region |Consumo de rendimiento (RU/s) |Descuento por reserva aplicado a las RU/s |
 |---------|---------|---------|---------|
@@ -95,9 +95,9 @@ Por ejemplo, suponga que necesita implementaciones de Azure Cosmos DB en las reg
 |Azure Cosmos DB - 100 RU/s/Hora - Centro de Australia 2  |  Centro de Australia 2   |  50.000  |  50.000   |
 |Azure Cosmos DB - 100 RU/s/Hora - Sur de Francia  |  Sur de Francia   |  50.000 |  15 384  |
 
-Usar 50 000 unidades en la región "Centro de Australia 2" se corresponde a 75 000 RU/s de uso facturables (o uso normalizado). Dicho valor se calcula de la siguiente forma: consumo de rendimiento x proporción_descuento_por_reservas_para_región. El cálculo da como resultado 75 000 RU/s de uso facturable o normalizado. Este valor se calcula de la siguiente forma: 50 000 x 1,5 = 75 000 RU/s.
+Usar 50 000 unidades en la región "Centro de Australia 2" se corresponde a 75 000 RU/s de uso facturables (o uso normalizado). Dicho valor se calcula de la siguiente forma: consumo de rendimiento x proporción_descuento_por_reservas_para_región. El cálculo da como resultado 75 000 RU/s de uso facturable o normalizado. Este valor se calcula de la siguiente forma: 50 000 x 1,5 = 75 000 RU/s.
 
-Las 100 000 RU/s de la compra de reserva cubrirían las 75 000 RU/s en "Centro de Australia 2". Así, quedarían 25 000 RU/s para la región "Sur de Francia". De las restantes 25 000 RU/s, se aplica un descuento por reserva de 15 384 RU/s a la región "Sur de Francia". Este valor se calcula de la siguiente forma: 25 000/1,625 = 15 384 RU/s. Las restantes 34 616 RU/s de la región "Sur de Francia" se cobran según las tarifas de pago por uso normales. 
+Las 100 000 RU/s de la compra de reserva cubrirían las 75 000 RU/s en "Centro de Australia 2". Así, quedarían 25 000 RU/s para la región "Sur de Francia". De las restantes 25 000 RU/s, se aplica un descuento por reserva de 15 384 RU/s a la región "Sur de Francia". Este valor se calcula de la siguiente forma: 25 000/1,625 = 15 384 RU/s. Las restantes 34 616 RU/s de la región "Sur de Francia" se cobran según las tarifas de pago por uso normales. 
 
 El sistema de facturación de Azure asignará el beneficio de la facturación por reserva a la primera instancia que se procese y coincida con la configuración de reserva. Por ejemplo, "Centro de Australia 2", en este caso.
 

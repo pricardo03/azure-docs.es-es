@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755094"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079875"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Uso del esquema CloudEvents con Event Grid
 
@@ -21,7 +21,7 @@ Además de su [esquema de eventos predeterminado](event-schema.md), Azure Event 
 
 CloudEvents simplifica la interoperabilidad al proporcionar un esquema de eventos común para la publicación y el consumo de eventos basados en la nube. Este esquema permite herramientas uniformes, formas estándar de enrutar y administrar eventos y formas universales de deserializar el esquema de eventos externo. Con un esquema común, puede integrar más fácilmente el trabajo entre plataformas.
 
-En la compilación de CloudEvents participan varios [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), entre ellos Microsoft, a través de [Cloud Native Compute Foundation](https://www.cncf.io/). Actualmente está disponible en versión 0.1.
+En la compilación de CloudEvents participan varios [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), entre ellos Microsoft, mediante [Cloud Native Compute Foundation](https://www.cncf.io/). Actualmente está disponible en versión 0.1.
 
 En este artículo se describe cómo usar el esquema CloudEvents con Event Grid.
 
@@ -60,7 +60,7 @@ Este es un ejemplo de un evento de Azure Blob Storage en formato de CloudEvents:
 
 CloudEvents v0.1 tiene disponibles las siguientes propiedades:
 
-| CloudEvents        | Escriba     | Valor JSON de ejemplo             | DESCRIPCIÓN                                                        | Asignación de Event Grid
+| CloudEvents        | Type     | Valor JSON de ejemplo             | DESCRIPCIÓN                                                        | Asignación de Event Grid
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | string   | "com.example.someevent"          | Tipo de repetición que sucedió                                   | eventType
 | eventTypeVersion   | string   | "1.0"                            | La versión de eventType (opcional)                            | dataVersion

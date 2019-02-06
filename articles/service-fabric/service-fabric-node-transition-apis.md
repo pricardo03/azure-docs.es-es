@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055410"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102692"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sustitución de las API Start Node y Stop node con la API Node Transition
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>¿Qué hacen las API Stop Node y Start Node?
 
-La API Stop Node (administrada: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) detiene un nodo de Service Fabric.  Un nodo de Service Fabric es un proceso, no un equipo ni una máquina virtual: el equipo o la máquina virtual seguirán en ejecución.  Para el resto del documento, "nodo" hace referencia a un nodo de Service Fabric.  Al detener un nodo, este adquiere el estado *detenido*, en el que no es un miembro del clúster y no puede hospedar servicios, por lo que simula un nodo *apagado*.  Esto es útil para insertar errores en el sistema a fin de probar la aplicación.  La API Start Node (administrada: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) invierte la API Stop Node, por lo que el nodo vuelve a un estado normal.
+Stop Node API (administrada: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) detiene un nodo de Service Fabric.  Un nodo de Service Fabric es un proceso, no un equipo ni una máquina virtual: el equipo o la máquina virtual seguirán en ejecución.  Para el resto del documento, "nodo" hace referencia a un nodo de Service Fabric.  Al detener un nodo, este adquiere el estado *detenido*, en el que no es un miembro del clúster y no puede hospedar servicios, por lo que simula un nodo *apagado*.  Esto es útil para insertar errores en el sistema a fin de probar la aplicación.  Start Node API (administrada: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) invierte la Stop Node API, lo que hacer que el nodo vuelve a un estado normal.
 
 ## <a name="why-are-we-replacing-these"></a>¿Por qué se realiza la sustitución?
 
@@ -38,14 +38,14 @@ Además, el tiempo durante el cual un nodo está detenido es "infinito" hasta qu
 
 ## <a name="introducing-the-node-transition-apis"></a>Introducción a las API Node Transition
 
-Se han solucionado estos problemas anteriores en un nuevo conjunto de API.  La nueva API Node Transition (administrada: [StartNodeTransitionAsync()][snt]) puede utilizarse para realizar la transición de un nodo de Service Fabric a un estado *detenido*, o bien para realizar su transición de un estado *detenido* a un estado normal.  Tenga en cuenta que la palabra "Start" en el nombre de la API no hace referencia a iniciar un nodo.  Se refiere a comenzar una operación asincrónica que el sistema ejecutará para realizar la transición del nodo a un estado *detenido* o iniciado.
+Se han solucionado estos problemas anteriores en un nuevo conjunto de API.  La nueva Node Transition API (administrada: [StartNodeTransitionAsync()][snt]) puede utilizarse para realizar la transición de un nodo de Service Fabric a un estado *detenido*, o bien para realizar su transición de un estado *detenido* a un estado normal.  Tenga en cuenta que la palabra "Start" en el nombre de la API no hace referencia a iniciar un nodo.  Se refiere a comenzar una operación asincrónica que el sistema ejecutará para realizar la transición del nodo a un estado *detenido* o iniciado.
 
 **Uso**
 
-Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es “Running”, significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad Estado y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
+Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información acerca del estado actual de la operación, llame a la Node Transition Progress API (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar Node Transition API para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es “Running”, significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad Estado y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
 
 
-**Diferenciar entre un nodo detenido y un nodo inactivo** Si un nodo está *detenido* con la API Node Transition, el resultado de una consulta de nodo (administrada [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nodo tiene un valor true para la propiedad *IsStopped*.  Tenga en cuenta que este valor es diferente del valor de la propiedad *NodeStatus*, que será *Down* (Apagado).  Si la propiedad *NodeStatus* tiene el valor *Down*, pero *IsStopped* es false, entonces significa que el nodo no se ha detenido con la API Node Transition y que está *apagado* por alguna otra razón.  Si la propiedad *IsStopped* es true y la propiedad *NodeStatus* es *Down*, entonces significa que se ha detenido con la API Node Transition.
+**Diferencias entre un nodo detenido y un nodo inactivo** Si un nodo se *detiene* mediante la Node Transition API, el resultado de una consulta de nodo (administrada: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que el valor de la propiedad *IsStopped* de este nodo es true.  Tenga en cuenta que este valor es diferente del valor de la propiedad *NodeStatus*, que será *Down* (Apagado).  Si la propiedad *NodeStatus* tiene el valor *Down*, pero *IsStopped* es false, entonces significa que el nodo no se ha detenido con la API Node Transition y que está *apagado* por alguna otra razón.  Si la propiedad *IsStopped* es true y la propiedad *NodeStatus* es *Down*, entonces significa que se ha detenido con la API Node Transition.
 
 Al iniciar un nodo *detenido* con la API Node Transition, el nodo volverá a funcionar como un miembro normal del clúster.  El resultado de la API de consulta de nodo mostrará *IsStopped* como false, y *NodeStatus* con un estado distinto a Down (apagado), como por ejemplo, Up (encendido).
 
@@ -159,7 +159,7 @@ Al iniciar un nodo *detenido* con la API Node Transition, el nodo volverá a fun
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ Al iniciar un nodo *detenido* con la API Node Transition, el nodo volverá a fun
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```

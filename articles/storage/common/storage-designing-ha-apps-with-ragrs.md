@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231370"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454950"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
@@ -24,12 +24,12 @@ Una característica común de las infraestructuras basadas en la nube como Azure
 
 Este artículo se centra en GRS y en RA-GRS. Con GRS, se mantienen tres copias de los datos en la región primaria que seleccionó al configurar la cuenta de almacenamiento. Se mantienen tres copias adicionales de forma asincrónica en una región secundaria especificada por Azure. RA-GRS ofrece almacenamiento con redundancia geográfica con acceso de lectura a la copia secundaria.
 
-Para obtener información sobre qué regiones primarias se emparejan con qué regiones secundarias, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Para obtener información sobre qué regiones primarias se emparejan con qué regiones secundarias, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 En este artículo se incluyen fragmentos de código y, al final, un vínculo a un ejemplo completo que puede descargar y ejecutar.
 
 > [!NOTE]
-> Azure Storage ahora admite el almacenamiento con redundancia de zona (ZRS) para compilar aplicaciones altamente disponibles. ZRS ofrece una solución simple para las necesidades de redundancia de muchas aplicaciones. ZRS proporciona protección ante errores de hardware o desastres irrecuperables que afectan a un solo centro de datos. Para más información, consulte[Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md).
+> Azure Storage ahora admite el almacenamiento con redundancia de zona (ZRS) para compilar aplicaciones altamente disponibles. ZRS ofrece una solución simple para las necesidades de redundancia de muchas aplicaciones. ZRS proporciona protección ante errores de hardware o desastres irrecuperables que afectan a un solo centro de datos. Para obtener más información, consulte [Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Características fundamentales de RA-GRS
 

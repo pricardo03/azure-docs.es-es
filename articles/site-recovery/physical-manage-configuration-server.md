@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823087"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300445"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 
@@ -106,7 +106,7 @@ Ejecute el archivo de instalación del modo siguiente:
 
 ### <a name="parameters"></a>Parámetros
 
-|Nombre de parámetro| Escriba | DESCRIPCIÓN| Valores|
+|Nombre de parámetro| Type | DESCRIPCIÓN| Valores|
 |-|-|-|-|
 | /ServerMode|Obligatorio|Especifica si se deben instalar los servidores de configuración y de procesos, o solo el servidor de procesos|CS<br>PS|
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|
@@ -128,7 +128,7 @@ Ejecute el archivo de instalación del modo siguiente:
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>Creación de entrada de archivo para MYSQLCredsFilePath
 
 El parámetro MySQLCredsFilePath toma como entrada un archivo. Cree el archivo con el siguiente formato y páselo como parámetro de entrada MySQLCredsFilePath.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -136,7 +136,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Creación de entrada de archivo para ProxySettingsFilePath
 El parámetro ProxySettingsFilePath toma un archivo como entrada. Cree el archivo con el siguiente formato y páselo como parámetro de entrada ProxySettingsFilePath.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -157,7 +157,7 @@ Se puede modificar la configuración de proxy para el equipo del servidor de con
 5. Proporcione los detalles del nuevo proxy y haga clic en el botón **Registrar**.
 6. Abra una ventana de comandos de administrador de PowerShell.
 7. Ejecute el siguiente comando:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -177,7 +177,7 @@ Se puede modificar la configuración de proxy para el equipo del servidor de con
   6. Abra una ventana de comandos de administrador de PowerShell.
   7. Ejecute el siguiente comando.
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -205,7 +205,7 @@ Se puede modificar la configuración de proxy para el equipo del servidor de con
 6. Proporcione los detalles del servidor proxy y haga clic en el botón **Registrar**.  
 7. Abra una ventana de comandos de administrador de PowerShell.
 8. Ejecute el siguiente comando.
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -273,7 +273,7 @@ Actualice el servidor como se indica a continuación:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Ahora, configure el contexto de almacén.
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

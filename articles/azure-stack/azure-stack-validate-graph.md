@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 0755f9d60bee8a57f9259a51cf54e8cda566175e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416246"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247024"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Validar la integración de Graph para Azure Stack
 
@@ -106,8 +107,8 @@ De forma predeterminada, ambos archivos se escriben en `C:\Users\<username>\AppD
 
 Uso:
 
-* **-OutputPath**: el parámetro *ruta de acceso* al final del comando de ejecución para especificar otra ubicación para el informe.
-* **-CleanReport**: parámetro al final del comando de ejecución para borrar *AzsReadinessCheckerReport.json* de la información del informe previo. Para obtener más información, consulte el artículo [Informe de validación de Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: el parámetro de *ruta de acceso* al final del comando de ejecución para especificar otra ubicación para el informe.
+* **-CleanReport**: el parámetro al final del comando de ejecución para borrar *AzsReadinessCheckerReport.json* de la información del informe previo. Para obtener más información, consulte el artículo [Informe de validación de Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Errores de validación
 

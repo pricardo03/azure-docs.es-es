@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259144"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459492"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
 En este tutorial se describen varios escenarios clave de administración de rendimiento que se usan en aplicaciones de SaaS. Mediante un generador de carga para simular la actividad en todas las bases de datos de inquilino, se demuestran las características integradas de supervisión y alertas de SQL Database y los grupos elásticos.
 
-La aplicación Wingtip Tickets SaaS Database Per Tenant utiliza un modelo de datos de inquilino único, donde cada lugar (inquilino) tiene su propia base de datos. Al igual que en muchas aplicaciones SaaS, el patrón de carga de trabajo de inquilino previsto es imprevisible y esporádico. En otras palabras, las ventas de entradas pueden producirse en cualquier momento. Para aprovechar las ventajas de este patrón de uso típico de base de datos, las bases de datos de inquilinos se implementan en grupos de bases de datos elásticas. Los grupos elásticos optimizan el costo de las soluciones mediante el uso compartido de los recursos entre distintas bases de datos. Con este tipo de patrón, es importante supervisar la base de datos y el uso de los recursos del grupo para asegurarse de que las cargas están razonablemente repartidas entre los grupos. También debe asegurarse de que las bases de datos individuales tienen los recursos suficientes y de que los grupos no están al límite de [unidades de transacción de bases de datos elásticas](sql-database-service-tiers.md#dtu-based-purchasing-model). En este tutorial se exploran métodos para supervisar y administrar las bases de datos y los grupos, y se explica cómo tomar medidas correctivas en respuesta a las variaciones en la carga de trabajo.
+La aplicación Wingtip Tickets SaaS Database Per Tenant utiliza un modelo de datos de inquilino único, donde cada lugar (inquilino) tiene su propia base de datos. Al igual que en muchas aplicaciones SaaS, el patrón de carga de trabajo de inquilino previsto es imprevisible y esporádico. En otras palabras, las ventas de entradas pueden producirse en cualquier momento. Para aprovechar las ventajas de este patrón de uso típico de base de datos, las bases de datos de inquilinos se implementan en grupos elásticos. Los grupos elásticos optimizan el costo de las soluciones mediante el uso compartido de los recursos entre distintas bases de datos. Con este tipo de patrón, es importante supervisar la base de datos y el uso de los recursos del grupo para asegurarse de que las cargas están razonablemente repartidas entre los grupos. También debe asegurarse de que las bases de datos individuales tienen los recursos suficientes y de que los grupos no están al límite de [unidades de transacción de bases de datos elásticas](sql-database-service-tiers.md#dtu-based-purchasing-model). En este tutorial se exploran métodos para supervisar y administrar las bases de datos y los grupos, y se explica cómo tomar medidas correctivas en respuesta a las variaciones en la carga de trabajo.
 
 En este tutorial, aprenderá a:
 
@@ -42,7 +42,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introducción a los patrones de administración del rendimiento de SaaS
 
-La administración del rendimiento de la base de datos consiste en compilar y analizar los datos de rendimiento y, a continuación, reaccionar a estos datos mediante el ajuste de parámetros para mantener un tiempo de respuesta aceptable de la aplicación. Cuando se hospedan a varios inquilinos, los grupos de bases de datos elásticas son una manera rentable de proporcionar y administrar los recursos para un grupo de bases de datos con cargas de trabajo impredecibles. Con ciertos patrones de carga de trabajo, se pueden beneficiar de la administración en grupo un mínimo de dos bases de datos S3.
+La administración del rendimiento de la base de datos consiste en compilar y analizar los datos de rendimiento y, a continuación, reaccionar a estos datos mediante el ajuste de parámetros para mantener un tiempo de respuesta aceptable de la aplicación. Cuando se hospedan a varios inquilinos, los grupos elásticos son una manera rentable de proporcionar y administrar los recursos para un grupo de bases de datos con cargas de trabajo impredecibles. Con ciertos patrones de carga de trabajo, se pueden beneficiar de la administración en grupo un mínimo de dos bases de datos S3.
 
 ![diagrama de aplicaciones](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ Como alternativa al escalado vertical del grupo, cree un segundo grupo y mueva b
 
 1. En [Azure Portal](https://portal.azure.com), abra el servidor **tenants1-dpt-&lt;USUARIO&gt;**.
 1. Haga clic en **+ Grupo nuevo** para crear un grupo en el servidor actual.
-1. En la plantilla **Grupo de bases de datos elásticas**:
+1. En la plantilla **Grupo elásticos**:
 
     1. Establezca **Nombre** en *Pool2*.
     1. Deje el plan de tarifa como **Grupo Estándar**.
@@ -189,9 +189,9 @@ Vaya a **Pool2** (en el servidor *tenants1-dpt-\<usuario\>*) para abrir el grupo
 
 Ahora verá que el uso de los recursos en *Pool1* ha disminuido y que *Pool2* tiene una carga similar.
 
-## <a name="manage-performance-of-a-single-database"></a>Administrar el rendimiento de una sola base de datos
+## <a name="manage-performance-of-an-individual-database"></a>Administración del rendimiento de una base de datos individual
 
-Si una base de datos de un grupo experimenta una carga elevada durante un tiempo prolongado, según la configuración de grupo, puede tender a dominar los recursos del grupo, lo cual puede afectar a otras bases de datos. Si es probable que la actividad continúe durante un tiempo, la base de datos se puede sacar temporalmente del grupo. Esto permite que la base de datos tenga los recursos adicionales necesarios y la aísla de las otras bases de datos.
+Si una base de datos individual de un grupo experimenta una carga elevada durante un tiempo prolongado, según la configuración de grupo, puede tender a dominar los recursos del grupo, lo cual puede afectar a otras bases de datos. Si es probable que la actividad continúe durante un tiempo, la base de datos se puede sacar temporalmente del grupo. Esto permite que la base de datos tenga los recursos adicionales necesarios y la aísla de las otras bases de datos.
 
 En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Hall cuando se venden entradas para un concierto popular.
 
@@ -203,7 +203,7 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la lista de bases de datos del servidor *tenants1-dpt-\<usuario\>*. 
 1. Haga clic en la base de datos **contosoconcerthall**.
-1. Haga clic en el grupo en el que se encuentra **contosoconcerthall**. Busque el grupo en la sección **Grupo de bases de datos elásticas**.
+1. Haga clic en el grupo en el que se encuentra **contosoconcerthall**. Busque el grupo en la sección **Grupo elásticos**.
 
 1. Inspeccione el gráfico **Supervisión de grupo elástico** y busque el aumento de uso de eDTU en el grupo. Pasado un minuto o dos, la carga mayor entrará en vigor rápidamente y verá que el grupo alcanza el 100 % de uso.
 2. Observe la pantalla **Supervisión de base de datos elástica** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.

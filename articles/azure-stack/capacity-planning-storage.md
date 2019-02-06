@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369763"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245157"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planeamiento de la capacidad de almacenamiento de Azure Stack
 En las secciones siguientes se proporciona información acerca del planeamiento de la capacidad de almacenamiento de Azure Stack para ayudarle a planificarse según las necesidades de almacenamiento de las soluciones.
@@ -29,7 +30,7 @@ En las secciones siguientes se proporciona información acerca del planeamiento 
 La configuración hiperconvergida de Azure Stack permite el uso compartido de dispositivos de almacenamiento físico. Las tres divisiones principales del almacenamiento disponible están comprendidas entre la infraestructura, el almacenamiento temporal de las máquinas virtuales de inquilino y el almacenamiento de respaldo de los blobs, las tablas y las colas de los servicios de Azure Consistent Storage (ACS).
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Niveles de capacidad y memoria caché de Espacios de almacenamiento directo
-La capacidad de almacenamiento se puede utilizar para el sistema operativo, el registro local, el volcado y otro tipo de necesidades de almacenamiento de infraestructura temporal. Esta capacidad de almacenamiento local es independiente (dispositivos y capacidad) de los dispositivos de almacenamiento que se encuentran bajo la administración de la configuración de Espacios de almacenamiento directo. El resto de dispositivos de almacenamiento se coloca en un único grupo de capacidad de almacenamiento, independientemente del número de servidores de la unidad de escalado. Estos dispositivos son de dos tipos: memoria caché y capacidad.  Los dispositivos de memoria caché son simplemente eso, memoria caché. Los Espacios de almacenamiento directo usarán estos dispositivos para el almacenamiento en caché con reescritura y lectura. Las capacidades de estos dispositivos de memoria caché, mientras estén en uso, no se dedican a la capacidad "visible" y con formato de los discos virtuales con formato. Los dispositivos de capacidad se usan con este propósito y proporcionan la "ubicación principal" de los datos administrados por Espacios de almacenamiento directo.
+La capacidad de almacenamiento se puede utilizar para el sistema operativo, el registro local, el volcado y otro tipo de necesidades de almacenamiento de infraestructura temporal. Esta capacidad de almacenamiento local es independiente (dispositivos y capacidad) de los dispositivos de almacenamiento que se encuentran bajo la administración de la configuración de Espacios de almacenamiento directo. El resto de dispositivos de almacenamiento se coloca en un único grupo de capacidad de almacenamiento, independientemente del número de servidores de la unidad de escalado. Estos dispositivos son de dos tipos: caché y capacidad.  Los dispositivos de memoria caché son simplemente eso, memoria caché. Los Espacios de almacenamiento directo usarán estos dispositivos para el almacenamiento en caché con reescritura y lectura. Las capacidades de estos dispositivos de memoria caché, mientras estén en uso, no se dedican a la capacidad "visible" y con formato de los discos virtuales con formato. Los dispositivos de capacidad se usan con este propósito y proporcionan la "ubicación principal" de los datos administrados por Espacios de almacenamiento directo.
 
 Toda la capacidad de almacenamiento se asigna y administra directamente según la infraestructura de Azure Stack. El operador debe tomar decisiones sobre la configuración, la asignación o el tratamiento de las opciones en lo que se refiere a la expansión de la capacidad. Estas decisiones de diseño se han adoptado para adaptarse a los requisitos de la solución y se automatizan durante cualquier implementación o instalación inicial o durante la expansión de la capacidad. Como parte del diseño, se han considerado, entre otros, detalles acerca de la resistencia y la capacidad reservada para las recopilaciones. 
 

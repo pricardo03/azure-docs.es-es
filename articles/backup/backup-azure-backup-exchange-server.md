@@ -2,18 +2,18 @@
 title: Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 description: Obtenga información acerca de cómo realizar una copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234467"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298320"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 En este artículo se describe cómo configurar un servidor de System Center 2012 R2 Data Protection Manager (DPM) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure Backup.  
@@ -110,11 +110,11 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
 
 Para los puntos de recuperación en línea, existen cinco tipos de recuperación:
 
-* **Recuperar en ubicación original de servidor de Exchange :** los datos se recuperarán en el servidor Exchange original.
-* **Recuperar en otra base de datos en un servidor de Exchange:** los datos se recuperarán en otra base de datos de otro servidor Exchange.
-* **Recuperar en una base de datos de recuperación:** los datos se recuperarán en una base de datos de recuperación de Exchange (RDB).
-* **Copiar en una carpeta de red:** los datos se recuperarán en una carpeta de red.
-* **Copiar en cinta:** si tiene una biblioteca de cintas o una unidad de cinta independiente conectada y configurada en el servidor DPM, el punto de recuperación se copiará en una cinta libre.
+* **Recuperación en la ubicación original de Exchange Server**: los datos se recuperarán en la ubicación original de Exchange Server.
+* **Recuperación en otra base de datos de Exchange Server**: los datos se recuperarán en otra base de datos en otra ubicación de Exchange Server.
+* **Recuperación en una base de datos de recuperación**: los datos se recuperarán en una base de datos de recuperación de Exchange (RDB).
+* **Copia en una carpeta de red**: los datos se recuperarán en una carpeta de red.
+* **Copia en cinta**: si tiene una biblioteca de cintas o una unidad de cinta independiente conectada y configurada en el servidor DPM, el punto de recuperación se copiará en una cinta libre.
 
     ![Elegir replicación en línea](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

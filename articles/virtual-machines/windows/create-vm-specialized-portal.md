@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091256"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163456"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Creación de una máquina virtual a partir de un VHD mediante Azure Portal
 
@@ -28,6 +28,8 @@ Hay varias maneras de crear una máquina virtual en Azure:
 - Si ya tiene un disco duro virtual (VHD) que puede usar o quiere copiar el VHD de una máquina virtual existente para usarlo, puede crear una nueva máquina virtual *adjuntando* el VHD a la nueva máquina virtual como disco del sistema operativo. 
 
 - Puede crear una nueva máquina virtual desde el VHD de una máquina virtual que haya sido eliminada. Por ejemplo, si tiene una máquina virtual de Azure que no funciona correctamente, puede eliminarla y usar su VHD para crear una nueva. Puede volver a usar el mismo VHD o crear una copia del VHD mediante la creación de una instantánea y, a continuación, de un nuevo disco administrado desde la instantánea. Aunque la creación de una instantánea conlleva unos pocos pasos más, conserva el VHD original y le proporcionará una reserva.
+
+- Tome una máquina virtual clásica y use el disco duro virtual para crear una VM nueva que use los discos administrados y el modelo de implementación de Resource Manager. Para obtener los mejores resultados, **detenga** la máquina virtual clásica en Azure Portal antes de crear la instantánea.
  
 - Puede crear una máquina virtual de Azure desde un VHD local mediante la carga del VHD local y su conexión a una nueva máquina virtual. Puede utilizar PowerShell u otra herramienta para cargar el VHD a una cuenta de almacenamiento y, a continuación, crear un disco administrado a partir del VHD. Para más información, consulte [Carga de un VHD especializado](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 

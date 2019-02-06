@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: 'Documentación sobre Application Insights de Azure Monitor: tutoriales y referencia de API | Microsoft Docs'
-description: TBD
+description: Application Insights de Azure Monitor ofrece supervisión de rendimiento de aplicación profunda de nivel de código.
 services: application-insights
 author: mrbullwinkle
 manager: carmonmills
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 713368ab02e72ad0b8e51d0bb312a20bd2df690c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f2c6475d67958e8ccd3e46598a46cc8bfee9ef54
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830121"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300683"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -220,7 +220,7 @@ ms.locfileid: "54830121"
                                                         <h3>Privacidad, seguridad y costo de uso de &amp;</h3>
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Administración de datos personales</a><br>
-                                                            <a href="./app/data-retention-privacy.md">Recopilación, retenciones y almacenamiento de &amp;</a><br>
+                                                            <a href="./app/data-retention-privacy.md">Recopilación, retención y almacenamiento de datos</a><br>
                                                             <a href="./app/resources-roles-access-control.md">Acceso basado en rol</a><br>
                                                             <a href="./app/ip-addresses.md">Excepciones del firewall de &amp; de dirección IP</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Uso y costos estimados</a>

@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437578"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911918"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imágenes de Visual Studio en Azure
 El uso de Visual Studio en una máquina virtual (VM) de Azure preconfigurada es la manera más fácil y rápida de tener un entorno de desarrollo que funcione correctamente desde el principio. En [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1) encontrará varias imágenes del sistema con distintas configuraciones de Visual Studio.
@@ -34,7 +34,7 @@ En Azure Marketplace se pueden encontrar imágenes de las versiones principales 
 
 | Versión de lanzamiento                                              | Ediciones                     |     Versión del producto      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Versión preliminar (Versión preliminar 1)                   |           Enterprise         | Versión 16.0.0 Versión preliminar 1 |
+|    Visual Studio 2019: Versión preliminar (versión preliminar 2)                   |           Enterprise         | Versión 16.0.0 Versión preliminar 2 |
 | Visual Studio 2017: Más reciente (versión 15.9)                    |    Enterprise, Community     |      Versión 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versión 15.0.20     |
 |   Visual Studio 2015: Versión más reciente (Actualización 3)                      |    Enterprise, Community     |  Versión 14.0.25431.01   |

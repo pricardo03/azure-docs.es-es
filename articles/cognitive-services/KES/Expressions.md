@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129176"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222704"
 ---
 # <a name="structured-query-expression"></a>Expresiones de consulta estructuradas
 
@@ -29,7 +29,7 @@ Las expresiones de consulta estructuradas se pueden obtener a partir de solicitu
 
 Una expresión de consulta de atributo identifica un conjunto de objetos basados en la coincidencia con un atributo determinado.  Se admiten diferentes operaciones de establecimiento de coincidencias dependiendo del tipo de atributo y de la operación indexada que se especificó en el [esquema](SchemaFormat.md):
 
-| Escriba | Operación | Ejemplos |
+| Type | Operación | Ejemplos |
 |------|-------------|------------|
 | string | equals | Title='latent semantic analysis'  (canonical + synonyms) |
 | string | equals | Author.Name=='susan t dumais'  (canonical only)|

@@ -1,14 +1,27 @@
 ---
-título: Consumo de servicios web de Studio con una plantilla de aplicación web titleSuffix: Azure Machine Learning Studio description: Use una plantilla de aplicación web en Azure Marketplace para consumir un servicio web predictivo en Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
+title: Consumo de servicios web de Studio con una plantilla de aplicación web
+titleSuffix: Azure Machine Learning Studio
+description: Use una plantilla de aplicación web en Azure Marketplace para consumir un servicio web predictivo en Azure Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 164aae7c6a4df18b8a28e1ff152e9c61c60f06b9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299068"
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Consumo de un servicio web Azure Machine Learning Studio con una plantilla de aplicación web
 
 También puede desarrollar un modelo predictivo e implementarlo como un servicio web de Azure mediante el uso de:
 - Azure Machine Learning Studio.
-- Herramientas como R o Python. 
+- Herramientas como R o Python.
 
 Después de eso, puede acceder al modelo de operaciones mediante el uso de una API de REST.
 
@@ -23,10 +36,10 @@ Las plantillas de aplicación web disponibles en Azure Marketplace pueden crear 
 
 Existen dos plantillas:
 
-* [Plantilla de aplicación web Request-Response Service de Aprendizaje automático de Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Plantilla de aplicación web Batch Execution Service de Aprendizaje automático de Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Plantilla de aplicación web Request-Response Service de Azure Machine Learning Studio](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Plantilla de aplicación web Batch Execution Service de Azure Machine Learning Studio](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Cada plantilla crea una aplicación de ASP.NET de ejemplo mediante el URI de la API y la clave para el servicio web. Después, la plantilla implementa la aplicación como un sitio web en Azure. 
+Cada plantilla crea una aplicación de ASP.NET de ejemplo mediante el URI de la API y la clave para el servicio web. Después, la plantilla implementa la aplicación como un sitio web en Azure.
 
 La plantilla Request-Response Service (RRS) crea una aplicación web que puede usar para enviar una sola fila de datos al servicio web para obtener un resultado único. La plantilla Batch Execution Service (BES) crea una aplicación web que puede usar para enviar muchas filas de datos para obtener varios resultados.
 
@@ -51,33 +64,33 @@ Siga estos pasos para usar la plantilla de aplicación web de RRS, tal como se i
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Seleccione **Nuevo**, busque y seleccione **Azure ML Request-Response Service Web App** y después seleccione **Crear**. 
+2. Seleccione **Nuevo**, busque y seleccione **Azure ML Request-Response Service Web App** y después seleccione **Crear**.
 3. En el panel **Crear**:
-   
+
    * Asigne un nombre único a la aplicación web. La dirección URL de la aplicación web será este nombre seguido de **.azurewebsites.net**. Un ejemplo es **http://carprediction.azurewebsites.net**.
    * Seleccione los servicios y la suscripción de Azure en los que se ejecuta el servicio web.
    * Seleccione **Crear**.
-     
+
    ![Crear una aplicación web][image5]
 
 4. Cuando Azure termine de implementar la aplicación web, seleccione la **dirección URL** en la página de configuración de la aplicación web en Azure o escriba la dirección URL en un explorador web. Por ejemplo, escriba: **http://carprediction.azurewebsites.net**.
 5. Cuando se ejecute la aplicación web por primera vez, le pedirá la **dirección URL del mensaje de API** y la **clave de API**. Escriba los valores que guardó anteriormente (URI de solicitud y Clave de API, respectivamente). Seleccione **Submit** (Enviar).
-     
+
    ![Escriba el URI del mensaje y la clave de API][image6]
 
 6. La aplicación web muestra su página **Configuración de la aplicación web** con la configuración actual del servicio web. Aquí puede realizar cambios en la configuración usada por la aplicación web.
-   
+
    > [!NOTE]
    > El cambio de estas opciones solo las cambia para esta aplicación web. No cambia la configuración predeterminada del servicio web. Por ejemplo, si cambia el texto de la **Descripción**, aquí no cambia la descripción mostrada en el panel del servicio web en Machine Learning Studio.
-   > 
-   > 
-   
+   >
+   >
+
     Cuando termine, seleccione **Guardar cambios** y, luego, **Ir a la página principal**.
 
 7. En la página principal puede escribir valores para enviar al servicio web. Cuando termine, seleccione **Enviar** y se generará el resultado.
@@ -93,11 +106,11 @@ Los valores de entrada de un servicio web de ejecución de lotes pueden provenir
 
 ![Proceso para usar la plantilla web BES][image2]
 
-1. Siga el mismo procedimiento para crear la aplicación web BES que para la plantilla RRS. Vaya a [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) para abrir la plantilla BES en Azure Marketplace. Seleccione **Crear aplicación web**.
+1. Siga el mismo procedimiento para crear la aplicación web BES que para la plantilla RRS. Sin embargo, en este caso, vaya a [Azure Machine Learning Studio Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) para abrir la plantilla BES en Azure Marketplace. Seleccione **Crear aplicación web**.
 
 2. Para especificar dónde desea que se almacenen los resultados, escriba la información del contenedor de destino en la página principal de la aplicación web. Especifique también dónde puede obtener los valores de entrada la aplicación web, en un archivo local o en un contenedor de Azure Storage.
    Seleccione **Submit** (Enviar).
-   
+
    ![Información de almacenamiento][image7]
 
 La aplicación web muestra una página con el estado del trabajo. Una vez completado el trabajo, se le proporciona la ubicación de los resultados en Azure Blob Storage. También tiene la opción de descargar los resultados en un archivo local.

@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820417"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219148"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -24,15 +24,14 @@ LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#mode
 
 ## <a name="model-boundaries"></a>Límites de modelo
 
-
 |Ámbito|Límite|
 |--|:--|--|
 | [Nombre de aplicación][luis-get-started-create-app] | *Máximo de caracteres predeterminado |
 | [Pruebas por lotes][batch-testing]| 10 conjuntos de datos, 1000 expresiones por cada conjunto de datos|
 | Lista explícita | 50 por aplicación|
-| [Intenciones][intents]|500 por aplicación<br>La aplicación [por distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes|
+| [Intenciones][intents]|500 por aplicación: 499 intenciones personalizadas y la intención _Ninguno_ necesaria.<br>La aplicación [basada en la distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Elemento principal: 50, elemento secundario: 20 000 elementos. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
-| [Entidades con aprendizaje automático](./luis-concept-entity-types.md):<br> Compuesta,<br>  Jerárquico<br> Simple|100 <br>El número total de entidades con aprendizaje automático (entidades simples, jerárquicas y compuestas) no puede ser superior a 100. Las entidades jerárquicas y compuestas no pueden tener más de 10 elementos secundarios.  |
+| [Entidades con aprendizaje automático](./luis-concept-entity-types.md):<br> Compuesta,<br>  Jerárquico<br> Simple|Un límite de 100 entidades principales (sin incluir los elementos secundarios jerárquicos) o 330 entidades (incluidos los elementos secundarios jerárquicos), sea cual sea el límite que el usuario alcance primero.<br><br>Un ejemplo con jerarquía sería 30 jerarquías con 10 elementos secundarios cada una.  Los elementos secundarios consumirán 300 en total y los elementos de jerarquía consumirán los 30 restantes. |
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
 | [Lista de frases][phrase-list]|10 listas de frases, 5000 elementos por lista|

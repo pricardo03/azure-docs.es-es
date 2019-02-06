@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437614"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081252"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integración de Azure Active Directory con Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Este artículo muestra cómo implementar los requisitos previos necesarios para 
 
 Se aplican las siguientes limitaciones:
 
-- Tenga en cuenta que los clústeres de AKS existentes que no están habilitados con RBAC actualmente no se pueden actualizar para usar RBAC.
+- Azure AD solo puede habilitarse cuando se crea un clúster habilitado para RBAC nuevo. No se puede habilitar Azure AD en un clúster AKS existente.
 - Los usuarios *invitados* en Azure AD, como los que usan un inicio de sesión federado de un directorio distinto, no se admiten.
 
 ## <a name="authentication-details"></a>Detalles de la autenticación

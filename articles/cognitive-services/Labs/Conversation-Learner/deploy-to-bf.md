@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578776"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237938"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Implementación de un bot de Conversation Learner
 
@@ -53,7 +53,7 @@ A continuación, se muestra cómo obtener el identificador del modelo:
 
 5. El GUID "Model ID" (Identificador del modelo) se muestra cerca de la parte superior de la página.
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opción1: Implementación de un bot de Conversation Learner para que se ejecute localmente
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opción 1: Implementación de un bot de Conversation Learner para que se ejecute localmente
 
 Esto implementa un componente en el equipo local y muestra cómo acceder a él mediante el emulador de Bot Framework.
 
@@ -90,7 +90,7 @@ El bot se ejecuta localmente.  Puede acceder a él con el emulador de Bot Framew
 
 2. Ya está conversando con el bot.
 
-## <a name="option-2-deploy-to-azure"></a>Opción 2: Implementación en Azure
+## <a name="option-2-deploy-to-azure"></a>Opción 2: Implementar en Azure
 
 Publique el bot de Conversation Learner de forma similar a como publicaría cualquier otro bot. En un nivel alto, cargue el código en un sitio web hospedado, establezca los valores de configuración adecuados y registre el bot en varios canales. Encontrará instrucciones detalladas en este vídeo, en el que se muestra cómo publicar un bot mediante Azure Bot Service.
 
@@ -118,6 +118,7 @@ A continuación encontrará instrucciones detalladas para implementar un bot de 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
         CONVERSATION_LEARNER_MODEL_ID      | GUID de identificador de la aplicación, obtenido de la interfaz de usuario de Conversation Learner en la "configuración" del modelo>
         LUIS_AUTHORING_KEY               | Clave de creación de LUIS para este modelo
+        LUIS_SUBSCRIPTION_KEY            | Aunque no es necesario, se recomienda para los bots publicados a fin de evitar el uso de la cuota de creación.
     
     4. Haga clic en "Save"(Guardar) cerca de la parte superior de la página
     5. Abra el elemento de navegación "Build" (Compilar) de la izquierda

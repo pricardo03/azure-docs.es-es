@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: yossib
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478151"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163099"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -89,7 +89,7 @@ En esta sección se muestra la experiencia de los usuarios finales y los adminis
 
 ### <a name="end-user-experience"></a>Experiencia del usuario final
 
-Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando acceder a la instancia de Fabrikam de una aplicación SaaS compartida como Outlook en línea. Si Contoso es un inquilino no permitido para esa instancia, el usuario ve la página siguiente:
+Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando acceder a la instancia de Fabrikam de una aplicación SaaS compartida como Outlook en línea. Si Fabricam es un inquilino no permitido de la instancia de Contoso, el usuario ve la página siguiente:
 
 ![Página de acceso denegado para usuarios en inquilinos no permitidos](./media/tenant-restrictions/end-user-denied.png)
 

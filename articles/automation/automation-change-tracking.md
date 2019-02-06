@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433023"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301448"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -108,7 +108,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Configuración de caracteres comodín, recursividad y entorno
 
-La recursividad le permite especificar caracteres comodín para simplificar el seguimiento entre directorios y variables de entorno para que pueda realizar el seguimiento de los archivos en entornos con nombres de unidad múltiples o dinámicos. Esta es una lista de información común que debe conocer al configurar la recursividad:
+La recursividad le permite especificar caracteres comodín para simplificar el seguimiento entre directorios y variables de entorno para que pueda realizar el seguimiento de los archivos en entornos con nombres de unidad múltiples o dinámicos. En la lista siguiente se muestra información común que debe conocer al configurar la recursividad:
 
 * Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
 * Si usa caracteres comodín, solo se pueden usar en el último segmento de una ruta de acceso. (por ejemplo, C:\folder\\**archivo** o /etc/*.conf)
@@ -154,8 +154,7 @@ Otras limitaciones:
 
 Actualmente, la solución Change Tracking tiene los siguientes problemas:
 
-* Actualizaciones de revisiones que no se recopilan en las máquinas con Windows 10 Creators Update y Windows Server 2016 Core RS3.
-* Para los archivos de Windows, Change Tracking no detecta actualmente la adición de un nuevo archivo en una ruta de carpeta sometida a seguimiento
+* Las actualizaciones de revisiones no se recopilan en máquinas Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalles de la recopilación de datos de seguimiento de cambios
 
@@ -177,7 +176,7 @@ La siguiente tabla muestra los límites del elemento sometido a seguimiento por 
 |---|---|---|
 |Archivo|500||
 |Registro|250||
-|Software de Windows|250|No se incluye el costo de las actualizaciones de software|
+|Software de Windows|250|No se incluye el costo de las actualizaciones de software.|
 |Paquetes Linux|1250||
 |Services|250||
 |Daemon|250||
@@ -188,7 +187,7 @@ La frecuencia de recopilación predeterminado para los servicios de Windows es d
 
 ![Control deslizante de servicios de Windows](./media/automation-change-tracking/windowservices.png)
 
-El agente solo realiza un seguimiento de los cambios, esto optimiza su rendimiento. Si se establece un umbral demasiado alto, los cambios podrían no aparecer si el servicio se revierte a su estado original. Si la frecuencia se establece en un valor menor, es posible detectar los cambios que de otra forma podrían pasar desapercibidos.
+El agente solo realiza un seguimiento de los cambios, esto optimiza su rendimiento. Al establecer un umbral alto, se pueden perder los cambios si el servicio se revierte a su estado original. Si la frecuencia se establece en un valor menor, es posible detectar los cambios que de otra forma podrían pasar desapercibidos.
 
 > [!NOTE]
 > Aunque el agente puede seguir los cambios hasta en intervalos de 10 segundos, los datos todavía tardan unos minutos en mostrarse en el portal. Durante el tiempo que lleva la visualización en el portal, se continúa realizando el seguimiento y registro de los cambios.
@@ -270,6 +269,41 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Muestra los registros de inventario más recientes para los servicios de Windows que se establecieron en Automático, pero se han notificado como Detenidos<br>Los resultados se limitan a la entrada más reciente para esos valores de SoftwareName y Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Muestra los registros de cambios para el software eliminado|
+
+## <a name="alert-on-changes"></a>Alerta sobre los cambios
+
+Una funcionalidad clave de Change Tracking y del inventario es la posibilidad de recibir alertas sobre el estado de configuración y de todos los cambios del estado de configuración de su entorno híbrido.  
+
+En el ejemplo siguiente, la captura de pantalla muestra que el archivo `C:\windows\system32\drivers\etc\hosts` se ha modificado en una máquina. Este archivo es importante porque Windows utiliza el archivo de hosts para resolver los nombres de host en direcciones IP y prevalece incluso sobre DNS, que podría provocar problemas de conectividad o el redireccionamiento del tráfico a sitios web malintencionados o peligrosos.
+
+![Un gráfico en el que se muestra el cambio del archivo de hosts](./media/automation-change-tracking/changes.png)
+
+Para analizar aún más este cambio, haga clic en **Log Analytics** para acceder a la búsqueda de registros. En la búsqueda de registros, busque los cambios de contenido del archivo de hosts con la consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta busca los cambios que incluyen un cambio del contenido en los archivos cuya ruta de acceso absoluta contiene la palabra “hosts”. También puede solicitar un archivo específico si cambia la parte de la ruta de acceso a su forma absoluta (como `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+Una vez que la consulta devuelve los resultados deseados, haga clic en el botón **Nueva regla de alertas** en la experiencia de búsqueda de registros para abrir la página de creación de alertas. También puede acceder a esta experiencia mediante **Azure Monitor** en Azure Portal. En la experiencia de creación de la alerta, vuelva a consultar nuestra consulta y modifique la lógica de alerta. En este caso, desea que la alerta se desencadene incluso aunque se detecte un solo cambio en todas las máquinas del entorno.
+
+![Una imagen en la que se muestra la consulta de cambio para realizar un seguimiento de los cambios en el archivo de hosts](./media/automation-change-tracking/change-query.png)
+
+Después de establecer la lógica de la condición, asigne grupos de acciones para realizar acciones como respuesta a la alerta que se va a desencadenar. En este caso, he configurado correos electrónicos para enviarlos y un vale de ITSM para crearlo.  También se pueden realizar muchas otras acciones útiles, como desencadenar una función de Azure, un runbook de Automation, un webhook o una aplicación lógica.
+
+![Una imagen en la que se configura un grupo de acciones para enviar alertas sobre el cambio](./media/automation-change-tracking/action-groups.png)
+
+Una vez configurados todos los parámetros y la lógica, la alerta se puede aplicar al entorno.
+
+### <a name="alert-suggestions"></a>Sugerencias de alertas
+
+Si bien la creación de alertas sobre los cambios en el archivo de hosts es una aplicación conveniente de las alertas para los datos de inventario o Change Tracking, existen muchos más escenarios para las alertas, entre otros, los casos definidos junto con las consultas de ejemplo en la sección siguiente.
+
+|Consultar  |DESCRIPCIÓN  |
+|---------|---------|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Útil para el seguimiento de cambios en archivos críticos del sistema.|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para el seguimiento de las modificaciones de los archivos de configuración de claves.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Útil para el seguimiento de cambios en servicios críticos del sistema.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Útil para el seguimiento de cambios en servicios críticos del sistema.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Útil para entornos que necesitan configuraciones de software bloqueadas.|
+|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|Útil para ver qué máquinas tienen instalada una versión de software obsoleta o incompatible. Notifica el último estado de configuración notificado, no los cambios.|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para el seguimiento de los cambios en claves de antivirus fundamentales.|
+|ConfigurationChange <br>&#124; where RegistryKey contains "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Útil para el seguimiento de los cambios en la configuración del firewall.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

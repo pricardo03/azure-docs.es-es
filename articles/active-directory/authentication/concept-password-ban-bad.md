@@ -3,19 +3,19 @@ title: Contraseñas prohibidas dinámicamente en Azure AD
 description: Prohibición de contraseñas no seguras del entorno con las contraseñas prohibidas dinámicamente de Azure AD
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 916ef921bf2ad183e3fb74c640ccfa7049559a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421443"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295873"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -28,7 +28,7 @@ Los líderes del sector recomiendan que no se use la misma contraseña en varios
 
 ## <a name="global-banned-password-list"></a>Lista global de contraseñas prohibidas
 
-Microsoft se esfuerza siempre por situarse un paso por delante de los delincuentes cibernéticos. Por ello, el equipo de Azure AD Identity Protection busca continuamente las contraseñas que se utilizan normalmente y aquellas que están en peligro. A continuación, se bloquean esas contraseñas que se consideran demasiado comunes en lo que se denomina la lista global de contraseñas prohibidas. Los delincuentes cibernéticos también usan estrategias similares en sus ataques, por lo que Microsoft no publica el contenido de esta lista públicamente. Estas contraseñas vulnerables se bloquean antes de que se conviertan en una amenaza real para los clientes de Microsoft. Para más información sobre los esfuerzos de seguridad actuales, consulte [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report) (Informe de inteligencia de seguridad de Microsoft).
+Microsoft se esfuerza siempre por situarse un paso por delante de los delincuentes cibernéticos. Por ello, el equipo de Azure AD Identity Protection busca continuamente las contraseñas que se utilizan normalmente y aquellas que están en peligro. A continuación, se bloquean esas contraseñas que se consideran demasiado comunes en lo que se denomina la lista global de contraseñas prohibidas. Los delincuentes cibernéticos también usan estrategias similares en sus ataques, por lo que Microsoft no publica el contenido de esta lista públicamente. Estas contraseñas vulnerables se bloquean antes de que se conviertan en una amenaza real para los clientes de Microsoft. Para más información sobre los esfuerzos de seguridad actuales, consulte [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report) (Informe de inteligencia de seguridad de Microsoft).
 
 ## <a name="preview-custom-banned-password-list"></a>Vista previa: Lista personalizada de contraseñas prohibidas
 
@@ -42,15 +42,69 @@ La lista personalizada de contraseñas prohibidas y la posibilidad de habilitar 
 
 La protección de cuentas que están solo en la nube es muy útil, pero muchas organizaciones conservan escenarios híbridos que incluyen implementaciones locales de Windows Server Active Directory. Es posible instalar Protección con contraseña de Azure AD para agentes de Windows Server Active Directory (versión preliminar) de forma local para ampliar las listas de contraseñas prohibidas para la infraestructura existente. Ahora es obligatorio que los usuarios y administradores que cambien, establezcan o restablezcan contraseñas locales cumplan con la misma directiva de contraseñas que los usuarios que solo están en la nube.
 
-## <a name="how-does-the-banned-password-list-work"></a>Funcionamiento de la lista de contraseñas prohibidas
+## <a name="how-are-passwords-evaluated"></a>Cómo se evalúan las contraseñas
 
-La lista de contraseñas prohibidas busca coincidencias con las contraseñas de la lista convirtiendo la cadena a letras minúsculas y comparándola con contraseñas prohibidas conocidas con una distancia de edición de 1 con una coincidencia aproximada.
+Cada vez que un usuario cambia o restablece su contraseña, se comprueba la solidez y la complejidad de la nueva contraseña validándola con la lista global y personalizada de contraseñas prohibidas (si esta última está configurada).
 
-Ejemplo: la palabra "contraseña" está bloqueada para una organización.
-   - Un usuario intenta establecer la contraseña "P@ssword" que, posteriormente, se convierte en "contraseña" y esta se bloquea porque es una variante de "contraseña".
-   - Un administrador intenta establecer una contraseña de usuarios en "Contraseña123!" que se convierte en "contraseña123!", y como es una variante de "contraseña", se bloquea.
+Incluso si una contraseña de usuario contiene una contraseña prohibida, la contraseña podría aceptarse si la contraseña global es lo suficientemente segura. Una contraseña recién configurada recorrerá los pasos siguientes para evaluar su solidez general a fin de determinar si debe aceptarse o rechazarse.
 
-Cada vez que un usuario restablece o cambia la contraseña de Azure AD, esta pasa a través de este proceso para confirmar que no está en la lista de contraseñas prohibidas. Esta comprobación se incluye en escenarios híbridos que usan restablecimiento de contraseña de autoservicio, sincronización de hash de contraseñas y autenticación de paso a través.
+### <a name="step-1-normalization"></a>Paso 1: Normalización
+
+En primer lugar, una nueva contraseña pasa por un proceso de normalización. Esto permite que un pequeño conjunto de contraseñas prohibidas se asigne a un conjunto mucho más grande de contraseñas potencialmente inseguras.
+
+La normalización consta de dos partes.  En primer lugar, todas las letras mayúsculas se cambian a minúsculas.  En segundo lugar, se realizan las sustituciones de caracteres comunes, por ejemplo:  
+
+| Letra original  | Letra sustituida |
+| --- | --- |
+| "0"  | "o" |
+| '1'  | "l" |
+| "$"  | "s" |
+| "@"  | "a" |
+
+Ejemplo: suponga que está prohibida la contraseña "blank" y que un usuario intenta cambiar su contraseña a "Bl@nK". Aunque "Bl@nk" no está expresamente prohibida, el proceso de normalización convierte esta contraseña a "blank", que es una contraseña no permitida.
+
+### <a name="step-2-check-if-password-is-considered-banned"></a>Paso 2: Comprobar si la contraseña se considera prohibida
+
+#### <a name="fuzzy-matching-behavior"></a>Comportamiento de la coincidencia aproximada
+
+La coincidencia aproximada se usa en la contraseña normalizada para identificar si contiene una contraseña que se encuentra en la lista global o personalizada de contraseñas prohibidas. El proceso de búsqueda de coincidencias se basa en una distancia de edición de una (1) comparación.  
+
+Ejemplo: Suponga que está prohibida la contraseña "abcdef" y que un usuario intenta cambiar su contraseña a una de las siguientes:
+
+"abcdeg"     *(el último carácter se ha cambiado de "f" a "g")* "abcdefg"   *' ("g"anexada al final)* "abcde"      *(se eliminó la "f" final)*
+
+Ninguna de las contraseñas anteriores coincide específicamente con la contraseña prohibida "abcdef". Sin embargo, dado que cada ejemplo se encuentra dentro de una distancia de 1 edición del token prohibido "abcdef", se considera que todas coinciden con "abcdef".
+
+#### <a name="substring-matching-on-specific-terms"></a>Coincidencia de subcadenas (en términos específicos)
+
+La coincidencia de subcadenas se utiliza en la contraseña normalizada para comprobar el nombre y apellido del usuario, así como el nombre del inquilino (tenga en cuenta que no se realiza la coincidencia de nombres de inquilino cuando se validan contraseñas en un controlador de dominio de Active Directory).
+
+Ejemplo: suponga que tenemos un usuario llamado John Doe que desea restablecer su contraseña a "J0hn123fb". Después de la normalización, esta contraseña convertiría en "john123fb". La coincidencia de subcadenas detecta que la contraseña contiene el nombre del usuario "John". Aunque "J0hn123fb" no se encontraba específicamente en ninguna lista de contraseñas prohibidas, la coincidencia de subcadenas encontró "John" en la contraseña. Por lo tanto, esta contraseña se rechazaría.
+
+#### <a name="score-calculation"></a>Cálculo de puntuación
+
+El siguiente paso consiste en identificar todas las instancias de contraseñas prohibidas en la nueva contraseña normalizada del usuario. A continuación:
+
+1. A cada contraseña prohibida que se encuentre en la contraseña de un usuario se le concede un punto.
+2. Cada carácter único restante recibe un punto.
+3. Una contraseña debe tener al menos 5 puntos para que se acepte.
+
+En los dos ejemplos siguientes, supongamos que Contoso usa la protección de contraseñas de Azure AD y tiene "contoso" en la lista personalizada. Supongamos también que "blank" está en la lista global.
+
+Ejemplo: un usuario cambia su contraseña a "C0ntos0Blank12".
+
+Después de la normalización, esta contraseña se convierte en "contosoblank12". El proceso de coincidencia encuentra que esta contraseña contiene dos contraseñas prohibidas: contoso y blank. La puntuación entonces sería la siguiente:
+
+[contoso] + [blank] = [1] + [2] = 4 puntos. Como la contraseña está por debajo de 5 puntos, se rechazará.
+
+Ejemplo: Un usuario cambia su contraseña a "ContoS0Bl@nkf9!".
+
+Después de la normalización, esta contraseña se convierte en "contosoblankf9!". El proceso de coincidencia encuentra que esta contraseña contiene dos contraseñas prohibidas: contoso y blank. La puntuación entonces sería la siguiente:
+
+[contoso] + [blank] + [f] + [9] + [!] = 5 puntos. Como esta contraseña tiene al menos 5 puntos, se acepta.
+
+   > [!IMPORTANT]
+   > Tenga en cuenta que el algoritmo de contraseñas prohibidas, junto con la lista global, puede cambiar (y de hecho cambia) en cualquier momento en Azure en función de la investigación y el análisis de seguridad en curso. En el caso del servicio de agente del controlador de dominio local, los algoritmos actualizados solo surtirán efecto después de volver a instalar el software del agente del controlador de dominio.
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 

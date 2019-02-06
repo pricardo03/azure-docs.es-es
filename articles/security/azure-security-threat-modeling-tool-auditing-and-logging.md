@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307005"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092183"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Marco de seguridad: Auditoría y registro | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -196,7 +196,7 @@ El siguiente es un ejemplo de configuración con la auditoría habilitada
 
 ### <a name="example"></a>Ejemplo
 El elemento `<behavior/>` del archivo de configuración de WCF que aparece a continuación, indica a WCF que no notifique a la aplicación cuando WCF no pueda escribir en un registro de auditoría.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,7 +207,7 @@ El elemento `<behavior/>` del archivo de configuración de WCF que aparece a con
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 Configure WCF para que informe al programa siempre que no pueda escribir en un registro de auditoría. El programa debe tener un esquema de notificación alternativo en funcionamiento para alertar a la organización de que no se están conservando las trazas de auditoría. 
 
 ## <a id="logging-web-api"></a>Comprobación de que la auditoría y el registro se aplican en Web API

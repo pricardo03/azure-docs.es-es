@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307735"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244699"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexación de tablas en SQL Data Warehouse
 Recomendaciones y ejemplos para indexar tablas en Azure SQL Data Warehouse.
@@ -204,7 +204,7 @@ Otra cosa que se debe tener en cuenta es el impacto de la creación de particion
 Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que se indican a continuación para identificar las tablas y volver a crearlas con índices de almacén de columnas agrupadas que no llegan a ser óptimas.
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Regeneración de índices para mejorar la calidad de los segmentos
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Paso 1: identificar o crear un usuario que utilice la clase de recurso adecuada
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Paso 1: Identificación o creación de un usuario que use la clase de recurso adecuada
 Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice.  Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. La clase de recurso del usuario propietario de la base de datos no se puede cambiar, por lo que, si no ha creado un usuario en el sistema, será preciso que lo haga antes. La clase de recurso mínima que se recomienda es xlargerc si se usa DW300, o menos, largerc si se usa entre DW400 y DW600, y mediumrc si se usa DW1000, o más.
 
 A continuación se muestra un ejemplo de cómo asignar más memoria a un usuario mediante el aumento de su clase de recurso. Para trabajar con clases de recursos, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
@@ -213,7 +213,7 @@ A continuación se muestra un ejemplo de cómo asignar más memoria a un usuario
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: volver a generar índices de almacén de columnas en clúster con un usuario con una clase de recurso mayor
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: Recompilación de índices de almacén de columnas en clúster con un usuario de clase de recurso mayor
 Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
 Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla. Para más información acerca de cómo volver a generar índices con CTAS, consulte **Regeneración de índices con CTAS y conmutación de particiones** .
@@ -240,7 +240,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 
 La regeneración de un índice en SQL Data Warehouse es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Paso 3: comprobar que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Paso 3: Comprobación de que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
 Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficiente de los segmentos y compruebe que dicha calidad ha mejorado.  Si no lo ha hecho, puede deberse a que las filas de la tabla son demasiado anchas.  Considere el uso de una clase de recurso superior o de DWU al volver a generar los índices.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Regeneración de índices con CTAS y conmutación de particiones

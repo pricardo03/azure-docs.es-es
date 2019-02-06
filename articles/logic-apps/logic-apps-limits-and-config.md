@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469756"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912789"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -119,9 +119,9 @@ Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas 
 
 | NOMBRE | Límite | Notas |
 |------|-------|-------|
-| FTP | 50 MB | Para superar este límite, consulte [Control de mensajes grandes con la fragmentación de Azure Logic Apps](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
-| SFTP | 50 MB | Para superar este límite, use el [conector de SFTP-SSH](../connectors/connectors-sftp-ssh.md) o consulte [Control de mensajes grandes con la fragmentación de Azure Logic Apps](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
-| SFTP-SSH | 1 GB | Este conector se encarga de hasta 1 GB, pero transfiere esos datos en fragmentos de 50 MB, no de 1 GB. | 
+| FTP | 50 MB | Para superar este límite únicamente para las acciones, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: La fragmentación no se aplica a los desencadenadores. Además, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| SFTP | 50 MB | Para superar este límite únicamente para las acciones, use el [conector de SFTP-SSH](../connectors/connectors-sftp-ssh.md) o consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: La fragmentación no se aplica a los desencadenadores. Además, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| SFTP-SSH | 1 GB | Este conector se encarga de hasta 1 GB, pero transfiere esos datos en fragmentos de 50 MB, no de 1 GB. Para superar este límite únicamente para las acciones, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: La fragmentación no se aplica a los desencadenadores. | 
 |||| 
 
 <a name="request-limits"></a>

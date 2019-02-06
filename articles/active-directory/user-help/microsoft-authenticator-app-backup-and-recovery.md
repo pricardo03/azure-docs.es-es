@@ -4,19 +4,19 @@ description: Aprenda a realizar copias de seguridad y recuperar sus credenciales
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.component: user-help
+ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 56ea48accea135f79e4c8984238002f2eec5167b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821709"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167417"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Copia seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
 
@@ -39,11 +39,11 @@ Antes de hacer copias de seguridad las credenciales, debe tener:
 El inicio simultáneo en las dos cuentas ofrece mayor seguridad para la información de copia de seguridad.
 
 **Para activar la copia de seguridad en la nube**
--   En el dispositivo iOS, seleccione **Configuración**, **Copia de seguridad** y active **Copia de seguridad automática**.
+-   En el dispositivo iOS, seleccione **Ajustes**, **Copia de seguridad** y active **Copia en iCloud**.
 
     Las credenciales de cuenta se copian en la cuenta de iCloud.
 
-    ![Pantalla de configuración de iOS que muestra la ubicación de la configuración de la copia de seguridad automática](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![Pantalla de configuración de iOS que muestra la ubicación de los valores de Copia en iCloud](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Recuperación de las credenciales de cuenta en el dispositivo nuevo
 Puede recuperar las credenciales de su cuenta de la cuenta de iCloud, con la misma cuenta de recuperación de Microsoft que configuró al realizar la copia de seguridad de la información.
@@ -101,7 +101,6 @@ Ahora que ha realizado la copia de seguridad de las credenciales de la cuenta y 
 
 ## <a name="related-topics"></a>Temas relacionados
 - [Introducción a la aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md)  
-
 - [Preguntas frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

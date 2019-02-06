@@ -3,7 +3,7 @@ title: Creación de un conjunto de escalado de Azure que usa Zonas de disponibil
 description: Obtenga información sobre cómo crear conjuntos de escalado de máquinas virtuales de Azure que usan Zonas de disponibilidad para aumentar la redundancia contra las interrupciones
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: zarhoads
-ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468881"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886244"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -215,7 +215,7 @@ Para crear un conjunto de escalado con redundancia de zona, especifique varios v
 }
 ```
 
-Si crea un equilibrador de carga o una dirección IP pública especifique la propiedad *"sku": { "nombre": "estándar" }"* para crear los recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para obtener más información, consulte [Introducción a Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md) y [Load Balancer Estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md).
+Si crea una dirección IP pública o un equilibrador de carga, especifique la propiedad *"sku": {"name": "Standard" }"* para crear recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para obtener más información, consulte [Introducción a Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md) y [Load Balancer Estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601583"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471674"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Escalado dinámico de recursos de base de datos con tiempo de inactividad mínimo
 
@@ -54,9 +54,9 @@ Puede cambiar los [niveles de servicio de DTU](sql-database-service-tiers-dtu.md
 
 Las tres versiones de Azure SQL Database ofrecen la posibilidad de escalar dinámicamente las bases de datos:
 
-- En [una base de datos única de Azure SQL](sql-database-single-database-scale.md), se pueden usar los modelos de [DTU](sql-database-dtu-resource-limits-single-databases.md) o [núcleo virtual](sql-database-vcore-resource-limits-single-databases.md) para definir la cantidad máxima de recursos que se asignarán a cada base de datos.
-- En [Instancia administrada de Azure SQL](sql-database-managed-instance.md) se usa el modo de [núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y se puede definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia comparten los recursos asignados a la instancia.
-- Los [Grupos elásticos de Azure SQL](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
+- Con una [base de datos única](sql-database-single-database-scale.md), se pueden usar los modelos de [DTU](sql-database-dtu-resource-limits-single-databases.md) o [núcleo virtual](sql-database-vcore-resource-limits-single-databases.md) para definir la cantidad máxima de recursos que se asignarán a cada base de datos.
+- En [Instancia administrada](sql-database-managed-instance.md) se usa el modo de [núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y se puede definir el máximo de núcleos de CPU y el máximo de almacenamiento asignado a la instancia. Todas las bases de datos dentro de la instancia comparten los recursos asignados a la instancia.
+- Los [grupos elásticos](sql-database-elastic-pool-scale.md) permiten definir el límite máximo de recursos por grupo de bases de datos en el grupo.
 
 ## <a name="alternative-scale-methods"></a>Métodos de escala alternativos
 

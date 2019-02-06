@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/25/2019
+ms.openlocfilehash: f347543bbea11329cf4bb7c03dac6ccf7f04ac77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455395"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
+
 El procesamiento de operaciones por lotes para Azure SQL Database mejora notablemente el rendimiento y la escalabilidad de las aplicaciones. Para comprender las ventajas, la primera parte de este artículo trata algunos resultados de pruebas de ejemplo que comparan solicitudes por lotes y secuenciales a una instancia de SQL Database. El resto del artículo muestra las técnicas, los escenarios y las consideraciones para ayudarlo a usar el procesamiento por lotes correctamente en las aplicaciones de Azure.
 
-## <a name="why-is-batching-important-for-sql-database"></a>¿Por qué es el procesamiento por lotes importante para SQL Database?
+## <a name="why-is-batching-important-for-sql-database"></a>Por qué es el procesamiento por lotes importante para SQL Database
+
 El procesamiento por lotes de las llamadas a un servicio remoto es una estrategia conocida para aumentar el rendimiento y la escalabilidad. Existen costos fijos de procesamiento para cualquier interacción con un servicio remoto, como la serialización, la transferencia de red y la deserialización. El empaquetado de muchas transacciones diferentes en un único lote minimiza estos costos.
 
 En este artículo, vamos a examinar las diversas estrategias y escenarios de procesamiento por lotes para SQL Database. Aunque estas estrategias también son importantes para las aplicaciones locales que usan SQL Server, existen varias razones para destacar el uso del procesamiento por lotes para SQL Database:
@@ -36,13 +38,14 @@ Una de las ventajas del uso de SQL Database es que no es necesario administrar l
 En la primera parte del artículo, se examinan diversas técnicas de procesamiento por lotes para aplicaciones .NET que usan SQL Database. En las dos últimas secciones, se explican las instrucciones y los escenarios de procesamiento por lotes.
 
 ## <a name="batching-strategies"></a>Estrategias de procesamiento por lotes
+
 ### <a name="note-about-timing-results-in-this-article"></a>Nota sobre los tiempos resultantes en este artículo
+
 > [!NOTE]
 > Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observarse en una base de datos V12 con los nuevos [niveles de servicio de DTU](sql-database-service-tiers-dtu.md) o los [niveles de servicio de núcleos virtuales](sql-database-service-tiers-vcore.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
-> 
-> 
 
 ### <a name="transactions"></a>Transacciones
+
 Parece extraño comenzar una revisión del procesamiento por lotes hablando de transacciones. Pero el uso de transacciones del lado cliente surte un sutil efecto de procesamiento por lotes del lado servidor que mejora el rendimiento. Además, las transacciones se pueden agregar con unas pocas líneas de código, lo que proporciona una forma rápida de mejorar el rendimiento de las operaciones secuenciales.
 
 Observe el siguiente código C# que contiene una secuencia de operaciones de inserción y actualización en una tabla sencilla.
@@ -118,6 +121,7 @@ El ejemplo anterior muestra que puede agregar una transacción local a cualquier
 Para obtener más información acerca de las transacciones en ADO.NET, consulte [Transacciones locales](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
 ### <a name="table-valued-parameters"></a>Parámetros con valores de tabla
+
 Los parámetros con valores de tabla admiten tipos de tabla definidos por el usuario como parámetros en instrucciones Transact-SQL, procedimientos almacenados y funciones. Esta técnica de procesamiento por lotes del lado cliente permite enviar varias filas de datos dentro del parámetro con valores de tabla. Para usar parámetros con valores de tabla, primero debe definir un tipo de tabla. La siguiente instrucción Transact-SQL crea un tipo de tabla denominado **MyTableType**.
 
     CREATE TYPE MyTableType AS TABLE 
@@ -196,6 +200,7 @@ El aumento del rendimiento gracias al procesamiento por lotes es evidente de inm
 Para obtener más información sobre los parámetros con valores de tabla, consulte [Usar parámetros con valores de tabla (motor de base de datos)](https://msdn.microsoft.com/library/bb510489.aspx).
 
 ### <a name="sql-bulk-copy"></a>Copia masiva de SQL
+
 La copia masiva de SQL es otra forma de insertar grandes cantidades de datos en una base de datos de destino. Las aplicaciones .NET pueden usar la clase **SqlBulkCopy** para realizar operaciones de inserción masiva. **SqlBulkCopy** desempeña una función similar a la herramienta de línea de comandos **Bcp.exe** o la instrucción Transact-SQL **BULK INSERT**. En el ejemplo de código siguiente se muestra cómo realizar una copia masiva de las filas de la tabla de origen **DataTable**en la tabla de destino en SQL Server, MyTable.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -233,6 +238,7 @@ En lotes más pequeños, el uso de parámetros con valores de tabla superó el r
 Para obtener más información sobre la copia masiva en ADO.NET, consulte [Operaciones de copia masiva en SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
 ### <a name="multiple-row-parameterized-insert-statements"></a>Instrucciones INSERT con parámetros de varias filas
+
 Una alternativa para los lotes pequeños es construir una instrucción INSERT con parámetros grande que inserte varias filas. En el siguiente ejemplo de código se muestra esta técnica.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -272,12 +278,15 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento de este tipo
 Este enfoque puede ser algo más rápido para los lotes de menos de 100 filas. Aunque la mejora es pequeña, esta técnica es otra opción que podría funcionar bien en su escenario de aplicaciones específico.
 
 ### <a name="dataadapter"></a>DataAdapter
+
 La clase **DataAdapter** le permite modificar un objeto **DataSet** y después enviar los cambios como operaciones INSERT, UPDATE y DELETE. Si está usando la clase **DataAdapter** de esta manera, es importante tener en cuenta que se realizan llamadas independientes para cada operación distinta. Para mejorar el rendimiento, use la propiedad **UpdateBatchSize** con el número de operaciones que deben procesarse por lotes a la vez. Para obtener más información, consulte [Realizar operaciones por lotes mediante DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Entity Framework
+
 Actualmente, Entity Framework no admite el procesamiento por lotes. Varios desarrolladores de la comunidad intentaron demostrar soluciones alternativas, como invalidar el método **SaveChanges** . Pero las soluciones suelen ser complejas y personalizadas para la aplicación y el modelo de datos. El proyecto Entity Framework de CodePlex actualmente cuenta con una página de debate sobre esta solicitud de característica. Para ver este debate, consulte las [notas de la reunión de diseño del 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
+
 Por exhaustividad, creemos que es importante hablar de XML como estrategia de procesamiento por lotes. Sin embargo, el uso de XML no supone ninguna ventaja respecto a otros métodos, pero sí varias desventajas. El enfoque es similar a los parámetros con valores de tabla, excepto en que se pasa una cadena o un archivo XML a un procedimiento almacenado en lugar de una tabla definida por el usuario. El procedimiento almacenado analiza los comandos en el procedimiento almacenado.
 
 Existen varias desventajas con este enfoque:
@@ -289,14 +298,17 @@ Existen varias desventajas con este enfoque:
 Por estas razones, no se recomienda el uso de XML para las consultas por lotes.
 
 ## <a name="batching-considerations"></a>Consideraciones sobre el procesamiento por lotes
+
 Las secciones siguientes proporcionan más instrucciones para el uso del procesamiento por lotes en las aplicaciones de SQL Database.
 
 ### <a name="tradeoffs"></a>Compromisos
+
 Según la arquitectura, el procesamiento por lotes puede suponer un compromiso entre el rendimiento y la resistencia. Por ejemplo, piense en un escenario en que su rol deja de funcionar inesperadamente. Si pierde una fila de datos, el efecto es menor que si pierde un lote grande de filas sin enviar. Existe un riesgo mayor cuando almacena filas en búfer antes de enviarlas a la base de datos en un período de tiempo especificado.
 
 Debido a este compromiso, evalúe el tipo de operaciones que procese por lotes. Intensifique el procesamiento por lotes (con lotes y períodos de tiempo mayores) con aquellos datos que sean menos críticos.
 
 ### <a name="batch-size"></a>Tamaño de lote
+
 En nuestras pruebas, normalmente dividir los lotes grandes en fragmentos menores no supuso ninguna ventaja. De hecho, esta subdivisión produjo a menudo un rendimiento más lento que el envío de un único lote grande. Por ejemplo, considere un escenario en el que desea insertar 1000 filas. La siguiente tabla muestra cuánto tiempo se tarda usando parámetros con valores de tabla para insertar 1000 filas cuando se dividen en lotes más pequeños.
 
 | Tamaño de lote | Iteraciones | Parámetros con valores de tabla (ms) |
@@ -318,6 +330,7 @@ Otro factor que se debe considerar es que, si el lote total es demasiado grande,
 Por último, sopese el tamaño del lote y los riesgos asociados con el procesamiento por lotes. Si se producen errores transitorios o de rol, considere las consecuencias de reintentar la operación o de perder los datos en el lote.
 
 ### <a name="parallel-processing"></a>Procesamiento en paralelo
+
 ¿Qué pasa si adopta el enfoque de reducir el tamaño del lote pero usa varios subprocesos para ejecutar el trabajo? Una vez más, nuestras pruebas mostraron que varios lotes multiproceso más pequeños presentaban normalmente un rendimiento peor que un único lote más grande. La siguiente prueba intenta insertar 1000 filas en uno o varios lotes paralelos. Esta prueba muestra cómo el uso de más lotes simultáneos realmente reduce el rendimiento.
 
 | Tamaño de lote [iteraciones] | Dos subprocesos (ms) | Cuatro subprocesos (ms) | Seis subprocesos (ms) |
@@ -346,14 +359,17 @@ En algunos diseños, la ejecución en paralelo de lotes más pequeños podría m
 Si usa la ejecución en paralelo, considere la posibilidad de controlar el número máximo de subprocesos de trabajo. Un número menor podría causar menos contención y un tiempo de ejecución más rápido. Además, tenga en cuenta la carga adicional sobre la base de datos de destino tanto en conexiones como en transacciones.
 
 ### <a name="related-performance-factors"></a>Factores de rendimiento relacionados
+
 Las instrucciones típicas sobre el rendimiento de la base de datos también afectan al procesamiento por lotes. Por ejemplo, el rendimiento de inserción se reduce para aquellas tablas que tengan una clave principal grande o varios índices no agrupados.
 
 Si los parámetros con valores de tabla usan un procedimiento almacenado, puede emplear el comando **SET NOCOUNT ON** al principio del procedimiento. Esta instrucción suprime la devolución del recuento de las filas afectadas en el procedimiento. Sin embargo, en nuestras pruebas, el uso de **SET NOCOUNT ON** no tiene ningún efecto sobre el rendimiento o lo disminuye. El procedimiento almacenado de la prueba era simple, con un solo comando **INSERT** desde el parámetro con valores de tabla. Es posible que los procedimientos almacenados más complejos se beneficien de esta instrucción. Pero no dé por supuesto que agregar **SET NOCOUNT ON** al procedimiento almacenado mejora automáticamente el rendimiento. Para entender el efecto, pruebe el procedimiento almacenado con y sin la instrucción **SET NOCOUNT ON** .
 
 ## <a name="batching-scenarios"></a>Escenarios de procesamiento por lotes
+
 En las secciones siguientes, se describe cómo usar parámetros con valores de tabla en tres escenarios de aplicaciones. El primer escenario muestra cómo el almacenamiento en búfer y el procesamiento por lotes funcionan juntos. El segundo escenario mejora el rendimiento al realizar operaciones maestro/detalle en una sola llamada a procedimiento almacenado. El último escenario muestra cómo usar parámetros con valores de tabla en una operación "UPSERT".
 
 ### <a name="buffering"></a>Almacenamiento en búfer
+
 Aunque hay algunos escenarios que son candidatos obvios para el procesamiento por lotes, muchos otros podrían beneficiarse del procesamiento por lotes difiriendo el procesamiento. Sin embargo, el procesamiento diferido también plantea un mayor riesgo de que los datos se pierdan si se produce un error inesperado. Es importante comprender este riesgo y tener en cuenta las consecuencias.
 
 Por ejemplo, piense en una aplicación web que registra el historial de navegación de cada usuario. Con cada solicitud de página, la aplicación podría llamar a una base de datos para registrar la vista de página del usuario. Pero se pueden conseguir mayor rendimiento y escalabilidad si se almacenan las actividades de navegación de los usuarios en el búfer y después se envían estos datos a la base de datos en lotes. Puede desencadenar la actualización de la base de datos según el tiempo transcurrido o el tamaño de búfer. Por ejemplo, una regla podría especificar que se debería procesar el lote después de 20 segundos o cuando el búfer alcance los 1000 elementos.
@@ -362,6 +378,7 @@ El siguiente ejemplo de código usa [extensiones reactivas - Rx](https://msdn.mi
 
 La siguiente clase NavHistoryData modela los detalles de navegación de los usuarios. Contiene información básica como el identificador de usuario, la dirección URL visitada y el tiempo de acceso.
 
+```c#
     public class NavHistoryData
     {
         public NavHistoryData(int userId, string url, DateTime accessTime)
@@ -370,9 +387,11 @@ La siguiente clase NavHistoryData modela los detalles de navegación de los usua
         public string URL { get; set; }
         public DateTime AccessTime { get; set; }
     }
+```
 
 La clase NavHistoryDataMonitor se encarga de almacenar los datos de navegación de los usuarios en búfer en la base de datos. Contiene un método, RecordUserNavigationEntry, que responde generando un evento **OnAdded** . El código siguiente muestra la lógica del constructor que usa Rx para crear una colección observable basada en el evento. Después, se suscribe a esta colección observable con el método Buffer. La sobrecarga especifica que el búfer se debe enviar cada 20 segundos o 1000 entradas.
 
+```c#
     public NavHistoryDataMonitor()
     {
         var observableData =
@@ -380,9 +399,11 @@ La clase NavHistoryDataMonitor se encarga de almacenar los datos de navegación 
 
         observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
     }
+```
 
 El controlador convierte todos los elementos almacenados en búfer en un tipo con valores de tabla y después pasa este tipo a un procedimiento almacenado que procesa el lote. El código siguiente muestra la definición completa de las clases NavHistoryDataEventArgs y NavHistoryDataMonitor.
 
+```c#
     public class NavHistoryDataEventArgs : System.EventArgs
     {
         public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
@@ -439,12 +460,15 @@ El controlador convierte todos los elementos almacenados en búfer en un tipo co
             }
         }
     }
+```
 
 Para usar esta clase de almacenamiento en búfer, la aplicación crea un objeto NavHistoryDataMonitor estático. Cada vez que un usuario accede a una página, la aplicación llama al método NavHistoryDataMonitor.RecordUserNavigationEntry. La lógica de almacenamiento en búfer procede a enviar estas entradas a la base de datos en lotes.
 
 ### <a name="master-detail"></a>Maestro/detalle
+
 Los parámetros con valores de tabla son útiles en escenarios INSERT sencillos. Sin embargo, puede ser más difícil procesar por lotes aquellas inserciones para más de una tabla. El escenario de "maestro/detalle" es un buen ejemplo. La tabla maestra identifica la entidad principal. Una o varias tablas de detalle almacenan más datos sobre la entidad. En este escenario, las relaciones de clave externa aplican la relación de los detalles con una entidad maestra única. Considere una versión simplificada de una tabla PurchaseOrder y su tabla OrderDetail asociada. El siguiente código Transact-SQL crea la tabla PurchaseOrder con cuatro columnas: OrderID, OrderDate, CustomerID y Status.
 
+```sql
     CREATE TABLE [dbo].[PurchaseOrder](
     [OrderID] [int] IDENTITY(1,1) NOT NULL,
     [OrderDate] [datetime] NOT NULL,
@@ -452,9 +476,11 @@ Los parámetros con valores de tabla son útiles en escenarios INSERT sencillos.
     [Status] [nvarchar](50) NOT NULL,
      CONSTRAINT [PrimaryKey_PurchaseOrder] 
     PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+```
 
 Cada pedido contiene una o más compras de productos. Esta información se captura en la tabla PurchaseOrderDetail. El siguiente código Transact-SQL crea la tabla PurchaseOrderDetail con cinco columnas: OrderID, OrderDetailID, ProductID, UnitPrice y OrderQty.
 
+```sql
     CREATE TABLE [dbo].[PurchaseOrderDetail](
     [OrderID] [int] NOT NULL,
     [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
@@ -463,15 +489,19 @@ Cada pedido contiene una o más compras de productos. Esta información se captu
     [OrderQty] [smallint] NULL,
      CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
     ( [OrderID] ASC, [OrderDetailID] ASC ))
+```
 
 La columna OrderID de la tabla PurchaseOrderDetail debe hacer referencia a un pedido de la tabla PurchaseOrder. La siguiente definición de una clave externa aplica esta restricción.
 
+```sql
     ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
     CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
     REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+```
 
 Para poder usar parámetros con valores de tabla, debe tener un tipo de tabla definido por el usuario para cada tabla de destino.
 
+```sql
     CREATE TYPE PurchaseOrderTableType AS TABLE 
     ( OrderID INT,
       OrderDate DATETIME,
@@ -485,9 +515,11 @@ Para poder usar parámetros con valores de tabla, debe tener un tipo de tabla de
       UnitPrice MONEY,
       OrderQty SMALLINT );
     GO
+```
 
 Después, defina un procedimiento almacenado que acepte tablas de estos tipos. Este procedimiento permite que una aplicación procese un conjunto de pedidos y detalles de pedido por lotes localmente en una sola llamada. El siguiente código Transact-SQL proporciona la declaración completa del procedimiento almacenado para este ejemplo de pedido de compra.
 
+```sql
     CREATE PROCEDURE sp_InsertOrdersBatch (
     @orders as PurchaseOrderTableType READONLY,
     @details as PurchaseOrderDetailTableType READONLY )
@@ -528,11 +560,13 @@ Después, defina un procedimiento almacenado que acepte tablas de estos tipos. E
     FROM @details D
     JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
     GO
+```
 
 En este ejemplo, la tabla @IdentityLink definida localmente almacena los valores de OrderID reales de las filas recién insertadas. Estos identificadores de pedidos son diferentes de los valores de OrderID temporales de los parámetros con valores de tabla @orders y @details. Por este motivo, la tabla @IdentityLink conecta después los valores de OrderID del parámetro @orders a los valores de OrderID reales para las nuevas filas de la tabla PurchaseOrder. Después de este paso, la tabla @IdentityLink puede facilitar la inserción de los detalles del pedido con el OrderID real que cumple la restricción de clave externa.
 
 Este procedimiento almacenado puede usarse desde el código o desde otras llamadas Transact-SQL. Consulte la sección Parámetros con valores de tabla de este artículo para obtener un ejemplo de código. El siguiente código Transact-SQL muestra cómo llamar a sp_InsertOrdersBatch.
 
+```sql
     declare @orders as PurchaseOrderTableType
     declare @details as PurchaseOrderDetailTableType
 
@@ -550,16 +584,19 @@ Este procedimiento almacenado puede usarse desde el código o desde otras llamad
     (3, 4, $10.00, 1)
 
     exec sp_InsertOrdersBatch @orders, @details
+```
 
 Esta solución permite que cada lote use un conjunto de valores de OrderID que empiezan en 1. Estos valores temporales de OrderID describen las relaciones en el lote, pero los valores de OrderID reales se determinan en el momento de la operación de inserción. Puede ejecutar las mismas instrucciones en el ejemplo anterior repetidamente y generar pedidos únicos en la base de datos. Por este motivo, podría agregar más lógica de base de datos o código que evite la duplicación de pedidos cuando se usa esta técnica de procesamiento por lotes.
 
 Este ejemplo demuestra que las operaciones de base de datos más complejas, como las operaciones maestro/detalle, se pueden procesar por lotes con parámetros con valores de tabla.
 
 ### <a name="upsert"></a>UPSERT
+
 Otro escenario de procesamiento por lotes supone la actualización de filas existentes y la inserción de nuevas filas de forma simultánea. Esta operación se conoce a veces como operación "UPSERT" (actualización + inserción). En lugar de realizar llamadas independientes para insertar (INSERT) y actualizar (UPDATE), la instrucción MERGE es más adecuada para esta tarea. La instrucción MERGE puede realizar ambas operaciones en una sola llamada.
 
 Los parámetros con valores de tabla pueden usarse con la instrucción MERGE para realizar actualizaciones e inserciones. Por ejemplo, piense en una tabla Employee simplificada que contiene las siguientes columnas: EmployeeID, FirstName, LastName y SocialSecurityNumber:
 
+```sql
     CREATE TABLE [dbo].[Employee](
     [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
     [FirstName] [nvarchar](50) NOT NULL,
@@ -567,18 +604,22 @@ Los parámetros con valores de tabla pueden usarse con la instrucción MERGE par
     [SocialSecurityNumber] [nvarchar](50) NOT NULL,
      CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
     ([EmployeeID] ASC ))
+```
 
 En este ejemplo, puede aprovechar el hecho de que SocialSecurityNumber (número del seguro social) sea único para realizar una operación MERGE de varios empleados. En primer lugar, cree el tipo de tabla definido por el usuario:
 
+```sql
     CREATE TYPE EmployeeTableType AS TABLE 
     ( Employee_ID INT,
       FirstName NVARCHAR(50),
       LastName NVARCHAR(50),
       SocialSecurityNumber NVARCHAR(50) );
     GO
+```
 
 Después, cree un procedimiento almacenado o escriba código que use la instrucción MERGE para realizar la actualización y la inserción. En el ejemplo siguiente, se usa la instrucción MERGE en un parámetro con valores de tabla, @employees, del tipo EmployeeTableType. El contenido de la tabla @employees no se muestra aquí.
 
+```sql
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
     AS source ([FirstName], [LastName], [SocialSecurityNumber])
@@ -590,10 +631,12 @@ Después, cree un procedimiento almacenado o escriba código que use la instrucc
     WHEN NOT MATCHED THEN
        INSERT ([FirstName], [LastName], [SocialSecurityNumber])
        VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+```
 
 Para obtener más información, consulte la documentación y los ejemplos de la instrucción MERGE. Aunque se podría realizar el mismo trabajo en una llamada a procedimiento almacenado de varios pasos con operaciones INSERT y UPDATE separadas, la instrucción MERGE es más eficaz. Además, el código de la base de datos puede construir llamadas Transact-SQL que usen la instrucción MERGE directamente sin necesidad de realizar dos llamadas de base de datos para INSERT y UPDATE.
 
 ## <a name="recommendation-summary"></a>Resumen de recomendaciones
+
 En la lista siguiente, se resumen las recomendaciones sobre el procesamiento por lotes tratadas en este artículo:
 
 * Use el almacenamiento en búfer y el procesamiento por lotes para aumentar el rendimiento y la escalabilidad de las aplicaciones de SQL Database.
@@ -614,5 +657,6 @@ En la lista siguiente, se resumen las recomendaciones sobre el procesamiento por
 * Considere la posibilidad de almacenar en búfer por tamaño y hora como una manera de implementar el procesamiento por lotes para más escenarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Este artículo se centra en cómo el diseño de base de datos y las técnicas de codificado relacionadas con el procesamiento por lotes pueden mejorar el rendimiento y la escalabilidad de las aplicaciones. Sin embargo, esto es solamente un factor en la estrategia global. Para conocer más formas de mejorar el rendimiento y la escalabilidad, consulte [Guía de rendimiento de Azure SQL Database para bases de datos únicas](sql-database-performance-guidance.md) y [Consideraciones de precio y rendimiento para un grupo elástico](sql-database-elastic-pool-guidance.md).
 

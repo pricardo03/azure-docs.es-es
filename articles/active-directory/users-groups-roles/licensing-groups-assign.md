@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215011"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155075"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory
 
@@ -61,7 +61,7 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 > [!NOTE]
 > La misma asignación se puede iniciar desde una ubicación alternativa: **Usuarios y grupos** en Azure AD. Vaya a **Azure Active Directory** > **Usuarios y grupos** > **Todos los grupos**. Después, busque el grupo, selecciónelo y vaya a la pestaña **Licencias**. El botón **Asignar** situado en la parte superior del panel abre el panel de asignación de licencias.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que se ha completado la asignación inicial
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que ha finalizado la asignación inicial
 
 1. Vaya a **Azure Active Directory** > **Usuarios y grupos** > **Todos los grupos**. Luego, busque el grupo **HR Department** al que se asignaron las licencias.
 
@@ -79,7 +79,7 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
 
    - Actividad: **Empezar a aplicar licencias basadas en grupo a los usuarios**. Se registra cuando el sistema recoge el cambio de asignación de licencias en el grupo y empieza a aplicarlo a todos los usuarios miembros. Contiene información sobre el cambio que se realizó.
 
-   - Actividad: **Empezar a aplicar las licencias basadas en grupo a los usuarios**. Se registra cuando el sistema termina de procesar todos los usuarios del grupo. Contiene un resumen de cuántos usuarios se han procesado correctamente y el número de usuarios a los que no se pudieron asignar las licencias de grupo.
+   - Actividad: **Finalizar la aplicación de licencias basadas en grupo a los usuarios**. Se registra cuando el sistema termina de procesar todos los usuarios del grupo. Contiene un resumen de cuántos usuarios se han procesado correctamente y el número de usuarios a los que no se pudieron asignar las licencias de grupo.
 
    [Lea esta sección](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) para obtener más información sobre cómo se pueden usar los registros de auditoría para analizar los cambios realizados por las licencias basadas en grupos.
 

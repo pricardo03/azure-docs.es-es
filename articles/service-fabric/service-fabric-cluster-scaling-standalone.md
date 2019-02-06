@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: cbd8374e055d1bb9781990f70ed42ae5d5a5ad9b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c211c2bb9dc07e705679b5d4079b85de9d72d8c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634840"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100468"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Escalado de clústeres independientes de Service Fabric
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los clústeres pueden contener potencialmente miles de nodos. Después de crear un clúster de Service Fabric, puede escalar el clúster horizontalmente (cambiar el número de nodos) o verticalmente (cambiar los recursos de los nodos).  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -30,7 +30,7 @@ Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales c
 Cambia el número de nodos del clúster.  Una vez que los nuevos nodos se unen al clúster, el [Administrador de recursos del clúster](service-fabric-cluster-resource-manager-introduction.md) mueve servicios a ellos, lo que reduce la carga en los nodos existentes.  Si los nodos del clúster no se usan de forma eficaz, puede reducir el número de nodos.  Cuando los nodos abandonan el clúster, los servicios son trasladados de dichos nodos y la carga aumenta en los nodos restantes.  La reducción del número de nodos en un clúster que se ejecuta en Azure puede ahorrarle dinero, ya que se paga por el número de máquinas virtuales utilizadas y no por la carga de trabajo en esas máquinas virtuales.  
 
 - Ventajas: escala infinita, en teoría.  Si la aplicación está diseñada para ofrecer escalabilidad, puede habilitar un crecimiento ilimitado agregando más nodos.  Las herramientas de los entornos de nube permiten agregar o quitar nodos fácilmente, por lo que resulta sencillo ajustar la capacidad y solo se paga por los recursos que utiliza.  
-- Inconvenientes: las aplicaciones deben [diseñarse para ofrecer escalabilidad](service-fabric-concepts-scalability.md).  Las bases de datos y la persistencia de la aplicación pueden requerir un trabajo de arquitectura adicional para el escalado.  Las[colecciones confiables](service-fabric-reliable-services-reliable-collections.md) de los servicios con estado de Service Fabric, sin embargo, hacen mucho más fácil el escalado de los datos de la aplicación.
+- Desventajas: las aplicaciones deben [diseñarse para ofrecer escalabilidad](service-fabric-concepts-scalability.md).  Las bases de datos y la persistencia de la aplicación pueden requerir un trabajo de arquitectura adicional para el escalado.  Las[colecciones confiables](service-fabric-reliable-services-reliable-collections.md) de los servicios con estado de Service Fabric, sin embargo, hacen mucho más fácil el escalado de los datos de la aplicación.
 
 Los clústeres independientes le permiten implementar el clúster de Service Fabric de modo local o en el proveedor en la nube de su elección.  Los tipos de nodo están formados por máquinas físicas o virtuales, según la implementación. En comparación con los clústeres que se ejecutan en Azure, el proceso de escalado de un clúster independiente es un poco más complicado.  Debe cambiar manualmente el número de nodos del clúster y, a continuación, ejecutar una actualización de la configuración de clúster.
 
@@ -49,11 +49,11 @@ Para más información, consulte [Escalado de un clúster independiente](service
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>Escalado vertical 
 Cambia los recursos (CPU, memoria o almacenamiento) de los nodos del clúster.
 - Ventajas: el software y la arquitectura de la aplicación siguen siendo los mismos.
-- Inconvenientes: escala finita, ya que hay un límite respecto a cuánto puede aumentar los recursos en los nodos individuales. Tiempo de inactividad, ya que tendrá máquinas físicas o virtuales sin conexión con el fin de agregar o quitar recursos.
+- Desventajas: escala finita, ya que hay un límite respecto a cuánto puede aumentar los recursos en los nodos individuales. Tiempo de inactividad, ya que tendrá máquinas físicas o virtuales sin conexión con el fin de agregar o quitar recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre [escalabilidad de aplicaciones](service-fabric-concepts-scalability.md).
 * [Escalado horizontal de un clúster de Azure](service-fabric-tutorial-scale-cluster.md).
 * [Escalado de un clúster de Azure mediante programación](service-fabric-cluster-programmatic-scaling.md) con el SDK de proceso de Azure.
-* [Escalado horizontal de un clúster independiente](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Escalado o reducción horizontal de un clúster independiente](service-fabric-cluster-windows-server-add-remove-nodes.md)
 

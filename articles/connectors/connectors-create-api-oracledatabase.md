@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230240"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295365"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -95,27 +95,27 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
 ## <a name="common-errors"></a>Errores comunes
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Error**: No se puede alcanzar la puerta de enlace
+#### <a name="error-cannot-reach-the-gateway"></a>**Error**: No se puede acceder a la puerta de enlace
 
 **Causa**: La puerta de enlace de datos local no puede conectarse con la nube. 
 
 **Mitigación**: Asegúrese de que la puerta de enlace se esté ejecutando en el equipo local donde la instaló y que se pueda conectar a Internet.  Se recomienda no instalar la puerta de enlace en un equipo que pueda apagarse o suspenderse. También puede reiniciar el servicio de la puerta de enlace de datos local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error**: El proveedor que está usando está en desuso: 'System.Data.OracleClient requiere la versión 8.1.7 del software cliente de Oracle o una versión posterior'. Vea [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar el proveedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Error**: El proveedor que utiliza está en desuso: "System.Data.OracleClient requiere la version 8.1.7 o posterior del software cliente de Oracle". Vea [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar el proveedor oficial.
 
 **Causa**: El SDK del cliente Oracle no está instalado en la misma máquina en la que se ejecuta la puerta de enlace de datos local.  
 
 **Resolución**: Descargue e instale el SDK del cliente Oracle en la misma máquina que la puerta de enlace de datos local.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Error**: La tabla '[Tablename]' no define las columnas clave.
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Error**: La tabla "[Tablename]" no define las columnas clave.
 
 **Causa**: La tabla no tiene ninguna clave principal.  
 
-**Resolución**: El conector de la base de datos de Oracle requiere que se utilice una tabla con una columna de clave principal.
+**Resolución**: El conector de Oracle Database requiere que se utilice una tabla con una columna de clave principal.
 
 #### <a name="currently-not-supported"></a>Actualmente no se admite
 
-* Vistas y procedimientos almacenados 
+* Vistas 
 * Todas las tablas con claves compuestas
 * Tipos de objetos anidados en tablas
  

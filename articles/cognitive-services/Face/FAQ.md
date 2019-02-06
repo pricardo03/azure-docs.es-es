@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b4b2c09ef608da7c52d415d5f1f2215ddc31c41a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129563"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223330"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Preguntas frecuentes sobre Face API
 
@@ -34,9 +34,9 @@ ms.locfileid: "46129563"
 Face API funciona bien normalmente en casos como estos, pero la precisión puede ser menor. Para que el reconocimiento sea más fiable y solucionar estas dificultades, entrene a sus personas con fotos que incluyan diversos ángulos e iluminación.
 
 -----
-**Pregunta**: Estoy pasando los datos de imagen binarios, pero recibo un error "imagen de cara no válida".
+**Pregunta**:  Estoy pasando los datos de imagen binarios, pero recibo un error "imagen de cara no válida".
 
-**Respuesta**: Esto implica que el algoritmo ha tenido un problema al analizar la imagen. Las causas son:
+**Respuesta**:  Esto implica que el algoritmo ha tenido un problema al analizar la imagen. Las causas son:
 * Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF(el primer fotograma) y BMP.
 * El tamaño de archivo de imagen no debe ser superior a 4 MB.
 * El intervalo de tamaños de cara detectable es 36 x 36 a 4096 x 4096 píxeles. Las caras que se encuentren fuera de este intervalo no se detectarán.

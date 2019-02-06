@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032608"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457656"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Optimización de los costos para las implementaciones en varias regiones de Azure Cosmos DB
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
 
 Puede agregar regiones a la cuenta de Azure Cosmos o eliminarlas en cualquier momento. La capacidad de proceso que se configura para varias bases de datos y contenedores de Azure Cosmos se reserva en cada región asociada a la cuenta. Si la capacidad de proceso aprovisionada por hora, que es la suma de RU/s configurada en todos los contenedores y las bases de datos para su cuenta de Azure Cosmos, es `T` y el número de regiones de Azure asociado a la cuenta de la base de datos es `N`, la capacidad de proceso aprovisionada para la cuenta de Cosmos para una hora determinada es:
 

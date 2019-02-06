@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 64af946c3f8f58808f1bca06f1ef21d92da8cda8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330393"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223568"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -39,7 +39,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | Conflicto | Se solicita una operación no permitida con el estado actual del recurso. Por ejemplo, solo se permite el cambio de tamaño del disco al crear una VM o al desasignar la VM. | |
 | DeploymentActive | Espere a que la implementación simultánea de este grupo de recursos finalice. | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
-| DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con una [eliminación de la implementación del grupo az](/cli/azure/group/deployment#az-group-deployment-delete) en CLI de Azure o [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementaciones no afecta a los recursos de implementación. | |
+| DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) en la CLI de Azure o [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementaciones no afecta a los recursos de implementación. | |
 | DnsRecordInUse | El nombre del registro de DNS debe ser único. Proporcione un nombre diferente o modifique el registro existente. | |
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
 | InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso, pero la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -71,7 +71,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | RequestDisallowedByPolicy | La suscripción incluye una directiva de recursos que impide una acción que está tratando de realizar durante la implementación. Busque la directiva que bloquea la acción. Si es posible, modifique la implementación para cumplir con las limitaciones de la directiva. | [Resolución de directivas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Proporcione un nombre de recurso que no incluya un nombre reservado. | [Nombres de recurso reservados](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Espere a que la eliminación finalice. | |
-| ResourceGroupNotFound | Compruebe el nombre del grupo de recursos de destino para la implementación. Puede que ya exista en la suscripción. Compruebe el contexto de la suscripción. | [CLI de Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | Compruebe el nombre del grupo de recursos de destino para la implementación. Puede que ya exista en la suscripción. Compruebe el contexto de la suscripción. | [CLI de Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | La implementación hace referencia a un recurso que no se puede resolver. Compruebe que el uso de la función **reference** incluye los parámetros necesarios para su escenario. | [Resolución de referencias](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | La implementación trata de crear recursos que exceden la cuota de la suscripción, del grupo de recursos o de la región. Si es posible, revise la infraestructura para respetar las cuotas. De lo contrario, considere la posibilidad de solicitar un cambio de las cuotas. | [Resolución de cuotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Seleccione la SKU (como el tamaño de la máquina virtual) que está disponible para la ubicación seleccionada. | [Resolución de SKU](resource-manager-sku-not-available-errors.md) |
@@ -110,7 +110,7 @@ Cuando la operación pasa la validación, pero se produce un error durante la im
 Para ver los mensajes y códigos de error de implementación con PowerShell, use:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+(Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
 Para ver los mensajes y códigos de error de implementación con la CLI de Azure, use:
@@ -140,7 +140,7 @@ En ocasiones necesitará más información sobre la solicitud y respuesta para d
 En PowerShell, establezca el parámetro **DeploymentDebugLogLevel** en Todos, ResponseContent o RequestContent.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName examplegroup `
   -TemplateFile c:\Azure\Templates\storage.json `
@@ -150,7 +150,7 @@ New-AzureRmResourceGroupDeployment `
 Examine el contenido de la solicitud con el siguiente cmdlet:
 
 ```powershell
-(Get-AzureRmResourceGroupDeploymentOperation `
+(Get-AzResourceGroupDeploymentOperation `
 -DeploymentName exampledeployment `
 -ResourceGroupName examplegroup).Properties.request `
 | ConvertTo-Json
@@ -159,7 +159,7 @@ Examine el contenido de la solicitud con el siguiente cmdlet:
 O bien, la respuesta de contenido con:
 
 ```powershell
-(Get-AzureRmResourceGroupDeploymentOperation `
+(Get-AzResourceGroupDeploymentOperation `
 -DeploymentName exampledeployment `
 -ResourceGroupName examplegroup).Properties.response `
 | ConvertTo-Json

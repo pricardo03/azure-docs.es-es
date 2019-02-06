@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de la implementación de Kubernetes en Azure Stack | Microsoft Docs
+title: Solución de problemas de implementación de Kubernetes en Azure Stack | Microsoft Docs
 description: Aprenda a solucionar problemas de la implementación de Kubernetes en Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -11,17 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390692"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237858"
 ---
-# <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implementación de Kubernetes en Azure Stack
+# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solución de problemas de implementación de Kubernetes en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
@@ -112,7 +113,7 @@ Al implementar el clúster de Kubernetes, puede revisar el estado de implementac
     | Propiedad | DESCRIPCIÓN |
     | ----     | ----        |
     | Recurso | Nombre del recurso. |
-    | Escriba | Proveedor de recursos y tipo de recurso. |
+    | Type | Proveedor de recursos y tipo de recurso. |
     | Status | Estado del elemento. |
     | TimeStamp | Marca de tiempo UTC de la hora. |
     | Detalles de la operación | Detalles de la operación, como el proveedor de recursos implicado en la operación, el punto de conexión del recurso y el nombre del recurso. |

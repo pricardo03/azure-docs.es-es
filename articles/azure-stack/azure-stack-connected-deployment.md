@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037913"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243188"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones del planeamiento de una implementación conectada de Azure en sistemas integrados de Azure Stack
 Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
@@ -30,7 +31,7 @@ Si implementa Azure Stack conectado a Azure, significa que puede tener Azure Act
 ## <a name="choose-an-identity-store"></a>Elección del almacén de identidades
 Con una implementación conectada, puede elegir entre Azure AD o AD FS para el almacén de identidades. En una implementación desconectada, sin conectividad a Internet, solo puede usar AD FS.
 
-Su elección de almacén de identidades no repercute en las máquinas virtuales (VM) de inquilinos. Las máquinas virtuales de inquilinos pueden decidir a qué almacén de identidades desean conectarse en función de cómo se configuren: Azure AD, unido al dominio de Active Directory de Windows Server, grupo de trabajo, etcétera. Esto no está relacionado con la decisión del proveedor de identidad de Azure Stack. 
+Su elección de almacén de identidades no repercute en las máquinas virtuales (VM) de inquilinos. Las máquinas virtuales del inquilino pueden elegir el almacén de identidades al que desean conectarse en función de cómo se vayan a configurar: Azure AD, Windows Server Active Directory unido a un dominio, grupo de trabajo, etc. Esto no está relacionado con la decisión del proveedor de identidad de Azure Stack. 
 
 Por ejemplo, si implementa máquinas virtuales de inquilinos de IaaS a partir de Azure Stack y desea unirse a un dominio de Active Directory corporativo y usar las cuentas desde allí, puede seguir haciéndolo. No se le exige usar el almacén de identidades de Azure AD que selecciona aquí para esas cuentas.
 
@@ -68,7 +69,7 @@ La facturación de la capacidad requiere una suscripción de Azure con Contrato 
 
 ## <a name="learn-more"></a>Más información
 - Para obtener información acerca de los casos de uso, las compras, los asociados y los distribuidores de hardware de OEM, consulte la página del producto de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
-- Para obtener información acerca del mapa de ruta y la disponibilidad geográfica para los sistemas integrados de Azure Stack, consulte las notas del producto: [Azure Stack: una extensión de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para información sobre el mapa de ruta y la disponibilidad geográfica de los sistemas integrados de Azure Stack, consulte las notas del producto: [Azure Stack: una extensión de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Para más información acerca de los paquetes y precios de Microsoft Azure Stack [descargue el archivo .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439075"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883779"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -45,7 +45,7 @@ El Registro de actividad contiene varias categorías de datos. Para obtener todo
 * **Escalado automático**: esta categoría contiene el registro de los eventos relacionados con el funcionamiento del motor de escalado automático en función de cualquier configuración de escalado automático que haya definido en la suscripción. Un ejemplo del tipo de evento que aparece en esta categoría es "Error de acción de escalado automático". Con el escalado automático puede escalar horizontalmente o reducir horizontalmente de forma automática el número de instancias de un tipo de recurso compatible en función de la hora del día o cargar datos (métricas) mediante una configuración de escalado automático. Cuando se cumplen las condiciones para escalar o reducir verticalmente, se registran los eventos de inicio y corrección o error en esta categoría.
 * **Recomendación**: esta categoría contiene eventos de recomendación de Azure Advisor.
 * **Seguridad**: esta categoría contiene el registro de todas las alertas que generó Azure Security Center. Un ejemplo del tipo de evento que vería en esta categoría es "Se ejecutó un archivo de extensión doble sospechoso".
-* **Directiva**: esta categoría no contiene ningún evento; está reservada para uso futuro. 
+* **Directiva**: esta categoría contiene registros de todas las operaciones de acciones y efectos realizadas por Azure Policy. Algunos ejemplos de los tipos de eventos que podrían aparecer en esta categoría son Auditoría y Denegación. Cada acción llevada a cabo por Azure Policy se modela como una operación en un recurso.
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoría
 [Vea este artículo para comprender el esquema de eventos de Activity Log por categoría.](../../azure-monitor/platform/activity-log-schema.md)
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| NOMBRE |SÍ |Nombre de su perfil de registro. |
+| Name |SÍ |Nombre de su perfil de registro. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
 | serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Ubicación |SÍ |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |

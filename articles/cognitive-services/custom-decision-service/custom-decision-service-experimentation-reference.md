@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366563"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219828"
 ---
 # <a name="experimentation"></a>Experimentación
 
@@ -35,8 +35,8 @@ Al usar el archivo de registro, Experimentación busca la directiva que tenga la
 * Prueba la evaluación de la directiva `--cb_type`: puntuación de propensión inversa (`ips`) o doblemente sólida (`dr`). Para obtener más información, consulte [Contextual Bandit example](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example) (Ejemplo de bandido contextual).
 * Pruebas marginales.
 * Prueba las funciones de interacción cuadrática:
-   * **fase de fuerza bruta** : prueba todas las combinaciones con `--q_bruteforce_terms` pares o menos.
-   * **fase expansiva**: agrega el mejor par hasta que no haya ninguna mejora en `--q_greedy_stop` rondas.
+   * **fase de fuerza bruta**: prueba todas las combinaciones con pares `--q_bruteforce_terms` o menos.
+   * **fase expansiva**: agrega el mejor par hasta que no haya ninguna mejora en rondas `--q_greedy_stop`.
 * Realiza un segundo barrido sobre los hiperparámetros (`learning rate`, `L1 regularization` y `power_t`).
 
 Los parámetros que controlan estos pasos incluyen algunos argumentos de Vowpal Wabbit:
@@ -53,12 +53,12 @@ Los parámetros que controlan estos pasos incluyen algunos argumentos de Vowpal 
 Para obtener una explicación detallada de los argumentos anteriores, consulte [Vowpal Wabbit command-line arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments) (Argumentos de la línea de comandos de Vowpal Wabbit).
 
 ## <a name="prerequisites"></a>Requisitos previos
-- Vowpal Wabbit: instalado y en la ruta de acceso.
-  - Windows: [use el instalador `.msi`](https://github.com/eisber/vowpal_wabbit/releases).
-  - Otras plataformas: [obtenga el código fuente](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3: instalado y en la ruta de acceso.
-- NumPy: use el administrador de paquetes que quiera.
-- Repositorio *Microsoft/mwt-ds*: [clone el repositorio](https://github.com/Microsoft/mwt-ds).
+- Vowpal Wabbit: instalado y en su ruta de acceso.
+  - Windows: [use el `.msi` instalador](https://github.com/eisber/vowpal_wabbit/releases).
+  - Otras plataformas: [Obtención del código fuente](https://github.com/JohnLangford/vowpal_wabbit/releases).
+- Python 3: instalado y en su ruta de acceso.
+- NumPy: use el administrador de paquetes de su elección.
+- El repositorio *Microsoft/mwt-ds*: [Clonación del repositorio](https://github.com/Microsoft/mwt-ds).
 - Archivo de registro JSON de Decision Service: de forma predeterminada, el comando base incluye `--dsjson`, que permite el análisis JSON de Decision Service del archivo de datos de entrada. [Obtenga un ejemplo de este formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Uso

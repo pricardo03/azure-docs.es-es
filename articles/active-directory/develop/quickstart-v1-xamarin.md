@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967530"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097940"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guía de inicio rápido: Creación de una aplicación de Xamarin que se integra con el inicio de sesión de Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Inicio rápido: Creación de una aplicación de Xamarin que se integra con el inicio de sesión de Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -43,7 +43,7 @@ Para aplicaciones de Xamarin que necesitan acceso a recursos protegidos, Azure A
 
 Cuando esté listo, siga los procedimientos descritos en las cuatro secciones siguientes.
 
-## <a name="step-1-set-up-your-xamarin-development-environment"></a>Paso 1: Configuración del entorno de desarrollo de Xamarin
+## <a name="step-1-set-up-your-xamarin-development-environment"></a>Paso 1: Configuración de su entorno de desarrollo de Xamarin
 
 Como este tutorial incluye proyectos de iOS, Android y Windows, necesitará tanto Visual Studio como Xamarin. Para crear el entorno es necesario, realice el proceso que se describe en [Establecimiento e instalación de Visual Studio y Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) en MSDN. Estas instrucciones incluyen material que puede examinar para aprender más sobre Xamarin mientras espera a que finalicen los instaladores.
 

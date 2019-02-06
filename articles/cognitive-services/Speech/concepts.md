@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344932"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219777"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -75,8 +75,8 @@ Puesto que el servicio de voz de Microsoft participa de algunos de los estados, 
 
 El servicio de reconocimiento de voz de Microsoft ofrece dos métodos para que los desarrolladores agreguen voz a sus aplicaciones.
 
-- [API de REST](GetStarted/GetStartedREST.md): los desarrolladores pueden usar llamadas HTTP desde sus aplicaciones al servicio para el reconocimiento de voz.
-- [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md): para características avanzadas, los desarrolladores pueden descargar las bibliotecas cliente de voz de Microsoft y vincular sus aplicaciones.  Las bibliotecas cliente están disponibles en distintas plataformas (Windows, Android, iOS) con distintos lenguajes (C#, Java, JavaScript, ObjectiveC).
+- [API REST](GetStarted/GetStartedREST.md): los desarrolladores pueden usar llamadas HTTP desde sus aplicaciones hasta el servicio para el reconocimiento de voz.
+- [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md): si necesitan características avanzadas, los desarrolladores pueden descargar las bibliotecas cliente de Voz de Microsoft y vincularlas en sus aplicaciones.  Las bibliotecas cliente están disponibles en distintas plataformas (Windows, Android, iOS) con distintos lenguajes (C#, Java, JavaScript, ObjectiveC).
 
 | Casos de uso | [API de REST](GetStarted/GetStartedREST.md) | [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|

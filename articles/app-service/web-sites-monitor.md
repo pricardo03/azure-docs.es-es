@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247273"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913179"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada para aplicaciones web, back ends móviles y aplicaciones de API en [Azure Portal](https://portal.azure.com).
@@ -73,9 +73,15 @@ Para una aplicación, estas son las métricas disponibles:
 | --- | --- |
 | **Tiempo de respuesta promedio** | Tiempo promedio necesario para que la aplicación atienda solicitudes, en milisegundos. |
 | **Espacio de trabajo de memoria promedio** | Cantidad media de memoria que utiliza la aplicación, en megabytes (MiB). |
+| **Conexiones** | Número de sockets enlazados existente en el espacio aislado (w3wp.exe y sus procesos secundarios).  Un socket enlazado se crea mediante una llamada a las API bind()/connect() y permanece hasta que el socket se cierra con CloseHandle()/closesocket(). |
 | **Tiempo de CPU** | Cantidad de CPU consumida por la aplicación, en segundos. Para más información sobre esta métrica, consulte [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage). |
+| **Ensamblados actuales** | Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación. |
 | **Entrada de datos** | Cantidad de ancho de banda entrante consumido por la aplicación, en MiB. |
 | **Salida de datos** | Cantidad de ancho de banda saliente consumido por la aplicación, en MiB. |
+| **Recolección de elementos no utilizados de gen. 0** | Número de veces que los objetos de generación 0 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
+| **Recolección de elementos no utilizados de gen. 1** | Número de veces que los objetos de generación 1 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
+| **Recolección de elementos no utilizados de gen. 2** | Número de veces que los objetos de generación 2 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación.|
+| **Número de identificadores** | Total de identificadores abiertos actualmente por el proceso de la aplicación.|
 | **Http 2xx** | Cantidad total de solicitudes que devuelven un código de estado HTTP >= 200, pero < 300. |
 | **Http 3xx** | Cantidad total de solicitudes que devuelven un código de estado HTTP >= 300, pero < 400. |
 | **Http 401** | Cantidad total de solicitudes que devuelven el código de estado HTTP 401. |
@@ -84,8 +90,20 @@ Para una aplicación, estas son las métricas disponibles:
 | **Http 406** | Cantidad total de solicitudes que devuelven el código de estado HTTP 406. |
 | **Http 4xx** | Cantidad total de solicitudes que devuelven un código de estado HTTP >= 400, pero < 500. |
 | **Errores de servidor HTTP** | Cantidad total de solicitudes que devuelven un código de estado HTTP >= 500, pero < 600. |
+| **Otros bytes de E/S por segundo** | Velocidad a la que el proceso de la aplicación está emitiendo bytes a las operaciones de E/S que implican datos, como las operaciones de control.|
+| **Otras operaciones de E/S por segundo** | Velocidad a la que el proceso de la aplicación está realizando operaciones de E/S que no son de lectura ni de escritura.|
+| **Bytes de lectura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está leyendo bytes de las operaciones de E/S.|
+| **Operaciones de lectura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está realizando operaciones de lectura de E/S.|
+| **Bytes de escritura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está escribiendo bytes de las operaciones de E/S.|
+| **Operaciones de escritura de E/S por segundo** | Velocidad a la que el proceso de la aplicación está realizando operaciones de escritura de E/S.|
 | **Espacio de trabajo de memoria** | Cantidad actual de memoria utilizada por la aplicación, en MiB. |
+| **Bytes privados** | Los bytes privados son el tamaño actual, en bytes, de la memoria asignada por el proceso de la aplicación que no se puede compartir con otros procesos.|
 | **Solicitudes** | Número total de solicitudes, independientemente de su código de estado HTTP resultante. |
+| **Solicitudes en la cola de la aplicación** | Número de solicitudes en la cola de solicitudes de la aplicación.|
+| **Número de subprocesos** | Número de subprocesos activos actualmente en el proceso de la aplicación.|
+| **Dominios de aplicación totales** | Número actual de dominios de aplicación cargados en esta aplicación.|
+| **Dominios de aplicación totales descargados** | Número total de dominios de aplicación descargados desde el inicio de la aplicación.|
+
 
 Para un plan de App Service, estas son las métricas disponibles:
 

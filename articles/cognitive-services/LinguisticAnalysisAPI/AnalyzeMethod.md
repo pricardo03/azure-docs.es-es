@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239309"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208642"
 ---
 # <a name="analyze-method"></a>Método de análisis
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parámetros de solicitud
 
-NOMBRE | Escriba | Obligatorio | DESCRIPCIÓN
+NOMBRE | Type | Obligatorio | DESCRIPCIÓN
 -----|-------|----------|------------
 **language**    | string | SÍ | El código ISO de dos letras para idiomas que se va a usar para el análisis. Por ejemplo, español es "es".
 **analyzerIds** | lista de cadenas | SÍ | Lista de GUID de los analizadores que se van a aplicar. Consulte la documentación sobre analizadores para más información.
@@ -50,7 +50,7 @@ Una matriz de salidas de análisis, una para cada atributo especificado en la so
 
 Los resultados son parecidos a estos:
 
-NOMBRE | Escriba | DESCRIPCIÓN
+NOMBRE | Type | DESCRIPCIÓN
 -----|------|--------------
 analyzerId | string | GUID del analizador especificado
 result | objeto | resultado del analizador
@@ -59,7 +59,7 @@ Tenga en cuenta que el tipo de resultado depende del tipo de analizador de entra
 
 ### <a name="tokens-response-json"></a>Respuesta de tokens (JSON)
 
-NOMBRE | Escriba | DESCRIPCIÓN
+NOMBRE | Type | DESCRIPCIÓN
 -----|------|-------------
 result | lista de objetos de frase | límites de frases identificados en el texto |
 result[x].Offset | int | desplazamiento de carácter inicial de cada frase |
@@ -147,7 +147,7 @@ Los árboles de análisis se representan en un formato con paréntesis.
 
 `POST /analyze`
 
-Cuerpo de solicitud: carga JSON
+Cuerpo de la solicitud: carga de JSON
 ```json
 {
   "language": "en",

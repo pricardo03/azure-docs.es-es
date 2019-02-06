@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140972"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221018"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -44,7 +44,7 @@ LUIS ofrece veinte dominios creados previamente.
 | Reminder | Control de solicitudes relacionadas con la creación, edición y búsqueda de recordatorios.| en-US<br/> zh-CN |
 | RestaurantReservation | Control de solicitudes para administrar reservas en restaurantes.| en-US<br/> zh-CN |
 | Taxi | Control de reservas de un taxi.| en-US<br/> zh-CN |
-| Traducir | Traducción de texto a otro idioma.| en-US<br/> zh-CN |
+| Translate | Traducción de texto a otro idioma.| en-US<br/> zh-CN |
 | TV | Control de TV.| en-US |
 | Sectores públicos  | Control de solicitudes que son comunes en muchos dominios, como "ayuda", "repetir" o "volver a empezar".| en-US |
 | Tiempo | Obtener informes y previsiones meteorológicos.| en-US<br/> zh-CN |
@@ -163,7 +163,7 @@ El dominio de entretenimiento ofrece intenciones y entidades relacionadas con la
 | Persona| El actor, director, productor, músico o artista asociados con una película, aplicación, juego o programa de televisión.|Madonna<br/>Stanley Kubrick|
 | Rol| Rol que desempeña una persona en la creación de un elemento multimedia.|Canciones<br/>Dirigido por<br/>Por|
 | Título| El nombre de una película, aplicación, juego, programa de TV o canción.|Friends<br/>Minecraft|
-| Escriba| El tipo o formato multimedia de una película, aplicación, juego, programa de TV o canción.|Música<br/>Películas de TV <br/>Programas|
+| Type| El tipo o formato multimedia de una película, aplicación, juego, programa de TV o canción.|Música<br/>Películas de TV <br/>Programas|
 | UserRating| Clasificación del usuario con estrellas o con el dedo pulgar hacia arriba o hacia abajo.|5 estrellas<br/>3 estrellas<br/>4 estrellas|
 
 ## <a name="events"></a>Eventos 
@@ -182,7 +182,7 @@ El dominio de eventos proporciona intenciones y entidades relacionadas con la re
 | NOMBRE | El nombre de un evento.|Shakespeare in the Park|
 | PlaceName| El nombre de ubicación del evento.|Louvre<br/>Opera House<br/>Broadway|
 | PlaceType | El tipo de ubicación en que se celebrará el evento.|Bar<br/>Teatro<br/>Biblioteca|
-| Escriba | El tipo de evento.|Concierto<br/>Encuentro deportivo|
+| Type | El tipo de evento.|Concierto<br/>Encuentro deportivo|
 
 ## <a name="fitness"></a>Fitness 
 El dominio de fitness ofrece intenciones y entidades relacionadas con el control de actividades de fitness. Las intenciones incluyen guardar notas, el tiempo restante o la distancia, así como guardar los resultados de la actividad.
@@ -539,7 +539,7 @@ El dominio Taxi ofrece intenciones y entidades para crear y administrar las rese
 | TransportationCompany | El nombre de un proveedor de transporte.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | El tipo de transporte.|Autobús<br/>Train<br/>Conducción|
 
-## <a name="translate"></a>Traducir 
+## <a name="translate"></a>Translate 
 El dominio de traducción ofrece intenciones y entidades relacionadas con la traducción de texto a un idioma de destino.
 
 ### <a name="examples"></a>Ejemplos
@@ -554,7 +554,7 @@ El dominio de traducción ofrece intenciones y entidades relacionadas con la tra
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
 | ---------------- |-----------------------|----|
-| Traducir| Traducir texto a otro idioma.|Traducir al francés<br/>Traducir hola en alemán|
+| Translate| Traducir texto a otro idioma.|Traducir al francés<br/>Traducir hola en alemán|
 
 
 ### <a name="entities"></a>Entidades

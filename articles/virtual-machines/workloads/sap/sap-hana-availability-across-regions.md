@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713976"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297589"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidad de SAP HANA entre regiones de Azure
 
@@ -67,6 +67,16 @@ Una combinación de disponibilidad dentro de una región y entre regiones puede 
 En tales casos, puede configurar lo que en SAP se llama una [SAP HANA multitier system replication configuration](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) (Replicación del sistema de varios niveles de SAP HANA) mediante la replicación del sistema de HANA. La arquitectura tendría este aspecto:
 
 ![Diagrama de tres máquinas virtuales en dos regiones](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+SAP introdujo la [replicación del sistema en varios destinos](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) con HANA 2.0 SPS3. La replicación del sistema en varios destinos aporta algunas ventajas en escenarios de actualización. Por ejemplo, el sitio de recuperación ante desastres (región 2) no se ve afectado cuando el sitio secundario de alta disponibilidad está inactivo por mantenimiento o actualizaciones. Puede encontrar más información acerca de la replicación del sistema en varios destinos de HANA [aquí](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+Una arquitectura posible con la replicación en varios destinos tendría el siguiente aspecto:
+
+![Diagrama de tres máquinas virtuales en dos regiones de varios destinos](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Si la organización tiene requisitos para la preparación de la alta disponibilidad en la segunda región de recuperación ante desastres de Azure, la arquitectura sería como la del siguiente ejemplo:
+
+![Diagrama de tres máquinas virtuales en dos regiones de varios destinos](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 Con logreplay como modo de operación, esta configuración proporciona un RPO = 0, con un RTO bajo, dentro de la región principal. La configuración también proporciona un RPO aceptable en caso de que se necesite un traslado a la segunda región. Los tiempos de RTO en la segunda región dependen de si los datos se cargan previamente. Muchos clientes usan la máquina virtual en la región secundaria para ejecutar un sistema de prueba. En ese caso de uso, los datos no se pueden cargar previamente.
 

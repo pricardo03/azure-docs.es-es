@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528563"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453390"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
@@ -29,7 +29,7 @@ Considere el uso del servicio de Azure Import/Export cuando la carga o descarga 
 
 * **Migración de datos a la nube**: mueva rápidamente grandes cantidades de datos a Azure de manera rápida y rentable.
 * **Distribución de contenido**: envíe rápidamente datos a los sitios de cliente.
-* **Copia de seguridad**: realice copias de seguridad de los datos locales para almacenarlos en Azure Storage.
+* **Backup (Copia de seguridad)**: realice copias de seguridad de los datos locales para almacenarlos en Azure Storage.
 * **Recuperación de datos**: recupere una gran cantidad de datos almacenados en el almacenamiento y recíbalos en su ubicación local.
 
 ## <a name="importexport-components"></a>Componentes de Import/Export

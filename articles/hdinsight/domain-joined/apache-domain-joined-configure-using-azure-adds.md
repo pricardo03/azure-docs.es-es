@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188953"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158832"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -28,7 +28,11 @@ En este artículo, aprenderá a configurar un clúster de HDInsight con ESP medi
 ## <a name="enable-azure-ad-ds"></a>Habilitar Azure AD DS
 
 > [!NOTE]  
-> Solo los administradores de inquilinos tienen los privilegios para habilitar Azure AD DS. Si el almacenamiento del clúster es Azure Data Lake Storage (ADLS) Gen1 o Gen2, deshabilite Multi-Factor Authentication (MFA) solo para los usuarios que necesitan acceder al clúster. Si el almacenamiento de clúster es Azure Blob Storage (WASB), no deshabilite MFA.
+> Solo los administradores de inquilinos tienen los privilegios para habilitar Azure AD DS. Si el almacenamiento del clúster es Azure Data Lake Storage (ADLS) Gen1 o Gen2, debe deshabilitar Multi-Factor Authentication (MFA) solo para los usuarios que vayan a necesitar acceder al clúster mediante autenticaciones Kerberos básicas. Puede usar [IP de confianza](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) o [acceso condicional](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) para deshabilitar MFA para usuarios concretos SOLO cuando accedan al intervalo de IP de la red virtual del clúster de HDInsight. Si usa el acceso condicional, asegúrese de que el punto de conexión de servicio de AD está habilitado en la red virtual de HDInsight.
+>
+>Si el almacenamiento de clúster es Azure Blob Storage (WASB), no deshabilite MFA.
+
+
 
 Habilitar Azure AD DS es un requisito previo para poder crear un clúster de HDInsight con ESP. Para obtener más información, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 

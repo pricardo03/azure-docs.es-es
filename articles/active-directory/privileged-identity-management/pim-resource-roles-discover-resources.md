@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e6548c2635afd8e1ac784a1930c2277548647cfd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306696"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192764"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Detección de recursos de Azure que se administran en PIM
 
@@ -52,12 +52,16 @@ La primera vez que se configura PIM para recursos de Azure, hay que detectar y s
 
 1. Agregue una marca de verificación junto a los recursos no administrados que quiera administrar.
 
+1. Haga clic en **Administrar recurso** para empezar a administrar los recursos seleccionados.
+
     > [!NOTE]
     > Una vez definido un grupo de administración o suscripción como administrado, no puede ser no administrado. Esto impide que otro administrador de recursos pueda quitar la configuración de PIM.
 
     ![Detección: administrar recursos](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Haga clic en **Administrar recurso** para empezar a administrar los recursos seleccionados.
+1. Si ve un mensaje para confirmar la incorporación del recurso seleccionado para la administración, haga clic en **Sí**.
+
+    ![Mensaje Detección: administrar recurso](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

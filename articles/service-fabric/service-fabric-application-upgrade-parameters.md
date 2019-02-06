@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 71e7abef725abf95cc20de8d1283d0efea6c3687
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615864"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099199"
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación
 En este artículo se describen los distintos parámetros que se aplican durante la actualización de una aplicación de Azure Service Fabric. Los parámetros de actualización de la aplicación controlan los tiempos de espera y las comprobaciones de estado que se aplican durante la actualización y especifican las directivas que deben aplicarse cuando se produce un error en una actualización. Los parámetros de la aplicación se aplican en las actualizaciones mediante:
@@ -94,7 +94,7 @@ Las actualizaciones de aplicaciones de Service Fabric mediante la CLI de Service
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:" A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
 application-version |La versión del tipo de aplicación al que se dirige la actualización.|
 parameters  |Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación.|
 

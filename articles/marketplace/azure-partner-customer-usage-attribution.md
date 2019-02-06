@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077749"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075591"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -32,11 +32,17 @@ Como asociado de Microsoft, puede asociar el uso de Azure con todos los recursos
 - Plantillas de Azure Resource Manager: las plantillas de Resource Manager o las plantillas de solución para implementar los servicios de Azure para ejecutar el software del asociado. Los asociados pueden crear una plantilla de Resource Manager para definir la infraestructura y configuración de su solución de Azure. Una plantilla de Resource Manager les permite tanto a usted como a sus clientes implementar la solución a lo largo de su ciclo de vida. Puede estar seguro de que los recursos se implementan de forma consistente. 
 - API de Azure Resource Manager: los asociados pueden llamar a las API de Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure. 
 
-Se requiere la atribución de uso del cliente en todas las [plantillas de solución](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicadas en Azure Marketplace. 
+Se requiere la atribución de uso del cliente en todas las [ofertas de aplicación de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publicadas en Azure Marketplace.
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
 
-Muchas soluciones de los asociados se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como un Inicio rápido, el proceso de modificación de la misma para habilitar este nuevo método de seguimiento debería ser sencillo. Para más información, consulte [Creación e implementación de la primera plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+Muchas soluciones de los asociados se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como un Inicio rápido, el proceso de modificación de la misma para habilitar este nuevo método de seguimiento debería ser sencillo.
+
+Para más información sobre la creación y publicación de plantillas de solución, consulte
+
+* [Creación e implementación de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Oferta de aplicación de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Vídeo: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Adición de un identificador único global a una plantilla

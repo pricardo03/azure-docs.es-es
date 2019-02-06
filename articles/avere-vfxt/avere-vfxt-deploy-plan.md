@@ -4,14 +4,14 @@ description: Aquí se explica el plan que se debe realizar antes de implementar 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f0e5523565dc561ed457dbc340835ad1889cb876
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669872"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298932"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -29,11 +29,14 @@ Piense dónde ubicará los elementos de su implementación de Avere vFXT para Az
 
 Siga estas instrucciones cuando planifique la infraestructura de red de su sistema Avere vFXT:
 
-* Todos los elementos se deben administrar con una nueva suscripción creada para la implementación de Avere vFXT. Esta estrategia simplifica el seguimiento del costo y la limpieza, y también le ayuda a dividir las cuotas de recursos. Debido a que Avere vFXT se usa con una gran cantidad de clientes, si aísla los clientes y el clúster en una sola suscripción protegerá otras cargas de trabajo críticas de posibles limitaciones de recursos durante el aprovisionamiento de clientes.
+* Todos los elementos se deben administrar con una nueva suscripción creada para la implementación de Avere vFXT. Dicha integración aporta las siguientes ventajas: 
+  * Seguimiento del costo más sencillo: puede ver y auditar todos los costos de los recursos, la infraestructura y los ciclos de proceso en una única suscripción.
+  * Limpieza más sencilla: puede eliminar la suscripción completa una vez finalizado el proyecto.
+  * Creación de particiones adecuada de las cuotas de recursos: proteja otras cargas de trabajo críticas de posibles limitaciones de recursos al incorporar un número elevado de clientes utilizados para su flujo de trabajo de informática de alto rendimiento mediante el aislamiento del clúster y los clientes de Avere vFXT en una suscripción única.
 
 * Busque sus sistemas de procesamiento de clientes cerca del clúster de vFXT. El almacenamiento de back-end puede ser aún más remoto.  
 
-* Para simplificar, ubique el clúster de vFXT y la máquina virtual del controlador de clúster en la misma red virtual (vnet) y en el mismo grupo de recursos. Recuerde que también deben usar la misma cuenta de almacenamiento. 
+* Para simplificar, ubique el clúster de vFXT y la máquina virtual del controlador de clúster en la misma red virtual (vnet) y en el mismo grupo de recursos. Recuerde que también deben usar la misma cuenta de almacenamiento. (El controlador del clúster crea el clúster y también se puede usar para administrar el clúster de línea de comandos).  
 
 * El clúster debe estar ubicado en su propia subred para evitar conflictos de direcciones IP con los clientes o con los recursos del proceso. 
 
@@ -80,17 +83,47 @@ Asegúrese de que su suscripción tenga la capacidad de ejecutar el clúster de 
 
 ## <a name="back-end-data-storage"></a>Almacenamiento de datos de back-end
 
-Cuando no está en la caché, ¿el conjunto de trabajo se almacenará en un nuevo contenedor de blobs o en una nube o sistema de almacenamiento de hardware ya existente?
+¿Dónde debe almacenar el clúster de Avere vFXT los datos cuando no está en la memoria caché? Decida si el espacio de trabajo se almacenará a largo plazo en un contenedor de blobs nuevo o en una nube o sistema de almacenamiento de hardware ya existentes. 
 
-Si quiere usar Azure Blob Storage para el back-end, debe crear un nuevo contenedor como parte de la creación del clúster de vFXT. Use el script de implementación ``create-cloud-backed-container`` y proporcione la cuenta de almacenamiento para el nuevo contenedor de blobs. Esta opción crea y configura el nuevo contenedor de modo que esté listo para su uso tan pronto como el clúster esté listo. Lea [Creación de nodos y configuración del clúster](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster) para obtener más detalles.
+Si quiere usar Azure Blob Storage para el back-end, debe crear un nuevo contenedor como parte de la creación del clúster de vFXT. Esta opción crea y configura el nuevo contenedor de modo que esté listo para su uso tan pronto como el clúster esté listo. 
+
+Lea [Creación del clúster de Avere vFXT for Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure) para más información.
 
 > [!NOTE]
 > Solo los contenedores de Blob Storage vacíos se pueden usar como archivadores principales del sistema Avere vFXT. vFXT debe poder administrar su almacén de objetos sin necesidad de guardar los datos existentes. 
 >
 > Lea [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md) (Mover datos al clúster de vFXT) para aprender a copiar los datos en el nuevo contenedor del clúster de manera eficaz mediante el uso de máquinas cliente y la caché de Avere vFXT.
 
-Si quiere usar un sistema de almacenamiento local existente, debe agregarlo al clúster de vFXT después de crearlo. El script de implementación ``create-minimal-cluster`` crea un clúster de vFXT sin almacenamiento de back-end. Lea [Configure storage](avere-vfxt-add-storage.md) (Configurar el almacenamiento) para obtener instrucciones detalladas sobre cómo agregar un sistema de almacenamiento existente al clúster de Avere vFXT. 
+Si quiere usar un sistema de almacenamiento local existente, debe agregarlo al clúster de vFXT después de crearlo. Lea [Configure storage](avere-vfxt-add-storage.md) (Configurar el almacenamiento) para obtener instrucciones detalladas sobre cómo agregar un sistema de almacenamiento existente al clúster de Avere vFXT.
 
-## <a name="next-step-understand-the-deployment-process"></a>Siguiente paso: comprender el proceso de implementación
+## <a name="cluster-access"></a>Acceso al clúster 
+
+El clúster de Avere vFXT for Azure se encuentra en una subred privada, y el clúster no tiene ninguna dirección IP pública. Debe tener algún método para acceder a la subred privada para la administración del clúster y las conexiones de clientes. 
+
+Los puntos de acceso incluyen:
+
+* Host de salto: asigne una dirección IP pública a una máquina virtual independiente dentro de la red privada y úsela para crear un túnel SSL hasta los nodos del clúster. 
+
+  > [!TIP]
+  > Si configura una dirección IP pública en el controlador del clúster, puede usarla como host de salto. Lea [Controlador de clústeres como host de salto](#cluster-controller-as-jump-host) para más información.
+
+* Red privada virtual (VPN): configure una VPN de sitio a sitio o de punto a sitio para la red privada.
+
+* Azure ExpressRoute: configure una conexión privada mediante un asociado de ExpressRoute. 
+
+Para más información sobre estas opciones, vea la [documentación de Azure Virtual Network relativa a la comunicación de Internet](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
+
+### <a name="cluster-controller-as-jump-host"></a>Controlador de clústeres como host de salto
+
+Si configura una dirección IP pública en un controlador del clúster, puede usarla como un host de salto para conectarse al clúster de Avere vFXT desde fuera de la subred privada. Sin embargo, dado que el controlador tiene privilegios de acceso para modificar nodos del clúster, plantea un pequeño riesgo de seguridad.  
+
+Para mejorar la seguridad con una dirección IP pública, use un grupo de seguridad de red para permitir el acceso de entrada solo a través del puerto 22.
+
+Al crear el clúster, puede elegir si desea crear o no una dirección IP pública en el controlador del clúster. 
+
+* Si crea una red virtual o una subred, al controlador del clúster se le asignará una dirección IP pública.
+* Si selecciona una red virtual y una subred existentes, el controlador del clúster solo tendrá direcciones IP privadas. 
+
+## <a name="next-step-understand-the-deployment-process"></a>Paso siguiente: comprender el proceso de implementación
 
 La [información general de la implementación](avere-vfxt-deploy-overview.md) le proporciona una visión general de todos los pasos necesarios para crear una instancia Avere vFXT para el sistema Azure y tenerla lista para proporcionar datos.  

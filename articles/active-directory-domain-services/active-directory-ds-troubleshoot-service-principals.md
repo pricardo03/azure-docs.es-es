@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: solución de problemas de configuración de la entidad de servicio | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solución de problemas de configuración de la entidad de servicio | Microsoft Docs'
 description: Solución de problemas de configuración de la entidad de servicio para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,25 +8,25 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035042"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191336"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de entidad de servicio no válida para el dominio administrado
 
 Este artículo le ayuda a solucionar problemas y resolver errores de configuración relacionados con la entidad de servicio que generan el mensaje de alerta siguiente:
 
-## <a name="alert-aadds102-service-principal-not-found"></a>Alerta AADDS102: no se encuentra la entidad de servicio
+## <a name="alert-aadds102-service-principal-not-found"></a>Alerta AADDS102: no se encuentra la entidad de seguridad de servicio
 
 **Mensaje de alerta:** *Una entidad de servicio necesaria para que Azure AD Domain Services funcione correctamente se ha eliminado del directorio de Azure AD. Esta configuración afecta a la capacidad de Microsoft para supervisar, administrar, revisar y sincronizar el dominio administrado.*
 
@@ -50,7 +50,7 @@ Utilice los pasos siguientes para determinar qué entidades de servicio deben vo
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Cómo volver a crear una entidad de servicio con PowerShell
 Siga estos pasos si una entidad de servicio con el identificador ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` no está en el directorio de Azure AD.
 
-**Solución:** necesita Azure AD PowerShell para completar estos pasos. Para información sobre la instalación de Azure AD PowerShell, consulte [este artículo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Resolución:** Para completar estos pasos, necesita Azure AD PowerShell. Para información sobre la instalación de Azure AD PowerShell, consulte [este artículo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Para solucionar este problema, escriba los siguientes comandos en una ventana de PowerShell:
 1. Instale el módulo de PowerShell de Azure AD e impórtelo.
@@ -78,7 +78,7 @@ Para solucionar este problema, escriba los siguientes comandos en una ventana de
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Cómo volver a realizar el registro en el espacio de nombres de Microsoft.AAD mediante Azure Portal
 Siga estos pasos si una entidad de servicio con el identificador ```443155a6-77f3-45e3-882b-22b3a8d431fb``` o ```abba844e-bc0e-44b0-947a-dc74e5d09022``` o ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` no está en el directorio de Azure AD.
 
-**Solución:** siga estos pasos para restaurar Domain Services en el directorio:
+**Resolución:** Siga estos pasos para restaurar Domain Services en el directorio:
 
 1. Vaya a la página [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal.
 2. Seleccione la suscripción de la tabla asociada con el dominio administrado.
@@ -87,12 +87,12 @@ Siga estos pasos si una entidad de servicio con el identificador ```443155a6-77f
 5. Para asegurarse de que la alerta se resuelve, consulte la página de estado del dominio administrado en dos horas.
 
 
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: La aplicación de sincronización de contraseña no está actualizada
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>AADDS105: la aplicación de sincronización de contraseñas no está actualizada
 
 **Mensaje de alerta:** Se eliminó la entidad de servicio con el identificador de aplicación "d87dcbc6-a371-462e-88e3-28ad15ec4e64" y, a continuación, se volvió a crear. La regeneración excluye los permisos incoherentes en los recursos de Azure AD Domain Services necesarios para atender su dominio administrado. La sincronización de contraseñas en el dominio administrado podría verse afectada.
 
 
-**Solución:** necesita Azure AD PowerShell para completar estos pasos. Para información sobre la instalación de Azure AD PowerShell, consulte [este artículo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Resolución:** Para completar estos pasos, necesita Azure AD PowerShell. Para información sobre la instalación de Azure AD PowerShell, consulte [este artículo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Para solucionar este problema, escriba los siguientes comandos en una ventana de PowerShell:
 1. Instale el módulo de PowerShell de Azure AD e impórtelo.

@@ -6,16 +6,16 @@ author: sachinpMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686609"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250571"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Límites de capacidad de SQL Data Warehouse
 Valores máximos permitidos para los distintos componentes de Azure SQL Data Warehouse.
@@ -69,7 +69,7 @@ Valores máximos permitidos para los distintos componentes de Azure SQL Data War
 | SELECT |Columnas por JOIN |1024 columnas<br/><br/>Nunca se pueden tener más de 1024 columnas en la instrucción JOIN. No hay ninguna garantía de que siempre pueda tener 1024. Si el plan JOIN requiere una tabla temporal con más columnas que el resultado de JOIN, se aplica el límite de 1024 a la tabla temporal. |
 | SELECT |Bytes por columnas GROUP BY |8060<br/><br/>Las columnas de la cláusula GROUP BY pueden tener como máximo 8060 bytes. |
 | SELECT |Bytes por columnas ORDER BY |8060 bytes<br/><br/>Las columnas de la cláusula ORDER BY pueden tener como máximo 8060 bytes |
-| Identificadores por instrucción |Número de identificadores de referencia |65 535<br/><br/>SQL Data Warehouse limita el número de identificadores que pueden incluirse en una única expresión de una consulta. Si se supera este número se produce el error de SQL Server 8632. Para obtener más información, consulte [Internal error: An expression services limit has been reached](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a)(Error interno: se ha alcanzado un límite de servicios de una expresión). |
+| Identificadores por instrucción |Número de identificadores de referencia |65 535<br/><br/>SQL Data Warehouse limita el número de identificadores que pueden incluirse en una única expresión de una consulta. Si se supera este número se produce el error de SQL Server 8632. Para obtener más información, consulte el tema [Error interno: se ha alcanzado un límite de servicios de expresión](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Literales de cadena | Número de literales de cadena en una instrucción | 20.000 <br/><br/>SQL Data Warehouse limita el número de constantes de cadena de una única expresión de una consulta. Si se supera este número se produce el error de SQL Server 8632.|
 
 ## <a name="metadata"></a>Metadatos

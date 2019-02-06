@@ -1,6 +1,6 @@
 ---
-título: Creación de puntos de conexión de servicio web titleSuffix: Azure Machine Learning Studio description: Crear punto de conexión de servicio web en Azure Machine Learning. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Creación de puntos de conexión de servicio web titleSuffix: Azure Machine Learning Studio description: Crear punto de conexión de servicio web en Azure Machine Learning. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/10/2016
 ---

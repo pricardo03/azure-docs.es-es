@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450514"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081031"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planee la implementación del acceso condicional a Azure Active Directory
 
@@ -54,9 +54,9 @@ Use la siguiente plantilla de ejemplo para crear directivas de acceso condiciona
 
 |Cuando *esto* ocurra:|Se debe hacer *esto* otro:|
 |-|-|
-|Intento de acceso:<br>- A una aplicación en la nube*<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>- La condición de 2 (por ejemplo, inicio de sesión de riesgo)|Bloquear el acceso a la aplicación|
-|Intento de acceso:<br>- A una aplicación en la nube*<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>- La condición de 2 (por ejemplo, inicio de sesión de riesgo)|Conceder acceso con (AND):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
-|Intento de acceso:<br>- A una aplicación en la nube*<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>- La condición de 2 (por ejemplo, inicio de sesión de riesgo)|Conceder acceso con (OR):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
+|Intento de acceso:<br>- A una aplicación en la nube*<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Bloquear el acceso a la aplicación|
+|Intento de acceso:<br>- A una aplicación en la nube*<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Conceder acceso con (AND):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
+|Intento de acceso:<br>- A una aplicación en la nube*<br>: por parte de usuarios y grupos*<br>Con:<br>- La condición 1 (por ejemplo, desde fuera de la red corporativa)<br>-La condición 2 (por ejemplo, las plataformas de dispositivo)|Conceder acceso con (OR):<br>- Requisito 1 (por ejemplo, autenticación multifactor)<br>- Requisito 2 (por ejemplo, cumplimiento de los dispositivos)|
 
 Como mínimo, **cuando esto ocurra** define la entidad de seguridad (**quién**) que intenta acceder a una aplicación en la nube (**qué**). Si es necesario, también puede incluir el **cómo** se realiza el intento de acceso. En el acceso condicional, los elementos que definen el quién, el qué y el cómo se conocen como condiciones. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](conditions.md) 
 
@@ -76,22 +76,36 @@ Ahora es un buen momento para decidir sobre la pauta de nomenclatura de las dire
 - La aplicación en la nube a la que se refiere
 - La respuesta
 - A quién se aplica
-- Cuándo se aplica 
+- Cuando se aplica (si procede)
  
 ![Pauta de nomenclatura](./media/plan-conditional-access/11.png)
 
-
+Mientras que un nombre descriptivo le ayuda a mantener una visión general de la implementación de acceso condicional, el número de secuencia es útil si tiene que hacer referencia a una directiva en una conversación. Por ejemplo, si habla con un compañero administrador por teléfono, puede pedirle que abra la directiva EM063 para resolver un problema.
 
 
 
 Por ejemplo, el siguiente nombre indica que la directiva requiere autenticación multifactor para los usuarios de marketing de redes externas que usen la aplicación Dynamics CRP:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-Además de las directivas activas, también debe implementar directivas deshabilitadas que actúen como [controles de acceso resistentes para escenarios de interrupción/emergencia](../authentication/concept-resilient-controls.md) secundarios. La pauta de nomenclatura también debe incluir este propósito para facilitar su habilitación durante una interrupción. Por ejemplo: 
+Además de las directivas activas, también se recomienda implementar directivas deshabilitadas que actúen como [controles de acceso resistentes para escenarios de interrupción/emergencia](../authentication/concept-resilient-controls.md) secundarios. La pauta de nomenclatura para las directivas de contingencia debe incluir algunos elementos más: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` al principio para resaltar el nombre entre las otras directivas.
+
+- El nombre de la interrupción a la que se debe aplicar.
+
+- Un número de secuencia de ordenación para ayudar al administrador a saber en qué orden se deben habilitar las directivas. 
+
+
+Por ejemplo, el siguiente nombre indica que esta directiva es la primera de cuatro directivas que debe habilitar en el caso de una interrupción de MFA:
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>Planeación de directivas
@@ -118,12 +132,12 @@ Casos de uso comunes para exigir la autenticación multifactor para el acceso:
 
 - [De los administradores](baseline-protection.md#require-mfa-for-admins)
 - [A aplicaciones específicas](app-based-mfa.md) 
-- [Desde ubicaciones de red en las que no se confía](untrusted-networks.md)
+- [Desde ubicaciones de red en las que no se confía](untrusted-networks.md).
 
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Respuesta ante las cuentas en riesgo
 
-Con las directivas de acceso condicional se pueden implementar respuestas automatizadas al inicio de sesión de identidades en riesgo. La probabilidad de que una cuenta esté en riesgo se expresa mediante niveles. En Identity Protection se calculan dos niveles de riesgo: riesgo de inicio de sesión o de usuario. Para implementar una respuesta ante el riesgo de inicio de sesión, tiene dos opciones:
+Con las directivas de acceso condicional se pueden implementar respuestas automatizadas a inicios de sesión de identidades que pueden suponer un riesgo. La probabilidad de que una cuenta esté en riesgo se expresa mediante niveles. En Identity Protection se calculan dos niveles de riesgo: riesgo de inicio de sesión o de usuario. Para implementar una respuesta ante el riesgo de inicio de sesión, tiene dos opciones:
 
 - La [condición de riesgo de inicio de sesión](conditions.md#sign-in-risk) de la directiva de acceso condicional
 - La [directiva de riesgo de inicio de sesión](../identity-protection/howto-sign-in-risk-policy.md) de identity Protection 
@@ -183,7 +197,7 @@ El plan de pruebas es importante para tener una comparación entre los resultado
 |[Exigir la autenticación multifactor desde fuera de la oficina](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|El usuario autorizado inicia sesión en la *aplicación* desde la oficina / una ubicación de confianza|Al usuario no se le solicita autenticación multifactor| |
 |[Exigir la autenticación multifactor desde fuera de la oficina](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|El usuario autorizado inicia sesión en la *aplicación* desde otro lugar distinto a la oficina / una ubicación de confianza|Al usuario se le solicita autenticación multifactor para iniciar sesión| |
 |[Exigir autenticación multifactor (para administradores)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|El administrador global inicia sesión en la *aplicación*|Al administrador se le solicita autenticación multifactor| |
-|[Riesgo de inicio de sesión](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|El usuario inicia sesión en la *aplicación* mediante el [explorador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Al administrador se le solicita autenticación multifactor| |
+|[Inicios de sesión no seguros](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|El usuario inicia sesión en la *aplicación* mediante el [explorador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Al administrador se le solicita autenticación multifactor| |
 |[Administración de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|El usuario autorizado intenta iniciar sesión desde un dispositivo autorizado|El acceso se le concede| |
 |[Administración de dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|El usuario autorizado intenta iniciar sesión desde un dispositivo no autorizado|El acceso se le bloquea| |
 |[Cambio de contraseña en caso de riesgo del usuario](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|El usuario autorizado intenta iniciar sesión con credenciales en riesgo (inicio de sesión de alto riesgo)|Al usuario se le solicita que cambie la contraseña o se le bloquea el acceso (de conformidad con la directiva)| |
@@ -214,7 +228,7 @@ Ahora que ha configurado la directiva de acceso condicional, probablemente quier
 
 Ejecute casos de prueba según el plan de pruebas. En este paso se ejecuta una prueba de un extremo a otro de cada directiva con los usuarios de prueba para garantizar que la directiva se comporta correctamente. Utilice los escenarios que creó anteriormente para ejecutar cada prueba.
 
-Es importante asegurarse de que se prueban los criterios de exclusión de las directivas. Por ejemplo, puede excluir un usuario o grupo de una directiva que requiera autenticación multifactor. Por lo tanto, debe probar si a los usuarios excluidos se les solicita autenticación multifactor, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
+Es importante asegurarse de que se prueban los criterios de exclusión de las directivas. Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Por lo tanto, debe probar si a los usuarios excluidos se les solicita autenticación multifactor, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
 
 
 ### <a name="cleanup"></a>Limpieza
@@ -232,7 +246,7 @@ El proceso de limpieza consta de los siguientes pasos:
 
 ## <a name="move-to-production"></a>Paso a producción
 
-Cuando esté listo para implementar una directiva nueva en su entorno, debería hacerlo en fases:
+Cuando las nuevas directivas estén listas para su entorno, impleméntelas en fases:
 
 - Comunique los cambios internos a los usuarios finales.
 

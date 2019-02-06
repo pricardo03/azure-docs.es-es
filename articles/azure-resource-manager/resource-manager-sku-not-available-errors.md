@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4688acbb2742579e0f9f3fbb2604ffd8ef12bfd5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468694"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081048"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolución de los errores de no disponibilidad de la SKU
 
@@ -41,10 +41,10 @@ Recibe este error si la SKU del recurso que ha seleccionado (como el tamaño de 
 
 ## <a name="solution-1---powershell"></a>Solución 1: PowerShell
 
-Para determinar qué SKU están disponibles en una región, use el comando [Get AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Filtre los resultados por ubicación. Debe tener la versión más reciente de PowerShell para que funcione este comando.
+Para determinar qué SKU están disponibles en una región, use el comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku). Filtre los resultados por ubicación. Debe tener la versión más reciente de PowerShell para que funcione este comando.
 
 ```azurepowershell-interactive
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
+Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
 Los resultados incluyen una lista de SKU para la ubicación y las restricciones de esas SKU. Tenga en cuenta que una SKU debe aparecer como `NotAvailableForSubscription`.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310256"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151097"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Service Fabric
 
@@ -62,8 +62,8 @@ Una instancia de Reliable Services se representa mediante la clase de servicio d
 Las implementaciones de `ICommunicationListener` para Kestrel y HttpSys en los paquetes NuGet `Microsoft.ServiceFabric.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas de cada servidor web. 
 
 Ambos agentes de escucha de comunicación proporcionan un constructor que acepta los argumentos siguientes:
- - **`ServiceContext serviceContext`**: el objeto `ServiceContext` que contiene información sobre el servicio en ejecución.
- - **`string endpointName`**: el nombre de una configuración `Endpoint` en ServiceManifest.xml. Es en este aspecto en lo que se diferencian principalmente ambos agentes de escucha de comunicación: HttpSys **requiere** una configuración `Endpoint`, pero Kestrel no.
+ - **`ServiceContext serviceContext`**: el objeto `ServiceContext` que contiene información acerca del servicio en ejecución.
+ - **`string endpointName`**: el nombre de una configuración `Endpoint` en ServiceManifest.xml. Aquí es donde más se diferencian los dos agentes de escucha de comunicaciones: HttpSys **requiere** una configuración de `Endpoint`, pero Kestrel no.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: expresión lambda que se implementa para crear y devolver `IWebHost`. Esto permite configurar `IWebHost` tal como lo haría normalmente en una aplicación de ASP.NET Core. La lambda proporciona una dirección URL que se genera automáticamente en función de las opciones de integración de Service Fabric que use y la configuración `Endpoint` que proporcione. Esa dirección URL se puede modificar o utilizar tal cual para iniciar el servidor web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integración de Service Fabric

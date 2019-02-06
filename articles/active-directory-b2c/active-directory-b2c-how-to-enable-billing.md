@@ -1,5 +1,5 @@
 ---
-title: Vinculación de una suscripción de Azure a Azure Active Directory B2C | Microsoft Docs
+title: 'Vinculación de una suscripción de Azure: Azure Active Directory B2C | Microsoft Docs'
 description: Guía paso a paso para habilitar la facturación de un inquilino de Azure AD B2C en una suscripción de Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853194"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196181"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure AD B2C
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vinculación de una suscripción de Azure a un inquilino de Azure Active Directory B2C
 
 > [!IMPORTANT]
-> La información más reciente sobre la facturación del uso y los precios de Azure AD B2C se encuentran en la siguiente página: [Pecios de B2C de Azure AD](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Para obtener la información más reciente acerca de la facturación del uso y los precios de Azure Active Directory (Azure AD) B2C, consulte [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Los cargos por el uso de Azure AD B2C se facturan a una suscripción de Azure. Cuando se crea un inquilino de Azure AD B2C, es preciso que el administrador de inquilinos vincule explícitamente dicho inquilino a una suscripción de Azure. Este artículo le muestra cómo.
 
 > [!NOTE]
 > Se puede usar una suscripción vinculada a un inquilino de Azure AD B2C para la facturación del uso de Azure AD B2C u otros recursos de Azure, incluidos recursos adicionales de Azure AD B2C.  La suscripción no se puede usar para agregar otros servicios basados en licencias de Azure o licencias de Office 365 en el inquilino de Azure AD B2C.
 
- El vínculo de la suscripción se consigue mediante la creación de un "recurso" de Azure AD B2C en la suscripción de Azure de destino. Muchos "recursos" de Azure AD B2C se pueden crear en una sola suscripción de Azure, junto con otros recursos de Azure (por ejemplo, máquinas virtuales, almacenamiento de datos y LogicApps). Para ver todos los recursos de la suscripción, vaya al inquilino de Azure AD al que está asociado la suscripción.
+El vínculo de la suscripción se consigue mediante la creación de un "recurso" de Azure AD B2C en la suscripción de Azure de destino. Muchos "recursos" de Azure AD B2C se pueden crear en una sola suscripción de Azure, junto con otros recursos de Azure (por ejemplo, máquinas virtuales, almacenamiento de datos y LogicApps). Para ver todos los recursos de la suscripción, vaya al inquilino de Azure AD al que está asociado la suscripción.
+
+Las suscripciones a Azure Cloud Solution Providers (CSP) son compatibles con Azure AD B2C. La funcionalidad está disponible mediante API o Azure Portal para Azure AD B2C y para todos los recursos de Azure. Los administradores de suscripción de CSP pueden vincular, mover y eliminar relaciones con Azure AD B2C de la misma manera que se hace con todos los recursos de Azure. La administración de Azure AD B2C mediante el control de acceso basado en rol no se ve afectada por la asociación entre el inquilino de Azure AD B2C y una suscripción a Azure CSP. El control de acceso basado en rol se logra mediante el uso de roles basados en inquilinos, no roles basados en suscripciones.
 
 Para continuar, se necesita una suscripción de Azure válida.
 
@@ -81,10 +83,6 @@ Este recurso se puede utilizar para:
 ![Configuración de recursos de B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Problemas conocidos
-
-### <a name="csp-subscriptions"></a>Suscripciones de CSP
-
-Actualmente, un inquilino de Azure AD B2C **no se puede** vincular a las suscripciones de CSP.
 
 ### <a name="self-imposed-restrictions"></a>Restricciones autoimpuestas
 

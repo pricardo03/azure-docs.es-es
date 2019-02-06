@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228001"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076441"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Administración de fórmulas de Azure DevTest Labs
 
@@ -44,39 +44,35 @@ Los siguientes pasos le guiarán por el proceso de creación de una fórmula a p
 
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
 
-4. En la hoja del laboratorio, seleccione **Fórmulas (bases reutilizables)**.
+4. En la página del laboratorio, seleccione **Fórmulas (bases reutilizables)**.
    
     ![Menú Fórmula](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. En la hoja **Fórmulas**, seleccione **+ Agregar**.
+5. En la página **Fórmulas**, seleccione **+ Agregar**.
    
     ![Agregar una fórmula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. En la hoja **Elegir una base** , seleccione la base (imagen personalizada, imagen de Marketplace o fórmula) a partir de la cual quiere crear la fórmula.
+6. En la hoja **Choose a base** (Elegir una base), seleccione la base (imagen personalizada, imagen de Marketplace o fórmula) a partir de la cual quiere crear la fórmula.
    
     ![Lista base](./media/devtest-lab-create-formulas/base-list.png)
 
-7. En la hoja **Crear fórmula** , especifique los valores siguientes:
+7. En la pestaña **Configuración básica** de la página **Crear fórmula**, especifique los valores siguientes:
    
     * **Nombre de fórmula** : escriba un nombre para la fórmula. Este valor se mostrará en la lista de imágenes base al crear la máquina virtual. El nombre se valida a medida que lo escribe y, si no es válido, un mensaje le indicará los requisitos para un nombre válido.
-    * **Descripción** : escriba una descripción significativa para la fórmula. Este valor está disponible desde el menú contextual de la fórmula al crear una máquina virtual.
     * **Nombre de usuario**: escriba un nombre de usuario al que se concederán privilegios de administrador.
     * **Contraseña** : escriba, o seleccione en la lista desplegable, un valor que esté asociado con el secreto (contraseña) que desee usar para el usuario especificado. Para información sobre cómo guardar secretos en un almacén de claves y utilizarlos al crear recursos de laboratorio, consulte [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md) (Almacenamiento de secretos en un almacén de claves de Azure).
-    * **Virtual machine disk type** (Tipo de disco de máquina virtual): especifique cualquier HDD (unidad de disco duro) o SSD (unidad de estado sólido) para indicar qué tipo de disco de almacenamiento se permite para las máquinas virtuales que se aprovisionan con esta imagen base.
-    * ** Tamaño de la máquina virtual**: seleccione uno de los elementos predefinidos que especifican los núcleos del procesador, el tamaño de RAM y el tamaño de la unidad de disco duro de la máquina virtual que se va a crear. 
-    * **Artefactos**: seleccione esta opción para abrir la hoja **Agregar artefactos**, donde podrá seleccionar y configurar los artefactos que quiere agregar a la imagen base. Para más información acerca de los artefactos, consulte [Creación de artefactos personalizados para la máquina virtual de Azure DevTest Labs](devtest-lab-artifact-author.md).
-    * **Configuración avanzada**: seleccione esta opción para abrir la hoja **Avanzado**, donde podrá configurar las siguientes opciones:
-        * **Red virtual** : especifique la red virtual que desee.
-        * **Subred** : especifique la subred deseada.    
-        * **Configuración de dirección IP**: especifique si desea direcciones IP públicas, privadas o compartidas. Para obtener más información sobre las direcciones IP compartidas, consulte [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Direcciones IP compartidas en Azure DevTest Labs).
-        * **Make this machine claimable** (Poder reclamar esta máquina): poder reclamar una máquina significa que no se podrá asignar la propiedad durante su creación. En su lugar, los usuarios del laboratorio podrán asumir su propiedad ("reclamar") de la máquina en la hoja del laboratorio.     
-    * **Imagen** : este campo muestra el nombre de la imagen base que seleccionó en la hoja anterior. 
-     
-       ![Crear fórmula](./media/devtest-lab-create-formulas/create-formula.png)
+    * **Tamaño de máquina virtual**: seleccione **Cambiar tamaño** para cambiar el tamaño de la máquina virtual. 
+    * **Artefactos**: seleccione la página **Add or Remove Artifacts** (Agregar o quitar artefactos), en la que podrá seleccionar y configurar los artefactos que quiere agregar a la imagen base. Para más información acerca de los artefactos, consulte [Creación de artefactos personalizados para la máquina virtual de Azure DevTest Labs](devtest-lab-artifact-author.md).
+8. Cambie a la pestaña **Configuración avanzada** y especifique los siguientes valores:
+    - **Red virtual**: para cambiar la red virtual en la que se encuentra la máquina virtual, seleccione **Cambiar la red virtual**. 
+    - **Subred**: para cambiar la subred, seleccione **Cambiar la subred**. 
+    - **Configuración de dirección IP**: especifique si desea direcciones IP públicas, privadas o compartidas. Para obtener más información sobre las direcciones IP compartidas, consulte [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Direcciones IP compartidas en Azure DevTest Labs).
+    - **Expiration date and time** (Fecha y hora de expiración): especifique la fecha y la hora de expiración de la máquina virtual para que esta se elimine automáticamente. 
+    - **Make this machine claimable** (Poder reclamar esta máquina): poder reclamar una máquina significa que no se podrá asignar la propiedad durante su creación. En su lugar, los usuarios del laboratorio podrán asumir propiedad ("reclamar") de la máquina en la hoja del laboratorio.     
+    - **Number of claimable instances** (Número de instancias que se pueden reclamar): especifique cuántas instancias reclamables desea crear. 
+8. Seleccione **Enviar** para crear la fórmula.
 
-8. Seleccione **Crear** para crear la fórmula.
-
-9. Cuando se ha creado la fórmula, se muestra en la lista de la hoja **Fórmulas**.
+9. Cuando se ha creado la fórmula, se muestra en la lista de la página **Fórmulas**.
 
 ### <a name="create-a-formula-from-a-vm"></a>Creación de una fórmula desde una máquina virtual
 Los siguientes pasos le guiarán a través del proceso de creación de una fórmula basada en una máquina virtual existente. 
@@ -89,15 +85,15 @@ Los siguientes pasos le guiarán a través del proceso de creación de una fórm
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
-4. En la hoja **Información general** del laboratorio, seleccione la máquina virtual desde la que desee crear la fórmula.
+4. En la página **Información general** del laboratorio, seleccione la máquina virtual desde la que desee crear la fórmula.
    
     ![Máquinas virtuales de laboratorios](./media/devtest-lab-create-formulas/my-vms.png)
-5. En la hoja de la máquina virtual, seleccione **Crear fórmula (base reutilizable)**.
+5. En la página de la máquina virtual, seleccione **Crear fórmula (base reutilizable)**.
    
     ![Crear fórmula](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. En la hoja **Crear fórmula**, escriba un **Nombre** y una **Descripción** para la nueva fórmula.
+6. En la página **Crear fórmula**, escriba un **Nombre** y una **Descripción** para la nueva fórmula.
    
-    ![Hoja Crear fórmula](./media/devtest-lab-create-formulas/create-formula-blade.png)
+    ![Página Crear fórmula](./media/devtest-lab-create-formulas/create-formula-blade.png)
 7. Seleccione **Aceptar** para crear la fórmula.
 
 ## <a name="modify-a-formula"></a>Modificación de una fórmula
@@ -106,11 +102,11 @@ Para modificar una fórmula, siga estos pasos:
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
-4. En la hoja del laboratorio, seleccione **Fórmulas (bases reutilizables)**.
+4. En la página del laboratorio, seleccione **Fórmulas (bases reutilizables)**.
    
     ![Menú Fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. En la hoja **Lab formulas** (Fórmulas de laboratorio), seleccione la fórmula que quiere modificar.
-6. En la hoja **Update formula** (Actualizar fórmula), realice las modificaciones deseadas y seleccione **Actualizar**.
+6. En la página **Actualizar fórmula**, realice las modificaciones deseadas y seleccione **Actualizar**.
 
 ## <a name="delete-a-formula"></a>Eliminación de una fórmula
 Para eliminar una fórmula, siga estos pasos:
@@ -118,10 +114,10 @@ Para eliminar una fórmula, siga estos pasos:
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 3. En la lista de laboratorios, seleccione el laboratorio que desee.  
-4. En la hoja **Configuración** del laboratorio, seleccione **Fórmulas**.
+4. En la página **Configuración** del laboratorio, seleccione **Fórmulas**.
    
     ![Menú Fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. En la hoja **Lab formulas** (Fórmulas de laboratorio), seleccione los puntos suspensivos a la derecha de la fórmula que desea eliminar.
+5. En la página **Lab formulas** (Fórmulas de laboratorio), seleccione los puntos suspensivos a la derecha de la fórmula que desea eliminar.
    
     ![Menú Fórmula](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. En el menú contextual de la fórmula, seleccione **Eliminar**.

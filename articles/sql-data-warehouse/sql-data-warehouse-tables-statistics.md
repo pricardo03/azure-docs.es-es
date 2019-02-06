@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307469"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299561"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Creación y actualización de estadísticas en tablas de Azure SQL Data Warehouse
 Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas de Azure SQL Data Warehouse.
@@ -50,7 +50,7 @@ La creación automática de estadísticas se genera de manera sincrónica, lo qu
 > La creación de estadísticas también se registrará en [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) en un contexto de usuario diferente.
 > 
 
-Cuando se crean las estadísticas automáticas, adoptarán el formato: _WA_Sys_< identificador de columna de 8 dígitos en hexadecimal>_< identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017):
+Cuando se crean las estadísticas automáticas, estas adoptarán la forma de: _WA_Sys_<identificador de columna de 8 dígitos en hexadecimal>_<identificador de tabla de 8 dígitos en hexadecimal>. Para ver las estadísticas que ya se han creado, ejecute el comando [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017):
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
@@ -67,7 +67,7 @@ Las siguientes son recomendaciones para actualizar las estadísticas:
 
 |||
 |-|-|
-| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: a diario <br></br> Después de cargar o transformar los datos |
+| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diario <br></br> Después de cargar o transformar los datos |
 | **Muestreo** |  Con menos de mil millones de filas, utilice el muestreo predeterminado (20 por ciento) <br></br> Con más de mil millones de filas, un intervalo de estadísticas de un dos por ciento es apropiado |
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
@@ -125,7 +125,7 @@ Los siguientes principios fundamentales se proporcionan para actualizar las esta
 
 Para obtener más información, consulte [Estimación de cardinalidad](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## <a name="examples-create-statistics"></a>Ejemplos: crear estadísticas
+## <a name="examples-create-statistics"></a>Ejemplos: Creación de estadísticas
 Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadísticas. Las opciones que utiliza para cada columna dependen de las características de los datos y cómo se utilizará la columna en las consultas.
 
 ### <a name="create-single-column-statistics-with-default-options"></a>Crear estadísticas de columna única con las opciones predeterminadas
@@ -337,7 +337,7 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 Para crear de estadísticas muestreadas de todas las columnas 
 
-## <a name="examples-update-statistics"></a>Ejemplos: actualizar estadísticas
+## <a name="examples-update-statistics"></a>Ejemplos: Actualizar estadísticas
 Para actualizar estadísticas, puede:
 
 - Actualizar un objeto de estadísticas. Especificar el nombre del objeto de estadísticas que desea actualizar.
@@ -416,7 +416,7 @@ SELECT
         sm.[name]                           AS [schema_name]
 ,       tb.[name]                           AS [table_name]
 ,       st.[name]                           AS [stats_name]
-,       st.[filter_definition]              AS [stats_filter_defiinition]
+,       st.[filter_definition]              AS [stats_filter_definition]
 ,       st.[has_filter]                     AS [stats_is_filtered]
 ,       STATS_DATE(st.[object_id],st.[stats_id])
                                             AS [stats_last_updated_date]

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8c4922c817d9667b1a25846df53f9366e2018342
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054325"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutorial: Integración de Azure Active Directory con Arc Publishing - SSO
 
@@ -202,7 +202,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Arc Publishing - SSO. Arc Publishing - SSO admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Arc Publishing - SSO, se crea un usuario, en caso de que no exista.
 
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Arc Publishing - SSO](mailto:inf@washpost.com).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Arc Publishing - SSO](mailto:inf@washpost.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -239,7 +239,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Arc Publishing - SSO del panel de acceso, debería iniciar sesión automáticamente en su aplicación Arc Publishing - SSO.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

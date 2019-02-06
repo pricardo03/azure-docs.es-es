@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413403"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239929"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -204,7 +204,7 @@ Los clientes también puede usar un [modelo administrativo de seguridad mejorada
 
 **Separación de intereses**: esta arquitectura de referencia separa las redes virtuales para las operaciones empresariales y de administración. Las redes virtuales y subredes independientes admiten la administración del tráfico, incluidas las restricciones de entrada y salida del tráfico, mediante NSG entre segmentos de red de acuerdo con los procedimientos recomendados de [Servicios en la nube de Microsoft y seguridad de red](https://docs.microsoft.com/azure/best-practices-network-security).
 
-**Administración de recursos**: los recursos de Azure (como las máquinas virtuales, las redes virtuales y los equilibradores de carga) se administran agrupándolos en [grupos de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Después, pueden asignarse roles de control de acceso basado en recursos a cada grupo de recursos para restringir el acceso solo a usuarios autorizados.
+**Administración de recursos**: los recursos de Azure (como las máquinas virtuales, las redes virtuales y los equilibradores de carga) se administran agrupándolos en [grupos de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Después, pueden asignarse roles de control de acceso basado en recursos a cada grupo de recursos para restringir el acceso solo a usuarios autorizados.
 
 **Restricciones de control de acceso**: use el [control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) para administrar los recursos de la aplicación mediante [roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). RBAC puede usarse para restringir las operaciones que DevOps puede realizar en cada nivel. Al conceder permisos, use el [principio de los privilegios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre todas las operaciones administrativas y realice auditorías periódicas para asegurarse de que los cambios de configuración se habían planeado.
 

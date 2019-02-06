@@ -4,17 +4,17 @@ description: Este artículo le guiará a través de la creación y administraci�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847057"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101794"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
@@ -201,17 +201,34 @@ Use el procedimiento siguiente para crear una definición de directiva:
   }
   ```
 
+   Para más información acerca de la creación de una definición de directiva, consulte [Estructura de definición de Azure Policy](../concepts/definition-structure.md).
+
 1. Para crear una definición de directiva, ejecute el siguiente comando:
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   El comando crea una definición de directiva denominada _Audit Storage Accounts Open to Public Networks_ (Auditoría de cuentas de almacenamiento abiertas a las redes públicas).
+   Para más información acerca de otros parámetros que puede utilizar, consulte [creación de la definición de directivas az](/cli/azure/policy/definition#az-policy-definition-create).
+
+   Cuando se llama sin parámetros de ubicación, `az policy definition creation` elige de forma predeterminada guardar la definición de directiva en la suscripción seleccionada del contexto de sesiones. Para guardar la definición en una ubicación diferente, use los siguientes parámetros:
+
+   - **--subscription**: se guarda en una suscripción diferente. Requiere un valor de _GUID_ como identificador de suscripción o un valor de _cadena_ como nombre.
+   - **--management-group**: se guarda en un grupo de administración. Requiere un valor de _cadena_.
+
 1. Use el siguiente comando para crear una asignación de directiva. Reemplace la información de ejemplo de los símbolos &lt;&gt; por sus propios valores.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   El parámetro **--scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **Scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
+
+   - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupo de recursos `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Suscripción `/subscriptions/{subID}`
+   - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Puede obtener el identificador de definición de directiva si usa PowerShell con el comando siguiente:
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338715"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211804"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API en Objective-C en iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Inicio rápido: Uso de Bing Speech Recognition API en Objective-C en iOS
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -132,7 +132,7 @@ También debe especificar `SpeechRecognitionMode` cuando cree el cliente con `Sp
 
 Puede conectar varios controladores de eventos al cliente que creó:
 
-* **Eventos de resultados parciales**: se llama a este evento cada vez que el servicio Voz predice lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
+* **Eventos de resultados parciales**: este evento se llamará cada vez que el servicio de voz prediga lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
 * **Eventos de error**: se llaman cuando el servicio detecta un error.
 * **Eventos de intención**: se llaman en los clientes "WithIntent" (solo en el modo ShortPhrase) después de analizar el resultado final del reconocimiento en una intención JSON estructurada.
 * **Eventos de resultados**:

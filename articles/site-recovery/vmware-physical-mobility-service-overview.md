@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956523"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215017"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -64,7 +64,7 @@ Si las máquinas que desea replicar tiene software antivirus activo en ejecució
 
 5. El trabajo de actualización de Mobility Service se inicia para cada una de las máquinas seleccionadas.
 
-## <a name="update-the-acount-used-for-push-installation-of-the-mobility-service"></a>Actualización de la cuenta para la instalación de inserción de Mobility Service
+## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>Actualización de la cuenta usada para la instalación de inserción de Mobility Service
 
 Al implementar Site Recovery, para habilitar la instalación de inserción de Mobility Service, especificó una cuenta que el servidor de procesos de Site Recovery utiliza para acceder a las máquinas e instalar el servicio cuando la replicación se habilita para la máquina. Si desea actualizar las credenciales para esta cuenta, siga [estas instrucciones](vmware-azure-manage-configuration-server.md).
 

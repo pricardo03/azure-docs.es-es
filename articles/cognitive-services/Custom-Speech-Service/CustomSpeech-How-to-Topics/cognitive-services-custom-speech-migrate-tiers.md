@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340467"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214575"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migración de implementaciones al nuevo modelo de precios
 
@@ -37,12 +37,12 @@ En la tabla siguiente se muestra la asignación de los planes antiguos para unid
 
 Para migrar al nuevo plan, haga lo siguiente:
 
-## <a name="step-1-check-your-existing-deployment"></a>Paso 1: Comprobar la implementación existente
+## <a name="step-1-check-your-existing-deployment"></a>Paso 1: Comprobación de la implementación existente
 Vaya al [portal de Custom Speech Service](http://cris.ai) y compruebe las implementaciones existentes. En el ejemplo, hay dos implementaciones. Una implementación se ejecuta en un plan S0, y la otra implementación se ejecuta en un plan S1. Las implementaciones se muestran en la columna **Opciones de implementación** de la tabla siguiente:
 
 ![Página Implementaciones](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
 
-## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Paso 2: Seleccionar el nuevo plan de tarifa en Azure Portal
+## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>Paso 2: Selección del nuevo plan de tarifa en Azure Portal
 1. Abra una nueva pestaña del explorador e inicie sesión en [Azure Portal](http://ms.portal.azure.com/). 
 
 2. En el panel **Cognitive Services**, en la lista **Suscripciones**, seleccione la suscripción a Custom Speech. 
@@ -57,7 +57,7 @@ Vaya al [portal de Custom Speech Service](http://cris.ai) y compruebe las implem
 
     ![Página Elegir plan de tarifa](../../../media/cognitive-services/custom-speech-service/custom-speech-update-pricing.png)
 
-## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Paso 3: Comprobar el estado de migración en el portal de Custom Speech Service
+## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>Paso 3: Comprobación del estado de migración en el portal de Custom Speech Service
 Vuelva al portal de Custom Speech Service y compruebe las implementaciones. (Si la ventana del explorador todavía está abierta, actualícela). 
 
 El estado de la implementación relacionada debe haber cambiado a *Procesando*. Para validar la migración, también puede comprobar la columna **Opciones de implementación**. Allí ahora puede encontrar información sobre las unidades de escalado y el registro. Las unidades de escalado deben reflejar el plan de tarifa anterior. El registro también debe estar activado, como se muestra en la tabla:

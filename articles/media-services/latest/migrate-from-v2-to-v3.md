@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 12/18/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ec40de04f46d0be8f40c2223346f17d288eb580c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808738"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104072"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -35,7 +35,7 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 
 ### <a name="api-is-more-approachable"></a>La API es más cercana
 
-*  v3 se basa en una superficie de API unificada que expone la funcionalidad de administración y operaciones creada en Azure Resource Manager. Las plantillas de Azure Resource Manager se pueden usar para crear e implementar transformaciones, puntos de conexión de streaming, LiveEvents, etc.
+*  v3 se basa en una superficie de API unificada que expone la funcionalidad de administración y operaciones creada en Azure Resource Manager. Las plantillas de Azure Resource Manager se pueden usar para crear e implementar transformaciones, puntos de conexión de streaming, Eventos en directo, etc.
 * Documento de la [especificación Open API (también conocida como Swagger)](https://aka.ms/ams-v3-rest-sdk).
     Expone el esquema para todos los componentes de servicio, incluida la codificación basada en archivos.
 * Diferentes SDK disponibles para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) y Ruby.
@@ -45,14 +45,14 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 
 * Para el procesamiento de trabajos basados en archivos, puede usar una dirección URL de HTTP(S) como entrada.<br/>No es necesario tener contenido ya almacenado en Azure, ni es necesario crear recursos.
 * Presenta el concepto de [transformaciones](transforms-jobs-concept.md) para el procesamiento de trabajos basados en archivos. Una transformación puede utilizarse para crear configuraciones reutilizables, crear plantillas de Azure Resource Manager y aislar los valores de procesamiento entre varios clientes o inquilinos.
-* Un recurso puede tener [varios objetos StreamingLocator](streaming-locators-concept.md) con diferentes configuraciones de empaquetado dinámico y cifrado dinámico.
+* Un recurso puede tener varios [Localizadores de streaming](streaming-locators-concept.md) con diferentes configuraciones de empaquetado dinámico y cifrado dinámico.
 * La [protección de contenido](content-key-policy-concept.md) es compatible con características de varias claves.
 * Puede transmitir eventos en directo que tengan hasta 24 horas de duración al usar Media Services para transcodificar una fuente de contribución de velocidad de bits única en un flujo de salida que tiene varias velocidades de bits.
-* Nueva compatibilidad de streaming en vivo de baja latencia en LiveEvents. Para más información, consulte [latencia](live-event-latency.md).
-* LiveEvent.Preview admite empaquetado dinámico y cifrado dinámico. Esto habilita la protección de contenido en la vista previa, así como el empaquetado DASH y HLS.
-* LiveOuput es más fácil de usar que la entidad Program de las API v2. 
+* Nueva compatibilidad de streaming en vivo de baja latencia en Eventos en directo. Para más información, consulte [latencia](live-event-latency.md).
+* La versión preliminar de Evento en directo admite empaquetado dinámico y cifrado dinámico. Esto habilita la protección de contenido en la vista previa, así como el empaquetado DASH y HLS.
+* Salida en directo es más fácil de usar que la entidad Program de las API v2. 
 * Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
-* Ingesta segura de RTMPS.<br/>Cuando se crea un objeto LiveEvent, obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
+* Ingesta segura de RTMPS.<br/>Cuando se crea un evento en directo, el usuario recibe cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
 * Tiene control de acceso basado en roles (RBAC) en las entidades. 
 
 ## <a name="changes-from-v2"></a>Cambios desde la versión v2
@@ -64,14 +64,14 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 * En las API v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto es diferente a los valores preestablecidos de Media Encoder Standard v2. Por ejemplo, la velocidad de bits en v2 se especificaría como 128 (kbps), mientras que en v3 sería 128000 (bits/segundo). 
 * Las entidades AssetFiles, AccessPolicies y IngestManifests no existen en v3.
 * La propiedad IAsset.ParentAssets no existe en v3.
-* ContentKeys ya no es una entidad; ahora es una propiedad del objeto StreamingLocator.
+* ContentKeys ya no es una entidad; ahora es una propiedad de Streaming Locator.
 * La compatibilidad con Event Grid reemplaza los NotificationEndpoints.
 * Se cambió el nombre de las siguientes entidades.
-    * JobOutput reemplaza la tarea y ahora forma parte de un trabajo.
-    * StreamingLocator reemplaza a Locator.
-    * LiveEvent reemplaza a Channel.<br/>La facturación de LiveEvents se basa en los medidores de canal en vivo. Para más información, vea la [información general de streaming en vivo](live-streaming-overview.md#billing) y los [precios](https://azure.microsoft.com/pricing/details/media-services/).
-    * LiveOutput reemplaza a Program.
-* LiveOutputs no necesita iniciarse de forma explícita; inicia con la creación y detención cuando se elimina. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
+    * Salida de trabajo reemplaza a Tarea y ahora forma parte de un trabajo.
+    * Localizador de streaming reemplaza a Localizador.
+    * Evento en directo reemplaza a Canal.<br/>La facturación de Eventos en directo se basa en los medidores de Canal en vivo. Para más información, consulte la [facturación](live-event-states-billing.md) y los [precios](https://azure.microsoft.com/pricing/details/media-services/).
+    * Salida en vivo reemplaza a Programa.
+* Salidas en vivo no necesita iniciarse de forma explícita; se inicia con la creación y detención cuando se elimina. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Carencias de características con respecto a las API v2
 
@@ -84,7 +84,7 @@ La API v3 tiene las siguientes carencias de características con respecto a la A
     * Superposiciones
     * Recorte
     * Sprites de miniaturas
-* Los objetos LiveEvents con transcodificación actualmente no admiten la inserción de careta durante la transmisión y la inserción de anuncios mediante la llamada API. 
+* Los Eventos en directo con transcodificación actualmente no admiten la inserción de careta durante la transmisión y la inserción de anuncios mediante la llamada API. 
 
 > [!NOTE]
 > Marque este artículo y siga buscando actualizaciones.
@@ -97,7 +97,7 @@ En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para 
 |---|---|---|
 |Crear un recurso y cargar un archivo |[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Enviar un trabajo|[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Se explica cómo crear una transformación y después enviar un trabajo.|
-|Publicar un recurso con cifrado AES |1. Crear ContentKeyAuthorizationPolicyOption<br/>2. Crear ContentKeyAuthorizationPolicy<br/>3. Crear AssetDeliveryPolicy<br/>4. Crear Asset y cargar contenido o enviar trabajo y usar el recurso de salida<br/>5. Asociar AssetDeliveryPolicy con Asset<br/>6. Crear ContentKey<br/>7. Adjuntar ContentKey a Asset<br/>8. Crear AccessPolicy<br/>9. Crear Locator<br/><br/>[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Crear ContentKeyPolicy<br/>2. Crear Asset<br/>3. Cargar contenido o usar Asset como JobOutput<br/>4. Creación de StreamingLocator<br/><br/>[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Publicar un recurso con cifrado AES |1. Crear ContentKeyAuthorizationPolicyOption<br/>2. Crear ContentKeyAuthorizationPolicy<br/>3. Crear AssetDeliveryPolicy<br/>4. Crear Asset y cargar contenido o enviar trabajo y usar el recurso de salida<br/>5. Asociar AssetDeliveryPolicy con Asset<br/>6. Crear ContentKey<br/>7. Adjuntar ContentKey a Asset<br/>8. Crear AccessPolicy<br/>9. Crear Locator<br/><br/>[Ejemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Crear ContentKeyPolicy<br/>2. Crear Asset<br/>3. Cargar contenido o usar Asset como JobOutput<br/>4. Creación de un localizador de streaming<br/><br/>[Ejemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -106,7 +106,7 @@ En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para 
 * Las entidades de Media Services creadas con la API v3 no se pueden administrar con la API v2.  
 * No se recomienda administrar las entidades que se crearon con las API v2 mediante las API v3. Estos son algunos ejemplos de las diferencias que hacen que las entidades de las dos versiones sean incompatibles:   
     * Los trabajos y las tareas creados en v2 no se muestran en v3, ya que no están asociados con una transformación. La recomendación es cambiar a transformaciones y trabajos de v3. Habrá un período de tiempo relativamente corto con la necesidad de supervisar los trabajos de v2 en proceso durante el cambio.
-    * Los canales y programas creados con v2 (que se asignan a LiveEvents y LiveOutputs en v3) no se pueden continuar administrando con v3. La recomendación es cambiar a LiveEvents y LiveOutputs en v3 con una detención de canal cómoda.<br/>Actualmente, no puede migrar continuamente los canales en ejecución.  
+    * Los canales y programas creados con v2 (que se asignan a Eventos en directo y Salidas en vivo en v3) no se pueden continuar administrando con v3. La recomendación es cambiar a Eventos en directo y Salidas en vivo en v3 con una detención de canal cómoda.<br/>Actualmente, no puede migrar continuamente los canales en ejecución.  
 
 > [!NOTE]
 > Se hará el mantenimiento de esta página, ya que el equipo de Media Services realiza mejoras continuas de las API v3 y aborda las deficiencias entre las versiones.

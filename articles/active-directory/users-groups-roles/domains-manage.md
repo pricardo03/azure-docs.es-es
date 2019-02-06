@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/29/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 12c8b80b76c721962ca6180e531578b037997553
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854922"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294172"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
@@ -86,13 +86,13 @@ Se devuelve el error cuando:
 
 ### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**P: ¿Por qué la eliminación del dominio produce un error que indica que tengo grupos controlados de Exchange que controlan este nombre de dominio?** <br>
-**R:** Hoy en día, Exchange aprovisiona ciertos grupos, como los grupos de seguridad habilitados para correo y las listas distribuidas, que se deben limpiar manualmente en el [Centro de administración de Exchange (EAC)](https://outlook.office365.com/ecp/). Es posible que haya direcciones de proxy que confíen en el nombre de dominio personalizado y deberán actualizarse manualmente a otro nombre de dominio. 
+**P: ¿Por qué la eliminación del dominio produce un error que indica que tengo grupos controlados de Exchange en este nombre de dominio?** <br>
+**R:** Actualmente, Exchange aprovisiona ciertos grupos, como los grupos de seguridad habilitados para correo y las listas distribuidas, que se deben limpiar manualmente en el [Centro de administración de Exchange (EAC)](https://outlook.office365.com/ecp/). Es posible que haya direcciones de proxy que confíen en el nombre de dominio personalizado y deberán actualizarse manualmente a otro nombre de dominio. 
 
 **P: Tengo la sesión iniciada como admin@contoso.com, pero no puedo eliminar el nombre de dominio "contoso.com".**<br>
 **R:** No puede hacer referencia al nombre de dominio personalizado que intenta eliminar en su nombre de cuenta de usuario. Asegúrese de que la cuenta de administrador global use el nombre de dominio predeterminado inicial (. onmicrosoft.com), como admin@contoso.onmicrosoft.com. Inicie sesión con otra cuenta de administrador global, como admin@contoso.onmicrosoft.com, u otro nombre de dominio personalizado, como "fabrikam.com" donde la cuenta es admin@fabrikam.com.
 
-**P: He hecho clic en el botón Eliminar dominio y veo el estado `In Progress` de la operación Delete. ¿Cuánto tiempo tarda? ¿Qué pasa si se produce un error?**<br>
+**P: He hecho clic en el botón Eliminar dominio y veo el estado `In Progress` de la operación de eliminación. ¿Cuánto tiempo tarda? ¿Qué pasa si se produce un error?**<br>
 **R:** La operación de eliminación de un dominio es una tarea asincrónica que se realiza en segundo plano y cambia el nombre de todas las referencias al nombre de dominio. Debería completarse en un par de minutos. Si se produce un error en la eliminación del dominio, asegúrese de no tener:
 
 * Aplicaciones configuradas en el nombre de dominio con appIdentifierURI
@@ -112,5 +112,4 @@ También se pueden completar la mayoría de las tareas de administración para l
 
 * [Agregar nombres de dominio personalizados](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Quitar grupos de seguridad habilitados para correo de Exchange en el Centro de administración de Exchange en un nombre de dominio personalizado en Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Update your applications reference to another domain in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application) (Actualización de la referencia de las aplicaciones a otro dominio de Azure AD)
 * [ForceDelete a custom domain name with Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete) (Uso de la operación ForceDelete en un nombre de dominio personalizado con Microsoft Graph API)

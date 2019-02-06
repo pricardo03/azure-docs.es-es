@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348487"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172381"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedaje de Service Fabric
 En este artículo se ofrece información general sobre los modelos de hospedaje de aplicaciones que Azure Service Fabric proporciona y, además, se describen las diferencias entre los modelos de **proceso compartido** y **proceso exclusivo**. Se describe el aspecto de una aplicación implementada en un nodo de Service Fabric y la relación entre las réplicas (o instancias) del servicio y el proceso de host de servicio.
@@ -150,7 +150,7 @@ En determinados casos, Service Fabric también permite más de un *ServiceType* 
 
 El modelo de hospedaje de proceso exclusivo no es coherente con el modelo de aplicación que tiene varias instancias de *ServiceTypes* por cada *ServicePackage*. Esto se debe a que la disponibilidad de varios *ServiceTypes* por *ServicePackage* está pensada para conseguir un mayor nivel de uso compartido de recursos entre réplicas y, además, ofrece mayor densidad de réplica por proceso. El modelo de proceso exclusivo está diseñado para alcanzar distintos resultados.
 
-Pensemos en un caso en hay varios *ServiceTypes* por *ServicePackage* con distintos *CodePackage* que registran cada *ServiceType*. Por ejemplo, existe un *ServicePackage* "MultiTypeServicePackge" que tiene dos *CodePackages*:
+Pensemos en un caso en hay varios *ServiceTypes* por *ServicePackage* con distintos *CodePackage* que registran cada *ServiceType*. Por ejemplo, existe un *ServicePackage* "MultiTypeServicePackage" que tiene dos *CodePackages*:
 
 - "MyCodePackageA", que registra el *ServiceType* "MyServiceTypeA".
 - "MyCodePackageB", que registra el *ServiceType* "MyServiceTypeB".
@@ -160,15 +160,15 @@ Ahora, supongamos que creamos una aplicación, **fabric:/SpecialApp**. Dentro de
 - El servicio **fabric:/SpecialApp/ServiceA** de tipo "MyServiceTypeA", con dos particiones (por ejemplo, **P1** y **P2**) y tres réplicas por partición.
 - El servicio **fabric:/SpecialApp/ServiceB** de tipo "MyServiceTypeB", con dos particiones (**P3** y **P4**) y tres réplicas por partición.
 
-En un nodo determinado, ambos servicios tienen dos réplicas cada uno. Como se usó el modelo de proceso exclusivo para crear los servicios, Service Fabric activa una copia nueva de "MyServicePackage" de cada réplica. Cada activación de "MultiTypeServicePackge" inicia una copia de "MyCodePackageA" y "MyCodePackageB". Sin embargo, solo "MyCodePackageA" o "MyCodePackageB" hospeda la réplica para la que se activó "MultiTypeServicePackge". En el diagrama siguiente se muestra la vista del nodo:
+En un nodo determinado, ambos servicios tienen dos réplicas cada uno. Como se usó el modelo de proceso exclusivo para crear los servicios, Service Fabric activa una copia nueva de "MyServicePackage" de cada réplica. Cada activación de "MultiTypeServicePackage" inicia una copia de "MyCodePackageA" y "MyCodePackageB". Sin embargo, solo "MyCodePackageA" o "MyCodePackageB" hospeda la réplica para la que se activó "MultiTypeServicePackage". En el diagrama siguiente se muestra la vista del nodo:
 
 
 ![Diagrama de la vista del nodo de la aplicación implementada][node-view-five]
 
 
-En la activación de "MultiTypeServicePackge" para la réplica de la partición **P1** del servicio **fabric:/SpecialApp/ServiceA**, "MyCodePackageA" hospeda la réplica. "MyCodePackageB" está en ejecución. De manera similar, en la activación de "MultiTypeServicePackge" para la réplica de la partición **P3** del servicio **fabric:/SpecialApp/ServiceB**, "MyCodePackageB" hospeda la réplica. "MyCodePackageA" está en ejecución. Por tanto, mientras mayor sea el número de *CodePackages* (con el registro de diferentes *ServiceTypes*) por *ServicePackage*, mayor será el uso de recursos redundantes. 
+En la activación de "MultiTypeServicePackage" para la réplica de la partición **P1** del servicio **fabric:/SpecialApp/ServiceA**, "MyCodePackageA" hospeda la réplica. "MyCodePackageB" está en ejecución. De manera similar, en la activación de "MultiTypeServicePackage" para la réplica de la partición **P3** del servicio **fabric:/SpecialApp/ServiceB**, "MyCodePackageB" hospeda la réplica. "MyCodePackageA" está en ejecución. Por tanto, mientras mayor sea el número de *CodePackages* (con el registro de diferentes *ServiceTypes*) por *ServicePackage*, mayor será el uso de recursos redundantes. 
  
- Sin embargo, si creamos los servicios **fabric:/SpecialApp/ServiceA** y **fabric:/SpecialApp/ServiceB** con el modelo de proceso compartido, Service Fabric activa solo una copia de "MultiTypeServicePackge" para la aplicación **fabric:/SpecialApp**. "MyCodePackageA" hospeda todas las réplicas del servicio **fabric:/SpecialApp/ServiceA**. "MyCodePackageB" hospeda todas las réplicas del servicio **fabric:/SpecialApp/ServiceB**. En el siguiente diagrama se muestra la vista del nodo con esta configuración: 
+ Sin embargo, si creamos los servicios **fabric:/SpecialApp/ServiceA** y **fabric:/SpecialApp/ServiceB** con el modelo de proceso compartido, Service Fabric activa solo una copia de "MultiTypeServicePackage" para la aplicación **fabric:/SpecialApp**. "MyCodePackageA" hospeda todas las réplicas del servicio **fabric:/SpecialApp/ServiceA**. "MyCodePackageB" hospeda todas las réplicas del servicio **fabric:/SpecialApp/ServiceB**. En el siguiente diagrama se muestra la vista del nodo con esta configuración: 
 
 
 ![Diagrama de la vista del nodo de la aplicación implementada][node-view-six]

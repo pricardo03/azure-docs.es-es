@@ -7,37 +7,37 @@ author: j-martens
 ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5634a1aae32b3e9895bf5c5b72837f29223bca27
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381837"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238618"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
- 
-En este artículo obtendrá ayuda para buscar y corregir los errores que se producen al usar el servicio Azure Machine Learning. 
+
+En este artículo obtendrá ayuda para buscar y corregir los errores que se producen al usar el servicio Azure Machine Learning.
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalación de SDK
 
-**Mensaje de error: no se puede desinstalar 'PyYAML'** 
+**Mensaje de error: no se puede desinstalar 'PyYAML'**
 
 SDK de Azure Machine Learning para Python: PyYAML es un proyecto instalado de Distutils. Por lo tanto, no podemos determinar con precisión qué archivos le pertenecen en caso de una desinstalación parcial. Para continuar con la instalación del SDK sin tener en cuenta este error, use:
-```Python 
+```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas al crear la instancia de Proceso de Azure Machine Learning
 
-Es posible que algunos usuarios que crearon su área de trabajo de Azure Machine Learning en Azure Portal antes de la versión disponible de forma general no puedan crear la instancia de Proceso de Azure Machine Learning en esa área de trabajo. Puede generar una solicitud de soporte técnico en el servicio o crear una nueva área de trabajo mediante el portal o el SDK para desbloquearse a sí mismo inmediatamente. 
+Es posible que algunos usuarios que crearon su área de trabajo de Azure Machine Learning en Azure Portal antes de la versión disponible de forma general no puedan crear la instancia de Proceso de Azure Machine Learning en esa área de trabajo. Puede generar una solicitud de soporte técnico en el servicio o crear una nueva área de trabajo mediante el portal o el SDK para desbloquearse a sí mismo inmediatamente.
 
 ## <a name="image-building-failure"></a>Error de creación de imagen
 
-Error de creación de imagen al implementar el servicio web. La solución alternativa es agregar "pynacl==1.2.1" como una dependencia pip al archivo Conda para la configuración de la imagen.  
+Error de creación de imagen al implementar el servicio web. La solución alternativa es agregar "pynacl==1.2.1" como una dependencia pip al archivo Conda para la configuración de la imagen.
 
 ## <a name="deployment-failure"></a>Error de implementación
 
@@ -49,10 +49,10 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 ## <a name="databricks"></a>Databricks
 
 Problemas de Databricks y Azure Machine Learning.
- 
+
 1. Error de instalación del SDK de AML en Databricks cuando se instalan varios paquetes.
 
-   Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, inmovilice la versión lib para instalar paquetes. Este problema está relacionado con Databricks y no con el SDK de Azure ML, aunque también se puede encontrar en otras bibliotecas. Ejemplo:
+   Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, inmovilice la versión lib para instalar paquetes. Este problema está relacionado con Databricks y no con el SDK de Azure Machine Learning Service, aunque también se puede encontrar en otras bibliotecas. Ejemplo:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
@@ -67,7 +67,8 @@ Problemas de Databricks y Azure Machine Learning.
 Si ve directamente el área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de información general normal con la información de suscripción en la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, la solución consiste en ir directamente a [Azure Portal](https://portal.azure.com) y buscar el nombre de la misma.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
-A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Aquí es donde se encuentran los archivos de registro:
+A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda.
+Aquí es donde se encuentran los archivos de registro:
 
 ## <a name="resource-quotas"></a>Cuotas de recursos
 

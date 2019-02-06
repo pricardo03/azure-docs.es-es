@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582066"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904308"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Información sobre el uso de reservas de Azure para la inscripción Enterprise
 
@@ -76,7 +76,7 @@ Filtre por **Información adicional**, escriba el **Id. de reserva** y elija el 
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>Página de resumen de uso del portal de Enterprise
 
-El uso de reservas de Azure también aparece en la sección de resumen de uso del portal de Enterprise: ![Resumen de uso del Contrato Enterprise (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+El uso de reservas de Azure también aparece en la sección de resumen de uso de Enterprise Portal: ![Resumen de uso del Contrato Enterprise (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. No se le cobra por el componente de hardware de la máquina virtual, ya que está cubierto por la reserva. Para una reserva de SQL Database, verá una línea con **Nombre de servicio** como el uso de la capacidad reservada de Azure SQL Database.
 2. En este ejemplo, no tiene la Ventaja híbrida de Azure, por lo que se le cobrará por el software de Windows utilizado con la máquina virtual.

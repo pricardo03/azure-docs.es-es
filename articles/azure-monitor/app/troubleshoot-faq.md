@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: a8c371d9d221ac6232c9293f6ca3192f163dfacb
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156296"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457095"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
@@ -245,42 +245,51 @@ Se recomienda usar nuestros SDK y la [API de SDK](../../azure-monitor/app/api-cu
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>¿Puedo supervisar un servidor web de una intranet?
 
-Hay dos métodos:
+Sí, pero será necesario permitir el tráfico en nuestros servicios mediante excepciones de firewall o redirecciones del proxy.
+- QuickPulse `rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
-### <a name="firewall-door"></a>Puerta de firewall
 
-Permita que el servidor web envíe telemetría a nuestros puntos de conexión https://dc.services.visualstudio.com:443 y https://rt.services.visualstudio.com:443. 
+Consulte nuestra lista de servicios y direcciones IP [aquí](../../azure-monitor/app/ip-addresses.md).
 
-### <a name="proxy"></a>Proxy
+### <a name="firewall-exception"></a>Excepción de firewall
 
-Enrute el tráfico desde el servidor a una puerta de enlace de la intranet invalidando esta configuración en el ejemplo ApplicationInsights.config. Si estas propiedades de "punto de conexión" no están presentes en el archivo config, estas clases usarán los valores predeterminados que se muestran en el ejemplo siguiente.
+Permita que el servidor web envíe telemetría a nuestros puntos de conexión. 
 
-#### <a name="example-applicationinsightsconfig"></a>Ejemplo de ApplicationInsights.config:
+### <a name="proxy-redirect"></a>Redirección del proxy
+
+Redirija el tráfico desde su servidor a una puerta de enlace de su intranet mediante la sobrescritura de los puntos de conexión en la configuración.
+Si estas propiedades de "punto de conexión" no están presentes en la configuración, estas clases usarán los valores predeterminados que se muestran en el ejemplo ApplicationInsights.config siguiente. 
+
+La puerta de enlace debe redirigir el tráfico a la dirección base del punto de conexión. En la configuración, reemplace los valores predeterminados por `http://<your.gateway.address>/<relative path>`.
+
+
+#### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Ejemplo de ApplicationInsights.config con puntos de conexión predeterminados:
 ```xml
 <ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+      <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
     ...
-    <TelemetryChannel>
-         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
-    </TelemetryChannel>
-    ...
-    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
-    </ApplicationIdProvider>
-    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
 </ApplicationInsights>
 ```
 
 _Tenga en cuenta que ApplicationIdProvider está disponible a partir de la versión 2.6.0_
 
-La puerta de enlace debe redirigir el tráfico a https://dc.services.visualstudio.com:443.
 
-Sustituya los valores anteriores por: `http://<your.gateway.address>/<relative path>`
  
-Ejemplo: 
-```
-http://<your.gateway.endpoint>/v2/track 
-http://<your.gateway.endpoint>/api/profiles/{0}/apiId
-```
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>¿Puedo ejecutar pruebas web de disponibilidad en un servidor de intranet?
 

@@ -10,19 +10,19 @@ editor: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157180"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245840"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.
@@ -180,10 +180,10 @@ Vamos a probar un modelo de bosque aleatorio. Los bosques aleatorios entrenan mu
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Implementación de un modelo en Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) es un servicio en la nube que permite la creación e implementación de forma fácil de modelos de análisis predictivo. Una de las interesantes características de AzureML es la posibilidad de publicar cualquier función de R como un servicio web. El paquete de R de AzureML permite realizar la implementación de forma fácil, justo desde nuestra sesión en la DSVM.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Implementación de un modelo en Azure Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) es un servicio en la nube que permite la creación e implementación de forma fácil de modelos de análisis predictivo. Una de las características interesantes de Azure Machine Learning Studio es la posibilidad de publicar cualquier función de R como un servicio web. El paquete de R de Azure Machine Learning Studio permite realizar la implementación de forma fácil, justo desde nuestra sesión en la DSVM.
 
-Para implementar el código del árbol de decisiones de la sección anterior, debe iniciar sesión en Azure Machine Learning Studio. Necesita el identificador del área de trabajo y un token de autorización para iniciar sesión. Para encontrar estos valores e inicializar las variables de AzureML con ellos:
+Para implementar el código del árbol de decisiones de la sección anterior, debe iniciar sesión en Azure Machine Learning Studio. Necesita el identificador del área de trabajo y un token de autorización para iniciar sesión. Para encontrar estos valores e inicializar las variables de Azure Machine Learning con ellos, haga lo siguiente:
 
 Seleccione **Configuración** en el menú izquierdo. Anote su **WORKSPACE ID**(ID DE ÁREA DE TRABAJO). ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Para el desarrollo con Python, se han instalado las distribuciones 2.7 y 3.5 de 
 Vamos a leer algunos de los conjuntos de datos spambase y a clasificar los correos electrónicos con máquinas vectoriales de apoyo en scikit-learn:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

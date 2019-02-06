@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 72b560aa742fb509b55fe5e27cb87b9a224bce7e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ce791e2b230360a04a3051a8964e39c6d5a457ab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606885"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191370"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Realización de una revisión de acceso de los miembros de un grupo o del acceso de un usuario a una aplicación con Azure AD
 
@@ -48,7 +48,7 @@ Una revisión de aplicación automática configurada o la selección de **Aplica
 
 Para recuperar los resultados de la revisión, seleccione **Aprobaciones** y, luego, seleccione **Descargar**. El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV codificados en UTF-8.
 
-## <a name="optional-delete-a-review"></a>Opcional: Eliminación de una revisión
+## <a name="optional-delete-a-review"></a>Opcional: eliminación de una revisión
 Si ya no está interesado en la revisión, puede eliminarla. Seleccione **Eliminar** para quitar la revisión de Azure AD.
 
 > [!IMPORTANT]

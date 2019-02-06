@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260540"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098345"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Plantilla de solución del consorcio de prueba de trabajo de Ethereum
 
 La plantilla de solución del consorcio de prueba de trabajo de Ethereum está diseñada para que sea más fácil y rápido implementar y configurar una red con varios miembros del consorcio Ethereum con un conocimiento mínimo de Azure y Ethereum.
 
-Con un conjunto de entradas de usuario y una implementación con un solo clic a través de Azure Portal, cada miembro puede aprovisionar su consumo de red mediante el uso de los servicios de proceso, redes y almacenamiento de Microsoft Azure en todo el mundo. El consumo de red de cada miembro se compone de un conjunto de nodos de transacción de carga equilibrada con el que una aplicación o un usuario puede interactuar para enviar las transacciones, un conjunto de nodos de minería de datos para registrar transacciones y una puerta de enlace de VPN. Un paso de conexión posterior conecta las puertas de enlace para crear una red de cadena de bloques de varios miembros totalmente configurada.
+Mediante una plantilla de Azure Resource Manager, cada miembro puede aprovisionar su superficie de red mediante los servicios de proceso, redes y almacenamiento de Microsoft Azure. La superficie de red de cada miembro se compone de un conjunto de nodos de transacción de carga equilibrada con el que una aplicación o un usuario interactúa para enviar las transacciones, un conjunto de nodos de minería de datos para registrar transacciones y una puerta de enlace de VPN. Después de la implementación, puede conectar las puertas de enlace para crear una red de cadena de bloques de varios miembros totalmente configurada.
 
 ## <a name="about-blockchain"></a>Acerca de la cadena de bloques
 
@@ -35,7 +35,7 @@ Un miembro del consorcio puede aprovisionar hasta cinco regiones que contengan u
 
 Todos los nodos tienen una versión estable del cliente de Go Ethereum (Geth) y están configurados como nodos de minería de datos. Si no proporcionó un bloque génesis personalizado, todos los nodos usan la misma dirección de Ethereum y el par de claves que está protegido por la contraseña de la cuenta de Ethereum. La frase de contraseña de Ethereum proporcionada se usa para generar la cuenta predeterminada (coinbase) para cada nodo de minería de datos. A medida que los nodos de minería de datos extraen información, recopilan las cuotas que se agregan a esta cuenta.
 
-El número de nodos de minería de datos por cada miembro del consorcio depende del tamaño global de la red deseada y la cantidad de poder de hash dedicado a cada miembro. Cuanto mayor sea la red, más nodos se deben comprometer para obtener una ventaja desleal. La plantilla admite hasta 15 nodos de minería de datos por región aprovisionados con conjuntos de escalado de máquinas virtuales.
+El número de nodos de minería de datos por cada miembro del consorcio depende del tamaño global de la red deseada y la cantidad de poder de hash que se dedica a cada miembro. Cuanto mayor sea la red, más nodos se deben comprometer para obtener una ventaja desleal. La plantilla admite hasta 15 nodos de minería de datos por región aprovisionados con conjuntos de escalado de máquinas virtuales.
 
 ### <a name="transaction-node-details"></a>Detalles del nodo de transacción
 
@@ -45,7 +45,7 @@ Los nodos de transacción tienen la carga equilibrada dentro de un conjunto de d
 
 ### <a name="log-analytics-details"></a>Detalles de Log Analytics
 
-Cada implementación también crea una nueva instancia de Log Analytics o puede unirse a una instancia existente. Esto permite la supervisión de diversas métricas de rendimiento de cada máquina virtual que conforma la red implementada.
+Cada implementación también crea una nueva instancia de Log Analytics o puede unirse a una instancia existente. Log Analytics permite la supervisión de diversas métricas de rendimiento de cada máquina virtual que conforma la red implementada.
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 
@@ -88,11 +88,9 @@ Subscription| La suscripción en la que se va a implementar la red del consorcio
 Grupo de recursos| El grupo de recursos en el que se va a implementar la red del consorcio.||N/D
 Ubicación| La región de Azure para el grupo de recursos. ||N/D
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-La hoja de Operations Management Suite (OMS) le permite configurar un recurso de OMS para la red. OMS recopilará y expondrá métricas y registros útiles de la red, lo que proporciona la capacidad de comprobar rápidamente el estado de la red o los problemas de depuración. La oferta gratuita de OMS producirá errores leves cuando que se alcance la capacidad.
+Operations Management Suite (OMS) le permite configurar un recurso de OMS para la red. OMS recopilará y expondrá métricas y registros útiles de la red, lo que proporciona la capacidad de comprobar rápidamente el estado de la red o los problemas de depuración. La oferta gratuita de OMS producirá errores leves cuando que se alcance la capacidad.
 
 ![Creando nueva OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Nombre de parámetro |DESCRIPCIÓN |Valores permitidos|Valores predeterminados
 Identificador ConsortiumMember|El identificador asociado con cada miembro que participa en la red del consorcio usada para configurar los espacios de direcciones IP para evitar la colisión. <br /><br />El identificador de miembro debe ser único en las diferentes organizaciones de la misma red. Es necesario un identificador de miembro único incluso si la misma organización se implementa en varias regiones.<br /><br />Tome nota del valor de este parámetro, ya que necesitará compartirlo con otros miembros que se estén uniendo.|De 0 a 255
 Identificador de red de Ethereum|El identificador de red para la red del consorcio de Ethereum que se está implementando. Cada red de Ethereum tiene su propio identificador de red, siendo 1 el identificador de la red pública. Aunque el acceso a la red está restringido para los nodos de minería de datos, todavía sigue siendo recomendable usar un número grande para evitar las colisiones.|De 5 a 999 999 999| 10101010
 Bloque génesis personalizado|Posibilidad de generar automáticamente un bloque génesis o proporcionar uno personalizado.|Sí/No| Sin 
-Contraseña de la cuenta de Ethereum (Bloque de génesis personalizado = No)|La contraseña de administrador usada para proteger la cuenta de Ethereum importada en cada nodo. La contraseña debe cumplir con los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula y 1 número.|12 o más caracteres|N/D
-Frase de contraseña de clave privada de Ethereum (Bloque de génesis personalizado = No)|La frase de contraseña usada para generar la clave privada de ECC asociada con la cuenta de Ethereum predeterminada que se genera. No es necesario que una clave privada generada previamente se apruebe de forma explícita.<br /><br />Considere la posibilidad de una frase de contraseña con aleatoriedad suficiente para garantizar una clave privada segura y que no se superponga con otros miembros del consorcio. La frase de contraseña debe contener lo siguiente como mínimo: 1 letra mayúscula, 1 letra minúscula y 1 número.<br /><br />Tenga en cuenta que si dos miembros utilizan la misma frase de contraseña las cuentas generadas serán iguales. Es útil usar la misma frase de contraseña si una sola organización está intentando implementar en diferentes regiones y quiere compartir una sola cuenta (coinbase) en todos los nodos.|12 o más caracteres|N/D
+Contraseña de la cuenta de Ethereum (Bloque de génesis personalizado = No)|La contraseña de administrador usada para proteger la cuenta de Ethereum importada en cada nodo. La contraseña debe contener: 1 letra mayúscula, 1 letra minúscula y 1 número.|12 o más caracteres|N/D
+Frase de contraseña de clave privada de Ethereum (Bloque de génesis personalizado = No)|La frase de contraseña usada para generar la clave privada de ECC asociada con la cuenta de Ethereum predeterminada que se genera. No es necesario que una clave privada generada previamente se apruebe de forma explícita.<br /><br />Considere la posibilidad de una frase de contraseña con aleatoriedad suficiente para garantizar una clave privada segura y que no se superponga con otros miembros del consorcio. La frase de contraseña debe contener como mínimo: 1 letra mayúscula, 1 letra minúscula y 1 número.<br /><br />Tenga en cuenta que si dos miembros utilizan la misma frase de contraseña las cuentas generadas serán iguales. Es útil usar la misma frase de contraseña si una sola organización está intentando implementar en diferentes regiones y quiere compartir una sola cuenta (coinbase) en todos los nodos.|12 o más caracteres|N/D
 Bloque génesis (Bloque génesis personalizado = Sí)|Cadena JSON que representa el bloque génesis personalizado. Puede encontrar más detalles sobre el formato del bloque génesis aquí, en Redes personalizadas.<br /><br />Todavía se crea una cuenta de Ethereum al proporcionar un bloque génesis personalizado. Considere la posibilidad de especificar una cuenta de Ethereum con fondos en el bloque génesis para no tener que esperar por la minería de datos.|JSON válido |N/D
 Clave compartida para la conexión|Una clave compartida para la conexión entre las puertas de enlace de red virtual.| 12 o más caracteres|N/D
 Dirección URL de datos del consorcio|La dirección URL que apunta a los datos de configuración relevantes del consorcio proporcionados por la implementación de otro miembro. <br /><br />Esta información la proporciona un miembro ya conectado que tiene una implementación. Si ha implementado el resto de la red, la dirección URL es la salida de implementación de la plantilla, denominada CONSORTIUM-DATA.||N/D
@@ -154,7 +152,7 @@ Clave del registrador de información del mismo nivel|Clave principal de informa
 
 ### <a name="summary"></a>Resumen
 
-Haga clic en la hoja de resumen para revisar las entradas especificadas y ejecutar una validación básica anterior a la implementación.
+Haga clic en el resumen para revisar las entradas especificadas y ejecutar una validación básica anterior a la implementación.
 
 ![Resumen](./media/ethereum-deployment/summary.png)
 

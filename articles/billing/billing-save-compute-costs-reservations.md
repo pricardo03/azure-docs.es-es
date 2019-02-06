@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 27b31b6dec480fee417bf9ccb241199204f28f96
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582656"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902081"
 ---
 # <a name="what-are-azure-reservations"></a>¿Qué es Azure Reservations?
 
@@ -36,9 +36,9 @@ Si tiene máquinas virtuales, Azure Cosmos DB o SQL Database que se ejecuten dur
 
 ## <a name="what-charges-does-a-reservation-cover"></a>¿Qué cargos cubre una reserva?
 
-- Instancia reservada de máquina virtual: una reserva solo cubre el costo de proceso de máquina virtual. No cubre cargos por software adicional, administración de redes ni almacenamiento.
-- Núcleo virtual reservado de SQL Database: solo se incluyen con una reserva los costos de proceso. La licencia se factura por separado.
-- Capacidad reservada de Azure Cosmos DB: una reserva abarca el rendimiento aprovisionado de los recursos, no cubre los cargos de almacenamiento y de redes. 
+- Instancia reservada de máquina virtual: las reservas solamente cubren los costos de proceso de las máquinas virtuales. No cubre cargos por software adicional, administración de redes ni almacenamiento.
+- Núcleo virtual reservado de SQL Database: los únicos costos que se incluyen con las reservas son los costos de proceso. La licencia se factura por separado.
+- Capacidad reservada de Azure Cosmos DB: las reservas incluyen el rendimiento aprovisionado de los recursos; no cubren los cargos de almacenamiento y de redes. 
 
 Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -78,8 +78,8 @@ Al final del plazo de reserva, el descuento en la facturación expira y la máqu
 Al comprar una reserva, puede aplicar el descuento a otras instancias con atributos que están dentro del mismo grupo de tamaño. La flexibilidad de la cobertura del descuento depende del tipo de reserva y los atributos que elija al comprar la reserva.
 
 - Instancias reservadas de máquina virtual: al comprar la reserva, si selecciona **Optimizado para**: **flexibilidad de tamaño de instancia**, la cobertura de descuento dependerá del tamaño de máquina virtual que elija. La reserva se puede aplicar a los tamaños de máquinas virtuales (VM) en el mismo grupo de series de tamaño. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Plan de software de SUSE Linux Enterprise: depende de la cobertura de descuento en las vCPU de las máquinas virtuales donde se ejecuta el software SUSE. Para más información, vea[Descubra cómo se aplica el descuento del plan de software SUSE Linux Enterprise](billing-understand-suse-reservation-charges.md).
-- Capacidad reservada de SQL Database: la cobertura del descuento depende del nivel de rendimiento que elija. Para más información, vea [Aprenda cómo se aplica un descuento en la reserva de Azure a las instancias de SQL Database](billing-understand-reservation-charges.md).
+- Plan de software de SUSE Linux Enterprise Server: la cobertura del descuento depende de las vCPU de las máquinas virtuales en las que se ejecuta el software de SUSE. Para más información, vea[Descubra cómo se aplica el descuento del plan de software SUSE Linux Enterprise](billing-understand-suse-reservation-charges.md).
+- Capacidad reservada de SQL Database: la cobertura del descuento depende del nivel de rendimiento elegido. Para más información, vea [Aprenda cómo se aplica un descuento en la reserva de Azure a las instancias de SQL Database](billing-understand-reservation-charges.md).
 - Capacidad reservada de Azure Cosmos DB: la cobertura del descuento depende del rendimiento aprovisionado. Para más información, vea [Aplicación del descuento por reserva a Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

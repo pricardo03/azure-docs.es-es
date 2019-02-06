@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809104"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225944"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Windows de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Windows para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -37,12 +37,11 @@ Para la máquina virtual que usa el disco administrado, ahora podemos usar Azure
 ## <a name="determine-boot-issues"></a>Determinación de los problemas de arranque
 Para determinar por qué la máquina virtual no es capaz de arrancar correctamente, examine la captura de pantalla de la máquina virtual de los diagnósticos de arranque. Un ejemplo habitual sería una actualización de aplicación con error o un disco duro virtual subyacente que se va a eliminar o mover.
 
-Seleccione la máquina virtual en el portal y, a continuación, desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas**. Haga clic en **Diagnósticos de arranque** para ver la captura de pantalla. Tenga en cuenta todos los mensajes de error o códigos de error específicos para ayudar a determinar por qué la máquina virtual encuentra un problema. En el ejemplo siguiente se muestra una máquina virtual que espera la detención de los servicios:
+Seleccione la máquina virtual en el portal y, a continuación, desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas**. Haga clic en **Diagnósticos de arranque** para ver la captura de pantalla. Tenga en cuenta todos los mensajes de error o códigos de error específicos para ayudar a determinar por qué la máquina virtual encuentra un problema. 
 
 ![Visualización de los registros de consola de diagnóstico de arranque](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-También puede hacer clic en **Captura de pantalla** para descargar una captura de la captura de pantalla de la máquina virtual.
-
+También puede hacer clic en **Descargar captura de pantalla** para descargar una captura de la captura de pantalla de la máquina virtual.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Visualización de los detalles del disco duro virtual existente
 Antes de poder conectar el disco duro virtual a otra máquina virtual, debe identificar el nombre del disco duro virtual (VHD). 

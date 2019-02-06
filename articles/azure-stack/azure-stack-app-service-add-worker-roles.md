@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: f4a3cd7d09c18506a85317db7a360b8de3a9630b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 06/08/2018
+ms.openlocfilehash: 26981d50239ddd7da79919291f2accd8b8ed4fc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077029"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241949"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service en Azure Stack: incorporación de más roles de trabajo o infraestructura
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service en Azure Stack: Incorporación de más infraestructura o roles de trabajo
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*  
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*  
 
 Este documento proporciona instrucciones acerca de cómo escalar App Service en roles de trabajo y la infraestructura de Azure Stack. Contiene los pasos para crear roles de trabajo adicionales para admitir aplicaciones de cualquier tamaño.
 

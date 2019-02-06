@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249684"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156928"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
@@ -54,7 +54,7 @@ Puede ver el estado de procesamiento de la pertenencia y la última fecha actual
 
 Los mensajes de estado siguientes se pueden mostrar para el estado de **procesamiento de la pertenencia**:
 
-* **Evaluando**: se ha recibido el cambio de grupo y las actualizaciones se están evaluando.
+* **Evaluando**:  se ha recibido el cambio de grupo y se están evaluando las actualizaciones.
 * **Procesando**: las actualizaciones se están procesando.
 * **Actualización completada**: se ha completado el procesamiento y se han realizado todas las actualizaciones aplicables.
 * **Error de procesamiento**: se detectó un error al evaluar la regla de pertenencia y no se pudo completar el procesamiento.

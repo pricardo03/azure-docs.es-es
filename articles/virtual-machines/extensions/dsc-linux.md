@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632864"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888998"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -54,7 +54,7 @@ La extensión DSC de Linux es compatible con todos los [sistemas operativos que 
  
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
-La extensión DSCForlinux requiere que la máquina virtual de destino esté conectada a Internet. Por ejemplo, la extensión Register requiere conectividad con el servicio Automation. Para las demás acciones, como Pull e Install, se requiere conectividad con Azure Storage o GitHub. Depende de la configuración proporcionada por el cliente.
+La extensión DSCForlinux requiere que la máquina virtual de destino esté conectada a Internet. Por ejemplo, la extensión Register requiere conectividad con el servicio Automation. En otras acciones, como Pull e Install, se requiere conectividad con Azure Storage o GitHub. Depende de la configuración proporcionada por el cliente.
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
@@ -68,7 +68,7 @@ Estos son todos los parámetros de configuración pública admitidos:
 * `NodeConfigurationName`: (opcional, cadena) nombre de una configuración de nodo que se aplicará.
 * `RefreshFrequencyMins`: (opcional, entero) especifica la frecuencia (en minutos) en que DSC intenta obtener la configuración del servidor de extracción. 
        Si la configuración del servidor de extracción es diferente de la configuración actual en el nodo de destino, se copia en el almacén pendiente y se aplica.
-* `ConfigurationMode`: (opcional, cadena) especifica cómo DSC debe aplicar la configuración. Los valores válidos son: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationMode`: (opcional, cadena) especifica cómo DSC debe aplicar la configuración. Los valores válidos son: ApplyOnly, ApplyAndMonitor y ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcional, entero) especifica la frecuencia (en minutos) en que DSC garantiza que la configuración esté en el estado deseado.
 
 > [!NOTE]
@@ -424,8 +424,8 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Código de error: 51 representa distribución no admitida o acción de la extensión no admitida.
-En algunos casos, la extensión DSC de Linux no puede instalar OMI cuando ya existe una versión posterior de OMI en la máquina. [Respuesta de error: (000003)no se permite cambiar a una versión anterior]
+Código de error: 51 representa una distribución o una acción de extensión no admitidas.
+En algunos casos, la extensión DSC de Linux no puede instalar OMI cuando ya existe una versión posterior de OMI en la máquina. [Respuesta de error: (000003) Downgrade not allowed (Cambio a una versión anterior no permitido)]
 
 
 

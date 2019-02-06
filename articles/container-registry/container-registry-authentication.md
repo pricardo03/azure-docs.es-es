@@ -2,19 +2,19 @@
 title: Autenticación con un registro de contenedor de Azure
 description: Opciones de autenticación para una instancia de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y con credenciales de administrador opcionales.
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: stevelas
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851732"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301057"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
 
@@ -32,9 +32,11 @@ Cuando trabaje con el registro directamente (por ejemplo, para realizar la extra
 az acr login --name <acrName>
 ```
 
-Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta [az login](/cli/azure/reference-index#az-login) para autenticar sin problemas la sesión con su Registro. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores no requieren un nombre de usuario o una contraseña. Si el token expira, puede actualizarlo con el comando `az acr login` de nuevo para volver a autenticar. El uso de `az acr login` con identidades de Azure proporciona [acceso basado en roles](../role-based-access-control/role-assignments-portal.md).
+Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando ejecuta [az login](/cli/azure/reference-index#az-login) para autenticar sin problemas la sesión con su Registro. Una vez que haya iniciado sesión de este modo, las credenciales se almacenan en caché y los comandos `docker` posteriores de la sesión no requieren un nombre de usuario o una contraseña. 
 
-Para algunos escenarios, puede que quiera iniciar sesión en un registro con su propia identidad individual de Azure AD. También puede iniciar sesión con una [instancia de Managed Identities for Azure Resources](container-registry-authentication-managed-identity.md) en los escenarios entre servicios o para satisfacer las necesidades de un grupo de trabajo donde no quiere administrar el acceso individual.
+Para acceder al registro, el token utilizado por `az acr login` es válido durante 1 hora, por lo que se recomienda que siempre inicie sesión en el registro antes de ejecutar el comando `docker`. Si el token expira, puede actualizarlo con el comando `az acr login` de nuevo para volver a autenticar. 
+
+El uso de `az acr login` con identidades de Azure proporciona [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). Para algunos escenarios, puede que quiera iniciar sesión en un registro con su propia identidad individual de Azure AD. También puede iniciar sesión con una [instancia de Managed Identities for Azure Resources](container-registry-authentication-managed-identity.md) en los escenarios entre servicios o para satisfacer las necesidades de un grupo de trabajo donde no quiere administrar el acceso individual.
 
 ## <a name="service-principal"></a>Entidad de servicio
 
@@ -58,15 +60,13 @@ Las entidades de servicio permiten la conectividad desatendida con un Registro e
 
   * *Envío de cambios*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
 
-También puede iniciar sesión directamente con una entidad de servicio. Proporcione el id. de la aplicación y la contraseña de la entidad de servicio al comando `docker login`:
+También puede iniciar sesión directamente con una entidad de servicio. Cuando ejecute el siguiente comando, proporcione de forma interactiva el identificador de aplicación (nombre de usuario) y la contraseña de la entidad de servicio cuando se le solicite. Para consultar procedimientos recomendados para administrar credenciales de inicio de sesión, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
 
-```
-docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
+```Docker
+docker login myregistry.azurecr.io
 ```
 
 Una vez iniciada la sesión, Docker almacena en caché las credenciales, por lo que no es necesario recordar el id. de la aplicación.
-
-Según la versión de Docker que haya instalado, puede aparecer una advertencia de seguridad en la que se recomiende el uso del parámetro `--password-stdin`. Cuando su uso esté fuera del ámbito de este artículo, recomendamos seguir este procedimiento recomendado. Para más información, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 > [!TIP]
 > Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
@@ -74,19 +74,18 @@ Según la versión de Docker que haya instalado, puede aparecer una advertencia 
 
 ## <a name="admin-account"></a>Cuenta de administrador
 
-Cada registro de contenedor incluye una cuenta de usuario administrador, que está deshabilitada de forma predeterminada. Puede habilitar el usuario administrador y administrar sus credenciales en [Azure Portal](container-registry-get-started-portal.md#create-a-container-registry), mediante la CLI de Azure o con otras herramientas de Azure.
+Cada registro de contenedor incluye una cuenta de usuario administrador, que está deshabilitada de forma predeterminada. Puede habilitar el usuario administrador y administrar sus credenciales en Azure Portal, mediante la CLI de Azure o con otras herramientas de Azure.
 
 > [!IMPORTANT]
 > La cuenta de administrador está diseñada para que un solo usuario acceda al registro, principalmente con fines de prueba. No se recomienda compartir las credenciales de cuenta de administrador con varios usuarios. Todos los usuarios que se autentican con la cuenta de administrador aparecen como un único usuario con acceso de inserción y extracción en el registro. Al cambiar o deshabilitar esta cuenta se deshabilita el acceso de registro para todos los usuarios que utilizan sus credenciales. Se recomienda la identidad individual para usuarios y entidades de servicio para escenarios desatendidos.
 >
 
-A la cuenta de administrador se le proporcionan dos contraseñas, y las dos se pueden regenerar. Las dos contraseñas le permiten mantener la conexión con el registro mediante una contraseña mientras se regenera la otra. Si la cuenta de administrador está habilitada, puede pasar el nombre de usuario y cualquier contraseña al comando `docker login` para la autenticación básica en el registro. Por ejemplo: 
+A la cuenta de administrador se le proporcionan dos contraseñas, y las dos se pueden regenerar. Las dos contraseñas le permiten mantener la conexión con el registro mediante una contraseña mientras se regenera la otra. Si la cuenta de administrador está habilitada, puede pasar el nombre de usuario y cualquier contraseña al comando `docker login` cuando se le solicite para la autenticación básica en el registro. Por ejemplo: 
 
-```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword1
+```Docker
+docker login myregistry.azurecr.io 
 ```
 
-Una vez más, Docker recomienda el uso del parámetro `--password-stdin` en lugar de proporcionarlo en la línea de comandos para aumentar la seguridad. También puede especificar solo el nombre de usuario, sin `-p` y escribir la contraseña cuando se le solicite.
 
 Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) en la CLI de Azure:
 

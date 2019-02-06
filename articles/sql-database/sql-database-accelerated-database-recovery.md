@@ -1,6 +1,6 @@
 ---
 title: 'Recuperación de base de datos acelerada: Azure SQL Database | Microsoft Docs'
-description: Azure SQL Database tiene una nueva característica que proporciona recuperación de bases de datos rápida y coherente, reversión de transacción instantánea y truncamiento de registros agresivo para Azure SQL Data Warehouse, grupos elásticos y bases de datos únicas.
+description: Azure SQL Database tiene una nueva característica que proporciona recuperación de bases de datos rápida y coherente, reversión de transacción instantánea y truncamiento de registros agresivo para bases de datos únicas y bases de datos agrupadas de Azure SQL Database, y bases de datos de Azure SQL Data Warehouse.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600731"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475455"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Recuperación de base de datos acelerada (versión preliminar)
 
-**Recuperación de base de datos acelerada (ADR)** es una nueva característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de ejecución prolongada, al rediseñar el proceso de recuperación del motor de base de datos SQL. ADR está actualmente disponible para bases de datos únicas, grupos elásticos y Azure SQL Data Warehouse. Las principales ventajas de ADR son:
+**Recuperación de base de datos acelerada (ADR)** es una nueva característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de ejecución prolongada, al rediseñar el proceso de recuperación del motor de base de datos SQL. ADR está actualmente disponible para bases de datos únicas y bases de datos agrupadas de Azure SQL Database, y para bases de datos de Azure SQL Data Warehouse. Las principales ventajas de ADR son:
 
 - **Recuperación de bases de datos rápida y coherente**
 
@@ -127,4 +127,4 @@ Los siguientes tipos de clientes deberían considerar la habilitación de ADR:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Para habilitar ADR durante este período de versión preliminar
 
-Durante el período de versión preliminar de esta característica, envíe un correo electrónico a [adr@microsoft.com](mailto:adr@microsoft.com) para obtener más información y probar la recuperación de base de datos acelerada (ADR). En el correo electrónico, incluya el nombre del servidor lógico (para Azure Data Warehouse, grupos elásticos y bases de datos únicas). Puesto que esta es una característica en vista previa, el servidor de pruebas debe ser un servidor que no sea de producción.
+Durante el período de versión preliminar de esta característica, envíe un correo electrónico a [adr@microsoft.com](mailto:adr@microsoft.com) para obtener más información y probar la recuperación de base de datos acelerada (ADR). En el correo electrónico, incluya el nombre del servidor de SQL Database (para bases de datos únicas y bases de datos agrupadas de SQL Database, y para bases de datos de Azure Data Warehouse). Puesto que esta es una característica en vista previa, el servidor de pruebas debe ser un servidor que no sea de producción.

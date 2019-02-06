@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b985521fdcfc5ca67b6410719ad72c0962004df6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499595"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182241"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referencia de Bing Local Business Search API v7
 
@@ -59,7 +59,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Encabezado de solicitud obligatorio.<br /><br /> Clave de suscripción que recibió al suscribirse a este servicio en [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
 |<a name="pragma" />Pragma|Encabezado de solicitud opcional<br /><br /> De forma predeterminada, Bing devuelve contenido almacenado en caché, si está disponible. Para que Bing no devuelva contenido almacenado en caché, establezca el encabezado Pragma en no-cache (por ejemplo, Pragma: no-cache).
 |<a name="useragent" />User-Agent|Encabezado de solicitud opcional.<br /><br /> El agente de usuario que origina la solicitud. Bing usa el agente de usuario para proporcionar a los usuarios de dispositivos móviles una experiencia optimizada. Aunque es opcional, se recomienda especificar siempre este encabezado.<br /><br /> El agente de usuario debe ser la misma cadena que envían los exploradores que más se usan. Para obtener información acerca de los agentes de usuario, consulte [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> A continuación encontrará varios ejemplos de cadenas user-agent.<br /><ul><li>Windows Phone: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android: Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone: Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad: Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|Encabezado de solicitud y respuesta opcional.<br /><br /> Bing usa este encabezado para proporcionar a los usuarios un comportamiento coherente en las llamadas API de Bing. Bing incorpora a menudo mejoras y características piloto nuevas, y usa el identificador de cliente como clave para asignar el tráfico en distintos paquetes piloto. Si no usa el mismo identificador de cliente para un usuario en varias solicitudes, Bing puede asignar el usuario a varios paquetes piloto en conflicto. La asignación a varios paquetes piloto en conflicto puede generar una experiencia de usuario incoherente. Por ejemplo, si la segunda solicitud tiene una asignación de paquete piloto distinta de la primera, puede que se produzca una experiencia inesperada. Además, Bing puede usar el identificador de cliente para personalizar los resultados web en el historial de búsqueda del identificador de cliente, lo que proporciona una experiencia enriquecida para el usuario.<br /><br /> Bing también utiliza este encabezado para ayudar a mejorar las clasificaciones de resultados mediante el análisis de la actividad que genera un identificador de cliente. Las mejoras de relevancia ayudan con una mayor calidad de los resultados que devuelven las API de Bing y, a su vez, permiten un mayor porcentaje de clics para el consumidor de la API.<br /><br /> **IMPORTANTE:** aunque es opcional, considere este encabezado necesario. Conservar el identificador de cliente en varias solicitudes para la misma combinación de usuario final y dispositivo permite 1) que el consumidor de API reciba una experiencia de usuario coherente y 2) un mayor porcentaje de clics a través de una mejor calidad de los resultados de las API de Bing.<br /><br /> Estas son las reglas de uso básico que se aplican a este encabezado.<br /><ul><li>Cada usuario que utiliza la aplicación en el dispositivo debe tener un identificador de cliente único generado por Bing.<br /><br/>Si no incluye este encabezado en la solicitud, Bing genera un identificador y lo devuelve en el encabezado de respuesta X-MSEdge-ClientID. La única ocasión en que NO debe incluir este encabezado en una solicitud es la primera vez que el usuario usa la aplicación en el dispositivo.<br /><br/></li><li>Use el identificador de cliente para cada solicitud de API de Bing que haga la aplicación para este usuario en el dispositivo.<br /><br/></li><li>**ATENCIÓN:** debe asegurarse de que este identificador de cliente no se pueda vincular a la información de cualquier cuenta de usuario autenticable.</li><br/><li>Conserve el identificador de cliente. Para conservar el identificador en una aplicación de explorador, use una cookie HTTP persistente para asegurarse de que se use ese identificador en todas las sesiones. No use una cookie de sesión. Para otras aplicaciones, como aplicaciones móviles, use el almacenamiento persistente del dispositivo para conservar el identificador.<br /><br/>La próxima vez que el usuario use la aplicación en ese dispositivo, obtenga el identificador de cliente que conservó.</li></ul><br /> **NOTA:** Las respuestas de Bing pueden incluir este encabezado o no incluirlo. Si la respuesta incluye este encabezado, capture el identificador de cliente y úselo para todas las solicitudes posteriores de Bing del usuario en dicho dispositivo.<br /><br /> **NOTA:** Si incluye X-MSEdge-ClientID, no debe incluir cookies en la solicitud.|  
+|<a name="clientid" />X-MSEdge-ClientID|Encabezado de solicitud y respuesta opcional.<br /><br /> Bing usa este encabezado para proporcionar a los usuarios un comportamiento coherente en las llamadas API de Bing. Bing incorpora a menudo mejoras y características piloto nuevas, y usa el identificador de cliente como clave para asignar el tráfico en distintos paquetes piloto. Si no usa el mismo identificador de cliente para un usuario en varias solicitudes, Bing puede asignar el usuario a varios paquetes piloto en conflicto. La asignación a varios paquetes piloto en conflicto puede generar una experiencia de usuario incoherente. Por ejemplo, si la segunda solicitud tiene una asignación de paquete piloto distinta de la primera, puede que se produzca una experiencia inesperada. Además, Bing puede usar el identificador de cliente para personalizar los resultados web en el historial de búsqueda del identificador de cliente, lo que proporciona una experiencia enriquecida para el usuario.<br /><br /> Bing también utiliza este encabezado para ayudar a mejorar las clasificaciones de resultados mediante el análisis de la actividad que genera un identificador de cliente. Las mejoras de relevancia ayudan con una mayor calidad de los resultados que devuelven las API de Bing y, a su vez, permiten un mayor porcentaje de clics para el consumidor de la API.<br /><br /> **IMPORTANTE:** Aunque es opcional, considere este encabezado como obligatorio. Conservar el identificador de cliente en varias solicitudes para la misma combinación de usuario final y dispositivo permite 1) que el consumidor de API reciba una experiencia de usuario coherente y 2) un mayor porcentaje de clics a través de una mejor calidad de los resultados de las API de Bing.<br /><br /> Estas son las reglas de uso básico que se aplican a este encabezado.<br /><ul><li>Cada usuario que utiliza la aplicación en el dispositivo debe tener un identificador de cliente único generado por Bing.<br /><br/>Si no incluye este encabezado en la solicitud, Bing genera un identificador y lo devuelve en el encabezado de respuesta X-MSEdge-ClientID. La única ocasión en que NO debe incluir este encabezado en una solicitud es la primera vez que el usuario usa la aplicación en el dispositivo.<br /><br/></li><li>Use el identificador de cliente para cada solicitud de API de Bing que haga la aplicación para este usuario en el dispositivo.<br /><br/></li><li>**ATENCIÓN:** debe asegurarse de que este identificador de cliente no se pueda vincular a la información de cualquier cuenta de usuario autenticable.</li><br/><li>Conserve el identificador de cliente. Para conservar el identificador en una aplicación de explorador, use una cookie HTTP persistente para asegurarse de que se use ese identificador en todas las sesiones. No use una cookie de sesión. Para otras aplicaciones, como aplicaciones móviles, use el almacenamiento persistente del dispositivo para conservar el identificador.<br /><br/>La próxima vez que el usuario use la aplicación en ese dispositivo, obtenga el identificador de cliente que conservó.</li></ul><br /> **NOTA:** Las respuestas de Bing pueden incluir este encabezado o no incluirlo. Si la respuesta incluye este encabezado, capture el identificador de cliente y úselo para todas las solicitudes posteriores de Bing del usuario en dicho dispositivo.<br /><br /> **NOTA:** Si incluye X-MSEdge-ClientID, no debe incluir cookies en la solicitud.|  
 |<a name="clientip" />X-MSEdge-ClientIP|Encabezado de solicitud opcional.<br /><br /> Dirección IPv4 o IPv6 del dispositivo cliente. La dirección IP se usa para detectar la ubicación del usuario. Bing usa la información de ubicación para determinar el comportamiento de la búsqueda segura.<br /><br /> **NOTA:** Aunque es opcional, se recomienda especificar siempre tanto este encabezado como el encabezado X-Search-Location.<br /><br /> No ofusque la dirección (por ejemplo, cambiando el último octeto a 0). Al ofuscar los resultados de dirección, la ubicación no se encuentra cerca de la ubicación real, lo que puede provocar que Bing devuelva resultados erróneos.|  
 |<a name="location" />X-Search-Location|Encabezado de solicitud opcional.<br /><br /> Una lista delimitada por punto y coma de pares clave-valor que describen la ubicación geográfica del cliente. Bing usa la información de ubicación para determinar el comportamiento de la búsqueda segura y devolver contenido local apropiado. Especifique el par clave-valor como \<clave\>:\<valor\>. A continuación se incluyen las claves que usan para especificar la ubicación del usuario.<br /><br /><ul><li>lat: la latitud de la ubicación del cliente, en grados. La latitud debe ser mayor o igual que -90.0, y menor o igual que +90.0. Los valores negativos indican latitudes del sur, mientras que los valores positivos indican latitudes del norte.<br /><br /></li><li>long: la longitud de la ubicación del cliente, en grados. La longitud debe ser mayor o igual que -180.0, y menor o igual que +180.0. Los valores negativos indican longitudes del oeste, mientras que los valores positivos indican longitudes del este.<br /><br /></li><li>re: el radio, en metros, que especifica la precisión horizontal de las coordenadas. Pase el valor que devuelve el servicio de ubicación del dispositivo. Los valores típicos pueden ser 22 m para GPS/Wi-Fi, 380 m para la triangulación de antenas repetidoras de telefonía móvil y 18 000 m para la búsqueda inversa de IP.<br /><br /></li><li>ts: la marca de tiempo UTC UNIX del momento en que el cliente estaba en la ubicación (la marca de tiempo UNIX es el número de segundos transcurridos desde el 1 de enero de 1970).<br /><br /></li><li>head: opcional. El encabezado relativo del cliente o la dirección de desplazamiento. Especifique la dirección de desplazamiento como grados de 0 a 360, en la dirección de las agujas del reloj con respecto al norte verdadero. Especifique esta clave solo si la clave `sp` es distinta de cero.<br /><br /></li><li>sp: la velocidad horizontal, en metros por segundo, a la que se desplaza el dispositivo de cliente.<br /><br /></li><li>alt: la altitud del dispositivo de cliente, en metros.<br /><br /></li><li>are: opcional. El radio, en metros, que especifica la precisión vertical de las coordenadas. El radio predeterminado son 50 kilómetros. Especifique esta clave solo si especificó la clave `alt`.<br /><br /></li></ul> **NOTA:** Aunque muchas de las claves son opcionales, cuanta más información aporte, más precisos serán los resultados de la ubicación.<br /><br /> **NOTA:** Es aconsejable especificar siempre la ubicación geográfica del usuario. Proporcionar la ubicación es especialmente importante si la dirección IP del cliente no refleja con precisión la ubicación física del usuario (por ejemplo, si el cliente utiliza VPN). Para obtener resultados óptimos, debería incluir tanto este encabezado como X-MSEdge-ClientIP pero, como mínimo, debe incluir este.|
 
@@ -71,7 +71,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta.  
   
   
-|NOMBRE|Valor|Escriba|Obligatorio|  
+|NOMBRE|Valor|Type|Obligatorio|  
 |----------|-----------|----------|--------------|
 |<a name="count" />count|El número de resultados a devolver, empezando por el índice especificado por el parámetro `offset`.|string|Sin |   
 |<a name="localCategories" />localCategories|Lista de las opciones que definen la búsqueda por categoría de empresa.  Consulte la [Búsqueda de categorías de empresas locales](local-categories.md)|string|Sin |  
@@ -95,7 +95,7 @@ Los siguientes son los objetos de respuesta JSON que la respuesta puede incluir.
 ### <a name="error"></a>Error  
 Define el error que se produjo.  
   
-|Elemento|DESCRIPCIÓN|Escriba|  
+|Elemento|DESCRIPCIÓN|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|string|  
 |<a name="error-message" />message|Descripción del error.|string|  
@@ -108,7 +108,7 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|string|  
 |<a name="errors" />errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)[]|  
@@ -118,7 +118,7 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="license"></a>Licencia  
 Define la licencia bajo la que se pueden usar el texto o la foto.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |Nombre|Nombre de la licencia.|string|  
 |URL|La dirección URL a un sitio web en el que el usuario puede obtener más información acerca de la licencia.<br /><br /> Utilice el nombre y la dirección URL para crear un hipervínculo.|string|  
@@ -127,7 +127,7 @@ Define la licencia bajo la que se pueden usar el texto o la foto.
 ### <a name="link"></a>Vínculo  
 Define los componentes de un hipervínculo.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|string|  
 |text|Texto que se muestra.|string|  
@@ -141,7 +141,7 @@ Define un anunciante.
   
 Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o ambos.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |Nombre|Nombre del publicador.|string|  
 |URL|La dirección URL al sitio web del anunciante.<br /><br /> Tenga en cuenta que es posible que el publicador no publique un sitio web.|string|  
@@ -151,7 +151,7 @@ Tenga en cuenta que un anunciante puede proporcionar su nombre, su sitio web o a
 ### <a name="place"></a>Lugar  
 Define la información acerca de un negocio local como un restaurante o un hotel.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que puede establecerse en uno de los siguientes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|string|  
 |address|La dirección postal del lugar en el que se encuentra la entidad.|[PostalAddress](#postaladdress)|  
@@ -165,7 +165,7 @@ Define la información acerca de un negocio local como un restaurante o un hotel
 ### <a name="querycontext"></a>QueryContext  
 Define el contexto de la consulta que Bing ha usado para la solicitud.  
   
-|Elemento|DESCRIPCIÓN|Escriba|  
+|Elemento|DESCRIPCIÓN|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Un valor booleano que indica si la consulta especificada está prevista para adultos. El valor es **true** si la consulta está prevista para adultos; de lo contrario, es **false**.|boolean|  
 |alterationOverrideQuery|La cadena de consulta que se usa para forzar a Bing a usar la cadena original. Por ejemplo, si la cadena de consulta es *navegar a sotavento*, la cadena de consulta de invalidación será *+ navegar a sotavento*. No olvide codificar la cadena de consulta que da lugar a *%2Bnavegar+a sotavento*.<br /><br /> Este campo solo se incluye si la cadena de consulta original contiene un error de ortografía.|string|  
@@ -174,19 +174,19 @@ Define el contexto de la consulta que Bing ha usado para la solicitud.
 |originalQuery|La cadena de consulta como se especifica en la solicitud.|string|  
 
 ### <a name="identifiable"></a>Identifiable
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|string|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define un grupo de resultados de la búsqueda grupo, como línea principal.
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |-------------|-----------------|----------|
 |items|Una lista de resultados de la búsqueda que se muestran en el grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define un elemento del resultado de la búsqueda que se muestra.
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Entero|
 |answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|string|
@@ -207,7 +207,7 @@ Define el objeto de nivel superior que la respuesta incluye cuando la solicitud 
   
 Tenga en cuenta que si el servicio sospecha de un ataque de denegación de servicio, la solicitud se realizará correctamente (código de estado HTTP 200 OK); sin embargo, el cuerpo de la respuesta estará vacío.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que se establece en SearchResponse.|string|  
 |places|Una lista de entidades que son pertinentes a la consulta de búsqueda.|Objeto JSON|  

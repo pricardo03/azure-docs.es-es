@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723830"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096830"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Cumplimentación de campos específicos en una aplicación personalizada
 
@@ -41,8 +41,8 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 | Campo            | DESCRIPCIÓN                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | NOMBRE             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
-| Tipo de aplicación | **Aplicación web / API web**: aplicación que representa una aplicación web, una API web o ambas cosas 
-| |**Nativo**: aplicación que puede instalarse en el dispositivo o equipo de un usuario           |
+| Tipo de aplicación | **Aplicación web / API web**: una aplicación que represente una aplicación web, una API web o ambas cosas 
+| |**Nativa**: aplicación que puede instalarse en el dispositivo o equipo de un usuario           |
 | URL de inicio de sesión      | Dirección URL donde los usuarios pueden iniciar sesión para utilizar la aplicación                                  |
 
 Cuando haya rellenado los campos anteriores, la aplicación se registrará en Azure Portal y se le redirigirá a la página de la aplicación. El botón **Configuración** del panel de la aplicación abre la página Configuración, que contiene otros campos que le permiten personalizar la aplicación. En la tabla siguiente se describen todos los campos de la página Configuración. Tenga en cuenta que, en función de si ha creado una aplicación web o una aplicación nativa, es posible que solo aparezca un subconjunto de estos campos.
@@ -57,7 +57,7 @@ Cuando haya rellenado los campos anteriores, la aplicación se registrará en Az
 | Multiinquilino  | Este parámetro especifica si la aplicación pueden utilizarla varios inquilinos. Normalmente, esto significa que las organizaciones externas pueden usar la aplicación si la registran en su inquilino y conceden acceso a los datos de la organización.                                                                   |
 | URL de respuesta      | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD devuelve los tokens que solicita la aplicación.                                                                                                                                                                                                          |
 | URI de redirección   | En el caso de las aplicaciones nativas, aquí es donde se envía al usuario después de una autorización correcta. Azure AD comprueba que el URI de redirección que proporciona la aplicación en la solicitud de OAuth 2.0 coincide con uno de los valores registrados en el portal.                                                            |
-| simétricas            | Puede crear claves para acceder mediante programación a las API web protegidas por Azure AD sin interacción del usuario. En la página \*\*Claves\*\*, escriba la descripción de la clave y la fecha de vencimiento. A continuación, haga clic en Guardar para generar la clave. No olvide guardar la clave en un lugar seguro, ya que no podrá acceder a ella más adelante.             |
+| Claves            | Puede crear claves para acceder mediante programación a las API web protegidas por Azure AD sin interacción del usuario. En la página \*\*Claves\*\*, escriba la descripción de la clave y la fecha de vencimiento. A continuación, haga clic en Guardar para generar la clave. No olvide guardar la clave en un lugar seguro, ya que no podrá acceder a ella más adelante.             |
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](../manage-apps/what-is-application-management.md)

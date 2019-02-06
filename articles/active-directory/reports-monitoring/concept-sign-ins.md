@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 932517e3f1dc70e44727a6d165430dba6e63ae5a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808636"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187800"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -161,8 +161,8 @@ Si necesita más flexibilidad, puede usar la solución de script. Si hace clic e
 
 Si desea ejecutar el script en un equipo **Windows 10**, primero deberá realizar algunos pasos adicionales. 
 
-1. Instale el [módulo AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
-2. Importe el módulo; abra un símbolo del sistema de PowerShell y ejecute el comando **Import-Module AzureRM**.
+1. Instale el [módulo Az](/powershell/azure/install-az-ps).
+2. Importe el módulo; abra un símbolo del sistema de PowerShell y ejecute el comando **Import-Module Az**.
 3. Ejecute **Set-ExecutionPolicy unrestricted** y seleccione **Sí a todo**. 
 4. Ahora puede ejecutar el script de PowerShell descargado en modo de administrador para generar el archivo CSV.
 

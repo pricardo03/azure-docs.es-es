@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: solución de problemas de configuración del protocolo LDAP seguro | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solución de problemas de configuración del protocolo LDAP seguro | Microsoft Docs'
 description: Solución de problemas del protocolo LDAP seguro para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: be07579d8273ab19101aa6c475ae5d23375517ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504216"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177192"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services: solución de problemas de configuración del protocolo LDAP seguro
 
@@ -54,7 +54,7 @@ Con LDAP seguro habilitado, se recomienda crear reglas adicionales para permitir
 > El puerto 636 no es la única regla necesaria para que se ejecuten sin problemas Azure AD Domain Services. Para obtener más información, consulte los artículos sobre las [directrices de redes](active-directory-ds-networking.md) o sobre la [solución de problemas de configuración de grupo de seguridad de red](active-directory-ds-troubleshoot-nsg.md).
 >
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Expiración del certificado LDAP seguro
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: expiración del certificado de LDAP seguro
 
 **Mensaje de alerta:**
 

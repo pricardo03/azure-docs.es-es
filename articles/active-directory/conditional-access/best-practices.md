@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452843"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078957"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -47,14 +47,32 @@ Para realizar un trabajo de directiva, debe configurar:
 
 |Qué           | Cómo                                  | Porqué|
 |:--            | :--                                  | :-- |
-|**Aplicaciones en la nube** |Tiene que seleccionar una o más aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
-| **Usuarios y grupos** | Tiene que seleccionar al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
-| **Controles de acceso** | Tiene que seleccionar al menos un control de acceso. | Si se cumplen las condiciones, el procesador de directivas debe saber qué hacer.|
+|**Aplicaciones en la nube** |Seleccione una o varias aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
+| **Usuarios y grupos** | Seleccione al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
+| **Controles de acceso** | Seleccione al menos un control de acceso. | Si se cumplen las condiciones, el procesador de directivas debe saber qué hacer.|
 
 
 
 
 ## <a name="what-you-should-know"></a>Qué debería saber
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>¿Cómo se aplican las directivas de acceso condicional?
+
+Al acceder a una aplicación de nube se puede aplicar más de una directiva de acceso condicional. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige MFA y una segunda requiere un dispositivo compatible, tendrá que pasar la MFA y usar un dispositivo compatible. 
+
+Todas las directivas se aplican en dos fases:
+
+- En el **primera** fase, se evalúan todas las directivas y se recopilan todos los controles de acceso que no se cumplen. 
+
+- En la **segunda** fase, se le pide que satisfaga los requisitos que no se han cumplido. Si una de las directivas bloquea el acceso, se le bloquea y no se le solicitará que satisfaga otros controles de directiva. Si ninguna de las directivas le bloquea, se le pedirá que cumpla con otros controles de directiva en el orden siguiente:
+
+    ![Orden](./media/best-practices/06.png)
+    
+    Lo siguiente son los proveedores externos de MFA y los Términos de uso.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>¿Cómo se evalúan las asignaciones?
 
@@ -70,7 +88,7 @@ Si debe configurar una condición de ubicación que se aplique a todas las conex
 
 Si está bloqueado en el portal de Azure AD debido a una configuración incorrecta de una directiva de acceso condicional:
 
-- Compruebe si hay otros administradores de su organización que no estén bloqueados todavía. Un administrador con acceso a Azure Portal puede deshabilitar la directiva que está afectando al inicio de sesión. 
+- Compruebe si hay otros administradores en su organización que aún no estén bloqueados. Un administrador con acceso a Azure Portal puede deshabilitar la directiva que está afectando al inicio de sesión. 
 
 - Si ninguno de los administradores de la organización puede actualizar la directiva, debe enviar una solicitud de soporte técnico. El soporte técnico de Microsoft puede revisar y actualizar las directivas de acceso condicional que impidan el acceso.
 
@@ -122,13 +140,13 @@ En su entorno, debería evitar las siguientes configuraciones:
 
 Como primer paso, debe evaluar la directiva con la [herramienta What if](what-if-tool.md).
 
-Cuando esté listo para implementar una directiva nueva en su entorno, debería hacerlo en fases:
+Cuando las nuevas directivas estén listas para su entorno, impleméntelas en fases:
 
 1. Aplique una directiva a un pequeño conjunto de usuarios y compruebe que se comporta según lo esperado. 
 
-2.  Cuando expanda una directiva para incluir más usuarios, continúe con la exclusión de todos los administradores de la directiva. Esto garantiza que los administradores aún tengan acceso y puedan actualizar una directiva si es necesario un cambio.
+2.  Al expandir una directiva para incluir a más usuarios. Continúe excluyendo a todos los administradores de la directiva para asegurarse de que todavía tienen acceso y pueden actualizar una directiva si es necesario un cambio.
 
-3. Aplique una directiva a todos los usuarios solo si es realmente necesario. 
+3. Aplique una directiva a todos los usuarios solo si es necesario. 
 
 Como procedimiento recomendado, cree una cuenta de usuario que esté:
 
@@ -154,4 +172,7 @@ Para obtener más información, consulte [Migración de directivas clásicas en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
+Si quiere saber más sobre:
+
+- Cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
+- Cómo planear las directivas de acceso condicional, consulte [Instrucciones: Planee la implementación del acceso condicional a Azure Active Directory](plan-conditional-access.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 57eac1dcc170e2ac7e35cab64b6980bbe053db39
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156500"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092764"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Escalado horizontal de un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales
 En este artículo se describe cómo escalar un clúster de Azure Service Fabric mediante la adición de un nuevo conjunto de escalado de máquinas virtuales a un clúster existente. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos), actualizar el sistema operativo de las máquinas virtuales del tipo de nodo o agregar un nuevo conjunto de escalado de máquinas virtuales a un clúster existente.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
@@ -34,7 +34,7 @@ En este artículo se describe cómo escalar un clúster de Azure Service Fabric 
 Este es el proceso para actualizar el tamaño de máquina virtual y el sistema operativo de las máquinas virtuales del tipo de nodo principal.  Después de la actualización, las máquinas virtuales del tipo de nodo principal son de tamaño D4_V2 Estándar y ejecutan Windows Server 2016 Datacenter con contenedores.
 
 > [!WARNING]
-> Antes de intentar este procedimiento en un clúster de producción, se recomienda que revise atentamente las plantillas de ejemplo y compruebe el proceso en un clúster de prueba. Además, el clúster no está disponible durante un tiempo. NO puede hacer cambios en varias VMSS declaradas con el mismo NodeType en paralelo; deberá realizar operaciones de implementación separadas para aplicar cambios a cada VMSS NodeType individualmente.
+> Antes de intentar este procedimiento en un clúster de producción, se recomienda que revise atentamente las plantillas de ejemplo y compruebe el proceso en un clúster de prueba. Además, el clúster no está disponible durante un tiempo. NO puede hacer cambios en varias VMSS declaradas con el mismo NodeType en paralelo; deberá realizar operaciones de implementación aparte para aplicar cambios a cada VMSS NodeType individualmente.
 
 1. Implemente el clúster inicial con dos tipos de nodos y dos conjuntos de escalado (un conjunto de escalado por tipo de nodo) mediante estos archivos de [plantilla](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) y [parámetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) de ejemplo.  Ambos conjuntos de escalado son de tamaño D2_V2 Estándar y ejecutan Windows Server 2012 R2 Datacenter.  Espere a que el clúster finalice la actualización de referencia.   
 2. Opcional: implementación de un ejemplo con estado en el clúster.

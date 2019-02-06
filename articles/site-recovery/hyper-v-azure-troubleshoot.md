@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844998"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228209"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -110,7 +110,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 5. Compruebe que el servicio de copia de seguridad está habilitado. Compruebe que está habilitada en **Configuración de Hyper-V** > **Integration Services**.
 6. Asegúrese de que no hay conflictos con aplicaciones que estén realizando instantáneas VSS. Si varias aplicaciones están intentando realizar instantáneas VSS al mismo tiempo se pueden producir conflictos. Por ejemplo, si una aplicación de copia de seguridad está realizando instantáneas VSS cuando Site Recovery está programado por la directiva de replicación para realizar una instantánea.   
 7. Compruebe si la máquina virtual está experimentando una tasa de modificación elevada:
-    - Puede medir la tasa de cambio de datos diaria para las máquinas virtuales invitadas con los contadores de rendimiento en el host de Hyper-V. Para medir la tasa de cambio de datos, habilite el siguiente contador. Agregar un ejemplo de este valor a los discos de máquina virtual de 5 a 15 minutos, para obtener la modificación de la máquina virtual.
+    - Puede medir la tasa de cambio de datos diaria para las máquinas virtuales invitadas con los contadores de rendimiento en el host de Hyper-V. Para medir la tasa de cambio de datos, habilite el siguiente contador. Agregue un ejemplo de este valor a los discos de máquina virtual de 5 a 15 minutos, para obtener la renovación de la máquina virtual.
         - Categoría: "Dispositivo de almacenamiento virtual de Hyper-V"
         - Contador: "Bytes de escritura/s"</br>
         - Esta tasa de modificación de datos aumentará o permanecer en un nivel alto, dependiendo de cómo de estén de ocupadas la máquina virtual o sus aplicaciones.

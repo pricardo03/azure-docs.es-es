@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965592"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297708"
 ---
-# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Los pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure 
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Pasos detallados: crear y administrar claves SSH para la autenticación en una VM Linux en Azure 
 Con un par de claves de Secure Shell (SSH), puede crear una máquina virtual Linux en Azure que, de forma predeterminada, use claves SSH para la autenticación, lo que elimina la necesidad de contraseñas para iniciar sesión. Las VM creadas con Azure Portal, CLI de Azure, plantillas de Resource Manager u otras herramientas pueden incluir la clave pública SSH como parte de la implementación, lo que configura la autenticación de clave SSH para las conexiones SSH. 
 
 En este artículo se proporciona información detallada y pasos para crear y administrar un par de archivos de claves RSA de SSH pública y privada para las conexiones de cliente SSH. Si busca comandos rápidos, consulte [Creación de un par de claves SSH pública y privada para VM Linux en Azure](mac-create-ssh-keys.md).
@@ -38,7 +38,7 @@ La clave privada SSH debe tener una frase de contraseña muy segura para protege
 
 ## <a name="ssh-keys-use-and-benefits"></a>Uso y ventajas de las claves SSH
 
-Cuando se crea una VM de Azure mediante la especificación de la clave pública, Azure copia la clave pública (en el formato `.pub`) a la carpeta `~/.ssh/authorized_keys` en la VM. Las claves SSH en `~/.ssh/authorized_keys` se utilizan para presentar un desafío al cliente, que debe proporcionar la clave privada correspondiente en una conexión de inicio de sesión SSH. En una VM Linux de Azure que usa claves SSH para la autenticación, Azure configura el servidor SSHD para no permitir inicios de sesión con contraseña, solo claves SSH. Por lo tanto, mediante la creación de VM Linux de Azure con claves SSH, puede ayudar a proteger la implementación de la VM y ahorrarse el paso de configuración que es habitual después de la implementación para deshabilitar las contraseñas en el archivo `sshd_config`.
+Cuando se crea una VM de Azure mediante la especificación de la clave pública, Azure copia la clave pública (en el formato `.pub`) a la carpeta `~/.ssh/authorized_keys` en la VM. Las claves SSH en `~/.ssh/authorized_keys` se utilizan para presentar un desafío al cliente, que debe proporcionar la clave privada correspondiente en una conexión de inicio de sesión SSH. En una VM Linux de Azure que usa claves SSH para la autenticación, Azure configura el servidor SSHD para no permitir inicios de sesión con contraseña, solo con claves SSH. Por lo tanto, mediante la creación de VM Linux de Azure con claves SSH, puede ayudar a proteger la implementación de la VM y ahorrarse el paso de configuración que es habitual después de la implementación para deshabilitar las contraseñas en el archivo `sshd_config`.
 
 Si no quiere usar claves de SSH, puede configurar la VM Linux para que use la autenticación de contraseña. Si la máquina virtual no está expuesta a Internet, el uso de contraseñas puede ser suficiente. Aun así, es preciso que administre las contraseñas de cada VM Linux y que mantenga directivas y procedimientos seguros con respecto a las contraseñas, como la elección contraseñas con una longitud mínima y actualizaciones periódicas. El uso de claves SSH reduce la complejidad de la administración de credenciales individuales en varias VM.
 
@@ -148,7 +148,7 @@ Devuelve una salida similar a la siguiente (que se muestra aquí):
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-Si copia y pega el contenido del archivo de clave pública en Azure Portal o en una plantilla de Resource Manager, asegúrese de no copiar ningún espacio en blanco adicional y de no introducir saltos de línea adicionales. Por ejemplo, si utiliza macOS, puede canalizar el archivo de clave pública (de forma predeterminada, `~/.ssh/id_rsa.pub`) hacia **pbcopy** para copiar el contenido (hay otros programas de Linux que hacen lo mismo, como **xclip**).
+Si copia y pega el contenido del archivo de clave pública en Azure Portal o en una plantilla de Resource Manager, asegúrese de no copiar ningún espacio en blanco adicional y de no introducir saltos de línea adicionales. Por ejemplo, si utiliza macOS, puede canalizar el archivo de clave pública (de forma predeterminada, `~/.ssh/id_rsa.pub`) hacia **pbcopy** para copiar el contenido (hay otros programas de Linux que hacen lo mismo, como `xclip`).
 
 Si prefiere usar una clave pública que se encuentra en un formato de varias líneas, puede generar una clave con formato RFC4716 en un contenedor de pem de la clave pública que creó anteriormente.
 
@@ -169,6 +169,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Si proporcionó una frase de contraseña cuando creó el par de claves, escríbala cuando se le solicite durante el proceso de inicio de sesión. (El servidor se agrega a la carpeta `~/.ssh/known_hosts` y no se le pedirá que se conecte de nuevo hasta que la clave pública de la máquina virtual de Azure cambie o se quite el nombre del servidor de `~/.ssh/known_hosts`).
+
+Si la máquina virtual está usando la directiva de acceso Just-In-Time, deberá solicitar acceso antes de poder conectarse a la máquina virtual. Para obtener más información sobre la directiva Just-in-Time, consulte [Administración del acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>Use ssh-agent para almacenar la frase de contraseña de clave privada
 

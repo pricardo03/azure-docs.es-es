@@ -6,12 +6,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 55e9ef0f8bd268f36378c7d34cea95384c6f725e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101486"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099352"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Creación de particiones y escalado horizontal en Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Una partición lógica define el ámbito de las transacciones de base de datos. 
 
 ## <a name="physical-partitions"></a>Particiones físicas
 
-Un contenedor de Azure Cosmos se escala mediante la distribución de los datos y el rendimiento entre un gran número de particiones lógicas. Internamente, una o varias particiones lógicas se asignan a una **partición física** que consta de un conjunto de réplicas que se conoce como conjunto de réplicas. Cada conjunto de réplicas hospeda una instancia del motor de base de datos de Azure Cosmos. Un conjunto de réplicas hace que los datos almacenados en la partición física sean duraderos, coherentes y tengan una alta disponibilidad. Una partición física admite una cantidad fija, máxima de almacenamiento y RU. Cada réplica que compone la partición física hereda la cuota de almacenamiento. Y todas las réplicas de una partición física admiten colectivamente el rendimiento asignado a la partición física. La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente:
+Un contenedor de Azure Cosmos se escala mediante la distribución de los datos y el rendimiento entre un gran número de particiones lógicas. Internamente, una o varias particiones lógicas se asignan a una **partición física** que consta de un conjunto de réplicas que se conoce como conjunto de réplicas. Cada conjunto de réplicas hospeda una instancia del motor de base de datos de Azure Cosmos. Un conjunto de réplicas hace que los datos almacenados en la partición física sean duraderos, coherentes y tengan una alta disponibilidad. Una partición física admite una cantidad máxima de almacenamiento y RU. Cada réplica que compone la partición física hereda la cuota de almacenamiento. Y todas las réplicas de una partición física admiten colectivamente el rendimiento asignado a la partición física. La siguiente imagen muestra cómo se asignan particiones lógicas a particiones físicas distribuidas globalmente:
 
 ![Creación de particiones en Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 

@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945593"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252241"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recursos de proveedor
 El término *proveedor* se aplica al administrador de servicios y a los proveedores delegados. Los operadores de Azure Stack y los proveedores delegados pueden usar la API de uso del proveedor para ver el uso de sus inquilinos directos. Por ejemplo, como se muestra en el diagrama, P0 puede llamar a la API de proveedores para obtener información del uso directo de P1 y de P2 y P1 puede llamarla para obtener información de uso sobre P3 y P4.
@@ -86,7 +87,7 @@ meterID1",
 | *subscriptionId* |Identificador de la suscripción del usuario de Azure Stack. |
 | *usageStartTime* |Hora de inicio UTC del depósito de uso al que pertenece este agregado de uso.|
 | *usageEndTime* |Hora de finalización UTC del depósito de uso al que pertenece este agregado de uso. |
-| *instanceData* |Pares de clave y valor de los detalles de la instancia (con un formato nuevo):<br> *resourceUri*: identificador de recurso completo, incluidos los grupos de recursos y el nombre de instancia. <br> *location*: región en la que se ejecutó este servicio. <br> *tags*: etiquetas del recurso especificadas por el usuario. <br> *additionalInfo*: más detalles sobre el recurso que se consumió, por ejemplo, tipo de imagen o versión de sistema operativo. |
+| *instanceData* |Pares de clave y valor de los detalles de la instancia (con un formato nuevo):<br> *resourceUri*: identificador de recurso completo, incluidos los grupos de recursos y el nombre de instancia. <br> *location*: región en la que se ejecutó este servicio. <br> *tags*: etiquetas del recurso especificadas por el usuario. <br> *additionalInfo*: más detalles sobre el recurso que se consumió; por ejemplo, el tipo de imagen o versión de sistema operativo. |
 | *quantity* |Cantidad de consumo de recursos que se produjo en este período de tiempo. |
 | *meterId* |Identificador único del recurso que se consumió (también denominado *ResourceID*). |
 

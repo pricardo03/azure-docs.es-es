@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847550"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904376"
 ---
 # <a name="manage-and-configure-projects"></a>Administración y configuración de proyectos
 
@@ -41,9 +41,9 @@ La lista desplegable **Ejecutar** del panel de proyecto es donde selecciona el n
 
 ![Lista desplegable de nivel de proceso del panel del proyecto](media/project-compute-tier-list.png)
 
-Puede omitir estas limitaciones mediante el uso de una máquina virtual diferente que se haya aprovisionado en una suscripción a Azure. También debe instalar Jupyter en dicha máquina virtual. Las imágenes de Data Science Virtual Machine son opciones válidas porque incluyen Jupyter de forma predeterminada.
+Puede omitir estas limitaciones mediante el uso de una máquina virtual diferente que se haya aprovisionado en una suscripción a Azure. Debe instalar y ejecutar JupyterHub en esa máquina virtual. Las imágenes de Data Science Virtual Machine (en cualquier sistema operativo) son opciones válidas porque incluyen JupyterHub de forma predeterminada.
 
-Puede conectarse a cualquier máquina virtual de Azure configurada adecuadamente mediante la opción **Direct Compute** (Proceso directo) en la lista desplegable. Al seleccionar esta opción, se solicita un nombre (para mostrar en la lista), el puerto (normalmente 8000, el puerto predeterminado al que escucha JupyterHub) y la dirección IP de la VM, así como las credenciales de la VM:
+Ya con una máquina virtual de Azure configurada adecuadamente, seleccione la opción **Direct Compute** (Proceso directo) de la lista desplegable, que le pedirá un nombre (que mostrar en la lista), la dirección IP y puerto (normalmente 8000, el puerto predeterminado al que JupyterHub escucha) de la máquina virtual y sus credenciales:
 
 ![Solicitud para recopilar información del servidor para la opción Direct Compute (Proceso directo)](media/project-compute-tier-direct.png)
 
@@ -57,7 +57,7 @@ Si se cumplen las condiciones siguientes, la lista desplegable también muestra 
 
 Al seleccionar una instancia de DSVM, Azure Notebooks puede solicitar las credenciales de la máquina específica que usó cuando creó la VM.
 
-Para crear una nueva instancia de DSVM, siga las instrucciones de la sección [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) (Creación de un entorno de Data Science VM de Ubuntu). *Debe* utilizar la imagen de **Data Science Virtual Machine para Linux (Ubuntu)** porque Azure Notebooks no muestra instancias de DSVM que usan las imágenes de Windows o CentOS.
+Para crear una nueva instancia de DSVM, siga las instrucciones de la sección [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) (Creación de un entorno de Data Science VM de Ubuntu). Use la imagen **Data Science Virtual Machine para Linux (Ubuntu)** si desea que DSVM aparezca en la lista desplegable de Azure Notebooks.  Si por otros motivos se debe usar la imagen de Windows o CentOS, puede usar la opción **Direct Compute** (Proceso directo) para conectarse a la instancia de DSVM manualmente.
 
 ## <a name="edit-project-metadata"></a>Edición de los metadatos del proyecto
 

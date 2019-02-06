@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278651"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170936"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
@@ -264,7 +264,7 @@ El informe debe contener la información sobre el origen del informe de mantenim
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Se conecta a un punto de conexión del clúster de Service Fabric.
 
-Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un archivo de certificado (.crt) y de clave (.key) o un único archivo con ambos (.pem). No especifique ambos. Como alternativa, si se conecta a un clúster seguro, también especifique una ruta de acceso absoluta a un archivo de paquetes de la entidad de certificación o al directorio de certificados de confianza de la entidad de certificación. Si usa un directorio de certificados de CA, `c_rehash <directory>` proporcionado por OpenSSL, se debe ejecutar en primer lugar para calcular los valores hash del certificado y crear los vínculos simbólicos adecuados.
+Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un archivo de certificado (.crt) y de clave (.key) o un único archivo con ambos (.pem). No especifique ambos. Como alternativa, si se conecta a un clúster seguro, también especifique una ruta de acceso absoluta a un archivo de paquetes de la entidad de certificación o al directorio de certificados de confianza de la entidad de certificación. Si usa un directorio de certificados de la entidad de certificación, `c_rehash <directory>` proporcionado por OpenSSL, se debe ejecutar en primer lugar para calcular los valores hash del certificado y crear los vínculos simbólicos adecuados.
 
 ### <a name="arguments"></a>Argumentos
 

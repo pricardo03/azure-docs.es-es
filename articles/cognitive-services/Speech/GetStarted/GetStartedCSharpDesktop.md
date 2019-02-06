@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342337"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219080"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guía de inicio rápido: Uso de Bing Speech Recognition API en C&#35; para .NET en Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Inicio rápido: Uso de Bing Speech Recognition API en C&#35; para .NET en Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -46,7 +46,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 >
 > * Use la clave de su suscripción Con la aplicación de ejemplo de escritorio de C# que se proporciona, pegue la clave de suscripción en el cuadro de texto al ejecutar el ejemplo. Para más información, consulte [Ejecución de la aplicación de ejemplo](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Paso 1: Instalar la aplicación de ejemplo
+## <a name="step-1-install-the-sample-application"></a>Paso 1: Instale la aplicación de ejemplo.
 
 1. Inicie Visual Studio 2015 y seleccione **Archivo** > **Abrir** > **Proyecto/Solución**.
 
@@ -54,7 +54,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 
 3. Haga doble clic para abrir el archivo de solución de Visual Studio 2015 (.sln) llamado SpeechToText-WPF-Samples.sln. La solución se abre en Visual Studio.
 
-## <a name="step-2-build-the-sample-application"></a>Paso 2: Compilación de la aplicación de ejemplo
+## <a name="step-2-build-the-sample-application"></a>Paso 2: Compilar la aplicación de ejemplo
 
 1. Si desea usar el *reconocimiento con intenciones*, primero debe suscribirse a [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). A continuación, use la dirección URL del punto de conexión de la aplicación de LUIS para establecer el valor de la clave `LuisEndpointUrl` en el archivo app.config, en la carpeta samples/SpeechRecognitionServiceExample. Para más información sobre la dirección URL del punto de conexión de la aplicación de LUIS, consulte [Publicación de la aplicación](../../luis/luis-get-started-create-app.md#publish-your-app).
 
@@ -63,7 +63,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 
 2. Presione Ctrl+Mayús+B o seleccione **Compilar** en el menú de la cinta de opciones. Después, seleccione **Compilar solución**.
 
-## <a name="step-3-run-the-sample-application"></a>Paso 3: Ejecución de la aplicación de ejemplo
+## <a name="step-3-run-the-sample-application"></a>Paso 3: Ejecutar la aplicación de ejemplo
 
 1. Una vez finalizada la compilación, presione F5 o seleccione **Iniciar** en el menú de la cinta de opciones para ejecutar el ejemplo.
 
@@ -79,7 +79,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
    Cada categoría tiene tres modos de reconocimiento:
 
     * **Modo ShortPhrase**: una expresión de hasta 15 segundos de duración. A medida que los datos se envían al servidor, el cliente recibe varios resultados parciales y un resultado final con las n opciones mejores.
-    * **Modo LongDictation**: una expresión hasta dos minutos de duración. A medida que los datos se envían al servidor, el cliente recibe varios resultados parciales y varios resultados finales, en función de las pausas que indique el servidor en la oración.
+    * **Modo LongDictation**: una expresión de hasta dos minutos de duración. A medida que los datos se envían al servidor, el cliente recibe varios resultados parciales y varios resultados finales, en función de las pausas que indique el servidor en la oración.
     * **Detección de intenciones**: el servidor devuelve información adicional estructurada sobre la entrada de voz. Para utilizar la detección de intenciones, debe primero entrenar un modelo con [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 Use archivos de audio de ejemplo con esta aplicación de ejemplo. Busque los archivos en el repositorio que se descargó con este ejemplo, en la carpeta samples/SpeechRecognitionServiceExample. Estos archivos de audio de ejemplo se ejecutan automáticamente si no se elige otro archivo al seleccionar **Use wav file for Shortphrase mode** (Usar archivo wav para el modo Shortphrase) o **Use wav file for Longdictation mode** (Usar archivo wav para el modo Longdictation) como entrada de voz. Actualmente, solo se admite el formato de audio WAV.
@@ -90,9 +90,9 @@ Use archivos de audio de ejemplo con esta aplicación de ejemplo. Busque los arc
 
 ### <a name="recognition-events"></a>Eventos de reconocimiento
 
-* **Eventos de resultados parciales**: se llama a este evento cada vez que el servicio de voz predice lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
+* **Evento de resultados parciales**: Este evento se llamará cada vez que el servicio de voz prediga lo que puede estar diciendo, incluso antes de que termine de hablar (si usa `MicrophoneRecognitionClient`) o termine de enviar datos (si usa `DataRecognitionClient`).
 * **Eventos de error**: se llaman cuando el servicio detecta un error.
-* **Eventos de intención**: se llaman en los clientes "WithIntent" (solo en el modo ShortPhrase) después de analizar el resultado final del reconocimiento en una intención JSON estructurada.
+* **Eventos intención**: se llaman en los clientes "WithIntent" (solo en el modo ShortPhrase) después de analizar el resultado final del reconocimiento en una intención JSON estructurada.
 * **Eventos de resultados**:
   * En modo `ShortPhrase`, se llama a este evento y devuelve los n resultados mejores cuando termina de hablar.
   * En modo `LongDictation`, se llama al controlador de eventos varias veces, en función de dónde identifica el servicio las pausas en la frase.

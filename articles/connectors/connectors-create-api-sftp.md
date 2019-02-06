@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979461"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910291"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para automatizar las tareas que supervisan, crear, envían y reciben archivos en
 * Obtener contenido de archivos y metadatos
 * Extraer archivos en carpetas
 
-En comparación con el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md), el conector SFTP puede leer o escribir archivos de hasta 50 MB de tamaño, a no ser que use la [fragmentación para el tratamiento de mensajes de gran tamaño](../logic-apps/logic-apps-handle-large-messages.md). Con archivos de hasta 1 GB de tamaño, use el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md). Con archivos de más de 1 GB, puede usar el conector SFTP-SSH más la [fragmentación para el tratamiento de mensajes de gran tamaño](../logic-apps/logic-apps-handle-large-messages.md). 
+En comparación con el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md), el conector SFTP puede leer o escribir archivos de hasta 50 MB de tamaño, a no ser que use la [fragmentación de mensajes en las acciones](../logic-apps/logic-apps-handle-large-messages.md). Actualmente, no se puede usar la fragmentación para los desencadenadores. Con archivos de hasta 1 GB de tamaño, use el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md). Con archivos de más de 1 GB, puede usar el conector SFTP-SSH más la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). 
 
 Puede usar desencadenadores que supervisen eventos en el servidor SFTP y permitir que la salida esté disponible para otras acciones. Puede usar acciones que realicen diversas tareas en el servidor SFTP. También puede hacer que otras acciones de la aplicación lógica usen la salida de las acciones SFTP. Por ejemplo, si recupera regularmente archivos del servidor SFTP, puede enviar por correo electrónico alertas sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com.
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -40,7 +40,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
   > [!NOTE]
   > 
-  > El conector SFTP admite estos formatos de clave privada: OpenSSH, ssh.com y PuTTY.
+  > El conector SFTP admite estos formatos de clave privada: OpenSSH, ssh.com y PuTTY
   > 
   > Al crear la aplicación lógica, después de agregar el desencadenador o la acción SFTP que desee, deberá proporcionar información de conexión para el servidor SFTP. 
   > Si usa una clave privada SSH, asegúrese de ***copiar*** la clave del archivo de clave privada SSH y ***pegar*** esa clave en los datos de conexión. ***No especifique ni edite manualmente la clave***, ya que podría producirse un error en la conexión. 
@@ -102,17 +102,39 @@ Los desencadenadores SFTP lo que hacen es sondear el sistema de archivos SFTP y 
 
 Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba que el nuevo archivo se ha escrito por completo y no parcialmente. Por ejemplo, un archivo podría tener los cambios en curso cuando el desencadenador comprueba el servidor de archivos. Para evitar devolver un archivo parcialmente escrito, el desencadenador anota la marca de tiempo del archivo que tiene cambios recientes, pero no devuelve inmediatamente dicho archivo. El desencadenador devuelve el archivo solo al volver a sondear el servidor. En ocasiones, este comportamiento puede provocar un retraso de hasta dos veces el intervalo de sondeo del desencadenador. 
 
+Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+
+* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
+
+* Siga el desencadenador con una acción que lea el archivo completo, como **Obtener contenido del archivo mediante ruta de acceso**, y haga que la acción use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Ejemplos
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Desencadenador de SFTP: When a file is added or modified
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Desencadenador SFTP: When a file is added or modified (Cuando se agrega o modifica un archivo)
 
 Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando se agrega o se modifica un archivo en un servidor SFTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y obtenga el contenido en función de si cumple una condición especificada. Luego, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP. 
 
-**Ejemplo empresarial**: puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+**Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
-### <a name="sftp-action-get-content"></a>Acción de SFTP: Get content
+Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+
+* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
+
+* Siga el desencadenador con una acción que lea el archivo completo, como **Obtener contenido del archivo mediante ruta de acceso**, y haga que la acción use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>Acción de SFTP: Obtener contenido
 
 Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una condición que debe cumplir el contenido del archivo. Si la condición es verdadera, se puede ejecutar la acción que obtiene el contenido. 
+
+Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+
+* Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
+
+* Siga el desencadenador con una acción que lea el archivo completo, como **Obtener contenido del archivo mediante ruta de acceso**, y haga que la acción use la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Referencia de conectores
 

@@ -1,5 +1,5 @@
 ---
-título: Definición de módulos de R personalizados titleSuffix: Azure Machine Learning Studio description: En este tema se describe cómo crear e implementar un módulo R personalizado en Azure Machine Learning. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Definición de módulos de R personalizados titleSuffix: Azure Machine Learning Studio description: En este tema se describe cómo crear e implementar un módulo R personalizado en Azure Machine Learning. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 29/11/2017
 ---

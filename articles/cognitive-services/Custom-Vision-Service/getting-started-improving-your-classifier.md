@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340297"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209408"
 ---
 # <a name="how-to-improve-your-classifier"></a>Mejora del clasificador
 
@@ -41,7 +41,7 @@ Otra cosa que hay que considerar es que hay que asegurarse de que los datos est�
 
 Proporcione imágenes que sean representativas de lo que se va a enviar al clasificador durante el uso normal. Por ejemplo, si entrena a un clasificador de "manzanas", este no será tan preciso si solo entrena fotos de manzanas en platos pero realiza predicciones de fotos de manzanas en árboles. Incluir diversos tipos de imágenes garantizará que no haya sesgos en el clasificador y que este pueda generalizar bien. A continuación se indican algunas formas de diversificar más el conjunto de entrenamiento:
 
-__Fondo:__ proporcione imágenes del objeto delante de fondos distintos (es decir, fruta en platos frente a fruta en la bolsa de la compra). Las fotos en contexto son mejores que las fotos delante de fondos neutros, ya que ofrecen más información para el clasificador.
+__Información previa:__ proporcione imágenes del objeto delante de fondos distintos (es decir, fruta en un plato y fruta en la bolsa de la compra). Las fotos en contexto son mejores que las fotos delante de fondos neutros, ya que ofrecen más información para el clasificador.
 
 ![Ejemplos de imágenes de fondos](./media/getting-started-improving-your-classifier/background.png)
 
@@ -49,7 +49,7 @@ __Luz:__ proporcione imágenes con una luz distinta (es decir, fotos realizadas 
 
 ![Ejemplos de imágenes con luz](./media/getting-started-improving-your-classifier/lighting.png)
 
-__Tamaño de objeto:__ proporcione imágenes en las que los objetos presenten distintos tamaños, con la captura de partes distintas del objeto. Por ejemplo, una foto de racimos de plátanos y un primer plano de un solo plátano. Los diferentes tamaños ayudan al clasificador a generalizar mejor.
+__Tamaño de objeto:__ proporcione imágenes en las que los objetos presenten distintos tamaños al capturar partes distintas del objeto. Por ejemplo, una foto de racimos de plátanos y un primer plano de un solo plátano. Los diferentes tamaños ayudan al clasificador a generalizar mejor.
 
 ![Ejemplos de tamaños en imágenes](./media/getting-started-improving-your-classifier/size.png)
 

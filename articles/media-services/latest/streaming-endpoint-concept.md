@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359650"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104581"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
-En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción cliente o a una red Content Delivery Network (CDN) para la distribución posterior. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Para iniciar el streaming de vídeos, debe iniciar el punto de conexión de streaming desde el cual quiere reproducir el vídeo. 
+En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción cliente o a una red Content Delivery Network (CDN) para la distribución posterior. La secuencia de salida de un servicio de **punto de conexión de streaming** puede ser un streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta. 
+
+> [!NOTE]
+> Para iniciar la transmisión de vídeos, es preciso que inicie el **punto de conexión de streaming** desde el que desee transmitir en secuencias el vídeo. 
 
 ## <a name="naming-convention"></a>Convención de nomenclatura
 
@@ -34,7 +37,7 @@ Existen dos tipos de **StreamingEndpoint**: **Estándar** y **Premium**. El tipo
 
 En la tabla se describen los tipos:  
 
-|Escriba|Unidades de escalado|DESCRIPCIÓN|
+|Type|Unidades de escalado|DESCRIPCIÓN|
 |--------|--------|--------|  
 |**Punto de conexión de streaming estándar** (recomendado)|0|El tipo **estándar** es la opción recomendada para prácticamente todos los escenarios de streaming y tamaños de audiencia. El tipo **estándar** escala el ancho de banda de salida automáticamente. <br/>Para los clientes con requisitos muy exigentes, Media Services ofrece puntos de conexión de streaming **premium**, que pueden utilizarse para escalar horizontalmente la capacidad para las audiencias de Internet más grandes. Si espera una audiencia amplia y usuarios simultáneos, póngase en contacto con nosotros en amsstreaming@microsoft.com para obtener instrucciones sobre si debe pasar al tipo **premium**. |
 |**Punto de conexión de streaming premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |

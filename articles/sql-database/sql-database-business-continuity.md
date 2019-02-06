@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599440"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473432"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -46,7 +46,7 @@ A continuación, puede obtener información acerca de los mecanismos adicionales
 
 - [Tablas temporales](sql-database-temporal-tables.md) que le permiten restaurar versiones de fila desde cualquier momento dado.
 - Las [copias de seguridad automatizadas integradas](sql-database-automated-backups.md) y la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado de los últimos 35 días.
-- Puede [restaurar una base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) al momento en que se eliminó si el **servidor lógico no se ha eliminado**.
+- Puede [restaurar una base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) al momento en que se eliminó si el **servidor de SQL Database no se ha eliminado**.
 - La [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md) le permite conservar las copias de seguridad hasta 10 años.
 - La [replicación geográfica activa](sql-database-active-geo-replication.md) le permite crear réplicas legibles y realizar una conmutación por error manual a cualquier réplica en el caso de una interrupción en el centro de datos o una actualización de aplicación.
 - El [grupo de conmutación por error automática](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción en el centro de datos.
@@ -63,7 +63,7 @@ En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de serv
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperación de una base de datos en el servidor existente
 
-SQL Database realiza automáticamente una combinación de copias de seguridad de las bases de datos completas semanales, copias de seguridad diferenciales (normalmente cada 12 horas) y copias de seguridad del registro de transacciones cada 5-10 minutos con el fin de proteger su empresa contra la pérdida de datos. Las copias de seguridad se almacenan en un almacenamiento con redundancia geográfica con acceso de lectura durante 35 días para todos los niveles de servicio, excepto los niveles de servicio de DTU básico en el que las copias de seguridad se almacenan durante 7 días. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md). Puede restaurar una base de datos existente a partir de las copias de seguridad automatizadas a un momento anterior en el tiempo como una nueva base de datos en el mismo servidor lógico con Azure Portal, PowerShell o la API REST. Para más información, consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database realiza automáticamente una combinación de copias de seguridad de las bases de datos completas semanales, copias de seguridad diferenciales (normalmente cada 12 horas) y copias de seguridad del registro de transacciones cada 5-10 minutos con el fin de proteger su empresa contra la pérdida de datos. Las copias de seguridad se almacenan en un almacenamiento con redundancia geográfica con acceso de lectura durante 35 días para todos los niveles de servicio, excepto los niveles de servicio de DTU básico en el que las copias de seguridad se almacenan durante 7 días. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md). Puede restaurar una base de datos existente a partir de las copias de seguridad automatizadas a un momento anterior en el tiempo como una nueva base de datos en el mismo servidor de SQL Database con Azure Portal, PowerShell o la API REST. Para más información, consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Si el período de retención de la restauración a un punto del tiempo (PITR) máximo admitido no es suficiente para su aplicación, puede ampliarlo mediante la configuración de una directiva de retención a largo plazo (LTR) para las bases de datos. Para obtener más información, vea [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 

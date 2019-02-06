@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536056"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245674"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitectura de conectividad de la Instancia administrada de Azure SQL Database
 
@@ -108,9 +108,12 @@ Puede implementar una Instancia administrada en una subred dedicada (la subred d
 
 | NOMBRE       |Port          |Protocolo|Origen           |Destino|.|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Cualquiera              |Cualquiera        |PERMITIR |
+|management  |80, 443, 12000|TCP     |Cualquiera              |Internet   |PERMITIR |
 |mi_subnet   |Cualquiera           |Cualquiera     |Cualquiera              |MI SUBNET  |PERMITIR |
 
+  > [!Note]
+  > MI SUBNET se refiere al intervalo de direcciones IP para la subred con el formato 10.x.x.x/y. Esta información puede consultarse en Azure Portal (a través de las propiedades de subred).
+  
   > [!Note]
   > Aunque las reglas de seguridad de entrada obligatorias permiten el tráfico desde _cualquier_ origen en los puertos 9000, 9003, 1438, 1440, 1452, estos puertos están protegidos por un firewall integrado. Este [artículo](sql-database-managed-instance-find-management-endpoint-ip-address.md) muestra cómo puede detectar la dirección IP del punto de conexión de administración y comprobar las reglas del firewall. 
   

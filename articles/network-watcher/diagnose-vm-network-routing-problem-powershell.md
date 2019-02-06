@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ace5901012c5bc66a560dafd3a403183d6ce8c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422838"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912857"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: Azure PowerShell
 
@@ -127,7 +127,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Como puede ver en la salida anterior, la ruta con **AaddressPrefix** de **0.0.0.0/0** enruta todo el tráfico no destinado a direcciones dentro de otros prefijos de direcciones de ruta con un próximo salto de **Internet**. Como también puede ver en el resultado, aunque hay una ruta predeterminada hacia el prefijo 172.16.0.0/12 (que incluye la dirección 172.31.0.100), el valor de **nextHopType** es **Ninguno**. Azure crea una ruta predeterminada a 172.16.0.0/12, pero no especifica un tipo de próximo salto hasta que haya un motivo para hacerlo. Por ejemplo, si se agrega el intervalo de direcciones 172.16.0.0/12 al espacio de direcciones de la red virtual, Azure cambia el valor de **nextHopType** a **Red Virtual** para la ruta. A continuación, se muestra una marca de verificación de **Red virtual** como valor de **nextHopType**.
+Como puede ver en la salida anterior, la ruta con **AddressPrefix** de **0.0.0.0/0** enruta todo el tráfico no destinado a direcciones dentro de otros prefijos de direcciones de ruta con un próximo salto de **Internet**. Como también puede ver en el resultado, aunque hay una ruta predeterminada hacia el prefijo 172.16.0.0/12 (que incluye la dirección 172.31.0.100), el valor de **nextHopType** es **Ninguno**. Azure crea una ruta predeterminada a 172.16.0.0/12, pero no especifica un tipo de próximo salto hasta que haya un motivo para hacerlo. Por ejemplo, si se agrega el intervalo de direcciones 172.16.0.0/12 al espacio de direcciones de la red virtual, Azure cambia el valor de **nextHopType** a **Red Virtual** para la ruta. A continuación, se muestra una marca de verificación de **Red virtual** como valor de **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

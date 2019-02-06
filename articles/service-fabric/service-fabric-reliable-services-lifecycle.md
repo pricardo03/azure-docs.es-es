@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044584"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164561"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Información general del ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ De forma similar a los servicios sin estado, los eventos de ciclo de vida durant
 3. Una vez finalizado `StatefulServiceBase.OnCloseAsync()`, se destruye el objeto de servicio.
 
 ## <a name="stateful-service-primary-swaps"></a>Intercambios de servicios con estado principales
-Durante la ejecución de un servicio con estado, solo se abren los agentes de escucha de comunicación y se llama al método **RunAsync** de los servicios con estado principales. Se construyen réplicas secundarias, pero no reciben más llamadas. No obstante, durante la ejecución de un servicio con estado la réplica que es actualmente la principal puede cambiar. ¿Cómo afecta esto a los eventos de ciclo de vida que puede ver una réplica? El comportamiento de la réplica con estado depende de si es la réplica que está subiendo o bajando de categoría.
+Durante la ejecución de un servicio con estado, solo se abren los agentes de escucha de comunicación y se llama al método **RunAsync** de los servicios con estado principales. Se construyen réplicas secundarias, pero no reciben más llamadas. Durante la ejecución de un servicio con estado, la réplica que es actualmente la principal puede cambiar como resultado de la optimización de equilibrio de clúster o un error. ¿Cómo afecta esto a los eventos de ciclo de vida que puede ver una réplica? El comportamiento de la réplica con estado depende de si es la réplica que está subiendo o bajando de categoría.
 
 ### <a name="for-the-primary-thats-demoted"></a>En el caso de que la principal baje de categoría
 Si la réplica principal baja de categoría, Service Fabric necesita que esta réplica deje de procesar mensajes y que cierre cualquier trabajo que esté realizando en segundo plano. Como resultado, este paso es similar al del servicio cuando se cierra. Se diferencia en que el servicio no se destruye ni se cierra, puesto que permanece como un elemento secundario. Se llama a las API siguientes:

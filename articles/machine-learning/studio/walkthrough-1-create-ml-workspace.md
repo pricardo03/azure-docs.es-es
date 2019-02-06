@@ -1,6 +1,6 @@
 ---
-título: "Paso 1: Creación de un área de trabajo" titleSuffix: Azure Machine Learning Studio description: "Paso 1 del tutorial de desarrollo de una solución predictiva: Aprenda a configurar una nueva área de trabajo de Azure Machine Learning Studio".
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: "Paso 1: Creación de un área de trabajo" titleSuffix: Azure Machine Learning Studio description: "Paso 1 del tutorial de desarrollo de una solución predictiva: Aprenda a configurar una nueva área de trabajo de Azure Machine Learning Studio".
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 23/03/2017
 ---

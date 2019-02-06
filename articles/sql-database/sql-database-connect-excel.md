@@ -11,13 +11,13 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/10/2017
-ms.openlocfilehash: 8750552499a5112b1a46b2cb4929c029d5e7e3a0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 01/25/2019
+ms.openlocfilehash: 318dce78059a169ede2f19f6aadaab9d61e07086
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063836"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474962"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Conexión de Excel a una Base de datos SQL de Azure y creación de un informe
 
@@ -28,47 +28,48 @@ Antes de comenzar, necesitará una Base de datos SQL en Azure. Si no tiene una, 
 También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 2016](https://products.office.com/).
 
 ## <a name="connect-excel-to-a-sql-database-and-load-data"></a>Conectar Excel a SQL Database y cargar datos
+
 1. Para conectar Excel a Base de datos SQL, abra Excel y cree un libro nuevo o abra uno existente.
 2. En la barra de menús de la parte superior de la página, seleccione la pestaña **Datos**, **Obtener datos**, De Azure y luego seleccione **De Azure SQL Database**. 
-   
-   ![Selección de origen de datos: conexión de Excel a Base de datos SQL.](./media/sql-database-connect-excel/excel_data_source.png)
-   
+
+   ![Selección de origen de datos: Conexión de Excel a SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
+
    Se abre el Asistente para la conexión de datos.
 3. En el cuadro de diálogo **Conectar con el servidor de la base de datos**, escriba el **nombre del servidor** de SQL Database al que quiere conectarse con el formato <*nombreDeServidor*>**.database.windows.net**. Por ejemplo, **msftestserver.database.windows.net**. También puede escribir el nombre de la base de datos. Seleccione **Aceptar** para abrir la ventana de credenciales. 
 
    ![server-name.png](media/sql-database-connect-excel/server-name.png)
 
-1. En el cuadro de diálogo **Base de datos de SQL Server**, seleccione **Base de datos** en el lado izquierdo y luego escriba el **Nombre de usuario** y la **Contraseña** del servidor de bases de datos SQL al que se quiere conectar. Seleccione **Conectar** para abrir el **navegador**. 
+4. En el cuadro de diálogo **Base de datos de SQL Server**, seleccione **Base de datos** en el lado izquierdo y luego escriba el **Nombre de usuario** y la **Contraseña** del servidor de SQL Database al que se quiere conectar. Seleccione **Conectar** para abrir el **navegador**. 
 
   ![Especificación de las credenciales del nombre del servidor y de inicio de sesión](./media/sql-database-connect-excel/connect-to-server.png)
-   
+
   > [!TIP]
   > Dependiendo de su entorno de red, es posible que no pueda conectarse o que pierda la conexión si el servidor de SQL Database no permite el tráfico de la dirección IP del cliente. Vaya al [Portal de Azure](https://portal.azure.com/), haga clic en Servidores SQL Server, haga clic en su servidor, haga clic en Firewall en Configuración y agregue la dirección IP de cliente. Consulte [Configuración del firewall](sql-database-configure-firewall-settings.md) para obtener más detalles.
-   
-   
-5. En el **navegador**, seleccione en la lista la base de datos con la que quiere trabajar, seleccione las tablas o vistas con las que quiere trabajar (se elige **vGetAllCategories**) y luego seleccione **Cargar** para mover los datos de la base de datos SQL de Azure a la hoja de cálculo de Excel.
-   
+
+5. En el **navegador**, seleccione en la lista la base de datos con la que quiere trabajar, seleccione las tablas o vistas con las que quiere trabajar (se elige **vGetAllCategories**) y luego seleccione **Cargar** para mover los datos de la base de datos a la hoja de cálculo de Excel.
+
     ![Selección de una base de datos y una tabla.](./media/sql-database-connect-excel/select-database-and-table.png)
-   
 
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importación de los datos a Excel y creación de un gráfico dinámico
+
 Ahora que ha establecido la conexión, tiene varias opciones para cargar los datos. Por ejemplo, con los pasos siguientes se crea un gráfico dinámico basado en los datos de SQL Database. 
 
 1. Siga los pasos de la sección anterior, pero esta vez, en lugar de seleccionar **Cargar**, seleccione **Cargar en** en la lista desplegable **Cargar**.
 2. Luego seleccione cómo quiere ver estos datos en el libro. Elegimos **Gráfico dinámico**. También puede optar por crear una **nueva hoja de cálculo** o **Agregar estos datos al Modelo de datos**. Para más información sobre los modelos de datos, consulte [Crear un modelo de datos en Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). 
-   
+
     ![Elección del formato de datos en Excel](./media/sql-database-connect-excel/import-data.png)
-   
+
     La hoja de cálculo ahora tiene una tabla y un gráfico dinámicos vacíos.
-2. En **Campos de tabla dinámica**, seleccione todas las casillas de los campos que desea ver.
-   
+3. En **Campos de tabla dinámica**, seleccione todas las casillas de los campos que desea ver.
+
     ![Configuración de informe de base de datos.](./media/sql-database-connect-excel/power-pivot-results.png)
 
 > [!TIP]
 > Si quiere conectar otros libros y hojas de cálculo de Excel a la base de datos, seleccione la pestaña **Datos** y luego **Orígenes recientes** para iniciar el cuadro de diálogo **Orígenes recientes**. Desde allí, elija la conexión que ha creado en la lista y luego haga clic en **Abrir**.
 > ![Conexiones recientes](media/sql-database-connect-excel/recent-connections.png)
- 
+
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Crear una conexión permanente con el archivo .odc
+
 Para guardar los detalles de conexión de forma permanente, puede crear un archivo .odc y convertir esta conexión en una opción seleccionable del cuadro de diálogo **Conexiones existentes**. 
 
 1. En la barra de menús de la parte superior de la página, seleccione la pestaña **Datos** y luego **Conexiones existentes** para iniciar el cuadro de diálogo **Conexiones existentes**. 
@@ -97,7 +98,7 @@ Para guardar los detalles de conexión de forma permanente, puede crear un archi
     ![Conexión existente](media/sql-database-connect-excel/existing-connection.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Consulte [Conexión a la SQL Database con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md) para obtener más información sobre consultas y análisis avanzados.
 * Más información sobre las ventajas de los [grupos elásticos](sql-database-elastic-pool.md).
 * Más información en [Crear una aplicación ASP.NET MVC con la autenticación y SQL Database e implementar al Servicio de aplicaciones de Azure](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
-

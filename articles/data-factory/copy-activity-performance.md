@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020901"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301278"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -241,7 +241,17 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 
 1. **Establezca una línea base**. Durante la fase de desarrollo, pruebe la canalización usando la actividad de copia en un ejemplo de datos representativo. Recopile detalles de la ejecución y características del rendimiento después de la [supervisión de la actividad de copia](copy-activity-overview.md#monitoring).
 
-2. **Diagnostique y optimice el rendimiento**. Si el rendimiento que observa no satisface sus expectativas, deberá identificar los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella. Aunque la descripción completa del diagnóstico de rendimiento escapa del ámbito de este artículo, aquí hay algunos aspectos comunes a tener en cuenta:
+2. **Diagnostique y optimice el rendimiento**. Si el rendimiento que observa no satisface sus expectativas, deberá identificar los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella. 
+
+    En algunos casos, cuando se ejecuta una actividad de copia en ADF, directamente verá "**sugerencias para la optimización del rendimiento**" en la parte superior de la [página de supervisión de actividad de copia](copy-activity-overview.md#monitor-visually) tal como se muestra en el ejemplo siguiente. No solo indica el cuello de botella identificado para la ejecución de una copia determinada, sino que también ofrece orientación sobre qué cambiar con el fin de mejorar el rendimiento de copia. Las sugerencias para la optimización del rendimiento actualmente ofrecen recomendaciones para usar PolyBase al copiar datos en Azure SQL Data Warehouse, aumentar la unidad de solicitud de Azure Cosmos DB o la DTU de Azure SQL DB cuando el recurso del almacén de datos forma el cuello de botella, quitar la copia preconfigurada innecesaria, etc. Las reglas de optimización del rendimiento también se enriquecerán de forma gradual.
+
+    **Ejemplo: copia en Azure SQL DB con sugerencias de optimización del rendimiento**
+
+    En este ejemplo, durante la ejecución de la copia, ADF percibe que la instancia receptora de Azure SQL DB alcanza una utilización de la DTU tan alta que ralentiza las operaciones de escritura, por lo que la sugerencia consiste en aumentar el nivel de Azure SQL DB con más DTU. 
+
+    ![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Además, existen las siguientes consideraciones comunes. Una descripción completa del diagnóstico de rendimiento va más allá del ámbito de este artículo.
 
    * Características de rendimiento:
      * [Copia paralela](#parallel-copy)

@@ -1,6 +1,6 @@
 ---
-título: Experimento sencillo titleSuffix: Azure Machine Learning Studio description: Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+título: Experimento sencillo titleSuffix: Azure Machine Learning Studio description: Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
 ---

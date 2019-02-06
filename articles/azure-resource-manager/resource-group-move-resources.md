@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463038"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251986"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -57,6 +57,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Explorador de datos de Azure
+* Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps: las organizaciones de Azure DevOps con compras de extensiones que no son de Microsoft deben [cancelar las compras](https://go.microsoft.com/fwlink/?linkid=871160) para poder mover la cuenta entre suscripciones.
@@ -99,7 +100,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Paneles del portal
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
-* Almacén de Recovery Services: registre su suscripción para obtener una [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Almacén de Recovery Services: inscríbase en una [versión preliminar privada](#recovery-services-limitations).
 * Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
@@ -176,7 +177,7 @@ Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, 
 * Busque la ubicación de la máquina virtual.
 * Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
 * Si está en Azure Portal, active "Mostrar tipos ocultos"
-* Si se encuentra en PowerShell, use el cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+* Si se encuentra en PowerShell, use el cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
 * Si está en la CLI, use `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
@@ -307,7 +308,7 @@ Es posible que esta operación tarde varios minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitaciones de Recovery Services
 
- Para mover un almacén de Recovery Services, registre su suscripción para obtener una [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Para trasladar un almacén de Recovery Services, debe inscribirse en una versión preliminar privada. Para probarlo, escriba a AskAzureBackupTeam@microsoft.com.
 
 Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS.
 
@@ -336,13 +337,15 @@ Al mover un clúster de HDInsight a una nueva suscripción, mueva primero otros 
 
 Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Puede evitar errores mediante la comprobación de estas condiciones.
 
+1. Las suscripciones de origen y de destino deben estar activas. Si tiene problemas para habilitar una cuenta que se ha deshabilitado, [cree una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
+
 1. Las suscripciones de origen y destino deben existir en el mismo [inquilino de Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Para comprobar que ambas suscripciones tienen el mismo identificador de inquilino, utilice Azure PowerShell o la CLI de Azure.
 
   Para Azure PowerShell, use:
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Para la CLI de Azure, utilice:
@@ -362,14 +365,14 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   En PowerShell, use los siguientes comandos para obtener el estado de registro:
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Para registrar un proveedor de recursos, use:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   En la CLI de Azure, use los siguientes comandos para obtener el estado de registro:
@@ -473,12 +476,12 @@ Cuando haya finalizado, se le notificará del resultado.
 
 ### <a name="by-using-azure-powershell"></a>Mediante Azure PowerShell.
 
-Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando [Move-AzResource](/powershell/module/az.resources/move-azresource). El siguiente ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Para moverlos a una nueva suscripción, especifique un valor para el parámetro `DestinationSubscriptionId`.

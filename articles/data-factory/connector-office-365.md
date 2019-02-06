@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ed5f3db3f9f8f7231d8f865f69cd11c2430054b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024321"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297496"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar datos de Office 365 en Azure con Azure Data Factory (versión preliminar) 
 
@@ -42,9 +42,10 @@ Para copiar datos de Office 365 en Azure, es preciso completar los pasos de requ
 - El administrador de inquilinos de Office 365 debe completar las acciones de incorporación como se describe [aquí](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
 - Cree y configure una aplicación web de Azure AD en Azure Active Directory.  Para obtener instrucciones, vea cómo [crear una aplicación de Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Anote los siguientes valores; los usará para definir el servicio vinculado para Office 365:
-    - Identificador de inquilino.  Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Identificador de inquilino. Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     - Identificador de aplicación y clave de aplicación.  Para obtener instrucciones, vea [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-- Agregue la identidad del usuario que va a realizar la solicitud de acceso a los datos como propietario de la aplicación web de Azure AD (aplicación web de Azure AD > Configuración > Propietarios > Agregar propietario).
+- Agregue la identidad del usuario que va a realizar la solicitud de acceso a los datos como propietario de la aplicación web de Azure AD (aplicación web de Azure AD > Configuración > Propietarios > Agregar propietario). 
+    - La identidad del usuario debe pertenecer a la organización de Office 365 de la que obtendrá los datos. Además, no debe un usuario invitado.
 
 ## <a name="approving-new-data-access-requests"></a>Aprobar nuevas solicitudes de acceso a los datos
 

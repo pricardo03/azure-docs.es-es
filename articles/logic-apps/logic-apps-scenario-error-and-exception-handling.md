@@ -10,14 +10,14 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124042"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098670"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: Control de excepciones y registro de errores para aplicaciones lógicas
 
 En este escenario se describe cómo extender una aplicación lógica para controlar mejor las excepciones. Hemos usado un caso de uso real para responder a la pregunta: ¿Admite Azure Logic Apps control de excepciones y errores?
 
@@ -57,7 +57,7 @@ Puesto que vamos a registrar los registros procedentes de Dynamics CRM Online, v
 
 Vamos a usar un desencadenador de **solicitud** tal como se muestra en el ejemplo siguiente:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Vamos a usar un desencadenador de **solicitud** tal como se muestra en el ejempl
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Pasos

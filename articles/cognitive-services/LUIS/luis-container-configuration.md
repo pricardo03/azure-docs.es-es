@@ -7,20 +7,20 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468342"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294730"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Configurar los contenedores de docker de Language Understanding 
+# <a name="configure-language-understanding-docker-containers"></a>Configuración de los contenedores de Docker de Language Understanding 
 
-El entorno en tiempo de ejecución del contenedor de Language Understanding (LUIS) se configura mediante los argumentos del comando `docker run`. LUIS tiene varias opciones necesarias, junto con algunas opciones de configuración opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor son la [configuración de montaje](#mount-settings) de entrada y la configuración de facturación. 
+El entorno en tiempo de ejecución del contenedor de **Language Understanding** (LUIS) se configura mediante los argumentos del comando `docker run`. LUIS tiene varias opciones necesarias, junto con algunas opciones de configuración opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor son la [configuración de montaje](#mount-settings) de entrada y la configuración de facturación. 
 
 La configuración del contenedor es [jerárquica](#hierarchical-settings) y se puede establecer con [variables de entorno](#environment-variable-settings) o [argumentos de la línea de comandos](#command-line-argument-settings) de Docker.
 
@@ -194,4 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Consulte [Instalación y ejecución de contenedores](luis-container-howto.md)
 * Consulte las [preguntas frecuentes (P+F)](luis-resources-faq.md) para resolver problemas relacionados con la funcionalidad de LUIS.
-* Usar más [contenedores de Cognitive Services](../cognitive-services-container-support.md)
+* Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

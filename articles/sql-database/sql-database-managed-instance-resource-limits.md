@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 01/22/2019
-ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6bb90480667a899d9d7bc7a5d8269b0cdf1da223
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450888"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219726"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL Database
 
@@ -39,6 +39,7 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 | Hardware | Procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz; núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico) | Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz; SSD eNVM rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading) |
 | Proceso | 8, 16, 24 núcleos virtuales | 8, 16, 24, 32, 40, 64, 80 núcleos virtuales |
 | Memoria | 7 GB por núcleo virtual | 5,1 GB por núcleo virtual |
+| Memoria de OLTP en memoria | 3 GB por núcleo virtual | 2,6 GB por núcleo virtual |
 | Almacenamiento máximo (de uso general) |  8 TB | 1 TB |
 | Almacenamiento máximo (crítico para la empresa) | 8 TB | 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 

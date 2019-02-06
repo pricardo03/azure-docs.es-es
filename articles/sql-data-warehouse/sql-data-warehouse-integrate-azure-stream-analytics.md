@@ -2,20 +2,20 @@
 title: Uso de Azure Stream Analytics con SQL Data Warehouse | Microsoft Docs
 description: Sugerencias para usar Azure Stream Analytics con Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7c940b10e88e50988b574dbc1fa365dc9d8fd7d5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962952"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452403"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Uso de Azure Stream Analytics con SQL Data Warehouse
 Azure Stream Analytics es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para aprender los conceptos básicos, lea la [introducción a Azure Stream Analytics][Introduction to Azure Stream Analytics]. Después puede aprender a crear una solución de un extremo a otro con Stream Analytics siguiendo el tutorial de [introducción al uso de Azure Stream Analytics][Get started using Azure Stream Analytics].
@@ -32,7 +32,7 @@ En primer lugar, ejecute los pasos siguientes del tutorial de [introducción al 
 
 Luego cree una base de datos de Azure SQL Data Warehouse.
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especifique la salida de trabajo: base de datos de Azure SQL Data Warehouse.
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especificación de la salida del trabajo: Base de datos de Azure SQL Data Warehouse
 ### <a name="step-1"></a>Paso 1
 En el trabajo de Stream Analytics, haga clic en **SALIDA** en la parte superior de la página y luego en **AGREGAR SALIDA**.
 
@@ -49,7 +49,7 @@ Escriba estos valores en la página siguiente:
   * Si la base de datos de SQL Data Warehouse está en la misma suscripción que el trabajo de Stream Analytics, seleccione Usar SQL Database de la suscripción actual".
   * Si la base de datos está en una suscripción diferente, seleccione Usar SQL Database de otra suscripción.
 * *Base de datos*: especifique el nombre de una base de datos de destino.
-* *Nombre del servidor*: especifique el nombre del servidor para la base de datos especificada. Para encontrarlo, puede usar Azure Portal.
+* *Server Name* (Nombre del servidor): especifique el nombre del servidor para la base de datos especificada. Para encontrarlo, puede usar Azure Portal.
 
 ![][server-name]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193740"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 
@@ -219,7 +219,7 @@ Cuando ya no sea necesaria la suspensión, la copia de seguridad de datos perió
 * Si se aplicó la suspensión en una _partición_, se debe reanudar mediante la API para [reanudar copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Diferencia entre suspender y deshabilitar copias de seguridad
-Deshabilitar copias de seguridad debe usarse cuando las copias de seguridad ya no sean necesarias para una determinada aplicación, servicio o partición. De hecho, se puede invocar la solicitud de deshabilitar copias de seguridad junto con el parámetro de limpiar copias de seguridad establecido en verdadero, lo que significaría que también se eliminarían todas las copias de seguridad existentes. Sin embargo, suspender debe usarse en escenarios donde se desea desactivar las copias de seguridad temporalmente, como cuando se llena el disco local o se producen errores al cargar la copia de seguridad debido a un problema de red conocido. 
+Deshabilitar copias de seguridad debe usarse cuando las copias de seguridad ya no sean necesarias para una determinada aplicación, servicio o partición. Se puede invocar la solicitud de deshabilitar copias de seguridad junto con el parámetro de limpiar copias de seguridad establecido en verdadero, lo que significaría que también se eliminarían todas las copias de seguridad existentes. Sin embargo, suspender debe usarse en escenarios donde se desea desactivar las copias de seguridad temporalmente, como cuando se llena el disco local o se producen errores al cargar la copia de seguridad debido a un problema de red conocido. 
 
 Mientras la deshabilitación solo se puede invocar en el nivel en el que la copia de seguridad se había habilitado explícitamente; sin embargo, la suspensión se puede aplicar en cualquier nivel en el que esté habilitada la copia de seguridad ya sea directamente o a través de herencia o jerarquía. Por ejemplo, si está habilitada la copia de seguridad en nivel de aplicación, la deshabilitación se puede invocar solo en el nivel de la aplicación; sin embargo, la suspensión se puede invocar en la aplicación, cualquier servicio o partición de esa aplicación. 
 

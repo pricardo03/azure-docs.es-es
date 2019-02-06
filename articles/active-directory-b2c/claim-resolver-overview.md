@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845023"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162198"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los solucionadores de notificaciones en las directivas personalizadas de Azure Active Directory B2C
 
@@ -97,6 +97,11 @@ Cualquier nombre de parámetro incluido como parte de una solicitud OIDC u OAuth
 | {OAUTH-KV:loyalty_number} | Parámetro de cadena de consulta. | 1234 |
 | {OAUTH-KV:any custom query string} | Parámetro de cadena de consulta. | N/D |
 
+### <a name="oauth2"></a>OAuth2
+
+| Notificación | DESCRIPCIÓN | Ejemplo |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | El token de acceso. | N/D |
 
 ## <a name="how-to-use-claim-resolvers"></a>Uso de los solucionadores de notificaciones
 

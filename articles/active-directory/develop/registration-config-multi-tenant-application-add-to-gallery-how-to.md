@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: b89be37d9c77fb83e607a1af0bc2f6ba716ab2c1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 073f6d925a6868937410972a9400daefa802876d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723905"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152049"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Incorporación de una aplicación multiinquilino a la galería de aplicaciones de Azure AD
 
@@ -31,9 +31,9 @@ Azure Active Directory (Azure AD) es un servicio de identidad basado en la nube.
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Si la aplicación es compatible con SAML o con OpenIDConnect
 Si tiene una aplicación multiinquilino que le gustaría mostrar en la galería de aplicaciones de Azure AD, primero debe asegurarse de que admita una de las siguientes tecnologías de inicio de sesión único:
 
-- **OpenID Connect**: para que la aplicación se muestre, cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) para ella. Envíe la solicitud de inicio de sesión a un punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento a la aplicación. Puede controlar el acceso de un usuario en función del identificador de inquilino y del UPN del usuario recibido en el token. Para enviar la aplicación, use el proceso subrayado en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: para que la aplicación se muestre, cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) de la misma. Envíe la solicitud de inicio de sesión a un punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento a la aplicación. Puede controlar el acceso de un usuario en función del identificador de inquilino y del UPN del usuario recibido en el token. Para enviar la aplicación, use el proceso subrayado en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: si la aplicación admite SAML 2.0, entonces se puede mostrar en la galería. Siga las instrucciones que se indican en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: si la aplicación admite SAML 2.0, se puede mostrar en la galería. Siga las instrucciones que se indican en [Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Si la aplicación no es compatible con SAML ni con OpenIDConnect
 Las aplicaciones que no admitan SAML u OpenIDConnect se pueden integrar en la galería de aplicaciones mediante la tecnología de inicio de sesión único con contraseña.

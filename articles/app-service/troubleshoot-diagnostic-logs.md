@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807880"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904461"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -35,7 +35,7 @@ App Service ofrece la funcionalidad de diagnóstico para registrar información 
 Puede habilitar o deshabilitar los siguientes tipos de registros:
 
 * **Registro de errores detallado** : registra información detallada de errores para códigos de estado HTTP que indican un problema (código de estado 400 o superior). Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error.
-* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Puede resultar útil si trata de aumentar el rendimiento del sitio o de aislar lo que causa la devolución de un error HTTP específico.
+* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico.
 * **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
 ### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
@@ -45,7 +45,7 @@ El diagnóstico de aplicaciones le permite capturar información generada por un
 
 En tiempo de ejecución puede recuperar estos registros para ayudar a solucionar problemas. Para obtener más información, vea [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio).
 
-App Service también registra información de implementación al publicar contenido en una aplicación. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede usar el registro de implementaciones para determinar por qué se ha producido un error con el script.
+App Service también registra información de implementación al publicar contenido en una aplicación. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede determinar por qué se ha producido un error con el script mediante el registro de implementaciones.
 
 ## <a name="enablediag"></a>Habilitación de diagnósticos
 Para habilitar el diagnóstico en [Azure Portal](https://portal.azure.com), vaya a la página de la aplicación y haga clic en **Configuración > Registros de diagnóstico**.
@@ -53,12 +53,16 @@ Para habilitar el diagnóstico en [Azure Portal](https://portal.azure.com), vaya
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de los registros](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. Esta configuración le permite filtrar la información capturada como **informativa**, **advertencia** o **error**. Si establece esta opción en **Registros detallados**, se registrará toda la información que genere la aplicación.
+Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. En la siguiente tabla se muestran las categorías de registros de que incluye cada nivel:
 
-> [!NOTE]
-> Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar Diagnóstico de aplicaciones o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
->
->
+| Nivel| Categorías de registro incluidas |
+|-|-|
+|**Deshabilitada** | None |
+|**Error** | Error, Crítico |
+|**Warning (ADVERTENCIA)** | Advertencia, Error, Crítico|
+|**Información** | Información, Advertencia, Error, Crítico|
+|**Detallado** | Seguimiento, Depurar, Información, Advertencia, Error, Crítico (todas las categorías) |
+|-|-|
 
 Para la opción **Registro de aplicaciones**, puede activar temporalmente la opción del sistema de archivos con fines de depuración. Esta opción se desactiva automáticamente en 12 horas. También puede activar la opción de Blob Storage para seleccionar un contenedor de blob en el que escribir registros.
 
@@ -114,7 +118,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 Este comando guarda los registros de la aplicación denominada "appname" en un archivo denominado **diagnostics.zip** en el directorio actual.
 
 > [!NOTE]
-> Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte [Cómo usar la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte la [Introducción a la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -157,7 +161,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte [Cómo usar la CLI de Azure](../cli-install-nodejs.md).
+> Si no tiene instalada la CLI de Azure o si no la ha configurado para que use la suscripción a Azure, consulte la [Introducción a la CLI de Azure](../cli-install-nodejs.md).
 >
 >
 

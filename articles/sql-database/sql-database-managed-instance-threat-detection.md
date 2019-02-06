@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158676"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472072"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configuración de Detección de amenazas (versión preliminar) en Instancia administrada de Azure SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "54158676"
 
 Puede recibir notificaciones sobre las amenazas detectadas mediante [notificaciones por correo electrónico](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o en [Azure Portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md) (ATP), que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de SQL ATP. El servicio de detección de amenazas se cobra a 15 USD al mes por instancia administrada, siendo los primeros 30 días gratis.
+La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ATP), que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de SQL ADS. El servicio de detección de amenazas se cobra a 15 USD al mes por instancia administrada, siendo los primeros 30 días gratis.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configuración de la detección de amenazas para instancias administradas en Azure Portal
 
@@ -41,8 +41,8 @@ La [detección de amenazas](sql-database-threat-detection-overview.md) forma par
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Detección de amenazas](sql-database-threat-detection-overview.md)
+- Más información sobre [Detección de amenazas](sql-database-threat-detection-overview.md).
 - Para más información acerca de Instancia administrada, vea [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md)
-- Más información sobre la [detección de amenazas en base de datos única](sql-database-threat-detection.md).
-- Más información sobre la [auditoría de Instancia administrada](https://go.microsoft.com/fwlink/?linkid=869430)
+- Más información sobre la [detección de amenazas en bases de datos únicas](sql-database-threat-detection.md).
+- Más información sobre la [auditoría de Instancia administrada](https://go.microsoft.com/fwlink/?linkid=869430).
 - Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

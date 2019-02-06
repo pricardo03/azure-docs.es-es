@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051882"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104701"
 ---
 # <a name="connect-to-a-data-source"></a>Conectarse a un origen de datos
 
@@ -30,7 +30,7 @@ Estas son las diferencias entre usar **Importación** y **DirectQuery**.
 | --- | --- |
 | Las tablas, columnas *y datos* se importan o se copian en el conjunto de datos del informe. Para ver los cambios que se han producido en los datos subyacentes, debe actualizar o importar de nuevo un conjunto de datos actual completo. |Solo las *tablas y columnas* se importan o se copian en el conjunto de datos del informe. Siempre verá los datos más actuales. |
 
-En estos momentos, con Colecciones de áreas de trabajo de Power BI, se puede usar DirectQuery con orígenes de datos en la nube, pero no en orígenes de datos locales.
+En estos momentos, con Colecciones de áreas de trabajo de Power BI se puede usar DirectQuery con orígenes de datos en la nube, pero no en orígenes de datos locales.
 
 > [!NOTE]
 > No se admite la puerta de enlace de datos local con Colecciones de áreas de trabajo de Power BI en este momento. Esto significa que no se puede usar DirectQuery con orígenes de datos locales.

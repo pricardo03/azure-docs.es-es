@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259971"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095581"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -212,7 +212,7 @@ En este ejemplo se muestra cómo quitar una asignación:
 |Configuraciones de seguridad |Supervisión de los puntos vulnerables del sistema operativo en Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Supervisión de la falta de Endpoint Protection en Azure Security Center |endpointProtectionMonitoringEffect |
 |Cifrado de discos |Supervisión de discos de máquinas virtuales sin cifrar en Azure Security Center |diskEncryptionMonitoringEffect|
-|Evaluación de vulnerabilidades |Supervisión de los puntos vulnerables de máquinas virtuales en Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Evaluación de vulnerabilidades |Supervisión de los puntos vulnerables de máquinas virtuales en Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Firewall de aplicaciones web |Supervisión de la aplicación web desprotegida en Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Firewall de próxima generación |Supervisión de puntos de conexión de red desprotegidos en Azure Security Center| |
 

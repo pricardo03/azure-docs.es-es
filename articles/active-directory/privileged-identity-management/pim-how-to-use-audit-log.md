@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188186"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180218"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visualización del historial de auditoría para los roles de directorio de Azure AD en PIM
 Puede utilizar el historial de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado para todos los roles con privilegios. Si quiere ver el historial de auditoría completo de actividad en el inquilino, incluido el administrador, el usuario final y la actividad de sincronización, puede usar los [informes de acceso y uso de Azure Active Directory](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Active o desactive la casilla **Rol** situada junto a cada rol que quiera inclui
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Visualización del historial de auditoría para los roles de recurso de Azure en PIM](pim-resource-roles-use-the-audit-log.md)
+- [Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en PIM](azure-pim-resource-rbac.md)

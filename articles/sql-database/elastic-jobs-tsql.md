@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458098"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>Exclusión de una base de datos única
+## <a name="exclude-an-individual-database"></a>Exclusión de una base de datos individual
 
-En el ejemplo siguiente se muestra cómo ejecutar un trabajo en todas las bases de datos de un servidor, excepto en la denominada *MappingDB*.  
+En el ejemplo siguiente se muestra cómo ejecutar un trabajo en todas las bases de datos de un servidor de SQL Database, excepto en la denominada *MappingDB*.  
 Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ Especifica si se incluirá o excluirá el miembro del grupo de destino. target_g
 Tipo de base de datos de destino o colección de bases de datos que incluye todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico, todas las bases de datos de un mapa de particiones o una base de datos individual. target_type es nvarchar(128), sin ningún valor predeterminado. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlShardMap’. 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-Nombre del servidor lógico. refresh_credential_name es nvarchar(128), sin ningún valor predeterminado.
+El nombre del servidor de SQL Database. refresh_credential_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **@server_name =** ] 'server_name'  
-Nombre del servidor lógico que se debe agregar al grupo de destino especificado. server_name debe especificarse cuando target_type es ‘SqlServer’. server_name es nvarchar(128), sin ningún valor predeterminado.
+Nombre del servidor de SQL Database que se debe agregar al grupo de destino especificado. server_name debe especificarse cuando target_type es ‘SqlServer’. server_name es nvarchar(128), sin ningún valor predeterminado.
 
 [ **@database_name =** ] 'database_name'  
 Nombre de la base de datos que debe agregarse al grupo de destino especificado. database_name debe especificarse cuando target_type es ‘SqlDatabase’. database_name es nvarchar(128), sin ningún valor predeterminado.
@@ -1051,7 +1051,7 @@ Número de identificación de destino asignado al miembro del grupo de destino s
 Valores de código de retorno 0 (correcto) o 1 (error)
 
 #### <a name="remarks"></a>Comentarios
-Un trabajo se ejecuta en todas las bases de datos de un servidor o grupo elástico en tiempo de ejecución, cuando un servidor lógico o un grupo elástico está incluido en el grupo de destino.
+Un trabajo se ejecuta en todas las bases de datos únicas de un servidor de SQL Database o grupo elástico en tiempo de ejecución cuando un servidor de SQL Database o un grupo elástico está incluido en el grupo de destino.
 
 #### <a name="permissions"></a>Permisos
 De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden ejecutar este procedimiento almacenado. La restricción de un usuario para que solo pueda supervisar trabajos le permite autorizar al usuario para que forme parte del rol de base de datos siguiente en la base de datos del agente de trabajo especificado al crear el agente del trabajo:
@@ -1229,7 +1229,7 @@ Muestra el historial de ejecuciones de trabajos.
 |**target_type**|   nvarchar(128)   |Tipo de base de datos de destino o colección de bases de datos, incluidas todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o una base de datos. Los valores válidos para target_type son ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’ o ‘SqlDatabase’. NULL indica que se trata de la ejecución del trabajo principal.
 |**target_id**  |uniqueidentifier|  Identificador único del miembro del grupo de destino.  NULL indica que se trata de la ejecución del trabajo principal.
 |**target_group_name**  |nvarchar(128)  |Nombre del grupo de destino. NULL indica que se trata de la ejecución del trabajo principal.
-|**target_server_name**|    nvarchar(256)|  Nombre del servidor lógico incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. NULL indica que se trata de la ejecución del trabajo principal.
+|**target_server_name**|    nvarchar(256)|  Nombre del servidor de SQL Database incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. NULL indica que se trata de la ejecución del trabajo principal.
 |**target_database_name**   |nvarchar(128)| Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’. NULL indica que se trata de la ejecución del trabajo principal.
 
 
@@ -1253,7 +1253,7 @@ Muestra todos los trabajos.
 
 ### <a name="jobversions-view"></a>vista job_versions
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Muestra todas las versiones del trabajo.
 
@@ -1332,7 +1332,7 @@ Muestra todos los miembros de todos los grupos de destino.
 |**refresh_credential_name**    |nvarchar(128)  |Nombre de la credencial de ámbito de base de datos usada para conectarse al miembro del grupo de destino.|
 |**subscription_id**    |uniqueidentifier|  Identificador único de la suscripción.|
 |**resource_group_name**    |nvarchar(128)| Nombre del grupo de recursos en el que reside el miembro del grupo de destino.|
-|**server_name**    |nvarchar(128)  |Nombre del servidor lógico incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. |
+|**server_name**    |nvarchar(128)  |Nombre del servidor de SQL Database incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlServer’. |
 |**database_name**  |nvarchar(128)  |Nombre de la base de datos incluida en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’.|
 |**elastic_pool_name**  |nvarchar(128)| Nombre del grupo elástico incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlDatabase’.|
 |**shard_map_name** |nvarchar(128)| Nombre del mapa de particiones incluido en el grupo de destino. Solo se especifica si target_type es ‘SqlShardMap’.|

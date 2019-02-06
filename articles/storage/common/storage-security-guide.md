@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243801"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454494"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -240,7 +240,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
 * Se trata de tutoriales para usar la biblioteca de cliente .NET a fin de crear Firmas de acceso compartido y Directivas de acceso almacenadas.
 
   * [Uso de Firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con Blob service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Firmas de acceso compartido, Parte 2: Creación y uso de una Firma de acceso compartido con Blob service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Este artículo incluye una explicación del modelo de SAS, ejemplos de SAS y recomendaciones para el mejor uso práctico de SAS. También trata la revocación de los permisos concedidos.
 
@@ -307,7 +307,7 @@ Azure Disk Encryption es una característica nueva. Esta característica le perm
 La solución admite los siguientes escenarios para las máquinas virtuales IaaS cuando se habilitan en Microsoft Azure:
 
 * Integración con Azure Key Vault
-* Máquinas virtuales de nivel estándar: [máquinas virtuales IaaS de las series A, D, DS, G, GS, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* VM de nivel estándar: [VM IaaS de las series A, D, DS, G, GS, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Habilitación del cifrado en máquinas virtuales IaaS Linux y Windows
 * Deshabilitación del cifrado en las unidades de datos y del sistema operativo en máquinas virtuales IaaS Windows
 * Deshabilitación del cifrado en unidades de datos en máquinas virtuales IaaS Linux
@@ -328,7 +328,7 @@ La solución no admite los siguientes escenarios, características y tecnología
 
 
 > [!NOTE]
-> Actualmente, el cifrado de disco del sistema operativo Linux es compatible con las siguientes distribuciones de Linux: RHEL 7.2, CentOS 7.2n y Ubuntu 16.04.
+> El cifrado de disco del sistema operativo Linux es actualmente compatible en las distribuciones Linux siguientes: RHEL 7.2, CentOS 7.2 y Ubuntu 16.04.
 >
 >
 
@@ -479,7 +479,7 @@ Para más información sobre el uso compartido de recursos entre orígenes y có
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Se trata de la documentación de referencia para la compatibilidad con el uso compartido de recursos entre orígenes para los servicios de Azure Storage. Contiene vínculos a artículos que se aplican a cada servicio de almacenamiento, se muestra un ejemplo y se explica cada elemento en el archivo del uso compartido de recursos entre orígenes.
-* [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage: Introducción a uso compartido de recursos entre orígenes)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Presentación de CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Se trata de un vínculo al artículo inicial del blog en el que se anuncia el uso compartido de recursos entre orígenes y se muestra cómo utilizarlo.
 
@@ -504,6 +504,6 @@ Para más información sobre el uso compartido de recursos entre orígenes y có
 * [FIPS 140 Validation (Validación FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
 
   Este artículo proporciona información sobre el cumplimiento de los productos y los módulos criptográficos de Microsoft con la norma FIPS para el Gobierno Federal de EE. UU.
-* ["Criptografía de sistema: usar FIPS algoritmos compatibles con para cifrado, firma y operaciones hash" efectos de la configuración de seguridad en Windows XP y en versiones posteriores de Windows](https://support.microsoft.com/kb/811833)
+* ["Criptografía de sistema: usar algoritmos compatibles con FIPS para cifrado, firma y operaciones hash" efectos de la configuración de seguridad en Windows XP y en versiones posteriores de Windows](https://support.microsoft.com/kb/811833)
 
   Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.

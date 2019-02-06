@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014138"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296552"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -155,7 +155,10 @@ Haga clic para ver la lista de actividades de esta ejecución de canalización. 
 
 ![Supervisión de las ejecuciones de actividad](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de la ejecución y las características de rendimiento de la actividad de copia. Muestra información, incluidos el volumen, las filas y los archivos de los datos copiados desde el origen al receptor, el rendimiento, los pasos que recorre con su duración correspondiente y las configuraciones usadas para el escenario de copia.
+Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de la ejecución y las características de rendimiento de la actividad de copia. Muestra información, incluidos el volumen, las filas y los archivos de los datos copiados desde el origen al receptor, el rendimiento, los pasos que recorre con su duración correspondiente y las configuraciones usadas para el escenario de copia. 
+
+>[!TIP]
+>En algunos casos, también verá el mensaje "**Sugerencias para la optimización del rendimiento**" en la parte superior de la página de supervisión de copias, que le informa sobre el cuello de botella identificado y le guía por las opciones que puede cambiar con el fin de mejorar el rendimiento de la copia. Puede ver el ejemplo con detalles [aquí](#performance-and-tuning).
 
 **Ejemplo: copia de Amazon S3 a Azure Data Lake Store**
 ![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -232,6 +235,14 @@ De manera predeterminada, la actividad de copia deja de copiar datos y devuelve 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 
 Vea el artículo [Guía de optimización y rendimiento de la actividad de copia](copy-activity-performance.md), en el que se describen los factores claves que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory. También muestra el rendimiento observado durante las pruebas internas y trata diversas maneras de optimizar el rendimiento de la actividad de copia.
+
+En algunos casos, cuando se ejecuta una actividad de copia en ADF, directamente verá "**Sugerencias para la optimización del rendimiento**" en la parte superior de la [página de supervisión de actividad de copia](#monitor-visually) tal como se muestra en el ejemplo siguiente. No solo indica el cuello de botella identificado para la ejecución de una copia determinada, sino que también ofrece orientación sobre qué cambiar con el fin de mejorar el rendimiento de copia. Las sugerencias para la optimización del rendimiento actualmente ofrecen recomendaciones para usar PolyBase al copiar datos en Azure SQL Data Warehouse, aumentar la unidad de solicitud de Azure Cosmos DB o la DTU de Azure SQL DB cuando el recurso del almacén de datos forma el cuello de botella, quitar la copia preconfigurada innecesaria, etc. Las reglas de optimización del rendimiento también se enriquecerán de forma gradual.
+
+**Ejemplo: copia en Azure SQL DB con sugerencias de optimización del rendimiento**
+
+En este ejemplo, durante la ejecución de la copia, ADF percibe que la instancia receptora de Azure SQL DB alcanza una utilización de la DTU tan alta que ralentiza las operaciones de escritura, por lo que la sugerencia consiste en aumentar el nivel de Azure SQL DB con más DTU. 
+
+![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Copia incremental 
 Data Factory es compatible con escenarios de copia incremental de datos diferenciales de un almacén de datos de origen en uno de destino. Consulte el [tutorial sobre la copia incremental de datos](tutorial-incremental-copy-overview.md). 

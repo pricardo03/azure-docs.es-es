@@ -4,17 +4,17 @@ description: La definición de Azure Policy tiene varios efectos que determinan 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310851"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912516"
 ---
 # <a name="understand-policy-effects"></a>Descripción de los efectos de Policy
 
@@ -257,6 +257,11 @@ La propiedad **details** de los efectos de DeployIfNotExists tiene todas las sub
   - Por ejemplo, podría usarse para validar que el recurso primario (en la condición **if**) está en la misma ubicación de recursos que el recurso relacionado coincidente.
 - **roleDefinitionIds** [obligatorio]
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
+- **DeploymentScope** (opcional)
+  - Los valores permitidos son _Subscription_ y _ResourceGroup_.
+  - Establece el tipo de implementación que debe realizarse. La _Suscripción_ indica una [implementación a nivel de suscripción](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una implementación en un grupo de recursos.
+  - En la _Implementación_ debe especificarse una propiedad _location_ al usar las implementaciones de nivel de suscripción.
+  - El valor predeterminado es _ResourceGroup_.
 - **Deployment** [obligatorio]
   - Esta propiedad debe incluir la implementación de plantilla completa, ya que luego se pasaría a la API PUT `Microsoft.Resources/deployments`. Para más información, consulte [Deployments REST API](/rest/api/resources/deployments) (API REST de implementaciones).
 
@@ -351,5 +356,5 @@ Cada asignación se evalúa individualmente. Por lo tanto, no hay ninguna oportu
 - Consulte la [Estructura de definición de directivas](definition-structure.md)
 - Entender cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md)
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md)
-- Más información acerca de cómo se pueden [corregir recursos no compatibles](../how-to/remediate-resources.md)
+- Más información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md)
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

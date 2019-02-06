@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: queues
+ms.openlocfilehash: 295ca353530fb438d0bd77a9144813543102b997
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138527"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472718"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -64,7 +64,7 @@ var azure = require('azure-storage');
 ## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT y AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
-## <a name="how-to-create-a-queue"></a>Creación de una cola
+## <a name="how-to-create-a-queue"></a>Instrucciones: Creación de una cola
 El siguiente código crea un objeto **QueueService** , que le permite trabajar con colas.
 
 ```javascript
@@ -105,7 +105,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Inserción de un mensaje en una cola
+## <a name="how-to-insert-a-message-into-a-queue"></a>Instrucciones: Inserción de un mensaje en una cola
 Para insertar un mensaje en una cola, utilice el método **createMessage** para crear un nuevo mensaje y agregarlo a la cola.
 
 ```javascript
@@ -116,7 +116,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Inspección del siguiente mensaje
+## <a name="how-to-peek-at-the-next-message"></a>Instrucciones: Inspección del siguiente mensaje
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessages** . De forma predeterminada, **peekMessages** inspecciona un único mensaje.
 
 ```javascript
@@ -134,7 +134,7 @@ El `result` contiene el mensaje.
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Extracción del siguiente mensaje de la cola
+## <a name="how-to-dequeue-the-next-message"></a>Instrucciones: Extracción del siguiente mensaje de la cola
 El procesamiento de un mensaje es un proceso que consta de dos etapas:
 
 1. Extracción del mensaje de la cola.
@@ -164,7 +164,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Cambio del contenido de un mensaje en cola
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Instrucciones: Cambio del contenido de un mensaje en cola
 Puede cambiar el contenido de un mensaje local en la cola mediante **updateMessage**. En el ejemplo siguiente se actualiza el texto de un mensaje:
 
 ```javascript
@@ -181,7 +181,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Opciones adicionales para extraer mensajes de la cola
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Instrucciones: Opciones adicionales para quitar mensajes de la cola
 Hay dos formas de personalizar la recuperación de mensajes de una cola:
 
 * `options.numOfMessages` - Recuperar un lote de mensajes (hasta 32).
@@ -206,7 +206,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Obtención de la longitud de la cola
+## <a name="how-to-get-the-queue-length"></a>Instrucciones: Obtención de la longitud de la cola
 El método **getQueueMetadata** devuelve metadatos sobre la cola, junto con el número aproximado de mensajes que esperan en la cola.
 
 ```javascript
@@ -217,7 +217,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Enumeración de las colas
+## <a name="how-to-list-queues"></a>Instrucciones: Enumeración de las colas
 Para recuperar una lista de colas, use **listQueuesSegmented**. Para recuperar una lista filtrada por un prefijo determinado, use **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -230,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 
 Si no se pueden devolver todas las colas, `result.continuationToken` se puede usar como el primer parámetro de **listQueuesSegmented** o el segundo parámetro de **listQueuesSegmentedWithPrefix** para recuperar más resultados.
 
-## <a name="how-to-delete-a-queue"></a>Eliminación de una cola
+## <a name="how-to-delete-a-queue"></a>Instrucciones: Eliminación de una cola
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteQueue** en el objeto de cola.
 
 ```javascript
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Para borrar todos los mensajes de una cola sin eliminarla, use **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Trabajo con firmas de acceso compartido
+## <a name="how-to-work-with-shared-access-signatures"></a>Control de Trabajo con firmas de acceso compartido
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las colas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus colas, por ejemplo, para permitir que una aplicación móvil envíe mensajes.
 
 Una aplicación de confianza, como un servicio basado en la nube, genera una SAS mediante el valor de **generateSharedAccessSignature** del elemento **QueueService**, y lo proporciona a una aplicación en la que no se confía o en la que se confía parcialmente. Por ejemplo, una aplicación móvil. La SAS se genera usando una directiva que describe las fechas de inicio y de finalización durante las cuales la SAS es válida, junto con el nivel de acceso otorgado al titular de la SAS.

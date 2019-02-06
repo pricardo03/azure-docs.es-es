@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362065"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239475"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos SQL
 
@@ -62,8 +63,8 @@ Hay otras opciones para implementar máquinas virtuales de SQL, incluidas las pl
 Puede crear un usuario administrativo con menos privilegios que un administrador del sistema de SQL. El usuario solo necesita permisos para las operaciones siguientes:
 
 * Base de datos: crear, modificar, con contención (solo para Always On), eliminar, copia de seguridad
-* Grupo de disponibilidad: modificar, combinar, agregar o quitar base de datos
-* Inicio de sesión: crear, seleccionar, modificar, eliminar, revocar
+* Grupo de disponibilidad: alterar, combinar, agregar o quitar base de datos
+* Inicio de sesión: crear, seleccionar, alterar, eliminar, revocar
 * Operaciones Select: \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
 
 ### <a name="additional-security-information"></a>Información adicional de seguridad

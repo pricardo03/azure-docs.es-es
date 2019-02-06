@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828271"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911955"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
 
@@ -60,7 +60,9 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
 
     Para probar el contenido cifrado de AES o CENC (Widevine o PlayReady), puede usar [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). No olvide hacer clic en "Opciones avanzadas" y comprobar las opciones de cifrado.
 
-    Si desea probar el contenido cifrado de FairPlay, utilice [este reproductor de prueba](https://aka.ms/amtest). El reproductor admite los DRM de Widevine, PlayReady y FairPlay, así como el cifrado de claves sin cifrado AES-128. Debe elegir el explorador adecuado para probar diferentes DRM: Chrome/Opera/Firefox para Widevine, Microsoft Edge/IE11 para PlayReady, Safari en macOS para FairPlay.
+    Si desea probar el contenido cifrado de FairPlay, utilice [este reproductor de prueba](https://aka.ms/amtest). El reproductor admite los DRM de Widevine, PlayReady y FairPlay, así como el cifrado de claves sin cifrado AES-128. 
+    
+    Debe elegir el explorador adecuado para probar diferentes DRM: Chrome/Opera/Firefox para Widevine, Microsoft Edge/IE11 para PlayReady, Safari en macOS para FairPlay.
 
 3. Servicio de token de seguridad (STS), que emite un token JSON Web Token (JWT) como token de acceso para acceder a un recurso de back-end. Puede usar los servicios de entrega de licencias de AMS como recurso de back-end. Un STS debe definir lo siguiente:
 
@@ -69,7 +71,7 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
   * Comprobación simétrica o asimétrica para la comprobación de firma
   * Compatibilidad con la sustitución de claves (si es necesario)
 
-    Puede usar [esta herramienta STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para probar el servicio de token de seguridad, que es compatible con los 3 tipos de clave de verificación: simétrico, asimétrico o AAD con sustitución de claves. 
+    Puede usar [esta herramienta STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para probar el servicio de token de seguridad, que es compatible con los 3 tipos de clave de verificación: simétrico, asimétrico o Azure AD con sustitución de claves. 
 
 > [!NOTE]
 > Es muy recomendable probar completamente cada elemento (como se ha descrito anteriormente) antes de pasar al siguiente. Para probar el sistema de "protección de contenido", use las herramientas especificadas en la lista anterior.  

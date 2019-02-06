@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26374209"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099403"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
@@ -80,34 +80,34 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 | Tipo de error | Motivo | Registro|
 |---|---|---|
-| NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
-| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |No|
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | No |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | No |
-| PlatformInActive | Hay un problema con la plataforma. | No|
-| ServiceNotRunning | No se está ejecutando el servicio subyacente. | No|
-| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| No|
-| ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| Sí|
-| GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
+| NoFault | Cuando no se detecta ningún error. |SÍ|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
+| PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin |
+| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | Sin  |
+| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Esto sucede cuando se produce un error en el sondeo de estado. | Sin  |
+| PlatformInActive | Hay un problema con la plataforma. | Sin |
+| ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin |
+| NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| Sin |
+| ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| SÍ|
+| GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | SÍ |
 
 ### <a name="connection"></a>Conexión
 
 | Tipo de error | Motivo | Registro|
 |---|---|---|
-| NoFault | Cuando no se detecta ningún error. |Sí|
-| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |No|
-| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |No|
-| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | No |
-| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | No |
-| ConnectionEntityNotFound | Falta una configuración de conexión. | No |
-| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |No|
-| ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
-| ConnectionMarkedStandy | El servicio subyacente está marcado como en espera activa.| Sí|
-| Autenticación | Error de coincidencia de clave previamente compartida. | Sí|
-| PeerReachability | La puerta de enlace del mismo nivel no está accesible. | Sí|
-| IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | Sí|
-| Error de WfpParse | Se produjo un error al analizar el registro de WFP. |Sí|
+| NoFault | Cuando no se detecta ningún error. |SÍ|
+| GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
+| PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin |
+| UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | Sin  |
+| VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | Sin  |
+| ConnectionEntityNotFound | Falta una configuración de conexión. | Sin  |
+| ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
+| ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | SÍ |
+| ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| SÍ|
+| Autenticación | Error de coincidencia de clave previamente compartida. | SÍ|
+| PeerReachability | La puerta de enlace del mismo nivel no está accesible. | SÍ|
+| IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | SÍ|
+| Error de WfpParse | Se produjo un error al analizar el registro de WFP. |SÍ|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 333750e4959e0bdfea05347ef0e9a1d968b8f13c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 052839c679fc3efa61fca612b5139ede1991890c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214718"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080250"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,19 +25,19 @@ ms.locfileid: "54214718"
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
 
-1. **Crear un experimento de entrenamiento**. Este paso se lleva a cabo mediante Azure ML Studio. ML Studio es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
+1. **Crear un experimento de entrenamiento**. Este paso se lleva a cabo utilizando Azure Machine Learning Studio. Azure Machine Learning Studio es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
 2. **Convertirlo en un experimento predictivo**. Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
 3. **Implementarlo como un servicio web**. Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory y Machine Learning juntos
-Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning][azure-machine-learning] publicado para realizar análisis predictivos. Mediante la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning para realizar predicciones sobre los datos en el lote.
+Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning][azure-machine-learning] publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio para realizar predicciones sobre los datos en el lote.
 
-Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Puede volver a entrenar un modelo de Aprendizaje automático de Azure de una canalización de Factoría de datos realizando los pasos siguientes:
+Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Azure Machine Learning Studio tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Puede volver a entrenar un modelo de una canalización de Data Factory realizando los pasos siguientes:
 
-1. Publicar el experimento de entrenamiento (experimento no predictivo) como un servicio web. Tiene que llevar a cabo este paso en Azure ML Studio, tal como hizo para exponer el experimento predictivo como un servicio web en el escenario anterior.
-2. Usar la actividad de ejecución de lotes de Azure Machine Learning para invocar el servicio web para el experimento de entrenamiento. Básicamente, puede emplear la actividad de ejecución de lotes de Azure Machine Learning para invocar el servicio web de aprendizaje y el servicio web de puntuación.
+1. Publicar el experimento de entrenamiento (experimento no predictivo) como un servicio web. Tiene que llevar a cabo este paso en Azure Machine Learning Studio, tal como hizo para exponer el experimento predictivo como un servicio web en el escenario anterior.
+2. Use la actividad de ejecución de lotes de Azure Machine Learning Studio para invocar el servicio web para el experimento de entrenamiento. Básicamente, puede emplear la actividad de ejecución de lotes de Azure Machine Learning Studio para invocar el servicio web de entrenamiento y el servicio web de puntuación.
 
-Cuando haya terminado el reciclaje, actualice el servicio web de puntuación (experimento predictivo expuesto como servicio web) con el modelo recién entrenado mediante la **actividad de recursos de actualización de Azure Machine Learning**. Para obtener más información, consulte el artículo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Actualización de modelos mediante la actividad de recursos de actualización).
+Cuando haya terminado el reentrenamiento, actualice el servicio web de puntuación (experimento predictivo expuesto como servicio web) con el modelo recién entrenado utilizando la **actividad de actualización de recurso de Azure Machine Learning Studio**. Para obtener más información, consulte el artículo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Actualización de modelos mediante la actividad de recursos de actualización).
 
 ## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning
 
@@ -133,14 +133,14 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 | linkedServiceName | Servicios vinculados al servicio vinculado de Azure Machine Learning. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | SÍ      |
 | webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | Sin        |
 | webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | Sin        |
-| globalParameters  | Pares clave-valor que se pasan al punto de conexión del servicio de ejecución de Batch de Azure ML. Las claves deben coincidir con los nombres de los parámetros del servicio web definidos en el servicio web publicado de Azure ML. Los valores se pasan en la propiedad GlobalParameters de la solicitud de ejecución de Batch de Azure ML. | Sin        |
+| globalParameters  | Pares clave-valor que se pasan al punto de conexión del servicio de ejecución por lotes de Azure Machine Learning Studio. Las claves tienen que coincidir con los nombres de los parámetros del servicio web definidos en el servicio web publicado de Azure Machine Learning Studio. Los valores se pasan en la propiedad GlobalParameters de la solicitud de ejecución por lotes de Azure Machine Learning Studio | Sin        |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Escenario 1: experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Azure Blob Storage
 
-En este escenario, el servicio web de Azure Machine Learning realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. Se hace referencia a los datos de entrada y salida en Azure Blob Storage mediante un par LinkedName y FilePath. En el servicio vinculado de ejemplo las entradas y salidas son diferentes, y puede usar servicios vinculados diferentes para cada una de las entradas y salidas, de modo que Data Factory pueda seleccionar los archivos correctos y enviarlos al servicio web de Azure ML.
+En este escenario, el servicio web de Azure Machine Learning realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. Se hace referencia a los datos de entrada y salida en Azure Blob Storage mediante un par LinkedName y FilePath. En el servicio vinculado de ejemplo las entradas y salidas son diferentes, puede usar servicios vinculados diferentes para cada una de las entradas o salidas, de modo que Data Factory pueda seleccionar los archivos correctos y enviarlos al servicio web de Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> En el experimento de Azure ML, los puertos de entrada y salida del servicio web y los parámetros globales tienen nombres predeterminados ("input1", "input2") que se pueden personalizar. Los nombres que se utilizan para la configuración de globalParameters, webServiceOutputs y webServiceInputs deben coincidir exactamente con los de los experimentos. Puede ver la carga útil de la solicitud de ejemplo en la página de ayuda de ejecución de lotes del punto de conexión de Azure Machine Learning para comprobar la asignación esperada.
+> En el experimento de Azure Machine Learning Studio, los puertos de entrada y salida del servicio web y los parámetros globales tienen nombres predeterminados ("input1", "input2") que se pueden personalizar. Los nombres que se utilizan para la configuración de globalParameters, webServiceOutputs y webServiceInputs deben coincidir exactamente con los de los experimentos. Puede ver la carga útil de la solicitud de ejemplo en la página de ayuda de ejecución por lotes del punto de conexión de Azure Machine Learning Studio para comprobar la asignación esperada.
 >
 >
 
@@ -190,12 +190,12 @@ En este escenario, el servicio web de Azure Machine Learning realiza prediccione
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Escenario 2: experimentos mediante módulos lector y escritor para hacer referencia a datos de varios almacenamientos
-Otro escenario común al crear experimentos de Azure ML es usar módulos Importar datos y Exportar datos. El módulo Importar datos se usa para cargar datos en un experimento y el módulo Exportar datos se usa para guardar los datos de los experimentos. Para obtener más información sobre los módulos Importar datos y Exportar datos, vea los temas [Importar datos](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Exportar datos](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library.
+Otro escenario común al crear experimentos de Microsoft Azure Machine Learning Studio es usar módulos Importar datos y Exportar datos. El módulo Importar datos se usa para cargar datos en un experimento y el módulo Exportar datos se usa para guardar los datos de los experimentos. Para obtener más información sobre los módulos Importar datos y Exportar datos, vea los temas [Importar datos](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Exportar datos](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library.
 
 Al usar los módulos Importar datos y Exportar datos, es recomendable emplear un parámetro de servicio web para cada propiedad de estos módulos. Estos parámetros web permiten configurar los valores en tiempo de ejecución. Por ejemplo, puede crear un experimento con un módulo de importación de datos que usa Azure SQL Database: XXX.database.windows.net. Una vez implementado el servicio web, quiere habilitar los consumidores del servicio web con el fin de especificar otro servidor Azure SQL Server denominado `YYY.database.windows.net`. Puede usar un parámetro de servicio web para permitir que se configure este valor.
 
 > [!NOTE]
-> Las entradas y salidas de servicio web son diferentes de los parámetros de servicio web. En el primer escenario, ha visto cómo pueden especificarse una entrada y una salida para un servicio web de Aprendizaje automático de Azure. En este escenario, se pasan parámetros para un servicio web que corresponden a las propiedades de los módulos Importar datos y Exportar datos.
+> Las entradas y salidas de servicio web son diferentes de los parámetros de servicio web. En el primer escenario, ha visto cómo pueden especificarse una entrada y una salida para un servicio web de Azure Machine Learning Studio. En este escenario, se pasan parámetros para un servicio web que corresponden a las propiedades de los módulos Importar datos y Exportar datos.
 >
 >
 
@@ -216,7 +216,7 @@ Echemos un vistazo a un escenario de uso de parámetros de servicio web. Tiene u
 > Los parámetros de servicio web distinguen entre mayúsculas y minúsculas para garantizar que los nombres que especifica en JSON de actividad coinciden con los que muestra el servicio web.
 >
 
-Cuando haya terminado el reciclaje, actualice el servicio web de puntuación (experimento predictivo expuesto como servicio web) con el modelo recién entrenado mediante la **actividad de recursos de actualización de Azure Machine Learning**. Para obtener más información, consulte el artículo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Actualización de modelos mediante la actividad de recursos de actualización).
+Cuando haya terminado el reentrenamiento, actualice el servicio web de puntuación (experimento predictivo expuesto como servicio web) con el modelo recién entrenado utilizando la **actividad de actualización de recurso de Azure Machine Learning Studio**. Para obtener más información, consulte el artículo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Actualización de modelos mediante la actividad de recursos de actualización).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras:

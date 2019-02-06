@@ -7,16 +7,16 @@ ms.author: nilesha
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823443"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242338"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configuración de experimentos de aprendizaje automático automatizados
 
@@ -35,7 +35,7 @@ Opciones de configuración disponibles en el aprendizaje automático automatizad
 * Registrar e implementar el modelo
 
 ## <a name="select-your-experiment-type"></a>Seleccione el tipo de experimento
-Antes de comenzar el experimento, debe determinar el tipo de problema de aprendizaje automático que va a resolver. El aprendizaje automático automatizado admite tipos de tareas de clasificación, regresión y previsión. 
+Antes de comenzar el experimento, debe determinar el tipo de problema de aprendizaje automático que va a resolver. El aprendizaje automático automatizado admite tipos de tareas de clasificación, regresión y previsión.
 
 Aunque las funciones de aprendizaje automático automatizado están disponibles con carácter general, **la previsión aún está en versión preliminar pública.**
 
@@ -59,7 +59,7 @@ clasificación | Regresión | Previsión
 ## <a name="data-source-and-format"></a>Formato y origen de datos
 El aprendizaje automático automatizado es compatible con los datos que residen en el escritorio local o en la nube, como Azure Blob Storage. Los datos pueden leerse en los formatos de datos compatibles con scikit-learn. Puede leer los datos en:
 * Matrices de Numpy X (características) e y (variable de destino o también denominada etiqueta)
-* Dataframe de Pandas 
+* Dataframe de Pandas
 
 Ejemplos:
 
@@ -67,7 +67,7 @@ Ejemplos:
 
     ```python
     digits = datasets.load_digits()
-    X_digits = digits.data 
+    X_digits = digits.data
     y_digits = digits.target
     ```
 
@@ -75,9 +75,9 @@ Ejemplos:
 
     ```python
     import pandas as pd
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    df = df.drop(["Label"], axis=1) 
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    df = df.drop(["Label"], axis=1)
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
@@ -88,18 +88,18 @@ Si usa un proceso remoto para ejecutar el experimento, se debe ajustar la operac
 A continuación se incluye un ejemplo de `get_data`:
 
 ```python
-%%writefile $project_folder/get_data.py 
-import pandas as pd 
-from sklearn.model_selection import train_test_split 
-from sklearn.preprocessing import LabelEncoder 
-def get_data(): # Burning man 2016 data 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    le = LabelEncoder() 
-    le.fit(df["Label"].values) 
-    y = le.transform(df["Label"].values) 
-    df = df.drop(["Label"], axis=1) 
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42) 
+%%writefile $project_folder/get_data.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+def get_data(): # Burning man 2016 data
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    le = LabelEncoder()
+    le.fit(df["Label"].values)
+    y = le.transform(df["Label"].values)
+    df = df.drop(["Label"], axis=1)
+    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     return { "X" : df, "y" : y }
 ```
 
@@ -111,13 +111,13 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 El script `get_data` puede devolver:
 
-Clave | Escriba |    Se excluye mutuamente con | DESCRIPCIÓN
+Clave | Type |    Se excluye mutuamente con | DESCRIPCIÓN
 ---|---|---|---
 X | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |  Todas las características que se usan para el aprendizaje
 y | Dataframe de Pandas o matriz de Numpy |   label   | Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.
 X_valid | Dataframe de Pandas o matriz de Numpy   | data_train, label | _Opcional_ Todas las características con las que se debe validar. Si no se especifica, X se divide entre "train" y "validate"
 y_valid |   Dataframe de Pandas o matriz de Numpy | data_train, label | _Opcional_ Los datos de etiqueta con los que se va a validar. Si no se especifica, Y se divide entre "train" y "validate"
-sample_weight | Dataframe de Pandas o matriz de Numpy |   data_train, label, columns| _Opcional_ Un valor de ponderación para cada ejemplo. Se usa cuando se quieren asignar ponderaciones distintas a los puntos de datos 
+sample_weight | Dataframe de Pandas o matriz de Numpy |   data_train, label, columns| _Opcional_ Un valor de ponderación para cada ejemplo. Se usa cuando se quieren asignar ponderaciones distintas a los puntos de datos
 sample_weight_valid | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |    _Opcional_ Un valor de ponderación para cada ejemplo de validación. Si no se especifica, sample_weight se divide entre "train" y "validate"
 data_train |    Dataframe de Pandas |  X, y, X_valid, y_valid |    Todos los datos (características y etiqueta) que se usarán para el aprendizaje
 label | string  | X, y, X_valid, y_valid |  Qué columna de data_train representa la etiqueta
@@ -136,7 +136,8 @@ Los experimentos de aprendizaje automático automatizados admiten la carga y las
 >* Filtros
 >* Transformaciones personalizadas de Python
 
-Para obtener información sobre el SDK de preparación de datos, consulte el artículo [Cómo preparar datos para el modelado](how-to-load-data.md). A continuación se muestra un ejemplo de carga de datos mediante el SDK de preparación de datos. 
+Para obtener información sobre el SDK de preparación de datos, consulte el artículo [Cómo preparar datos para el modelado](how-to-load-data.md).
+A continuación se muestra un ejemplo de carga de datos mediante el SDK de preparación de datos.
 ```python
 # The data referenced here was pulled from `sklearn.datasets.load_digits()`.
 simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
@@ -189,22 +190,22 @@ Estos son algunos ejemplos:
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=2)
     ```
 2.  A continuación se incluye un ejemplo de un conjunto de experimentos de regresión que finaliza después de 100 iteraciones. Cada iteración tiene una duración de hasta 600 segundos con 5 iteraciones de validación cruzada.
 
-    ````python
+    ```python
     automl_regressor = AutoMLConfig(
         task='regression',
         max_time_sec=600,
         iterations=100,
         primary_metric='r2_score',
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=5)
-    ````
+    ```
 
 Esta tabla enumera la configuración de parámetros disponible para el experimento y sus valores predeterminados.
 
@@ -223,7 +224,7 @@ Propiedad |  DESCRIPCIÓN | Valor predeterminado
 `enable_cache`  | True/False <br/>Al configurar esta opción en True, permite que el proceso previo se realice una vez y que se vuelvan a utilizar los mismos datos preprocesados para todas las iteraciones. | True |
 `blacklist_models`  | El experimento de aprendizaje automático automatizado prueba muchos algoritmos diferentes. Configure para excluir determinados algoritmos del experimento. Resulta útil si es consciente de que los algoritmos no funcionan bien para su conjunto de datos. La exclusión de algoritmos puede ahorrarle recursos de procesos y tiempo de aprendizaje.<br/>Valores permitidos para la clasificación<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para la regresión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para la previsión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | El experimento de aprendizaje automático automatizado prueba muchos algoritmos diferentes. Configure para incluir determinados algoritmos del experimento. Resulta útil si es consciente de que los algoritmos funcionan bien para el conjunto de datos. <br/>Valores permitidos para la clasificación<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para la regresión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para la previsión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
-`verbosity` |Controla el nivel de registro: INFO es el más detallado y CRITICAL, el menos detallado. El nivel de detalle toma los mismos valores que se definan en el paquete de registro de Python. Los valores permitidos son:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
+`verbosity` |Controla el nivel de registro: INFO es el más detallado y CRITICAL, el menos detallado. El nivel de detalle toma los mismos valores que se definan en el paquete de registro de Python. Los valores permitidos son:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li>
 `X` | Todas las características que se usan para el aprendizaje |  None
 `y` |   Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.|  None
 `X_valid`|_Opcional_ Todas las características con las que se debe validar. Si no se especifica, X se divide entre "train" y "validate" |   None
@@ -233,7 +234,7 @@ Propiedad |  DESCRIPCIÓN | Valor predeterminado
 `run_configuration` |   Objeto RunConfiguration.  Se usa para ejecuciones remotas. |None
 `data_script`  |    Ruta de acceso a un archivo que contiene el método get_data.  Se usa para ejecuciones remotas.   |None
 `model_explainability` | _Opcional_ True/False <br/>  True permite que el experimento ejecute la importancia de características para cada iteración. También se puede usar el método explain_model() en una iteración concreta para habilitar la importancia de características a petición para esa iteración una vez completado el experimento. | False
-`enable_ensembling`|Marca para habilitar una iteración de ensamblado después de completar todas las demás iteraciones.| True 
+`enable_ensembling`|Marca para habilitar una iteración de ensamblado después de completar todas las demás iteraciones.| True
 `ensemble_iterations`|Número de iteraciones durante las que se elige una canalización ajustada para formar parte del conjunto final.| 15
 `experiment_timeout_minutes`| Limita la cantidad de tiempo (minutos) que puede tardar la ejecución de todo el experimento | None
 
@@ -324,20 +325,20 @@ Hay dos maneras de generar la importancia de características.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         explain_model(fitted_model, X_train, X_test)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-*   Para ver la importancia de características para todas las iteraciones, establezca la marca `model_explainability` en `True` en AutoMLConfig.  
+*   Para ver la importancia de características para todas las iteraciones, establezca la marca `model_explainability` en `True` en AutoMLConfig.
 
     ```python
     automl_config = AutoMLConfig(task = 'classification',
@@ -346,7 +347,7 @@ Hay dos maneras de generar la importancia de características.
                                  max_time_sec = 12000,
                                  iterations = 10,
                                  verbosity = logging.INFO,
-                                 X = X_train, 
+                                 X = X_train,
                                  y = y_train,
                                  X_valid = X_test,
                                  y_valid = y_test,
@@ -358,20 +359,20 @@ Hay dos maneras de generar la importancia de características.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         retrieve_model_explanation(best_run)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. El gráfico también se muestra al usar el widget de Jupyter en un cuaderno. Para obtener más información sobre los gráficos, consulte el [artículo Cuadernos de ejemplo de Azure Machine Learning.](samples-notebooks.md)
+Puede visualizar el gráfico de importancia de características en el área de trabajo de Azure Portal. El gráfico también se muestra al usar el widget de Jupyter en un cuaderno. Para más información sobre los gráficos, consulte el artículo [Cuadernos de ejemplo de Azure Machine Learning Service](samples-notebooks.md).
 
 ```python
 from azureml.widgets import RunDetails
@@ -383,4 +384,4 @@ RunDetails(local_run).show()
 
 Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 
-Obtenga más información sobre [cómo entrenar un modelo de clasificación con aprendizaje automático automatizado](tutorial-auto-train-models.md) o [cómo entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md). 
+Obtenga más información sobre [cómo entrenar un modelo de clasificación con aprendizaje automático automatizado](tutorial-auto-train-models.md) o [cómo entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).

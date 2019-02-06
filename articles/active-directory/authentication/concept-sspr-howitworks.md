@@ -3,19 +3,19 @@ title: Análisis en profundidad sobre el autoservicio de restablecimiento de con
 description: ¿Cómo funciona el autoservicio de restablecimiento de contraseña?
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435726"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475193"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -84,7 +84,7 @@ Si un usuario no tiene los métodos necesarios mínimos registrados, verá una p
 
 #### <a name="mobile-app-and-sspr-preview"></a>Aplicación móvil y SSPR (versión preliminar)
 
-Cuando se usa una aplicación móvil, por ejemplo, la aplicación Microsoft Authenticator, como un método para restablecer la contraseña, debe ser consciente de lo siguiente.
+Cuando se usa una aplicación móvil, por ejemplo, la aplicación Microsoft Authenticator, como un método para restablecer la contraseña, debe ser consciente de las siguientes advertencias:
 
 * Cuando los administradores requieren que se utilice un método para restablecer una contraseña, el código de verificación es la única opción disponible.
 * Cuando los administradores requieren que se usen dos métodos para restablecer una contraseña, los usuarios podrán utilizar **bien** la notificación **O** el código de verificación, además de con cualquier otro método habilitado.
@@ -119,7 +119,7 @@ Ejemplo:
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Exigir a los usuarios que se registren al iniciar sesión
 
-Al habilitar esta opción, un usuario debe completar el registro de restablecimiento de contraseña si inicia sesión en cualquier aplicación con Azure AD. Esto incluye las siguientes aplicaciones:
+Al habilitar esta opción, un usuario debe completar el registro de restablecimiento de contraseña si inicia sesión en cualquier aplicación con Azure AD. Este flujo de trabajo incluye las siguientes aplicaciones:
 
 * Office 365
 * Azure Portal
@@ -132,7 +132,7 @@ Cuando se deshabilita la opción para requerir el registro, los usuarios pueden 
 > [!NOTE]
 > Para descartar el portal de registro de restablecimiento de contraseña, los usuarios pueden seleccionar **Cancelar** o cerrar la ventana. Sin embargo, se les pide que se registren cada vez que inician sesión hasta que completan el registro.
 >
-> Esto no interrumpe la conexión del usuario si ya ha iniciado sesión.
+> Esta interrupción no altera la conexión del usuario si ya ha iniciado sesión.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Establecer el número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
 
@@ -169,7 +169,7 @@ Esta página proporciona un estado rápido del cliente de escritura diferida con
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escritura diferida de contraseñas en un directorio local
 
-Este control determina si la escritura diferida de contraseñas está habilitada para este directorio. Si lo está, indica el estado del servicio de escritura diferida local. Esto es útil si desea deshabilitar temporalmente la escritura diferida de contraseñas sin tener que volver a configurar Azure AD Connect.
+Este control determina si la escritura diferida de contraseñas está habilitada para este directorio. Si lo está, indica el estado del servicio de escritura diferida local. Este control es útil si quiere deshabilitar temporalmente la escritura diferida de contraseñas sin tener que volver a configurar Azure AD Connect.
 
 * Si el modificador se establece en **Sí**, se habilita la escritura diferida y los usuarios federados, con autenticación de paso a través o con sincronización de hash de contraseñas pueden restablecer sus contraseñas.
 * Si el modificador se establece en **No**, se deshabilita la escritura diferida y los usuarios federados, con autenticación de paso a través o con sincronización de hash de contraseñas no pueden restablecer sus contraseñas.
@@ -180,6 +180,10 @@ Este control designa si los usuarios que visitan el portal de restablecimiento d
 
 * Si se establece en **Sí**, los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin tener que restablecer la contraseña.
 * Si se establece en **No**, los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
+
+### <a name="on-premises-active-directory-password-filters"></a>Filtros de la contraseña de Active Directory local
+
+El autoservicio de restablecimiento de contraseña de Azure AD realiza lo mismo que un restablecimiento de contraseña iniciado por el administrador de Active Directory. Si está usando un filtro de contraseñas de terceros para exigir reglas de contraseñas personalizadas y requiere que se compruebe este filtro de contraseña durante el autoservicio de restablecimiento de contraseña de Azure AD, asegúrese de que la solución de filtro de contraseña de terceros está configurada para aplicarse en el escenario de restablecimiento de contraseña del administrador. De forma predeterminada, [Protección con contraseña de Azure AD para Windows Server Active Directory](concept-password-ban-bad-on-premises.md) es compatible.
 
 ## <a name="password-reset-for-b2b-users"></a>Restablecimiento de contraseña para usuarios B2B
 

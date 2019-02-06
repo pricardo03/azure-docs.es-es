@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902253"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169763"
 ---
 # <a name="bake-acoustics"></a>Elaboración de la acústica
 
@@ -255,10 +255,10 @@ Instale y configure Docker en el equipo en el que se va a procesar la simulació
 
 Este complemento crea cuatro archivos de datos en varios puntos. Solo uno de ellos es necesario en tiempo de ejecución, por lo tanto, los otros tres están dentro de carpetas denominadas "Editor", por lo que no se compilan en el proyecto.
 
-* **Assets/Editor/[nombre de la escena]\_AcousticsParameters.asset**: este archivo almacena los datos que especificó en los campos de la interfaz de usuario Acoustics (Acústica). No se puede cambiar la ubicación y el nombre de este archivo. Otros valores almacenados en este archivo afectan a la elaboración, pero son para usuarios avanzados y no deben cambiarse.
-* **Assets/AcousticsData/Acoustics\_[nombre de la escena].ace.bytes**: este archivo es lo que se crea durante la simulación de la elaboración y contiene los datos de búsqueda usados por el tiempo de ejecución para representar la acústica de la escena. La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
-* **Assets/AcousticsData/Editor/Acoustics_[nombre de la escena].vox**: en este archivo se almacena la geometría acústica voxelizada y las propiedades de materiales. Se calcula con el botón **Calculate...**  (Calcular...) de la pestaña Probes (Sondeos). La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
-* **Assets/AcousticsData/Editor/Acoustics\_[nombre de la escena]\_config.xml**: este archivo almacena los parámetros calculados con el botón **Calculate...** (Calcular...) de la pestaña **Probes** (Sondeos). La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
+* **Assets/Editor/[nombreEscena]\_AcousticsParameters.asset**: este archivo almacena los datos que se especifiquen en los campos de la interfaz de usuario de Acoustics. No se puede cambiar la ubicación y el nombre de este archivo. Otros valores almacenados en este archivo afectan a la elaboración, pero son para usuarios avanzados y no deben cambiarse.
+* **Assets/AcousticsData/Acoustics\_[nombreEscena].ace.bytes**: este archivo es lo que se crea durante la simulación mediante "bake" y contiene los datos de búsqueda que usa el runtime para representar la acústica de la escena. La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
+* **Assets/AcousticsData/Editor/Acoustics_[nombreEscena].vox**: Este archivo almacena la geometría de acústica convertida en vóxeles y las propiedades del material. Se calcula con el botón **Calculate...**  (Calcular...) de la pestaña Probes (Sondeos). La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
+* **Assets/AcousticsData/Editor/Acoustics\_[nombreEscena]\_config.xml**: este archivo almacena los parámetros calculados mediante el botón **Calculate...** (Calcular...) de la pestaña **Probes** (Sondeos). La ubicación y el nombre de este archivo se pueden cambiar utilizando los campos de la pestaña **Probes** (Sondeos).
 
 Tenga cuidado de no para eliminar el archivo *.ace.bytes descargado desde la elaboración. Este archivo no es recuperable, excepto si se vuelve a elaborar la escena.
 

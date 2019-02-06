@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185125"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098568"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 
 Vea el siguiente vídeo para obtener información general de los pasos descritos en este artículo:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Información general
 Puede usar *artefactos* para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y de otros archivos de script que se almacenan en una carpeta de un repositorio de Git. Los archivos de definición de artefacto constan de JSON y expresiones que puede utilizar para especificar lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre de un artefacto, un comando que se va a ejecutar y los parámetros que están disponibles cuando se ejecuta el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
@@ -57,7 +57,7 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
 | --- | --- | --- |
 | $schema |Sin  |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
 | título |SÍ |Nombre del artefacto que se muestra en el laboratorio. |
-| Descripción |SÍ |Descripción del artefacto que se muestra en el laboratorio. |
+| description |SÍ |Descripción del artefacto que se muestra en el laboratorio. |
 | iconUri |Sin  |Identificador URI del icono que se muestra en el laboratorio. |
 | targetOsType |SÍ |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
 | parameters |Sin  |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
@@ -69,18 +69,18 @@ En la sección de parámetros del archivo de definición, especifique los valore
 Para definir los parámetros, use la estructura siguiente:
 
     "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
+      "<parameterName>": {
+        "type": "<type-of-parameter-value>",
+        "displayName": "<display-name-of-parameter>",
+        "description": "<description-of-parameter>"
       }
+    }
 
 | Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | Tipo |SÍ |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
 | DisplayName |SÍ |Nombre del parámetro que se muestra a un usuario en el laboratorio. | |
-| Descripción |SÍ |Descripción del parámetro que se muestra en el laboratorio. |
+| description |SÍ |Descripción del parámetro que se muestra en el laboratorio. |
 
 Los tipos permitidos son:
 
@@ -97,12 +97,12 @@ Normalmente, se utilizan expresiones con funciones para construir un valor. **Al
 En la lista siguiente se muestran las funciones comunes:
 
 * **parameters(parameterName)**: devuelve un valor de parámetro que se proporciona cuando se ejecuta el comando de artefacto.
-* **concat(arg1, arg2, arg3,…)**: combina varios valores de cadena. Esta función puede tomar diversos argumentos.
+* **concat(arg1, arg2, arg3,….. )**: combina varios valores de cadena. Esta función puede tomar diversos argumentos.
 
 En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para construir un valor:
 
     runCommand": {
-         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
     , ' -RawPackagesList ', parameters('packages')
     , ' -Username ', parameters('installUsername')
     , ' -Password ', parameters('installPassword'))]"
@@ -113,7 +113,7 @@ En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para c
 1. Instalación de un editor de JSON. Necesita un editor de JSON para trabajar con los archivos de definición del artefacto. Se recomienda usar [Visual Studio Code](https://code.visualstudio.com/), que está disponible para Windows, Linux y OS X.
 2. Obtenga un archivo de definición artifactfile.json de ejemplo. Desproteja los artefactos creados por el equipo de DevTest Labs en nuestro [repositorio de GitHub](https://github.com/Azure/azure-devtestlab). Hemos creado una biblioteca enriquecida de artefactos que pueden ayudarle a crear sus propios artefactos. Descargue un archivo de definición de artefacto y haga cambios sobre él para crear sus propios artefactos.
 3. Use IntelliSense. Use IntelliSense para ver los elementos válidos que se pueden utilizar para construir un archivo de definición de artefacto. También puede ver las distintas opciones para los valores de un elemento. Por ejemplo, al editar el elemento **targetOsType**, IntelliSense le muestra las dos opciones, para Windows o Linux.
-4. Guarde el artefacto en el [repositorio público de Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o en [su propio repositorio de Git](devtest-lab-add-artifact-repo.md). En el repositorio público, puede visualizar los artefactos compartidos por otros usuarios que puede utilizar directamente o personalizar para adaptarlos a sus necesidades. 
+4. Guarde el artefacto en el [repositorio público de Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o en [su propio repositorio de Git](devtest-lab-add-artifact-repo.md). En el repositorio público, puede visualizar los artefactos compartidos por otros usuarios que puede utilizar directamente o personalizar para adaptarlos a sus necesidades.
    
    1. Cree un directorio independiente para cada artefacto. El nombre del directorio debe ser el mismo que el del artefacto.
    2. Almacene el archivo de definición de artefacto (artifactfile.json) en el directorio que ha creado.
@@ -124,11 +124,9 @@ En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para c
       ![Ejemplo de la carpeta de artefacto](./media/devtest-lab-artifact-author/git-repo.png)
 5. Si está utilizando su propio repositorio para almacenar artefactos, agregue el repositorio al laboratorio siguiendo las instrucciones del artículo: [Adición de un repositorio de Git de artefactos y plantillas](devtest-lab-add-artifact-repo.md).
 
-
 ## <a name="related-articles"></a>Artículos relacionados
 * [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md) (Diagnóstico de errores de artefactos en DevTest Labs)
 * [Join a VM to existing AD Domain using a resource manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Unión de una máquina virtual al dominio de AD existente mediante la plantilla de Resource Manager en DevTest Labs)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
-

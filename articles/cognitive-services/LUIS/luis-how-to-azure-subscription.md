@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473391"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239186"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso de claves de suscripción con la aplicación de LUIS
 
@@ -32,7 +32,7 @@ Para pruebas y prototipos solo, use el plan gratuito (F0). Para los sistemas de 
 
 Este procedimiento crea un recurso de **Language Understanding**. Si quiere que un recurso se pueda usar en todo Cognitive Services, cree la clave todo en uno **[Cognitive Service](../cognitive-services-apis-create-account.md)** en lugar del recurso de Language Understanding. 
 
-Esta clave solo se debe usar para las consultas de predicción de punto de conexión. No se confíe en que esta clave sirve para los cambios en el modelo o la aplicación. 
+Esta clave solo se debe usar para las consultas de predicción de punto de conexión. No utilice esta clave para los cambios en el modelo o la aplicación. 
 
 1. Inicie sesión en **[Azure Portal](https://ms.portal.azure.com/)**. 
 1. Seleccione el signo **+** de color verde en el panel de la parte superior izquierda y busque `Language Understanding` en Marketplace y, después, seleccione **Language Understanding** y siga la **experiencia de creación** para crear una cuenta de suscripción de LUIS. 
@@ -43,7 +43,7 @@ Esta clave solo se debe usar para las consultas de predicción de punto de conex
 
     ![Elección de la API de Azure](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Una vez que se crea el recurso de Language Understanding, puede ver las claves de acceso generadas en **Administración de recursos -> Claves**. No modifique las claves. En la siguiente sección verá cómo conectar este recurso nuevo a una aplicación de LUIS en el portal de LUIS. Necesita el nombre del recurso de LUIS del paso 3.
+1. Una vez que se crea el recurso de Language Understanding, puede ver las claves de acceso generadas en **Administración de recursos -> Claves**. En la siguiente sección verá cómo conectar este recurso nuevo a una aplicación de LUIS en el portal de LUIS. Necesita el nombre del recurso de LUIS del paso 3.
 
     ![Claves de Azure](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Esta clave solo se debe usar para las consultas de predicción de punto de conex
 
     ![Asignación de un recurso a la aplicación](./media/luis-manage-keys/assign-key.png)
 
-1. Seleccione a un inquilino en el cuadro de diálogo asociado con la dirección de correo electrónico con la cual inicia sesión en el sitio web de LUIS.  
+1. Seleccione a un inquilino en el cuadro de diálogo asociado con la dirección de correo electrónico que se usó para iniciar sesión en el sitio web de LUIS.  
 
 1. Elija el **Nombre de suscripción** asociado con el recurso de Azure que quiera agregar.
 
@@ -163,7 +163,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API POST requiere la siguiente configuración:
 
-    |Escriba|Configuración|Valor|
+    |Type|Configuración|Valor|
     |--|--|--|
     |Encabezado|`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.|
     |Encabezado|`Ocp-Apim-Subscription-Key`|Su [clave de creación](luis-how-to-account-settings.md).|

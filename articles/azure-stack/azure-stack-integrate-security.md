@@ -6,20 +6,21 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087736"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247109"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integración del centro de datos de Azure Stack: reenvío de syslog
 
-Este artículo muestra cómo usar syslog para integrar la infraestructura de Azure Stack con soluciones de seguridad externas ya implementadas en su centro de datos. Por ejemplo, un sistema de administración de eventos de información de seguridad (SIEM). El canal de syslog expone las auditorías, alertas y registros de seguridad de todos los componentes de la infraestructura de Azure Stack. Use el reenvío de syslog para integrar con soluciones de supervisión de seguridad o para recuperar todas las auditorías, alertas y registros de seguridad a fin de almacenarlos para conservarlos. 
+Este artículo muestra cómo usar syslog para integrar la infraestructura de Azure Stack con soluciones de seguridad externas ya implementadas en su centro de datos. Por ejemplo, un sistema de administración de eventos de información de seguridad (SIEM). El canal de syslog expone las auditorías, alertas y registros de seguridad de todos los componentes de la infraestructura de Azure Stack. Use el reenvío de syslog para integrar con soluciones de supervisión de seguridad o para recuperar todas las auditorías, alertas y registros de seguridad a fin de almacenarlos para conservarlos.
 
 A partir de la actualización 1809, Azure Stack tiene un cliente de syslog integrado que, una vez configurado, emite mensajes de syslog con la carga de Common Event Format (CEF).
 
@@ -36,9 +37,9 @@ El cliente de syslog en Azure Stack admite las siguientes configuraciones:
 
 2. **Syslog a través de TCP, con autenticación de servidor y cifrado TLS 1.2:** en esta configuración, el cliente de syslog puede comprobar la identidad del servidor de syslog mediante un certificado. Los mensajes se envían a través de un canal cifrado TLS 1.2.
 
-3. **Syslog a través de TCP, sin cifrado:** en esta configuración, ni el cliente de syslog ni el servidor de syslog comprueba la identidad del otro. Los mensajes se envían en texto sin cifrar a través de TCP.
+3. **Syslog a través de TCP, sin cifrado:** en esta configuración, el cliente de syslog y las identidades de servidor de syslog no se comprueban. Los mensajes se envían en texto sin cifrar a través de TCP.
 
-4. **Syslog a través de UDP, sin cifrado:** en esta configuración, ni el cliente de syslog ni el servidor de syslog comprueba la identidad del otro. Los mensajes se envían en texto sin cifrar a través de UDP.
+4. **Syslog a través de UDP, sin cifrado:** en esta configuración, el cliente de syslog y las identidades de servidor de syslog no se comprueban. Los mensajes se envían en texto sin cifrar a través de UDP.
 
 > [!IMPORTANT]
 > Microsoft recomienda encarecidamente utilizar TCP con autenticación y cifrado (configuración n.º 1 o, como mínimo, la n.º 2) en entornos de producción a fin de proteger contra ataques de tipo "Man-in-the-middle" y de la interceptación de mensajes.
@@ -60,7 +61,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parámetros del cmdlet *Set-SyslogServer*:
 
-| Parámetro | DESCRIPCIÓN | Escriba | Obligatorio |
+| Parámetro | DESCRIPCIÓN | Type | Obligatorio |
 |---------|---------|---------|---------|
 |*ServerName* | Dirección IP o FQDN del servidor de syslog | string | Sí|
 |*ServerPort* | Número de puerto de escucha del servidor de syslog | string | Sí|
@@ -71,7 +72,7 @@ Parámetros del cmdlet *Set-SyslogServer*:
 |*Remove*| Se quita la configuración del servidor desde el cliente y se detiene el reenvío de syslog| Marca | no|
 
 Parámetros del cmdlet *Set-SyslogClient*:
-| Parámetro | DESCRIPCIÓN | Escriba |
+| Parámetro | DESCRIPCIÓN | Type |
 |---------|---------| ---------|
 | *pfxBinary* | Archivo PFX que contiene el certificado que usará el cliente como identidad para autenticarse en el servidor de syslog  | Byte[] |
 | *CertPassword* |  Contraseña para importar la clave privada que está asociada con el archivo PFX | SecureString |
@@ -129,7 +130,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Configuración del reenvío de syslog con TCP, autenticación de servidor y cifrado TLS 1.2
 
-En esta configuración, el cliente de syslog en Azure Stack reenvía los mensajes al servidor de syslog a través de TCP, con el cifrado TLS 1.2. Durante el protocolo de enlace inicial, el cliente también comprueba que el servidor proporciona un certificado válido y de confianza. Así se evita que el cliente envíe mensajes a destinos que no sean de confianza.
+En esta configuración, el cliente de syslog en Azure Stack reenvía los mensajes al servidor de syslog a través de TCP, con el cifrado TLS 1.2. Durante el protocolo de enlace inicial, el cliente también comprueba que el servidor proporciona un certificado válido y de confianza. Con esta configuración se evita que el cliente envíe mensajes a destinos que no sean de confianza.
 TCP con autenticación y cifrado es la configuración predeterminada, y representa el nivel mínimo de seguridad que Microsoft recomienda para un entorno de producción. 
 
 ```powershell
@@ -360,7 +361,7 @@ Tabla de gravedad de alertas:
 Tabla de extensión personalizada para las alertas creadas en Azure Stack:
 | Nombre de la extensión personalizada | Ejemplo | 
 |-----------------------|---------|
-|MasEventDescription|DESCRIPCIÓN: una cuenta de usuario \<TestUser\> se creó para \<TestDomain\>. Es un riesgo potencial de seguridad. -- CORRECCIÓN: póngase en contacto con el servicio de soporte técnico. Se requiere el servicio de asistencia al cliente se para resolver este problema. No intente resolver este problema sin su ayuda. Antes de abrir una solicitud de soporte técnico, inicie el proceso de recopilación de archivos de registro siguiendo las instrucciones de https://aka.ms/azurestacklogfiles |
+|MasEventDescription|DESCRIPCIÓN: una cuenta de usuario \<TestUser\> se creó para \<TestDomain\>. Es un riesgo potencial de seguridad. -- CORRECCIÓN: Póngase en contacto con el servicio de soporte técnico. Se requiere el servicio de asistencia al cliente se para resolver este problema. No intente resolver este problema sin su ayuda. Antes de abrir una solicitud de soporte técnico, inicie el proceso de recopilación de archivos de registro siguiendo las instrucciones de https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Asignación de CEF para las alertas cerradas
 

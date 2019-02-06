@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b5c07c7d142e231c945906d6e75ce16a5bb1d252
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156672"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -78,7 +78,7 @@ Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -198,7 +198,7 @@ Al implementar la aplicación puede pasar estos valores como ApplicationParamete
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: Si los valores proporcionados para ApplicationParameters están vacíos se vuelve al valor predeterminado proporcionado en ServiceManifest para el EndPointName correspondiente.
+Nota: Si los valores proporcionados para ApplicationParameters están vacíos, se vuelve al valor predeterminado proporcionado en ServiceManifest para el EndPointName correspondiente.
 
 Por ejemplo: 
 
@@ -214,4 +214,4 @@ Si en ServiceManifest ha especificado
 
 Y el valor de Port1 y Protocol1 en ApplicationParameters es nulo o está vacío. El puerto lo decide aún Service Fabric. Y el protocolo sera TCP.
 
-Imagine que especifica un valor incorrecto. Supongamos que para el puerto ha especificado un valor de cadena "Foo" en lugar de un valor entero.  El comando New-ServiceFabricApplication producirá un error: el parámetro de invalidación con nombre 'ServiceEndpoint1', atributo 'Port1' en la sección 'ResourceOverrides' no es válido. El valor especificado es 'Foo' y se requiere 'int'.
+Imagine que especifica un valor incorrecto. Supongamos que para el puerto ha especificado un valor de cadena "Foo" en lugar de un valor entero.  El comando New-ServiceFabricApplication generará el siguiente error: The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid (el parámetro de invalidación con el nombre 'ServiceEndpoint1' y el atributo 'Port1' de la sección 'ResourceOverrides' no es válido). El valor especificado es 'Foo' y se requiere 'int'.

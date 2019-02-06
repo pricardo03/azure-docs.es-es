@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902695"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203936"
 ---
 # <a name="lambda-search-syntax"></a>Sintaxis de búsqueda lambda
 
@@ -33,7 +33,7 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > Si no es importante el tipo de borde que se va a seguir, basta con omitir *FollowEdge()* entre dos nodos: la consulta se desplazará por todos los bordes posibles entre estos dos nodos.
 
-Se pueden especificar acciones de recorrido para realizar en un nodo mediante *VisitNode()*; por ejemplo, si detenerse en este nodo y devolver la ruta de acceso actual como resultado, o seguir explorando el grafo.  El tipo de enumeración *Action* (Acción) define dos tipos de acciones: *Action.Return* y *Action.Continue*. Se puede pasar un valor de enumeración así directamente a *VisitNode()*, o combinarlos con bit a bit o un operador "&". Cuando se combinan dos acciones, se pueden aceptar ambas. Nota: No use bit a bit o el operador "|" en las acciones. Si lo hace, la consulta terminará sin devolver nada. Al omitir *VisitNode()* ente dos llamadas *FollowEdge()*, la consulta explorará el grafo incondicionalmente tras la llegada a un nodo.
+Se pueden especificar acciones de recorrido para realizar en un nodo mediante *VisitNode()*; por ejemplo, si detenerse en este nodo y devolver la ruta de acceso actual como resultado, o seguir explorando el grafo.  El tipo de enumeración *Action* define dos tipos de acciones: *Action.Return* y *Action.Continue*. Se puede pasar un valor de enumeración así directamente a *VisitNode()*, o combinarlos con bit a bit o un operador "&". Cuando se combinan dos acciones, se pueden aceptar ambas. Nota: No use bit a bit o el operador "|" en las acciones. Si lo hace, la consulta terminará sin devolver nada. Al omitir *VisitNode()* ente dos llamadas *FollowEdge()*, la consulta explorará el grafo incondicionalmente tras la llegada a un nodo.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
@@ -93,7 +93,7 @@ Devuelve *Action.Continue* si la condición es *true*. Si la condición es *fals
 
 Genera un número aleatorio que es mayor o igual que 0,0 y menor que 1,0. Esta función devuelve *true* solo si el número es menor o igual que *p*.
 
-En comparación con la búsqueda *json*, la búsqueda *lambda* es más expresiva: las expresiones lambda de C# pueden usarse directamente para especificar patrones de consulta. Estos son dos ejemplos.
+En comparación con la búsqueda *json*, la búsqueda *lambda* es más expresiva: Las expresiones lambda de C# se pueden usar directamente para especificar modelos de consulta. Estos son dos ejemplos.
 
 ```
 MAG.StartFrom(@"{

@@ -4,22 +4,40 @@ description: Aprenda a solucionar los errores de incorporación de las solucione
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228787"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
 Al incorporar soluciones como Update Management, Change Tracking o Inventory, pueden producirse errores. En este artículo se describen los diversos errores que pueden producirse y cómo resolverlos.
 
 ## <a name="general-errors"></a>Errores generales
+
+### <a name="missing-write-permissions"></a>Escenario: error de incorporación con el mensaje: no se puede habilitar la solución
+
+#### <a name="issue"></a>Problema
+
+Al intentar incorporar una máquina virtual a una solución, recibe el mensaje siguiente:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Causa
+
+Este error se produce porque faltan permisos en la máquina virtual o para el usuario, o dichos permisos son incorrectos.
+
+#### <a name="resolution"></a>Resolución
+
+Asegúrese de tener los permisos correctos para incorporar la máquina virtual. Revise los [permisos necesarios para incorporar máquinas](../automation-role-based-access-control.md#onboarding) y vuelva a intentar incorporar la solución.
 
 ### <a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
 

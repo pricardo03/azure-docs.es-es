@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188409"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299051"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -23,17 +23,20 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 
 |Origen de datos  |En memoria  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   SÍ      |    SÍ      |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   SÍ      |    SÍ      |
 |Azure SQL Data Warehouse     |   SÍ      |   SÍ       |
-|Azure Blob Storage*     |   SÍ       |    Sin       |
-|Azure Table Storage*    |   SÍ       |    Sin       |
-|Azure Cosmos DB*     |  SÍ        |  Sin         |
-|Azure Data Lake Store*     |   SÍ       |    Sin       |
-|Azure HDInsight HDFS*     |     SÍ     |   Sin        |
-|Azure HDInsight Spark*     |   SÍ       |   Sin        |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   SÍ       |    Sin       |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   SÍ       |    Sin       |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  SÍ        |  Sin         |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   SÍ       |    Sin       |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     SÍ     |   Sin        |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   SÍ       |   Sin        |
 ||||
 
-\* Solo modelos tabulares 1400.
+<a name="tab1400a">1</a> Tabular 1400 y modelos posteriores solamente.   
+<a name="azsqlmanaged">2</a> Compatible con Instancia administrada de Azure SQL Database. Dado que se ejecuta una instancia administrada dentro de la red virtual de Azure con una dirección IP privada, se requiere una puerta de enlace de datos local.   
+<a name="databricks">3</a> Actualmente no se admite Azure Databricks con el conector de Spark.
+
 
 **Proveedor**   
 Los modelos En memoria y DirectQuery que se conectan a orígenes de datos de Azure utilizan el proveedor de datos .NET Framework para SQL Server.
@@ -57,31 +60,31 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |Origen de datos  |  
 |---------|---------|
 |Base de datos de Access     |  
-|Active Directory*     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
-|Dynamics CRM*     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Libro de Excel     |  
-|Exchange*     |  
-|Carpeta*     |
-|IBM Informix* (beta) |
-|Documento JSON*     |  
-|Líneas de archivo binario*     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Carpeta<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
+|Documento JSON<sup>[1](#tab1400b)</sup>     |  
+|Líneas de archivo binario<sup>[1](#tab1400b)</sup>     | 
 |Base de datos MySQL     | 
-|Fuente OData*     |  
+|Fuente OData<sup>[1](#tab1400b)</sup>     |  
 |Consulta ODBC     | 
 |OLE DB     |   
-|Base de datos de Postgre SQL*    | 
-|Objectos de Salesforce* |  
-|Informes de Salesforce* |
-|SAP HANA*    |  
-|SAP Business Warehouse*    |  
-|SharePoint*     |   
+|Base de datos de Postgre SQL<sup>[1](#tab1400b)</sup>    | 
+|Objetos de Salesforce<sup>[1](#tab1400b)</sup> |  
+|Informes de Salesforce<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Base de datos de Sybase     |  
-|Tabla XML*    |  
+|Tabla XML<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* Solo modelos tabulares 1400.
+<a name="tab1400b">1</a> Tabular 1400 y modelos posteriores solamente.
 
 ## <a name="specifying-a-different-provider"></a>Especificación de un proveedor diferente
 

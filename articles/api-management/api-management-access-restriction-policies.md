@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447221"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095726"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -350,11 +350,12 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** global, producto, API, operación  
   
 ##  <a name="ValidateJWT"></a> Validación de JWT  
- La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraído de un encabezado HTTP o un parámetro de consulta especificados.  
+ La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraído de un encabezado HTTP o un parámetro de consulta especificados.
   
 > [!IMPORTANT]
 >  La directiva `validate-jwt` requiere que la notificación registrada `exp` se incluya en el token de JWT, a menos que se especifique el atributo `require-expiration-time` y se establezca en `false`.  
-> La directiva `validate-jwt` es compatible con los algoritmos de firma HS256 y RS256. En el caso de HS256, la clave debe proporcionarse en línea dentro de la directiva con el formato de codificación Base64. En el caso de RS256, la clave debe proporcionarse a través de un punto de conexión de configuración OpenID.  
+> La directiva `validate-jwt` es compatible con los algoritmos de firma HS256 y RS256. En el caso de HS256, la clave debe proporcionarse en línea dentro de la directiva con el formato de codificación Base64. En el caso de RS256, la clave debe proporcionarse a través de un punto de conexión de configuración OpenID.
+> La directiva `validate-jwt` admite tokens cifrados con claves simétricas mediante los siguientes algoritmos de cifrado: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
   
@@ -370,7 +371,11 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -444,7 +449,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autorización de acceso a las operaciones según las notificaciones de tokens  
- Este ejemplo muestra cómo utilizar la directiva de [validación de JWT](api-management-access-restriction-policies.md#ValidateJWT) para preautorizar el acceso a operaciones según notificaciones de token. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 13:50. Avance rápidamente hasta 15:00 para ver las directivas configuradas en el editor de directivas y hasta 18:50 para ver una demostración de llamada de una operación desde el portal para desarrolladores tanto con y sin el token de autorización necesario.  
+ Este ejemplo muestra cómo utilizar la directiva de [validación de JWT](api-management-access-restriction-policies.md#ValidateJWT) para preautorizar el acceso a operaciones según notificaciones de token. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 13:50. Avance rápidamente hasta 15:00 para ver las directivas configuradas en el editor de directivas y hasta 18:50 para ver una demostración de llamada de una operación desde el portal para desarrolladores tanto con y sin el token de autorización necesario.  
   
 ```xml  
 <!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
@@ -491,6 +496,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |validate-jwt|Elemento raíz.|SÍ|  
 |audiences|Contiene una lista de notificaciones de audiencia aceptables que pueden estar presentes en el token. Si existen varios valores de audiencia, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno. Debe especificarse al menos una audiencia.|Sin |  
 |issuer-signing-keys|Lista de las claves de seguridad con codificación Base64 que se utilizan para validar los tokens firmados. Si existen varias claves de seguridad, se prueban las claves una a una hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta (lo que es útil para la sustitución de tokens). Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.|Sin |  
+|decryption-keys|Una lista de claves con codificación Base64 que se usan para descifrar los tokens. Si existen varias claves de seguridad, se prueba cada clave hasta que se agoten todas (en cuyo caso no se superará la validación) o hasta que una sea correcta. Los elementos de clave tienen un atributo `id` opcional que se utiliza para compararlo con la notificación `kid`.|Sin |  
 |issuers|Lista de entidades de seguridad aceptables que emitieron el token. Si existen varios valores de emisor, se prueban los valores uno a uno hasta que se agoten todos (en cuyo caso no se superará la validación) o hasta que se obtenga un resultado positivo con alguno.|Sin |  
 |openid-config|Elemento que se usa para especificar un punto de conexión de configuración OpenID compatible desde el que se puedan obtener las claves y el emisor de la firma.|Sin |  
 |required-claims|Contiene una lista de las notificaciones que se espera que estén presentes en el token para que se considere válido. Cuando el atributo `match` está establecido en `all`, todos los valores de notificación de la directiva deben estar presentes en el token para que la validación se efectúe correctamente. Cuando el atributo `match` está establecido en `any`, debe haber al menos una notificación en el token para que la validación se efectúe correctamente.|Sin |  

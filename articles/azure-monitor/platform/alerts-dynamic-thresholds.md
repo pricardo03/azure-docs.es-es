@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449017"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097816"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas con umbrales dinámicos in Azure Monitor (versión preliminar pública)
 
@@ -21,7 +21,7 @@ La alerta de métricas con detección de umbrales dinámicos aprovecha el aprend
 
 Una vez que se cree una regla de alerta, solo se activará solo cuando la métrica supervisada no se comporte según lo previsto, en función de sus umbrales personalizados.
 
-Agradecemos sus comentarios, así que puede enviarlos a azurealertsfeedback@microsoft.com.
+Agradecemos sus comentarios, así que puede enviarlos a <azurealertsfeedback@microsoft.com>.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>¿Por qué y cuándo se recomienda el uso de un tipo de condición dinámica?
 
@@ -37,7 +37,7 @@ Las alertas con umbrales dinámicos pueden configurarse a través de alertas de 
 
 ## <a name="how-are-the-thresholds-calculated"></a>¿Cómo se calculan los umbrales?
 
-El umbral dinámico aprende continuamente los datos de las series de métricas e intenta modelarlos mediante un conjunto de algoritmos y métodos. Detecta en los datos patrones como la estacionalidad (cada hora, cada día o cada semana) y puede controlar métricas con ruido (como la memoria o la CPU del equipo), así como las métricas con poca dispersión (como la disponibilidad y la tasa de error).
+Los umbrales dinámicos aprenden continuamente los datos de las series de métricas e intentan modelarlos mediante un conjunto de algoritmos y métodos. Detecta en los datos patrones como la estacionalidad (cada hora, cada día o cada semana) y puede controlar métricas con ruido (como la memoria o la CPU del equipo), así como las métricas con poca dispersión (como la disponibilidad y la tasa de error).
 
 Los umbrales se seleccionan de forma que una desviación de estos umbrales indica una anomalía en el comportamiento de la métrica.
 
@@ -80,3 +80,80 @@ Probablemente no. Los umbrales dinámicos son buenos para detectar desviaciones 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>¿Cuántos datos se usan para obtener una vista previa y, después, calcular los umbrales?
 
 Los umbrales que aparecen en el gráfico, antes de que se cree una regla de alertas en la métrica, se calculan en función los últimos diez días de datos históricos; una vez que se cree una alerta, los umbrales dinámicos adquirirán datos históricos adicionales que estén disponibles y aprenderán de manera continua, en función de los datos nuevos, a crear umbrales más precisos.
+
+## <a name="dynamic-thresholds-best-practices"></a>Procedimientos recomendados para umbrales dinámicos
+
+Los umbrales dinámicos se puede aplicar a cualquier plataforma o métrica personalizada de Azure Monitor y también se ha optimizado para las métricas comunes de aplicaciones y de infraestructura.
+Los elementos siguientes son procedimientos recomendados sobre cómo configurar alertas en algunas de estas métricas con umbrales dinámicos.
+
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Umbrales dinámicos en las métricas de porcentaje de CPU de máquina virtual
+
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. La vista Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+
+2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas**.
+
+    > [!TIP]
+    > La mayoría de las hojas de recursos también tienen la opción **Alertas** en el menú de recursos de la sección **Supervisión**, de modo que también podría crear alertas desde allí.
+
+3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso "Máquinas virtuales"** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
+
+4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
+
+5. Seleccione **"Porcentaje de CPU"**.
+
+6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
+
+7. Verá un gráfico para la métrica de las últimas 6 horas. Defina los parámetros de la alerta:
+    1. **Tipo de condición**: elija la opción "Dinámico".
+    1. **Sensibilidad**: elija una sensibilidad media o baja para reducir el ruido de las alertas.
+    1. **Operador**: elija "mayor que" excepto si el comportamiento representa el uso de la aplicación.
+    1. **Frecuencia**: considere la posibilidad de reducirla según el impacto empresarial de la alerta.
+    1. **Períodos de error** (Opción avanzada) la ventana temporal debe ser al menos de 15 minutos. Por ejemplo, si se establece el período en cinco minutos, los períodos de error deben ser tres como mínimo.
+
+8. El gráfico de métricas mostrará los umbrales calculados según los datos recientes.
+
+9. Haga clic en **Done**(Listo).
+
+10. Rellene los **Detalles de alertas** como **Nombre de la regla de alertas**, **Descripción** y **Gravedad**.
+
+11. Agregue un grupo de acciones a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
+
+12. Haga clic en **Listo** para guardar la regla de alertas de métrica.
+
+> [!NOTE]
+> Las reglas de alertas de métricas creadas mediante el portal se crean en el mismo grupo de recursos que el recurso de destino.
+
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Umbrales dinámicos en el tiempo de ejecución de solicitudes HTTP de Application Insights
+
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. La vista Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+
+2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas**.
+
+    > [!TIP]
+    > La mayoría de las hojas de recursos también tienen la opción **Alertas** en el menú de recursos de la sección **Supervisión**, de modo que también podría crear alertas desde allí.
+
+3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso "Application Insights"** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
+
+4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
+
+5. Seleccione la opción **"Tiempo de ejecución de solicitud HTTP"**.
+
+6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
+
+7. Verá un gráfico para la métrica de las últimas 6 horas. Defina los parámetros de la alerta:
+    1. **Tipo de condición**: elija la opción "Dinámico".
+    1. **Operador**: elija "mayor que" para reducir el número de alertas que se desencadenan con una mejora de la duración.
+    1. **Frecuencia**: considere la posibilidad de reducirla según el impacto empresarial de la alerta.
+
+8. El gráfico de métricas mostrará los umbrales calculados según los datos recientes.
+
+9. Haga clic en **Done**(Listo).
+
+10. Rellene los **Detalles de alertas** como **Nombre de la regla de alertas**, **Descripción** y **Gravedad**.
+
+11. Agregue un grupo de acciones a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
+
+12. Haga clic en **Listo** para guardar la regla de alertas de métrica.
+
+> [!NOTE]
+> Las reglas de alertas de métricas creadas mediante el portal se crean en el mismo grupo de recursos que el recurso de destino.
