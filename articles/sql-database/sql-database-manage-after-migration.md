@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052724"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478481"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de la base de datos en Azure SQL Database
 
@@ -83,7 +83,7 @@ En SQL Database, se ofrecen [dos métodos de autenticación](sql-database-contro
 - [Autenticación con Azure Active Directory](sql-database-aad-authentication.md)
 - Autenticación de SQL
 
-No se admite la autenticación de Windows tradicional. Azure Active Directory (AD) es un servicio de administración de identidades y acceso centralizado. Con esto puede proporcionar cómodamente un acceso de inicio de sesión único (SSO) a todo el personal de su organización. Esto significa que las credenciales se comparten entre todos los servicios de Azure para simplificar la autenticación. AAD es compatible con [MFA (Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md) y con unos [pocos clics](../active-directory/hybrid/how-to-connect-install-express.md) AAD puede integrarse con Windows Server Active Directory. La autenticación de SQL funciona del mismo modo que la ha estado usando en el pasado. Debe proporcionar un nombre de usuario/contraseña y puede autenticar a los usuarios en cualquier base de datos en un servidor lógico determinado. Esto también permite a SQL Database y SQL Data Warehouse ofrecer autenticación multifactor y cuentas de usuario de invitado dentro de un dominio de Azure AD. Si ya tiene una instancia de Active Directory local, puede federar el directorio con Azure Active Directory para extender su directorio a Azure.
+No se admite la autenticación de Windows tradicional. Azure Active Directory (AD) es un servicio de administración de identidades y acceso centralizado. Con esto puede proporcionar cómodamente un acceso de inicio de sesión único (SSO) a todo el personal de su organización. Esto significa que las credenciales se comparten entre todos los servicios de Azure para simplificar la autenticación. AAD es compatible con [MFA (Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md) y con unos [pocos clics](../active-directory/hybrid/how-to-connect-install-express.md) AAD puede integrarse con Windows Server Active Directory. La autenticación de SQL funciona del mismo modo que la ha estado usando en el pasado. Debe proporcionar un nombre de usuario y una contraseña, y puede autenticar a los usuarios en cualquier base de datos de un servidor de SQL Database determinado. Esto también permite a SQL Database y SQL Data Warehouse ofrecer autenticación multifactor y cuentas de usuario de invitado dentro de un dominio de Azure AD. Si ya tiene una instancia de Active Directory local, puede federar el directorio con Azure Active Directory para extender su directorio a Azure.
 
 |**Si usted...**|**SQL Database/SQL Data Warehouse**|
 |---|---|
@@ -106,7 +106,7 @@ Existen varias técnicas a su disposición que podría utilizar para alcanzar la
 
 #### <a name="firewall"></a>Firewall
 
-Un firewall impide el acceso al servidor desde una entidad externa al permitir que solo entidades específicas accedan al servidor lógico. De forma predeterminada, todas las conexiones y bases de datos del servidor lógico están prohibidas, excepto las conexiones que proceden otros servicios de Azure. Con una regla de firewall puede abrir el acceso al servidor únicamente a las entidades (por ejemplo, una máquina de desarrollador) que apruebe al permitir la dirección IP de ese equipo a través del firewall. También permite especificar un intervalo de direcciones IP al que quiere permitir el acceso al servidor lógico. Por ejemplo, las direcciones IP de una máquina de desarrollador de su organización pueden agregarse a la vez mediante la especificación de un intervalo en la página Configuración del firewall.
+Un firewall impide el acceso al servidor desde una entidad externa al permitir que solo entidades específicas obtengan acceso al servidor de SQL Database. De forma predeterminada, todas las conexiones y bases de datos del servidor de SQL Database están prohibidas, excepto las conexiones que proceden de otros servicios de Azure. Con una regla de firewall puede abrir el acceso al servidor únicamente a las entidades (por ejemplo, una máquina de desarrollador) que apruebe al permitir la dirección IP de ese equipo a través del firewall. También permite especificar un intervalo de direcciones IP al que quiere permitir el acceso al servidor de SQL Database. Por ejemplo, las direcciones IP de una máquina de desarrollador de su organización pueden agregarse a la vez mediante la especificación de un intervalo en la página Configuración del firewall.
 
 Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de nivel de servidor pueden crearse mediante Azure Portal o con SSMS. Para obtener más información acerca de cómo configurar una regla de firewall de nivel de servidor y de base de datos, consulte el tema sobre la [creación de reglas de firewall en SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -167,7 +167,7 @@ La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-sec
 
 Hay opciones de administración de claves para Always Encrypted (cifrado de cliente) y el Cifrado de datos transparente (cifrado en reposo). Se recomienda la rotación periódica de las claves de cifrado. La frecuencia de rotación debe alinearse con la normativa y con los requisitos de cumplimiento internos de la organización.
 
-#### <a name="transparent-data-encryption-tde"></a>Cifrado de datos transparente (TDE) 
+#### <a name="transparent-data-encryption-tde"></a>Cifrado de datos transparente (TDE)
 
 hay una jerarquía de dos claves en TDE: los datos de cada base de datos del usuario se cifran mediante una clave de cifrado única para la base de datos AES-256 simétrica (DEK), que a su vez se cifra con una clave maestra RSA 2048 asimétrica única para el servidor. La clave maestra se puede administrar de las siguientes maneras:
 
@@ -240,7 +240,7 @@ En SQL Database puede aprovechar la información inteligente de la plataforma pa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal muestra la utilización de una sola base de datos al seleccionar la base de datos y hacer clic en el gráfico en el panel Información general. Puede modificar el gráfico para mostrar varias métricas, incluido el porcentaje de CPU, el porcentaje de DTU, el porcentaje de E/S de datos, el porcentaje de las sesiones y el porcentaje de tamaño de base de datos.
+Azure Portal muestra el uso de una base de datos al seleccionar la base de datos y hacer clic en el gráfico del panel Información general. Puede modificar el gráfico para mostrar varias métricas, incluido el porcentaje de CPU, el porcentaje de DTU, el porcentaje de E/S de datos, el porcentaje de las sesiones y el porcentaje de tamaño de base de datos.
 
 ![Gráfico de supervisión](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -250,7 +250,7 @@ En este gráfico también puede configurar alertas por recurso. Estas alertas le
 
 #### <a name="dynamic-management-views"></a>Vistas de administración dinámica
 
-puede consultar la vista de administración dinámica [sys.dm_db_resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para devolver el historial de estadísticas de consumo de recursos de la última hora y la vista de catálogo del sistema sys.resource_stats para devolver el historial de los catorce últimos días.
+puede consultar la vista de administración dinámica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) para devolver el historial de estadísticas de consumo de recursos de la última hora y la vista de catálogo del sistema [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) para devolver el historial de los catorce últimos días.
 
 #### <a name="query-performance-insight"></a>Información de rendimiento de consultas
 
@@ -287,7 +287,7 @@ SQL Database ofrece varios niveles de servicio: Básico, Estándar y Premium. Co
 
 Para asegurarse de que se encuentra en el tamaño de proceso adecuado, puede supervisar el consumo de recursos de consulta y base de datos a través de uno de los métodos mencionados anteriormente en "¿Cómo se supervisa el rendimiento y la utilización de recursos en SQL Database?". Si encuentra que sus consultas o bases de datos se ejecutan constantemente con un alto consumo de CPU/memoria, etc., puede considerar la posibilidad de escalar verticalmente a un tamaño de proceso superior. De forma similar, si observa que, incluso durante las horas de máxima actividad, no usa tantos recursos, considere la posibilidad de reducir verticalmente desde el tamaño de proceso actual.
 
-Si tiene un patrón de aplicación de SaaS o un escenario de consolidación de bases de datos, considere la posibilidad de usar un grupo elástico para optimizar los costos. Un grupo elástico es una excelente manera de lograr la consolidación de bases de datos y la optimización de costos. Para obtener más información sobre cómo administrar varias bases de datos mediante un grupo elástico, consulte el tema sobre [administración de grupos y bases de datos](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Si tiene un patrón de aplicación de SaaS o un escenario de consolidación de bases de datos, considere la posibilidad de usar un grupo elástico para optimizar los costos. Un grupo elástico es una excelente manera de lograr la consolidación de bases de datos y la optimización de costos. Para obtener más información sobre cómo administrar varias bases de datos mediante un grupo elástico, consulte: [administración de grupos y bases de datos](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Con qué frecuencia es necesario ejecutar comprobaciones de integridad de base de datos en mi base de datos
 

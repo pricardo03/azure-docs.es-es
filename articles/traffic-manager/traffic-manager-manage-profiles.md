@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 01/11/2019
 ms.locfileid: "54229514"
 ---
-# <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil del Administrador de tráfico de Azure
+# <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil de Azure Traffic Manager
 
 Los perfiles de Traffic Manager usan métodos de enrutamiento de tráfico para controlar la distribución del tráfico a los puntos de conexión de servicios en la nube o de sitios web. En este artículo se explica cómo crear y administrar estos perfiles.
 

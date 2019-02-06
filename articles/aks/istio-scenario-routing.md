@@ -64,7 +64,7 @@ Cambie a la siguiente carpeta en el repositorio clonado o descargado y ejecute t
 cd scenarios/intelligent-routing-with-istio
 ```
 
-Primero, cree un espacio de nombres en el clúster de AKS para la aplicación de votación de AKS de ejemplo denominada *votación* como se indica a continuación:
+Primero, cree un espacio de nombres denominado *voting* en el clúster de AKS para la aplicación de votación de AKS de ejemplo como se indica a continuación:
 
 ```console
 kubectl create namespace voting
@@ -76,7 +76,7 @@ Etiquete el espacio de nombres con `istio-injection=enabled`. Esta etiqueta indi
 kubectl label namespace voting istio-injection=enabled
 ```
 
-Ahora vamos a crear los componentes de la aplicación de votación de AKS. Cree estos componentes en el espacio de nombres de *votación* creado en un paso anterior.
+Ahora vamos a crear los componentes de la aplicación de votación de AKS. Cree estos componentes en el espacio de nombres *voting* creado en un paso anterior.
 
 ```console
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
@@ -113,7 +113,7 @@ voting-app-1-0-6c65c4bdd4-strzc         2/2       Running   0          1m
 voting-storage-1-0-7954799d96-5fv9r     2/2       Running   0          1m
 ```
 
-Para obtener información sobre el pod, use el [pod kubectl describe][kubectl-describe]. Reemplace el nombre del pod con el nombre de un pod en su propio clúster de AKS de la salida anterior:
+Para obtener información sobre el pod, use [kubectl describe pod][kubectl-describe]. Reemplace el nombre del pod con el nombre de un pod en su propio clúster de AKS de la salida anterior:
 
 ```console
 kubectl describe pod voting-app-1-0-6c65c4bdd4-bdmld --namespace voting
@@ -145,7 +145,7 @@ Use el binario de cliente `istioctl` para implementar la puerta de enlace y el s
 istioctl create -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
 ```
 
-Obtenga la dirección IP de la puerta de enlace de entrada de Istio con el uso del comando siguiente:
+Obtenga la dirección IP de la puerta de enlace de entrada de Istio con el comando siguiente:
 
 ```console
 kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
@@ -167,7 +167,7 @@ La información de la parte inferior de la pantalla muestra que la aplicación u
 
 Vamos a implementar una versión nueva del componente de análisis. Esta nueva versión *1.1* muestra los totales y porcentajes además del recuento de cada categoría.
 
-En el diagrama siguiente se muestra lo que se ejecuta al final de esta sección, solo la versión *1.1* de nuestro componente *voting-analytics* tiene tráfico enrutado desde el componente *voting-app*. Aunque la versión *1.0* de nuestro componente *voting-analytics* continúa ejecutándose y el servicio *voting-analytics* hace referencia a ella, los servidores proxy de Istio deniegan el tráfico hacia y desde dicha versión.
+En el diagrama siguiente se muestra lo que se ejecuta al final de esta sección; solo la versión *1.1* de nuestro componente *voting-analytics* tiene tráfico enrutado desde el componente *voting-app*. Aunque la versión *1.0* de nuestro componente *voting-analytics* continúa ejecutándose y el servicio *voting-analytics* hace referencia a ella, los servidores proxy de Istio deniegan el tráfico hacia y desde dicha versión.
 
 ![Enrutamiento y componentes de la aplicación de votación de AKS.](media/istio/components-and-routing-02.png)
 
