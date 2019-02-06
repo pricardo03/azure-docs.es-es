@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191146"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463946"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Trabajo con la API de consulta integrada en lenguaje JavaScript con Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta de JavaScript en Azure Cosmos DB
 
 Además de generar consultas mediante SQL API de Azure Cosmos DB, el [SDK del servidor de Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) le permite realizar consultas optimizadas mediante una interfaz de JavaScript. No es necesario conocer el lenguaje SQL para utilizar esta interfaz JavaScript. JavaScript Query API permite crear mediante programación consultas pasando las funciones de predicado a una secuencia de llamadas de función, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y conocidas bibliotecas de JavaScript, como Lodash. Las consultas se analizan con el entorno de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
 

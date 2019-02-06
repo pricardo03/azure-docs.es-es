@@ -3,7 +3,7 @@ title: 'Uso de tareas de instancias múltiples para ejecutar aplicaciones de MPI
 description: Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a443dd7ed4f95b3e283603fa8938a08c2c177827
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174306"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460546"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
@@ -286,7 +286,7 @@ En el ejemplo de código [MultiInstanceTasks][github_mpi] que se encuentra en Gi
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. En el proyecto **Microsoft.Azure.Batch.Samples.Common**, especifique las credenciales de la cuenta de Batch y Storage en `AccountSettings.settings`.
 4. **Compile y ejecute** la solución MultiInstanceTasks. De este modo, ejecutará la aplicación de ejemplo de MPI en los nodos de proceso de un grupo de Batch.
-5. *Opcional*: puede usar [Azure Portal][portal] o el [explorador de Batch][batch_labs] para examinar el grupo, el trabajo y la tarea de ejemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob" y "MultiInstanceSampleTask") antes de eliminar los recursos.
+5. *Opcional*: Puede usar [Azure Portal][portal] o el [Batch Explorer][batch_labs] para examinar el grupo, el trabajo y la tarea de ejemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob" y "MultiInstanceSampleTask") antes de eliminar los recursos.
 
 > [!TIP]
 > Si no tiene Visual Studio, puede descargar gratis [Visual Studio Community][visual_studio].

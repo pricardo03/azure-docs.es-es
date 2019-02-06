@@ -11,29 +11,29 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: 330726eecc19659d978b1072ad02ad6d5a4ccb8b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.date: 01/30/2019
+ms.openlocfilehash: 032146742c1a49fc8cdbda24d5c732add3cc5ea7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244382"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465357"
 ---
-# <a name="azure-sql-database-threat-detection-for-single-database"></a>Detección de amenazas de Azure SQL Database para una base de datos única
+# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-database"></a>Detección de amenazas de Azure SQL Database para una base de datos independiente o agrupada
 
-La [detección de amenazas](sql-database-threat-detection-overview.md) de Azure SQL para bases de datos únicas de [SQL Database](sql-database-technical-overview.md) detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. La detección de amenazas puede identificar **posible inyección SQL**, **acceso desde un centro de datos o una ubicación inusuales**, **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta**; vea más detalles en [Alertas de detección de amenazas](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
+La [detección de amenazas](sql-database-threat-detection-overview.md) de Azure SQL para bases de datos independientes o agrupadas detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. La detección de amenazas puede identificar **posible inyección SQL**, **acceso desde un centro de datos o una ubicación inusuales**, **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta**; vea más detalles en [Alertas de detección de amenazas](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
 Puede recibir notificaciones sobre las amenazas detectadas mediante [notificaciones por correo electrónico](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o en [Azure Portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md) (ATP), que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de SQL ATP. El servicio de detección de amenazas se cobra a 15 USD al mes por servidor lógico, siendo los primeros 30 días gratis.
+La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [Advanced Data Security ](sql-advanced-threat-protection.md) (ADS) de SQL, que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de ADS de SQL. El paquete de Advanced Data Security se cobra a 15 USD al mes por servidor lógico, siendo los primeros 30 días gratis.
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configuración de la detección de amenazas en Azure Portal
 
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Vaya a la página de configuración del servidor de Azure SQL Database que quiere proteger. En la configuración de seguridad, seleccione **Protección contra amenazas avanzada**.
-3. En la página de configuración **Protección contra amenazas avanzada**:
+2. Vaya a la página de configuración del servidor de Azure SQL Database que quiere proteger. En la configuración de seguridad, seleccione **Advanced Data Security**.
+3. En la página de configuración **Advanced Data Security**:
 
-   - Habilite Protección contra amenazas avanzada en el servidor.
+   - Habilite Advanced Data Security en el servidor.
    - En **Configuración de detección de amenazas**, en el cuadro de texto **Send alerts to** (Enviar alertas a), proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
   
    ![Configurar la detección de amenazas](./media/sql-database-threat-detection/set_up_threat_detection.png)
@@ -46,7 +46,7 @@ Para ver un script de ejemplo, consulte [Configuración de la auditoría y detec
 
 - Más información sobre [Detección de amenazas](sql-database-threat-detection-overview.md)
 - Más información sobre la [detección de amenazas en instancia administrada](sql-database-managed-instance-threat-detection.md).  
-- Obtenga más información sobre [Protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md).
+- Más información sobre [Advanced Data Security de SQL](sql-advanced-threat-protection.md).
 - Más información acerca de la [auditoría de Azure SQL Database](sql-database-auditing.md)
 - Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Para más información sobre los precios, consulte la [página Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

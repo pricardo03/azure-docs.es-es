@@ -1,6 +1,6 @@
 ---
-título: Predicción de respuestas con modelos de regresión titleSuffix: Azure Machine Learning Studio description: Descubra cómo crear un modelo de regresión simple para predecir un precio en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal con los datos de destino.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Predicción de respuestas con modelos de regresión titleSuffix: Azure Machine Learning Studio description: Descubra cómo crear un modelo de regresión simple para predecir un precio en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal con los datos de destino.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/01/2018
 ---

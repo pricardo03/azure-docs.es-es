@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056325"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462150"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Aplicación SaaS Wingtip Tickets
 
@@ -46,7 +46,7 @@ Consulte los [tutoriales][docs-tutorials-for-wingtip-dpt] y el código en GitHub
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Patrón de base de datos multiinquilino con particiones
 
-Las bases de datos multiinquilino son eficaces para los proveedores de servicios que buscan un menor costo por inquilino y están de acuerdo con un aislamiento de inquilino reducido. Este patrón permite empaquetar grandes cantidades de inquilinos en una sola base de datos, con lo que disminuye el costo por inquilino. Es posible lograr una escala casi infinita mediante la creación de particiones de los inquilinos en varias bases de datos. Una base de datos de catálogo asigna inquilinos a las bases de datos.  
+Las bases de datos multiinquilino son eficaces para los proveedores de servicios que buscan un menor costo por inquilino y están de acuerdo con un aislamiento de inquilino reducido. Este patrón permite empaquetar grandes cantidades de inquilinos en una base de datos individual, con lo que disminuye el costo por inquilino. Es posible lograr una escala casi infinita mediante la creación de particiones de los inquilinos en varias bases de datos. Una base de datos de catálogo asigna inquilinos a las bases de datos.  
 
 Este patrón también permite un modelo *híbrido* en el que puede optimizar el costo con varios inquilinos en una base de datos, o bien optimizar el aislamiento con un solo inquilino en su propia base de datos. Puede elegir la opción según cada inquilino, ya sea cuando se aprovisiona el inquilino o después, sin afectar la aplicación de ninguna manera.  Este modelo se puede usar de manera eficaz cuando sea necesario tratar de distinta manera los grupos de inquilinos. Por ejemplo, los inquilinos de bajo costo se pueden asignar a bases de datos compartidas, mientras que los inquilinos premium se pueden asignar a sus propias bases de datos. 
 

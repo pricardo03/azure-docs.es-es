@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f3aaf34283f4e7c81f97b8e2ec4987749f3935c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604436"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465289"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica
 
@@ -549,7 +549,7 @@ Otros tipos de aplicaciones pueden interpretar el mismo gráfico de manera difer
 Azure SQL Database muestra información sobre los recursos consumidos para cada base de datos activa en la vista **sys.resource_stats** de la base de datos **maestra** de cada servidor. Los datos de la tabla se agregan en intervalos de 5 minutos. Con los niveles de servicio Básico, Estándar y Premium, los datos pueden tardar más de cinco minutos en aparecer en la tabla, así que estos datos son mejores para el análisis histórico que para el análisis casi en tiempo real. Consulte la vista **sys.resource_stats** para ver el historial reciente de una base de datos y para validar si la reserva elegida proporciona el rendimiento que quiere cuando lo necesita.
 
 > [!NOTE]
-> Tiene que estar conectado a la base de datos **maestra** de su servidor lógico de SQL Database para poder consultar **sys.resource_stats** en los ejemplos siguientes.
+> Tiene que estar conectado a la base de datos **maestra** de su servidor de SQL Database para poder consultar **sys.resource_stats** en los ejemplos siguientes.
 
 En este ejemplo se muestra cómo se exponen los datos en esta vista:
 

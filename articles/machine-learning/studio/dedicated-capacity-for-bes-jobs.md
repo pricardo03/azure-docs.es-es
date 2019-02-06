@@ -1,6 +1,6 @@
 ---
-título: Servicio de Azure Batch para trabajos de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Información general de los servicios de Azure Batch para trabajos de Machine Learning. El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Servicio de Azure Batch para trabajos de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Información general de los servicios de Azure Batch para trabajos de Machine Learning. El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Servicios Azure Batch para Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
 ---

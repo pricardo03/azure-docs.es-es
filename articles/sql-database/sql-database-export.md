@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463759"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
 
@@ -47,7 +47,7 @@ Para exportar una base de datos mediante [Azure Portal](https://portal.azure.com
 
 ![Exportación de base de datos](./media/sql-database-export/database-export.png)
 
-Para supervisar el progreso de la operación de exportación, abra la página del servidor lógico que contiene la base de datos que se va a exportar. Desplácese hacia abajo hasta **Operaciones** y, después, haga clic en el historial de **Import/Export**.
+Para supervisar el progreso de la operación de exportación, abra la página del servidor de SQL Database que contiene la base de datos que se va a exportar. Desplácese hacia abajo hasta **Operaciones** y, después, haga clic en el historial de **Import/Export**.
 
 ![exportar historial](./media/sql-database-export/export-history.png)
 ![exportar el estado del historial](./media/sql-database-export/export-history2.png)
@@ -97,7 +97,7 @@ $exportStatus
 
 - Para obtener información acerca de la retención a largo plazo de la copia de seguridad de una base de datos de Azure SQL Database como alternativa a la exportación de una base de datos para archivarla, consulte [Retención a largo plazo de copias de seguridad](sql-database-long-term-retention.md).
 - Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
-- Para aprender a importar un BACPAC a una base de datos de SQL Server, consulte [Importación de un BACPCAC en una base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
+- Para aprender a importar un BACPAC a una base de datos de SQL Server, consulte [Importación de un BACPAC en una base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 - Para aprender a exportar un BACPAC desde una base de datos de SQL Server, consulte [Exportar una aplicación de capa de datos](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 - Para más información acerca de cómo usar el servicio de migración de datos para migrar una base de datos, consulte [Migración de SQL Server a Azure SQL Database sin conexión mediante DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 - Si va a exportar desde SQL Server como paso previo a la migración a Azure SQL Database, consulte [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).

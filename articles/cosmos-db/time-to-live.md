@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbbaefc62adedc2374c47fd0736368d3dec3e6a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043437"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461175"
 ---
-# <a name="time-to-live-for-azure-cosmos-db-data"></a>Período de vida para datos de Azure Cosmos DB
+# <a name="time-to-live-in-azure-cosmos-db"></a>Período de vida en Azure Cosmos DB 
 
 Mediante el "período de vida" o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema elimina automáticamente los elementos expirados en función del valor de TTL, a diferencia de una operación de eliminación que se emite explícitamente desde la aplicación cliente.
 
