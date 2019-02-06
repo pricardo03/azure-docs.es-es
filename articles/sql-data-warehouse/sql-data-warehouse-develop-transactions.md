@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 121fa87cb295799fdcd3de5e627fb894efc24c49
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f463620f43ae95535a55005ebe9732495b89dc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301272"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456670"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Uso de transacciones en SQL Data Warehouse
 Sugerencias para implementar transacciones en Azure SQL Data Warehouse para el desarrollo de soluciones.
@@ -175,5 +175,5 @@ Los pasos son los siguientes:
 * No existe compatibilidad con DDL como el elemento CREATE TABLE de una transacción definida por el usuario
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la optimización de transacciones, vea [Procedimientos recomendados relacionados con las transacciones](sql-data-warehouse-develop-best-practices-transactions.md). Para obtener más información sobre otros procedimientos recomendados de SQL Data Warehouse, vea [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Para más información acerca de la optimización de transacciones, consulte [Optimización de transacciones para Almacenamiento de datos SQL](sql-data-warehouse-develop-best-practices-transactions.md). Para obtener más información sobre otros procedimientos recomendados de SQL Data Warehouse, vea [Procedimientos recomendados para Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

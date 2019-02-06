@@ -1,6 +1,6 @@
 ---
-título: Implementación del servicio web de Studio en varias regiones titleSuffix: Azure Machine Learning Studio description: Pasos para implementar (copiar) un servicio web nuevo en otras regiones Implemente fácilmente un servicio web en varias regiones sin necesidad de disponer de varias suscripciones o áreas de trabajo.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Implementación del servicio web de Studio en varias regiones titleSuffix: Azure Machine Learning Studio description: Pasos para implementar (copiar) un servicio web nuevo en otras regiones Implemente fácilmente un servicio web en varias regiones sin necesidad de disponer de varias suscripciones o áreas de trabajo.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

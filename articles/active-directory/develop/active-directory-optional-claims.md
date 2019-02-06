@@ -7,7 +7,7 @@ services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345494"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077260"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Control de Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
 
 Esta característica la usan los desarrolladores de aplicaciones para especificar las notificaciones que desean que los tokens envíen a las aplicaciones. Estas notificaciones opcionales sirven para:
 - Seleccionar las notificaciones adicionales que se incluirán en los tokens para la aplicación.
@@ -37,7 +37,7 @@ Para la lista de notificaciones estándares y cómo se utilizan en los tokens, c
 
 Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](active-directory-appmodel-v2-overview.md) es conseguir tamaños de token menores para garantizar el rendimiento óptimo de los clientes. Como resultado, varias notificaciones que antes se incluían en los tokens de identificación y acceso ya no aparecen en los de la versión 2.0 y deben solicitarse específicamente para cada aplicación.
 
-**Tabla 1. Aplicabilidad**
+**Tabla 1: Aplicabilidad**
 
 | Tipo de cuenta | Versión 1.0 del punto de conexión | Versión 2.0 del punto de conexión  |
 |--------------|---------------|----------------|
@@ -54,7 +54,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 > [!NOTE]
 > La mayoría de estas notificaciones puede incluirse en los JWT para los tokens v1.0 y v2.0, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token. Además, aunque actualmente solo se admiten las notificaciones opcionales para los usuarios de AAD, se va a agregar compatibilidad con MSA. Cuando MSA sea compatible con las notificaciones opcionales en la versión 2.0 del punto de conexión, la columna Tipo de usuario indicará si hay una notificación disponible para los usuarios de AAD o de MSA. 
 
-**Tabla 2. Conjunto de notificaciones opcionales estándar**
+**Tabla 2: Conjunto de notificaciones opcionales estándar**
 
 | NOMBRE                        | DESCRIPCIÓN   | Tipo de token | Tipo de usuario | Notas  |
 |-----------------------------|----------------|------------|-----------|--------|
@@ -82,7 +82,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 
 Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero no en los tokens de la versión 2.0, a menos que se solicite. Estas notificaciones solo se aplican a los JWT (tokens de identificación y de acceso). 
 
-**Tabla 3. Notificaciones opcionales exclusivas de la versión 2.0**
+**Tabla 3: Notificaciones opcionales exclusivas de la versión 2.0**
 
 | Notificación de JWT     | NOMBRE                            | DESCRIPCIÓN                                | Notas |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -99,7 +99,7 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero 
 
 Algunas notificaciones opcionales se pueden configurar para cambiar la manera de devolver la notificación. Estas propiedades adicionales se utilizan principalmente para ayudar a la migración de aplicaciones locales con expectativas de datos diferentes (por ejemplo, `include_externally_authenticated_upn_without_hash` ayuda con los clientes que no pueden admitir almohadillas [`#`] en el UPN).
 
-**Tabla 4. Valores para configurar las notificaciones opcionales estándares**
+**Tabla 4: Valores para configurar las notificaciones opcionales estándares**
 
 | Nombre de propiedad                                     | Nombre de la propiedad adicional                                                                                                             | DESCRIPCIÓN |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
@@ -166,9 +166,9 @@ Puede configurar notificaciones opcionales para la aplicación al modificar el m
 
 Indica las notificaciones opcionales solicitadas por una aplicación. Una aplicación puede configurar que las notificaciones opcionales se devuelvan en los tres tipos de tokens (de identificación, de acceso y SAML 2) que reciba desde el servicio de token de seguridad. La aplicación puede configurar un conjunto diferente de notificaciones opcionales que se devuelva en cada tipo de token. La propiedad OptionalClaims de la entidad de la aplicación es un objeto OptionalClaims.
 
-**Tabla 5. Propiedades del tipo OptionalClaims**
+**Tabla 5: Propiedades del tipo OptionalClaims**
 
-| NOMBRE        | Escriba                       | DESCRIPCIÓN                                           |
+| NOMBRE        | Type                       | DESCRIPCIÓN                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de identificación de JWT. |
 | `accessToken` | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de acceso de JWT. |
@@ -179,9 +179,9 @@ Indica las notificaciones opcionales solicitadas por una aplicación. Una aplica
 Contiene una notificación opcional asociada a una aplicación o una entidad de servicio. Las propiedades idToken, accessToken y saml2Token del tipo [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) son una colección de OptionalClaim.
 Si lo admite una notificación concreta, también puede modificar el comportamiento de OptionalClaim con el campo AdditionalProperties.
 
-**Tabla 6. Propiedades del tipo OptionalClaim**
+**Tabla 6: Propiedades del tipo OptionalClaim**
 
-| NOMBRE                 | Escriba                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
+| NOMBRE                 | Type                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nombre de la notificación opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Origen (objeto de directorio) de la notificación. Hay unas notificaciones predefinidas y otras definidas por el usuario desde las propiedades de extensión. Si el valor de origen es null, es una notificación opcional predefinida. Si el valor de origen es user, el valor de la propiedad name es la propiedad de extensión del objeto de usuario. |
@@ -209,7 +209,7 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
 -   Puede modificar el manifiesto de aplicación. En el ejemplo siguiente se utilizará este método para la configuración. Lea primero el documento [Manifiesto de aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) para una introducción al manifiesto.
 -   También es posible escribir una aplicación que use [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para actualizarla. La [referencia de tipos complejos y entidades](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) de la guía de referencia de Graph API puede ayudarle con la configuración de las notificaciones opcionales.
 
-**Ejemplo:** en el ejemplo siguiente, modificará un manifiesto de aplicación para agregar notificaciones a los tokens de acceso, de identificación y SAML destinadas a la aplicación.
+**Ejemplo:** En el ejemplo siguiente, modificará un manifiesto de aplicación para agregar notificaciones a los tokens de acceso, de identificación y SAML destinados a la aplicación.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Después de haberse autenticado, elija el inquilino de Azure AD; para ello, selecciónelo en la esquina superior derecha de la página.

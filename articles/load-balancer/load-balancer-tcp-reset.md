@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257311"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296926"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con restablecimiento de TCP inactivo (versión preliminar pública)
 
-Puede usar [Standard Load Balancer](load-balancer-standard-overview.md) si desea crear un comportamiento de aplicación más predecible para los escenarios con restablecimientos de TCP bidireccionales (paquete RST de TCP) para cada tiempo de espera de inactividad configurable.  El comportamiento predeterminado de Load Balancer es descartar silenciosamente los flujos cuando se alcanza el tiempo de inactividad de un flujo.
+Puede usar [Standard Load Balancer](load-balancer-standard-overview.md) para crear un comportamiento de aplicación más predecible para los escenarios si habilita el restablecimiento de TCP inactivo para una regla determinada. El comportamiento predeterminado de Load Balancer es descartar silenciosamente los flujos cuando se alcanza el tiempo de inactividad de un flujo.  Si habilita esta característica, Load Balancer enviará restablecimientos de TCP bidireccionales (paquete TCP RST) cuando se agote el tiempo de espera de inactividad.  Esto le informará a los puntos de conexión de la aplicación que el tiempo de espera se agotó y ya no se puede usar.  De ser necesario, los puntos de conexión pueden establecer una conexión nueva inmediatamente.
 
 ![Restablecimiento de TCP en Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Con la API versión 2018-07-01, puede habilitar el envío de restablecimientos d
 
 ## <a name="regions"></a> Disponibilidad en regiones
 
-Este parámetro está vigente actualmente en las siguientes regiones.  En las regiones que no aparecen aquí, el parámetro no tiene ningún efecto.
-
-| Region |
-|---|
-| Sudeste de Asia |
-| Sur de Brasil |
-| Centro de Canadá |
-| Oeste de Europa |
-| India central |
-| India occidental |
-| Oeste de Japón |
-| Corea Central |
-| Corea del Sur |
-| Norte del Reino Unido |
-| Sur del Reino Unido 2 |
-| Este de EE. UU. |
-| Este de EE. UU. - 2 |
-| Norte de Reino Unido |
-| Oeste de EE. UU. |
-
-Esta tabla se actualizará a medida que la versión preliminar se expanda a otras regiones.  
+Disponible en todas las regiones.
 
 ## <a name="limitations"></a>Limitaciones
 
-- [Disponibilidad limitada en las regiones](#regions).
 - El portal no se puede usar para configurar o ver el restablecimiento de TCP.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
 
 ## <a name="next-steps"></a>Pasos siguientes

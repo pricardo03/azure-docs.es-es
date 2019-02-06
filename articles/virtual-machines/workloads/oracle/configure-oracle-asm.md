@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203596"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Crear una VM
 
-Para crear una máquina virtual basada en la imagen de base de datos de Oracle y configurarla para usar ASM de Oracle, use el comando [az vm create](/cli/azure/vm#az_vm_create). 
+Para crear una máquina virtual basada en la imagen de base de datos de Oracle y configurarla para usar ASM de Oracle, use el comando [az vm create](/cli/azure/vm). 
 
 En el ejemplo siguiente se crea una máquina virtual denominada myVM que tiene un tamaño de Standard_DS2_v2 con cuatro discos de datos adjuntos de 50 GB cada uno. También se crean claves SSH si aún no existen en la ubicación de claves predeterminada.  Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
@@ -540,7 +540,7 @@ Para configurar la instalación de ASM de Oracle, complete los pasos siguientes:
 
 6. Seleccione **Exit** (Salir) para cerrar el asistente para la configuración de ASM.
 
-   ![Captura de pantalla del cuadro de diálogo Configure ASM: Disk Groups (Configurar ASM: grupos de discos) con el botón Exit (Salir)](./media/oracle-asm/asm05.png)
+   ![Captura de pantalla del cuadro de diálogo Configure ASM: Disk Groups (Configurar ASM: grupos de discos) con el botón Salir](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>Creación de la base de datos
 

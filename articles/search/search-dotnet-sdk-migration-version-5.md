@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316886"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912057"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Actualización a la versión 5 del SDK de .NET para Azure Search
 Si usa la versión preliminar 4.0 o anterior del [SDK de .NET para Azure Search](https://aka.ms/search-sdk), este artículo le ayudará a actualizar la aplicación para que use la versión 5.
@@ -44,17 +44,26 @@ La versión 5 del SDK de .NET para Azure Search tiene como destino la versión m
 ## <a name="steps-to-upgrade"></a>Pasos para actualizar
 En primer lugar, actualice la referencia de NuGet para `Microsoft.Azure.Search` mediante la Consola del Administrador de paquetes NuGet, o bien haga clic con el botón derecho en las referencias del proyecto y seleccione "Administrar paquetes NuGet" en Visual Studio.
 
-Una vez que NuGet ha descargado los nuevos paquetes y sus dependencias, recompile el proyecto. A menos que use una característica de la versión preliminar que no está en el nuevo SDK de GA, debería recompilarse correctamente (si no es así, comuníquenoslo en [GitHub](https://github.com/azure/azure-sdk-for-net/issues)). Si lo consigue, ya estará listo para empezar.
+Una vez que NuGet ha descargado los nuevos paquetes y sus dependencias, recompile el proyecto. Dependiendo de cómo se estructura el código, se podrá volver a compilar correctamente. Si lo consigue, ya estará listo para empezar.
+
+Si se produce un error en la compilación, verá un mensaje similar al siguiente:
+
+    The name 'SuggesterSearchMode' does not exist in the current context
+
+El paso siguiente consiste en corregir los errores de compilación. Consulte [Cambios importantes en la versión 5](#ListOfChanges) para más información sobre las causas del error y cómo corregirlo.
 
 Tenga en cuenta que, debido a cambios efectuados en el empaquetado del SDK de .NET de Azure Search, deberá recompilar la aplicación para poder usar la versión 5. Estos cambios se detallan en [Cambios importantes en la versión 5](#ListOfChanges).
 
 Puede ver las advertencias de compilación adicionales relacionadas con propiedades o métodos obsoletos. Las advertencias incluyen instrucciones sobre qué utilizar en lugar de la característica en desuso. Por ejemplo, si la aplicación usa el método `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType`, recibirá una advertencia que indica lo siguiente: "Este comportamiento ahora está habilitado de forma predeterminada, por lo que ya no es necesario llamar a este método".
 
-Una vez que haya solucionado las advertencias de compilación, puede efectuar cambios a la aplicación para aprovechar las ventajas de la nueva funcionalidad, si lo desea. Las nuevas características en el SDK se detallan en [Novedades de la versión 5](#WhatsNew).
+Una vez que haya solucionado los errores o las advertencias de compilación, puede efectuar cambios en la aplicación para aprovechar las ventajas de la nueva funcionalidad, si lo desea. Las nuevas características en el SDK se detallan en [Novedades de la versión 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-5"></a>Cambios importantes en la versión 5
+
+### <a name="new-package-structure"></a>Nueva estructura de paquete
+
 El cambio importante más significativo de la versión 5 es que el ensamblado `Microsoft.Azure.Search` y su contenido se han dividido en cuatro ensamblados independientes que ahora se distribuyen como cuatro paquetes de NuGet independientes:
 
  - `Microsoft.Azure.Search`: es un metapaquete que incluye el resto de los paquetes de Azure Search a modo de dependencias. Si va a actualizar desde una versión anterior del SDK, debería bastar con actualizar este paquete y recompilarlo para empezar a usar la nueva versión.
@@ -65,6 +74,10 @@ El cambio importante más significativo de la versión 5 es que el ensamblado `M
 Este cambio es técnicamente importante porque se han movido muchos tipos de un ensamblado a otro. Por este motivo, es necesario recompilar la aplicación para poder actualizar a la versión 5 del SDK.
 
 Hay unos pocos cambios importantes más en la versión 5 que pueden requerir cambios de código además de la recompilación de la aplicación.
+
+### <a name="change-to-suggesters"></a>Cambio a los proveedores de sugerencias 
+
+El constructor `Suggester` ya no tiene un parámetro `enum` para `SuggesterSearchMode`. Esta enumeración solo tenía un valor y, por tanto, era redundante. Si como resultado se observan errores de compilación, basta con eliminar las referencias al parámetro `SuggesterSearchMode`.
 
 ### <a name="removed-obsolete-members"></a>Miembros obsoletos quitados
 

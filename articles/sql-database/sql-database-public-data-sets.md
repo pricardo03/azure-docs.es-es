@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586264"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300003"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 
@@ -44,7 +44,7 @@ Consulte la siguiente lista de conjuntos de datos públicos que puede usar para 
 | [Conjuntos de datos de Microsoft Research: "Ciencia de datos para la investigación"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Diversos conjuntos de datos que cubren la interacción de personas y equipos informáticos, audio y vídeo, recuperación de información y minería de datos, geoespacial y ubicación, procesamiento del lenguaje natural y visión robótica e informática. | Los conjuntos de datos se encuentran en diversos formatos, comprimidos para su descarga. |
 | [Datos públicos del genoma](http://www.completegenomics.com/public-data/) | "Hay un diverso conjunto de datos de todos los genomas humanos disponible para uso público con el fin de mejorar los estudios del genoma..." El proveedor, Complete Genomics, es una empresa privada con ánimo de lucro. | Los conjuntos de datos, después de la extracción, están en formato de texto de UNIX. También hay herramientas de análisis disponibles. |
 | [Datos de la nube de datos científicos abiertos](https://www.opensciencedatacloud.org/) | "La nube de datos científicos abiertos (Open Science Data Cloud) proporciona a la comunidad científica recursos para almacenar, compartir y analizar terabytes y petabytes de conjuntos de datos científicos".| Los conjuntos de datos están en distintos formatos. |
-| [Datos globales sobre el clima: WorldcLIM](http://worldclim.org/) | "WorldClim es un conjunto de capas climáticas mundiales (datos sobre el clima en una cuadrícula) con una resolución espacial de aproximadamente 1 km2. Estos datos se pueden usar para la asignación y el modelado espacial". | Estos archivos contienen datos geoespaciales. Para más información, consulte [Data format](http://worldclim.org/formats1) (Formato de los datos). |
+| [Datos globales sobre el clima: WorldClim](http://worldclim.org/) | "WorldClim es un conjunto de capas climáticas mundiales (datos sobre el clima en una cuadrícula) con una resolución espacial de aproximadamente 1 km2. Estos datos se pueden usar para la asignación y el modelado espacial". | Estos archivos contienen datos geoespaciales. Para más información, consulte [Data format](http://worldclim.org/formats1) (Formato de los datos). |
 | [Datos sobre la sociedad humana: el proyecto GDELT](http://www.gdeltproject.org/data.html) | "El proyecto GDELT es la base de datos abierta más grande, completa y de más alta resolución jamás creada por la sociedad humana". | Los archivos de datos sin procesar están en formato CSV. |
 | [Datos de predicción de clics en anuncios para el aprendizaje automático a partir de Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "El mayor conjunto de datos de aprendizaje automático jamás publicado". Para más información, consulte el artículo sobre [el conjunto de predicción de clics de 1 TB de Criteo](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [Conjunto de datos de minería de texto de ClueWeb09 del proyecto Lemur](http://www.lemurproject.org/clueweb09.php/) | "El conjunto de datos ClueWeb09 se creó para admitir la investigación sobre la recuperación de información y las tecnologías de lenguaje humano relacionadas. Consta de aproximadamente mil millones de páginas web en 10 idiomas, recopiladas en enero y febrero de 2009". | Consulte la [información sobre el conjunto de datos](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
@@ -54,5 +54,5 @@ Consulte la siguiente lista de conjuntos de datos públicos que puede usar para 
 | Origen de datos | Acerca de los datos | Acerca de los archivos |
 |---|---|---|
 | [GitHub Archive](https://www.githubarchive.org/) | "GitHub Archive es un proyecto para registrar la escala de tiempo [de eventos] del GitHub público, archivarla y facilitar el acceso a ella para su posterior análisis". | Descargue los archivos de eventos con codificación JSON en formato .gz (Gzip) desde un cliente web. |
-| [Datos de actividad de GitHub procedentes del proyecto GHTorrent](http://ghtorrent.org/) | "El proyecto GHTorrent [es] un intento de crear un espejo de datos escalable, consultable y sin conexión de datos ofrecidos a través de la API de REST de GitHub. GHTorrent supervisa la escala de tiempo de los eventos públicos de GitHub. Para cada evento, recupera su contenido y sus dependencias, exhaustivamente". | Los volcados de la base de datos de MySQL están en formato CSV. |
+| [Datos de actividad de GitHub procedentes del proyecto GHTorrent](http://ghtorrent.org/) | "El proyecto GHTorrent [es] un intento de crear un espejo de datos escalable, consultable y sin conexión de datos ofrecido a través de la API REST de GitHub. GHTorrent supervisa la escala de tiempo de los eventos públicos de GitHub. Para cada evento, recupera su contenido y sus dependencias, exhaustivamente". | Los volcados de la base de datos de MySQL están en formato CSV. |
 | [Volcado de datos de desbordamiento de pila](https://archive.org/details/stackexchange) | "Se trata de un volcado de memoria anonimizado de todo el contenido proporcionado por los usuarios en la red Stack Exchange [incluido Stack Overflow]". | "Cada sitio [por ejemplo, Stack Overflow] tiene el formato de un archivo independiente compuesto por archivos XML comprimidos mediante 7-zip con compresión bzip2. Cada archivo del sitio incluye publicaciones, usuarios, votos, comentarios, PostHistory y PostLinks". |

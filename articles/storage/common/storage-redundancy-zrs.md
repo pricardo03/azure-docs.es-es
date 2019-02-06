@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.subservice: common
+ms.openlocfilehash: 62c6e24776c1d9a4e6a82eea557244bb390ebd00
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868351"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471494"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -25,19 +25,20 @@ ZRS está disponible para blobs en bloques, blobs en páginas que no son de disc
 
 ZRS está disponible con carácter general en las regiones siguientes:
 
+- Sudeste de Asia
+- Oeste de Europa
+- Norte de Europa
+- Centro de Francia
+- Este de Japón
 - Este de EE. UU.
 - Este de EE. UU. - 2
 - Oeste de EE. UU. 2
 - Centro de EE. UU.
-- Europa del Norte
-- Europa occidental
-- Centro de Francia
-- Sudeste asiático
 
 Microsoft sigue habilitando ZRS en otras regiones de Azure. Revise periódicamente la página [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/) para información sobre las regiones nuevas.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>¿Qué ocurre cuando una zona deja de estar disponible?
-Los datos son accesibles incluso si una zona deja de estar disponible. Microsoft recomienda seguir procedimientos recomendados para el control de errores transitorios. Estos procedimientos incluyen la implementación de directivas de reintento con retroceso exponencial.
+Los datos son accesibles para las operaciones de escritura y lectura incluso si una zona deja de estar disponible. Microsoft recomienda seguir procedimientos recomendados para el control de errores transitorios. Estos procedimientos incluyen la implementación de directivas de reintento con retroceso exponencial.
 
 Cuando una zona no está disponible, Azure realiza actualizaciones de red, como el redireccionamiento de DNS. Estas actualizaciones pueden afectar a la aplicación si se accede a los datos antes de que se completen.
 

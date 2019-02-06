@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157639"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471409"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -804,24 +804,19 @@ Hay dos clases principales de errores que pueden producirse de alguno de esos mo
 En las secciones siguientes se indica cómo solucionar problemas de los niveles en la nube y determinar si se trata de un problema de almacenamiento en la nube o del servidor.
 
 <a id="monitor-tiering-activity"></a>**Supervisión de la actividad de organización en niveles en un servidor**  
-Para supervisar la actividad de organización en niveles en un servidor, use el identificador de eventos 9002, 9003, 9016 y 9029 en el registro de eventos de telemetría (ubicados en Applications and Services\Microsoft\FileSync\Agent en el Visor de eventos).
-
-- El identificador de evento 9002 proporciona estadísticas de conversión en fantasma para un punto de conexión del servidor. Por ejemplo, TotalGhostedFileCount, SpaceReclaimedMB, entre otras.
+Para supervisar la actividad de organización en niveles en un servidor, use el identificador de eventos 9003, 9016 y 9029 en el registro de eventos de telemetría (ubicados en Applications and Services\Microsoft\FileSync\Agent en el Visor de eventos).
 
 - El identificador de evento 9003 proporciona una distribución de errores para un punto de conexión de servidor. Por ejemplo, el recuento total de errores, el código de error, entre otros. Tenga en cuenta que se registra un evento por código de error.
-
 - El identificador de evento 9016 proporciona resultados de conversión en fantasma para un volumen. Por ejemplo, el porcentaje de espacio libre, el número de archivos convertidos en fantasma en la sesión, el número de archivos no convertidos en fantasma, etc.
-
-- El identificador de evento 9029 proporciona información de la sesión de conversión en fantasma. Por ejemplo, el número de archivos que se han intentado en la sesión, el número de archivos organizados en niveles de la sesión, el número de archivos ya organizados en niveles, entre otros.
+- El id. de evento 9029 proporciona información de la sesión de conversión en fantasma para el punto de conexión de un servidor. Por ejemplo, el número de archivos que se han intentado en la sesión, el número de archivos organizados en niveles de la sesión, el número de archivos ya organizados en niveles, entre otros.
 
 <a id="monitor-recall-activity"></a>**Supervisión de la actividad de recuperación en un servidor**  
-Para supervisar la actividad de recuperación en un servidor, use el identificador de eventos 9005, 9006 y 9007 en el registro de eventos de telemetría (ubicados en Applications and Services\Microsoft\FileSync\Agent en el Visor de eventos). Tenga en cuenta que estos eventos se registran cada hora.
+Para supervisar la actividad de recuperación en un servidor, use los id. de evento 9005, 9006, 9009 y 9059 en el registro de eventos de telemetría (ubicado en Applications and Services\Microsoft\FileSync\Agent en el Visor de eventos).
 
 - El identificador de evento 9005 proporciona confiabilidad de recuperación a un punto de conexión de servidor. Por ejemplo, el total de archivos únicos a los que se puede acceder, el total de archivos único con acceso erróneo, entre otros.
-
 - El identificador de evento 9006 proporciona una distribución de errores de recuperación a un punto de conexión de servidor. Por ejemplo, el total de solicitudes erróneas o el código de error. Tenga en cuenta que se registra un evento por código de error.
-
-- El identificador de evento 9007 proporciona rendimiento de recuperación a un punto de conexión de servidor. Por ejemplo, TotalRecallIOSize, TotalRecallTimeTaken, entre otros.
+- El id. de evento 9009 proporciona información de la sesión de recuperación para un punto de conexión de servidor. Por ejemplo, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+- El id. de evento 9059 proporciona una distribución de recuperación de aplicación para un punto de conexión de servidor. Por ejemplo, ShareId, Application Name y TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Solución de problemas de archivos que no se apilan**  
 Si no se pueden apilar archivos en Azure Files:
@@ -858,6 +853,9 @@ Consulte con el proveedor de software para aprender cómo configurar su solució
 
 Las recuperaciones imprevistas también se podrían producir en otros escenarios, como al buscar archivos en el Explorador de archivos. Abrir una carpeta que tiene archivos de niveles en la nube en el Explorador de archivos en el servidor podría producir recuperaciones imprevistas. Esto es incluso más probable si una solución antivirus está habilitada en el servidor.
 
+> [!NOTE]
+>Use el id. de evento 9059 del registro de eventos de telemetría para determinar qué aplicaciones están causando las recuperaciones. Este evento proporciona la distribución de recuperación de la aplicación para un punto de conexión de servidor y se registra una vez cada hora.
+
 ## <a name="general-troubleshooting"></a>Solución general de problemas
 Si tiene problemas con Azure File Sync en un servidor, empiece por los pasos siguientes:
 1. Revise los registros de eventos de telemetría, operativos y de diagnóstico en el Visor de eventos.
@@ -884,6 +882,7 @@ Si no se resuelve el problema, ejecute la herramienta AFSDiag:
 6. Un archivo .zip que contiene los archivos de seguimiento y registros se guarda en el directorio de salida que especificó.
 
 ## <a name="see-also"></a>Otras referencias
+- [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)
 - [Preguntas más frecuentes de Azure Files](storage-files-faq.md)
 - [Solucione problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)

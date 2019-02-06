@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584475"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902710"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Descripción de la factura de los clientes de Azure con un Contrato Enterprise
 
@@ -31,8 +31,8 @@ El crédito de su organización incluye su compromiso monetario. El compromiso m
 
 Recibirá una o varias facturas si sucede lo siguiente:
 
-- **Uso por encima del límite de servicio**: los gastos por uso de su organización superan el saldo de crédito.
-- **Gastos que se facturan por separado**: los servicios que ha usado su organización no están cubiertos por el crédito. Se le facturará por los siguientes servicios independientemente del saldo de crédito:
+- **Uso por encima del límite del servicio**: los gastos por uso de la organización superan el saldo de crédito.
+- **Gastos facturados por separado**: los servicios que ha usado la organización no están cubiertos por el crédito. Se le facturará por los siguientes servicios independientemente del saldo de crédito:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -44,7 +44,7 @@ Recibirá una o varias facturas si sucede lo siguiente:
     - Visual Studio Enterprise (anual)
     - Visual Studio Professional (mensual)
     - Visual Studio Professional (anual)
-- **Gastos de Marketplace**: las compras y el uso de Azure Marketplace no está incluido en el crédito de la organización y se facturan de forma independiente. El administrador de la empresa tiene la capacidad de habilitar o deshabilitar las compras de Marketplace para su organización en Enterprise Portal. 
+- **Cargos de Marketplace**: las compras y el uso de Azure Marketplace no están incluidos en el crédito de la organización y se facturan por separado. El administrador de la empresa tiene la capacidad de habilitar o deshabilitar las compras de Marketplace para su organización en Enterprise Portal. 
 
 Si tiene gastos debido a un uso por encima del límite del servicio y gastos facturados por separado durante el período de facturación, recibirá una factura que incluya ambos tipos de gastos. Los gastos de Marketplace siempre se facturan de forma independiente.
 

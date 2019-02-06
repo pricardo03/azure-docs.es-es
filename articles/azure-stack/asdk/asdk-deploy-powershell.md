@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716033"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247738"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Implementación del Kit de desarrollo de Azure Stack desde la línea de comandos
 El Kit de desarrollo de Azure Stack es un entorno de desarrollo y pruebas que se puede implementar para evaluar y probar las características y servicios de Azure Stack. Para ponerlo en ejecución, debe preparar el hardware del entorno y ejecutar algunos scripts (esta operación tardará varias horas). Una vez finalizado, puede iniciar sesión en los portales del administrador y de usuarios para comenzar a usar Azure Stack.
@@ -92,7 +93,7 @@ Ejecute los siguientes comandos de PowerShell para implementar el kit de desarro
 
 Unos minutos después de empezar la instalación de ASDK se le pedirán las credenciales de Azure AD. Debe proporcionar credenciales de administrador global para el inquilino de Azure AD. 
 
-Después de al implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
+Después de la implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Implementación de Azure Stack con AD FS 
 Para implementar el kit de desarrollo **mediante AD FS como proveedor de identidades**, ejecute los siguientes comandos de PowerShell (solo necesita agregar el parámetro -UseADFS): 
@@ -105,7 +106,7 @@ Para implementar el kit de desarrollo **mediante AD FS como proveedor de identid
 
 En las implementaciones con AD FS el servicio de directorio con la marca predeterminada se usará como proveedor de identidades. La cuenta predeterminada con la que iniciar sesión es azurestackadmin@azurestack.local y la contraseña que debe utilizar es la que proporcionó como parte de los comandos de configuración de PowerShell.
 
-El proceso de implementación puede tardar unas horas, durante las cuales el sistema se reiniciará automáticamente una vez. Si la implementación se realiza correctamente, en la consola de PowerShell aparecerá: **COMPLETE: Action ‘Deployment’** (COMPLETADA: Acción "Implementación"). Si se produce un error en la implementación, puede intentar ejecutar el script de nuevo mediante el parámetro -rerun. O bien, puede [volver a implementar ASDK](asdk-redeploy.md) desde el principio.
+El proceso de implementación puede tardar unas horas, durante las cuales el sistema se reiniciará automáticamente una vez. Si la implementación se realiza correctamente, en la consola de PowerShell aparece el mensaje: **COMPLETE: Action ‘Deployment’** (COMPLETADA: Acción "Implementación"). Si se produce un error en la implementación, puede intentar ejecutar el script de nuevo mediante el parámetro -rerun. O bien, puede [volver a implementar ASDK](asdk-redeploy.md) desde el principio.
 
 > [!IMPORTANT]
 > Si desea supervisar el progreso de la implementación una vez que se reinicie el host de ASDK, deberá iniciar sesión como AzureStack\AzureStackAdmin. Si inicia sesión como administrador local después de que el equipo host se reinicie (y se una al dominio azurestack.local), no podrá ver el progreso de la implementación. No vuelva a ejecutar la implementación, en su lugar, inicie sesión como azurestack para validar que se está ejecutando.

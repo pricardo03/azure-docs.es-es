@@ -1,6 +1,6 @@
 ---
-título: Reciclaje de un modelo de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Reciclaje de un modelo de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---

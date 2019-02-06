@@ -11,22 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: 719e8c605dfc91b1d9c358158aa3dca248173f90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726038"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472021"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra de Azure SQL Database
 
 Azure SQL Database le permite comprar fácilmente motores de base de datos PaaS completamente administrados que se ajusten a sus necesidades de rendimiento y costos. Según el modelo de implementación de Azure SQL Database, puede seleccionar el modelo de compra que se adapte a sus necesidades:
+
 - [Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) (recomendado) que le permite elegir la cantidad exacta de la capacidad de almacenamiento y proceso que necesita para la carga de trabajo.
 - [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) donde puede elegir paquetes de proceso y almacenamiento agrupados equilibrados para cargas de trabajo comunes.
 
 Hay disponibles distintos modelos de compra en los modelos de implementación de Azure SQL Database:
-- Los [servidores lógicos](sql-database-logical-servers.md) en [Azure SQL Database](sql-database-technical-overview.md) ofrecen el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). En este modelo de compra, puede elegir [bases de datos únicas](sql-database-single-databases-manage.md) o [grupos elásticos](sql-database-elastic-pool.md).
+
+- Las [bases de datos únicas](sql-database-single-databases-manage.md) y los [grupos de bases de datos elásticas](sql-database-elastic-pool.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). 
 - Las [Instancias administradas](sql-database-managed-instance.md) de Azure SQL Database solo ofrecen el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -64,7 +66,7 @@ La unidad de transacción de base de datos (DTU) representa una medida combinada
 
 ### <a name="database-transaction-units-dtus"></a>Unidades de transacción de base de datos (DTU)
 
-Para una sola base de datos de Azure SQL en un tamaño de proceso específico dentro de un [nivel de servicio](sql-database-single-database-scale.md), Microsoft garantiza un determinado nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure), de forma que ofrece un nivel de rendimiento predecible. La cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de recursos de proceso, almacenamiento y E/S. La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos usados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos usados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.
+Para una base de datos única en un tamaño de proceso específico dentro de un [nivel de servicio](sql-database-single-database-scale.md), Microsoft garantiza un determinado nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure), de forma que ofrece un nivel de rendimiento predecible. La cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de recursos de proceso, almacenamiento y E/S. La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos usados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos usados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.
 
 ![rectángulo de selección](./media/sql-database-what-is-a-dtu/bounding-box.png)
 

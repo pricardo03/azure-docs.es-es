@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527296"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459061"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación
 Este tema le guiará por el proceso completo de preparar las unidades para un trabajo de importación.  
@@ -67,11 +67,11 @@ En este ejemplo, dos unidades de disco duro de 3 TB deberían ser suficientes. S
   
 Además, puede establecer los metadatos siguientes para todos los archivos:  
   
--   **UploadMethod:** servicio Microsoft Azure Import/Export  
+-   **UploadMethod:** Servicio Windows Azure Import/Export  
   
 -   **DataSetName:** SampleData  
   
--   **CreationDate:** 10/1/2013  
+-   **CreationDate:** 01/10/2013  
   
 Para establecer los metadatos de los archivos importados, cree un archivo de texto, `c:\WAImportExport\SampleMetadata.txt`, con el siguiente contenido:  
   
@@ -169,4 +169,4 @@ Cuando se hayan completado las sesiones de copia, podrá desconectar las dos uni
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Preparación de unidades de disco duro para un trabajo de importación](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Quick reference for frequently used commands for import jobs](../storage-import-export-tool-quick-reference-v1.md) (Referencia rápida para comandos usados con frecuencia) 
+* [Quick reference for frequently used commands for import jobs](../storage-import-export-tool-quick-reference-v1.md) (Referencia rápida para comandos usados con frecuencia) 

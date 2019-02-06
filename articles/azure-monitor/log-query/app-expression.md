@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191842"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104667"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>Expresión app() en una consulta de Log Analytics
 
@@ -48,6 +48,7 @@ La expresión `app` se usa en una consulta de Log Analytics para recuperar datos
 * Debe tener acceso de lectura a la aplicación.
 * En la identificación de una aplicación por su nombre, se da por supuesto que este es único en todas las suscripciones accesibles. Si tiene varias aplicaciones con el nombre especificado, la consulta producirá un error debido a la ambigüedad. En este caso debe usar uno de los otros identificadores.
 * Utilice la expresión relacionada [área de trabajo](workspace-expression.md) para hacer consultas entre áreas de trabajo de Log Analytics.
+* Actualmente, la expresión app() actualmente no se admite en la consulta de búsqueda cuando se usa Azure Portal para crear un [regla de alerta de búsqueda de registros personalizada](../platform/alerts-log.md), salvo que se use una aplicación de Application Insights se usa como recurso para la regla de alertas.
 
 ## <a name="examples"></a>Ejemplos
 

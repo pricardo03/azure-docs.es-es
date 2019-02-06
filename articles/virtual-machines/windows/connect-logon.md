@@ -1,6 +1,6 @@
 ---
 title: Conexión a una máquina virtual de Windows Server | Microsoft Docs
-description: Aprenda a conectarse a una máquina virtual de Windows y a iniciar sesión en ella mediante el Portal de Azure y el modelo de implementación de Resource Manager.
+description: Aprenda a conectarse a una máquina virtual de Windows y a iniciar sesión en ella mediante Azure Portal y el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867076"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296896"
 ---
-# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella
+# <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella
 Para iniciar una sesión de Escritorio remoto (RDP) desde un escritorio de Windows, usará el botón **Conectar** de Azure Portal. En primer lugar, conéctese a la máquina virtual e inicie sesión.
 
 Para conectarse a una máquina virtual Windows desde un equipo Mac, debe instalar un cliente de RDP para Mac como el [Escritorio remoto de Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
@@ -32,9 +32,9 @@ Para conectarse a una máquina virtual Windows desde un equipo Mac, debe instala
 2. En el menú de la izquierda, seleccione **Máquinas virtuales**.
 3. Seleccione la máquina virtual en la lista.
 4. En la parte superior de la página de la máquina virtual, haga clic en **Conectar**.
-2. En la página **Conexión a la máquina virtual**, seleccione las opciones adecuadas y haga clic en **Descargar archivo RDP**.
+2. En la página **Conexión a la máquina virtual**, seleccione la dirección IP y el puerto adecuados. En la mayoría de los casos, se deben utilizar la dirección IP y el puerto predeterminados. Seleccione **Descargar archivo RDP**Descargar archivo RDP**. Si la máquina virtual tiene configurada una directiva Just-In-Time, primero deberá seleccionar el botón **Solicitar acceso** para solicitar acceso antes de descargar el archivo RDP. Para obtener más información sobre la directiva Just-in-Time, consulte [Administración del acceso a máquina virtual mediante Just-In-Time](../../security-center/security-center-just-in-time.md).
 2. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite. 
-2. Aparecerá una advertencia que indica que el archivo .rdp procede de un editor desconocido. Se espera que esto sea así. En la ventana **Conexión a Escritorio remoto**, haga clic en **Conectar**.
+2. Aparecerá una advertencia que indica que el archivo `.rdp` procede de un editor desconocido. Se espera que esto sea así. En la ventana **Conexión a Escritorio remoto**, haga clic en **Conectar**.
    
     ![Captura de pantalla de una advertencia sobre un editor desconocido.](./media/connect-logon/rdp-warn.png)
 3. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba las credenciales de una cuenta en la máquina virtual y haga clic en **Aceptar**.

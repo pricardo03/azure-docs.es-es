@@ -7,21 +7,21 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: curtand
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 351a982fa9ca3c0975c425137220ec9872f0de04
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448132"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300241"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -50,15 +50,15 @@ Los grupos de configuración siguientes están disponibles para que los usuarios
 * Otras configuraciones de Windows: consultar Detalles de configuración de Windows
 * Configuración del explorador Microsoft Edge: favoritos de Microsoft Edge, lista de lectura y otras opciones
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Sincronizar la configuración](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Es posible habilitar o deshabilitar la sincronización de un grupo de configuración del explorador Microsoft Edge a través de la opción de menú Configuración del explorador Microsoft Edge.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Cuenta](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 Para Windows 10 versión 1803 o posterior, la sincronización del grupo de configuración de Internet Explorer (favoritos, direcciones URL escritas) puede ser habilitada o deshabilitada por los usuarios finales mediante la opción del menú de configuración de Internet Explorer. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Configuración](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Detalles de configuración de Windows
 En la tabla siguiente, las entradas Otros en la columna Grupo de la configuración se refieren a configuraciones que se pueden deshabilitar en Configuración > Cuentas > Sincronizar la configuración > Otras configuraciones de Windows. 

@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852310"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298746"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory (Azure AD) B2C. En este artículo se crea una directiva personalizada que admite el registro o el inicio de sesión de la cuenta local mediante una dirección de correo electrónico y una contraseña. También se prepara el entorno para agregar proveedores de identidades, como Facebook o Azure Active Directory.
+Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory (Azure AD) B2C. En este artículo se crea una directiva personalizada que admite el registro o el inicio de sesión de la cuenta local mediante una dirección de correo electrónico y una contraseña. También debe preparar el entorno para agregar proveedores de identidades.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,9 +31,6 @@ Si todavía no tiene uno, debe [crear un inquilino de Azure AD B2C](tutorial-cre
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino. 
-
-    ![Cambiar al inquilino de Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
 
@@ -72,7 +69,7 @@ Azure AD B2C requiere que registre dos aplicaciones que se usen para registrar u
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar la aplicación IdentityExperienceFramework
 
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure Active Directory** y luego seleccione **Registros de aplicaciones**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
 2. Seleccione **Nuevo registro de aplicaciones**.
 3. En **Nombre**, escriba `IdentityExperienceFramework`.
 4. En **Tipo de aplicación**, elija **Aplicación web o API**.
@@ -105,8 +102,8 @@ Las directivas personalizadas son un conjunto de archivos XML que se deben carga
 Cada paquete de inicio contiene lo siguiente:
 
 - Archivo base. Se requieren algunas modificaciones en el archivo base.
-* Archivo de extensión.  Este archivo es donde se hace la mayoría de los cambios de configuración.
-* Archivos del usuario de confianza. Archivos específicos de la tarea a los que llama la aplicación.
+- Archivo de extensión.  Este archivo es donde se hace la mayoría de los cambios de configuración.
+- Archivos del usuario de confianza. Archivos específicos de la tarea a los que llama la aplicación.
 
 >[!NOTE]
 >Si el editor XML admite la validación, valide los archivos con el archivo de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd que se encuentra en el directorio raíz del paquete de inicio. La validación del esquema XML identifica los errores antes de realizar la carga.
@@ -117,17 +114,14 @@ Cada paquete de inicio contiene lo siguiente:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. En la carpeta SocialAndLocalAccounts, sustituya `yourtenant.onmicrosoft.com` por el nombre del inquilino en todos los archivos. Por ejemplo, `contosoTenant.onmicrosoft.com`. Si necesita un editor XML, [pruebe Visual Studio Code](https://code.visualstudio.com/download), un editor multiplataforma ligero.
+2. En la carpeta SocialAndLocalAccounts, sustituya `yourtenant` por el nombre del inquilino en todos los archivos. Por ejemplo, `contosoTenant.onmicrosoft.com`. Si necesita un editor XML, [pruebe Visual Studio Code](https://code.visualstudio.com/download), un editor multiplataforma ligero.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Agregar identificadores de aplicación a la directiva personalizada
 
 Agregue los identificadores de aplicación al archivo de extensiones *TrustFrameworkExtensions.xml*.
 
 1. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Reemplace ambas instancias de `IdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad que creó antes. Reemplace ambas instancias de `ProxyIdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad del proxy que ha creado anteriormente. El ejemplo siguiente muestra el perfil técnico **login-NonInteractive** después de los cambios:
-
-    ![Identificadores de aplicación](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Reemplace ambas instancias de `IdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad que creó antes. Reemplace ambas instancias de `ProxyIdentityExperienceFrameworkAppId` por el identificador de la aplicación del marco de experiencia de identidad del proxy que ha creado anteriormente.
 3. Guarde el archivo de extensiones.
 
 ## <a name="upload-the-policies"></a>Cargar las directivas

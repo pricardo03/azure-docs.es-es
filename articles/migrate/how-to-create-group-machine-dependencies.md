@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252538"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456024"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
 
@@ -50,6 +50,8 @@ Después de configurar un área de trabajo, tiene que descargar e instalar agent
 
 ### <a name="install-the-mma"></a>Instalación de MMA
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Instalación del agente en una máquina Windows
+
 Para instalar al agente en una máquina Windows, siga estos pasos:
 
 1. Haga doble clic en el agente descargado.
@@ -58,7 +60,9 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 5. Haga clic en **Agregar** para agregar un área de trabajo nueva de Log Analytics. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
-[Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Windows.
+Puede instalar el agente desde la línea de comandos o mediante un método automatizado, como DSC de Azure Automation, System Center Configuration Manager, o con una plantilla de Azure Resource Manager si implementó Microsoft Azure Stack en su centro de datos. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre el uso de estos métodos para instalar el agente MMA.
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Instalación del agente en una máquina Linux
 
 Para instalar al agente en una máquina Linux, siga estos pasos:
 
@@ -69,6 +73,11 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
 [Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre la lista de compatibilidad de MMA con sistemas operativos Linux.
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>Instalación del agente en una máquina supervisada por SCOM
+
+Para las máquinas supervisadas por System Center Operations Manager 2012 R2 o versiones posteriores, no hay necesidad de instalar el agente MMA. Service Map tiene una integración con SCOM que aprovecha SCOM MMA para recopilar los datos de dependencia necesarios. Puede habilitar la integración con las instrucciones que encontrará [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Sin embargo, tenga en cuenta que será necesario instalar el agente de dependencia en estas máquinas.
+
+
 ### <a name="install-the-dependency-agent"></a>Instalación del agente de dependencia
 1. Para instalar al agente de dependencia en una máquina Windows, haga doble clic en el archivo de instalación y siga los pasos del asistente.
 2. Para instalar el agente de dependencia en una máquina Linux, instale como raíz mediante el siguiente comando:
@@ -78,6 +87,7 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 Obtenga más información sobre la compatibilidad de Dependency Agent para los sistemas operativos [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)y [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
 
 [Más información](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
+
 
 ## <a name="create-a-group"></a>Creación de un grupo
 
@@ -94,6 +104,10 @@ Obtenga más información sobre la compatibilidad de Dependency Agent para los s
       ![Ver las dependencias de máquinas](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. Puede consultar las dependencias de distintas duraciones; para ello, haga clic en la duración correspondiente en la etiqueta de intervalo de tiempo. De forma predeterminada, el intervalo es una hora. Puede modificar el intervalo de tiempo o especificar las fechas de inicio y finalización, y la duración.
+
+    > [!NOTE]
+      Actualmente, la interfaz de usuario de la visualización de dependencias no admite la selección de un intervalo de tiempo superior a una hora. Use Log Analytics para [consultar los datos de dependencia](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) durante un período más largo.
+
 5. Después de identificar máquinas dependientes que desea agrupar, use Ctrl+clic para seleccionar varias máquinas en el mapa y haga clic en **Agrupar máquinas**.
 6. Especifique un nombre para el grupo. Verifique que Azure Migrate puede detectar las máquinas dependientes.
 
@@ -104,6 +118,20 @@ Obtenga más información sobre la compatibilidad de Dependency Agent para los s
 8. Haga clic en **Aceptar** para guardar el grupo.
 
 Una vez creado el grupo, se recomienda instalar los agentes en todas las máquinas del grupo y restringir el grupo mediante la visualización de la dependencia de todo el grupo.
+
+## <a name="query-dependency-data-from-log-analytics"></a>Consulta de datos de dependencia desde Log Analytics
+
+Los datos de dependencia capturados por Service Map están disponibles para su consulta en el área de trabajo de Log Analytics asociada con el proyecto de Azure Migrate. [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre las tablas de datos de Service Map que puede consultar en Log Analytics. 
+
+Para ejecutar consultas de Log Analytics:
+
+1. Después de instalar los agentes, vaya al portal y haga clic en **Introducción**.
+2. En **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en el nombre del área de trabajo que se proporciona junto al **Área de trabajo de OMS**.
+3. En la página del área de trabajo de Log Analytics, haga clic en **General** > **Registros**.
+4. Escriba la consulta para recopilar los datos de dependencia con Log Analytics. Existen consultas de ejemplo para recopilar datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Ejecute la consulta haciendo clic en Ejecutar. 
+
+[Más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre la escritura de consultas de Log Analytics. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823494"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881876"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Projects (versión preliminar)
 
@@ -38,7 +38,7 @@ DevOps Projects crea una canalización de CI/CD en Azure DevOps. Puede crear una
 
    ![Selección del lenguaje para crear una aplicación](./media/how-to-devops-project/select-language.png)
 
-2. Seleccione **IoT simple (versión preliminar)** como marco de trabajo de la aplicación y, a continuación, seleccione **Siguiente**.
+2. Seleccione **IoT simple (vista previa)** como marco de trabajo de la aplicación y **Siguiente**.
 
    ![Selección de la plataforma IoT simple](media/how-to-devops-project/select-iot.png)
 
@@ -73,7 +73,7 @@ DevOps Projects ha creado un repositorio Git para el proyecto en Azure Repos. En
 
 1. Para navegar en el repositorio creado para el proyecto, seleccione **Repositorios** en el menú del panel del proyecto.  
 
-   ![Ver el repositorio generado en Azure Repos](./media/how-to-devops-project/view-repositories.png)
+   ![Consulte el repositorio generado en Azure Repos](./media/how-to-devops-project/view-repositories.png)
 
 2. Los pasos siguientes sirven como guía para el uso del explorador web para realizar cambios de código. Si quiere clonar el repositorio localmente en su lugar, seleccione **Clonar** en la parte superior derecha de la ventana. Use la dirección URL proporcionada para clonar el repositorio de Git en Visual Studio Code o la herramienta de desarrollo que prefiera. 
 
@@ -93,7 +93,7 @@ DevOps Projects ha creado un repositorio Git para el proyecto en Azure Repos. En
 
 ## <a name="examine-the-cicd-pipeline"></a>Examen de la canalización de CI/CD
 
-En las secciones anteriores, Azure DevOps Projects configuró automáticamente una canalización de CI/CD completa para la aplicación de IoT Edge. A continuación, probó dicha canalización de compilación mediante la realización de cambios en uno de los archivos. Ahora, explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y versión de Azure DevOps, siga estos pasos:
+En las secciones anteriores, Azure DevOps Projects configuró automáticamente una canalización de CI/CD completa para la aplicación de IoT Edge. A continuación, probó dicha canalización de compilación confirmando los cambios en uno de los archivos. Ahora, explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y versión de Azure DevOps, siga estos pasos:
 
 1. Para ver las canalizaciones de compilación en el proyecto de DevOps, seleccione **Compilar canalizaciones** en el menú del panel del proyecto. Este vínculo abre una pestaña del explorador y la canalización de compilación de Azure DevOps del nuevo proyecto.
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455763"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -34,9 +34,9 @@ Para información sobre cómo se les cobra a los clientes de empresa y a los de 
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Determinación del tamaño adecuado de SQL antes de la compra
 
-El tamaño de la reserva debe basarse en el proceso total de las bases de datos de SQL únicas existentes o que se van a implementar o de los grupos elásticos de una región específica y con el mismo nivel de rendimiento y la misma generación de hardware. 
+El tamaño de la reserva debe basarse en el proceso total de las bases de datos únicas existentes o que se van a implementar o de los grupos elásticos de una región específica y con el mismo nivel de rendimiento y la misma generación de hardware. 
 
-Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito general Gen5 de 16 núcleos virtuales y dos bases de datos únicas Gen5 de 4 núcleos virtuales críticas para la empresa. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de propósito general y 16 núcleos virtuales adicional, y otro de 32 núcleos virtuales crítico para la empresa. Y también supongamos que sabe que necesitará estos recursos durante al menos 1 año. En este caso debe comprar una reserva de 1 año de una instancia de Compute Gen5 con 32 núcleos virtuales (2 × 16) para una base de datos de SQL única y un grupo elástico de uso general y otra reserva de 1 año de una instancia de Compute Gen 5 con 40 núcleos virtuales (2 × 4 + 32) para una base de datos de SQL única y un grupo elástico críticos para la empresa.
+Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito general Gen5 de 16 núcleos virtuales y dos bases de datos únicas Gen5 de 4 núcleos virtuales críticas para la empresa. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de propósito general y 16 núcleos virtuales adicional, y otro de 32 núcleos virtuales crítico para la empresa. Y también supongamos que sabe que necesitará estos recursos durante al menos 1 año. En este caso debe comprar una reserva de 1 año de una instancia de Compute Gen5 con 32 núcleos virtuales (2 × 16) para una base de datos de SQL independiente y un grupo elástico de uso general y otra reserva de 1 año de una instancia de Compute Gen 5 con 40 núcleos virtuales (2 × 4 + 32) para una base de datos de SQL independiente y un grupo elástico críticos para la empresa.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Compra de capacidad reservada de SQL Database
 
@@ -50,7 +50,7 @@ Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito ge
     | Campo      | DESCRIPCIÓN|
     |:------------|:--------------|
     |NOMBRE        |Nombre de esta reserva.| 
-    |Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser un contrato Enterprise (número de la oferta: MS-AZR-0017P) o de Pago por uso (número de la oferta: MS-AZR-0003P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
+    |Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser un Contrato Enterprise (número de la oferta: MS-AZR-0017P) o de pago por uso (número de la oferta: MS-AZR-0003P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
     |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database de esta suscripción. </li><li>Compartido: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes de Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones (excepto las suscripciones de desarrollo y pruebas) dentro de la inscripción. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
     |Region      |La región de Azure que abarca la capacidad reservada de SQL Database.|    
     |Tipo de implementación|El tipo de recurso de SQL para el que desea adquirir la reserva.|

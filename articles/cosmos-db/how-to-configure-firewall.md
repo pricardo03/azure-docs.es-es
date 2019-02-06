@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 308d4527c9ea56a408ddaf05532f5a0b36136262
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359432"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451774"
 ---
-# <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Configure an IP firewall for your Azure Cosmos DB account (Configuración de un firewall de dirección IP para la cuenta de Azure Cosmos DB)
+# <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configuración del firewall de IP en Azure Cosmos DB
 
 Puede proteger los datos almacenados en su cuenta de Azure Cosmos DB mediante el uso de firewalls de dirección IP. Azure Cosmos DB admite controles de acceso basado en IP para la compatibilidad con el firewall de entrada. Puede establecer un firewall de dirección IP en la cuenta de Azure Cosmos DB mediante una de las maneras siguientes:
 

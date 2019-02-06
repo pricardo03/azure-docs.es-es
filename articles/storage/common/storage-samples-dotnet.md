@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526116"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456143"
 ---
 # <a name="azure-storage-samples-using-net"></a>Ejemplos de Azure Storage con .NET
 
@@ -161,7 +161,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 <tr> 
 <td rowspan="7"><b>Table</b></td>
 <td>Crear tabla</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Administración de simultaneidad con Azure Storage: aplicación de ejemplo</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo</a></td> 
 </tr> 
 <tr> 
 <td>Eliminar entidad/tabla</td> 
@@ -185,7 +185,7 @@ En la tabla siguiente se proporciona información general sobre el repositorio d
 </tr> 
 <tr> 
 <td>Update Entity</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Administración de simultaneidad con Azure Storage: aplicación de ejemplo</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Administración de simultaneidad con Almacenamiento de Azure: aplicación de ejemplo</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -210,5 +210,5 @@ Consulte las guías siguientes si busca instrucciones sobre cómo instalar las b
 
 Para información sobre ejemplos para otros lenguajes:
 
-* Java: [ejemplos de Azure Storage con Java](storage-samples-java.md)
-* Todos los otros lenguajes: [ejemplos de Azure Storage](../storage-samples.md)
+* Java: [Azure Storage samples using Java](storage-samples-java.md) (Ejemplos de Azure Storage con Java)
+* El resto de lenguajes: [Ejemplos de Azure Storage](../storage-samples.md)

@@ -2,7 +2,7 @@
 title: 'Almacenamiento de resultados o registros de trabajos y tareas completados en un almacén de datos: Azure Batch | Microsoft Docs'
 description: Conozca las diferentes opciones para guardar los datos de salida de las tareas y los trabajos del servicio Batch. Puede almacenar datos en Azure Storage o en otro almacén de datos.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705725"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474352"
 ---
 # <a name="persist-job-and-task-output"></a>Trabajo persistente y resultado de la tarea
 

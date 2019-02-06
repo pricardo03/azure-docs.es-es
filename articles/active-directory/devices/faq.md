@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852395"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296188"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -128,6 +128,12 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 ---
 
+**P: ¿Por qué mis usuarios tienen problemas en los dispositivos unidos a Azure AD después de cambiar su UPN?**
+
+**R:** Actualmente, los cambios de UPN no son totalmente compatibles en dispositivos unidos a Azure AD. Por ello, su autenticación con Azure AD genera un error tras la modificación del UPN. Como resultado, los usuarios experimentarán problemas con el acceso condicional y el inicio de sesión único en sus dispositivos. Por tanto, para poder solucionar este problema, los usuarios deben iniciar sesión en Windows con el icono “Otro usuario” mediante su nuevo UPN. Estamos trabajando actualmente para poder resolver este incidente. Sin embargo, los usuarios que inicien sesión con Windows Hello para empresas no tendrán este problema. 
+
+---
+
 **P: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde esos dispositivos?**
 
 **R:** Con el fin de implementar impresoras para los dispositivos unidos a Azure AD, consulte [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Implementación de impresión en nube híbrida de Windows Server mediante autenticación previa). Necesita un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
@@ -170,7 +176,7 @@ Este comportamiento no es aplicable a ningún otro usuario que inicie sesión en
 
 **P: ¿Por qué me aparece un cuadro de diálogo que indica que *se ha producido un error* cuando intento unir mi equipo a Azure AD?**
 
-**R:** Este error se produce cuando configura la inscripción de Azure Active Directory con Intune. Asegúrese de que el usuario que intenta unirse a Azure AD tiene asignada la licencia de Intune correcta. Para obtener más información, consulte [Configuración de la inscripción de dispositivos Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**R:** Este error se produce cuando configura la inscripción de Azure Active Directory con Intune. Asegúrese de que el usuario que intenta unirse a Azure AD tiene asignada la licencia de Intune correcta. Para obtener más información, consulte [Configuración de la inscripción de dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
 
 ---
 
@@ -179,6 +185,19 @@ Este comportamiento no es aplicable a ningún otro usuario que inicie sesión en
 **R:** Puede deberse a que inició sesión en el dispositivo con la cuenta de administrador integrada local. Cree una cuenta local distinta antes de usar la unión de Azure Active Directory para completar la instalación. 
 
 ---
+
+**P: ¿Cuáles son los certificados MS-Organization-P2P-Access presentes en nuestros dispositivos Windows 10?**
+
+**R:** Azure AD emite los certificados Ms-Organization-P2P-Access para los dispositivos unidos a Azure AD y a Azure AD híbrido. Estos certificados se usan para habilitar la confianza entre los dispositivos del mismo inquilino en escenarios de escritorios remotos. Se emite un certificado al dispositivo y otro al usuario. El certificado del dispositivo está presente en `Local Computer\Personal\Certificates` y es válido durante un día. Este certificado se renueva (mediante la emisión de un nuevo certificado) si el dispositivo está activo en Azure AD. El certificado de usuario está presente en `Current User\Personal\Certificates` y dicho certificado también es válido durante un día, pero se emite a petición cuando un usuario intenta establecer una sesión de escritorio remoto con otro dispositivo unido a Azure AD. No se renueva cada vez que expira. Ambos certificados se emiten con el certificado MS-Organization-P2P-Access presente en `Local Computer\AAD Token Issuer\Certificates`. Azure AD emite este certificado durante el registro de dispositivos. 
+
+---
+
+**P: ¿Por qué se muestran varios certificados expirados que emitió MS-Organization-P2P-Access en nuestros dispositivos Windows 10? ¿Cómo puedo eliminarlos?**
+
+**R:** Hubo un problema identificado en Windows 10, versión 1709 y versiones anteriores en el que los certificados expirados de MS-Organization-P2P-Access aún existían en el equipo debido a problemas de cifrado. Los usuarios se pueden encontrar con problemas de conectividad de red si está usando algún cliente VPN (por ejemplo, Cisco AnyConnect) que no pueda gestionar el gran número de certificados expirados. Este problema se corrigió en Windows 10, versión 1803 para que se eliminen automáticamente estos certificados MS-Organization-P2P-Access expirados. Puede solucionar este problema al actualizar los dispositivos a Windows 10, 1803. Si no puede actualizarlos, puede eliminar dichos certificados sin ningún impacto negativo.  
+
+---
+
 
 ## <a name="hybrid-azure-ad-join-faq"></a>P+F de unión a Azure AD híbrido
 
@@ -196,7 +215,15 @@ Este comportamiento no es aplicable a ningún otro usuario que inicie sesión en
 
 La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Azure AD. Por tanto, el dispositivo se considera con unión a Azure AD híbrido para cualquier autenticación y evaluación de acceso condicional. Puede eliminar sin problemas el registro de dispositivos registrados en Azure AD desde el portal de Azure AD. Aprenda a [evitar o borrar los dos estados en el equipo de Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**P: ¿Por qué mis usuarios tienen problemas en los dispositivos híbridos unidos a Azure AD en Windows 10 después de cambiar su UPN?**
+
+**R:** Actualmente, los cambios de UPN no son totalmente compatibles en dispositivos híbridos unidos a Azure AD. Aunque los usuarios pueden iniciar sesión en el dispositivo y acceder a sus aplicaciones de forma local, se produce un error en la autenticación con Azure AD después de cambiar un UPN. Como resultado, los usuarios experimentarán problemas con el acceso condicional y el inicio de sesión único en sus dispositivos. Para solucionar el problema, el usuario debe desunir el dispositivo de Azure AD (ejecutar "dsregcmd /leave" con privilegios elevados) y volver a realizar la unión (se produce automáticamente). Estamos trabajando actualmente para poder resolver este incidente. Sin embargo, los usuarios que inicien sesión con Windows Hello para empresas no tendrán este problema. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>P+F de registro de Azure AD
 
@@ -217,15 +244,3 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 
 - Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de la empresa.
 
----
-
-
-**P: ¿Cuáles son los certificados MS-Organization-P2P-Access presentes en nuestros dispositivos Windows 10?**
-
-**R:** Azure AD emite los certificados Ms-Organization-P2P-Access para los dispositivos unidos a Azure AD y a Azure AD híbrido. Estos certificados se usan para habilitar la confianza entre los dispositivos del mismo inquilino en escenarios de escritorios remotos. Se emite un certificado al dispositivo y otro al usuario. El certificado del dispositivo está presente en `Local Computer\Personal\Certificates` y es válido durante un día. Este certificado se renueva (mediante la emisión de un nuevo certificado) si el dispositivo está activo en Azure AD. El certificado de usuario está presente en `Current User\Personal\Certificates` y dicho certificado también es válido durante un día, pero se emite a petición cuando un usuario intenta establecer una sesión de escritorio remoto con otro dispositivo unido a Azure AD. No se renueva cada vez que expira. Ambos certificados se emiten con el certificado MS-Organization-P2P-Access presente en `Local Computer\AAD Token Issuer\Certificates`. Azure AD emite este certificado durante el registro de dispositivos. 
-
----
-
-**P: ¿Por qué se muestran varios certificados expirados que emitió MS-Organization-P2P-Access en nuestros dispositivos Windows 10? ¿Cómo puedo eliminarlos?**
-
-**R:** Hubo un problema identificado en Windows 10, versión 1709 y versiones anteriores en el que los certificados expirados de MS-Organization-P2P-Access aún existían en el equipo debido a problemas de cifrado. Los usuarios se pueden encontrar con problemas de conectividad de red si está usando algún cliente VPN (por ejemplo, Cisco AnyConnect) que no pueda gestionar el gran número de certificados expirados. Este problema se corrigió en Windows 10, versión 1803 para que se eliminen automáticamente estos certificados MS-Organization-P2P-Access expirados. Puede solucionar este problema al actualizar los dispositivos a Windows 10, 1803. Si no puede actualizarlos, puede eliminar dichos certificados sin ningún impacto negativo.  

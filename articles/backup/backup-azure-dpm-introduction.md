@@ -2,19 +2,18 @@
 title: Preparación del servidor DPM para realizar copias de seguridad de las cargas de trabajo en Azure
 description: Introducción a la copia de seguridad de datos de DPM en un almacén de Azure Recovery Services.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, Data Protection Manager, copia de seguridad de DPM
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024484"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301074"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 

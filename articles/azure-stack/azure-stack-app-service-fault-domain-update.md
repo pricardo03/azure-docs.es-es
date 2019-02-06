@@ -1,5 +1,5 @@
 ---
-title: 'Azure App Service en Azure Stack: actualización de dominio de error | Microsoft Docs'
+title: 'App Service en Azure Stack: actualización de dominios de error | Microsoft Docs'
 description: Redistribución de Azure App Service en Azure Stack entre dominios de error
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 249e4b466e9be567111aaa22b40ca3e5dadb6cac
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267222"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246388"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Redistribución de Azure App Service en Azure Stack entre dominios de error
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 Con la actualización 1802, Azure Stack ahora admite la distribución de cargas de trabajo entre dominios de error, una característica que es crítica para la alta disponibilidad.
 

@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: a769bb4cce84fe78f442cce8440e6e828ed7f76d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 03d29b7f072aaab09b0677031ee34bd61d876ce6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354145"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242848"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Para configurar una implementación lista para producción de Azure App Service en Azure Stack, debe planear la capacidad que espera que el sistema admita.  
 
@@ -43,31 +44,31 @@ Puede planear la estrategia de capacidad de App Service mediante estas instrucci
 
 ## <a name="controller-role"></a>Rol de controlador
 
-**Mínimo recomendado**: dos instancias del estándar A1
+**Mínima recomendada**: dos instancias de Estándar A1
 
 El controlador de servicio de Azure App Service suele tener un consumo bajo de CPU, memoria y recursos de red. Sin embargo, para lograr una alta disponibilidad, debe tener dos controladores. Dos controladores también son el número máximo de controladores permitidos. Puede crear el segundo controlador de sitios web directamente desde el instalador durante la implementación.
 
 ## <a name="front-end-role"></a>Rol de front-end
 
-**Mínimo recomendado**: dos instancias del estándar A1
+**Mínima recomendada**: dos instancias de Estándar A1
 
 El front-end enruta las solicitudes a los trabajos web según la disponibilidad de estos. Para lograr una alta disponibilidad, debe tener más de un front-end, y en total puede tener más de dos. A fin de planear la capacidad, tenga en cuenta que cada núcleo puede atender aproximadamente 100 solicitudes por segundo.
 
 ## <a name="management-role"></a>Rol de administración
 
-**Mínimo recomendado**: dos instancias del estándar A3
+**Mínima recomendada**: dos instancias de Estándar A3
 
 El rol de administración de Azure App Service es responsable de los puntos de conexión de API y Azure Resource Manager de App Service, las extensiones de portales (portal de Functions, administración e inquilino) y el servicio de datos. El rol de servidor de administración solo suele requerir aproximadamente 4 GB de RAM en un entorno de producción. Sin embargo, puede experimentar niveles elevados de CPU cuando se realizan muchas tareas de administración (por ejemplo, la creación de sitios web). Para lograr una alta disponibilidad, debe tener más de un servidor asignado a este rol y al menos dos núcleos por servidor.
 
 ## <a name="publisher-role"></a>Rol de publicador
 
-**Mínimo recomendado**: dos instancias del estándar A1
+**Mínima recomendada**: dos instancias de Estándar A1
 
 Si muchos usuarios están publicando simultáneamente, el rol de publicador puede experimentar un uso elevado de CPU. Para lograr una alta disponibilidad, asegúrese de disponer de más de un rol de publicador. El publicador solo controla el tráfico FTP o FTPS.
 
 ## <a name="web-worker-role"></a>Rol de trabajo web
 
-**Mínimo recomendado**: dos instancias del estándar A1
+**Mínima recomendada**: dos instancias de Estándar A1
 
 Para lograr una alta disponibilidad, debe tener al menos cuatro roles de trabajo web, dos para el modo de sitio web compartido y dos para cada nivel de trabajo dedicado que planee ofrecer. Los modos de proceso dedicado y compartido proporcionan diferentes niveles de servicio a los inquilinos. Puede que necesite más roles de trabajo web si tiene muchos clientes:
 
@@ -82,7 +83,7 @@ Cuando decida el número de roles de trabajo web compartidos que utilizará, rev
 
 - **Memoria**: es el recurso más crítico para un rol de trabajo web. Si no hay memoria suficiente, afecta al rendimiento del sitio web cuando se intercambia memoria virtual del disco. Cada servidor necesita aproximadamente 1,2 GB de RAM para el sistema operativo. La RAM por encima de este umbral puede utilizarse para ejecutar sitios web.
 - **Porcentaje de sitios web activos**: por lo general, aproximadamente el cinco por ciento de las aplicaciones en una instancia de Azure App Service en Azure Stack están activas. Sin embargo, el porcentaje de aplicaciones que están activas en un momento dado puede ser superior o inferior. Con una tasa de aplicaciones activas del cinco por ciento, el número máximo de aplicaciones a colocar en una instancia de Azure App Service en la implementación de Azure Stack debe ser menor que el número de sitios activos multiplicado por 20 (5 x 20 = 100).
-- **Cantidad de memoria promedio**: la cantidad de memoria promedio para las aplicaciones observada en entornos de producción es de aproximadamente 70 MB. Con esta cantidad, la memoria asignada en todos los equipos con el rol de trabajo web o en las VM se puede calcular de la siguiente manera:
+- **Superficie de memoria promedio**: la superficie de memoria promedio en las aplicaciones observada en entornos de producción es de aproximadamente 70 MB. Con esta cantidad, la memoria asignada en todos los equipos con el rol de trabajo web o en las VM se puede calcular de la siguiente manera:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 

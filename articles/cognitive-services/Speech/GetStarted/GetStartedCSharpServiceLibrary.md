@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343698"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226050"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Guía de inicio rápido: Uso de la biblioteca del servicio de reconocimiento de Bing Speech en C&#35; para Windows .NET
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Inicio rápido: Uso de la biblioteca del servicio de reconocimiento de Bing Speech en C&#35; para Windows .NET
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -44,9 +44,9 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 > [!IMPORTANT]
 > * Obtenga una clave suscripción. Para poder usar las bibliotecas cliente de voz, debe tener una [clave de suscripción](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Use la clave de su suscripción. Con la aplicación de ejemplo proporcionada de biblioteca de servicios de C#, debe proporcionar la clave de suscripción como uno de los parámetros de línea de comandos. Para obtener más información, consulte [Ejecutar la aplicación de ejemplo](#step-3-run-the-sample-application).
+> * Use la clave de su suscripción. Con la aplicación de ejemplo proporcionada de biblioteca de servicios de C#, debe proporcionar la clave de suscripción como uno de los parámetros de línea de comandos. Para más información, consulte [Ejecución de la aplicación de ejemplo](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Paso 1: Instalar la aplicación de ejemplo
+## <a name="step-1-install-the-sample-application"></a>Paso 1: Instale la aplicación de ejemplo.
 
 1. Inicie Visual Studio 2015 y seleccione **Archivo** > **Abrir** > **Proyecto/Solución**.
 
@@ -54,7 +54,7 @@ Speech API forma parte de Cognitive Services (anteriormente Project Oxford). Pue
 
 ## <a name="step-2-build-the-sample-application"></a>Paso 2: Compilar la aplicación de ejemplo
 
-Presione Ctrl+Mayús+B, o seleccione **Compilar** en el menú de la cinta de opciones. Después, seleccione **Compilar solución**.
+Presione Ctrl+Mayús+B o seleccione **Compilar** en el menú de la cinta de opciones. Después, seleccione **Compilar solución**.
 
 ## <a name="step-3-run-the-sample-application"></a>Paso 3: Ejecutar la aplicación de ejemplo
 
@@ -66,8 +66,8 @@ Presione Ctrl+Mayús+B, o seleccione **Compilar** en el menú de la cinta de opc
 
    * Arg[0]: especifique un archivo WAV de audio de entrada.
    * Arg[1]: especifique la configuración regional del audio.
-   * Arg[2]: especifique los modos de reconocimiento: *Corto* para el modo `ShortPhrase` y *Largo* para el modo `LongDictation`.
-   * Arg[3]: especifique la clave de suscripción para tener acceso al servicio de reconocimiento de voz.
+   * Arg[2]: especifique los modos de reconocimiento: *Short* (Corto) para el modo `ShortPhrase` y *Long* (Largo) para el modo `LongDictation`.
+   * Arg[3]: especifique la clave de suscripción para acceder al servicio de reconocimiento de voz.
 
 ## <a name="samples-explained"></a>Ejemplos explicados
 
@@ -90,7 +90,7 @@ Para crear un elemento SpeechClient, debe crear primero un objeto de preferencia
 
 * `SpeechLanguage`: la configuración regional del audio que se envía al servicio de voz.
 * `ServiceUri`: el punto de conexión usado para llamar al servicio de voz.
-* `AuthorizationProvider`: una implementación de IAuthorizationProvider usada para capturar tokens con el fin de obtener acceso al servicio de voz. Aunque el ejemplo proporciona un proveedor de autorización de Cognitive Services, se recomienda encarecidamente crear su propia implementación para controlar el almacenamiento en caché de tokens.
+* `AuthorizationProvider`: una implementación de IAuthorizationProvider usada para capturar tokens con el fin de acceder al servicio de voz. Aunque el ejemplo proporciona un proveedor de autorización de Cognitive Services, se recomienda encarecidamente crear su propia implementación para controlar el almacenamiento en caché de tokens.
 * `EnableAudioBuffering`: una opción avanzada. Vea [Administración de conexiones](#connection-management).
 
 ### <a name="speech-input"></a>Entrada de voz

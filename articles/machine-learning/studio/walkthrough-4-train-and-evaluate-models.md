@@ -1,6 +1,6 @@
 ---
-título: "Paso 4: Entrenar modelos de análisis predictivo" titleSuffix: Azure Machine Learning Studio description: "Paso 4 del tutorial de desarrollo de una solución predictiva: Entrenamiento, puntuación y evaluación de varios modelos en Azure Machine Learning Studio".
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: "Paso 4: Entrenar modelos de análisis predictivo" titleSuffix: Azure Machine Learning Studio description: "Paso 4 del tutorial de desarrollo de una solución predictiva: Entrenamiento, puntuación y evaluación de varios modelos en Azure Machine Learning Studio".
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718240"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249912"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalación del Kit de desarrollo de Azure Stack (ASDK)
 Después de [preparar el equipo host del Kit de desarrollo de Azure Stack](asdk-prepare-host.md), este se puede implementar en la imagen de CloudBuilder.vhdx mediante los siguientes pasos de este artículo.
@@ -38,7 +39,7 @@ Los pasos de este artículo muestran cómo implementar ASDK mediante una interfa
     ![](media/asdk-install/1.PNG) 
 
 3. En el cuadro desplegable **Type** (Tipo) del proveedor de identidades, seleccione **Azure Cloud** o **AD FS**. En **Local Administrator Password** (Contraseña del administrador local), en el cuadro **Password** (Contraseña), escriba la contraseña del administrador local (que debe coincidir con la configurada en la actualidad) y haga clic en **Next** (Siguiente).
-    - **Azure Cloud**: permite configurar Azure Active Directory (Azure AD) como proveedor de identidades. Para usar esta opción, se necesitan una conexión a Internet, el nombre completo de un inquilino del directorio de Azure AD con la forma *nombreDeDominio*.onmicrosoft.com, o un nombre de dominio personalizado comprobado, y las credenciales de administrador global del directorio especificado. Después de al implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
+    - **Azure Cloud**: permite configurar Azure Active Directory (Azure AD) como proveedor de identidades. Para usar esta opción, se necesitan una conexión a Internet, el nombre completo de un inquilino del directorio de Azure AD con la forma *nombreDeDominio*.onmicrosoft.com, o un nombre de dominio personalizado comprobado, y las credenciales de administrador global del directorio especificado. Después de la implementación, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
     - **AD FS**: el servicio de directorio con la marca predeterminado se usa como proveedor de identidades. La cuenta predeterminada con la que se inicia sesión es azurestackadmin@azurestack.local y la contraseña que se usa es la que especificó en la configuración.
 
     ![](media/asdk-install/2.PNG) 
@@ -54,15 +55,15 @@ Los pasos de este artículo muestran cómo implementar ASDK mediante una interfa
     > La máquina virtual BGPNAT01 es el enrutador perimetral que proporciona funcionalidades de NAT y VPN a Azure Stack.
 
     - **DHCP** (valor predeterminado): la máquina virtual obtiene la configuración de la red IP del servidor DHCP.
-    - **Estático**: use esta opción solo si el DHCP no puede asignar una dirección IP válida de Azure Stack para acceder a Internet. **Se debe especificar una dirección IP estática con la longitud de la máscara de subred en formato CIDR (por ejemplo, 10.0.0.5/24)**.
+    - **Estática**: use esta opción solo si el DHCP no puede asignar una dirección IP válida de Azure Stack para acceder a Internet. **Se debe especificar una dirección IP estática con la longitud de la máscara de subred en formato CIDR (por ejemplo, 10.0.0.5/24)**.
     - Escriba una dirección **IP del servidor horario**. Este campo obligatorio establece el servidor horario que va a usar el kit de desarrollo. Este parámetro se debe proporcionar como una dirección IP válida del servidor horario. No se admiten nombres del servidor.
 
       > [!TIP]
       > Para buscar una dirección IP de servidor horario, visite [pool.ntp.org](http://pool.ntp.org) o haga ping a time.windows.com. 
 
     - **Opcionalmente**, establezca los valores siguientes:
-        - **Id. de VLAN**: permite establecer el identificador de VLAN. Solo puede utilizar esta opción si el host y AzS-BGPNAT01 deben configurar el identificador de VLAN para tener acceso a la red física (e Internet). 
-        - **Reenviador DNS**: se crea un servidor DNS como parte de la implementación de Azure Stack. Para permitir que los equipos dentro de la solución resuelvan nombres fuera de la marca, proporcione el servidor DNS de infraestructura existente. El servidor DNS en la marca reenvía solicitudes de resolución de nombres desconocidos a este servidor.
+        - **Id. de VLAN**: Permite establecer el identificador de VLAN. Solo puede utilizar esta opción si el host y AzS-BGPNAT01 deben configurar el identificador de VLAN para tener acceso a la red física (e Internet). 
+        - **Reenviador DNS**: Se crea un servidor DNS como parte de la implementación de Azure Stack. Para permitir que los equipos dentro de la solución resuelvan nombres fuera de la marca, proporcione el servidor DNS de infraestructura existente. El servidor DNS en la marca reenvía solicitudes de resolución de nombres desconocidos a este servidor.
 
     ![](media/asdk-install/4.PNG)
 

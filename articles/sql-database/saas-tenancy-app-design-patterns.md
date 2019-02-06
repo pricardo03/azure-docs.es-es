@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227493"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471205"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -34,7 +34,7 @@ A cambio de ese alquiler, cada inquilino recibe acceso a los componentes de su a
 El término *modelo de arrendamiento* hace referencia a la forma en que organizan los datos almacenados de los inquilinos:
 
 - *Inquilino único:*&nbsp; cada base de datos almacena los datos de un solo inquilino.
-- *Multiinquilino:* &nbsp; cada base de datos almacena los datos de varios inquilinos independientes (con mecanismos para proteger la privacidad de los datos).
+- *Multiinquilino:*&nbsp; cada base de datos almacena los datos de varios inquilinos independientes (con mecanismos para proteger la privacidad de los datos).
 - También hay disponibles modelos de arrendamiento híbrido.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Cómo elegir el modelo adecuado de inquilinato
@@ -49,7 +49,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
 
 - **Aislamiento de inquilinos:**&nbsp; aislamiento de los datos y rendimiento (si la carga de trabajo de un inquilino afecta a otros).
 
-- **Costo por inquilino:**&nbsp; costos de base de datos.
+- **Costo por inquilino:**&nbsp; costos de la base de datos.
 
 - **Complejidad de desarrollo:**
     - Cambios en el esquema.
@@ -59,7 +59,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
     - Supervisión y administración del rendimiento.
     - Administración del esquema.
     - Restauración de un inquilino.
-    - Recuperación ante desastres.
+    - Recuperación ante desastres
 
 - **Capacidad de personalización:**&nbsp; facilidad para admitir las personalizaciones del esquema que son específicas del inquilino o específicas de la clase de inquilino.
 
@@ -95,7 +95,7 @@ Con una base de datos por inquilino, la personalización del esquema para uno o 
 
 #### <a name="elastic-pools"></a>Grupos elásticos
 
-Cuando las bases de datos se implementan en el mismo grupo de recursos, se pueden agrupar en grupos de bases de datos elásticas.  Los grupos proporcionan una manera rentable de compartir recursos entre varias bases de datos.  Esta opción de grupo resulta más económica que exigir que cada base de datos sea lo suficientemente grande como para dar cabida a los picos de uso que producen.  Aunque las bases de datos agrupadas comparten el acceso a los recursos, pueden mantener un alto grado de aislamiento del rendimiento.
+Cuando las bases de datos se implementan en el mismo grupo de recursos, se pueden agrupar en grupos elásticos.  Los grupos proporcionan una manera rentable de compartir recursos entre varias bases de datos.  Esta opción de grupo resulta más económica que exigir que cada base de datos sea lo suficientemente grande como para dar cabida a los picos de uso que producen.  Aunque las bases de datos agrupadas comparten el acceso a los recursos, pueden mantener un alto grado de aislamiento del rendimiento.
 
 ![Diseño de aplicación multiinquilino con una base de datos por inquilino mediante un grupo elástico.][image-mt-app-db-per-tenant-pool-153p]
 

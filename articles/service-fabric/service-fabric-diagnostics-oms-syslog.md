@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959548"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297674"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de clúster Linux de Service Fabric en Syslog
 
@@ -35,7 +35,7 @@ Cada evento Syslog tiene 4 componentes:
 * Message
 * Gravedad
 
-SyslogConsumer escribe todos los eventos de la plataforma mediante el recurso `Local0`. Puede actualizar a cualquier recurso válido cambiando la configuración. La identidad utilizada es `ServicFabric`. El campo de mensaje contiene el evento completo serializado en JSON, por lo que pueden consultarlo y utilizarlo distintas herramientas. 
+SyslogConsumer escribe todos los eventos de la plataforma mediante el recurso `Local0`. Puede actualizar a cualquier recurso válido cambiando la configuración. La identidad utilizada es `ServiceFabric`. El campo de mensaje contiene el evento completo serializado en JSON, por lo que pueden consultarlo y utilizarlo distintas herramientas. 
 
 ## <a name="enable-syslogconsumer"></a>Habilitar SyslogConsumer
 
@@ -84,7 +84,7 @@ Para habilitar SyslogConsumer, deberá realizar una actualización del clúster.
 Estos son los cambios que se deben realizar:
 1. En la sección Común, hay un nuevo parámetro llamado `LinuxStructuredTracesEnabled`. **Es necesario que los eventos de Linux estén estructurados y serializados cuando se envían a Syslog**.
 2. En la sección Diagnóstico, se a agregado un nuevo elemento ConsumerInstance: SyslogConsumer. Esto indica a la plataforma que hay otro consumidor de los eventos. 
-3. La nueva sección SyslogConsumer debe tener `IsEnabled` como `true`. Se configura para utilizar el recurso Local0 automáticamente. Puede invalidar esto agregando otro parámetro.
+3. La nueva sección SyslogConsumer debe tener `IsEnabled` como `true`. Está configurada para utilizar el recurso Local0 automáticamente. Puede invalidar esto agregando otro parámetro.
 
 ```json
     {

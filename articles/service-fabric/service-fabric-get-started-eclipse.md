@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358592"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096677"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse
 Eclipse es uno de los entornos de desarrollo integrado (IDE) por los desarrolladores de Java. En este artículo se describe cómo configurar un entorno de desarrollo de Eclipse para que funcione con Azure Service Fabric. Aprenderá a instalar el complemento de Service Fabric, crear una aplicación de Service Fabric e implementarla en un clúster de Service Fabric local o remoto en Eclipse. 
@@ -37,7 +37,7 @@ En Eclipse se puede instalar un complemento Service Fabric. El complemento puede
 
 Instale Neon Eclipse o una versión más reciente desde el [sitio de Eclipse](https://www.eclipse.org).  Instale también la versión 2.2.1 o posterior de Buildship (el complemento de Service Fabric no es compatible con versiones anteriores de Buildship):
 -   Para comprobar las versiones de los componentes instalados, en Eclipse, vaya a **Help** >  (Ayuda) **About Eclipse** >  (Acerca de Eclipse) **Installation Details** (Detalles de instalación).
--   Para actualizar Buildship, consulte [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: complementos de Eclipse para Gradle).
+-   Para actualizar Buildship, consulte [Eclipse Buildship: Complementos de Eclipse para Gradle][buildship-update].
 -   Para buscar actualizaciones de Eclipse e instalarlas, vaya a **Help** > **Check for Updates** (Ayuda > Buscar actualizaciones).
 
 Para instalar el complemento de Service Fabric, en Eclipse, vaya a **Help** >  (Ayuda) **Install New Software** (Instalar software nuevo).
@@ -211,7 +211,7 @@ Si activa la opción **Actualizar automáticamente las versiones de aplicación 
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Actualización de la aplicación Java de Service Fabric
 
-Para un escenario de actualización, supongamos que creó el proyecto **App1** mediante el complemento Service Fabric de Eclipse. Para implementarlo, usó el complemento para crear una aplicación llamada **fabric:/App1Application**. El tipo de aplicación es **App1AppicationType** y su versión es 1.0. Ahora desea actualizar la aplicación sin interrumpir la disponibilidad.
+Para un escenario de actualización, supongamos que creó el proyecto **App1** mediante el complemento Service Fabric de Eclipse. Para implementarlo, usó el complemento para crear una aplicación llamada **fabric:/App1Application**. El tipo de aplicación es **App1ApplicationType** y su versión es 1.0. Ahora desea actualizar la aplicación sin interrumpir la disponibilidad.
 
 En primer lugar, realice en la aplicación los cambios que desee y vuelva a compilar el servicio modificado. Actualice el archivo de manifiesto del servicio modificado (ServiceManifest.xml) con las versiones actualizadas para el servicio (y Code, Config o Data, lo que corresponda). Modifique también el manifiesto de la aplicación (ApplicationManifest.xml) con el número de la versión actualizada de la aplicación y el servicio modificado.  
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957698"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210138"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -33,7 +33,7 @@ Una vez que permite que Site Recovery administre las actualizaciones, se impleme
 > [!NOTE]
 > La facturación de trabajos usados por cuenta de Automation se basa en el número de minutos de tiempo de ejecución de trabajo que se usan al mes y, de forma predeterminada, se incluyen 500 minutos como unidades gratuitas para una cuenta de Automation. La ejecución del trabajo oscila diariamente de **unos segundos a aproximadamente un minuto** y se **cubrirá en los créditos gratuitos**.
 
-UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos 0,14/minuto
+UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos ₹0,14/minuto
 
 ## <a name="enable-automatic-updates"></a>Habilitar las actualizaciones automáticas
 
@@ -53,7 +53,7 @@ Cuando habilite la replicación de una máquina virtual, ya sea comenzando [desd
 1. En el almacén, vaya a **Administrar**-> **Infraestructura de Site Recovery**.
 2. En **Máquinas virtuales de Azure** -> **Configuración de actualización de la extensión**, haga clic en el botón de alternancia para elegir si quiere permitir que *ASR administre las actualizaciones* o *administrarlas manualmente*. Haga clic en **Save**(Guardar).
 
-![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > Si elige la opción para *permitir que ASR administre* las actualizaciones, la configuración se aplica a todas las máquinas virtuales del almacén correspondiente.

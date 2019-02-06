@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119244"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104621"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -36,19 +36,19 @@ Con Live Metrics Stream, puede:
 
 [![Vídeo de Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+Actualmente, las métricas en directo se admiten en aplicaciones de ASP.NET, ASP.NET Core, Azure Functions y Java.
+
 ## <a name="get-started"></a>Introducción
 
-1. Si aún no ha [instalado Application Insights](../../azure-monitor/app/asp-net.md) en la aplicación web de ASP.NET o la [aplicación de Windows Server](../../azure-monitor/app/windows-services.md), hágalo ahora. 
-2. **Actualice a la versión más reciente** del paquete de Application Insights. En Visual Studio, haga clic con el botón derecho en el proyecto y elija **Administrar paquetes NuGet**. Abra la pestaña **Actualizaciones**, marque **Incluir versión previa** y seleccione todos los paquetes Microsoft.ApplicationInsights.*
+1. Si aún no ha [instalado Application Insights](../../azure-monitor/azure-monitor-app-hub.md) en su aplicación web, hágalo ahora.
+2. Además de los paquetes de Application Insights estándar, se requiere [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) para habilitar Live Metrics Stream.
+3. **Actualice a la versión más reciente** del paquete de Application Insights. En Visual Studio, haga clic con el botón derecho en el proyecto y elija **Administrar paquetes NuGet**. Abra la pestaña **Actualizaciones** y seleccione todos los paquetes Microsoft.ApplicationInsights.*.
 
     Vuelva a implementar la aplicación.
 
 3. En [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights de la aplicación y, a continuación, abra Live Stream.
 
 4. [Proteja el canal de control](#secure-the-control-channel) si puede que vaya a usar información confidencial como nombres de clientes en los filtros.
-
-
-![En la hoja de información general, haga clic en Stream en vivo.](./media/live-stream/live-stream-2.png)
 
 ### <a name="no-data-check-your-server-firewall"></a>¿No hay datos? Comprobación del firewall del servidor
 
@@ -69,7 +69,7 @@ Compruebe que [los puertos de salida de Live Metrics Stream](../../azure-monitor
 
 ## <a name="select-and-filter-your-metrics"></a>Selección y filtrado de métricas
 
-(Disponible para aplicaciones de ASP.NET clásicas con el SDK más reciente).
+[Disponible con ASP.NET, ASP.NET Core y Azure Functions (versión 2).]
 
 Puede supervisar KPI personalizados en vivo aplicando filtros arbitrarios en cualquier telemetría de Application Insights desde el portal. Haga clic en el control de filtro que se muestra cuando coloca el mouse sobre cualquiera de los gráficos. En el siguiente gráfico se traza un KPI de recuento de solicitudes personalizado con filtros en atributos de URL y duración. Valide los filtros con la sección de versión preliminar de secuencias que muestra una fuente activa de telemetría que coincide con los criterios especificados en cualquier momento. 
 
@@ -111,7 +111,7 @@ Las secuencias personalizadas de Live Metrics Stream están disponibles con la v
 Los criterios de filtros personalizados que especifique se envían hacia el componente de Live Metrics del SDK de Application Insights. Los filtros podrían contener información confidencial, como identificadores de clientes. Puede hacer que el canal seguro con una clave secreta de API, además de la clave de instrumentación.
 ### <a name="create-an-api-key"></a>Creación de una clave de API
 
-![Creación de una clave de API](./media/live-stream/live-metrics-apikeycreate.png)
+![Crear una clave de API](./media/live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>Incorporación de la clave de API a la configuración
 
@@ -161,6 +161,12 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### <a name="azure-function-apps"></a>Azure Function Apps
+
+En el caso de Azure Function Apps (versión 2), la protección del canal con una clave de API puede realizarse con una variable de entorno. 
+
+Cree una clave de API desde su recurso de Application Insights y vaya a **Configuración de la aplicación** en Function App. Seleccione **agregar nueva configuración** y escriba un nombre de `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` y un valor que corresponda a la clave de API.
+
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (Requiere Application Insights ASP.NET Core SDK 2.3.0-beta o superior)
 
 Modifique el archivo startup.cs como sigue:
@@ -176,7 +182,6 @@ Después, en el método ConfigureServices, agregue:
 ``` C#
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 Sin embargo, si reconoce y confía en todos los servidores conectados, puede probar los filtros personalizados sin el canal autenticado. Esta opción está disponible durante seis meses. Esta invalidación se requiere una vez cada nueva sesión, o cuando se pone en línea un nuevo servidor.
 

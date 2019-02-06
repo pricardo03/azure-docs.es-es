@@ -4,20 +4,20 @@ description: 'Cómo administrar el clúster de Avere: agregar o quitar nodos, y 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189616"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300192"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Administración del clúster de Avere de vFXT
 
 Después de crear el clúster, es posible que deba agregar nodos de clúster, o bien detener o reiniciar el clúster. Una vez finalizado el proyecto, debe saber cómo detener y quitar el clúster de forma permanente. 
 
-Dependiendo de la tarea de administración del clúster, es posible que deba usar el panel de control de Avere, el script de creación del clúster de vfxt.py o Azure Portal para hacerlo. 
+Dependiendo de la tarea de administración del clúster, es posible que deba usar el panel de control de Avere, el script de creación de clúster de la línea de comandos de vfxt.py o Azure Portal para hacerlo. 
 
 Esta tabla ofrece una descripción general de las herramientas que se pueden usar para cada tarea. 
 
@@ -71,7 +71,11 @@ La página de configuración **System Maintenance** (Mantenimiento del sistema) 
 
 Cuando un clúster se está apagando, publica mensajes de estado en la pestaña **Dashboard** (Panel) en primer lugar. Transcurridos unos instantes, la sesión del panel de control de Avere dejará de responder, lo que significa que el clúster se ha apagado.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>Administración del clúster con vfxt.py 
+## <a name="manage-the-cluster-with-vfxtpy"></a>Administración del clúster con vfxt.py
+
+vfxt.py es una herramienta de línea de comandos para la administración y creación de clústeres. 
+
+vfxt.py está preinstalado en la máquina virtual del controlador del clúster. Si quiere instalarlo en otro sistema, consulte la documentación en <https://github.com/Azure/AvereSDK>.
 
 El script vfxt.py puede usarse para estas tareas de administración del clúster:
 
@@ -80,8 +84,6 @@ El script vfxt.py puede usarse para estas tareas de administración del clúster
 * Destruir un clúster.
 
 Al igual que el panel de control de Avere, las operaciones de vfxt.py intentan garantizar que los datos cambiados se almacenan permanentemente en el almacenamiento de back-end antes de apagar o destruir el clúster o el nodo. Esto la convierte en una opción más segura que el portal de Avere.
-
-vfxt.py está preinstalado en la máquina virtual del controlador del clúster. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 Una guía de uso completa de vfxt.py está disponible en GitHub: [administración de clúster en la nube con vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

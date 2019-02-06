@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986549"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097068"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -359,7 +359,7 @@ También verá información básica sobre el token adquirido a través de `Acqui
 |---------|---------|---------|
 |**Nombre** |Nombre completo del usuario|Nombre y apellidos del usuario.|
 |**Nombre de usuario** |<span>user@domain.com</span> |El nombre de usuario que identifica al usuario.|
-|**Expiración del token** |Datetime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
+|**Expiración del token** |DateTime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 |**Token de acceso** |string |Cadena de token que se envía a las solicitudes HTTP que requieran un *encabezado de autorización*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Ver el contenido del token de acceso (opcional)
@@ -384,13 +384,13 @@ Puede recibir uno de los siguientes mensajes de error al iniciar sesión en la a
 
 **Causa:** las funcionalidades de Enterprise y los certificados no están habilitados.
 
-**Solución**: siga los pasos en [autenticación integrada en dominios federados](#enable-integrated-authentication-on-federated-domains-optional).
+**Solución:** siga los pasos en [autenticación integrada en dominios federados](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problema 2
 Puede habilitar la [autenticación integrada en dominios federados](#enable-integrated-authentication-on-federated-domains-optional) e intentar usar Windows Hello en un equipo con Windows 10 para iniciar sesión en un entorno con autenticación multifactor configurada. Se presenta la lista de certificados. Sin embargo, si decide usar su PIN, nunca se presentará Anclar ventana.
 
 **Causa:** este problema es una limitación conocida del agente de autenticación web en aplicaciones de UWP que se ejecutan en el escritorio de Windows 10. Funciona bien en Windows 10 Mobile.
 
-**Solución alternativa:** seleccione **Iniciar sesión con otras opciones**. A continuación, seleccione **Iniciar sesión con un nombre de usuario y contraseña**. Seleccione **Proporcionar la contraseña**. A continuación, pase por el proceso de autenticación telefónica.
+**Solución alternativa**: seleccione **Iniciar sesión con otras opciones**. A continuación, seleccione **Iniciar sesión con un nombre de usuario y contraseña**. Seleccione **Proporcionar la contraseña**. A continuación, pase por el proceso de autenticación telefónica.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 308e5f829425741b4fbef3eff6738f8c95dca97f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040224"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471273"
 ---
-# <a name="azure-cosmos-db-database-encryption-at-rest"></a>Cifrado de base de datos en reposo en Azure Cosmos DB
+# <a name="data-encryption-in-azure-cosmos-db"></a>Cifrado de datos de Azure Cosmos DB 
 
 El cifrado en reposo es una frase que se refiere normalmente al cifrado de datos en dispositivos de almacenamiento permanente, como unidades de estado sólido (SSD) y discos duros (HDD). Cosmos DB almacena sus bases de datos principales en unidades SSD. Sus elementos multimedia adjuntos y las copias de seguridad se almacenan en Azure Blob Storage, cuyos archivos de copia de seguridad suelen encontrarse en unidades HDD. Con el lanzamiento del cifrado en reposo para Cosmos DB, todas las bases de datos, los elementos multimedia adjuntos y las copias de seguridad están cifrados. Ahora, los datos están cifrados en tránsito (por la red) y en reposo (almacenamiento permanente), lo que le proporciona cifrado de un extremo a otro.
 

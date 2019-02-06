@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816762"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104242"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -59,7 +59,7 @@ Para resolver este problema, elimine el bloqueo en el grupo de recursos de la m�
 **Paso 1: [Eliminación del bloqueo del grupo de recursos de punto de restauración](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Paso 2: [Eliminación de la colección de puntos de restauración](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las VM cifradas.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured: Backup no tiene suficientes permisos en el almacén de claves para realizar copias de seguridad de las máquinas virtuales cifradas
 
 **Código de error**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensaje de error**: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. <br>
@@ -105,7 +105,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorUnsupportedDiskSize <br>
 **Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB. <br>
 
-La operación de copia de seguridad podría generar un error al realizar una copia de seguridad de una máquina virtual con un tamaño de disco mayor que 1023 GB, ya que el almacén no está actualizado a restauración instantánea. La actualización a restauración instantánea le proporcionará compatibilidad con hasta 4 TB, como podrá ver en el siguiente [artículo](backup-instant-restore-capability.md).  
+La operación de copia de seguridad podría generar un error al realizar una copia de seguridad de una máquina virtual con un tamaño de disco mayor que 1023 GB, ya que el almacén no está actualizado a restauración instantánea. La actualización a restauración instantánea le proporcionará compatibilidad con hasta 4 TB, como podrá ver en el siguiente [artículo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Después la actualización, tendrán que pasar un máximo de dos horas para que la suscripción aproveche esta funcionalidad. Proporcione suficiente búfer antes de reintentar la operación.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: actualmente Azure Backup no admite discos SSD estándar.
 
@@ -114,7 +114,7 @@ La operación de copia de seguridad podría generar un error al realizar una cop
 
 Actualmente Azure Backup admite discos SSD estándar solo para los almacenes que se actualizan a [restauración instantánea](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: No se puede iniciar la copia de seguridad, ya que otra operación de copia de seguridad está en curso actualmente.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: no se puede iniciar la copia de seguridad, porque hay otra operación de copia de seguridad en curso actualmente
 
 **Código de error**: UserErrorBackupOperationInProgress <br>
 **Mensaje de error**: No se puede iniciar la copia de seguridad, ya que otra operación de copia de seguridad está en curso actualmente<br>
@@ -132,7 +132,6 @@ El trabajo de copia de seguridad reciente no se pudo completar porque hay un tra
 4. Reintente la operación de copia de seguridad.
 
 Si la operación de copia de seguridad programada tarda más, lo que genera un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones

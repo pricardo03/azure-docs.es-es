@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438090"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098466"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola serie de máquina virtual para Linux
 
@@ -89,7 +89,7 @@ Reglas de firewall incorrectas | Acceda a la consola serie y corrija iptables.
 Comprobación o daños en el sistema de archivos | Acceda a la consola serie y recupere el sistema de archivos.
 Problemas de configuración de SSH/RDP | Acceda a la consola serie y cambie la configuración.
 Sistema de bloqueo de red| Acceda a la consola serie desde Azure Portal para administrar el sistema.
-Interacción con el cargador de arranque | Acceda a GRUB desde la consola serie. Para obtener más información, consulte [Uso de la consola serie para acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md).
+Interacción con el cargador de arranque | Reinicie la máquina virtual desde dentro de la hoja de la consola serie para acceder a GRUB en la máquina virtual Linux. Para obtener más información, consulte [Uso de la consola serie para acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Deshabilitación de la consola serie
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado para todas las VM. Puede deshabilitar la consola serie a nivel de la suscripción o de la VM.

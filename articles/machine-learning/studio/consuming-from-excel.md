@@ -1,6 +1,6 @@
 ---
-título: Consumir servicios web en Excel titleSuffix: Azure Machine Learning Studio description: Azure Machine Learning Studio facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Consumir servicios web en Excel titleSuffix: Azure Machine Learning Studio description: Azure Machine Learning Studio facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 01/02/2018
 ---

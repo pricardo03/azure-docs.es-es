@@ -4,29 +4,23 @@ description: Cómo agregar un sistema de almacenamiento back-end a Avere vFXT pa
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190858"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299459"
 ---
 # <a name="configure-storage"></a>Configurar el almacenamiento
 
-En este paso podrá configurar el sistema de almacenamiento de back-end para el clúster de vFXT.
+En este paso podrá configurar un sistema de almacenamiento de back-end para el clúster de vFXT.
 
 > [!TIP]
-> Si usó el script `create-cloudbacked-cluster` de prototipo para crear un nuevo contenedor de blobs junto con el clúster de Avere vFXT, ese contenedor ya está configurado para su uso y no es necesario agregar el almacenamiento.
->
-> Sin embargo, si su nuevo contenedor de blobs se cifró con una clave de cifrado predeterminada, debe descargar el archivo de recuperación de claves del clúster o reemplazar la clave predeterminada por una nueva clave antes de almacenar datos. La clave predeterminada solo se guarda en el clúster y no se puede recuperar si el clúster se pierde o deja de estar disponible.
->
-> Después de conectarse al panel de control de Avere, haga clic en el **Settings** (Configuración) y, después, elija **Core filtro** (Archivador principal) > **Cloud Encryption Settings** (Configuración de cifrado en la nube). En la sección **Local Key Store** (Almacén de claves local), elija una de estas opciones: 
-> * Use el botón **Redownload Recovery File** (Volver a cargar archivo de recuperación) para obtener el archivo de recuperación para la clave existente. El archivo de recuperación se cifra con la contraseña administrativa del clúster. Asegúrese de guardar el archivo en un lugar confiable. 
-> * Siga las instrucciones de la sección **Generate a New Master Key** (Generar una clave maestra nueva) de la página para crear una nueva clave de cifrado que usted controla. Esta opción permite especificar una frase de contraseña única y requiere cargar y volver a descargar el archivo de recuperación para validar el par frase de contraseña-archivo.
+> Si creó un contenedor de blobs de Azure junto con el clúster de Avere vFXT, ese contenedor ya está configurado para su uso y no es necesario agregar el almacenamiento.
 
-Siga estas instrucciones si usó el script `create-minimal-cluster` de prototipo para el clúster, o si quiere agregar un hardware adicional o un sistema de almacenamiento basado en la nube.
+Siga estas instrucciones si no creó un contenedor de blobs con el clúster o si quiere agregar un hardware adicional o un sistema de almacenamiento basado en la nube.
 
 Hay dos tareas principales que debe realizar:
 
@@ -43,12 +37,11 @@ Un "Archivador principal" es un término de vFXT que hace referencia a un sistem
 Para agregar un archivador principal, elija uno de los dos tipos principales que tiene disponibles:
 
   * [Archivador principal de NAS](#nas-core-filer): describe cómo agregar un archivador principal de NAS. 
-  * [Archivador principal en la nube de la cuenta de Azure Storage](#azure-storage-account-cloud-core-filer): describe cómo agregar una cuenta de Azure Storage como un archivador principal en la nube.
+  * [Archivador principal en la nube de Azure Storage](#azure-storage-cloud-core-filer): describe cómo agregar una cuenta de Azure Storage como un archivador principal en la nube.
 
 ### <a name="nas-core-filer"></a>Archivador principal de NAS
 
-Un archivador principal de NAS puede ser una instancia local de NetApp o Isilon o un punto de conexión de NAS en la nube.  
-El sistema de almacenamiento debe tener una conexión confiable de alta velocidad al clúster de Avere vFXT; por ejemplo, una conexión de ExpressRoute de 1 Gbps (no una VPN). Asimismo, debe proporcionar acceso a la raíz del clúster a las exportaciones de NAS que se vayan a usar.
+Un archivador principal de NAS puede ser una instancia local de NetApp o Isilon o un punto de conexión de NAS en la nube. El sistema de almacenamiento debe tener una conexión confiable de alta velocidad al clúster de Avere vFXT; por ejemplo, una conexión de ExpressRoute de 1 Gbps (no una VPN). Asimismo, debe proporcionar acceso a la raíz del clúster a las exportaciones de NAS que se vayan a usar.
 
 Los siguientes pasos agregan un archivador principal de NAS:
 
@@ -79,7 +72,7 @@ A continuación, [cree una unión](#create-a-junction).
 Para usar Azure Blob Storage como almacenamiento de back-end del clúster de vFXT, debe tener un contenedor vacío para poder agregarlo como archivador principal.
 
 > [!TIP] 
-> El script de ejemplo ``create-cloudbacked-cluster`` crea un contenedor de almacenamiento, lo define como un archivador principal y crea la unión del espacio de nombres como parte del proceso de creación del clúster de vFXT. El script de ejemplo ``create-minimal-cluster`` no crea un contenedor de Azure Storage. Para evitar tener que crear y configurar un archivador principal de Azure Storage después de crear el clúster, use el script ``create-cloudbacked-cluster`` para implementar el clúster de vFXT.
+> Si decide crear un contenedor de blobs al mismo tiempo que crea el clúster de Avere vFXT, el script o la plantilla de implementación crean un contenedor de almacenamiento, lo definen como un archivador principal y crean la unión del espacio de nombres como parte de la creación del clúster de vFXT. 
 
 Para poder agregar Blob Storage al clúster debe realizar estas tareas:
 

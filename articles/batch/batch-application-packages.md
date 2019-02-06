@@ -3,7 +3,7 @@ title: Instalación de paquetes de aplicaciones en nodos de proceso - Azure Batc
 description: Utilice la característica paquetes de aplicación de Azure Batch para administrar fácilmente varias aplicaciones y versiones para la instalación en nodos de proceso de Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094142"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454616"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -115,7 +115,7 @@ Esta ventana muestra el identificador de cada aplicación en su cuenta y las pro
 
 * **Paquetes**: el número de versiones asociadas a la aplicación.
 * **Versión predeterminada**: la versión de la aplicación que se instala si no indica ninguna versión al especificar la aplicación para un grupo. Esta configuración es opcional.
-* **Permitir actualizaciones**: el valor que especifica si se permiten actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
+* **Permitir actualizaciones**: el valor que especifica si se permiten las actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
 
 ### <a name="view-application-details"></a>Visualización de los detalles de una aplicación
 Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones**.
@@ -125,8 +125,8 @@ Para consultar los detalles de una aplicación, selecciónela en la ventana **Ap
 En los detalles de la aplicación, puede configurar los siguientes valores de la aplicación.
 
 * **Permitir actualizaciones**: especifica si se pueden actualizar o eliminar sus paquetes de aplicación. Consulte "Actualización o eliminación de un paquete de aplicación" más adelante en este artículo.
-* **Versión predeterminada**: especifique el paquete de aplicación predeterminado que se implementa en los nodos de proceso.
-* **Nombre para mostrar**: especifica un nombre "descriptivo" que la solución de Batch puede usar al mostrar información de la aplicación, por ejemplo, en la interfaz de usuario de un servicio que proporciona a los clientes a través de Batch.
+* **Versión predeterminada**: especifica el paquete de aplicación predeterminado que se implementa en los nodos de proceso.
+* **Nombre para mostrar**: especifica un nombre descriptivo que la solución de Batch puede usar al mostrar información de la aplicación, por ejemplo, en la interfaz de usuario de un servicio que proporciona a los clientes a través de Batch.
 
 ### <a name="add-a-new-application"></a>Adición de una nueva aplicación
 Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación nuevo y exclusivo. El primer paquete de aplicación que agregue con el nuevo identificador de aplicación también crea la nueva aplicación.
