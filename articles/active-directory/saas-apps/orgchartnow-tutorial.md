@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 50a1522f-81de-4d14-9b6b-dd27bb1338a4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e23d76074f4b428b672e0cd5aeeaba99d080a4cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 65f11b5a65adf86b4115b54b49b10c57ebf21a98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integración de Azure Active Directory con OrgChart Now
 
@@ -157,7 +157,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/orgchartnow-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -171,7 +171,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, debe
 
 1. OrgChart Now admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. Al intentar acceder a OrgChart Now, se crea un nuevo usuario, en caso de que no exista. La característica de aprovisionamiento de usuarios Just-in-Time solo crea un usuario de **solo lectura** cuando la solicitud de inicio de sesión único procede de un IDP reconocido y el correo electrónico de la aserción de SAML no se encuentra en la lista de usuarios. Para esta característica de aprovisionamiento automático, es necesario crear un grupo de acceso llamado **General** en OrgChart Now. Siga los pasos siguientes para crear un grupo de acceso:
 
-    a. Después de hacer clic en el **engranaje** en la esquina superior derecha de la interfaz de usuario, vaya a la opción **Manage Groups** (Administrar grupos).
+     a. Después de hacer clic en el **engranaje** en la esquina superior derecha de la interfaz de usuario, vaya a la opción **Manage Groups** (Administrar grupos).
 
     ![Grupos de OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
@@ -189,7 +189,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, debe
 
 1. Para crear usuarios **administradores** y usuarios de **lectura/escritura**, debe crear manualmente un usuario con el fin de obtener acceso a su nivel de privilegios mediante inicio de sesión único. Para aprovisionar una cuenta de usuario, realice estos pasos:
 
-    a. Inicie sesión ahora en OrgChart Now como administrador de seguridad.
+     a. Inicie sesión ahora en OrgChart Now como administrador de seguridad.
 
     b.  Haga clic en **Settings** (Configuración) en la esquina superior derecha y, luego, vaya a **Manage Users** (Administrar usuarios).
 
@@ -240,7 +240,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de OrgChart Now en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación OrgChart Now.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022366"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098738"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 
@@ -27,6 +27,8 @@ Para llevar a cabo la configuración personalizada, debe preparar un script y su
 
 Puede instalar tanto componentes libres o sin licencia como componentes de pago o con licencia. Si es un fabricante de software independiente, consulte [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md) (Desarrollo de componentes de pago o con licencia para el entorno de ejecución de integración de Azure-SSIS).
 
+> [!IMPORTANT]
+> Los nodos de la serie v2 de Azure-SSIS Integration Runtime no son adecuados para una instalación personalizada. Por ello, use los nodos de la serie v3 en su lugar.  Si ya usa los nodos de la serie v2, pase a los de la serie v3 tan pronto como sea posible.
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
@@ -78,7 +80,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
        ![Creación de un contenedor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Seleccione el nuevo contenedor y cargue el script de instalación personalizado y sus archivos asociados. Asegúrese de cargar `main.cmd` en el nivel superior del contenedor, no en cualquier carpeta. 
+    1.  Seleccione el nuevo contenedor y cargue el script de instalación personalizado y sus archivos asociados. Asegúrese de cargar `main.cmd` en el nivel superior del contenedor, no en cualquier carpeta. Asegúrese también de que el contenedor incluye solo los archivos necesarios de la configuración personalizada, para que descargarlos posteriormente en Azure-SSIS Integration Runtime no lleve demasiado tiempo.
 
        ![Carga de archivos en el contenedor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
        1. Una carpeta `.NET FRAMEWORK 3.5`, que contiene una instalación personalizada para instalar una versión anterior de .NET Framework que puede ser necesaria para los componentes personalizados en cada nodo del entono de ejecución de integración de Azure-SSIS.
 
-       1. Una carpeta `AAS`, que contiene una configuración personalizada para instalar las bibliotecas cliente en cada nodo de Azure-SSIS IR que permiten a las tareas de Analysis Services conectarse a la instancia de Azure Analysis Services (AAS) mediante la autenticación de entidad de servicio. En primer lugar, descargue la versión más reciente de los instaladores de Windows o las bibliotecas cliente de **MSOLAP (amd64)** y **AMO** (por ejemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` y `x64_15.0.900.108_SQL_AS_AMO.msi`) desde [aquí](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers) y luego cárguelos todos juntos con `main.cmd` en el contenedor.  
-
        1. Una carpeta `BCP`, que contiene una instalación personalizada para instalar utilidades de línea de comandos de SQL Server (`MsSqlCmdLnUtils.msi`), incluido el programa de copia masiva (`bcp`), en cada nodo del entorno de ejecución de integración de Azure-SSIS.
 
        1. Una carpeta `EXCEL`, que contiene una instalación personalizada para instalar ensamblados de código abierto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` y `ExcelDataReader.dll`) en cada nodo del entorno de ejecución de integración de Azure-SSIS.
 
        1. Una carpeta `ORACLE ENTERPRISE`, que contiene un script de instalación personalizada (`main.cmd`) y el archivo de configuración de instalación silenciosa (`client.rsp`) para instalar los conectores de Oracle y el controlador de OCI en cada nodo de Azure-SSIS IR Enterprise Edition. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de Oracle. En primer lugar, descargue Microsoft Connectors v5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` y `AttunitySSISOraAdaptersSetup64.msi`) desde el [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=55179) y la versión más reciente del cliente de Oracle (por ejemplo, `winx64_12102_client.zip`) desde [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) y luego cárguelos todos junto con `main.cmd` y `client.rsp` en el contenedor. Si usa TNS para conectar con Oracle, también debe descargar `tnsnames.ora`, editarlo y cargarlo en el contenedor, para que se pueda copiar en la carpeta de instalación de Oracle durante el proceso de instalación.
 
-       1. Una carpeta `ORACLE STANDARD`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el controlador ODP.NET de Oracle en cada nodo del entorno de ejecución de integración de Azure-SSIS. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de ADO.NET. En primer lugar, descargue el controlador de Oracle ODP.NET más reciente —por ejemplo, `ODP.NET_Managed_ODAC122cR1.zip`— de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) y, a continuación, cárguelo junto con `main.cmd` en su contenedor.
+       1. Una carpeta `ORACLE STANDARD ADO.NET`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el controlador ODP.NET de Oracle en cada nodo del entorno de ejecución de integración de Azure-SSIS. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de ADO.NET. En primer lugar, descargue el controlador de Oracle ODP.NET más reciente —por ejemplo, `ODP.NET_Managed_ODAC122cR1.zip`— de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) y, a continuación, cárguelo junto con `main.cmd` en su contenedor.
+       
+       1. Una carpeta `ORACLE STANDARD ODBC`, que contiene un script de configuración personalizada (`main.cmd`) para instalar el controlador ODBC de Oracle y configurar DSN en cada nodo de Azure-SSIS Integration Runtime. Esta configuración le permite usar el administrador de conexiones, el origen o el destino de ODBC, o el administrador de conexiones o el origen de Power Query con orígenes de datos ODBC para conectarse a un servidor de Oracle. Primero, descargue la versión más reciente de Oracle Instant Client (paquete Basic o Basic Lite) y del paquete ODBC: por ejemplo, los paquetes de 64 bits de [aquí](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (paquete Basic: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, paquete Basic Lite: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, paquete ODBC: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`), o los paquetes de 32 bits de [aquí](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (paquete Basic: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, paquete Basic Lite: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, paquete ODBC: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) y, a continuación, cárguelos junto con `main.cmd` en el contenedor.
 
        1. Una carpeta `SAP BW`, que contiene un script de instalación personalizada (`main.cmd`) para instalar el ensamblado del conector SAP .NET (`librfc32.dll`) en cada nodo de la edición Enterprise de Integration Runtime para la integración de SSIS en Azure. Este programa de instalación le permite utilizar el administrador de conexiones, el origen y el destino de SAP BW. En primer lugar, cargue la versión de 64 bits o de 32 bits de `librfc32.dll` desde la carpeta de instalación de SAP en el contenedor, junto con `main.cmd`. El script copia entonces el ensamblado de SAP en la carpeta `%windir%\SysWow64` o `%windir%\System32` durante la instalación.
 

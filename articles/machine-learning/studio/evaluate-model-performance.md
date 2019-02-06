@@ -1,6 +1,6 @@
 ---
-título: Evaluación del rendimiento del modelo titleSuffix: Azure Machine Learning Studio description: En este artículo se muestra cómo evaluar el rendimiento de un modelo en Azure Machine Learning Studio y se proporciona una breve explicación de las métricas disponibles para esta tarea.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Evaluación del rendimiento del modelo titleSuffix: Azure Machine Learning Studio description: En este artículo se muestra cómo evaluar el rendimiento de un modelo en Azure Machine Learning Studio y se proporciona una breve explicación de las métricas disponibles para esta tarea.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---

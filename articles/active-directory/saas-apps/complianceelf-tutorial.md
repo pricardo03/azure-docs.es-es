@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042867"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integración de Azure Active Directory con Compliance ELF
 
@@ -106,22 +106,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Cuadro de diálogo Inicio de sesión único](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Compliance ELF**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+3. En la sección **Dominio y direcciones URL de Compliance ELF**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por  **IDP** :
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://sso.cordium.com`
 
-4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+4. Active  **Mostrar configuración avanzada de URL**  y siga estos pasos si desea configurar la aplicación en el modo iniciado por  **SP** :
 
     ![Dominio y direcciones URL de inicio de sesión único de Compliance ELF](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.complianceelf.com`.
+    En el cuadro de texto  **URL de inicio de sesión** , escriba la dirección URL con el siguiente patrón: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Este valor no es real. Actualice estos valores con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Compliance ELF](mailto:support@complianceelf.com) para obtener este valor.
 
-5. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+5. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la  **dirección URL de metadatos de federación de la aplicación**  y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
@@ -155,7 +155,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/complianceelf-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -202,7 +202,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Compliance ELF en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Compliance ELF.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

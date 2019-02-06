@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039894"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integración de Azure Active Directory con dmarcian
 
@@ -107,7 +107,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de dmarcian](./media/dmarcian-tutorial/tutorial_dmarcian_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -157,15 +157,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Autenticación ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * En la sección **Add dmarcian to your Identity Provider** (Agregar dmarcian al proveedor de identidades), haga clic en **COPY** para copiar el valor de **Assertion Consumer Service URL** (Dirección URL del servicio de consumidor de aserciones) de la instancia y péguelo en el cuadro de texto **Dirección URL de respuesta** de la sección **Dominio y direcciones URL de dmarcian** en Azure Portal.
+    * En la sección **Add dmarcian to your Identity Provider** (Agregar dmarcian al proveedor de identidades), haga clic en  **COPY**  para copiar el valor de **Assertion Consumer Service URL** (Dirección URL del servicio de consumidor de aserciones) de la instancia y péguelo en el cuadro de texto  **Dirección URL de respuesta** de la sección  **Dominio y direcciones URL de dmarcian** en Azure Portal.
 
-    * En la sección **Add dmarcian to your Identity Provider** (Agregar dmarcian al proveedor de identidades), haga clic en **COPY** para copiar el valor de **Entity ID** (Identificador de entidad) de la instancia y péguelo en el cuadro de texto **Identificador** de la sección **Dominio y direcciones URL de dmarcian** en Azure Portal.
+    * En la sección **Add dmarcian to your Identity Provider** (Agregar dmarcian al proveedor de identidades), haga clic en  **COPY**  para copiar el valor de **Entity ID** (Identificador de entidad) de la instancia y péguelo en el cuadro de texto  **Identificador** de la sección  **Dominio y direcciones URL de dmarcian** en Azure Portal.
 
     * En la sección **Set up Authentication** (Configurar la autenticación), en el cuadro de texto **Identity Provider Metadata** (Metadatos del proveedor de identidades), pegue el valor de **Dirección URL de metadatos de federación de aplicación** que copió de Azure Portal.
 
     * En la sección **Set up Authentication** (Configurar la autenticación), en el cuadro de texto **Attribute Statements** (Instrucciones de atributo), pegue la dirección URL `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * En la sección **Set up Login URL** (Configurar dirección URL de inicio de sesión), copie el valor de **Login URL** (Dirección URL de inicio de sesión) de la instancia y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** de la sección **Dominio y direcciones URL de dmarcian** en Azure Portal.
+    * En la sección **Set up Login URL** (Configurar dirección URL de inicio de sesión), copie el valor de **Login URL** (Dirección URL de inicio de sesión) de la instancia y péguelo en el cuadro de texto  **Dirección URL de inicio de sesión** de la sección  **Dominio y direcciones URL de dmarcian** en Azure Portal.
 
         > [!Note]
         > Puede modificar la **dirección URL de inicio de sesión** según su organización.
@@ -196,7 +196,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/dmarcian-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -224,7 +224,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en dmarcian, deben ap
 
     ![Nuevo usuario ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. En el cuadro de texto **New User Email** (Correo electrónico del nuevo usuario), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
+     a. En el cuadro de texto **New User Email** (Correo electrónico del nuevo usuario), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
 
     b. Si desea conceder derechos de administrador al usuario, seleccione **Make User an Admin** (Hacer que el usuario sea un administrador).
 
@@ -265,7 +265,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de dmarcian en el panel de acceso, debería iniciar sesión automáticamente en la aplicación dmarcian.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

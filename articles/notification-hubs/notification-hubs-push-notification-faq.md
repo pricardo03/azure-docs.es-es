@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478593"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888165"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 
@@ -194,7 +194,7 @@ Habrá un período en el que los dispositivos que no tengan aplicaciones abierta
 
 ### <a name="is-there-audit-log-capability"></a>¿Hay alguna funcionalidad de registro de auditoría?
 
-Todas las operaciones de administración de Notification Hubs van a los registros de operaciones, que se exponen en [Azure Portal].
+Sí. Todas las operaciones de administración de Notification Hubs actualizan el registro de actividad de Azure que se expone en [Azure Portal]. El registro de actividad de Azure proporciona información sobre las operaciones que se realizan en los recursos de las suscripciones. Con el registro de actividad, se puede dar respuesta a los interrogantes qué, quién y cuándo de las operaciones de escritura (PUT, POST y DELETE) realizadas en los recursos de la suscripción. También permite entender el estado de las operaciones y otras propiedades relevantes. Sin embargo, el registro de actividad no incluye las operaciones de lectura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Supervisión y solución de problemas
 

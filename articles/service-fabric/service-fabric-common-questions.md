@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320606"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104089"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -73,7 +73,7 @@ Se necesita un clúster de producción que tenga al menos 5 nodos debido a las t
 
 Queremos que el clúster esté disponible en el caso de error simultáneo de dos nodos. Para que un clúster de Service Fabric esté disponible, los servicios del sistema deben estar disponibles. Los servicios del sistema con estado, como el servicio de nomenclatura y el administrador de conmutación por error, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 + 1) para un servicio dado. Por lo tanto, si queremos que sea resistente contra la pérdida simultánea de dos nodos (por lo tanto, pérdida simultánea de dos réplicas de un servicio de sistema), debemos tener TamañoDelClúster - TamañoDelCuórum > = 2, lo que fuerza el tamaño mínimo a cinco. Para ver esto, considere que el clúster tiene N nodos y hay N réplicas de un servicio del sistema: una en cada nodo. El tamaño del cuórum para un servicio del sistema es (N/2 + 1). La desigualdad anterior se parece a N - (N/2 + 1) > = 2. Hay dos casos a tener en cuenta: cuando N es par y cuando N es impar. Si N es par, digamos N = 2\*m, donde m > = 1, la desigualdad se parece a 2\*m - (2\*m/2 + 1) > = 2 o m > = 3. El valor mínimo para N es 6 y se logra cuando m = 3. Por otro lado, si N es impar, por ejemplo, N = 2\*m + 1, donde m > = 1, la desigualdad se parece a 2\*m+1 - ((2\*m+1) / 2 + 1) > = 2 o 2\*m+1 - (m+1) > = 2 o m > = 2. El valor mínimo para N es 5 y se logra cuando m = 2. Por lo tanto, entre todos los valores de N que satisfacen la desigualdad TamañoDelClúster - TamañoDelCuórum > = 2, el valor mínimo es 5.
 
-Tenga en cuenta que en el argumento anterior se asume que todos los nodos tienen una réplica de un servicio del sistema, por lo tanto el tamaño del cuórum se calcula en función del número de nodos del clúster. Sin embargo, al cambiar *TargetReplicaSetSize*, podríamos hacer el tamaño del cuórum menor que (N/2+1), lo que podría dar la impresión de que podríamos tener un clúster menor de 5 nodos y que todavía tiene 2 nodos adicionales por encima del tamaño del cuórum. Por ejemplo, en un clúster de 4 nodos, si se establece el valor de TargetReplicaSetSize en 3, el tamaño del cuórum según el valor de TargetReplicaSetSize es (3/2 + 1) o 2, por lo tanto, tenemos TamañoDelClúster - TamañoDelCuórum = 4-2 > = 2. Sin embargo, no podemos garantizar que el servicio del sistema estará en o por encima del cuórum si se pierde cualquier par de nodos al mismo tiempo; es posible que los dos nodos que hemos perdido hospedaran dos réplicas, por lo que el servicio del sistema pasará a pérdida de cuórum (con solo una única réplica restante) y dejará de estar disponible.
+Tenga en cuenta que en el argumento anterior se asume que todos los nodos tienen una réplica de un servicio del sistema, por lo tanto el tamaño del cuórum se calcula en función del número de nodos del clúster. Sin embargo, al cambiar *TargetReplicaSetSize*, podríamos hacer el tamaño del cuórum menor que (N/2+1), lo que podría dar la impresión de que podríamos tener un clúster menor de 5 nodos y que todavía tiene 2 nodos adicionales por encima del tamaño del cuórum. Por ejemplo, en un clúster de cuatro nodos, si se establece el valor de TargetReplicaSetSize en 3, el tamaño del cuórum según el valor de TargetReplicaSetSize es (3/2 + 1) o 2, por lo tanto, tenemos ClusterSize - QuorumSize = 4-2 > = 2. Sin embargo, no podemos garantizar que el servicio del sistema estará en o por encima del cuórum si se pierde cualquier par de nodos al mismo tiempo; es posible que los dos nodos que hemos perdido hospedaran dos réplicas, por lo que el servicio del sistema pasará a pérdida de cuórum (con solo una única réplica restante) y dejará de estar disponible.
 
 Con esta información, examinemos algunas posibles configuraciones de clúster:
 

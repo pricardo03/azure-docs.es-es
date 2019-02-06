@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
+ms.subservice: report-monitor
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818190"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186542"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -43,34 +43,36 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 
 |Categoría de auditoría|Actividad|
 |---|---|
-|Administración de directorios|Adición de unidad administrativa|
-|Administración de directorios|Incorporación de un miembro a una unidad administrativa|
-|Administración de directorios|Eliminación de unidad administrativa|
-|Administración de directorios|Eliminación de miembro de la unidad administrativa|
-|Administración de directorios|Actualización de la unidad administrativa|
-|Administración de directorios|Administración|
-|User Management|Operación de directorio|
-|User Management|Exportación|
-|User Management|Importar|
-|User Management|Otros|
-|User Management|Procesar custodia|
-|User Management|Acción de reglas de sincronización|
-|User Management|Agregar aplicación|
-|User Management|Eliminar aplicación|
-|User Management|Actualización de una aplicación|
-|User Management|Actualización del modo de inicio de sesión único de la aplicación|
-|User Management|Automated Password Rollover (Sustitución automática de contraseña)|
-|User Management|Incorporación de permisos de aplicaciones V2|
-|User Management|Creación de aplicación V1|
-|User Management|Creación de aplicación V2|
-|User Management|Eliminación de aplicación V1|
-|User Management|Eliminación de aplicación V2|
-|User Management|Eliminación de la concesión de permisos de aplicaciones V2|
-|User Management|Obtención de aplicaciones V1 y V2|
-|User Management|Obtención de aplicación V1|
-|User Management|Obtención de aplicaciones V1|
-|User Management|Obtención de aplicación V2|
-|User Management|Obtención de aplicaciones V2|
+|Revisiones de acceso|Revisión de acceso finalizada|
+|Revisiones de acceso|Incorporación de aprobador para solicitar la aprobación|
+|Revisiones de acceso|Incorporación de revisor para acceder a la revisión|
+|Revisiones de acceso|Aplicación de la revisión de acceso|
+|Revisiones de acceso|Creación de revisión de acceso|
+|Revisiones de acceso|Creación de programa|
+|Revisiones de acceso|Creación de aprobación de solicitud|
+|Revisiones de acceso|Eliminación de revisión de acceso|
+|Revisiones de acceso|Eliminación de programa|
+|Revisiones de acceso|Vinculación al control del programa|
+|Revisiones de acceso|Incorporación a las revisiones de acceso de Azure AD|
+|Revisiones de acceso|Eliminación del revisor en la revisión de acceso|
+|Revisiones de acceso|Solicitud de detención de la revisión|
+|Revisiones de acceso|Solicitud de la aplicación de los resultados de la revisión|
+|Revisiones de acceso|Revisión de la pertenencia al rol Rbac|
+|Revisiones de acceso|Revisión de la asignación de aplicaciones|
+|Revisiones de acceso|Revisión de la pertenencia al grupo|
+|Revisiones de acceso|Revisión de la solicitud de aprobación de la solicitud|
+|Revisiones de acceso|Desvinculación al control del programa|
+|Revisiones de acceso|Actualización de la revisión de acceso|
+|Revisiones de acceso|Actualización del estado de incorporación de revisiones de acceso de Azure AD|
+|Revisiones de acceso|Actualización de la configuración de las notificaciones por correo de revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración del número de repeticiones de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración de la duración en días de la repetición de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración del tipo de finalización de las repeticiones de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración del tipo de repeticiones de la revisión de acceso|
+|Revisiones de acceso|Actualización de la configuración de los recordatorios de revisión de acceso|
+|Revisiones de acceso|Actualización de programa|
+|Revisiones de acceso|Actualización de la aprobación de solicitud|
+|Revisiones de acceso|Usuario deshabilitado|
 
 ## <a name="account-provisioning"></a>Aprovisionamiento de cuentas
 
@@ -526,23 +528,27 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 
 |Categoría de auditoría|Actividad|
 |---|---|
-|Administración de roles|Actualización de la configuración de los recordatorios de revisión de acceso|
-|Administración de roles|Actualización de la aprobación de solicitud|
-|Administración de roles|Adición de la asignación de roles de aplicación al usuario|
-|Administración de roles|Agregar usuario|
-|Administración de roles|Incorporación de información de aplicación de teléfono para la autenticación sólida de usuarios|
-|Administración de roles|Cambiar la licencia de usuario|
-|Administración de roles|Cambiar la contraseña de usuario|
-|Administración de roles|Conversión de usuario federado en administrado|
-|Administración de roles|Creación de contraseña de aplicaciones para usuario|
-|Administración de roles|Eliminación de contraseña de aplicaciones para usuario|
-|Administración de roles|Eliminación de usuario|
-|Administración de roles|Deshabilitar cuenta|
-|Administración de roles|Habilitar la autenticación sólida|
-|Administración de roles|Eliminación permanente de usuario|
-|Administración de roles|Eliminación de la asignación de roles de aplicación del usuario|
-|Administración de roles|Eliminación de información de aplicación de teléfono para la autenticación sólida de usuarios|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Se agregó|
+|PIM|AddedOutsidePIM|
+|PIM|Assign|
+|PIM|DismissAlert|
+|PIM|Elevar|
+|PIM|ReactivateAlert|
+|PIM|Quitado|
+|PIM|RemovedOutsidePIM|
+|PIM|Solicitud de detención de la revisión|
+|PIM|Cambios en la configuración de roles|
+|PIM|ScanAlertsNow|
+|PIM|Signup|
+|PIM|Unassign|
+|PIM|Reducir los privilegios|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Self-service group management (Administración de grupos de autoservicio)
@@ -580,13 +586,16 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 
 |Categoría de auditoría|Actividad|
 |---|---|
-|Administración de directivas|Cambio de contraseña (autoservicio)|
-|Administración de directivas|Restablecimiento de contraseña (por parte del administrador)|
-|Administración de directivas|Restablecimiento de contraseña (autoservicio)|
-|Administración de directivas|Progreso de la actividad del flujo de restablecimiento de contraseña de autoservicio|
-|Administración de directivas|Progreso de la actividad del flujo de restablecimiento de contraseña de autoservicio|
-|Administración de directivas|Desbloqueo de la cuenta de usuario (autoservicio)|
-|Administración de directivas|Usuario registrado para el restablecimiento de contraseña de autoservicio|
+|Términos de uso|Aceptación de términos de uso|
+|Términos de uso|Creación de términos de uso|
+|Términos de uso|Rechazo de términos de uso|
+|Términos de uso|Eliminación de consentimiento|
+|Términos de uso|Eliminación de términos de uso|
+|Términos de uso|Edición de términos de uso|
+|Términos de uso|Expiración de los términos de uso|
+|Términos de uso|Eliminación permanente de los términos de uso|
+|Términos de uso|Publicación de los términos de uso|
+|Términos de uso|Cancelación de la publicación de los términos de uso|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

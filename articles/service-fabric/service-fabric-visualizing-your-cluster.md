@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8a2a1b70290f48b3189bfae2f67dd19c5ef4c9f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972339"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093264"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -29,7 +29,7 @@ Service Fabric Explorer (SFX) es una herramienta de código abierto para inspecc
 
 Use los siguientes vínculos para descargar Service Fabric Explorer como una aplicación de escritorio:
 
-- Windows
+-  Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -49,6 +49,11 @@ Use los siguientes vínculos para descargar Service Fabric Explorer como una apl
 Service Fabric Explorer también se hospeda en el punto de conexión de administración de HTTP de un clúster de Service Fabric. Para iniciar SFX en un explorador web, vaya al punto de conexión HTTP del clúster desde cualquier explorador, por ejemplo, https://clusterFQDN:19080.
 
 Para la instalación de las estaciones de trabajo del desarrollador, puede iniciar Service Fabric Explorer en el clúster local; para ello, navegue a https://localhost:19080/Explorer. Examine este artículo para [preparar el entorno de desarrollo](service-fabric-get-started.md).
+
+> [!NOTE]
+> Si el clúster está protegido por un certificado autofirmado recibirá un mensaje de error del explorador web que le indica que "este sitio no es seguro". Puede simplemente continuar en un explorador web más moderno ignorando la advertencia. En un entorno de producción se debe proteger el clúster mediante el nombre común y un certificado emitido por una entidad de certificación. 
+>
+>
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Conexión a un clúster de Service Fabric
 Para conectarse a un clúster de Service Fabric, necesita el punto de conexión de administración de clústeres (FQDN/IP) y el puerto del punto de conexión de administración HTTP (de forma predeterminada,19080). Por ejemplo: https://mysfcluster.westus.cloudapp.azure.com:19080. Use la casilla "Connect to localhost" (Conectarse a localhost) para conectarse a un clúster local en la estación de trabajo.
@@ -118,6 +123,18 @@ También puede utilizar el Service Fabric Explorer a fin de crear instancias de 
 >
 >
 
+## <a name="event-store"></a>EventStore
+EventStore es una característica que ofrece la plataforma que proporciona eventos de la plataforma Service Fabric y que está disponible en Service Fabric Explorer y en la API de REST. Puede ver una vista de instantánea de lo que está ocurriendo en el clúster para cada entidad (por ejemplo, nodo, servicio, aplicación y consulta) según la hora del evento. Obtenga más información sobre EventStore en [Información general de EventStore](service-fabric-diagnostics-eventstore.md).   
+
+![EventStore][sfx-eventstore]
+
+>[!NOTE]
+>A partir de la versión 6.4 de Service Fabric, EventStore no está habilitado de forma predeterminada y se debe habilitar en la plantilla de Resource Manager
+
+>[!NOTE]
+>A partir de la versión 6.4 de Service Fabric, las API de EventStore solo se encuentran disponibles para los clústeres Windows que se ejecutan en Azure. Se está trabajando para portar esta funcionalidad a Linux, así como nuestros clústeres independientes.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)
@@ -129,3 +146,4 @@ También puede utilizar el Service Fabric Explorer a fin de crear instancias de 
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png

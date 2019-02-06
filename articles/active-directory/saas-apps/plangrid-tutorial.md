@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con PlanGrid | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con PlanGrid | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y PlanGrid.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ba72432-9b49-4358-b756-14c982422be8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: b2225a48e78e8c609223510a32d3ed5c735ed3b6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5ceb5f09b599b6c42dea3359b18c319e7b44fed7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046075"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165088"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Tutorial: integración de Azure Active Directory con PlanGrid
+# <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Tutorial: Integración de Azure Active Directory con PlanGrid
 
 En este tutorial, aprenderá a integrar PlanGrid en Azure Active Directory (Azure AD).
 
@@ -150,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/plangrid-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-plangrid-test-user"></a>Crear un usuario de prueba de PlanGrid
 
-En esta sección, creará una usuaria llamada Britta Simon en PlanGrid. Trabaje con el [equipo de soporte técnico de PlanGrid](mailto:help@plangrid.com) para agregar los usuarios a la plataforma de PlanGrid. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará una usuaria llamada Britta Simon en PlanGrid. Trabaje con el  [equipo de soporte técnico de PlanGrid](mailto:help@plangrid.com)  para agregar los usuarios a la plataforma de PlanGrid. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -197,7 +197,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de PlanGrid en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de PlanGrid.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

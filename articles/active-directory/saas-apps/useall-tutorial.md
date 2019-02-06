@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8dd9e452-a5b6-4a16-a97c-b60211ea6b95
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 8deacddc9dcc7571ea725143fa9a9c002c1602b1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 393494410b14bd54f1878cc372e76ad8a7ee3c7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743020"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>Tutorial: Integración de Azure Active Directory con Useall
 
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominios y direcciones URL de inicio de sesión único de Useall](./media/useall-tutorial/tutorial_useall_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
 
@@ -143,7 +143,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_02.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com

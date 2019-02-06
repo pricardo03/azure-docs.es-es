@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 6be2c9a17e719fb53ab257af77605c49ffea9e86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7775c8ae92ebf6015f12bdebf0934752a5240f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437481"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172415"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: integración de Azure Active Directory con Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integración de Azure Active Directory con Teamwork.com
 
 En este tutorial, obtendrá información sobre cómo integrar Teamwork.com con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Teamwork.com](./media/teamwork-tutorial/tutorial_teamwork_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.teamwork.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.teamwork.com`.
 
     b. En el cuadro de texto **Identificador**, escriba la dirección URL:
 
@@ -156,7 +156,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/teamwork-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -166,7 +166,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-teamworkcom-test-user"></a>Crear un usuario de prueba Teamwork.com
 
-En esta sección, creará un usuario llamado Britta Simon en Teamwork.com. Colabore con el [equipo de soporte técnico de Teamwork.com](mailto:support@teamwork.com) para agregar los usuarios en la plataforma de Teamwork.com. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Teamwork.com. Colabore con el  [equipo de soporte técnico de Teamwork.com](mailto:support@teamwork.com)  para agregar los usuarios en la plataforma de Teamwork.com. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -203,7 +203,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Teamwork.com en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de Teamwork.com.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,6 +1,6 @@
 ---
-título: Interpretación de los resultados del modelo en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Interpretación de los resultados del modelo en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/29/2019
+ms.openlocfilehash: c9f6ad48f6c2e3b2ed60833f0cba111cc96a8a54
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306614"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240767"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementos de Azure Marketplace disponibles para Azure Stack
 
@@ -46,7 +47,7 @@ Cada vez que haya actualizaciones de las extensiones de la máquina virtual que 
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Con Kaspersky Hybrid Cloud Security, puede aprovisionar capacidades de ciberseguridad en las cargas de trabajo de nube mediante extensiones de Azure. | Kaspersky Lab |  Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Con Kaspersky Hybrid Cloud Security, puede aprovisionar capacidades de ciberseguridad en las cargas de trabajo de nube mediante extensiones de Azure. | Kaspersky Lab | Linux |
 
-## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Plantillas de imágenes y soluciones de máquinas virtuales de Microsoft
+## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Plantillas de soluciones e imágenes de máquinas virtuales de Microsoft
 
 Microsoft Azure Stack es compatible con las siguientes plantillas de soluciones y máquinas virtuales de Azure Marketplace. Descargue las dependencias por separado, tal como se indica. Debe tener las licencias adecuadas para aplicaciones como SQL Server y Machine Learning Server, excepto cuando sean versiones gratuitas o de prueba.
 
@@ -97,10 +98,11 @@ Microsoft Azure Stack es compatible con las siguientes plantillas de soluciones 
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL de terceros, plantillas de imágenes y soluciones de las versiones gratuita y de prueba
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL de terceros, imágenes de las versiones gratuita y de prueba y plantillas de soluciones
 
 |  | Nombre del elemento | DESCRIPCIÓN | Publicador |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | El controlador de entrega de aplicaciones A10 Networks vThunder para Microsoft Azure está especialmente diseñado para el alto rendimiento, la flexibilidad y la entrega de aplicaciones y equilibrio de cargas de servidor fáciles de implementar. Además, está optimizado para ejecutarse de forma nativa dentro de la nube de Azure. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS Router es un completo enrutador virtual multinube y multihipervisor que permite a las empresas y los proveedores de nube compilar redes híbridas coherentes, muy seguras y escalables. | Arista Networks |
 | ![Centro de control de seguridad de aplicaciones de Barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centro de control de seguridad de aplicaciones de Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Administre de forma centralizada varios firewall de aplicaciones web (WAF) de Barracuda. | Barracuda Networks, Inc. |
 | ![Puerta de enlace de seguridad de correo electrónico de Barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Puerta de enlace de seguridad de correo electrónico de Barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Puerta de enlace de seguridad de correo electrónico para protegerse frente a amenazas entrantes procedentes de correo electrónico. | Barracuda Networks, Inc. |

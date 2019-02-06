@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integrar Azure Active Directory con Envi MMIS | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Envi MMIS | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Envi MMIS.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 96168dcb8400d2580d0b64257ceb861c1da3ff65
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b85dc27f6b6a23be6dc89a0f0a7cf9f78681446d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447292"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197456"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integrar Azure Active Directory con Envi MMIS
+# <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integración de Azure Active Directory con Envi MMIS
 
 En este tutorial, obtendrá información sobre cómo integrar Envi MMIS en Azure Active Directory (Azure AD).
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`.
 
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure5.png)
 
-    a. Seleccione la opción **Archivo** desde la lista desplegable **Upload From** (Cargar desde).
+     a. Seleccione la opción **Archivo** desde la lista desplegable **Upload From** (Cargar desde).
 
     b. Para cargar el archivo de metadatos descargado de Azure Portal, seleccione el **icono para elegir archivo**.
 
@@ -185,7 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/envimmis-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -214,7 +214,7 @@ En el caso de Envi MMIS, el aprovisionamiento es una tarea manual.
 
     ![Agregar empleado](./media/envimmis-tutorial/user3.png)
 
-    a. En el cuadro de texto **Nombre de usuario**, escriba el nombre del usuario de la cuenta de Britta Simon, como **brittasimon@contoso.com**.
+     a. En el cuadro de texto **Nombre de usuario**, escriba el nombre del usuario de la cuenta de Britta Simon, como **brittasimon@contoso.com**.
     
     b. En el cuadro de texto **Nombre**, escriba el nombre del usuario de BrittaSimon, como **Britta**.
 
@@ -263,7 +263,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Envi MMIS en el panel de acceso, debe iniciar sesión automáticamente en su aplicación de Envi MMIS.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

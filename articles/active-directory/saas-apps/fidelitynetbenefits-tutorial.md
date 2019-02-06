@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: a1308035a8b758a9e2f824de3a78c03103c19931
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 00b90dae4acfae3f8250b94be1f8752aa72bcfe1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142692"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integración de Azure Active Directory con Fidelity NetBenefits
 
@@ -113,7 +113,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
     Para un entorno de pruebas: `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 
@@ -166,7 +166,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/fidelitynetbenefits-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -215,7 +215,7 @@ En esta sección, concederá acceso a Britta Simon a Fidelity NetBenefits para q
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Fidelity NetBenefits en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Fidelity NetBenefits.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

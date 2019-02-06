@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 19ea9a07-9ecf-43dc-91ba-593ce3c00b01
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b582af22707b7bff187ed93fb48ba96d15634ab3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8e92e97a27f36d37d30335b6eb8492f41ede7510
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433331"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutorial: Integración de Azure Active Directory con TonicDM
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de TonicDM](./media/tonicdm-tutorial/tutorial_tonicdm_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://tonicdm.com/`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://tonicdm.com/`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://tonicdm.com/saml/metadata`
 
@@ -150,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/tonicdm-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-tonicdm-test-user"></a>Creación de un usuario de prueba de TonicDM
 
-En esta sección, creará un usuario llamado Britta Simon en TonicDM. Trabaje con el [equipo de soporte técnico de TonicDM](mailto:support@tonicdm.com) para agregar los usuarios a la plataforma de TonicDM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en TonicDM. Trabaje con el  [equipo de soporte técnico de TonicDM](mailto:support@tonicdm.com) para agregar los usuarios a la plataforma de TonicDM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -197,7 +197,7 @@ En esta sección habilitará a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de TonicDM en el Panel de acceso, iniciará sesión automáticamente en su aplicación TonicDM.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

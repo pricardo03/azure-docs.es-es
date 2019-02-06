@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387861"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integración de Azure Active Directory con Dome9 Arc
 
@@ -111,7 +111,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://secure.dome9.com/`
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://secure.dome9.com/`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://secure.dome9.com/sso/saml/yourcompanyname`.
 
@@ -137,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | --------------- | --------------- | 
     | memberof | user.assignedroles |
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar el atributo para agregar el inicio de sesión único](./media/dome9arc-tutorial/tutorial_dome9_04.png)
 
@@ -178,7 +178,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
 
-    a. Escriba el nombre de la compañía en el cuadro de texto **Account ID** (Id. de cuenta). Este valor se usará en la dirección URL de respuesta mencionada en la sección de la dirección URL de Azure Portal.
+     a. Escriba el nombre de la compañía en el cuadro de texto **Account ID** (Id. de cuenta). Este valor se usará en la dirección URL de respuesta mencionada en la sección de la dirección URL de Azure Portal.
 
     b. En el cuadro de texto **Issuer** (Emisor), pegue el valor de **SAML Entity ID** (Id. de entidad de SAML) que ha copiado de Azure Portal.
 
@@ -212,7 +212,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/dome9arc-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -243,7 +243,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Dome9 Arc, tienen 
 
     ![Agregar empleado](./media/dome9arc-tutorial/user3.png)
 
-    a. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario, en el ejemplo Brittasimon@contoso.com.
+     a. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario, en el ejemplo Brittasimon@contoso.com.
 
     b. En el cuadro de texto **Nombre**, escriba el nombre del usuario, en este caso, Britta.
 
@@ -288,7 +288,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Dome9 Arc en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Dome9 Arc.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614479"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103282"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST de Azure WCF Relay
 En este tutorial se describe cómo compilar una sencilla aplicación host de Azure Relay que expone una interfaz basada en REST. REST permite a un cliente web, como un explorador web, tener acceso a la API de Service Bus a través de solicitudes HTTP.
@@ -439,9 +439,9 @@ En el ejemplo siguiente se muestra el archivo App.config asociado con el servici
       </behaviors>
     </system.serviceModel>
     <appSettings>
-        <!-- Service Bus specific app setings for messaging connections -->
+        <!-- Service Bus specific app settings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
-            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY>"/>
     </appSettings>
 </configuration>
 ```

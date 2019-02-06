@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe89b64fb5f188591ce123e8ed7ed410d3c5ab48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421073"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integración de Azure Active Directory con XaitPorter
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de XaitPorter](./media/xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.xaitporter.com/saml/login`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.xaitporter.com/saml/login`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.xaitporter.com`
 
@@ -141,7 +141,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/xaitporter-tutorial/user3.png)
 
-    a. Seleccione **Enable Single Sign-On Authentication** (Habilitar autenticación de inicio de sesión único).
+     a. Seleccione **Enable Single Sign-On Authentication** (Habilitar autenticación de inicio de sesión único).
 
     b. En el cuadro de texto **Identity Provider Settings** (Configuración del proveedor de identidades), pegue la **dirección URL de metadatos de federación de aplicación** que ha copiado de Azure Portal y haga clic en **Fetch** (Recuperar).
 
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/xaitporter-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -183,7 +183,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-xaitporter-test-user"></a>Creación de un usuario de prueba de XaitPorter
 
-En esta sección, creará un usuario llamado Britta Simon en XaitPorter. Trabaje con el [equipo de soporte técnico al cliente de XaitPorter](https://www.xait.com/support/) para agregar los usuarios a la plataforma de XaitPorter. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en XaitPorter. Trabaje con el  [equipo de soporte técnico al cliente de XaitPorter](https://www.xait.com/support/) para agregar los usuarios a la plataforma de XaitPorter. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -220,7 +220,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de XaitPorter en el panel de acceso, debería iniciar sesión automáticamente en la aplicación XaitPorter.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

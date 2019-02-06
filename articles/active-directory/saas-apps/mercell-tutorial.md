@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e2ca2d4f4a93f6c4bbfdacb6f25185cd59586964
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1763a022487f0a6b01a59156960e59a0bb8663f3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integración de Azure Active Directory con Mercell
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     En el cuadro de texto **Identificador**, escriba la dirección URL: `https://my.mercell.com/`
 
-4. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+4. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/mercell-tutorial/tutorial_metadataurl.png)
      
@@ -144,7 +144,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/mercell-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -156,7 +156,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Mercell. Mercell admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar obtener acceso a Mercell, se crea un nuevo usuario, en caso de que no exista.
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Mercell](mailto:webmaster@mercell.com).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Mercell](mailto:webmaster@mercell.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -193,7 +193,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Mercell en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Mercell.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

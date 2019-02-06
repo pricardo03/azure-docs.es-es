@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583738"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092239"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creación de alertas del registro de actividad en notificaciones del servicio
 ## <a name="overview"></a>Información general
@@ -37,7 +37,7 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 
 Para obtener información sobre cómo configurar las alertas de notificación de mantenimiento del servicio mediante plantillas de Azure Resource Manager, consulte [Plantillas de Resource Manager](alerts-activity-log.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Alerta y nuevo grupo de acciones mediante Azure Portal
 1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
 
     ![El servicio "Estado del servicio"](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ Obtenga información acerca de cómo [configurar notificaciones de webhook para 
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Creación de una alerta basada en una notificación de mantenimiento del servicio para un grupo de acciones existente con Azure Portal
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta con un grupo de acciones existente mediante Azure Portal
 
 1. Siga los pasos del 1 al 7 de la sección anterior para crear la notificación de mantenimiento del servicio. 
 
@@ -96,7 +96,7 @@ Obtenga información acerca de cómo [configurar notificaciones de webhook para 
 
 En unos minutos, la alerta está activa y comienza a desencadenarse en función de las condiciones especificadas durante la creación.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones mediante plantillas de Azure Resource Manager
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Alerta y nuevo grupo de acciones mediante las plantillas de Azure Resource Manager
 
 En el siguiente ejemplo se crea un grupo de acciones con un destino de correo electrónico y habilita todas las notificaciones de estado de servicio para la suscripción de destino.
 

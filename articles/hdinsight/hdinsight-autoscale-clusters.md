@@ -1,5 +1,5 @@
 ---
-title: Escalado automático de clústeres de Azure HDInsight
+title: Escalado automático de clústeres de Azure HDInsight (versión preliminar)
 description: Usar la característica de escalabilidad automática de HDInsight para escalar clústeres automáticamente
 services: hdinsight
 author: hrasheed-msft
@@ -9,33 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 043c83e2039d87b1650ba17f770ce16a2ad2c13d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475691"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Escalado automático de clústeres de Azure HDInsight (versión preliminar)
 
 La característica de escalabilidad automática de clústeres de Azure HDInsight escala o reduce verticalmente el número de nodos de trabajo en un clúster automáticamente según la carga dentro de un intervalo predefinido. Durante la creación de un nuevo clúster de HDInsight, se puede establecer un número mínimo y máximo de nodos de trabajo. La escalabilidad automática luego supervisa los requisitos de recursos de la carga de análisis y escala o reduce verticalmente el número de nodos de trabajo según corresponda. El uso de esta característica tiene un costo adicional.
 
 ## <a name="getting-started"></a>Introducción
 
-### <a name="create-cluster-with-azure-portal"></a>Creación de un clúster con Azure Portal
+### <a name="create-a-cluster-with-the-azure-portal"></a>Creación de un clúster con Azure Portal
 
 > [!Note]
 > La escalabilidad automática actualmente solo se admite para clústeres de Azure HDInsight Hive, MapReduce y Spark versión 3.6.
 
-Siga los pasos de [Crear clústeres basados en Linux en HDInsight con el Portal de Azure](hdinsight-hadoop-create-linux-clusters-portal.md) y, al llegar al paso 5, **Tamaño del clúster**, seleccione **Escalabilidad automática de nodos de trabajo (versión preliminar)**  como se muestra a continuación. 
+Para habilitar la característica de escalabilidad automática, haga lo siguiente como parte del proceso normal de creación de clústeres:
 
-![Habilitación de la opción de escalabilidad automática de nodos de trabajo](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+1. Seleccione **Personalizado (tamaño, configuración, aplicaciones)** lugar de **Creación rápida**.
+2. En el paso 5 de **Personalizado** (**Tamaño del clúster**), marque la casilla **Escalabilidad automática de nodos de trabajo**.
+3. Escriba los valores deseados para:  
 
-Al activar esta opción, puede especificar:
+    * El **número inicial de nodos de trabajo**.  
+    * El número **mínimo** de nodos de trabajo.  
+    * El número **máximo** de nodos de trabajo.  
 
-* El número inicial de nodos de trabajo
-* El número mínimo de nodos de trabajo
-* El número máximo de nodos de trabajo
+![Habilitación de la opción de escalabilidad automática de nodos de trabajo](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 El número inicial de nodos de trabajo debe estar comprendido entre los valores mínimo y máximo, ambos inclusives. Este valor define el tamaño inicial del clúster cuando se crea. El número mínimo de nodos de trabajo debe ser mayor que cero.
 
@@ -43,12 +45,14 @@ Después de elegir el tipo de VM para cada tipo de nodo, podrá ver el intervalo
 
 La suscripción tiene una cuota de capacidad para cada región. El número total de núcleos de los nodos principales junto con el número máximo de nodos de trabajo no puede superar la cuota de capacidad. Sin embargo, esta cuota tiene un límite flexible; sencillamente puede crear una incidencia de soporte técnico en cualquier momento para que la aumenten.
 
-> [!Note]
+> [!Note]  
 > Si se supera el límite de cuota de núcleos total, recibirá un mensaje de error que dice "the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota" (El nodo máximo superó los núcleos disponibles en esta región, elija otra región o póngase en contacto con soporte técnico para aumentar la cuota).
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Creación de un clúster con una plantilla de Resource Manager
+Para obtener más información sobre la creación de clústeres de HDInsight con Azure Portal, consulte [Crear clústeres basados en Linux en HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Cuando crea un clúster de HDInsight con una plantilla de Resource Manager, debe agregar las siguientes opciones en la sección "computeProfile" "workernode":
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Creación de un clúster con una plantilla del Administrador de recursos
+
+Para crear un clúster de HDInsight con una plantilla de Azure Resource Manager, agregue un nodo `autoscale` a la sección `computeProfile` > `workernode` con las propiedades `minInstanceCount` y `maxInstanceCount`, tal como se muestra en el siguiente fragmento de JSON.
 
 ```json
 {                            
@@ -72,7 +76,9 @@ Cuando crea un clúster de HDInsight con una plantilla de Resource Manager, debe
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Habilitación y deshabilitación de escalabilidad automática para un clúster en ejecución
+Para más información sobre cómo crear clústeres con plantillas de Resource Manager, consulte [Creación de clústeres de Apache Hadoop basados en Windows en HDInsight mediante plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Habilitación y deshabilitación de escalabilidad automática para un clúster en ejecución
 
 Habilitar la escalabilidad automática para un clúster en ejecución no se admite durante la versión preliminar privada. Debe habilitarse durante la creación del clúster.
 
@@ -80,7 +86,7 @@ Deshabilitar la escalabilidad automática o modificar la configuración de escal
 
 ## <a name="monitoring"></a>Supervisión
 
-Puede ver el historial de escalado y reducción verticales del clúster como parte de las métricas del clúster. Puede enumerar todas las acciones de escalado durante el último día, semana o período de tiempo más largo.
+Puede ver el historial de escalado y reducción verticales del clúster como parte de las métricas del clúster. También puede enumerar todas las acciones de escalado durante el último día, semana o período de tiempo más largo.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -104,7 +110,7 @@ Cuando se detectan las condiciones siguientes, Escalabilidad automática emitir�
 * El total de CPU pendiente es mayor que el total de CPU libre durante más de 1 minuto.
 * El total de memoria pendiente es mayor que el total de memoria libre durante más de 1 minuto.
 
-Calcularemos que se necesitan N nuevos nodos de trabajo para cumplir los requisitos actuales de CPU y memoria y, a continuación, emitiremos un solicitud de escalado vertical mediante la solicitud de N nuevos nodos de trabajo.
+Calcularemos que se necesitan un determinado número de nodos de trabajo para cumplir los requisitos actuales de CPU y memoria y, después, emitiremos una solicitud de escalado vertical que agrega nuevos nodos de trabajo.
 
 ### <a name="cluster-scale-down"></a>Reducción vertical de clústeres
 
@@ -113,7 +119,7 @@ Cuando se detectan las condiciones siguientes, Escalabilidad automática emitir�
 * El total de CPU pendiente es menor que el total de CPU libre durante más de 10 minutos.
 * El total de memoria pendiente es menor que el total de memoria libre durante más de 10 minutos.
 
-En función del número de contenedores de AM por nodo, así como los requisitos actuales de CPU y memoria, Escalabilidad automática emitirá una solicitud para quitar N nodos, especificando los nodos que son posibles candidatas para eliminarse. De manera predeterminada, se eliminarán dos nodos en un ciclo.
+En función del número de contenedores de AM por nodo, así como los requisitos actuales de CPU y memoria, Escalabilidad automática emitirá una solicitud para quitar un determinado número nodos, especificando los nodos que son posibles candidatos para eliminarse. De manera predeterminada, se eliminarán dos nodos en un ciclo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

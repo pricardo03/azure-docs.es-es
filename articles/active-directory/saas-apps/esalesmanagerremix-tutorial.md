@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e2bc0c7e590796a533d9f593eb61e57def91fc8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442836"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188005"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integración de Azure Active Directory con E Sales Manager Remix
 
@@ -100,7 +100,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. En el cuadro **Sign-on URL** (Dirección URL de registro), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>/esales-pc*.
+     a. En el cuadro **Sign-on URL** (Dirección URL de registro), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>/esales-pc*.
 
     b. En el cuadro **Identifier** (Identificador), escriba una dirección URL con el siguiente formato: *https://\<URL-basada-en-servidor>/\<subdominio>*.
 
@@ -153,7 +153,7 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Sección "SAML authentication setting"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-    a. Seleccione la casilla **PC version** (Versión de PC).
+     a. Seleccione la casilla **PC version** (Versión de PC).
     
     b. En la sección **Collaboration item** (Elemento de colaboración), en la lista desplegable, seleccione **email**.
 
@@ -197,7 +197,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
 
     ![Ventana Usuario](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -221,7 +221,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
     
     ![Sección "New employee registration"](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. En el cuadro **Employee Name** (Nombre de empleado), escriba el nombre del usuario (por ejemplo, **Britta**).
+     a. En el cuadro **Employee Name** (Nombre de empleado), escriba el nombre del usuario (por ejemplo, **Britta**).
 
     b. Rellene los demás campos necesarios.
     
@@ -267,7 +267,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al seleccionar el icono de E Sales Manager Remix en el panel de acceso, debería iniciar sesión automáticamente en la aplicación E Sales Manager Remix.
 
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

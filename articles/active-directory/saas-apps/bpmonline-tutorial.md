@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Bpm’online | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Bpm’online | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bpm’online.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6fe50b24a20f81500ac1ed5008fcb6c59c0243a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 97b0530f3a260b4ad82c4287b4b37595ab1cf25d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187341"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: integración de Azure Active Directory con Bpm’online
+# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: Integración de Azure Active Directory con Bpm’online
 
 En este tutorial, aprenderá a integrar Bpm’online con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre el dominio y las direcciones URL de inicio de sesión único de Bpm’online](./media/bpmonline-tutorial/tutorial_bpmonline_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<client site name>.bpmonline.com/`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<client site name>.bpmonline.com/`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`.
 
@@ -123,7 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Bpm’online](mailto:support@bpmonline.com) para obtener estos valores. 
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/bpmonline-tutorial/tutorial_metadataurl.png)
      
@@ -157,7 +157,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/bpmonline-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-bpmonline-test-user"></a>Creación de un usuario de prueba de Bpm’online
 
-En esta sección se crea un usuario llamado Britta Simon en Bpm’online. Trabaje con el [equipo de soporte técnico de Bpm’online](mailto:support@bpmonline.com) para agregar los usuarios a la plataforma de Bpm’online. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección se crea un usuario llamado Britta Simon en Bpm’online. Trabaje con el [equipo de soporte técnico de Bpm’online](mailto:support@bpmonline.com) para agregar los usuarios a la plataforma de Bpm’online. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -204,7 +204,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Bpm’online en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Bpm’online.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

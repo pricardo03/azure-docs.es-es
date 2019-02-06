@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f63a42afd9dc629bd87dfb23e07e14737ea42a2f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393271"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299850"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
  
@@ -169,7 +169,7 @@ Los datos de las tablas de un esquema de estrella proporcionan todos los datos d
 Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteriormente:
 
 1. Lance Power BI Desktop.
-2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…** en el menú.
+2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…**  en el menú.
 3. En la ventana **Obtener datos**, seleccione Azure SQL Database.
 4. En la ventana de inicio de sesión de la base de datos, escriba el nombre del servidor (catalog-dpt-&lt;Usuario&gt;.database.windows.net). Seleccione **Importar** en **Modo Conectividad de datos** y después haga clic en Aceptar. 
 

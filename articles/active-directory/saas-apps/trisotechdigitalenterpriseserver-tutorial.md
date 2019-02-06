@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e36a4be3a95b67c040855171d4b167e495a22496
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3f90da177f46246d1a7453796b7b9a9c93f4a21
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439633"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integración de Azure Active Directory con Trisotech Digital Enterprise Server
 
@@ -108,7 +108,7 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de inicio de sesión único de dominio y direcciones URL de Trisotech Digital Enterprise Server](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`
 
@@ -137,7 +137,7 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Configurar inicio de sesión único](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
-    a. Seleccione **Secured Assertion Markup Language 2 (SAML 2)** en la lista desplegable **Authentication Method** (Método de autenticación).
+     a. Seleccione **Secured Assertion Markup Language 2 (SAML 2)** en la lista desplegable **Authentication Method** (Método de autenticación).
 
     b. En el cuadro de texto **URL de metadatos**, pegue el valor de **Dirección URL de metadatos de federación de la aplicación** que copió en Azure Portal.
 
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -185,7 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Trisotech Digital Enterprise Server. Trisotech Digital Enterprise Server admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Trisotech Digital Enterprise Server, se crea un nuevo usuario, en caso de que no exista.
 >[!Note]
->Si tiene que crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
+>Si tiene que crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -222,7 +222,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Trisotech Digital Enterprise Server en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Trisotech Digital Enterprise Server.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e11c97ecb33c1b1a37891a521c0375b39ad8a956
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52b89fd830d18c595e29549432514fd60bbc6df9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439925"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158713"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integración de Azure Active Directory con Montage Online
 
@@ -108,7 +108,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Montage Online](./media/montageonline-tutorial/tutorial_montageonline_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
 
     Para un entorno de producción: `https://<subdomain>.montageonline.co.nz/`
 
@@ -161,7 +161,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/montageonline-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-montage-online-test-user"></a>Crear un usuario de prueba de Montage Online
 
-En esta sección se crea un usuario denominado Britta Simon en Montage Online. Trabaje con el [equipo de soporte técnico de Montage Online](https://www.montage.co.nz/contact-us/) para agregar los usuarios a la plataforma de Montage Online. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección se crea un usuario denominado Britta Simon en Montage Online. Trabaje con el  [equipo de soporte técnico de Montage Online](https://www.montage.co.nz/contact-us/) para agregar los usuarios a la plataforma de Montage Online. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -208,7 +208,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Montage Online en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Montage Online.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

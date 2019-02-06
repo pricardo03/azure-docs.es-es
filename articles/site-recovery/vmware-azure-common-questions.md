@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478114"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212246"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -42,6 +42,9 @@ Puede usar una cuenta de almacenamiento LRS o GRS. Se recomienda GRS para que lo
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>¿La cuenta de Azure necesita permisos para crear máquinas virtuales?
 Si es administrador de una suscripción, ya tiene los permisos de replicación que necesita. Si no es así, necesita permisos para crear una máquina virtual de Azure en el grupo de recursos y en la red virtual que especifica al configurar Site Recovery, además de permisos para escribir en la cuenta de almacenamiento seleccionada. [Más información](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>¿Es posible usar la licencia de servidor de SO invitado en Azure?
+Sí, los clientes de Microsoft Software Assurance pueden usar la Ventaja híbrida de Azure para ahorrar en los costos de licencia de **máquinas Windows Server** que se migran a Azure o usar Azure para la recuperación ante desastres.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Actualización de componentes de Azure Site Recovery
 
@@ -250,7 +253,7 @@ Sí, si conmutó por error en Azure, puede conmutar por recuperación en otra ub
 Cuando conmuta por recuperación desde Azure, los datos provenientes de Azure se copia nuevamente en la máquina virtual local y se requiere acceso privado.
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>¿Puedo cambiar el tamaño de la máquina virtual de Azure después de la conmutación por error?
-No, no se puede cambiar el tamaño de la máquina virtual de destino después de la conmutación por error.
+No, no se puede cambiar el tamaño ni el tipo de la máquina virtual de destino después de la conmutación por error.
 
 
 ## <a name="automation-and-scripting"></a>Automatización y scripts

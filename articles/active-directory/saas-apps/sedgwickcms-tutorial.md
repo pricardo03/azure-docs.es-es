@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Sedgwick CMS | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Sedgwick CMS | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Sedgwick CMS.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 611a877b44093efe7384400ffcc8dec76338c9f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820503"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: Integración de Azure Active Directory con Sedgwick CMS
 
@@ -137,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **Sedgwick CMS**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Sedgwick CMS](https://www.sedgwick.com/help). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

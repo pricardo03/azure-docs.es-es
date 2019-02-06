@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437855"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integración de Azure Active Directory con SignalFx
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://api.signalfx.com/v1/saml/metadata`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://api.signalfx.com/v1/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api.signalfx.com/v1/saml/acs/<integration ID>`.
 
@@ -128,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | PersonImmutableID       | user.userprincipalname    |
     | User.LastName       | user.surname    |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar la adición del inicio de sesión único](./media/signalfx-tutorial/tutorial_attribute_04.png)
 
@@ -146,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo de descarga del certificado](./media/signalfx-tutorial/tutorial_signalfx_certificate.png)
 
-    a. Haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+     a. Haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
     b. Haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -172,7 +172,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
-    a. En el cuadro de texto **Nombre**, escriba un nuevo nombre de integración, como **OurOrgName SAML SSO**.
+     a. En el cuadro de texto **Nombre**, escriba un nuevo nombre de integración, como **OurOrgName SAML SSO**.
 
     b. Copie el valor de **Id. de integración** y anexe la **URL de respuesta** como `https://api.signalfx.com/v1/saml/acs/<integration ID>` en el cuadro de texto **URL de respuesta** de **Dominio y direcciones URL de SignalFx** de Azure portal.
 
@@ -208,7 +208,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/signalfx-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -223,7 +223,7 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en SignalF
 Cuando un usuario inicia sesión en SignalFx desde SSO de SAML por primera vez, [el equipo de soporte técnico de SignalFx](mailto:kmazzola@signalfx.com) envía un correo electrónico con un vínculo en el que debe hacer clic para autenticarse. Esto solo ocurrirá la primera vez que el usuario inicie sesión; los intentos de inicio de sesión posteriores no requerirán la validación del correo electrónico.
 
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de SignalFx](mailto:kmazzola@signalfx.com).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de SignalFx](mailto:kmazzola@signalfx.com)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -260,7 +260,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de SignalFx en el panel de acceso, debería iniciar sesión automáticamente en la aplicación SignalFx.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

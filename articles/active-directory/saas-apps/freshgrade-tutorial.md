@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con FreshGrade | Microsoft Azure'
+title: 'Tutorial: Integración de Azure Active Directory con FreshGrade | Microsoft Azure'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FreshGrade.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c6439b31d2f8c95e0dc1526b92f21aee2966f12f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1861dfb23d105fa6b403095b5fc36d1f2a894fe9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436366"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152562"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: integración de Azure Active Directory con FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integración de Azure Active Directory con FreshGrade
 
 En este tutorial, aprenderá cómo integrar FreshGrade con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/freshgrade-tutorial/tutorial_freshgrade_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
       | |
       |--|
       | `https://<subdomain>.freshgrade.com/login` |
@@ -127,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de clientes de FreshGrade](mailTo:support@freshgrade.com) .
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/freshgrade-tutorial/tutorial_metadataurl.png)
      
@@ -164,7 +164,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/freshgrade-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

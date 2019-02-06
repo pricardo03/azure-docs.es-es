@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 118cdf11b08b1cd964bfae7ae2b3c5600b27fb7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159051"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integración de Azure Active Directory con Replicon
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información acerca del inicio de sesión único de dominio y direcciones URL de Replicon](./media/replicon-tutorial/tutorial_replicon_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://global.replicon.com/<companyname>`
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Habilitar la autenticación SAML](./media/replicon-tutorial/ic777805.png "Habilitar la autenticación SAML")
 
-    a. Para mostrar el cuadro de diálogo **EnableSAML Authentication2** (Habilitar SAML Authentication2), agregue lo siguiente a la URL después de la clave de su compañía: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+     a. Para mostrar el cuadro de diálogo **EnableSAML Authentication2** (Habilitar SAML Authentication2), agregue lo siguiente a la URL después de la clave de su compañía: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
     * Lo siguiente muestra el esquema de la dirección URL completa: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/replicon-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -195,7 +195,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
     ![Perfil de usuario](./media/replicon-tutorial/ic777808.png "Perfil de usuario")
 
-    a. En el cuadro de texto **Nombre de inicio de sesión**, escriba la dirección de correo electrónico del usuario de Azure AD que quiera aprovisionar, como **BrittaSimon@contoso.com**.
+     a. En el cuadro de texto **Nombre de inicio de sesión**, escriba la dirección de correo electrónico del usuario de Azure AD que quiera aprovisionar, como **BrittaSimon@contoso.com**.
 
     b. En **Tipo de autenticación,** seleccione **SSO**.
 

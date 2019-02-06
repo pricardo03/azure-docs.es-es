@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452265"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301601"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -59,9 +59,9 @@ China | Este de China, Norte de China, Norte de China 2 y Este de China 2
 >
 > - Para la región **Sur de Brasil**, puede replicar y conmutar por error en una de las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU. Debe tenerse en cuenta que Site Recovery solo ha habilitado el Sur de Brasil para su uso como región de origen desde donde se pueden proteger las VM. **No puede usarse como región de recuperación ante desastres de destino** en ninguna de las regiones de Azure, como Centro-sur de EE. UU. Se debe a que se recomienda que la latencia observada debido a la distancia geográfica seleccione una región americana que no sea el Sur de Brasil.
 > 
-> - Si **no puede ver una región** donde quiere **crear un almacén**, asegúrese de que su suscripción tenga acceso para crear recursos en esa región. Por ejemplo:  Si no puede crear un almacén en el Sur de Francia, la suscripción no tiene acceso a la región Sur de Francia. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir en la lista blanca la suscripción a la región de Azure XXX"
+> - Si **no puede ver una región** donde quiere **crear un almacén**, asegúrese de que su suscripción tenga acceso para crear recursos en esa región. Por ejemplo:  Si no puede crear un almacén en el Sur de Francia, la suscripción no tiene acceso a la región Sur de Francia. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir suscripción a la lista de permitidos de la región de Azure XXX"
 > 
-> - Si **no puede ver una región** dentro de un clúster geográfico **durante la habilitación de la replicación**, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Por ejemplo:  Si intenta proteger máquinas virtuales del Centro de Francia al Sur de Francia y no ve Sur de Francia en la lista desplegable de regiones, su suscripción no tiene acceso para implementar VM en esa región. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir en la lista blanca la suscripción a la región de Azure XXX"
+> - Si **no puede ver una región** dentro de un clúster geográfico **durante la habilitación de la replicación**, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Por ejemplo:  Si intenta proteger máquinas virtuales del Centro de Francia al Sur de Francia y no ve Sur de Francia en la lista desplegable de regiones, su suscripción no tiene acceso para implementar VM en esa región. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir suscripción a la lista de permitidos de la región de Azure XXX"
 > - No puede seleccionar las regiones en los clústeres geográficos mencionados anteriormente.
 
 
@@ -108,15 +108,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
+14.04 LTS | 9.22 | 3.13.0-24-generic a 3.13.0-164-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-140-generic,<br/>4.15.0-1023-azure a 4.15.0-1036-azure |
 14.04 LTS | 9.21 | 3.13.0-24-generic a 3.13.0-163-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-140-generic,<br/>4.15.0-1023-azure a 4.15.0-1035-azure |
 14.04 LTS | 9.20 | 3.13.0-24-generic a 3.13.0-161-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-138-generic,<br/>4.15.0-1023-azure a 4.15.0-1030-azure |
 14.04 LTS | 9.19 | 3.13.0-24-generic a 3.13.0-153-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-131-generic |
-14.04 LTS | 9.18 | 3.13.0-24-generic a 3.13.0-151-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-128-generic |
 |||
+16.04 LTS | 9.22 | 4.4.0-21-generic a 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-43-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1036-azure|
 16.04 LTS | 9.21 | 4.4.0-21-generic a 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-42-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1035-azure|
 16.04 LTS | 9.20 | 4.4.0-21-generic a 4.4.0-138-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-38-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1030-azure|
 16.04 LTS | 9.19 | 4.4.0-21-generic a 4.4.0-131-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1019-azure|
-16.04 LTS | 9.18 | 4.4.0-21-generic a 4.4.0-128-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure |
 
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Debian admitidas para máquinas virtuales de Azure

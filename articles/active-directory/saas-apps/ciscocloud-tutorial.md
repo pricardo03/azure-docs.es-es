@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: db1cea1d-ff0a-4f0d-b5fd-50ca32702d56
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: e5d7e195a3f61d32387d1101fbb24bfa1ac8bccb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c5809426da95e2295c5bf318b6f17345002f536d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431239"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integración de Azure Active Directory con Cisco Cloud
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Cisco Cloud](./media/ciscocloud-tutorial/tutorial_ciscocloud_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `<subdomain>.cisco.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `<subdomain>.cisco.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.cisco.com/sp/ACS.saml2`.
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | country      |user.country |
     | company      |user.companyname |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     e. Haga clic en **Aceptar**.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
     ![Vínculo de descarga del certificado](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
@@ -181,7 +181,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/ciscocloud-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-cisco-cloud-test-user"></a>Creación de un usuario de prueba de Cisco Cloud
 
-En esta sección, creará un usuario llamado Britta Simon en Cisco Cloud. Trabaje con el [equipo de soporte técnico de Cisco Cloud](mailto:cpr-ops@cisco.com) para añadir los usuarios a la plataforma de Cisco Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Cisco Cloud. Trabaje con el  [equipo de soporte técnico de Cisco Cloud](mailto:cpr-ops@cisco.com) para añadir los usuarios a la plataforma de Cisco Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -228,7 +228,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Cisco Cloud en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Cisco Cloud.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.date: 01/25/2019
+ms.openlocfilehash: 7a5245a9c97748e7b46132eaaa91f6bbc8311266
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890218"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475149"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configuración y uso de Log Analytics con la aplicación SaaS de SQL Database multiinquilino
 
@@ -104,7 +104,7 @@ En este ejercicio, abra Log Analytics en Azure Portal para observar la telemetr�
 
     ![Filtro de tiempo](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Seleccione una base de datos única para explorar las métricas y el uso de consultas para esa base de datos.
+1. Seleccione una base de datos individual para explorar las métricas y el uso de consultas para esa base de datos.
 
     ![Análisis de base de datos](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 

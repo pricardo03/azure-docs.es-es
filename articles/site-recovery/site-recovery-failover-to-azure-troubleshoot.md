@@ -1,26 +1,22 @@
 ---
 title: Solución de problemas de conmutación por error en Azure | Microsoft Docs
 description: En este artículo se describe cómo solucionar problemas y errores comunes de la conmutación por error en Azure
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207503"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solución de problemas y errores cuando una máquina virtual se conmuta por error en Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
 Es posible que aparezca uno de los errores siguientes mientras se realiza la conmutación por error de una máquina virtual en Azure. Para solucionar los problemas, use los pasos que se describen para cada condición de error.
 
@@ -48,7 +44,9 @@ Site Recovery no pudo crear una máquina virtual clásica conmutada por error en
 
 Site Recovery no pudo crear una máquina virtual conmutada por error en Azure. Esto podría suceder porque se produjo un error en una actividad interna de hidratación de la máquina virtual local.
 
-Para mostrar todas las máquinas de Azure, el entorno de Azure requiere que algunos de los controladores tengan el estado de inicio de arranque y que servicios como DHCP tengan el estado de inicio automático. Por lo tanto, la actividad hidratación, en el momento de la conmutación por error, convierte el tipo de inicio de **atapi, intelide, storflt, vmbus, and storvsc drivers** en el inicio del arranque. También se convierte el tipo de inicio de una serie de servicios, como DHCP, para iniciarse automáticamente. Esta actividad puede producir un error debido a problemas específicos del entorno. Para cambiar manualmente el tipo de inicio de los controladores, siga estos pasos:
+Para mostrar todas las máquinas de Azure, el entorno de Azure requiere que algunos de los controladores tengan el estado de inicio de arranque y que servicios como DHCP tengan el estado de inicio automático. Por lo tanto, la actividad hidratación, en el momento de la conmutación por error, convierte el tipo de inicio de **atapi, intelide, storflt, vmbus, and storvsc drivers** en el inicio del arranque. También se convierte el tipo de inicio de una serie de servicios, como DHCP, para iniciarse automáticamente. Esta actividad puede producir un error debido a problemas específicos del entorno. 
+
+Para cambiar manualmente el tipo de inicio de los controladores para el **sistema operativo invitado de Windows**, siga estos pasos:
 
 1. [Descargue](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) el script de no hidratación y ejecútelo de esta forma. Este script comprueba si la máquina virtual requiere hidratación.
 

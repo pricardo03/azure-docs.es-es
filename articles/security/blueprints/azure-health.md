@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315781"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103079"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
@@ -48,7 +48,7 @@ Este proyecto está diseñado para servir como base modular para que los cliente
 
 -   **Diagrama de arquitectura.** El diagrama muestra la arquitectura de referencia utilizada en el proyecto y el escenario del caso de uso de ejemplo.
 
--   [Extensión de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   Esta solución mostrará cómo migrar una solución SQL local a Azure e implementar una estación de trabajo de acceso con privilegios para administrar de forma segura soluciones y servicios basados en la nube. 
+-   [Extensión de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   Esta solución mostrará cómo migrar una solución SQL local a Azure y cómo implementar una estación de trabajo de acceso con privilegios para administrar de forma segura soluciones y servicios basados en la nube. 
 
 ## <a name="solution-components"></a>Componentes de soluciones
 

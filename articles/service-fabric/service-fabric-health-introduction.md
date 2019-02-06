@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215237"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194294"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
 Azure Service Fabric presenta un modelo de mantenimiento que proporciona informes y datos de evaluación del mantenimiento completos, flexibles y extensibles. El modelo permite la supervisión casi en tiempo real del estado tanto del clúster como de los servicios que se ejecutan en él. Puede obtener con facilidad información sobre el mantenimiento, y corregir posibles problemas antes de que se propaguen y causen interrupciones masivas. En el modelo típico, los servicios envían informes basados en sus vistas locales, y dicha información se agrega para proporcionar una vista general del nivel del clúster.
@@ -46,7 +46,7 @@ Las entidades de mantenimiento son un reflejo las entidades de Service Fabric (p
 Las entidades de mantenimiento y la jerarquía permiten depurar, supervisar y realizar informes tanto del clúster como de las aplicaciones. El modelo de mantenimiento proporciona una representación *pormenorizada* y precisa del mantenimiento de las numerosas piezas móviles del clúster.
 
 ![Entidades de mantenimiento.][1]
-Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
+ Las entidades de mantenimiento, organizadas en una jerarquía basada en relaciones entre elementos primarios y secundarios.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 

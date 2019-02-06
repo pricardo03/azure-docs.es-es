@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7010023-bdda-4a19-a335-19904e75b813
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: fd17282783f9701f7365a5fb1d37f4a2263134e9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1c4cc0517ad55cd3be862e974a0a707ef871d805
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422348"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integración de Azure Active Directory con TrackVia
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de TrackVia](./media/trackvia-tutorial/configure1.png)
 
-    a. En el cuadro de texto **Identity Provider Entity ID** (Identificador de entidad del proveedor de identidad), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
+     a. En el cuadro de texto **Identity Provider Entity ID** (Identificador de entidad del proveedor de identidad), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
 
     b. Seleccione **Choose File** (Elegir archivo) para cargar el archivo de metadatos que descargó de Azure Portal.
 
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/trackvia-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 

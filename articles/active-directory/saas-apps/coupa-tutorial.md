@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4bf40f76f5a8f788305b4dc9f91523f53fb59acf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50d2e6a7ae1f34232a20e244ac65c2d3678f4f97
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448091"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integración de Azure Active Directory con Coupa
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Coupa](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.coupahost.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.coupahost.com`.
 
     > [!NOTE]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Coupa](https://success.coupa.com/Support/Contact_Us?) para obtener este valor.
@@ -149,7 +149,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Metadatos SP de Coupa](./media/coupa-tutorial/ic791901.png "Metadatos SP de Coupa")
 
-    a. Seleccione **Iniciar sesión con SAML**.
+     a. Seleccione **Iniciar sesión con SAML**.
 
     b. Haga clic en **Browse** (Examinar) para cargar los metadatos de Azure Portal.
 
@@ -179,7 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/coupa-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -209,7 +209,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
 
    ![Detalles del usuario](./media/coupa-tutorial/ic791910.png "Detalles del usuario")
 
-   a. En los cuadros de texto relacionados, escriba los atributos **Nombre de usuario**, **Nombre**, **Apellidos**, **Id. de inicio de sesión único**, **Correo electrónico** de una cuenta válida de Azure Active Directory que quiera aprovisionar.
+    a. En los cuadros de texto relacionados, escriba los atributos **Nombre de usuario**, **Nombre**, **Apellidos**, **Id. de inicio de sesión único**, **Correo electrónico** de una cuenta válida de Azure Active Directory que quiera aprovisionar.
 
    b. Haga clic en **Create**(Crear).
 
@@ -255,7 +255,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Coupa en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de Coupa.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

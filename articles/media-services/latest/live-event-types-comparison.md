@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725939"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153970"
 ---
-# <a name="liveevent-types-comparison"></a>Comparación de tipos de objetos LiveEvent
+# <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
-En Azure Media Services, un objeto [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: codificación en directo y paso a través. 
+En Azure Media Services, los objetos [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pueden ser de uno de estos dos tipos: codificación en directo y paso a través. 
 
 ## <a name="types-comparison"></a>Comparación de tipos 
 
-En la tabla siguiente se comparan las características de dos tipos de objetos LiveEvent.
+En la tabla siguiente se comparan las características de dos tipos de LiveEvent.
 
-| Característica | LiveEvent con paso a través | LiveEvent estándar |
+| Característica | LiveEvent de paso a través | LiveEvent estándar |
 | --- | --- | --- |
 | La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
 | Resolución de vídeo máxima para la fuente de contribución |4 K (4096 x 2160 en 60 fotogramas por segundo) |1080 p (1920 x 1088 en 30 fotogramas por segundo)|

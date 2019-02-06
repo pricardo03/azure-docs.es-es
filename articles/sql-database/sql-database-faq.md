@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541630"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463963"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre SQL Database
 
@@ -141,9 +141,9 @@ Tan a menudo como desee. Consulte [Administración de grupos elásticos](sql-dat
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>¿Cuánto tiempo se tarda en cambiar el nivel de servicio o el tamaño de proceso de una base de datos única? ¿Y en mover una base de datos dentro y fuera de un grupo elástico?
 
-Para cambiar el nivel de servicio de una base de datos e incorporarla y retirarla de un grupo es necesario copiar la base de datos en la plataforma como operación en segundo plano. Cambiar el nivel de servicio puede tardar desde solo unos minutos hasta varias horas, según el tamaño de las bases de datos. En ambos casos, las bases de datos permanecen en línea y disponibles durante el traslado. Para más información sobre cómo cambiar las bases de datos únicas, consulte [Cambiar el nivel de servicio de una base de datos](sql-database-service-tiers-dtu.md).
+Para cambiar el nivel de servicio de una base de datos e incorporarla y retirarla de un grupo es necesario copiar la base de datos en la plataforma como operación en segundo plano. Cambiar el nivel de servicio puede tardar desde solo unos minutos hasta varias horas, según el tamaño de las bases de datos. En ambos casos, las bases de datos permanecen en línea y disponibles durante el traslado. Para más información sobre cómo cambiar las bases de datos únicas, consulte [Cambiar el nivel de servicio de una base de datos](sql-database-single-database-scale.md).
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>¿Cuándo es necesario usar bases de datos elásticas y cuándo una base de datos única?
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>¿Cuándo es necesario usar bases de datos únicas frente a grupos elásticos?
 
 En general, los grupos elásticos están diseñados para un [patrón de aplicación de software como servicio (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md) típico, donde hay una base de datos por cliente o inquilino. Comprar bases de datos individuales y aprovisionarlas en exceso para cubrir todas las variables y la demanda máxima no resulta rentable. Con los grupos, el rendimiento colectivo del grupo y el escalado horizontal y reducción vertical de las bases de datos se administra automáticamente. El motor inteligente de Azure recomendará un grupo para las bases de datos si un patrón de uso lo garantiza. Para más información, consulte la [guía de grupos elásticos](sql-database-elastic-pool.md).
 

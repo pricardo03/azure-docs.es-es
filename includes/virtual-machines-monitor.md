@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404692"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147985"
 ---
 Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) y [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -41,7 +41,7 @@ Puede crear [alertas](../articles/azure-monitor/platform/alerts-overview.md) bas
 
 [Azure Resource health](../articles/service-health/resource-health-overview.md) ayuda a diagnosticar si un problema de Azure afecta a los recursos y, en su caso, a obtener soporte técnico. Le informa acerca del mantenimiento actual y pasado de los recursos y le ayuda a mitigar los problemas. Resource Health le proporciona soporte técnico si necesita ayuda con los problemas de los servicios de Azure.
 
-## <a name="logs"></a>Registros
+## <a name="azure-activity-log"></a>Azure Activity Log
 
 [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md) es un registro de suscripción que proporciona información sobre los eventos de nivel de suscripción que se han producido en Azure. Este registro incluye una serie de datos, desde datos operativos de Azure Resource Manager hasta actualizaciones en eventos de Service Health. Puede hacer clic en Activity Log, en Azure Portal, para ver el registro de la máquina virtual.
 
@@ -64,11 +64,13 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) es un servicio que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Recopila los datos generados por los recursos en los entornos local y de nube y mediante otras herramientas de supervisión, para proporcionar análisis entre varios orígenes. Puede instalar una extensión en una [máquina virtual Linux](../articles/virtual-machines/linux/extensions-oms.md) o [Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala el agente de Log Analytics e inscribe la máquina virtual en un área de trabajo de Log Analytics existente.
+- [Azure Monitor](../articles/azure-monitor/overview.md) es un servicio que supervisa los entornos local y en la nube para mantener su disponibilidad y rendimiento. Ofrece una solución completa para recopilar, analizar y actuar en la telemetría desde los entornos local y en la nube. Esta solución le ayudará a entender cómo funcionan las aplicaciones y le permitirá identificar de manera proactiva los problemas que les afectan y los recursos de los que dependen. Puede instalar una extensión en una [máquina virtual Linux](../articles/virtual-machines/linux/extensions-oms.md) o en una [máquina virtual Windows](../articles/virtual-machines/windows/extensions-oms.md) que instala el agente de Log Analytics para recopilar los datos del registro y almacenarlos en un área de trabajo de Log Analytics.
 
-    En máquinas virtuales Windows y Linux, para recopilar registros y métricas se recomienda instalar el agente de Log Analytics. Para instalar al agente de Log Analytics en una máquina virtual, lo más sencillo es utilizar la [extensión de VM de Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). El uso de una extensión simplifica el proceso de instalación y configura automáticamente el agente para enviar datos al área de trabajo de Log Analytics que especifique. El agente también se actualiza automáticamente, garantizando así que disponga de las características y correcciones más recientes.
+    En el caso de las máquinas virtuales Windows y Linux, para recopilar registros se recomienda instalar el agente de Log Analytics. Para instalar al agente de Log Analytics en una máquina virtual, lo más sencillo es utilizar la [extensión de VM de Log Analytics](../articles/log-analytics/log-analytics-azure-vm-extension.md). El uso de una extensión simplifica el proceso de instalación y configura automáticamente el agente para enviar datos al área de trabajo de Log Analytics que especifique. El agente también se actualiza automáticamente, garantizando así que disponga de las características y correcciones más recientes.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) le permite supervisar la máquina virtual y sus recursos asociados, ya que afectan a la red en la que se encuentran. Puede instalar la extensión Network Watcher Agent en una [máquina virtual Linux](../articles/virtual-machines/linux/extensions-nwa.md) o una [máquina virtual Windows](../articles/virtual-machines/windows/extensions-nwa.md).
+
+- La solución [Azure Monitor para VM](../articles/azure-monitor/insights/vminsights-overview.md) supervisa las máquinas virtuales de Azure a escala y analiza el rendimiento y el estado de las máquinas virtuales de Windows y Linux, incluidos los diferentes procesos y las dependencias interconectadas con otros recursos y con procesos externos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Siga los pasos de [Supervisión de una máquina virtual Windows con Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) o de [Supervisión de una máquina Virtual Linux con la CLI de Azure](../articles/virtual-machines/linux/tutorial-monitoring.md).

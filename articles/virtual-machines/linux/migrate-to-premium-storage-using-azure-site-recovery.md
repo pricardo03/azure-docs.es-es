@@ -9,13 +9,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.component: disks
-ms.openlocfilehash: 5c7a136149bac2fb5b6368bf891e5d8021e12bdd
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.subservice: disks
+ms.openlocfilehash: 6b5605a8e3a80d597a4a4a78d015fa556c282357
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715359"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465731"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -80,10 +80,10 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
 2. Seleccione **Crear un recurso** > **Administración** > **Backup** and **Site Recovery (OMS)**. También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**. 
 3. Especifique la región en la que se van a replicar las máquinas virtuales. A efectos de la migración en la misma región, seleccione la región donde están máquinas virtuales de origen y las cuentas de almacenamiento de origen. 
 
-### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Elección de objetivos de protección 
+### <a name="step-2-choose-your-protection-goals"></a>Paso 2: Selección de los objetivos de protección 
 
 1. En la máquina virtual en la que desea instalar el servidor de configuración, abra [Azure Portal](https://portal.azure.com).
-2. Vaya a **Almacenes de Recovery Services** > **Configuración** > **Site Recovery** > **Paso 1: Preparación de infraestructura** > **Objetivo de protección**.
+2. Vaya a **Almacenes de Recovery Services** > **Configuración** > **Site Recovery** > **Paso 1: Preparar la infraestructura**** > Objetivo de protección**.
 
    ![Desplazamiento al panel Objetivo de protección][2]
 
@@ -185,7 +185,7 @@ Cuando la replicación inicial haya finalizado, ejecute una conmutación por err
 
 El estado de la conmutación por error de prueba se puede ver en **Configuración** > **Trabajos** > *nombreDeSuPlanDeConmutaciónPorError*. En el panel, verá un desglose de los pasos y los resultados correctos o con errores. Si se produce un error en la conmutación por error de prueba en cualquier paso, seleccione el paso para comprobar el mensaje de error. 
 
-### <a name="step-9-run-a-failover"></a>Paso 9: Ejecución de una conmutación por error
+### <a name="step-9-run-a-failover"></a>Paso 9: Ejecución de la conmutación por error
 
 Después de realizada la conmutación por error de prueba, ejecute una conmutación por error para migrar los discos a Premium Storage y replicar las instancias de máquinas virtuales. Siga los pasos detallados de [Ejecución de la conmutación por error](../../site-recovery/site-recovery-failover.md#run-a-failover). 
 
@@ -196,8 +196,8 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 ## <a name="post-migration-steps"></a>Pasos posteriores a la migración
 
 1. **Configure máquinas virtuales replicadas en el conjunto de disponibilidad, si procede**. Site Recovery no admite la migración de máquinas virtuales junto con el conjunto de disponibilidad. Dependiendo de la implementación de la máquina virtual replicada, realice una de las siguientes acciones:
-   * En el caso de una máquina virtual creada mediante el modelo de implementación clásico: agregue la máquina virtual al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../linux/classic/configure-availability-classic.md).
-   * En el caso de una máquina virtual creada mediante el modelo de implementación de Resource Manager: guarde la configuración de la máquina virtual y, después, elimine las máquinas virtuales y vuelva a crearlas en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Antes de ejecutar este script, compruebe sus limitaciones y planee el tiempo de inactividad.
+   * Para una VM creada con el modelo de implementación clásica: agregue la VM al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../linux/classic/configure-availability-classic.md).
+   * Para una VM creada con el modelo de implementación de Resource Manager: guarde la configuración de la VM y, después, elimine y vuelva a crear las VM en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Antes de ejecutar este script, compruebe sus limitaciones y planee el tiempo de inactividad.
 
 2. **Elimine las máquinas virtuales y los discos antiguos**. Asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. Elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Troubleshoot storage resource deletion errors](storage-resource-deletion-errors.md) (Solución de errores de eliminación de recursos de almacenamiento).
 
@@ -220,7 +220,7 @@ Consulte también los siguientes recursos para más información sobre Azure Sto
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md)
+* [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de la máquina virtual de Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

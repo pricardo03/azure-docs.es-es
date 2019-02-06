@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c66985c7a1d9084ab2a264b1ba799b1fdfa3b0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 421031713a8c0677670a13d8190aec7c0113043a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integración de Azure Active Directory con Reviewsnap
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Reviewsnap](./media/reviewsnap-tutorial/tutorial_reviewsnap_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://app.reviewsnap.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://app.reviewsnap.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
 `.
@@ -160,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/reviewsnap-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -170,7 +170,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-reviewsnap-test-user"></a>Crear un usuario de prueba en Reviewsnap
 
-En esta sección, creará un usuario llamado Britta Simon en Reviewsnap. Colabore con el [equipo de soporte técnico de Reviewsnap](mailto:support@reviewsnap.com) para agregar usuarios en la plataforma Reviewsnap. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Reviewsnap. Colabore con el  [equipo de soporte técnico de Reviewsnap](mailto:support@reviewsnap.com) para agregar usuarios en la plataforma Reviewsnap. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -207,7 +207,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Reviewsnap en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Reviewsnap.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

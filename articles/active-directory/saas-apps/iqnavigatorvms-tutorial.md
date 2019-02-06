@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445129"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integración de Azure Active Directory con IQNavigator VMS
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `iqn.com`
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `iqn.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`.
 
@@ -125,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL de respuesta y el estado de la retransmisión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de cliente de IQNavigator VMS](https://www.beeline.com/iqn-product-support/).
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la  **dirección URL de metadatos de federación de la aplicación**  y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
@@ -166,7 +166,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/iqnavigatorvms-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262224"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297147"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -19,7 +19,7 @@ Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **VMware**: Las VM que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0, 6.5 o 6.7. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador.
+- **VMware**: Las VM que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0, 6.5 o 6.7. Además, necesita un host de ESXi que ejecute la versión 5.5 o posterior para implementar la máquina virtual del recopilador.
 - **Cuenta de vCenter**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
 - **Permisos**: en vCenter Server necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato .OVA.
 - **Configuración de las estadísticas**: este requisito solo es aplicable al [modelo de detección de una sola vez](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), que actualmente está en desuso. Para el modelo de detección de un solo uso, la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. El nivel estadístico se establecerá en 3 para cada uno de los intervalos de colección de día, semana y mes. Si el nivel es inferior a 3 en cualquiera de los tres intervalos de colección, la valoración funcionará, pero los datos de rendimiento de almacenamiento y red no se recopilarán. Las recomendaciones de tamaño se basarán entonces en los datos de rendimiento de CPU y memoria y en los datos de configuración de discos y adaptadores de red.

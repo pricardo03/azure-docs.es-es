@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Supermood | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Supermood | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Supermood.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: afc04efa-2eba-4e47-8ce4-b71eb293cd09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 98a39c52f206f19d3330695fd05f9a96c0bf4d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 54a1f4a8ef0ec4381374585df57dc62490337190
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443357"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integración de Azure Active Directory con Supermood
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Supermood](./media/supermood-tutorial/tutorial_supermood_url.png)
 
-    a. Active **Mostrar configuración avanzada de URL**.
+     a. Active **Mostrar configuración avanzada de URL**.
 
     b. Si quiere configurar la aplicación en modo iniciado por **IDP**, en el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL: `https://supermood.co/auth/sso/saml20`
 
@@ -125,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | firstName | user.givenname |
     | lastName | user.surname |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/supermood-tutorial/tutorial_attribute_04.png)
 
@@ -160,7 +160,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![SAML del certificado](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
-    a. En el cuadro de texto **email domain for this Identity provider** (dominio de correo electrónico para este proveedor de identidades), escriba su dominio.
+     a. En el cuadro de texto **email domain for this Identity provider** (dominio de correo electrónico para este proveedor de identidades), escriba su dominio.
 
     b. En el cuadro de texto **Use a metadata URL** (Utilizar una dirección URL de metadatos), pegue la **dirección URL de metadatos de federación de aplicación** que ha copiado de Azure Portal.
 
@@ -190,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/supermood-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -203,7 +203,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 En esta sección, creará un usuario llamado Britta Simon en Supermood. Supermood admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada para los usuarios cuyos mensajes de correo electrónico pertenecen a los dominios que se agregan durante la configuración final de Supermood. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Supermood, se crea un nuevo usuario, en caso de que no exista.
 
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Supermood](mailto:hello@supermood.fr).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Supermood](mailto:hello@supermood.fr).
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
@@ -241,7 +241,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Supermood del panel de acceso, debería iniciar sesión automáticamente en su aplicación Showpad.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

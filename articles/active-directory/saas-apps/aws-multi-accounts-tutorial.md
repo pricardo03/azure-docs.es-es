@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365669"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integración de Azure Active Directory con varias cuentas de Amazon Web Services (AWS)
 
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Rol            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     | SessionDuration             | "proporcione un valor comprendido entre 900 segundos (15 minutos) y 43200 segundos (12 horas)" |  https://aws.amazon.com/SAML/Attributes |
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](./media/aws-multi-accounts-tutorial/i2-attribute.png)
 
@@ -180,7 +180,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar cuadro de diálogo de inicio de sesión único][14]
 
-    a. En **Tipo de proveedor**, seleccione **SAML**.
+     a. En **Tipo de proveedor**, seleccione **SAML**.
 
     b. En el cuadro de texto **Provider Name** (Nombre de proveedor), escriba un nombre de proveedor (por ejemplo, *WAAD*).
 
@@ -200,15 +200,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar confianza de inicio de sesión único][19]
 
-    a. Seleccione **SAML 2.0 federation** (Federación de SAML 2.0) en **Select type of trusted entity** (Seleccionar tipo de entidad de confianza).
+     a. Seleccione **SAML 2.0 federation** (Federación de SAML 2.0) en **Select type of trusted entity** (Seleccionar tipo de entidad de confianza).
 
-    b. En la sección **Choose a SAML 2.0 Provider** (Elegir un proveedor de SAML 2.0), seleccione **SAML provider** (Proveedor de SAML) que ha creado anteriormente (por ejemplo: *WAAD*).
+    b. En la sección **Choose a SAML 2.0 Provider** (Elegir un proveedor de SAML 2.0), seleccione **SAML provider** (Proveedor de SAML) que ha creado anteriormente (por ejemplo, *WAAD*)
 
     c. Seleccione **Allow programmatic and AWS Management Console access** (Permitir acceso mediante programación y a consola de AWS Management Console).
   
-    d. Haga clic en **Next: Permissions** (Siguiente: permisos).
+    d. Haga clic en **Siguiente: Permisos**.
 
-16. En el cuadro de diálogo **Attach Permissions Policies** (Adjuntar directivas de permisos), no es necesario adjuntar ninguna directiva. Haga clic en **Siguiente: revisión**.  
+16. En el cuadro de diálogo **Attach Permissions Policies** (Adjuntar directivas de permisos), no es necesario adjuntar ninguna directiva. Haga clic en **Siguiente: Review** (Siguiente: revisar).  
 
     ![Configurar directiva de inicio de sesión único][33]
 
@@ -216,7 +216,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar revisión de inicio de sesión único][34]
 
-    a. En el cuadro de texto **Role name** (Nombre de rol), escriba su nombre de rol.
+     a. En el cuadro de texto **Role name** (Nombre de rol), escriba su nombre de rol.
 
     b. En el cuadro de texto **Role description**, escriba la descripción.
 
@@ -242,7 +242,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 24. Abra el sitio del [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
 
-    a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador globales del inquilino.
+     a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador globales del inquilino.
 
     b. Debe tener permisos suficientes para crear los roles. Haga clic en **Modificar permisos** para obtener los permisos necesarios.
 
@@ -352,7 +352,7 @@ También puede comprobar la respuesta de SAML para ver los roles que se usan com
 
 ![Configurar la adición del inicio de sesión único](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

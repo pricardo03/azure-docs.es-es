@@ -2,18 +2,18 @@
 title: Protección del Azure Backup Server y del servidor de DPM de una granja de SharePoint en Azure
 description: En este artículo se incluye información general sobre la protección del Servidor de Azure Backup y el servidor de DPM de una granja de SharePoint en Azure.
 services: backup
-author: adigan
-manager: Nkolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 79b4962e1c37858fbd52d65aff56476e55ffa371
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946052"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296467"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure
 La copia de seguridad de una granja de SharePoint en Microsoft Azure se crea mediante System Center Data Protection Manager (DPM) casi de la misma manera que realiza la copia de seguridad de otros orígenes de datos. Azure Backup ofrece flexibilidad en la programación de copias de seguridad para crear puntos de copia de seguridad diarios, semanales, mensuales o anuales, y le ofrece diferentes opciones de directiva de retención para varios puntos de copia de seguridad. DPM ofrece la posibilidad de almacenar copias en discos locales para conseguir objetivos de tiempo de recuperación (RTO) más rápidos y de almacenar copias en Azure, para una retención económica más a largo plazo.
@@ -23,7 +23,7 @@ Azure Backup para DPM admite los siguientes escenarios:
 
 | Carga de trabajo | Versión | Implementación de SharePoint | Tipo de implementación de DPM | DPM: System Center 2012 R2 | Protección y recuperación |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implementado como un servidor físico o una máquina virtual de Hyper-V/VmWare <br> -------------- <br> SQL AlwaysOn |Servidor físico o máquina virtual de Hyper-V local |Admite la copia de seguridad en Azure desde el paquete acumulativo de actualizaciones 5 |Opciones de protección de recuperación de la granja de SharePoint: granja de servidores de recuperación, base de datos y archivo, o elemento de la lista de puntos de recuperación de disco.  Recuperación de base de datos y granja de servidores a partir de puntos de recuperación de Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implementado como un servidor físico o una máquina virtual de Hyper-V/VmWare <br> -------------- <br>  SQL AlwaysOn |Servidor físico o máquina virtual de Hyper-V local |Admite la copia de seguridad en Azure desde el paquete acumulativo de actualizaciones 5 |Opciones de protección de recuperación de la granja de SharePoint: granja de servidores de recuperación, base de datos y archivo, o elemento de la lista de puntos de recuperación de disco.  Recuperación de base de datos y granja de servidores a partir de puntos de recuperación de Azure. |
 
 ## <a name="before-you-start"></a>Antes de comenzar
 Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, hay algunas cuantas cosas que debe confirmar.

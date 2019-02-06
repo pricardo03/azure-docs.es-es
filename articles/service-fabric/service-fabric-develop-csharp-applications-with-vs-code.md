@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 27c7c62125f3f559fb1764292729cbbfdc1c4e5f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161368"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones C# de Service Fabric con Visual Studio Code
 
@@ -27,7 +27,7 @@ La [extensión Service Fabric Reliable Services para VS Code](https://marketplac
 
 En este artículo se muestra cómo compilar, implementar y depurar una aplicación de .NET Core para Service Fabric con Visual Studio Code.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto que ya ha instalado VS Code, la extensión Service Fabric Reliable Services para VS Code y todas las dependencias necesarias para el entorno de desarrollo. Para obtener más información, consulte la [introducción](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>Abrir la aplicación en VS Code
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 Haga clic con el botón derecho en el icono de VS Code en el menú Inicio y seleccione **Ejecutar como administrador**. Para asociar el depurador a los servicios, debe ejecutar VS Code como administrador.
 
 ### <a name="linux"></a>Linux
@@ -58,7 +58,7 @@ La aplicación ahora debería aparecer en el área de trabajo de VS Code.
 ![Aplicación CounterService en el área de trabajo](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
 ## <a name="build-the-application"></a>Compilar la aplicación
-1. Presione Ctrl+Mayús+P para abrir la **Paleta de comandos** en VS Code.
+1. Presione Ctrl+Mayús+P para abrir la **paleta de comandos** en VS Code.
 2. Busque y seleccione el comando **Service Fabric: Build Application**. La salida de compilación se envía al terminal integrado.
 
    ![Comando de compilación de la aplicación en VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
@@ -66,7 +66,7 @@ La aplicación ahora debería aparecer en el área de trabajo de VS Code.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implementación de la aplicación en el clúster local
 Después de haber compilado la aplicación, se puede implementar en el clúster local. 
 
-1. Desde la **Paleta de comandos**, seleccione el **comando Service Fabric: Deploy Application (Localhost)**. La salida del proceso de instalación se envía al terminal integrado.
+1. En la **paleta de comandos**, seleccione el comando **Service Fabric: Deploy Application (Localhost)**. La salida del proceso de instalación se envía al terminal integrado.
 
    ![Comando de implementación de la aplicación en VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -91,7 +91,7 @@ Para establecer un punto de interrupción y depurar, complete los pasos siguient
 
    ![Icono Depurar en el área de trabajo de VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Abra Service Fabric Explorer en un explorador: http://localhost:19080/Explorer. Haga clic en **Aplicaciones** y explore en profundidad para establecer el nodo principal donde se ejecuta CounterService. En la imagen siguiente, del nodo principal para CounterService es el nodo 0.
+3. Abra Service Fabric Explorer en un explorador: http://localhost:19080/Explorer. Haga clic en **Applications** (Aplicaciones) y explore en profundidad para determinar el nodo principal en que se ejecuta CounterService. En la imagen siguiente, del nodo principal para CounterService es el nodo 0.
 
    ![Nodo principal de CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
@@ -107,11 +107,11 @@ Para establecer un punto de interrupción y depurar, complete los pasos siguient
    
    ![Desconexión del depurador](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
        
-7. Cuando haya terminado de depurar, puede usar el comando **Service Fabric: Remove Application** para quitar la aplicación CounterService del clúster local. 
+7. Cuando la depuración haya terminado, puede usar el comando **Service Fabric: Remove Application** para quitar la aplicación CounterService del clúster local. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre el [desarrollo y la depuración de aplicaciones Java de Service Fabric con VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
+* Obtenga más información sobre el [desarrollo y la depuración de aplicaciones de Java para Service Fabric con VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
 
 
 

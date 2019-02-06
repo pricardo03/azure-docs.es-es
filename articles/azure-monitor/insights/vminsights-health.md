@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 737e05f3d936481e06acfc0604ff739b9f01d5db
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191656"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476849"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
@@ -28,6 +28,23 @@ El estado de mantenimiento general de la máquina virtual de Azure y el sistema 
 En este artículo le ayudamos a comprender cómo puede evaluar, investigar y resolver rápidamente los problemas detectados.
 
 Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-onboard.md) (Habilitar Azure Monitor para máquinas virtuales).
+
+>[!NOTE]
+>A partir del 15 de febrero de 2019, empezaremos a migrar el contenido del modelo de mantenimiento que se encuentra en la característica de mantenimiento de Azure Monitor para máquinas virtuales (que estará visible cuando use la experiencia de diagnóstico de mantenimiento) a una nueva versión del modelo de mantenimiento. Esta actualización mejorará el rendimiento del procesamiento de acumulación de mantenimiento e incluirá un modelo de mantenimiento refinado que se muestra en la vista de diagnóstico de mantenimiento. 
+>
+>Gracias al nuevo modelo de mantenimiento, la acumulación de los criterios de mantenimiento secundarios en los criterios de mantenimiento principales o de nivel de entidad será más rápida y, como resultado, el estado de mantenimiento de las actualizaciones principales en el estado deseado o de destino tendrá menos latencia. Igualmente, aún puede filtrar los criterios de mantenimiento en las categorías **Rendimiento** y **Disponibilidad**, a diferencia del método anterior basado en pestañas y que se usa para seleccionar cualquiera de las categorías de la vista.
+>
+>Para obtener más detalles sobre la nueva experiencia de diagnósticos de mantenimiento, consulte la [sección](#health-diagnostics) de diagnósticos de mantenimiento de este artículo. 
+>
+>Esta actualización mejorará lo siguiente: 
+>
+>- El procesamiento de acumulación de mantenimiento con una latencia reducida.  
+>- Ofrecerá alertas más rápidas cuando haya cambios en el estado de mantenimiento. 
+>- Actualizará aún más rápido el estado de mantenimiento en la vista de la máquina virtual agregada para todas las máquinas virtuales. 
+>
+>No existe hay ninguna regresión de las funcionalidades que se ofrecen hoy en día con la característica de mantenimiento de Azure Monitor para máquinas virtuales.
+
+>Como resultado de este cambio, habrá algunas interrupciones en el servicio y el historial de mantenimiento durante un breve período de tiempo. Se verán afectadas las dos experiencias de diagnóstico de mantenimiento: se restablecerá el historial de cambios de estado y los cambios de estado anteriores de los criterios de mantenimiento no estarán disponibles para su revisión en la columna de cambio de estado de la página de diagnósticos de mantenimiento. Si está interesado en obtener los datos históricos de cualquier máquina virtual crítica de misión, puede hacer una captura de pantalla de los datos de los criterios de mantenimiento y los cambios de estado correspondientes para tenerlos como referencia. 
 
 ## <a name="monitoring-configuration-details"></a>Detalles de configuración de supervisión
 En esta sección se describen los criterios de estado predeterminados definidos para supervisar las máquinas virtuales Linux y Windows de Azure. Todos los criterios de mantenimiento están preconfigurados para enviar una alerta cuando se dé una condición de mal estado. 
@@ -155,7 +172,7 @@ Al seleccionar **Ver todos los criterios de estado**, se abre una página que mu
 Puede explorar en profundidad para ver las instancias que tienen un estado incorrecto. Para ello, haga clic en un valor de la columna **Unhealthy Component** (Componente con un estado incorrecto).  En la página, una tabla enumera los componentes que se encuentran en un estado de mantenimiento crítico.    
 
 ## <a name="health-diagnostics"></a>Diagnóstico de mantenimiento
-La página **Diagnóstico de mantenimiento** le permite ver todos los componentes de la VM, los criterios de estado asociados, los cambios de estado y otros problemas importantes detectados mediante la supervisión de objetos relacionados con la VM. 
+La página **Diagnóstico de mantenimiento** le permite ver el modelo de mantenimiento de una máquina virtual y enumerar todos los componentes de la máquina virtual, los criterios de mantenimiento asociados, los cambios de estado y otros problemas importantes detectados mediante la supervisión de componentes relacionados con la máquina virtual.
 
 ![Ejemplo de la página Diagnóstico de mantenimiento para una VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -172,18 +189,18 @@ El diagnóstico de mantenimiento organiza la información de estado en las sigui
 * Disponibilidad
 * Rendimiento
  
-Todos los criterios de mantenimiento definidos para un destino seleccionado se muestran en la categoría correspondiente. 
+Todos los criterios de mantenimiento definidos para un componente específico, como la CPU, el disco lógico, etcétera. Asimismo, la categoría del monitor puede verse junto a él en la columna **Criterios de mantenimiento**.  
 
-El estado de mantenimiento de los criterios de estado se define mediante uno de los tres estados: *Crítico*, *Advertencia* y *Correcto*. Hay otro estado *Desconocido*, que no está asociado con el estado de mantenimiento, pero representa el estado de supervisión conocido por la característica.  
+El estado de los criterios de mantenimiento se define mediante uno de estos cuatro estados: *Crítico*, *Advertencia*, *Correcto* y *Desconocido*. Los tres primeros son configurables, lo que significa que puede modificar los valores de umbral de los monitores con [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Desconocido*: este valor no es configurable y se reserva para escenarios específicos, tal como se describe en la tabla siguiente.  
 
 En la tabla siguiente se proporcionan detalles sobre los estados de mantenimiento que se representan en el diagnóstico de mantenimiento.
 
 |Icono |Estado de mantenimiento |Significado |
 |-----|-------------|------------|
-| |Healthy |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas. En el caso de un monitor de acumulación primario, el mantenimiento se acumula y refleja el mejor o el peor estado del elemento secundario.|
-| |Crítico |El estado de mantenimiento es crítico si no se encuentra dentro de la condición de mantenimiento definida. En el caso de un monitor de acumulación primario, el mantenimiento se acumula y refleja el mejor o el peor estado del elemento secundario.|
-| |Advertencia |El estado de mantenimiento es de Advertencia si este se encuentra entre dos umbrales para la condición de mantenimiento definida, donde uno indica el estado *Advertencia* y el otro, el estado *Crítico*. En el caso de un monitor de acumulación primario, si uno o varios de los elementos secundarios están en un estado de advertencia, el elemento primario reflejará el estado *Advertencia*. Si hay un elemento secundario que se encuentra en estado *Crítico* y otro en estado *Advertencia*, la acumulación primaria mostrará un estado de mantenimiento *Crítico*.|
-| |Desconocido |El estado de mantenimiento es *Desconocido* cuando no se puede calcular por varios motivos, por ejemplo, no se pueden recopilar los datos, no se inicializó el servicio, etc.| 
+| |Healthy |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas, lo cual indica que no se detectó ningún problema en la máquina virtual y que esta funciona según lo esperado. En el caso de un monitor de acumulación primario, el mantenimiento se acumula y refleja el mejor o el peor estado del elemento secundario.|
+| |Crítico |El estado de mantenimiento es crítico si no está dentro de la condición de mantenimiento definida, lo cual indica que se han detectado uno o más problemas críticos que deben solucionarse para poder restaurar el funcionamiento normal. En el caso de un monitor de acumulación primario, el mantenimiento se acumula y refleja el mejor o el peor estado del elemento secundario.|
+| |Advertencia |El estado de mantenimiento de advertencia se activa si está entre dos umbrales de la condición de mantenimiento definida; uno de ellos indica un estado de *advertencia* y el otro, por su parte, indica un estado *crítico* (es posible que se indiquen los tres estados que controla el usuario). También puede activarse cuando se detecta un problema no crítico, pero que puede ocasionar problemas graves si no se resuelve. En el caso de un monitor de acumulación principal, si uno o varios de los elementos secundarios están en un estado de advertencia, el elemento principal reflejará el estado *Advertencia*. Si hay un elemento secundario que se encuentra en estado *Crítico* y otro en estado *Advertencia*, la acumulación primaria mostrará un estado de mantenimiento *Crítico*.|
+| |Desconocido |El estado de mantenimiento es *Desconocido* cuando no se puede calcular por varios motivos; por ejemplo, cuando no se pueden recopilar los datos, si no se inicializó el servicio, etc. Este no es un estado que pueda controlar el usuario.| 
 
 La página de diagnóstico de mantenimiento tiene tres secciones principales:
 
@@ -194,58 +211,52 @@ La página de diagnóstico de mantenimiento tiene tres secciones principales:
 ![Secciones de la página Diagnóstico de mantenimiento](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### <a name="component-model"></a>Modelo de componente
-La columna más a la izquierda de la página de diagnóstico Mantenimiento es el modelo de componente. Todos los componentes y sus instancias detectadas, que están asociados a la máquina virtual, se muestran en esta columna. 
+La columna del extremo izquierdo de la página de diagnóstico de mantenimiento es el modelo del componente. Todos los componentes asociados a la máquina virtual y su estado de mantenimiento actual se muestran en esta columna. 
 
-En el ejemplo siguiente, los componentes detectados son el disco, el disco lógico, el procesador, la memoria y el sistema operativo. Varias instancias de estos componentes se detectan y se muestran en esta columna, con dos instancias del disco lógico **/**, **/boot** y **/mnt/resource**, una instancia del adaptador de red **eth0**, dos instancias del disco **sda** y **sdb**, dos instancias del procesador **0 y 1** y la **versión 7.4 (Maipo) (sistema operativo) de Red Hat Enterprise Linux Server**. 
+En el ejemplo siguiente, los componentes detectados son el disco, el disco lógico, el procesador, la memoria y el sistema operativo. Varias instancias de estos componentes se detectan y se muestran en esta columna. Por ejemplo, en la imagen siguiente se muestra que la máquina virtual tiene dos instancias de discos lógicos (C: y D:) que no están en buen estado.  
 
 ![Ejemplo del modelo de componente presentado en el diagnóstico de mantenimiento](./media/vminsights-health/health-diagnostics-page-component.png)
 
 ### <a name="health-criteria"></a>Criterios de mantenimiento
-La columna central de la página Diagnóstico de mantenimiento es **Criterios de mantenimiento**. El modelo de estado definido para la VM se muestra en un árbol jerárquico. El modelo de estado de una máquina virtual está compuesto por los criterios de mantenimiento agregados, la dependencia y la unidad.  
+La columna central de la página de diagnóstico de mantenimiento es **Criterios de mantenimiento**. El modelo de estado definido para la VM se muestra en un árbol jerárquico. El modelo de mantenimiento de una máquina virtual está compuesto por los criterios de mantenimiento agregados y de unidad.  
 
 ![Ejemplo de los criterios de mantenimiento presentados en la página Diagnóstico de mantenimiento](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
-Un criterio de mantenimiento mide el mantenimiento de la instancia supervisada con algunos criterios, lo que podría ser un valor de umbral o un estado de una entidad, etc. Dicho criterio tiene dos o tres estados de mantenimiento, tal y como se describe en la sección anterior. En cualquier momento dado, el criterio de mantenimiento solo puede estar en uno de sus estados posibles. 
+Un criterio de mantenimiento mide el mantenimiento de la instancia supervisada con algunos criterios, lo que podría ser un valor de umbral, un estado de una entidad, etc. Dicho criterio tiene dos o tres umbrales configurables de estado de mantenimiento, tal y como se describió en la sección anterior. En cualquier momento dado, el criterio de mantenimiento solo puede estar en uno de sus estados posibles. 
 
-El mantenimiento general de un destino viene determinado por el mantenimiento de cada uno de sus criterios de mantenimiento definidos en el modelo de mantenimiento. Se tratará de una combinación de criterios de mantenimiento dirigidos directamente al destino y de criterios de estado dirigidos a la acumulación de componentes en el destino mediante un criterio de mantenimiento de dependencia. Esta jerarquía se ilustra en la sección **Criterios de mantenimiento** de la página Diagnóstico de mantenimiento. La directiva de acumulación del mantenimiento es la parte de la configuración de los criterios de mantenimiento agregados y de dependencia. Puede encontrar una lista del conjunto predeterminado de los criterios de mantenimiento que se ejecuta como parte de esta característica en la sección [Detalles de configuración de supervisión](#monitoring-configuration-details).  
+El mantenimiento general de un destino viene determinado por el mantenimiento de cada uno de sus criterios de mantenimiento definidos en el modelo de mantenimiento. Se tratará de una combinación de criterios de mantenimiento dirigidos directamente al destino y de criterios de mantenimiento dirigidos a la acumulación de componentes en el destino mediante un criterio de mantenimiento agregado. Esta jerarquía se ilustra en la sección **Criterios de mantenimiento** de la página Diagnóstico de mantenimiento. La directiva de acumulación de mantenimiento es la parte de la configuración de los criterios de mantenimiento agregados (el valor predeterminado está establecido en *Worst-of*). Puede encontrar una lista del conjunto predeterminado de los criterios de mantenimiento que se ejecuta como parte de esta característica en la sección [Detalles de configuración de supervisión](#monitoring-configuration-details).  
 
-En el ejemplo siguiente, el criterio de mantenimiento agregado **Core Windows Services Rollup** (Acumulación de servicios básicos de Windows) para una máquina virtual basada en Windows evalúa el mantenimiento de los servicios más importantes de Windows en función de criterios de mantenimiento del servicio individuales. El estado de cada servicio, como DNS, DHCP, etc., se evalúa y el mantenimiento se acumula según el criterio de mantenimiento de acumulación correspondiente (como se muestra a continuación).  
+Si quiere, puede modificar la configuración del tipo **Unidad** de los criterios de mantenimiento. Para ello, haga clic en el vínculo de elipse del lado derecho y seleccione **Show Details** (Mostrar detalles) para abrir el panel de configuración. 
 
-![Ejemplo de la acumulación del mantenimiento](./media/vminsights-health/health-diagnostics-windows-svc-rollup.png)
+![Ejemplo de la configuración de un criterio de mantenimiento](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-El mantenimiento de **Core Windows Services Rollup** (Acumulación de servicios básicos de Windows) pasa a ser **Operating System availability** (Disponibilidad del sistema operativo), que finalmente se acumula en el criterio **Disponibilidad** de la máquina virtual. 
-
-Si quiere, puede modificar la configuración del tipo **Unidad** de los criterios de mantenimiento. Para ello, haga clic en el vínculo de elipse del lado derecho y seleccione **Mostrar detalles** para abrir el panel de configuración. 
-
-![Ejemplo de la configuración de un criterio de mantenimiento](./media/vminsights-health/health-diagnostics-linuxvm-example-03.png)
-
-En este ejemplo del panel de configuración de los criterios de mantenimiento seleccionados, la opción **Logical Disk % Free Space** (Porcentaje de espacio disponible del disco lógico) puede configurarse con un valor numérico diferente para el umbral, ya que es un monitor de dos estados, lo que significa que solo cambia del estado correcto al crítico.  También puede haber un criterio de mantenimiento de tres estados, en el que puede configurar un valor para el umbral de estado de mantenimiento de advertencia y crítico.  
+En el panel de configuración de los criterios de mantenimiento seleccionados, si se fija en el ejemplo **Average Disk Seconds Per Write** (Promedio de segundos de disco por escritura), verá que el umbral puede configurarse con un valor numérico diferente. Este es un sistema de supervisión de dos estados, lo que significa que solo cambia de Correcto a Advertencia. También puede haber un criterio de mantenimiento de tres estados, en el que puede configurar un valor para el umbral de estado de mantenimiento de advertencia y crítico.  
 
 >[!NOTE]
->Si aplica el cambio de configuración de los criterios de mantenimiento a una instancia, también se aplicará a todas las instancias supervisadas.  Por ejemplo, si selecciona **/mnt/resource** y modifica el umbral **Logical Disk % Free Space** (Porcentaje de espacio disponible del disco lógico), este no se aplica únicamente a esa instancia, sino a todas las demás del disco lógico que se detectan y supervisan en la VM.
+>Si aplica el cambio de configuración de los criterios de mantenimiento a una instancia, también se aplicará a todas las instancias supervisadas.  Por ejemplo, si selecciona **Physical Disk -1 D:** (Disco físico - 1 D:) y modifica el umbral **Average Disk Seconds Per Write** (Promedio de segundos de disco por escritura), este no se aplica únicamente a esa instancia, sino a todas las demás instancias del disco que se detectan y supervisan en la máquina virtual.
 >
 
-![Ejemplo de la configuración de un criterio de mantenimiento de un monitor de unidad](./media/vminsights-health/health-diagnostics-linuxvm-example-04.png)
+![Ejemplo de la configuración de un criterio de mantenimiento de un monitor de unidad](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
 
-Para más información sobre el indicador de estado, se incluyen artículos de conocimientos que le ayudan a identificar problemas, causas y resoluciones.  Haga clic en el vínculo **Ver información** en la página y se abrirá una nueva pestaña en el explorador que muestra el artículo de conocimiento específico.  En cualquier momento, puede revisar todos los artículos de conocimiento sobre criterios de mantenimiento incluidos con Azure Monitor para la característica de mantenimiento de máquinas virtuales [aquí](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+Si quiere obtener más información sobre el indicador de mantenimiento, se incluyen artículos de conocimiento que le ayudarán a identificar los problemas, sus causas y las soluciones. Haga clic en el vínculo **Ver información** en la página y se abrirá una nueva pestaña en el explorador que muestra el artículo de conocimiento específico. En cualquier momento, puede revisar todos los artículos de conocimiento sobre criterios de mantenimiento incluidos con Azure Monitor para la característica de mantenimiento de máquinas virtuales [aquí](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### <a name="state-changes"></a>Cambios de estado
-La columna más a la derecha de la página Diagnóstico de mantenimiento es **Cambios de estado**. Enumera todos los cambios de estado asociados con los criterios de mantenimiento que se han seleccionado en la sección **Criterios de mantenimiento** o el cambio de estado de la VM si se ha seleccionado una VM en la columna **Modelo de componente** o **Criterios de mantenimiento** de la tabla. 
+La columna del extremo derecho de la página Diagnóstico de mantenimiento es **Cambios de estado**. Enumera todos los cambios de estado asociados con los criterios de mantenimiento que se han seleccionado en la sección **Criterios de mantenimiento** o el cambio de estado de la VM si se ha seleccionado una VM en la columna **Modelo de componente** o **Criterios de mantenimiento** de la tabla. 
 
 ![Ejemplo de los cambios de estado presentados en la página Diagnóstico de mantenimiento](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 Esta sección está compuesta por el estado de los criterios de mantenimiento y el tiempo asociado ordenados por el estado más reciente.   
 
 ### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Asociación de las columnas Modelo de componente, Criterios de mantenimiento y Cambio de estado 
-Las tres columnas se entrelazan entre sí. Cuando un usuario selecciona una instancia detectada en el modelo de componente, la sección **Criterios de mantenimiento** se filtra a esa vista de componente y, en consecuencia, el **cambio de estado** se actualiza en función de los criterios de mantenimiento seleccionados. 
+Las tres columnas se entrelazan entre sí. Cuando selecciona una instancia detectada en la sección **Modelo de componente**, la sección **Criterios de mantenimiento** se filtra a esa vista de componente y, en consecuencia, la sección del **cambio de estado** se actualiza en función de los criterios de mantenimiento seleccionados. 
 
-![Ejemplo de la selección de la instancia supervisada y los resultados](./media/vminsights-health/health-diagnostics-linuxvm-example-02.png)
+![Ejemplo de la selección de la instancia supervisada y los resultados](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-En el ejemplo anterior, cuando se selecciona **/mnt (Logical Disk)** (/mnt [disco lógico]), se filtra el árbol de los criterios de mantenimiento como **/mnt (Logical Disk)** (/mnt [disco lógico]). Las pestañas **Disponibilidad** y **Rendimiento** también se filtran según corresponde. En la columna **Cambio de estado** se muestra el cambio de estado en función de la disponibilidad de **/mnt (Logical Disk)** (/mnt [disco lógico]). 
+En el ejemplo anterior, cuando se selecciona **Physical Disk - 1 D:** (Disco físico - 1 D:), se filtra el árbol de los criterios de mantenimiento como **Physical Disk - 1D:** (Disco físico - 1 D:). En la columna **Cambio de estado** se muestra el cambio de estado en función de la disponibilidad de **Physical Disk - 1 D:** (Disco físico - 1 D:). 
 
-Para ver el estado de mantenimiento actualizado, puede actualizar la página Diagnóstico de mantenimiento haciendo en el vínculo **Actualizar**.  Si hay una actualización en el estado de mantenimiento de los criterios de mantenimiento basada en el intervalo de sondeo predefinido, esta tarea permite evitar la espera y refleja el estado de mantenimiento más reciente.  **Estado de criterios de mantenimiento** es un filtro que le permite definir el ámbito de los resultados según el estado de mantenimiento seleccionado: Correcto, Advertencia, Crítico, Desconocido, etc.  La hora **Última actualización** de la esquina superior derecha representa la última vez en que se actualizó la página Diagnóstico de estado.  
+Para ver el estado de mantenimiento actualizado, puede actualizar la página de diagnóstico de mantenimiento haciendo clic en el vínculo **Actualizar**.  Si hay una actualización en el estado de mantenimiento de los criterios de mantenimiento basada en el intervalo de sondeo predefinido, esta tarea permite evitar la espera y refleja el estado de mantenimiento más reciente.  El **Estado de criterios de mantenimiento** es un filtro que le permite definir el ámbito de los resultados según el estado de mantenimiento seleccionado: *Correcto*, *Advertencia*, *Crítico*, *Desconocido* y *Todos*.  La hora de la **última actualización** de la esquina superior derecha representa la última vez en que se actualizó la página de diagnóstico de mantenimiento.  
 
-## <a name="alerting-and-alert-management"></a>Creación y administración de alertas 
+## <a name="alerts"></a>Alertas
 La característica de mantenimiento de Azure Monitor para máquinas virtuales se integra con [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md) y genera una alerta cuando los criterios de mantenimiento predefinidos cambian de un estado correcto a uno incorrecto y dicha condición se detecta. Las alertas se clasifican según la gravedad: de 0 a 4, donde el 0 representa el nivel de gravedad más alto.  
 
 El número total de alertas de mantenimiento de la VM clasificadas según la gravedad está disponible en el panel **Mantenimiento** de la sección **Alertas**. Cuando selecciona el número total de alertas o el número correspondiente a un nivel de gravedad, la página **Alertas** se abre y muestra todas las alertas que coinciden con su selección.  Por ejemplo, si ha seleccionado la fila correspondiente a **Sev level 1** (Nivel de gravedad), verá lo siguiente:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290780"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188350"
 ---
 # <a name="performance-metrics"></a>Métricas de rendimiento
 

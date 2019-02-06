@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728047"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912040"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 
@@ -124,8 +124,8 @@ Utilice esta propiedad con los **filtros de recursos**. No se recomienda estable
 |---|---|
 |**endTimestamp**|El límite de tiempo de finalización absoluto. Se aplica al vídeo bajo demanda (VoD). Para la presentación en directo, se ignora silenciosamente y se aplica cuando la presentación termina y la secuencia se convierte en VoD.<br/><br/>El valor representa un punto final absoluto de la secuencia. Se redondea al siguiente inicio del grupo de imágenes más cercano.<br/><br/>Use StartTimestamp y EndTimestamp para recortar la lista de reproducción (manifiesto). Por ejemplo, StartTimestamp=40000000 y EndTimestamp = 100000000 generarán una lista de reproducción que contiene medios entre StartTimestamp y EndTimestamp. Si un fragmento sobrepasa el límite, se incluirá todo el fragmento en el manifiesto.<br/><br/>También, consulte la definición de **forceEndTimestamp** que sigue.|
 |**forceEndTimestamp**|Se aplica a los filtros activos.<br/><br/>**forceEndTimestamp** es un booleano que indica si **endTimestamp** se estableció o no en un valor válido. <br/><br/>Si el valor es **true**, debe especificarse el valor **endTimestamp**. Si no se especifica, se devuelve una solicitud incorrecta.<br/><br/>Si, por ejemplo, desea definir un filtro que comience a los cinco minutos de la entrada de vídeo y que dure hasta el final de la secuencia, debe establecer **forceEndTimestamp** en false y omitir la configuración de **endTimestamp**.|
-|**liveBackoffDuration**|Solo se aplica los filtros activos. La propiedad se utiliza para definir la posición de reproducción en vivo. Con esta regla, se puede retrasar la posición de reproducción en directo y crear un búfer en el servidor para los reproductores. LiveBackoffDuration está relacionado con la posición activa. La duración de retroceso en directo máxima es de 60 segundos.|
-|**presentationWindowDuration**|Se aplica a los filtros activos. Utilice **presentationWindowDuration** para aplicar una ventana deslizante a la lista de reproducción. Por ejemplo, configure la presentaciónWindowDuration=1200000000 para aplicar una ventana deslizante de dos minutos. Los medios que se encuentren a menos de dos minutos del borde en directo se incluirán en la lista de reproducción. Si un fragmento sobrepasa el límite, se incluirá todo el fragmento en la lista de reproducción. La duración de la ventana de presentación mínima es de 120 segundos.|
+|**liveBackoffDuration**|Solo se aplica los filtros activos. La propiedad se utiliza para definir la posición de reproducción en vivo. Con esta regla, se puede retrasar la posición de reproducción en directo y crear un búfer en el servidor para los reproductores. LiveBackoffDuration está relacionado con la posición activa. La duración de retroceso en directo máxima es de 300 segundos.|
+|**presentationWindowDuration**|Se aplica a los filtros activos. Utilice **presentationWindowDuration** para aplicar una ventana deslizante a la lista de reproducción. Por ejemplo, configure la presentaciónWindowDuration=1200000000 para aplicar una ventana deslizante de dos minutos. Los medios que se encuentren a menos de dos minutos del borde en directo se incluirán en la lista de reproducción. Si un fragmento sobrepasa el límite, se incluirá todo el fragmento en la lista de reproducción. La duración de la ventana de presentación mínima es de 60 segundos.|
 |**startTimestamp**|Se aplica al VoD o al streaming en vivo. El valor representa un punto inicial absoluto de la secuencia. El valor redondea al siguiente inicio del grupo de imágenes más cercano.<br/><br/>Use **StartTimestamp** y **EndTimestamp** para recortar la lista de reproducción (manifiesto). Por ejemplo, startTimestamp=40000000 y endTimestamp = 100000000 generarán una lista de reproducción que contiene medios entre StartTimestamp y EndTimestamp. Si un fragmento sobrepasa el límite, se incluirá todo el fragmento en el manifiesto.|
 |**timescale**|Se aplica al VoD o al streaming en vivo. La escala temporal utilizada por las marcas de tiempo y duraciones especificadas anteriormente. La escala temporal predeterminada es 10000000. Se puede usar una escala temporal alternativa. El valor predeterminado es 10000000 HNS (cien nanosegundos).|
 

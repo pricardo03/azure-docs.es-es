@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452146"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302111"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -53,6 +53,8 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Azure Information Protection: [Más información](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - Azure RemoteApp
+
+- Azure SQL Database: [más información ](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 
 - Microsoft Dynamics 365
 
@@ -149,7 +151,7 @@ Para implementar automáticamente esta extensión en los exploradores de Chrome,
 |--- | ---|
 |Ruta de acceso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |NOMBRE | 1 |
-|Escriba | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Datos | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clave del Registro:
@@ -158,7 +160,7 @@ Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clav
 |--- | ---|
 |Ruta de acceso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |NOMBRE | 1 |
-|Escriba | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Datos | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Estos exploradores admiten la autenticación de dispositivo, lo que permite identificar y validar el dispositivo con respecto a una directiva. Se produce un error en la comprobación del dispositivo si el explorador se ejecuta en modo privado. 
@@ -242,7 +244,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 - Requisito de la opción **Solicitar aplicación cliente aprobada**:
 
-    - Solo admite iOS y Android como [condición de plataformas de dispositivo](#device-platforms-condition).
+    - Solo admite iOS y Android como [condición de plataformas de dispositivo](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

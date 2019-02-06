@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5b06f2d8-9cd7-498d-bdd6-88570a0a0a15
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 5065bfafe4781e9261a69b018d1238cba2941ed7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0b3ca7a101a0c3979058b7094f8e51ed80e02649
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053144"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integración de Azure Active Directory con Edcor
 
@@ -128,7 +128,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 7. Para configurar el inicio de sesión único en **Edcor**, deberá enviar los datos descargados de **XML de metadatos**, **dirección URL de inicio de sesión**  e **identificador de entidad de SAML** al [equipo de soporte técnico de Edcor](http://www.edcor.com/contact-us-2/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -155,7 +155,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/edcor-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -165,7 +165,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-an-edcor-test-user"></a>Creación de un usuario de prueba de Edcor
 
-En esta sección, creará un usuario llamado Britta Simon en Edcor. Colabore con el [equipo de soporte técnico de Edcor](http://www.edcor.com/contact-us-2/) para agregar los usuarios a la plataforma de Edcor. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.  
+En esta sección, creará un usuario llamado Britta Simon en Edcor. Colabore con el  [equipo de soporte técnico de Edcor](http://www.edcor.com/contact-us-2/) para agregar los usuarios a la plataforma de Edcor. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -202,7 +202,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Edcor en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Edcor.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

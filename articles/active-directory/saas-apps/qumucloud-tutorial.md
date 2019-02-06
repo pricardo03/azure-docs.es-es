@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8c4a97b-4de6-49d4-b64e-42222c2ec6c9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e42d83ed7f74b366d2bca248a794cc9fb506b73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f0701a7f046666a135c3325eb22d1d12cbd59ba0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integración de Azure Active Directory con Qumu Cloud
 
@@ -108,7 +108,7 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Qumu Cloud](./media/qumucloud-tutorial/tutorial_qumucloud_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.qumucloud.com/saml/SSO`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.qumucloud.com/saml/SSO`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.qumucloud.com/saml/SSO`.
 
@@ -134,7 +134,7 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
 
-    a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
+     a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
 
     ![Configurar inicio de sesión único](./media/qumucloud-tutorial/tutorial_attribute_04.png)
 
@@ -159,7 +159,7 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
 1. Para configurar el inicio de sesión único en **Qumu Cloud**, es preciso enviar los datos descargados de **XML de metadatos** al [equipo de soporte técnico de Qumu Cloud](mailto:support@qumu.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -185,7 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/qumucloud-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -197,7 +197,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Qumu Cloud. Qumu Cloud admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Qumu Cloud se creará un nuevo usuario, en caso de que no exista.
 >[!Note]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Qumu Cloud](mailto:support@qumu.com).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico del cliente de Qumu Cloud](mailto:support@qumu.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -234,7 +234,7 @@ En esta sección, va a habilitar a Britta Simon para que use el inicio de sesió
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Qumu Cloud en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Qumu Cloud.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

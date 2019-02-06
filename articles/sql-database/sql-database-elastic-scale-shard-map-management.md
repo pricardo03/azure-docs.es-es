@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 77ef1fed7bbdb53898a688f14944b9b6b16773c7
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476798"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Escalado horizontal de las bases de datos mediante Shard Map Manager
 
@@ -40,11 +40,11 @@ Para un modelo de un solo inquilino, cree un mapa de particiones de **asignació
 
 ![Asignación de lista][1]
 
-El modelo de varios inquilinos asigna varios inquilinos a una base de datos única (y puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**.
+El modelo de varios inquilinos asigna varios inquilinos a una base de datos individual (además, puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**.
 
 ![Asignación de intervalo][2]
 
-O puede implementar un modelo de base de datos multiinquilino mediante una *asignación de lista* para asignar varios inquilinos a una base de datos única. Por ejemplo, DB1 se usa para almacenar información sobre el identificador de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10.
+O bien puede implementar un modelo de base de datos de varios inquilinos mediante una *asignación de lista* para asignar varios inquilinos a una base de datos individual. Por ejemplo, DB1 se usa para almacenar información sobre el identificador de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10.
 
 ![Varios inquilinos en una sola base de datos][3]
 

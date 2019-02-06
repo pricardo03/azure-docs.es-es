@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964023"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207401"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
@@ -84,7 +84,7 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 
 | Requisito del servidor | DESCRIPCIÓN |
 |---|---|
-|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Las máquinas virtuales de todos los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
+|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
 | Permisos de usuario | Cuenta de administrador para tener acceso al clúster o al host Hyper-V durante la obtención de una lista de máquinas virtuales y las operaciones de generación de perfiles.<br>Todos los hosts cuyo perfil debe generarse deben tener una cuenta de administrador de dominio con las mismas credenciales, es decir, el nombre de usuario y la contraseña
  |

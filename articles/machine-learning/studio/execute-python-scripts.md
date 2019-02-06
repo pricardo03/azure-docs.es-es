@@ -1,6 +1,6 @@
 ---
-título: Ejecución de scripts de aprendizaje automático de Python titleSuffix: Azure Machine Learning Studio description: Describe los principios de diseño subyacentes que permiten utilizar scripts de Python en Azure Machine Learning Studio, así como los escenarios de uso básicos, las funcionalidades y las limitaciones.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+título: Ejecución de scripts de aprendizaje automático de Python titleSuffix: Azure Machine Learning Studio description: Describe los principios de diseño subyacentes que permiten utilizar scripts de Python en Azure Machine Learning Studio, así como los escenarios de uso básicos, las funcionalidades y las limitaciones.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---

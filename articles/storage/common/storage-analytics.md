@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231020"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239781"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -76,12 +76,12 @@ En la tabla siguiente se describe cada atributo del nombre del registro:
 | Atributo | DESCRIPCIÓN |
 | --- | --- |
 | <service-name> |El nombre del servicio de almacenamiento. Por ejemplo: blob, tabla o cola |
-| AAAA |El año de cuatro dígitos para el registro. Por ejemplo: 2011 |
-| MM |El mes de dos dígitos para el registro. Por ejemplo: 07. |
-| DD |El mes de dos dígitos para el registro. Por ejemplo: 07. |
-| hh |La hora de dos dígitos que indica la hora inicial para los registros, en formato UTC de 24 horas. Por ejemplo: 18. |
+| AAAA |El año de cuatro dígitos para el registro. Por ejemplo:  2011. |
+| MM |El mes de dos dígitos para el registro. Por ejemplo:  07. |
+| DD |El mes de dos dígitos para el registro. Por ejemplo:  07. |
+| hh |La hora de dos dígitos que indica la hora inicial para los registros, en formato UTC de 24 horas. Por ejemplo:  18. |
 | MM |El número de dos dígitos que indica el minuto inicial para los registros. Este valor no se admite en la versión actual de Storage Analytics, y su valor será siempre 00. |
-| <counter> |Un contador basado en cero con seis dígitos que indica el número de blobs del registro generados para el servicio de almacenamiento en un período de tiempo de una hora. Este contador se inicia en 000000. Por ejemplo: 000001. |
+| <counter> |Un contador basado en cero con seis dígitos que indica el número de blobs del registro generados para el servicio de almacenamiento en un período de tiempo de una hora. Este contador se inicia en 000000. Por ejemplo:  000001. |
 
 A continuación se muestra un nombre completo de registro de ejemplo que combina los ejemplos anteriores.
 
@@ -99,8 +99,8 @@ Todos los blobs del registro se almacenan con metadatos que se pueden utilizar p
 | Atributo | DESCRIPCIÓN |
 | --- | --- |
 | LogType |Describe si el registro contiene información relacionada con las operaciones de lectura, escritura o eliminación. Este valor puede incluir un tipo o una combinación de los tres, separados por comas. Ejemplo 1: escritura; Ejemplo 2: lectura, escritura; Ejemplo 3: lectura, escritura, eliminación. |
-| StartTime |La primera hora de una entrada en el registro, en el formato YYYY-MM-DDThh:mm:ssZ. Por ejemplo: 2011-07-31T18:21:46Z. |
-| EndTime |La hora más reciente de una entrada en el registro, en el formato YYYY-MM-DDThh:mm:ssZ. Por ejemplo: 2011-07-31T18:22:09Z. |
+| StartTime |La primera hora de una entrada en el registro, en el formato YYYY-MM-DDThh:mm:ssZ. Por ejemplo:  2011-07-31T18:21:46Z. |
+| EndTime |La hora más reciente de una entrada en el registro, en el formato YYYY-MM-DDThh:mm:ssZ. Por ejemplo:  2011-07-31T18:22:09Z. |
 | LogVersion |La versión del formato del registro. Actualmente, el único valor admitido es: 1.0. |
 
 La lista siguiente muestra metadatos completos de ejemplo utilizando los ejemplos anteriores.
@@ -135,8 +135,8 @@ Las métricas de transacciones se registran para las solicitudes del usuario y p
 
 Los datos de capacidad se registran diariamente para la instancia de Blob service de una cuenta de almacenamiento, y se escriben dos entidades de tabla. Una entidad proporciona estadísticas para los datos de usuario y la otra proporciona estadísticas sobre el contenedor de blob `$logs` utilizado por Storage Analytics. La tabla `$MetricsCapacityBlob` incluye las estadísticas siguientes:
 
-* **Capacity**: la cantidad de almacenamiento que ha utilizado la instancia de Blob service de la cuenta de almacenamiento, en bytes.
-* **ContainerCount**: el número de contenedores de blobs de la instancia de Blob service de la cuenta de almacenamiento.
+* **Capacity**: la cantidad de almacenamiento que ha usado la instancia de Blob service de la cuenta de almacenamiento, en bytes.
+* **ContainerCount**: el número de contenedores de blobs en la instancia de Blob service de la cuenta de almacenamiento.
 * **ObjectCount**: el número de blobs en bloque o en páginas confirmados y sin confirmar de la instancia de Blob service de la cuenta de almacenamiento.
 
 Para obtener más información acerca de las métricas de capacidad, vea el [Esquema de las tablas de métricas de Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
@@ -146,7 +146,7 @@ Todos los datos de métricas para cada uno de los servicios de almacenamiento se
 
 | Nivel de métricas | Nombres de tabla | Versiones compatibles |
 | --- | --- | --- |
-| Métricas por horas, ubicación principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versiones anteriores a 2013-08-15 solamente. Si bien estos nombres todavía se admiten, se recomienda que empiece a usar las tablas que se muestran a continuación. |
+| Métricas por horas, ubicación principal |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |Versiones anteriores a 2013-08-15 solamente. Si bien estos nombres todavía se admiten, se recomienda que empiece a usar las tablas que se muestran a continuación. |
 | Métricas por horas, ubicación principal |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |Todas las versiones, incluida 2013-08-15. |
 | Métricas por minutos, ubicación principal |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |Todas las versiones, incluida 2013-08-15. |
 | Métricas por horas, ubicación secundaria |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |Todas las versiones, incluida 2013-08-15. Debe estar habilitada la replicación con redundancia geográfica con acceso de lectura. |

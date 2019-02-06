@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d6cb7ab2-da1a-4015-8e6f-c0c47bb6210f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 754697682470ac3c1f982e6cb1fc5f6043f3b92c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6466e40fca954d41a32424c55b8ee465fb7ad7ec
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438137"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integración de Azure Active Directory con Skytap
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Skytap](./media/skytap-tutorial/tutorial_skytap_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://pingone.com/<custom EntityID>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://pingone.com/<custom EntityID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL:`https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
@@ -157,7 +157,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/skytap-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-skytap-test-user"></a>Crear un usuario de prueba de Skytap
 
-En esta sección, creará un usuario llamado Britta Simon en Skytap. Trabaje con el [equipo de soporte técnico de Skytap](mailto:support@skytap.com) para agregar los usuarios a la plataforma de Skytap. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Skytap. Trabaje con el  [equipo de soporte técnico de Skytap](mailto:support@skytap.com) para agregar los usuarios a la plataforma de Skytap. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -204,7 +204,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Skytap en el panel de acceso, iniciará sesión automáticamente en su aplicación Skytap.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

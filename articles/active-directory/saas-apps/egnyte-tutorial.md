@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Egnyte | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Egnyte | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Egnyte.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 33989d04cba06c789089dfc0db62d177d258292a
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: e33fc71e0e43864d7d70495fc5056a8acaf4ad56
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976118"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159019"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: integración de Azure Active Directory con Egnyte
+# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: Integración de Azure Active Directory con Egnyte
 
 En este tutorial, aprenderá a integrar Egnyte con Azure Active Directory (Azure AD).
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.component: common
-ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526205"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467040"
 ---
 # <a name="azure-storage-client-tools"></a>Herramientas de cliente de Azure Storage
 Los usuarios de Azure Storage con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Azure Storage. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una "X" en cada bloque si permite enumerar la abstracción de los datos o tener acceso a ella. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
@@ -36,7 +36,7 @@ Los usuarios de Azure Storage con frecuencia desean poder ver o interactuar con 
   </tr>
   <tr>
     <td>Web</td>
-    <td>Windows</td>
+    <td> Windows</td>
     <td>OSX</td>
     <td>Linux</td>
   </tr>
@@ -102,7 +102,7 @@ No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguie
   </tr>
   <tr>
     <td>Web</td>
-    <td>Windows</td>
+    <td> Windows</td>
     <td>OSX</td>
     <td>Linux</td>
   </tr>

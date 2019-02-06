@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306172"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885139"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,6 +36,8 @@ En concreto, este conector SQL Server admite las siguientes funcionalidades:
 - La copia de datos con autenticación de **SQL** o **Windows**.
 - Como origen, recuperación de datos mediante consultas SQL o un procedimiento almacenado.
 - Como receptor, anexar datos a la tabla de destino o invocar un procedimiento almacenado con lógica personalizada durante la copia.
+
+La característica [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) de SQL Server ya no se admite.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -487,34 +489,37 @@ Al copiar datos con SQL Server como origen o destino, se usan las siguientes asi
 | binary |Byte[] |
 | bit |boolean |
 | char |String, Char[] |
-| fecha |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| fecha |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| DECIMAL |DECIMAL |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Doble |
+| Float |Double |
 | imagen |Byte[] |
 | int |Int32 |
-| money |DECIMAL |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |DECIMAL |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |DECIMAL |
-| sql_variant |Object * |
+| smallmoney |Decimal |
+| sql_variant |Objeto |
 | text |String, Char[] |
-| Twitter en tiempo |timespan |
+| Twitter en tiempo |TimeSpan |
 |  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
+
+>[!NOTE]
+> En la actualidad, ADF admite una precisión máxima de 28 en los tipos de datos que se asignan a tipos provisionales decimales. Si tiene datos con una precisión mayor de 28, considere la posibilidad de convertirlos en una cadena de consulta SQL.
 
 ## <a name="troubleshooting-connection-issues"></a>Solución de problemas de conexión
 

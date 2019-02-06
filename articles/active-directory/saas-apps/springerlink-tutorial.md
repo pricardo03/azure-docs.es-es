@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8138c7605b0024dfe4569e33843cb1e9d169271f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4d8d61f5e8834b679eeb68cb416bb6358a5f53a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438773"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integración de Azure Active Directory con Springer Link
 
@@ -109,7 +109,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Springer Link](./media/springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://fsso.springer.com`
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://fsso.springer.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba la siguiente dirección URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
@@ -153,7 +153,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/springerlink-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 

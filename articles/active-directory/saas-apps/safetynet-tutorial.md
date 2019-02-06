@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con SafetyNet | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con SafetyNet | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SafetyNet.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: caa96ea2-da21-4529-8fab-0e06367beb40
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 7756e943d25a02b3ec3e5a9150bb5eec8485eda7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4fb21f96c682775b4f7360abcdac7b64c78f76d9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158288"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Tutorial: integración de Azure Active Directory con SafetyNet
+# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Tutorial: Integración de Azure Active Directory con SafetyNet
 
 En este tutorial, obtendrá información sobre cómo integrar SafetyNet con Azure Active Directory (Azure AD).
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SafetyNet](./media/safetynet-tutorial/tutorial_safetynet_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.predictivesolutions.com/sp`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.predictivesolutions.com/sp`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`.
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de SafetyNet](mailto:dev@predictivesolutions.com) para obtener estos valores.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
 
     ![Vínculo de descarga del certificado](./media/safetynet-tutorial/tutorial_safetynet_certificate.png)
 
@@ -155,7 +155,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/safetynet-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -165,7 +165,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-safetynet-test-user"></a>Creación de un usuario de prueba de SafetyNet
 
-En esta sección, creará un usuario llamado Britta Simon en SafetyNet. Trabaje con el [equipo de soporte técnico de SafetyNet](mailto:dev@predictivesolutions.com) para agregar los usuarios a la plataforma de SafetyNet. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en SafetyNet. Trabaje con el  [equipo de soporte técnico de SafetyNet](mailto:dev@predictivesolutions.com) para agregar los usuarios a la plataforma de SafetyNet. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -202,7 +202,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de SafetyNet en el panel de acceso, debería iniciar sesión automáticamente en la aplicación SafetyNet.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

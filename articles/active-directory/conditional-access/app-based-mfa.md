@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 05d447a7d36e0e8ca9da35407e825eb8f49fb4a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6276231f8d63840dcf46f7456d584880315533bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448282"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299918"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Inicio rápido: Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory 
 
@@ -43,6 +43,9 @@ Para completar el escenario en este inicio rápido, necesita:
 - **Acceso a una edición de Azure AD Premium**: el acceso condicional a Azure AD es una funcionalidad de Azure AD Premium. 
 
 - **Una cuenta de prueba denominada Isabella Simonsen**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+
+
+El escenario descrito en este inicio rápido requiere que la MFA de cada usuario no esté habilitada para la cuenta de prueba. Para obtener más información, consulte [Exigencia de verificación en dos pasos para un usuario](../authentication/howto-mfa-userstates.md).
 
 
 ## <a name="test-your-sign-in"></a>Prueba del inicio de sesión

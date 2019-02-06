@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875406"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228294"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -38,8 +38,8 @@ Antes de comenzar, asegúrese de que comprende los siguientes conceptos:
 
 - Los [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
 - Los [dominios de enrutamiento](../expressroute/expressroute-circuit-peerings.md#routingdomains) de ExpressRoute
-- [Ubicaciones](../expressroute/expressroute-locations.md) de ExpressRoute.
-- [Arquitectura de replicación](azure-to-azure-architecture.md) de máquinas virtuales de Azure
+- Las [ubicaciones](../expressroute/expressroute-locations.md) de ExpressRoute.
+- La [aquitectura de replicación](azure-to-azure-architecture.md) de máquinas virtuales de Azure
 - Cómo [configurar la replicación](azure-to-azure-tutorial-enable-replication.md) en máquinas virtuales de Azure.
 - Cómo [conmutar por error](azure-to-azure-tutorial-failover-failback.md) máquinas virtuales de Azure.
 
@@ -76,7 +76,7 @@ Si quiere configurar la replicación en máquinas virtuales de Azure de un sitio
     - La ruta predeterminada del sistema de Azure para la replicación de máquinas virtuales de Azure es 0.0.0.0/0.
     - Normalmente, las implementaciones de aplicaciones virtuales de red también definen una ruta predeterminada (0.0.0.0/0) que fuerza el tráfico de salida de Internet a través de la aplicación virtual de red. La ruta predeterminada se usa cuando no se puede encontrar ninguna otra configuración de ruta específica.
     - Si este es el caso, la aplicación virtual de red podría sobrecargarse si todo el tráfico de replicación pasa por ella.
-    - La misma limitación se aplica también cuando se usan rutas predeterminadas para enrutar todo el tráfico de máquina virtual de Azure a implementaciones locales.
+    - La misma limitación se aplica también cuando se usan rutas predeterminadas para enrutar todo el tráfico de la máquina virtual de Azure a implementaciones locales.
     - En este escenario, se recomienda [crear un punto de conexión de servicio de red](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) en la red virtual para el servicio Microsoft.Storage, para que el tráfico de replicación no salga de los límites de Azure.
 
 ## <a name="replication-example"></a>Ejemplo de replicación

@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900400"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166567"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -41,7 +41,7 @@ La acústica usa aproximadamente el 0,01 % de CPU por origen por fotograma. El u
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>¿Es necesario simplificar la geometría de nivel? ¿Controlar el recuento de triángulos? ¿Hacer que las mallas sean estancas?
 
-No. El sistema ingerirá directamente la geometría de nivel detallada. Se voxelizará para procesamiento interno.
+ No. El sistema ingerirá directamente la geometría de nivel detallada. Se voxelizará para procesamiento interno.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>¿Qué hay en la tabla de búsqueda del entorno de ejecución?
 
@@ -53,7 +53,7 @@ Sí, el complemento de espacializador **Microsoft Acoustics** de Unity consulta 
  
 ## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>¿Puede controlar la geometría dinámica? ¿El cierre de puertas? ¿Las paredes destruidas?
 
-No. Los parámetros acústicos se procesan previamente en función del estado estático de un nivel de juego. Se recomienda dejar la geometría de las puertas fuera de la acústica y luego aplicar oclusión adicional en función del estado de los objetos de juego destructibles y movibles mediante el uso de técnicas establecidas.
+ No. Los parámetros acústicos se procesan previamente en función del estado estático de un nivel de juego. Se recomienda dejar la geometría de las puertas fuera de la acústica y luego aplicar oclusión adicional en función del estado de los objetos de juego destructibles y movibles mediante el uso de técnicas establecidas.
  
 ## <a name="does-it-handle-materials"></a>¿Controla los materiales?
 
@@ -69,7 +69,7 @@ Elementos acústicos de un proyecto brinda parámetros acústicos precisos y con
 
 ## <a name="what-exactly-happens-during-baking"></a>¿Qué ocurre exactamente durante la "elaboración"?
 
-El sistema considera posibles ubicaciones del reproductor para generar un conjunto de posiciones de ejemplo de "sondeo" espaciadas de manera uniforme. La elaboración de un nivel consta de tareas independientes para cada sondeo: el sistema considera una "región de simulación" cuboide centrada en el sondeo y realiza una simulación de onda detallada dentro de esa región con una resolución de hasta 25 cm.
+El sistema considera posibles ubicaciones del reproductor para generar un conjunto de posiciones de ejemplo de "sondeo" espaciadas de manera uniforme. Una simulación mediante "bake" de un nivel consta de tareas independientes para cada sondeo: el sistema considera una "región de simulación" cuboide centrada en el sondeo y realiza una simulación de onda detallada dentro en dicha región con una resolución de hasta 25 cm.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Explore la [escena de ejemplo](sample-walkthrough.md)

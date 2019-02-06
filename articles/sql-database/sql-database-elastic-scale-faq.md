@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188122"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457197"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Preguntas frecuentes (P+F) sobre las herramientas de base de datos elástica
 
@@ -43,13 +43,13 @@ No, la creación de la instancia de Shard Map Manager (por ejemplo, [ShardMapMan
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tengo dudas sobre el uso de las herramientas de base de datos elásticas, ¿cómo puedo obtener ayuda?
 
-Póngase en contacto con nosotros a través del [foro de Azure SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Póngase en contacto con nosotros a través del [foro de SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Al obtener una conexión de base de datos mediante una clave de particionamiento, puedo consultar los datos de otras claves de particionamiento en la misma partición.  ¿Esto se debe al diseño?
 
 Las API de Escalado elástico ofrecen una conexión a la base de datos correcta para su clave de particionamiento, pero no proporcionan filtrado de claves de particionamiento.  Agregue cláusulas **WHERE** a su consulta para restringir el ámbito a la clave de particionamiento proporcionada, si es necesario.
 
-## <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>¿Puedo usar una edición diferente de la base de datos de Azure en cada partición de mi conjunto de particiones?
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>¿Puedo usar una edición diferente de SQL Database en cada partición de mi conjunto de particiones?
 
 Sí, una partición es una base de datos individual y, por lo tanto, una partición podría ser una edición Premium y otra una edición Standard. Además, la edición de una partición puede escalar verticalmente o reducirse verticalmente varias veces durante la duración de la partición.
 

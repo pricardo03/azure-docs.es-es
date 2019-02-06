@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104869"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075472"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -43,6 +43,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
 
+###### <a name="january-24-2019"></a>**24 de enero de 2019**
+Se ha publicado familia 6 del sistema operativo invitado (Windows Server 2019).
+
 ###### <a name="january-7-2019"></a>**7 de enero de 2019**
 Se ha publicado el sistema operativo invitado de diciembre.
 
@@ -65,6 +68,21 @@ Se ha publicado el SO invitado de julio.
 Se ha publicado el SO invitado de junio.
 
 ## <a name="releases"></a>Lanzamientos
+
+## <a name="family-6-releases"></a>Lanzamientos de la familia 6
+**Windows Server 2019**
+
+Versión de .NET Framework instalada: 3.5, 4.7.2
+
+> [!NOTE]
+> Windows Azure SDK para .NET - 3.0 puede descargarse [aquí][Windows Azure SDK].
+>
+
+| Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |24 de enero de 2019 |Post 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |24 de enero de 2019 |Post 6.3 |
+
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
 **Windows Server 2016**
 
@@ -137,6 +155,7 @@ Aunque la [directiva de retirada para Azure SDK][retire policy sdk] indica que s
 
 | Familia del SO invitado | Versiones del SDK compatibles |
 | --- | --- |
+| 6 |Versión 2.9.6+ |
 | 5 |Versión 2.9.5.1+ |
 | 4 |Versión 2.1 o superior |
 | 3 |Versión 1.8 o superior |
@@ -205,3 +224,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
