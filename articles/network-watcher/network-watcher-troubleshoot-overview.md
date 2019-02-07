@@ -75,10 +75,10 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
 | ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | SÍ |
 | ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| SÍ|
-| Autenticación | Error de coincidencia de clave previamente compartida. | SÍ|
+| Authentication | Error de coincidencia de clave previamente compartida. | SÍ|
 | PeerReachability | La puerta de enlace del mismo nivel no está accesible. | SÍ|
 | IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | SÍ|
-| Error de WfpParse | Se produjo un error al analizar el registro de WFP. |SÍ|
+| WfpParse Error | Se produjo un error al analizar el registro de WFP. |SÍ|
 
 ## <a name="supported-gateway-types"></a>Tipos de puerta de enlace admitidos
 
