@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451876"
+ms.locfileid: "55505706"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>¿Cuáles son los productos de aprendizaje automático de Microsoft?
 
@@ -27,7 +27,7 @@ Las siguientes opciones están disponibles para el aprendizaje automático en la
 
 | Opciones&nbsp;en la nube | ¿Qué es? | Qué puede hacer con él |
 |-|-|-|
-| [Servicio Azure Machine Learning](#azure-machine-learning-services) | Servicio en la nube administrado de ML  | Entrenar, implementar y administrar modelos en Azure con Python y la CLI |
+| [Servicio Azure Machine Learning](#azure-machine-learning-service) | Servicio en la nube administrado de ML  | Entrenar, implementar y administrar modelos en Azure con Python y la CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interfaz visual de arrastrar y colocar de ML | Compilar, experimentar e implementar modelos mediante algoritmos preconfigurados (Python y R)|
 | [Azure Databricks](#azure-databricks) | Plataforma de análisis basada en Spark | Compilar e implementar flujos de trabajo de datos y modelos |
 | [Azure Cognitive Services](#azure-cognitive-services) | Servicios de Azure con modelos de inteligencia artificial y ML creados previamente | Agregar fácilmente características inteligentes a las aplicaciones |

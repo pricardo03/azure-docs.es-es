@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9dbdd499d747a67187ae59d0ebbca762dd27fa
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 792d6da36851f74429d97a9779aff1727e8f64db
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850474"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700053"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales mediante la CLI de Azure
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip).
+Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Puede usar [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPAddress* que se crearon anteriormente. 
+Puede usar [az network application-gateway create](/cli/azure/network/application-gateway) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPAddress* que se crearon anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -128,7 +128,7 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurepowershell-interactive
 az network public-ip show \

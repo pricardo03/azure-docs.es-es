@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0d6fe79d23f3d3d0679445f5120a3ec17ddd67
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013781"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562229"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 
@@ -48,9 +48,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |La propiedad type debe establecerse en: **MongoDbV2** |SÍ |
-| connectionString |Especifique la cadena de conexión de MongoDB, por ejemplo `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte el [manual de MongoDB sobre cadenas de conexión](https://docs.mongodb.com/manual/reference/connection-string/) para más información. <br/><br />Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
-| Base de datos | Nombre de la base de datos a la que desea acceder. | SÍ |
+| Tipo |La propiedad type debe establecerse en: **MongoDbV2** |Sí |
+| connectionString |Especifique la cadena de conexión de MongoDB, por ejemplo `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte el [manual de MongoDB sobre cadenas de conexión](https://docs.mongodb.com/manual/reference/connection-string/) para más información. <br/><br />Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Base de datos | Nombre de la base de datos a la que desea acceder. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -81,14 +81,14 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **MongoDbV2Collection** | SÍ |
-| collectionName |Nombre de la colección en la base de datos de MongoDB. |SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **MongoDbV2Collection** | Sí |
+| collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
 **Ejemplo:**
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
         "linkedServiceName": {
@@ -112,11 +112,11 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbV2Source** | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbV2Source** | Sí |
 | filter | Especifica el filtro de selección mediante operadores de consulta. Para que se devuelvan todos los documentos de una colección, omita este parámetro o pase un documento vacío ({}). | Sin  |
 | cursorMethods.project | Especifica los campos a devolver en los documentos para la proyección. Para devolver todos los campos en los documentos coincidentes, omita este parámetro. | Sin  |
 | cursorMethods.sort | Especifica el orden en que la consulta devuelve los documentos coincidentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Sin  |
-| cursorMethods.limit | Especifica el número máximo de documentos que devuelve el servidor. Consulte [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Sin  | 
+| cursorMethods.limit | Especifica el número máximo de documentos que devuelve el servidor. Consulte [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Sin  |
 | cursorMethods.skip | Especifica el número de documentos que se omitirán y desde donde empieza MongoDB a devolver resultados. Consulte [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Sin  |
 | batchSize | Especifica el número de documentos a devolver en cada lote de la respuesta de la instancia de MongoDB. En la mayoría de los casos, modificar el tamaño del lote no afectará al usuario ni a la aplicación. Cosmos DB limita el tamaño de cada lote a 40 MB como máximo, que es la suma de los números de batchSize del tamaño de los documentos, por lo que debe reducir este valor si el tamaño del documento es mayor. | Sin <br/>(el valor predeterminado es **100**) |
 

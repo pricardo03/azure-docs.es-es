@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: af7f3b42aad41f103be6c86da84db2ff230ff226
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5dda96786cde980fbec1b2f90bb7f755453b468a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065229"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729666"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Linux con la CLI de Azure
 
@@ -39,7 +39,7 @@ Si prefiere instalar y usar la CLI en un entorno local, para esta guía de inici
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -47,7 +47,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Crear máquina virtual
 
-Cree la máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create).
+Cree la máquina virtual con el comando [az vm create](/cli/azure/vm).
 
 En el ejemplo siguiente se crea una máquina virtual llamada *myVM* y se agrega una cuenta de usuario llamada *azureuser*. El parámetro `--generate-ssh-keys` se usa para generar automáticamente una clave SSH y colocarla en la ubicación de la clave predeterminada (*~/.ssh*). Para utilizar un conjunto de claves concreto, utilice la opción `--ssh-key-value`.
 
@@ -79,7 +79,7 @@ Tenga en cuenta sus propios valores de `publicIpAddress` en la salida de la máq
 
 ## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web
 
-De forma predeterminada, solo las conexiones de SSH se abren cuando se crea una máquina virtual Linux en Azure. Use [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir el puerto TCP 80 que se usará con el servidor web de NGINX:
+De forma predeterminada, solo las conexiones de SSH se abren cuando se crea una máquina virtual Linux en Azure. Use [az vm open-port](/cli/azure/vm) para abrir el puerto TCP 80 que se usará con el servidor web de NGINX:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -112,7 +112,7 @@ Use un explorador web de su elección para ver la página de bienvenida predeter
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados. 
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

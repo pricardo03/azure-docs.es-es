@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886244"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816244"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -65,7 +65,7 @@ Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se e
 Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-overview.md#regions-that-support-availability-zones). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 
 - [Azure Portal](#use-the-azure-portal)
-- [CLI de Azure](#use-the-azure-cli-20)
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 
@@ -81,7 +81,7 @@ El conjunto de escalado y los recursos de apoyo, como la dirección IP pública 
 
 El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-cli.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible.
 
-Agregue el parámetro `--zones` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) y especifique qué zona se usará (como la zona *1*, *2* o *3*). En el ejemplo siguiente se crea un conjunto de escalado de una sola zona denominado *myScaleSet* en la zona *1*:
+Agregue el parámetro `--zones` al comando [az vmss create](/cli/azure/vmss) y especifique qué zona se usará (como la zona *1*, *2* o *3*). En el ejemplo siguiente se crea un conjunto de escalado de una sola zona denominado *myScaleSet* en la zona *1*:
 
 ```azurecli
 az vmss create \

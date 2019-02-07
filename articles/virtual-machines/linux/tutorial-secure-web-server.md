@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 85dbdc42dd55cdb262351511918d2b813212edb0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882215"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750926"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual de Linux en Azure con certificados SSL almacenados en Key Vault
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
@@ -44,13 +44,13 @@ En lugar de usar una imagen de máquina virtual personalizada que incluya los ce
 
 
 ## <a name="create-an-azure-key-vault"></a>Crear una instancia de Azure Key Vault
-Para poder crear una instancia de Key Vault y certificados, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupSecureWeb* en la ubicación *eastus*:
+Para poder crear una instancia de Key Vault y certificados, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupSecureWeb* en la ubicación *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Después, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#az_keyvault_create) y habilítela para usarla al implementar una máquina virtual. Cada almacén Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
+Después, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault) y habilítela para usarla al implementar una máquina virtual. Cada almacén Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -61,7 +61,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generación de un certificado y almacenamiento en Key Vault
-Para usarlo en producción, debe importar un certificado válido firmado por un proveedor de confianza con [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). En este tutorial, el ejemplo siguiente muestra cómo puede generar un certificado autofirmado con [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) que usa la directiva de certificado predeterminada:
+Para usarlo en producción, debe importar un certificado válido firmado por un proveedor de confianza con [az keyvault certificate import](/cli/azure/keyvault/certificate). En este tutorial, el ejemplo siguiente muestra cómo puede generar un certificado autofirmado con [az keyvault certificate create](/cli/azure/keyvault/certificate) que usa la directiva de certificado predeterminada:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -71,7 +71,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Preparación del certificado para usarlo con una máquina virtual
-Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). Convierta el certificado con [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
+Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret). Convierta el certificado con [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -111,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Creación de una máquina virtual segura
-Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). Los datos del certificado se insertan desde Key Vault con el parámetro `--secrets`. Pase la configuración cloud-init con el parámetro `--custom-data`:
+Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm). Los datos del certificado se insertan desde Key Vault con el parámetro `--secrets`. Pase la configuración cloud-init con el parámetro `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se instalan y la aplicación se inicia. Cuando se haya creado la máquina virtual, anote el valor `publicIpAddress` mostrado por la CLI de Azure. Esta dirección se usa para acceder al sitio en un explorador web.
 
-Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 443 desde Internet con el comando [az vm open-port](/cli/azure/vm#az_vm_open_port):
+Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 443 desde Internet con el comando [az vm open-port](/cli/azure/vm):
 
 ```azurecli-interactive 
 az vm open-port \

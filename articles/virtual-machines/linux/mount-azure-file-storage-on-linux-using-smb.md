@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462365"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731451"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento, en el grupo de recursos que ha creado, con [az storage account create](/cli/azure/storage/account#create). En este ejemplo se crea una cuenta de almacenamiento denominada *mySTORAGEACCT<random number>* y coloca el nombre de esa cuenta de almacenamiento en la variable **STORAGEACCT**. Los nombres de la cuenta de almacenamiento deben ser únicos, usar `$RANDOM` anexa un número al final para que sea único.
+Cree una cuenta de almacenamiento, en el grupo de recursos que ha creado, con [az storage account create](/cli/azure/storage/account). En este ejemplo se crea una cuenta de almacenamiento denominada *mySTORAGEACCT<random number>* y coloca el nombre de esa cuenta de almacenamiento en la variable **STORAGEACCT**. Los nombres de la cuenta de almacenamiento deben ser únicos, usar `$RANDOM` anexa un número al final para que sea único.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 Cuando cree una cuenta de almacenamiento, las claves de cuenta de almacenamiento se crean en pares de modo que las claves se pueden girar sin ninguna interrupción del servicio. Cuando cambia a la segunda clave del par, se crea un nuevo par de claves. Las nuevas claves de la cuenta de almacenamiento se crean siempre por pares, por lo que siempre tendrá lista al menos una clave de cuenta de almacenamiento sin usar a la cual cambiar.
 
-Para ver las claves de la cuenta de almacenamiento, use [az storage account keys list](/cli/azure/storage/account/keys#list). En este ejemplo se almacena el valor de clave 1 en la variable **STORAGEKEY**.
+Para ver las claves de la cuenta de almacenamiento, use [az storage account keys list](/cli/azure/storage/account/keys). En este ejemplo se almacena el valor de clave 1 en la variable **STORAGEKEY**.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
 
-Crear el recurso compartido de File Storage con [az storage share create](/cli/azure/storage/share#create). 
+Crear el recurso compartido de File Storage con [az storage share create](/cli/azure/storage/share). 
 
 Los nombres de recursos compartidos deben estar formados por letras minúsculas, números y guiones sencillos, pero no pueden empezar con un guion. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 

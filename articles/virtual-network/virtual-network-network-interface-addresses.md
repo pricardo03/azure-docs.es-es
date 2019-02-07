@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436781"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663611"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -51,9 +51,9 @@ Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [p
 
     |Configuración|¿Necesario?|Detalles|
     |---|---|---|
-    |NOMBRE|SÍ|Debe ser único para la interfaz de red|
-    |Escriba|SÍ|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
-    |Método de asignación de direcciones IP privadas|SÍ|[**Dinámica**](#dynamic): Azure asigna la siguiente dirección disponible para el intervalo de dirección de subred en el que se implementa la interfaz de red. [**Estática**](#static): asigna una dirección o usada para el intervalo de dirección de subred en el que se implementa la interfaz de red.|
+    |NOMBRE|Sí|Debe ser único para la interfaz de red|
+    |Type|Sí|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
+    |Método de asignación de direcciones IP privadas|Sí|[**Dinámica**](#dynamic): Azure asigna la siguiente dirección disponible para el intervalo de dirección de subred en el que se implementa la interfaz de red. [**Estática**](#static): asigna una dirección o usada para el intervalo de dirección de subred en el que se implementa la interfaz de red.|
     |Dirección IP pública|Sin |**Deshabilitado:** ningún recurso de dirección IP pública está asociado actualmente a la configuración de IP. **Habilitada:** seleccione una dirección IP pública IPv4 existente o cree una nueva. Para más información sobre cómo crear una dirección IP pública, lea el artículo [Direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Agregue manualmente las direcciones IP privadas secundarias al sistema operativo de la máquina virtual siguiendo las instrucciones que aparecen en el artículo [Asignación de varias direcciones IP a sistemas operativos de máquinas virtuales](virtual-network-multiple-ip-addresses-portal.md#os-config). Consulte las direcciones IP [privadas](#private) para ver consideraciones especiales antes de agregar manualmente direcciones IP a un sistema operativo de máquina virtual. No agregue ninguna dirección IP pública al sistema operativo de máquina virtual.
 
@@ -61,7 +61,7 @@ Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [p
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>Cambio de configuración de las direcciones IP
@@ -82,7 +82,7 @@ Es posible que necesite cambiar el método de asignación de una dirección IPv4
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>Eliminación de direcciones IP
@@ -98,7 +98,7 @@ Puede quitar direcciones IP [privadas](#private) y [públicas](#public) de una i
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>Configuraciones IP
@@ -144,7 +144,7 @@ Hay escenarios en los cuales es necesario establecer manualmente la dirección I
 4. Inicie la máquina virtual.
 5. [Configure manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) las direcciones IP secundarias dentro del sistema operativo (y también la dirección IP principal dentro de Windows) para que coincidan con las que estableció en Azure.
 
-Si sigue los pasos anteriores, la dirección IP privada asignada a la interfaz de red dentro de Azure y dentro del sistema operativo de una máquina virtual no serán distintas. Para realizar un seguimiento de las máquinas virtuales dentro de la suscripción para las cuales estableció manualmente direcciones IP dentro de un sistema operativo, considere agregar una [etiqueta](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) de Azure a las máquinas virtuales. Por ejemplo, puede usar "Asignación de dirección IP: estática". De este modo, puede encontrar fácilmente las máquinas virtuales dentro de la suscripción para las cuales estableció manualmente la dirección IP dentro del sistema operativo.
+Si sigue los pasos anteriores, la dirección IP privada asignada a la interfaz de red dentro de Azure y dentro del sistema operativo de una máquina virtual no serán distintas. Para realizar un seguimiento de las máquinas virtuales dentro de la suscripción para las cuales estableció manualmente direcciones IP dentro de un sistema operativo, considere agregar una [etiqueta](../azure-resource-manager/resource-group-using-tags.md) de Azure a las máquinas virtuales. Por ejemplo, puede usar "Asignación de dirección IP: estática". De este modo, puede encontrar fácilmente las máquinas virtuales dentro de la suscripción para las cuales estableció manualmente la dirección IP dentro del sistema operativo.
 
 Además de permitir que una máquina virtual se comunique con otros recursos dentro de la misma red virtual o dentro de redes virtuales conectadas, una dirección IP privada también permite que una máquina virtual establezca una conexión saliente a Internet. Las conexiones salientes son direcciones de red de origen que Azure traduce a una dirección IP pública impredecible. Para más información acerca de la conectividad de salida a Internet de Azure, consulte el artículo de [Comprender las conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). No puede establecer una comunicación entrante a la dirección IP privada de una máquina virtual desde Internet. Si las conexiones salientes requieren una dirección IP pública predecible, asocie un recurso de dirección IP pública a una interfaz de red.
 

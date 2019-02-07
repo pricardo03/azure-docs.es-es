@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d17389af1129c63d2c0eadfac04c034669200620
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1b62bb6b00e1add93ee4215507d1b110dcf51424
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462739"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566995"
 ---
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
@@ -77,7 +77,7 @@ Los pasos siguientes importarán datos desde una ubicación local a un recurso c
     
     Consulte [Preparación del archivo CSV InitialDriveSet o AdditionalDriveSet](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) para más información.
 
-6. Utilice la herramienta [WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=55280) para copiar sus datos a uno o varios discos duros.
+6. Utilice la herramienta [WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar sus datos a uno o varios discos duros.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

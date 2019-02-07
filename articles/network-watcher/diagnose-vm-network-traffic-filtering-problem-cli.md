@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8b40a4fbee1e6ee501178039e87f39d47d77fcab
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2fd297cbbb3d4471d3f03f0fb098bea395482cf9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855982"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749184"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Inicio rápido: Diagnóstico de problemas de filtrado del tráfico de red de una máquina virtual: CLI de Azure
 
@@ -36,13 +36,13 @@ Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio 
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Para poder crear una máquina virtual, debe crear un grupo de recursos que contenga la máquina virtual. Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para poder crear una máquina virtual, debe crear un grupo de recursos que contenga la máquina virtual. Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. En el ejemplo siguiente, se crea una máquina virtual llamada *myVm*:
+Cree la máquina virtual con [az vm create](/cli/azure/vm). Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. En el ejemplo siguiente, se crea una máquina virtual llamada *myVm*:
 
 ```azurecli-interactive
 az vm create \
