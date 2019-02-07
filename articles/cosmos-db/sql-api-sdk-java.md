@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352961"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811042"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -32,20 +32,14 @@ ms.locfileid: "54352961"
 
 El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que necesite compatibilidad asincrónica, use el [SDK de Java asincrónico de API de SQL](sql-api-sdk-async-java.md). 
 
-<table>
-
-<tr><td>**Descarga del SDK**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Java](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**Tutorial de la aplicación web**</td><td>[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-java-application.md)</td></tr>
-
-<tr><td>**Tiempo de ejecución mínimo admitido**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Descarga del SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**Documentación de la API**|[Documentación de referencia de API](/java/api/com.microsoft.azure.documentdb)|
+|**Contribuya al SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**Primeros pasos**|[Introducción al SDK de Java](sql-api-java-get-started.md)|
+|**Tutorial de la aplicación web**|[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-java-application.md)|
+|**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notas de la versión
 
@@ -218,7 +212,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
-| [2.1.1](#2.1.1) |21 de noviembre de 2018 |--- |
+| 2.1.1 |21 de noviembre de 2018 |--- |
 | [2.0.0](#2.0.0) |21 de septiembre de 2018 |--- |
 | [1.16.4](#1.16.4) |10 de septiembre de 2018 |--- |
 | [1.16.3](#1.16.3) |09 de septiembre de 2018 |--- |
@@ -249,7 +243,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 | [1.3.0](#1.3.0) |05 de octubre de 2015 |--- |
 | [1.2.0](#1.2.0) |05 de agosto de 2015 |--- |
 | [1.1.0](#1.1.0) |09 de julio de 2015 |--- |
-| [1.0.1](#1.0.1) |12 de mayo de 2015 |--- |
+| 1.0.1 |12 de mayo de 2015 |--- |
 | [1.0.0](#1.0.0) |07 de abril de 2015 |--- |
 | 0.9.5-prelease |09 de marzo de 2015 |29 de febrero de 2016 |
 | 0.9.4-prelease |17 de febrero de 2015 |29 de febrero de 2016 |

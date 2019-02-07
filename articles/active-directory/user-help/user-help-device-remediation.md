@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164068"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770476"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Solución de problemas de los posibles motivos por los que obtiene el mensaje de error "No se puede llegar allí desde aquí".
 Durante el acceso a servicios o aplicaciones web internos de su organización, es posible que obtenga un mensaje de error que dice, **No se puede llegar allí desde aquí**. Este mensaje indica que la organización ha establecido una directiva que impide el acceso del dispositivo a los recursos de la organización. Si bien es posible que tenga que ponerse en contacto con su departamento de soporte técnico para solucionar este problema, aquí tiene algunas cosas que puede probar primero.
@@ -68,4 +68,4 @@ Si el dispositivo no está unido a la red de la organización, puede realizar un
 ## <a name="next-steps"></a>Pasos siguientes
 - [¿Qué es el portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
-- [Inicie sesión con el teléfono, no con la contraseña](microsoft-authenticator-app-phone-signin-faq.md)
+- [Inicie sesión con el teléfono, no con la contraseña](user-help-auth-app-sign-in.md)

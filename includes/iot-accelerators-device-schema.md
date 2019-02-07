@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285653"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701189"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Partes del esquema de modelo del dispositivo
 
@@ -105,7 +105,7 @@ La sección `Properties` del esquema define los valores de propiedad que el disp
 }
 ```
 
-Cuando se inicia la solución, consulta a todos los dispositivos simulados para compilar una lista de valores `Type` para usarlos en la interfaz de usuario. La solución usa las propiedades `Latitiude` y `Longitude` para agregar la ubicación del dispositivo a la asignación en el panel.
+Cuando se inicia la solución, consulta a todos los dispositivos simulados para compilar una lista de valores `Type` para usarlos en la interfaz de usuario. La solución usa las propiedades `Latitude` y `Longitude` para agregar la ubicación del dispositivo a la asignación en el panel.
 
 ## <a name="telemetry"></a>Telemetría
 
@@ -144,8 +144,8 @@ Actualmente, solo se pueden utilizar los esquemas de mensaje JSON. Los campos en
 * Texto
 * boolean
 * Entero
-* Doble
-* Datetime
+* Double
+* DateTime
 
 Para enviar mensajes de telemetría en diferentes intervalos, agregue varios tipos de telemetría a la matriz `Telemetry`. En el ejemplo siguiente se envían datos de temperatura y humedad cada 10 segundos y el estado de la luz cada minuto:
 

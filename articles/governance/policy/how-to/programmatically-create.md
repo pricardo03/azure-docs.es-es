@@ -4,17 +4,17 @@ description: Este artículo le guiará a través de la creación y administraci�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101794"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510840"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
@@ -96,8 +96,9 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
    Reemplace _ContosoRG_ por el nombre del grupo de recursos que desee.
 
    El parámetro **Scope** en `New-AzPolicyAssignment` también funciona con las suscripciones y los grupos de administración. El parámetro utiliza una ruta de acceso de recurso completo, que devuelve la propiedad **ResourceId** en `Get-AzResourceGroup`. El patrón de **Scope** para cada contenedor es como sigue.
-   Reemplace `{rgName}`, `{subId}` y `{mgName}` con el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente.
+   Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
 
+   - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Suscripción `/subscriptions/{subId}/`
    - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`

@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903900"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497628"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
 Al implementar los recursos, debe especificar si la implementación es una actualización incremental o una actualización completa.  La diferencia principal entre estos dos modos es la forma en que Resource Manager controla los recursos existentes en el grupo de recursos que no están en la plantilla. El modo predeterminado es el incremental.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="incremental-and-complete-deployments"></a>Implementaciones de incrementales y completadas
 
@@ -64,7 +66,7 @@ Cuando se implementa en modo **completo**, se elimina el recurso C. El grupo de 
 Para establecer el modo de implementación al implementar con PowerShell, use el parámetro `Mode`.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 548c05963b0b99ba3434d600b19f80cef6a09d6a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171463"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813354"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Ejemplos de manifiesto de servicio y de aplicación de servicios confiables
 Los siguientes son ejemplos de los manifiestos de aplicación y de servicio para una aplicación de Service Fabric con un front-end web de ASP.NET Core y un back-end con estado. El propósito de estos ejemplos es mostrar qué opciones están disponibles y cómo usarlas. Estos manifiestos de aplicación y de servicio se basan en los manifiestos de la [Guía de inicio rápido de Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
@@ -28,8 +28,8 @@ Se muestran las características siguientes:
 |Manifest|Características|
 |---|---|
 |[Manifiesto de aplicación](#application-manifest)| [regulación de recursos](service-fabric-resource-governance.md), [ejecutar un servicio como una cuenta de administrador local](service-fabric-application-runas-security.md), [aplicar una directiva predeterminada para todos los paquetes de código de servicio](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [crear entidades de seguridad de usuario y grupo](service-fabric-application-runas-security.md), compartir un paquete de datos entre instancias de servicio, [invalidar los extremos de servicio](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|[Manifiesto del servicio FrontEndService](#frontendservice-service-manifest)| [Ejecutar un script al inicio del servicio](service-fabric-run-script-at-service-startup.md), [definir un punto de conexión HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|[Manifiesto del servicio BackEndService](#backendservice-service-manifest)| [Declarar un paquete de configuración](service-fabric-application-and-service-manifests.md), [declarar un paquete de datos](service-fabric-application-and-service-manifests.md), [configurar un punto de conexión](service-fabric-service-manifest-resources.md)| 
+|Manifiesto del servicio FrontEndService| [Ejecutar un script al inicio del servicio](service-fabric-run-script-at-service-startup.md), [definir un punto de conexión HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|Manifiesto del servicio BackEndService| [Declarar un paquete de configuración](service-fabric-application-and-service-manifests.md), [declarar un paquete de datos](service-fabric-application-and-service-manifests.md), [configurar un punto de conexión](service-fabric-service-manifest-resources.md)| 
 
 Consulte [Elementos del manifiesto de aplicación](#application-manifest-elements), [Elementos del manifiesto del servicio VotingWeb](#votingweb-service-manifest-elements), y [Elementos del manifiesto del servicio VotingData](#votingdata-service-manifest-elements) para más información sobre elementos específicos XML.
 

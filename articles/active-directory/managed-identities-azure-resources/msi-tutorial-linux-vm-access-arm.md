@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: priyamo
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b0c46485a0b35762c4dc34134eb11c31d09d4fe0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 857991ee171dca8e579b1e6dbfd97551ee857530
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151352"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749941"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: Uso de las identidades administradas asignadas por el usuario de una máquina virtual Linux para acceder a Azure Resource Manager
 
@@ -84,7 +84,7 @@ La respuesta contiene detalles de la identidad administrada asignada por el usua
 
 Los clientes pueden usar las identidades administradas asignadas por el usuario en varios recursos de Azure. Utilice los comandos siguientes para asignar la identidad administrada asignada por el usuario a una única máquina virtual. Use la propiedad `Id` devuelta en el paso anterior para el parámetro `-IdentityID`.
 
-Asigne la identidad administrada asignada por el usuario a la máquina virtual Linux utilizando el cmdlet [az vm identity-assign](/cli/azure/vm#az-vm-identity-assign). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. Use la propiedad `id` devuelta en el paso anterior para el valor del parámetro `--identities`.
+Asigne la identidad administrada asignada por el usuario a la máquina virtual Linux utilizando el cmdlet [az vm identity-assign](/cli/azure/vm). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. Use la propiedad `id` devuelta en el paso anterior para el valor del parámetro `--identities`.
 
 ```azurecli-interactive
 az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"

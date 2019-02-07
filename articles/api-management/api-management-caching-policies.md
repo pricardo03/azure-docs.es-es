@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 204f69ad37a7e38337c87e2053a10c96dadf380d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ec9551b92702c3c9050e60c7550b89e99b99b6b6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812665"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661690"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|cache-lookup|Elemento raíz.|SÍ|
+|cache-lookup|Elemento raíz.|Sí|
 |vary-by-header|Inicia el almacenamiento en caché de respuestas por valor del encabezado especificado, por ejemplo, Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|Sin |
 |vary-by-query-parameter|Inicia el almacenamiento en caché de las respuestas por valor de los parámetros de consulta especificados. Permite introducir uno o varios parámetros. Utilice el punto y coma como separador. Si no se especifica ninguno, se usan todos los parámetros de consulta.|Sin |
 
@@ -115,8 +115,8 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 | cache-preference               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
 | downstream-caching-type        | Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.                                                                                                          | Sin        | None              |
 | must-revalidate                | Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.                                                                                                                                                                                                                      | Sin        | true              |
-| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por [clave de suscripción](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | SÍ      |         False          |
-| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | SÍ      |       False            |
+| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por [clave de suscripción](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Sí      |         False          |
+| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Sí      |       False            |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -182,13 +182,13 @@ Para obtener más información, consulte [Policy expressions](api-management-pol
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|cache-store|Elemento raíz.|SÍ|
+|cache-store|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 | NOMBRE             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Período de vida de las entradas almacenadas en caché, especificado en segundos.                                                                                                                                                                                                                                                                                                   | SÍ      | N/D               |
+| duration         | Período de vida de las entradas almacenadas en caché, especificado en segundos.                                                                                                                                                                                                                                                                                                   | Sí      | N/D               |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.
@@ -225,7 +225,7 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|cache-lookup-value|Elemento raíz.|SÍ|
+|cache-lookup-value|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
@@ -233,8 +233,8 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
 | default-value    | Un valor que se asignará a la variable si la búsqueda de la clave de caché da lugar a un error. Si no se especifica este atributo, se asigna `null`.                                                                                                                                                                                                           | Sin        | `null`            |
-| key              | Valor de clave de caché para usar en la búsqueda.                                                                                                                                                                                                                                                                                                                       | SÍ      | N/D               |
-| variable-name    | Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.                                       | SÍ      | N/D               |
+| key              | Valor de clave de caché para usar en la búsqueda.                                                                                                                                                                                                                                                                                                                       | Sí      | N/D               |
+| variable-name    | Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.                                       | Sí      | N/D               |
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -268,16 +268,16 @@ Para más información y ver ejemplos de esta directiva, consulte [Custom cachin
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|cache-store-value|Elemento raíz.|SÍ|
+|cache-store-value|Elemento raíz.|Sí|
 
 ### <a name="attributes"></a>Atributos
 
 | NOMBRE             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
-| duration         | El valor se almacenará en la caché según el valor de duración proporcionado, especificado en segundos.                                                                                                                                                                                                                                                                                 | SÍ      | N/D               |
-| key              | La clave de caché con la que se almacenará el valor.                                                                                                                                                                                                                                                                                                                   | SÍ      | N/D               |
-| value            | El valor que se almacenará en la caché.                                                                                                                                                                                                                                                                                                                                     | SÍ      | N/D               |
+| duration         | El valor se almacenará en la caché según el valor de duración proporcionado, especificado en segundos.                                                                                                                                                                                                                                                                                 | Sí      | N/D               |
+| key              | La clave de caché con la que se almacenará el valor.                                                                                                                                                                                                                                                                                                                   | Sí      | N/D               |
+| value            | El valor que se almacenará en la caché.                                                                                                                                                                                                                                                                                                                                     | Sí      | N/D               |
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -307,14 +307,14 @@ La directiva `cache-remove-value` elimina un elemento almacenado en caché ident
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
-|cache-remove-value|Elemento raíz.|SÍ|
+|cache-remove-value|Elemento raíz.|Sí|
 
 #### <a name="attributes"></a>Atributos
 
 | NOMBRE             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
-| key              | La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.                                                                                                                                                                                                                                                                                        | SÍ      | N/D               |
+| key              | La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.                                                                                                                                                                                                                                                                                        | Sí      | N/D               |
 
 #### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.

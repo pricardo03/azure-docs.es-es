@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093247"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745969"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
 
@@ -65,7 +65,7 @@ En la tabla siguiente se comparan las opciones para almacenar registros, agregar
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados y métricas de consulta, según uno de los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
 | [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados y métricas de consulta, según los esquemas documentados en este artículo. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
 
-Tanto Log Analytics como Blob Storage están disponibles como un servicio compartido gratuito, por lo que puede probarlos sin ningún costo el tiempo que dure su suscripción a Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/ricing/details/monitor/) para más información).
+Tanto Log Analytics como Blob Storage están disponibles como un servicio compartido gratuito, por lo que puede probarlos sin ningún costo el tiempo que dure su suscripción a Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) para más información).
 
 La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Search, y acceder a ellos.
 

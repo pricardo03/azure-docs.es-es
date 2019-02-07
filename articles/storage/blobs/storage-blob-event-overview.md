@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247755"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751402"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
@@ -90,7 +90,7 @@ Este es un ejemplo de un evento BlobCreated:
 Para más información, consulte el [esquema de eventos de Blob Storage](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrado de eventos
-Las suscripciones de eventos de blobs se pueden filtrar en función del tipo de evento y por el nombre del contenedor y el nombre del blob del objeto que se creó o eliminó.  Los filtros pueden aplicarse a las suscripciones de eventos, ya sea durante la [creación](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) de la suscripción de eventos o [en un momento posterior](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Los filtros de asunto de Event Grid funcionan según las coincidencias de "comienza por" y "termina en", con el fin de que los eventos con un asunto coincidente se entreguen al suscriptor. 
+Las suscripciones de eventos de blobs se pueden filtrar en función del tipo de evento y por el nombre del contenedor y el nombre del blob del objeto que se creó o eliminó.  Los filtros pueden aplicarse a las suscripciones de eventos, ya sea durante la [creación](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) de la suscripción de eventos o [en un momento posterior](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Los filtros de asunto de Event Grid funcionan según las coincidencias de "comienza por" y "termina en", con el fin de que los eventos con un asunto coincidente se entreguen al suscriptor. 
 
 El asunto de los eventos de Blob Storage utiliza el formato:
 

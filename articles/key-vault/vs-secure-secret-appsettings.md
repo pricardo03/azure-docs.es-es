@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 8f3cdf366830549c3ebb9c5680ecf36d1053d1d9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075301"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662313"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
@@ -32,7 +32,7 @@ Para asegurarse de que el proceso de desarrollo es seguro, se crean bibliotecas 
 ## <a name="aspnet-and-net-core-applications"></a>Aplicaciones ASP.NET y .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Guardar la configuración del secreto en el almacén de User Secret que se encuentra fuera de la carpeta de control de código fuente
-Si está realizando un prototipo rápido o no tiene acceso a Internet, comience por sacar la configuración del secreto de la carpeta de control de código fuente y pasarla al almacén de User Secret. El almacén de User Secret es un archivo que se guarda en la carpeta del generador de perfiles de usuario, así que los secretos no se registran en el control de código fuente. En el diagrama siguiente se muestra cómo funciona [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
+Si está realizando un prototipo rápido o no tiene acceso a Internet, comience por sacar la configuración del secreto de la carpeta de control de código fuente y pasarla al almacén de User Secret. El almacén de User Secret es un archivo que se guarda en la carpeta del generador de perfiles de usuario, así que los secretos no se registran en el control de código fuente. En el diagrama siguiente se muestra cómo funciona [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio).
 
 ![User Secret guarda las opciones de configuración del secreto fuera del control de código fuente](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

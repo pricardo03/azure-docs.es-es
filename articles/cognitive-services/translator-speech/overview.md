@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1983ecbdee3d15efc73ad395fd07cbc7cd4f279c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472497"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769732"
 ---
 # <a name="what-is-translator-speech-api"></a>¿Qué es Translator Speech API?
 
@@ -23,7 +23,7 @@ ms.locfileid: "55472497"
 
 Translator Speech API se puede utilizar para agregar conversión de voz en tiempo real a las aplicaciones, herramientas o cualquier solución que requiera conversión de voz en varios idiomas, independientemente del sistema operativo de destino o de los lenguajes de desarrollo. La API puede usarse tanto para traducción de voz a voz como de voz a texto.
 
-Translator Text API es un servicio de Azure que forma parte de [la colección de API Microsoft Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
+Translator Text API es un servicio de Azure que forma parte de [la colección de API Microsoft Cognitive Services](https://docs.microsoft.com/azure/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
 
 Con Translator Speech API, las aplicaciones cliente transmiten el audio de voz al servicio y reciben unos resultados de texto y audio, que incluyen el texto reconocido en el idioma de origen y su conversión al idioma de destino. Para producir los resultados, se aplica el reconocimiento de voz automático (ASR) con la tecnología de redes neuronales profundas a la secuencia de audio entrante. La salida sin formato del reconocimiento de voz automático se mejora aún más mediante una técnica nueva denominada TrueText, para reflejar mejor la intención del usuario. Por ejemplo, TrueText quita las disfluencias (hum o tos), palabras repetidas y restablece la puntuación y el uso adecuado de mayúsculas y minúsculas. También existe la posibilidad de enmascarar o excluir palabras soeces. Los motores de reconocimiento y traducción están entrenados específicamente para controlar la voz conversacional. 
 
@@ -66,6 +66,6 @@ Más información sobre [el funcionamiento de NMT](https://www.microsoft.com/en-
 > [Empezar con la codificación](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Otras referencias
-- [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/)
 - [Página de producto de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 - [Información de precios y soluciones](https://www.microsoft.com/en-us/translator/home.aspx) 

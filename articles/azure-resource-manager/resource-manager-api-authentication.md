@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498257"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
-## <a name="introduction"></a>Introducción
+
 A los desarrolladores de software que necesitan crear una aplicación que administre los recursos de Azure de un cliente, este artículo les muestra cómo realizar la autenticación con las API de Azure Resource Manager y obtener acceso a los recursos de otras suscripciones.
 
 Una aplicación puede acceder a las API de Resource Manager de cualquiera de estas dos formas:
@@ -32,7 +32,10 @@ Una aplicación puede acceder a las API de Resource Manager de cualquiera de est
 
 En este artículo se proporciona instrucciones detalladas de cómo crear una aplicación que emplea ambos métodos de autorización. Muestra cómo realizar cada paso con la API de REST o C#. La aplicación completa ASP.NET MVC está disponible en [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>Lo que hace la aplicación web
+
 La aplicación web:
 
 1. Inicia sesión de un usuario de Azure.
@@ -74,7 +77,7 @@ Dado que la aplicación tiene acceso a otra suscripción, debe configurarla como
 En el ejemplo siguiente se muestra cómo registrar la aplicación con Azure PowerShell. Debe tener la versión más reciente (agosto de 2016) de Azure PowerShell para que funcione este comando.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 Para iniciar sesión con la aplicación de AD, necesita el identificador y la contraseña de la aplicación. Para ver el identificador de aplicación que se devuelve desde el comando anterior, use:

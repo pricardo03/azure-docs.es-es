@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351956"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732335"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
 
@@ -44,7 +44,7 @@ Las distintas [opciones de aplicaciones y tipos de ofertas](https://docs.microso
 | Máquina virtual | N/D | Sin  | No | Sin  |
 | Azure Apps (plantilla de solución)  | N/D | N/D | N/D | N/D |
 | Aplicaciones administradas  | N/D | N/D | N/D | Sin  |
-| SaaS  | Sin  | SÍ | Sí | SÍ |
+| SaaS  | Sin  | Sí | Sí | Sí |
 | Contenedores  | N/D | N/D | N/D | Sin  |
 | Servicios de consultoría  | Sin  | N/D | N/D | N/D |
 
@@ -59,7 +59,7 @@ Para obtener más información acerca de los requisitos técnicos de SaaS, consu
 
 Automatizar la instalación de cliente puede aumentar la probabilidad de conversión. Cuando el cliente selecciona la descripción de prueba y se redirecciona al entorno de prueba, usted puede configurar el cliente directamente, sin necesidad de pasos de inicio de sesión adicionales.
 
-Durante la autenticación, Azure AD envía un token a la aplicación u oferta. La información de usuario proporcionada por el token permite crear una cuenta de usuario en la aplicación u oferta. Para obtener más información, consulte los [tokens de ejemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Durante la autenticación, Azure AD envía un token a la aplicación u oferta. La información de usuario proporcionada por el token permite crear una cuenta de usuario en la aplicación u oferta. Para obtener más información, consulte los [tokens de ejemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Cuando usa Azure AD para habilitar la autenticación con un solo clic en la aplicación o en la descripción de prueba, obtiene las siguientes ventajas:
 

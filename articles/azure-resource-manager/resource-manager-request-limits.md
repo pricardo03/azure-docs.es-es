@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136896"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493574"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
+
 Para cada suscripción e inquilino de Azure, Resource Manager permite hasta 12 000 solicitudes de lectura y 1200 solicitudes de escritura cada hora. Estas cifras están limitadas al id. de identidad que realiza las solicitudes y al id. de suscripción o de inquilino. Si las solicitudes proceden de más de un id. de entidad, el límite en toda la suscripción o inquilino es mayor a 12 000 y 1200 por hora.
 
 Las solicitudes se aplican a su suscripción o inquilino. Las solicitudes de la suscripción son aquellas en las que se pasa el identificador de la suscripción; por ejemplo, las solicitudes para recuperar los grupos de recursos de la suscripción. Las solicitudes del inquilino no incluyen el identificador de la suscripción; por ejemplo, las solicitudes para recuperar ubicaciones válidas de Azure.
@@ -30,6 +31,8 @@ Estos límites se aplican a cada instancia de Azure Resource Manager. En cada re
 Si la aplicación o el script alcanza estos límites, debe limitar las solicitudes. En este artículo se explica cómo determinar las solicitudes restantes que quedan antes de alcanzar el límite y cómo responder cuando se ha alcanzado dicho límite.
 
 Cuando se alcanza este límite, recibirá el código de estado HTTP **429 Demasiadas solicitudes**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Solicitudes restantes
 Puede determinar el número de solicitudes restantes examinando los encabezados de respuesta. Cada solicitud incluye valores para el número de las demás solicitudes de lectura y escritura. En la tabla siguiente se describen los encabezados de respuesta que puede examinar para esos valores:
@@ -66,7 +69,7 @@ Para obtener un ejemplo completo de PowerShell, consulte [comprobación de los l
 Si quiere ver las solicitudes restantes de depuración, puede proporcionar el parámetro **-Debug** en el cmdlet **PowerShell**.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Que devuelve muchos valores, incluido el siguiente valor de respuesta:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Para obtener los límites de escritura, utilice una operación de escritura: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Esta operación devuelve muchos valores, incluidos los siguientes:

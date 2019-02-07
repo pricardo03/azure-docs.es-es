@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083341"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492766"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -133,7 +133,7 @@ Esta sección proporciona una aplicación de ejemplo para conectar un cliente de
 
 Para entender el ejemplo que se está ejecutando, el siguiente fragmento de código contiene el modo en el que el SDK de cliente lee el archivo de certificado y lo usa para establecer una conexión TLS segura: 
 
-```nodejs
+```javascript
 // Provide the Azure IoT device client via setOptions with the X509
 // Edge root CA certificate that was used to setup the Edge runtime
 var options = {

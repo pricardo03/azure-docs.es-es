@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a88eade0d5fbfe4fd951e3e98c72a1e697099f1a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8f2adf743760c85b8c2a75c0f398bc5b61fd1061
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466326"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754242"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Inicio rápido: Translator Speech API con Node.js 
 <a name="HOLTop"></a>
@@ -30,7 +30,7 @@ Necesita [Node.js 6](https://nodejs.org/en/download/) para ejecutar este código
 
 Debe instalar el [paquete Websocket](https://www.npmjs.com/package/websocket) para Node.js.
 
-Necesita un archivo .wav denominado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz. Puede obtener este archivo .wav desde [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Necesita un archivo .wav denominado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz. Puede obtener este archivo .wav desde [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Microsoft Translator Speech API**. Se requiere una clave de suscripción de pago del [panel de Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -68,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis
 */
 let input_path = 'speak.wav';
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d0c887587028fe877cb7b5afd65968bde038d03
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014376"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565690"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar datos de Impala con Azure Data Factory (versión preliminar)
 
@@ -44,10 +44,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Impala:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe estar establecida en **Impala**. | SÍ |
-| host | La dirección IP o el nombre de host del servidor de Impala (es decir, 192.168.222.160).  | SÍ |
+| Tipo | La propiedad type debe estar establecida en **Impala**. | Sí |
+| host | La dirección IP o el nombre de host del servidor de Impala (es decir, 192.168.222.160).  | Sí |
 | puerto | Puerto TCP que el servidor de Impala usa para escuchar las conexiones del cliente. El valor predeterminado es 21050.  | Sin  |
-| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Anonymous**, **SASLUsername** y **UsernameAndPassword**. | SÍ |
+| authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Anonymous**, **SASLUsername** y **UsernameAndPassword**. | Sí |
 | nombre de usuario | Nombre de usuario que se usa para acceder al servidor de Impala. El valor predeterminado es anonymous cuando se usa SASLUsername.  | Sin  |
 | contraseña | La contraseña que se corresponde con el nombre de usuario cuando se usa UsernameAndPassword. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es **false**.  | Sin  |
@@ -70,8 +70,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Impala:
             "authenticationType" : "UsernameAndPassword",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         },
         "connectVia": {
@@ -90,7 +90,7 @@ Para copiar datos de Impala, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **ImpalaObject** | SÍ |
+| Tipo | La propiedad type del conjunto de datos se debe establecer en: **ImpalaObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -119,7 +119,7 @@ Para copiar datos de Impala, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **ImpalaSource**. | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **ImpalaSource**. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

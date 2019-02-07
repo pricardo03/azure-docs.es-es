@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ramamill
-ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468410"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744099"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -122,7 +122,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
-Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, haga clic en [aquí](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, haga clic en [aquí](service-updates-how-to.md).
 
 ## <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
 

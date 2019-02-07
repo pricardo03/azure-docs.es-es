@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: cb4d3c4d15dded3c7f90a1e3cf118ca10371dcb1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461073"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701002"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para grupos elásticos
 
@@ -42,7 +42,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|756|756|1536|1536|1536|
 |Tamaño máximo de registro|154|227|227|461|461|461|
@@ -68,7 +68,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|2048|2048|2048|3584|4096|
 |Tamaño máximo de registro (GB)|461|614|614|614|1075|1229|
@@ -94,7 +94,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|756|756|1536|1536|1536|
 |Tamaño máximo de registro (GB)|154|227|227|461|461|461|461|
@@ -120,7 +120,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|2048|2048|3072|3072|4096|4096|4096|
 |Tamaño máximo de registro (GB)|614|614|922|922|1229|1229|1229|
@@ -160,8 +160,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
@@ -186,8 +186,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|100|100|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
@@ -198,8 +198,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
-|Memoria (GB)|11|22|33|44|55|66|77|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|4.713|6284|8.655|11.026|13.397|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Tamaño máximo de registro (GB)|307|307|307|461|461|461|461|
@@ -212,8 +212,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|4|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
@@ -225,7 +225,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|15 768|18.139|20.51|25 252|37 936|52.22|131,64|
 |Tamaño máximo de datos (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamaño máximo de registro (GB)|922|922|922|1229|1229|1229|1229|
@@ -238,8 +238,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|100|100|100|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).

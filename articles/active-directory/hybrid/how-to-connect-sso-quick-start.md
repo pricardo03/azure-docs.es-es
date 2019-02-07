@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 25546c37db7e1117ed73c17f2f7b2a5211d48d51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162623"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755475"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -164,14 +164,6 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Vaya a **Configuración de usuario** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad** > **Zona de intranet**. Después, seleccione **Permitir actualizaciones en la barra de estado a través de script**.
-
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Habilite la configuración de directiva y después seleccione **Aceptar**.
-
-    ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>Consideraciones sobre el explorador
 

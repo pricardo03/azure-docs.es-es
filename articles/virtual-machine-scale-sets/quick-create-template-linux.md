@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 00f446c545a11b859fe0ee966898fa5c6aa16a1d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 29cc340820fbf0e35b8b142f0bea91da82ff7b61
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884459"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728357"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Linux con una plantilla de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido, creará un conjunto de escalado de máquinas virtuales e implementará una aplicación de ejemplo con una plantilla de Azure Resource Manager.
@@ -137,7 +137,7 @@ Puede implementar la plantilla [Servidor HTTP de Python en Linux](https://github
 
 [![Implementación de plantillas en Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-También puede utilizar la CLI de Azure para instalar el servidor HTTP de Python en Linux con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) como se indica a continuación:
+También puede utilizar la CLI de Azure para instalar el servidor HTTP de Python en Linux con [az group deployment create](/cli/azure/group/deployment) como se indica a continuación:
 
 ```azurecli-interactive
 # Create a resource group
@@ -153,7 +153,7 @@ Responda a los avisos para proporcionar un nombre para el conjunto de escalado, 
 
 
 ## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
-Para ver el conjunto de escalado en acción, acceda a la aplicación web de ejemplo en un explorador web. Obtenga la dirección IP pública del equilibrador de carga con [az network public-ip list](/cli/azure/network/public-ip#show), tal y como se indica a continuación:
+Para ver el conjunto de escalado en acción, acceda a la aplicación web de ejemplo en un explorador web. Obtenga la dirección IP pública del equilibrador de carga con [az network public-ip list](/cli/azure/network/public-ip), tal y como se indica a continuación:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -167,7 +167,7 @@ Escriba la dirección IP pública del equilibrador de carga en un explorador web
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación. El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación. El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

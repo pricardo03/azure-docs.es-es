@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044270"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510959"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ Para usar Azure Storage o Azure Cosmos DB necesitará Azure Storage SDK para Nod
 ### <a name="import-the-package"></a>Importación del paquete
 Agregue el código siguiente a la parte superior del archivo **server.js** de la aplicación:
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Incorporación de una conexión de Azure Storage
 El módulo de Azure lee las variables de entorno AZURE_STORAGE_ACCOUNT y AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING para la información necesaria para conectarse a su cuenta de Azure Storage. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **TableService**. Por ejemplo, el código siguiente crea un objeto **TableService**:
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Adición de una conexión de Azure Cosmos DB
 Para agregar una conexión de Azure Cosmos DB, cree un objeto **TableService** y especifique el nombre de la cuenta, la clave principal y el punto de conexión. Puede copiar estos valores desde **Configuración** > **Cadena de conexión** en Azure Portal para la cuenta de Cosmos DB. Por ejemplo: 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>Creación de una tabla
 El código siguiente crea un objeto **TableService** que usa para crear una tabla. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 La llamada a **createTableIfNotExists** crea una tabla nueva con el nombre especificado si todavía no existe. El ejemplo siguiente crea una tabla llamada "mytable", si es que no existe todavía:
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ El `result.created` es `true` si se crea una nueva tabla y `false` si la tabla y
 ### <a name="filters"></a>Filtros
 Solo puede aplicar el filtrado opcional a las operaciones realizadas mediante **TableService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a **next** pasando una devolución de llamada con la firma siguiente:
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ En esta devolución de llamada y después de procesar **returnObject** (la respu
 
 Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Azure para Node.js: **ExponentialRetryPolicyFilter** y **LinearRetryPolicyFilter**. Lo siguiente crea un objeto **TableService** que usa **ExponentialRetryPolicyFilter**:
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ Tanto **PartitionKey** como **RowKey** tiene que ser valores de cadena. Para obt
 
 Este es un ejemplo de la definición de una entidad. Tenga en cuenta que **dueDate** se define como un tipo de **Edm.DateTime**. La especificación del tipo es opcional y los tipos se deducen si no se especifican.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 También puede usar **entityGenerator** para crear entidades. En el siguiente ejemplo se crea la misma entidad de tarea mediante **entityGenerator**.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 Para agregar una entidad a su tabla, pase el objeto de la entidad al método **insertEntity** .
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ Si la operación se realiza correctamente, `result` contiene la etiqueta [ETag](
 
 Respuesta de ejemplo:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ Hay varios métodos para actualizar una entidad existente:
 
 En el ejemplo siguiente se demuestra cómo actualizar una entidad usando **replaceEntity**:
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 
  El ejemplo siguiente demuestra cómo enviar dos entidades en un lote:
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ Puede inspeccionar las operaciones agregadas a un lote mediante la visualizació
 ## <a name="retrieve-an-entity-by-key"></a>Recuperación de una entidad por clave
 Para devolver una entidad específica basada en los valores de **PartitionKey** y **RowKey**, use el método **retrieveEntity**.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ Para consultar una tabla, use el objeto **TableQuery** para compilar una expresi
 
 En el siguiente ejemplo se crea una consulta que devuelve los cinco elementos principales con un valor de PartitionKey de "hometasks".
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 Dado que **select** no se usa, se devuelven todos los campos. Para realizar la consulta en una tabla, use **queryEntities**. En el siguiente ejemplo se usa esta consulta para devolver entidades de 'mytable'.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ Si la operación se realiza correctamente, `result.entries` contiene una matriz 
 Una consulta de tabla puede recuperar solo algunos campos de una entidad.
 Esto reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Use la cláusula **select** y pase los nombres de los campos que se van a devolver. Por ejemplo, la siguiente consulta solo devuelve los campos **description** y **dueDate**.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>Eliminación de una entidad
 Puede eliminar una entidad usando sus claves de partición y fila. En este ejemplo, el objeto **task1** contiene los valores **RowKey** y **PartitionKey** de la entidad que se va a eliminar. A continuación, el objeto pasa al método **deleteEntity** .
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>Eliminación de una tabla
 El código siguiente elimina una tabla de la cuenta de almacenamiento.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ El objeto **results** que se devuelve al consultar los conjuntos de entidades, e
 
 Al consultar, puede proporcionar un parámetro `continuationToken` entre la instancia de objeto de consulta y la función de devolución de llamada:
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ Una aplicación de confianza, como por ejemplo un servicio basado en la nube, ge
 
 En el siguiente ejemplo se genera una nueva directiva de acceso compartido que permitirá al titular de la SAS consultar ('r') la tabla, y que expira 100 minutos después de la hora en que se crea.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ Tenga en cuenta que también debe proporcionar la información del host, puesto 
 
 La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones en la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta. Para ver el formato de tableSAS, consulte el artículo acerca del [uso de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris). 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ Se puede usar una lista de control de acceso (ACL) para definir la directiva de 
 
 Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, con un Id. asociado a cada directiva. En los siguientes ejemplos se definen dos directivas; una para "user1" y otra para "user2":
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 En el siguiente ejemplo se obtiene la ACL actual para la tabla **hometasks** y luego se agregan las nuevas directivas mediante **setTableAcl**. Este enfoque permite lo siguiente:
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 Después de establecer una ACL, puede crear luego una SAS basada en el identificador de una directiva. En el siguiente ejemplo se crea una nueva SAS para 'user2':
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 558606b6993aff2053dfbbf6adfd864cd827bbb1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328987"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733525"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Conexión a una máquina virtual de SQL Server en Azure (implementación clásica)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ La forma en que un cliente se conecta a SQL Server que se ejecuta en una máquin
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Conexión a SQL Server en el mismo servicio en la nube
-Se pueden crear varias máquinas virtuales en el mismo servicio en la nube. Para comprender el escenario de las máquinas virtuales, consulte [Cómo conectar máquinas virtuales con un servicio en la nube o red virtual](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Este escenario se produce cuando un cliente de una máquina virtual intenta conectarse a una instancia de SQL Server que se ejecuta en otra máquina virtual del mismo servicio en la nube.
+Se pueden crear varias máquinas virtuales en el mismo servicio en la nube. Para comprender el escenario de las máquinas virtuales, consulte [Cómo conectar máquinas virtuales con un servicio en la nube o red virtual](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Este escenario se produce cuando un cliente de una máquina virtual intenta conectarse a una instancia de SQL Server que se ejecuta en otra máquina virtual del mismo servicio en la nube.
 
 En dicho escenario, puede conectarse mediante la máquina virtual **Nombre** (también mostrada como **Nombre de equipo** o **nombre de host** en el portal). Este es el nombre que ha proporcionado para la máquina virtual durante su creación. Por ejemplo, si ha asignado a su máquina virtual de SQL el nombre **mysqlvm**, una máquina virtual cliente del mismo servicio en la nube podría usar la siguiente cadena de conexión para conectarse:
 
@@ -64,7 +64,7 @@ Por ejemplo, piense en una máquina virtual clásica denominada **mysqlvm** con 
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Aunque esta cadena de conexión permite a los clientes conectarse a través de Internet, esto no implica que cualquier usuario pueda conectarse a SQL Server. Los clientes externos necesitan el nombre de usuario y la contraseña correctos. Para aumentar la seguridad, no use el conocido puerto 1433 para el extremo público de la máquina virtual. Y, si es posible, considere la posibilidad también de agregar una ACL en el extremo para restringir el tráfico solo a los clientes que permita. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Aunque esta cadena de conexión permite a los clientes conectarse a través de Internet, esto no implica que cualquier usuario pueda conectarse a SQL Server. Los clientes externos necesitan el nombre de usuario y la contraseña correctos. Para aumentar la seguridad, no use el conocido puerto 1433 para el extremo público de la máquina virtual. Y, si es posible, considere la posibilidad también de agregar una ACL en el extremo para restringir el tráfico solo a los clientes que permita. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
 > Cuando se recurre a esta técnica para comunicarse con SQL Server, todos los datos salientes desde el centro de datos de Azure están sujetos a [precios de transferencia de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/) normales.

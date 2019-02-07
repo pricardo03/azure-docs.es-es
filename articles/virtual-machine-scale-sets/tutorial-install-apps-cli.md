@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157268"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755720"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
@@ -82,7 +82,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 
 ## <a name="apply-the-custom-script-extension"></a>Aplicación de la extensión de script personalizado
-Aplique la configuración de la extensión de script personalizado a las instancias de máquinas virtuales del conjunto de escalado con [az vmss extension set](/cli/azure/vmss/extension#set). En el siguiente ejemplo se aplica la configuración *customConfig.json* a las instancias de máquina virtual *myScaleSet* del grupo de recursos denominado *myResourceGroup*:
+Aplique la configuración de la extensión de script personalizado a las instancias de máquinas virtuales del conjunto de escalado con [az vmss extension set](/cli/azure/vmss/extension). En el siguiente ejemplo se aplica la configuración *customConfig.json* a las instancias de máquina virtual *myScaleSet* del grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Para ver el servidor web en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#show). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
+Para ver el servidor web en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip). En el ejemplo siguiente se obtiene la dirección IP de *myLoadBalancerRuleWeb* que se ha creado como parte del conjunto de escalado:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ En el shell actual, cree un archivo denominado *customConfig2.json* y pegue la s
 }
 ```
 
-Aplique de nuevo la configuración de la extensión de script personalizado a las instancias de máquina virtual del conjunto de escalado con [az vmss extension set](/cli/azure/vmss/extension#set). *customConfigv2.json* se usa para aplicar la versión actualizada de la aplicación:
+Aplique de nuevo la configuración de la extensión de script personalizado a las instancias de máquina virtual del conjunto de escalado con [az vmss extension set](/cli/azure/vmss/extension). *customConfigv2.json* se usa para aplicar la versión actualizada de la aplicación:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ Todas las instancias de máquina virtual del conjunto de escalado se actualizan 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group#az_group_delete). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

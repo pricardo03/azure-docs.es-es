@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a0774c69c074698383e9c6f7f7cf9331e8939f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164442"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508817"
 ---
-# <a name="claimsproviders"></a>ClaimsProviders 
+# <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -35,7 +35,6 @@ Los proveedores de notificaciones tienen un conjunto de [perfiles técnicos](tec
         ...
     </TechnicalProfiles>
   </ClaimsProvider>
-</ClaimsProvider>
   ...
 </ClaimsProviders>
 ```
@@ -56,7 +55,7 @@ El elemento **ClaimsProvider** contiene los siguientes elementos secundarios:
 | DisplayName | 0:1 | Cadena que contiene el nombre del proveedor de notificaciones que se muestra a los usuarios. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Conjunto de perfiles técnicos admitidos por el proveedor de notificaciones. |
 
-**ClaimsProvider** organiza los perfiles técnicos relacionados con el proveedor de notificaciones. En el ejemplo siguiente, se muestra el proveedor de notificaciones de Azure Active Directory con los perfiles técnicos de Azure Active Directory: 
+**ClaimsProvider** organiza los perfiles técnicos relacionados con el proveedor de notificaciones. En el ejemplo siguiente, se muestra el proveedor de notificaciones de Azure Active Directory con los perfiles técnicos de Azure Active Directory:
 
 ```XML
 <ClaimsProvider>
@@ -82,7 +81,7 @@ El elemento **ClaimsProvider** contiene los siguientes elementos secundarios:
       ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-      ...    
+      ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
       ...
@@ -109,4 +108,3 @@ En el ejemplo siguiente, se muestra el proveedor de notificaciones de Facebook c
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
- 

@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158832"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660925"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ En este artículo, aprenderá a configurar un clúster de HDInsight con ESP medi
 ## <a name="enable-azure-ad-ds"></a>Habilitar Azure AD DS
 
 > [!NOTE]  
-> Solo los administradores de inquilinos tienen los privilegios para habilitar Azure AD DS. Si el almacenamiento del clúster es Azure Data Lake Storage (ADLS) Gen1 o Gen2, debe deshabilitar Multi-Factor Authentication (MFA) solo para los usuarios que vayan a necesitar acceder al clúster mediante autenticaciones Kerberos básicas. Puede usar [IP de confianza](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) o [acceso condicional](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) para deshabilitar MFA para usuarios concretos SOLO cuando accedan al intervalo de IP de la red virtual del clúster de HDInsight. Si usa el acceso condicional, asegúrese de que el punto de conexión de servicio de AD está habilitado en la red virtual de HDInsight.
+> Solo los administradores de inquilinos tienen los privilegios para habilitar Azure AD DS. Si el almacenamiento del clúster es Azure Data Lake Storage (ADLS) Gen1 o Gen2, debe deshabilitar Multi-Factor Authentication (MFA) solo para los usuarios que vayan a necesitar acceder al clúster mediante autenticaciones Kerberos básicas. Puede usar [IP de confianza](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) o [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) para deshabilitar MFA para usuarios concretos SOLO cuando accedan al intervalo de IP de la red virtual del clúster de HDInsight. Si usa el acceso condicional, asegúrese de que el punto de conexión de servicio de AD está habilitado en la red virtual de HDInsight.
 >
 >Si el almacenamiento de clúster es Azure Blob Storage (WASB), no deshabilite MFA.
 
@@ -87,7 +87,7 @@ Una vez emparejadas las redes virtuales, configure la red virtual de HDInsight p
 
 ![Configuración de servidores DNS personalizados para la red virtual emparejada](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Si utiliza reglas de grupos de seguridad de red (NSG) en la subred de HDInsight, debe permitir las [direcciones IP necesarias](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) para el tráfico entrante y saliente. 
+Si utiliza reglas de grupos de seguridad de red (NSG) en la subred de HDInsight, debe permitir las [direcciones IP necesarias](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) para el tráfico entrante y saliente. 
 
 **Para probar** si las redes están configuradas correctamente, agregue una máquina virtual Windows a la subred o red virtual de HDInsight y haga ping en el nombre de dominio (debe resolverse en una dirección IP) y luego ejecute **ldp.exe** para acceder al dominio de Azure AD-DS. A continuación, **agregue esta máquina virtual Windows al dominio para confirmar** que todas las llamadas de RPC requeridas se realizaron correctamente entre el cliente y el servidor. También puede usar **nslookup** para confirmar el acceso de red a la cuenta de almacenamiento o a cualquier base de datos externa que pueda usar (por ejemplo, una instancia externa de Hive Metastore o Ranger DB).
 Si un grupo de seguridad de red se encarga de proteger AAD DS, debe asegurarse de que todos los [puertos necesarios](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) estén en la lista blanca que se encuentra en las reglas del grupo de seguridad de red de la subred AAD DS. Si la unión a un dominio de esta máquina virtual Windows se realiza correctamente, puede proceder con el siguiente paso y crear clústeres de ESP.

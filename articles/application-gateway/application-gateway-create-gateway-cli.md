@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 66a9ea5abcff4609288e9ce7c93912313db6e163
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cde06aaf149785f464cd354c95c8f39575bad73b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850610"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698261"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
 
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
+Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/network/application-gateway). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

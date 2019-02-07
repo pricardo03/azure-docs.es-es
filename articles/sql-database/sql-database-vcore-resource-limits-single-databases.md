@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460172"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663985"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única
 
@@ -39,7 +39,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|
 |Tamaño máximo de registro (GB)|307|307|307|461|461|461|
@@ -61,7 +61,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|3072|3072|3072|4096|4096|
 |Tamaño máximo de registro (GB)|461|922|922|922|1229|1229|
@@ -83,7 +83,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Tamaño máximo de registro (GB)|307|307|307|461|461|461|461|
@@ -105,7 +105,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamaño máximo de registro (GB)|922|922|922|1229|1229|1229|1229|
@@ -140,8 +140,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 4 (parte 2)
@@ -162,8 +162,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1.800|2000|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 5 (parte 1)
@@ -172,8 +172,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
-|Memoria (GB)|11|22|33|44|55|66|77|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|4.713|6284|8.655|11.026|13.397|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1536|1536|1536|1536|
 |Tamaño máximo de registro (GB)|307|307|307|461|461|461|461|
@@ -184,7 +184,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
@@ -194,8 +194,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
-|Memoria (GB)|88|99|110|132|176|220|440|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|15 768|18.139|20.51|25 252|37 936|52.22|131,64|
 |Tamaño máximo de datos (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamaño máximo de registro (GB)|922|922|922|1229|1229|1229|1229|
@@ -206,7 +206,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1.800|2000|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
@@ -219,7 +219,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (TB)|100 |100 |100 |100 |100 |100 |
 |Tamaño máximo de registro (TB)|1 |1 |1 |1 |1 |1 |
@@ -231,7 +231,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|2|2|2|2|2|2|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|SÍ|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|7|7|7|7|7|7|
 |||
 
@@ -242,7 +242,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|8|16|24|32|40|80|
 |Memoria (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
-|Compatible con almacén de columnas|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Tamaño máximo de registro (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
@@ -254,7 +254,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|2|2|2|2|2|2|2|2|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|SÍ|Sí|Sí|Sí|Sí|Sí|Sí|SÍ|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido (límite de la versión preliminar)|7|7|7|7|7|7|7|7|
 |||
 

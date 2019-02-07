@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974716"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696064"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -344,7 +344,7 @@ La implementación de Azure tiene varios niveles de aislamiento de red. El sigui
 
 **Aislamiento del tráfico:** una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) es el límite para aislamiento del tráfico en la plataforma Azure. Las máquinas virtuales de una red virtual no se pueden comunicar directamente con las máquinas virtuales de otra red virtual, incluso si las dos redes virtuales las creó el mismo cliente. El aislamiento consiste en una propiedad fundamental que garantiza que las máquinas virtuales del cliente y la comunicación sigan siendo privadas en una red virtual.
 
-[Subred](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) ofrece un nivel de aislamiento adicional de la red virtual basado en un intervalo de direcciones IP. Direcciones IP en la red virtual, puede dividir una red virtual en varias subredes por organización y seguridad. Las instancias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) para permitir o denegar el tráfico de red a una instancia de máquina virtual en función de las reglas configuradas en la lista de control de acceso (ACL) del NSG. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred.
+[Subred](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) ofrece un nivel de aislamiento adicional de la red virtual basado en un intervalo de direcciones IP. Direcciones IP en la red virtual, puede dividir una red virtual en varias subredes por organización y seguridad. Las instancias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) para permitir o denegar el tráfico de red a una instancia de máquina virtual en función de las reglas configuradas en la lista de control de acceso (ACL) del NSG. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

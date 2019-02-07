@@ -3,7 +3,7 @@ title: Preguntas más frecuentes sobre Azure SQL Database | Microsoft Docs
 description: Respuestas a las preguntas más comunes que los clientes preguntan sobre las bases de datos en la nube y Azure SQL Database, el sistema de administración de bases de datos relacionales (RDBMS) de Microsoft y bases de datos como un servicio en la nube.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3ede7bdf0837c88340f13a0f921ca1752a3d3c6b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463963"
+ms.locfileid: "55511656"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre SQL Database
 

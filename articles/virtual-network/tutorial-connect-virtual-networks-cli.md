@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e690ae8cd8f6b2ae52c0c8a9dae12c51f8921531
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470722"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694574"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conexión de redes virtuales con emparejamiento de redes virtuales con la CLI de Azure
 
@@ -41,7 +41,7 @@ Si decide instalar y usar la CLI localmente, para este artículo es preciso que 
 
 ## <a name="create-virtual-networks"></a>Creación de redes virtuales
 
-Antes de crear una red virtual, cree un grupo de recursos para ella y los demás recursos que se crearon en este artículo. Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+Antes de crear una red virtual, cree un grupo de recursos para ella y los demás recursos que se crearon en este artículo. Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -71,7 +71,7 @@ az network vnet create \
 
 ## <a name="peer-virtual-networks"></a>Emparejamiento de redes virtuales
 
-Los emparejamientos se establecen entre los identificadores de red virtual, por lo que primero debe obtener el identificador de cada red virtual con [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show) y almacenarlo en una variable.
+Los emparejamientos se establecen entre los identificadores de red virtual, por lo que primero debe obtener el identificador de cada red virtual con [az network vnet show](/cli/azure/network/vnet) y almacenarlo en una variable.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -110,7 +110,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-En la salida que se devuelve al ejecutarse el comando anterior, verá que **peeringState** está en estado *conectado*. Azure también cambia el estado del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* a *conectado*. Confirme que el estado de del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* cambia a *conectado* con [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show).
+En la salida que se devuelve al ejecutarse el comando anterior, verá que **peeringState** está en estado *conectado*. Azure también cambia el estado del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* a *conectado*. Confirme que el estado de del emparejamiento *myVirtualNetwork1-myVirtualNetwork2* cambia a *conectado* con [az network vnet peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -128,7 +128,7 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 
 ### <a name="create-the-first-vm"></a>Creación de la primera máquina virtual
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVm1* en la red virtual *myVirtualNetwork1*. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. La opción `--no-wait` crea la máquina virtual en segundo plano, así que puede continuar con el siguiente paso.
+Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual llamada *myVm1* en la red virtual *myVirtualNetwork1*. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`. La opción `--no-wait` crea la máquina virtual en segundo plano, así que puede continuar con el siguiente paso.
 
 ```azurecli-interactive
 az vm create \
@@ -192,7 +192,7 @@ Cierre la sesión de SSH en la máquina virtual *myVm2*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, use [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos y todos los recursos que contenga.
+Cuando ya no se necesiten, use [az group delete](/cli/azure/group) para quitar el grupo de recursos y todos los recursos que contenga.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

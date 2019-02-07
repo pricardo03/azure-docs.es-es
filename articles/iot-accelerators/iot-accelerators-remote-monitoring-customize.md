@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462206"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565435"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalización del acelerador de la solución de supervisión remota
 
@@ -84,7 +84,7 @@ Dado que los paneles administran su propio diseño y tamaño, puede modificar co
 * Intercambie las posiciones de los paneles de mapa y telemetría.
 * Cambie los anchos relativos de los paneles de mapa y análisis.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -156,7 +156,7 @@ Dado que los paneles administran su propio diseño y tamaño, puede modificar co
 
 También puede agregar varias instancias del mismo panel o varias versiones si [duplica y personaliza un panel](#duplicate-and-customize-an-existing-control). En el ejemplo siguiente se muestra cómo agregar dos instancias del panel de telemetría. Para realizar estos cambios, edite el archivo `src/components/pages/dashboard/dashboard.js`:
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -247,19 +247,19 @@ En los siguientes pasos se describe cómo duplicar un panel existente, modificar
 
 1. En el archivo **alertsPanel.js** de la carpeta **cust_alerts**, cambie el nombre de la clase a **CustAlertsPanel**:
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. Agregue la siguiente línea al archivo `src/components/pages/dashboard/panels/index.js` :
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. Reemplace `alertsPanel` con `CustAlertsPanel` en el archivo `src/components/pages/dashboard/dashboard.js`:
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -287,7 +287,7 @@ Ya ha reemplazado el panel de **alertas** original por una copia llamada **CustA
 
 1. Modifique las definiciones de columna tal y como se muestra en el siguiente fragmento de código:
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -312,7 +312,7 @@ Los archivos de la carpeta `src/components/pages/dashboard/panels/telemtry` defi
 
 1. En el archivo `src/services/telemetryService.js`, localice la función llamada **getTelemetryByDeviceIdP15M**. Realice una copia de esta función y modifique la copia de la manera siguiente:
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -325,7 +325,7 @@ Los archivos de la carpeta `src/components/pages/dashboard/panels/telemtry` defi
 
 1. Para usar esta nueva función para rellenar el gráfico de telemetría, abra el archivo `src/components/pages/dashboard/dashboard.js`. Busque la línea que inicializa el flujo de telemetría y modifíquela como se indica a continuación:
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -339,7 +339,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
 
 1. Abra el archivo `src/components/pages/dashboard/dashboard.js` . Modifique el objeto **initialState** para que incluya una propiedad **warningAlertsChange** de la manera siguiente:
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -359,7 +359,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
 
 1. Modifique el objeto **currentAlertsStats** para que incluya **totalWarningCount** como propiedad:
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -371,7 +371,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
 
 1. Calcule el nuevo KPI. Busque el cálculo del recuento de alertas críticas. Duplique el código y modifique la copia como sigue:
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -384,7 +384,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
 
 1. Incluya el nuevo KPI **warningAlertsChange** en el flujo de KPI:
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -402,7 +402,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
 
 1. Incluya el nuevo KPI **warningAlertsChange** en los datos de estado usados para representar la interfaz de usuario:
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -421,7 +421,7 @@ En la página **Dashboard** (Panel) se muestran los KPI en el panel **Analytics*
 
 1. Actualice los datos pasados al panel de KPI:
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -439,13 +439,13 @@ Ya ha terminado de realizar los cambios en el archivo `src/components/pages/dash
 
 1. Modifique la siguiente línea de código para recuperar los nuevos valores de KPI como sigue:
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. Modifique el incremento para mostrar el nuevo valor de KPI como sigue:
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

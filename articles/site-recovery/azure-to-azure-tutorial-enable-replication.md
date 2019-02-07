@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103526"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700781"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -170,7 +170,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
     - **Frecuencia de las instantáneas coherentes con la aplicación**: de forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada 4 horas. Puede configurar cualquier valor entre 1 y 12 horas. Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que la aplicación en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
     - **Grupo de replicación**: si la aplicación necesita coherencia de múltiples máquinas virtuales entre varias máquinas virtuales, puede crear un grupo de replicación para estas máquinas virtuales. De forma predeterminada, las máquinas virtuales seleccionadas no forman parte de ningún grupo de replicación.
 
-5. En **Personalizar**, seleccione **Sí** para lograr coherencia entre varias máquinas virtuales si desea agregar máquinas virtuales a un grupo de replicación nuevo o existente. para que las máquinas virtuales formen parte de un grupo de replicación. A continuación, haga clic en **Aceptar**.
+5. En **Personalizar**, seleccione **Sí** para lograr coherencia entre varias máquinas virtuales si desea agregar máquinas virtuales a un grupo de replicación nuevo o existente. A continuación, haga clic en **Aceptar**.
 
     - Todas las máquinas de un grupo de replicación tendrán puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error. Habilitar la coherencia de múltiples máquinas virtuales puede afectar al rendimiento de la carga de trabajo (ya que consume mucha CPU) y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas.
     - Puede elegir tener un máximo de 16 máquinas virtuales en un grupo de replicación.

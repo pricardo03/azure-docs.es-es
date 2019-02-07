@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170715"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751283"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 
@@ -62,7 +62,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definición de un perfil de escalado automático
 
-Para habilitar el escalado automático en un conjunto de escalado, primero debe definir un perfil de escalado automático. Este perfil define la capacidad predeterminada, mínima y máxima del conjunto de escalado. Estos límites le permiten controlar el costo por no crear continuamente instancias de máquina virtual, y equilibrar un rendimiento aceptable con un número mínimo de instancias que permanecen en un evento de reducción horizontal. Cree un perfil de escalado automático con [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). En el ejemplo siguiente se establece la capacidad predeterminada y la mínima para *2* instancias de máquina virtual y un máximo de *10*:
+Para habilitar el escalado automático en un conjunto de escalado, primero debe definir un perfil de escalado automático. Este perfil define la capacidad predeterminada, mínima y máxima del conjunto de escalado. Estos límites le permiten controlar el costo al no crear continuamente instancias de máquina virtual, y equilibrar un rendimiento aceptable con un número mínimo de instancias que permanecen en un evento de reducción horizontal. Cree un perfil de escalado automático con [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). En el ejemplo siguiente se establece la capacidad predeterminada y la mínima para *2* instancias de máquina virtual y un máximo de *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -107,7 +107,7 @@ az monitor autoscale rule create \
 
 Para probar las reglas de escalado automático, genere cargas de CPU en las instancias de máquina virtual del conjunto de escalado. Esta carga de CPU simulada hace que el escalado automático escale y reduzca horizontalmente el número de instancias de máquina virtual. Como la carga simulada de la CPU se reduce, las reglas de escalado automático reducen horizontalmente el número de instancias de máquina virtual.
 
-Primero, enumere las direcciones y los puertos para conectarse a las instancias de máquina virtual en un conjunto de escalado con [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Primero, enumere las direcciones y los puertos para conectarse a las instancias de máquina virtual en un conjunto de escalado con [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -141,7 +141,7 @@ Cuando **stress** muestra una salida similar a *stress: info: [2688] dispatching
 
 Para confirmar que **stress** genera carga de CPU, examine la carga del sistema activa con la utilidad **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
@@ -152,7 +152,7 @@ Ctrl-c
 exit
 ```
 
-Conéctese a la segunda instancia de máquina virtual con el número de puerto de la lista [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) anterior:
+Conéctese a la segunda instancia de máquina virtual con el número de puerto de la lista [az vmss list-instance-connection-info](/cli/azure/vmss) anterior:
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -208,7 +208,7 @@ Salga de la utilidad *watch* con `Ctrl-c`. El conjunto de escalado continúa la 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group#az_group_delete). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

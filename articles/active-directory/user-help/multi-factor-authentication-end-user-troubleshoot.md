@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177414"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768190"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtención de ayuda con la verificación en dos pasos
 
@@ -36,7 +36,7 @@ Existen varios motivos por los cuales debería usar un método de comprobación 
 
 - **Perdió el teléfono o tiene un número de teléfono nuevo.** Si perdió el teléfono o tiene un número de teléfono nuevo, puede iniciar sesión con un método distinto o pedirle al administrador que borre su configuración. Le recomendamos que informe al administrador que el teléfono se perdió o que se lo robaron, para que puedan hacer las actualizaciones correspondientes en su cuenta. Una vez borrada su configuración, se le pedirá que se [registre en la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md) la próxima vez que inicie sesión.
 
-- **No recibe la llamada telefónica ni el texto de autenticación.** Son varias las razones que podrían explicar por qué no recibe el texto ni la llamada telefónica. Si ha recibido mensajes o llamadas en su teléfono anteriormente, es probable que se trate de un problema con el proveedor del teléfono y no de un problema con la cuenta. Si suele tener retrasos debido a una mala calidad de la señal, recomendamos que use la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) en su dispositivo móvil. Esta aplicación puede generar códigos de seguridad aleatorios para iniciar sesión, sin necesidad de una conexión a Internet ni de cobertura del móvil.<br><br>Si intenta recibir un mensaje de texto, pídale a un amigo que le envíe un mensaje de texto de prueba para asegurarse de que puede recibirlo y, si recibió varios mensajes, asegúrese de que usa el código de mensaje más reciente.
+- **No recibe la llamada telefónica ni el texto de autenticación.** Son varias las razones que podrían explicar por qué no recibe el texto ni la llamada telefónica. Si ha recibido mensajes o llamadas en su teléfono anteriormente, es probable que se trate de un problema con el proveedor del teléfono y no de un problema con la cuenta. Si suele tener retrasos debido a una mala calidad de la señal, recomendamos que use la [aplicación Microsoft Authenticator](user-help-auth-app-download-install.md) en su dispositivo móvil. Esta aplicación puede generar códigos de seguridad aleatorios para iniciar sesión, sin necesidad de una conexión a Internet ni de cobertura del móvil.<br><br>Si intenta recibir un mensaje de texto, pídale a un amigo que le envíe un mensaje de texto de prueba para asegurarse de que puede recibirlo y, si recibió varios mensajes, asegúrese de que usa el código de mensaje más reciente.
 
 - **Las contraseñas de la aplicación no funcionan.** Las contraseñas de la aplicación reemplazan la contraseña normal para aplicaciones de escritorio más antiguas que no admiten la verificación en dos pasos. En primer lugar, asegúrese de escribir correctamente la contraseña. Si el problema no se soluciona, intente iniciar sesión para [crear una contraseña de aplicación](multi-factor-authentication-end-user-app-passwords.md) o ponerse en contacto con el administrador para [eliminar las contraseñas de aplicación existentes](../authentication/howto-mfa-userdevicesettings.md) para poder crear una nueva.
 
@@ -61,4 +61,4 @@ Si ya intentó estos pasos pero sigue encontrando problemas, póngase en contact
 
 * [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Preguntas más frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+* [Preguntas más frecuentes de la aplicación Microsoft Authenticator](user-help-auth-app-faq.md)

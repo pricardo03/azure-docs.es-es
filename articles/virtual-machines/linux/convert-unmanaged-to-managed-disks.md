@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 692de0e18ac279174f1227a7c25913fc59e626eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39a42891a73bd64731dd19aa22214a62d913d975
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470066"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700832"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
 
@@ -44,13 +44,13 @@ En esta sección se explica cómo convertir máquinas virtuales de Azure de inst
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Convierta la máquina virtual en discos administrados con [az vm convert](/cli/azure/vm#az_vm_convert). El proceso siguiente convierte la máquina virtual denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
+2. Convierta la máquina virtual en discos administrados con [az vm convert](/cli/azure/vm). El proceso siguiente convierte la máquina virtual denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Inicie la máquina virtual después de la conversión a discos administrados con [az vm start](/cli/azure/vm#az_vm_start). En el ejemplo siguiente se inicia la VM llamada `myVM` en el grupo de recursos `myResourceGroup`.
+3. Inicie la máquina virtual después de la conversión a discos administrados con [az vm start](/cli/azure/vm). En el ejemplo siguiente se inicia la VM llamada `myVM` en el grupo de recursos `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -62,7 +62,7 @@ Si las VM que desea convertir en discos administrados se encuentran en un conjun
 
 Todas las VM del conjunto de disponibilidad deben desasignarse antes de convertir el conjunto de disponibilidad. Planee la conversión de todas las máquinas virtuales a discos administrados después de haber convertido el propio conjunto de disponibilidad en un conjunto de disponibilidad administrado. Después, inicie todas las máquinas virtuales y siga trabajando con normalidad.
 
-1. Enumere todas las máquinas virtuales de un conjunto de disponibilidad con [az vm availability-set list](/cli/azure/vm/availability-set#az_vm_availability_set_list). En el ejemplo siguiente se enumeran todas las VM del conjunto de disponibilidad `myAvailabilitySet` en el grupo de recursos denominado `myResourceGroup`:
+1. Enumere todas las máquinas virtuales de un conjunto de disponibilidad con [az vm availability-set list](/cli/azure/vm/availability-set). En el ejemplo siguiente se enumeran todas las VM del conjunto de disponibilidad `myAvailabilitySet` en el grupo de recursos denominado `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -78,7 +78,7 @@ Todas las VM del conjunto de disponibilidad deben desasignarse antes de converti
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Convierta el conjunto de disponibilidad con [az vm availability-set convert](/cli/azure/vm/availability-set#az_vm_availability_set_convert). En el ejemplo siguiente se convierte el conjunto de disponibilidad `myAvailabilitySet` en el grupo de recursos denominado `myResourceGroup`:
+3. Convierta el conjunto de disponibilidad con [az vm availability-set convert](/cli/azure/vm/availability-set). En el ejemplo siguiente se convierte el conjunto de disponibilidad `myAvailabilitySet` en el grupo de recursos denominado `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -86,13 +86,13 @@ Todas las VM del conjunto de disponibilidad deben desasignarse antes de converti
         --name myAvailabilitySet
     ```
 
-4. Convierta todas las máquinas virtuales a discos administrados con [az vm convert](/cli/azure/vm#az_vm_convert). El proceso siguiente convierte la máquina virtual denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
+4. Convierta todas las máquinas virtuales a discos administrados con [az vm convert](/cli/azure/vm). El proceso siguiente convierte la máquina virtual denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Inicie todas las máquinas virtuales después de la conversión a discos administrados con [az vm start](/cli/azure/vm#az_vm_start). En el ejemplo siguiente se inicia la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
+5. Inicie todas las máquinas virtuales después de la conversión a discos administrados con [az vm start](/cli/azure/vm). En el ejemplo siguiente se inicia la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

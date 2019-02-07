@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496234"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Cómo usar la API REST de QnA Maker con Node.js 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ El siguiente código crea una nueva base de conocimiento, con el método [Crear]
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ El siguiente código actualiza una base de conocimiento existente con el método
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ El siguiente código publica una base de conocimiento existente con el método [
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ El siguiente código reemplaza el contenido de la base de conocimiento especific
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ El siguiente código descarga el contenido de la base de conocimiento especifica
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ El siguiente código obtiene las respuestas de una pregunta con la base de conoc
 1. Reemplace el valor `kb` por el identificador de la base de conocimiento que quiere consultar para obtener respuestas. Tenga en cuenta que esta base de conocimiento ya debe haberse publicado mediante el método [Publicar](#Publish).
 1. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ El siguiente código obtiene información sobre la base de conocimiento especifi
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ El siguiente código obtiene información sobre todas las bases de conocimiento 
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ El siguiente código elimina el contenido de la base de conocimiento especificad
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ El siguiente código obtiene las claves del punto de conexión actual mediante e
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ El siguiente código regenera las claves del punto de conexión actual mediante 
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ El siguiente código obtiene las modificaciones de palabras actuales mediante el
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ El siguiente código reemplaza las modificaciones de palabras actuales mediante 
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

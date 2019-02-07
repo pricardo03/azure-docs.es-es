@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247126"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658341"
 ---
 # <a name="marketplace-faqs"></a>Preguntas más frecuentes de Marketplace
 
@@ -358,7 +358,7 @@ Anunciantes que publican por el tipo de anuncio Transact: VM, aplicaciones de Az
 
 **¿Qué son los clientes potenciales y por qué son importantes para mí como anunciante en Marketplace?**
 
-Los clientes potenciales son los clientes que están implementando sus productos desde Marketplace. Independientemente de que el producto aparezca en [Azure Marketplace](https://azuremarketplace.microsoft.com) o [AppSource](https://appsource.microsoft.com), podrá recibir información de los clientes potenciales interesados en el producto.  Puede configurar el destino de clientes potenciales en su oferta. Para obtener más información, consulte el apartado para [convertirse en anunciante de Cloud Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Los clientes potenciales son los clientes que están implementando sus productos desde Marketplace. Independientemente de que el producto aparezca en [Azure Marketplace](https://azuremarketplace.microsoft.com) o [AppSource](https://appsource.microsoft.com), podrá recibir información de los clientes potenciales interesados en el producto.  Puede configurar el destino de clientes potenciales en su oferta. Para obtener más información, consulte el apartado para [convertirse en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **¿Dónde puedo obtener ayuda para la configuración de mi destino de clientes potenciales?**
 

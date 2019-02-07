@@ -1,5 +1,5 @@
 ---
-title: 'Creación de una instancia de Azure VPN Gateway basada en rutas: CLI | Microsoft Docs'
+title: 'Creación de una puerta de enlace de VPN de Azure basada en la ruta: CLI | Microsoft Docs'
 description: Aprenda a crear rápidamente una instancia de VPN Gateway mediante la CLI.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465107"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698197"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creación de una instancia de VPN Gateway basada en rutas mediante la CLI
 
@@ -26,7 +26,7 @@ Si decide instalar y usar la CLI localmente, para este artículo es preciso que 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Creación de una red virtual
 
-Cree una red virtual con el comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). En el siguiente ejemplo se crea una red virtual denominada **VNet1** en la ubicación **EastUS**:
+Cree una red virtual con el comando [az network vnet create](/cli/azure/network/vnet). En el siguiente ejemplo se crea una red virtual denominada **VNet1** en la ubicación **EastUS**:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>Solicitud de una dirección IP pública
@@ -67,12 +67,12 @@ Una instancia de VPN Gateway debe tener una dirección IP pública asignada de f
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>Creación de la puerta de enlace de VPN
 
-Cree la puerta de enlace VPN con el comando [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create).
+Cree la puerta de enlace VPN con el comando [az network vnet-gateway create](/cli/azure/group).
 
 Si este comando se ejecuta con el parámetro `--no-wait`, no se verán los comentarios o resultados. Este parámetro `--no-wait` permite que la puerta de enlace se cree en segundo plano. No significa que la puerta de enlace de VPN se cree de inmediato.
 
@@ -172,7 +172,7 @@ Respuesta de ejemplo:
 ```
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos que ha creado, use [az group delete](/cli/azure/group#az_group_delete) para eliminar el grupo de recursos. Se eliminarán el grupo de recursos y todos los recursos que contiene.
+Cuando ya no necesite los recursos que ha creado, use [az group delete](/cli/azure/group) para eliminar el grupo de recursos. Se eliminarán el grupo de recursos y todos los recursos que contiene.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

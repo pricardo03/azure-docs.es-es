@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34dc6fbd1cca30f86b3fa825932983a01c4c8250
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426172"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730193"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -87,14 +87,14 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
     - **Diagrama**: el diagrama proporciona una representación visual de todos los dispositivos conectados a la red virtual. El diagrama muestra alguna información clave sobre los dispositivos. Para administrar un dispositivo en esta vista, vaya al diagrama y seleccione el dispositivo.
     - **Configuración común de Azure**: Para más información sobre la configuración común de Azure, consulte la información siguiente:
         *   [Registro de actividad](../azure-monitor/platform/activity-logs-overview.md)
-        *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+        *   [Control de acceso (IAM)](../role-based-access-control/overview.md)
         *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Comandos**
 
-- CLI de Azure: [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- CLI de Azure: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>Agregar o quitar un rango de direcciones
@@ -162,7 +162,7 @@ Solo se puede eliminar una red virtual si no tiene recursos conectados. Si hay r
 
 **Comandos**
 
-- CLI de Azure: [azure network vnet delete](/cli/azure/network/vnet#az_network_vnet_delete)
+- CLI de Azure: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## <a name="permissions"></a>Permisos

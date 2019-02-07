@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471783"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744405"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
 Normalmente, implementa los recursos de Azure en un grupo de recursos en su suscripción de Azure. Sin embargo, también puede crear grupos de recursos de Azure y crear recursos de Azure en el nivel de suscripción. Para implementar plantillas en el nivel de suscripción, use la CLI de Azure y Azure PowerShell. Azure Portal no admite la implementación en el nivel de suscripción.
 
-Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) con un nombre y una ubicación para el grupo de recursos. También se puede crear un grupo de recursos e implementar recursos en él en la misma plantilla. Los recursos que se pueden implementar en el nivel de suscripción incluyen: [directivas](../azure-policy/azure-policy-introduction.md) y [control de acceso basado en rol](../role-based-access-control/overview.md).
+Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nombre y una ubicación para el grupo de recursos. También se puede crear un grupo de recursos e implementar recursos en él en la misma plantilla. Los recursos que se pueden implementar en el nivel de suscripción incluyen: [directivas](../azure-policy/azure-policy-introduction.md) y [control de acceso basado en rol](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
@@ -99,7 +101,7 @@ En la plantilla siguiente se crea un grupo de recursos vacío.
 }
 ```
 
-El esquema de la plantilla puede encontrarse [aquí](/azure/templates/microsoft.resources/allversions.md). Encontrará plantillas similares en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
+El esquema de la plantilla puede encontrarse [aquí](/azure/templates/microsoft.resources/allversions). Encontrará plantillas similares en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 ## <a name="create-multiple-resource-groups"></a>Creación de varios grupos de recursos
 

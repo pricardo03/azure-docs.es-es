@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095798"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750365"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtención de eventos de estado de recursos con la API de REST 
 
@@ -44,7 +44,7 @@ Los siguientes encabezados son obligatorios:
 
 | NOMBRE | DESCRIPCIÓN |
 | :--- | :---------- |
-| subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | La versión de API que se usará para la solicitud.<br /><br /> En este documento se describe la versión `2015-04-01` de la API que se incluye en la dirección URL anterior.  |
 | $filter | La opción de filtrado usada para reducir el conjunto de resultados devueltos. Los patrones disponibles para este parámetro se encuentran [en la referencia de la operación de Registros de actividad](/rest/api/monitor/activitylogs/list#uri-parameters). El ejemplo mostrado captura todos los eventos en un intervalo de tiempo entre el 16-05-2018 y 20-06-2018. |
 | &nbsp; | &nbsp; |

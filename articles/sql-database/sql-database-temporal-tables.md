@@ -11,18 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/21/2018
-ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/25/2018
+ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196657"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567135"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Azure SQL Database
+
 Las tablas temporales son una nueva característica de programación de Azure SQL Database que permiten realizar un seguimiento del historial completo de los cambios en los datos y analizarlo, sin necesidad de codificación personalizada. Las tablas temporales mantienen datos estrechamente relacionados con el contexto de tiempo para que se puedan interpretar los hechos almacenados como válidos solo dentro del período específico. Esta propiedad de las tablas temporales permite un análisis eficaz basado en el tiempo y obtener información detalladas de la evolución de los datos.
 
 ## <a name="temporal-scenario"></a>Escenario temporal
+
 Este artículo muestra los pasos para utilizar tablas temporales en un escenario de aplicación. Suponga que desea realizar un seguimiento de la actividad del usuario en un sitio web nuevo que se está desarrollando desde cero o en un sitio web existente que desea extender con análisis de la actividad del usuario. En este ejemplo simplificado, se supone que el número de páginas web visitadas durante un período de tiempo es un indicador que necesita capturarse y supervisarse en la base de datos del sitio web que se hospeda en Azure SQL Database. El objetivo del análisis histórico de la actividad del usuario es obtener entradas para rediseñar el sitio web y ofrecer la mejor experiencia para los visitantes.
 
 El modelo de base de datos para este escenario es muy simple: la métrica de la actividad del usuario se representa con un solo campo de entero, **PageVisited**, y se captura junto con información básica sobre el perfil del usuario. Además, para el análisis basado en el tiempo, se mantendría una serie de filas para cada usuario, donde cada fila representa el número de páginas que un usuario determinado visitó dentro de un período de tiempo específico.

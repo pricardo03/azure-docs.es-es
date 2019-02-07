@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106012"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732097"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Creación de un equilibrador de carga interno para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 
@@ -30,7 +30,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupILB* en la ubicación *eastus*:
 
@@ -41,7 +41,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 ```
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myResourceGroup* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -60,7 +60,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
 
-Cree un equilibrador de carga básica público con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) denominado **myLoadBalancer** que incluya una configuración de direcciones IP de front-end denominada **myFrontEnd**, un grupo de servidores back-end denominado **myBackEndPool** que se asocia a una dirección IP privada **10.0.0.7.
+Cree un equilibrador de carga básica público con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado **myLoadBalancer** que incluya una configuración de direcciones IP de front-end denominada **myFrontEnd**, un grupo de servidores back-end denominado **myBackEndPool** que se asocia a una dirección IP privada **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Cree un equilibrador de carga básica público con [az network lb create](https:
   ```
 ### <a name="create-the-health-probe"></a>Creación del sondeo de estado
 
-Un sondeo de estado comprueba todas las instancias de máquina virtual para asegurarse de que pueden recibir tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) para supervisar el estado de las máquinas virtuales. 
+Un sondeo de estado comprueba todas las instancias de máquina virtual para asegurarse de que pueden recibir tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para supervisar el estado de las máquinas virtuales. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Un sondeo de estado comprueba todas las instancias de máquina virtual para aseg
 
 ### <a name="create-the-load-balancer-rule"></a>Creación de la regla de equilibrador de carga
 
-Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myHTTPRule* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEnd* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end *myBackEndPool*, que también usan el puerto 80. 
+Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myHTTPRule* con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEnd* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end *myBackEndPool*, que también usan el puerto 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -128,7 +128,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 
 ### <a name="create-an-availability-set"></a>Creación de un conjunto de disponibilidad
 
-Cree un conjunto de disponibilidad con [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Cree un conjunto de disponibilidad con [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ Para probar el equilibrador de carga, cree una máquina virtual, *myVMTest* y as
 
 Para probar el equilibrador de carga, primero debe obtener su dirección IP privada. A continuación, inicie sesión en myVMTest de la máquina virtual y escriba la dirección IP privada en la barra de direcciones del explorador web.
 
-Para obtener la dirección IP privada del equilibrador de carga, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copie la dirección IP privada y, a continuación, péguela en la barra de direcciones de un explorador web de la máquina virtual: *myVMTest*.
+Para obtener la dirección IP privada del equilibrador de carga, use [az network lb show](/cli/azure/network/public-ip). Copie la dirección IP privada y, a continuación, péguela en la barra de direcciones de un explorador web de la máquina virtual: *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \

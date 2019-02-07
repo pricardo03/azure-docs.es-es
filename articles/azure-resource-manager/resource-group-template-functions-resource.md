@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 31c845673c524a504bd3078fc62c1fc73aa4ca63
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459373"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756689"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -34,6 +34,8 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 
 Para obtener valores de parámetro, variables o la implementación actual, consulte [Funciones con valores de implementación](resource-group-template-functions-deployment.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 <a id="listkeys" />
 <a id="list" />
 
@@ -47,8 +49,8 @@ La sintaxis de esta función varía según el nombre de las operaciones de la li
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |SÍ |string |Identificador único para el recurso. |
-| apiVersion |SÍ |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
+| resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
+| apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
 | functionValues |Sin  |objeto | Un objeto que tiene valores para la función. Proporcione este objeto solo para las funciones que admiten la recepción de un objeto con valores de parámetro, como **listAccountSas** en una cuenta de almacenamiento. En este artículo se muestra un ejemplo de cómo pasar los valores de funciones. | 
 
 ### <a name="implementations"></a>Implementaciones
@@ -138,7 +140,7 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 
 Para determinar qué tipos de recursos tienen una operación de lista, dispone de las siguientes opciones:
 
-* Vea las [operaciones de API de REST](/rest/api/) para un proveedor de recursos y busque operaciones List. Por ejemplo, las cuentas de almacenamiento tienen una [operación listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Vea las [operaciones de API de REST](/rest/api/) para un proveedor de recursos y busque operaciones List. Por ejemplo, las cuentas de almacenamiento tienen una [operación listKeys](/rest/api/storagerp/storageaccounts).
 * Utilice el cmdlet de PowerShell [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation). En el ejemplo siguiente se obtienen todas las operaciones List para cuentas de almacenamiento:
 
   ```powershell
@@ -269,7 +271,7 @@ Devuelve información acerca de un proveedor de recursos y sus tipos de recursos
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |SÍ |string |Espacio de nombres del proveedor |
+| providerNamespace |Sí |string |Espacio de nombres del proveedor |
 | resourceType |Sin  |string |El tipo de recurso en el espacio de nombres especificado. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -357,7 +359,7 @@ Devuelve un objeto que representa el estado de tiempo de ejecución de un recurs
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |SÍ |string |Nombre o identificador único de un recurso. |
+| resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. |
 | apiVersion |Sin  |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. |
 | 'Full' |Sin  |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
 
@@ -658,8 +660,8 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Sin  |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
 | resourceGroupName |Sin  |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
-| resourceType |SÍ |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
-| resourceName1 |SÍ |string |Nombre del recurso. |
+| resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
+| resourceName1 |Sí |string |Nombre del recurso. |
 | resourceName2 |Sin  |string |Siguiente segmento de nombre de recurso si el recurso está anidado. |
 
 ### <a name="return-value"></a>Valor devuelto

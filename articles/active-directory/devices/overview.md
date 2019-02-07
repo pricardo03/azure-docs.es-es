@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/25/2018
+ms.date: 01/31/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 950692a92152ac302ec573522fc5327f3acb91a2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299833"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512319"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>¿Qué es la administración de dispositivos en Azure Active Directory?
 
@@ -35,6 +35,11 @@ Los usuarios acceden a los recursos corporativos a través de sus dispositivos. 
 La administración de dispositivos también es la base del [acceso condicional basado en dispositivos](../conditional-access/require-managed-devices.md). Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.   
 
 En este artículo se explica cómo funciona la administración de dispositivos en Azure Active Directory.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
+
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Dispositivos bajo el control de Azure AD
 

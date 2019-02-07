@@ -10,19 +10,19 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 51d76e16e93ccffc1a069e64808563d62f428dbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476356"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731468"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
 Entre las tareas de ciencia de datos habituales se incluyen la implementación, el modelado y la exploración de datos. En este artículo se muestra cómo usar las utilidades **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** y **Automated Modeling and Reporting (AMAR)** para completar varias tareas de ciencia de datos comunes como la exploración interactiva de datos, el análisis de datos, la creación de informes y la creación de modelos. Asimismo, se describen las opciones existentes para implementar un modelo en un entorno de producción mediante diversos kits de herramientas y plataformas de datos, como los siguientes:
 
 - [Azure Machine Learning](../service/index.yml)
-- [SQL-Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
+- [SQL-Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 

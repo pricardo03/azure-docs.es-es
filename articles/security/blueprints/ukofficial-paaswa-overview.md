@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718533"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700985"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
 
@@ -73,7 +73,7 @@ En la siguiente sección se detallan los elementos de desarrollo e implementaci�
 
 #### <a name="identity-and-authentication"></a>Identidad y autenticación
 
-Este plano técnico garantiza que el acceso a los recursos está protegido mediante servicios de administración de identidades y de directorios. Esta arquitectura hace uso completo de la [identidad como perímetro de seguridad](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter). 
+Este plano técnico garantiza que el acceso a los recursos está protegido mediante servicios de administración de identidades y de directorios. Esta arquitectura hace uso completo de la [identidad como perímetro de seguridad](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
 Las siguientes tecnologías proporcionan funcionalidades de administración de identidad en el entorno de Azure:
 

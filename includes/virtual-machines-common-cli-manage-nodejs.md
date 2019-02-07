@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226473"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736186"
 ---
 Para poder usar la CLI de Azure con los comandos y plantillas de Resource Manager para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure. Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -44,7 +44,7 @@ Este artículo trata los comandos básicos que querrá usar con la CLI de Azure 
 | Eliminación de una máquina virtual |`azure vm delete [options] <resource_group> <name>` |
 | Captura de una máquina virtual |`azure vm capture [options] <resource_group> <name>` |
 | Creación de una máquina virtual a partir de una imagen del usuario |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Creación de una máquina virtual a partir de un disco especializado |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Creación de una máquina virtual a partir de un disco especializado |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Incorporación de un disco de datos a una máquina virtual |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Eliminación de un disco de datos de una máquina virtual |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Incorporación de una extensión genérica a una máquina virtual |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

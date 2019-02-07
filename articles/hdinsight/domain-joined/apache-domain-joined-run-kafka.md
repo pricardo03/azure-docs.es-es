@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.openlocfilehash: 9e6ebd45f08d2479c73e0753fe1e8df3455df1e1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265301"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750229"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
@@ -48,7 +48,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-domain-users"></a>Crear usuarios de dominio
 
-Visite [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) (Creación de un clúster de HDInsight con Enterprise Security Package) para aprender a crear los usuario del dominio **sales_user** y **marketing_user**. En un escenario de producción, los usuarios del dominio proceden de su inquilino de Active Directory.
+Visite [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) (Creación de un clúster de HDInsight con Enterprise Security Package) para aprender a crear los usuario del dominio **sales_user** y **marketing_user**. En un escenario de producción, los usuarios del dominio proceden de su inquilino de Active Directory.
 
 ## <a name="create-ranger-policy"></a>Creación de directiva de Ranger
 

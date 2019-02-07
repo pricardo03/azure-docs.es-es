@@ -9,14 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: e5aadfc8319ff67e471123d457fddf468af4842a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b41054420f381ed4d39d35af82a464cf555cb13
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225778"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490896"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón
 
@@ -230,7 +230,7 @@ En este tutorial se agregan dos nuevas intenciones: `OrgChart-Manager` y `OrgCha
 
 Una vez que LUIS devuelve una predicción a la aplicación cliente, el nombre de la intención se puede usar como un nombre de función en la aplicación cliente y la entidad Employee (Empleado) podría usarse como un parámetro para esa función.
 
-```nodejs
+```javascript
 OrgChartManager(employee){
     ///
 }

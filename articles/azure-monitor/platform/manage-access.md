@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231791"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656760"
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
@@ -40,7 +40,7 @@ En la actualidad, un área de trabajo proporciona:
 
 * Una ubicación geográfica para el almacenamiento de datos
 * Aislamiento de datos para definir los diferentes derechos de acceso de usuarios
-* Ámbito para la configuración de opciones, como el [nivel de precios](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap). 
+* Ámbito para la configuración de opciones, como el [nivel de precios](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap). 
 
 Desde el punto de vista del consumo, se recomienda crear el menor número de áreas de trabajo que sea posible. Facilita las experiencias de administración y consulta, y las hace más rápidas. Pero, dadas las características anteriores, quizás quiera crear varias áreas de trabajo en los siguientes casos:
 
@@ -97,7 +97,7 @@ Los miembros del rol *Lector de Log Analytics* pueden:
 
 El rol Lector de Log Analytics incluye las siguientes acciones de Azure:
 
-| Escriba    | Permiso | DESCRIPCIÓN |
+| Type    | Permiso | DESCRIPCIÓN |
 | ------- | ---------- | ----------- |
 | . | `*/read`   | Capacidad para ver todos los recursos de Azure y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
 | . | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidad de realizar consultas de búsqueda de registros v2 |

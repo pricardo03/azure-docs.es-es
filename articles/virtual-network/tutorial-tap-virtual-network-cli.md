@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 36de5ec6f7384663106bfb88ee9f236cced6930a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997954"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700849"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Uso de una instancia de Virtual Network TAP con la CLI de Azure
 
@@ -79,7 +79,7 @@ Antes de crear un recurso de Virtual Network TAP, lea los [requisitos previos](v
    - Recupere la configuración IP de front-end del equilibrador de carga interno de Azure en una variable que se usará en un paso posterior. El identificador es el punto de conexión que agregará el tráfico TAP. En el ejemplo siguiente se recupera el identificador de la configuración IP del front-end *frontendipconfig1* para un equilibrador de carga llamado *myInternalLoadBalancer*, en un grupo de recursos llamado *myResourceGroup*:
 
       ```azurecli-interactive
-      FrondendIpConfigId=$(az network lb fronend-ip show \
+      FrontendIpConfigId=$(az network lb frontend-ip show \
       --name frontendipconfig1 \
       --lb-name myInternalLoadBalancer \
       --resource-group myResourceGroup \

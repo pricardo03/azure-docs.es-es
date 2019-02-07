@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017106"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751929"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
 
@@ -49,7 +49,7 @@ Hay varias maneras de cumplir los requisitos del anexo H (Consideraciones de la 
 
 Para habilitar la conexión del **departamento o la administración (D/A)** a Azure u Office 365 sin enrutar el tráfico a través de la TIC del D/A, el D/A debe usar un túnel cifrado o una conexión dedicada con el proveedor de servicios en la nube (CSP). Los servicios del CSP pueden garantizar que no se ofrezca la conectividad a los recursos en la nube del D/A a la red pública de Internet para el acceso directo de personal de la administración.
 
-Office 365 cumple las especificaciones del anexo H de TIC 2.0 al usar ExpressRoute con el [emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) habilitado o una conexión a Internet que cifra todo el tráfico con TLS 1.2. Los usuarios finales de D/A en la red del D/A se pueden conectar mediante la red de su administración y la infraestructura de TIC mediante internet. Todo el acceso remoto de Internet a Office 365 se bloquea y se enruta a través de la administración. El D/A también puede conectarse a Office 365 a través de una conexión de ExpressRoute con el emparejamiento de Microsoft (un tipo de emparejamiento público) habilitado.  
+Office 365 cumple las especificaciones del anexo H de TIC 2.0 al usar ExpressRoute con el [emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) habilitado o una conexión a Internet que cifra todo el tráfico con TLS 1.2. Los usuarios finales de D/A en la red del D/A se pueden conectar mediante la red de su administración y la infraestructura de TIC mediante internet. Todo el acceso remoto de Internet a Office 365 se bloquea y se enruta a través de la administración. El D/A también puede conectarse a Office 365 a través de una conexión de ExpressRoute con el emparejamiento de Microsoft (un tipo de emparejamiento público) habilitado.  
 
 Solo para Azure, la segunda opción (VPN) y la tercera (ExpressRoute) pueden cumplir estos requisitos cuando se usan junto con servicios que limitan el acceso a Internet.
 
@@ -249,25 +249,25 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 
 | Categoría | Carga de trabajo | IaaS | PaaS dedicado / Inserción de red virtual  | Puntos de conexión de servicio  |
 |---------|---------|---------|---------|--------|
-| Proceso | Máquinas virtuales Linux en Azure | SÍ | | |
-| Proceso | Máquinas virtuales Windows en Azure | SÍ | | |
-| Proceso | Conjuntos de escalado de máquinas virtuales | SÍ | | |
+| Proceso | Máquinas virtuales Linux en Azure | Sí | | |
+| Proceso | Máquinas virtuales Windows en Azure | Sí | | |
+| Proceso | Conjuntos de escalado de máquinas virtuales | Sí | | |
 | Proceso | Azure Functions | | Entorno de App Service | |
 | Web y móviles | Aplicación web interna | | Entorno de App Service| |
 | Web y móviles | Aplicación móvil interna | | Entorno de App Service | |
 | Web y móviles | Aplicaciones de API | | Entorno de App Service | |
-| Contenedores | Azure Container Service | | | SÍ |
-| Contenedores | Azure Kubernetes Service (AKS) \* | | | SÍ |
+| Contenedores | Azure Container Service | | | Sí |
+| Contenedores | Azure Kubernetes Service (AKS) \* | | | Sí |
 | Base de datos | Azure SQL Database | | Instancia administrada de Azure SQL Database \* | Azure SQL |
-| Base de datos | Azure Database for MySQL | | | SÍ |
-| Base de datos | Azure Database for PostgreSQL | | | SÍ |
-| Base de datos | Azure SQL Data Warehouse | | | SÍ |
-| Base de datos | Azure Cosmos DB | | | SÍ |
-| Base de datos | Azure Cache for Redis | | SÍ | |
-| Storage | Azure Blob Storage | SÍ | | |
-| Storage | Archivos de Azure | SÍ | | |
-| Storage | Azure Queue Storage | SÍ | | |
-| Storage | Almacenamiento de tablas de Azure | SÍ | | |
-| Storage | Azure Disk Storage | SÍ | | |
+| Base de datos | Azure Database for MySQL | | | Sí |
+| Base de datos | Azure Database for PostgreSQL | | | Sí |
+| Base de datos | Azure SQL Data Warehouse | | | Sí |
+| Base de datos | Azure Cosmos DB | | | Sí |
+| Base de datos | Azure Cache for Redis | | Sí | |
+| Storage | Azure Blob Storage | Sí | | |
+| Storage | Archivos de Azure | Sí | | |
+| Storage | Azure Queue Storage | Sí | | |
+| Storage | Almacenamiento de tablas de Azure | Sí | | |
+| Storage | Azure Disk Storage | Sí | | |
 
 \* Versión preliminar pública en Azure Government con fecha de mayo de 2018

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153411"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564803"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153411"
 
 En este artículo se proporcionan ejemplos para usar las transformaciones de notificaciones de fecha del esquema del marco de experiencia de identidad en Azure Active Directory (Azure AD) B2C. Para más información, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 Comprueba que una notificación de fecha y hora (tipo de datos en cadena) es mayor que una segunda notificación de fecha y hora (tipo de datos de cadena) e inicia una excepción.
 
@@ -85,7 +85,6 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Resultado: aparece un error
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 Convierte un ClaimType **Date** en un ClaimType **DateTime**. La transformación de notificaciones convierte el formato de hora y agrega 12:00:00 a. m. a la fecha.
@@ -98,7 +97,7 @@ Convierte un ClaimType **Date** en un ClaimType **DateTime**. La transformación
 En el ejemplo siguiente se muestra la conversión de la notificación `dateOfBirth` (tipo de datos date) en otra notificación `dateOfBirthWithTime` (tipo de datos dateTime).
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ Para ejecutar la transformación de notificaciones, primero deberá obtener el v
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ Para ejecutar la transformación de notificaciones, primero deberá obtener el v
 - Parámetros de entrada:
     - **operator**: mayor que
     - **timeSpanInSeconds**: 7776000 (90 días)
-- Notificaciones de salida: 
+- Notificaciones de salida:
     - **result**: true
-

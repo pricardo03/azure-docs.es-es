@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236937"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661095"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticación y autorización con Colecciones de áreas de trabajo de Power BI
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-Hay métodos disponibles en los SDK que facilitan la creación de tokens de aplicación. Por ejemplo, para .NET puede observar la clase [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) y los métodos [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_).
+Hay métodos disponibles en los SDK que facilitan la creación de tokens de aplicación. Por ejemplo, para .NET puede observar la clase [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) y los métodos [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN).
 
 Para el SDK de .NET, puede consultar [Ámbitos](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -176,7 +176,7 @@ Después de que **Colecciones de áreas de trabajo de Power BI** envíe un infor
 
 ## <a name="see-also"></a>Otras referencias
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Introducción a ejemplos de Colecciones de áreas de trabajo de Power BI](get-started-sample.md)  
 [Escenarios comunes de Colecciones de áreas de trabajo de Power BI](scenarios.md)  
 [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)  

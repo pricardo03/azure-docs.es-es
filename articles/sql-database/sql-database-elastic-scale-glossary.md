@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867807"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561440"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
+
 Los siguientes términos se definen para las [herramientas de Elastic Database](sql-database-elastic-scale-introduction.md), una característica de Azure SQL Database. Las herramientas se usan para administrar [mapas de particiones](sql-database-elastic-scale-shard-map-management.md) e incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md). 
 
 Estos términos se usan en [Incorporación de una partición con herramientas de Elastic Database](sql-database-elastic-scale-add-a-shard.md) y [Uso de la clase RecoveryManager para solucionar problemas de asignaciones de particiones](sql-database-elastic-database-recovery-manager.md).

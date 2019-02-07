@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e2aa82143b8e58e36509ee5d3adf99b34be89c69
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076621"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567050"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo.
@@ -57,19 +57,15 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 }
 ```
 
-
-
-
 | Propiedad                      | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
-| Nombre                          | Nombre de la actividad en la canalización     | SÍ      |
+| Nombre                          | Nombre de la actividad en la canalización     | Sí      |
 | description                   | Texto que describe para qué se usa la actividad.  | Sin        |
-| Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | SÍ      |
-| linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | SÍ      |
-| trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | SÍ      |
-| trainedModelLinkedServiceName | Nombre del servicio vinculado de Azure Storage que contiene el archivo ilearner cargado por la operación de actualización | SÍ      |
-| trainedModelFilePath          | La ruta de acceso relativa en trainedModelLinkedService para representar el archivo ilearner cargado por la operación de actualización | SÍ      |
-
+| Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
+| linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | Sí      |
+| trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | Sí      |
+| trainedModelLinkedServiceName | Nombre del servicio vinculado de Azure Storage que contiene el archivo ilearner cargado por la operación de actualización | Sí      |
+| trainedModelFilePath          | La ruta de acceso relativa en trainedModelLinkedService para representar el archivo ilearner cargado por la operación de actualización | Sí      |
 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro
 
@@ -114,14 +110,14 @@ Esta es una definición de un servicio vinculado de ejemplo:
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000  000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint1"
+                "type": "SecureString",
+                "value": "APIKeyOfEndpoint1"
             },
             "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
-            "type": "SecureString",
-            "value": "servicePrincipalKey"
+                "type": "SecureString",
+                "value": "servicePrincipalKey"
             },
             "tenant": "mycompany.com"
         }
@@ -147,7 +143,7 @@ Esta es la definición de JSON de ejemplo del servicio vinculado:
 ```JSON
 {
     "name": "StorageLinkedService",
-      "properties": {
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
@@ -162,13 +158,13 @@ El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learni
 ```JSON
 {
     "name": "trainingEndpoint",
-      "properties": {
+    "properties": {
         "type": "AzureML",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
+            "apiKey": "myKey"
         }
-      }
+    }
 }
 ```
 
@@ -255,9 +251,9 @@ La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpd
                 "typeProperties": {
                     "trainedModelName": "ADFV2Sample Model [trained model]",
                     "trainedModelLinkedServiceName": {
-                                "type": "LinkedServiceReference",
-                                "referenceName": "StorageLinkedService"
-                            },
+                        "type": "LinkedServiceReference",
+                        "referenceName": "StorageLinkedService"
+                    },
                     "trainedModelFilePath": "azuremltesting/output/newModelForArm.ilearner"
                 },
                 "dependsOn": [
@@ -265,8 +261,7 @@ La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpd
                         "activity": "amlbeGetilearner",
                         "dependencyConditions": [ "Succeeded" ]
                     }
-                 ]
-
+                ]
             }
         ]
     }

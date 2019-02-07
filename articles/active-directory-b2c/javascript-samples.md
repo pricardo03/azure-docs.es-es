@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2a0fc7cc4e76c4a93f6ff71767d3074ea8ac6564
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168216"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729275"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Ejemplos de JavaScript para usar en Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Habilite la ejecución del script agregando el elemento **ScriptExecution** al e
 
 Siga estas directrices cuando personalice la interfaz de la aplicación con JavaScript:
 
-- No enlace un evento de clic con elementos HTML `<a>`. 
+- No enlace un evento de clic con elementos HTML `<a>`.
 - No tome una dependencia del código Azure AD B2C ni de los comentarios.
 - No cambie el orden ni la jerarquía de los elementos HTML de Azure AD B2C. Use una directiva de Azure AD B2C para controlar el orden de los elementos de la interfaz de usuario.
 - Puede llamar a cualquier servicio RESTful con estas consideraciones:
@@ -113,9 +113,9 @@ function setupPwdTogglers(){
 setupPwdTogglers();
 ```
 
-### <a name="add-terms-of-use"></a>Agregar términos de uso 
+### <a name="add-terms-of-use"></a>Agregar términos de uso
 
-Incluya el código siguiente en la página donde quiera la casilla **Términos de uso**. Normalmente, esta casilla suele ser necesaria en las páginas de registro de cuenta sociales o de cuentas locales.  
+Incluya el código siguiente en la página donde quiera la casilla **Términos de uso**. Normalmente, esta casilla suele ser necesaria en las páginas de registro de cuenta sociales o de cuentas locales.
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -124,18 +124,18 @@ function addTermsOfUseLink() {
     if (!termsOfUseLabel) {
         return;
     }
-      
+
     // get the label text
     var termsLabelText = termsOfUseLabel.innerHTML;
-      
-    // create a new <a> element with the same inner text 
+
+    // create a new <a> element with the same inner text
     var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
     termsOfUseLink.appendChild(document.createTextNode(termsLabelText));
 
-    // replace the label text with the new element 
+    // replace the label text with the new element
     termsOfUseLabel.replaceChild(termsOfUseLink, termsOfUseLabel.firstChild);
 }
 ```
@@ -145,4 +145,3 @@ En el código, reemplace `terms-of-use-url` con el vínculo al contrato de los t
 ## <a name="next-steps"></a>Pasos siguientes
 
 Encuentre más información acerca de cómo personalizar la interfaz de usuario de las aplicaciones en [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
-

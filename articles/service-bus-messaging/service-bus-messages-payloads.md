@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849369"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733933"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -28,7 +28,7 @@ El modelo de objetos de los clientes de Service Bus oficial para .NET y Java ref
  
 Un mensaje de Service Bus consta de una sección de carga binaria, que Service Bus nunca controla de ninguna forma en el servicio, y dos conjuntos de propiedades. Las *propiedades de agente* están predefinidas por el sistema. Estas propiedades predefinidas controlan la funcionalidad en el nivel de mensaje en el agente o se asignan a los elementos de metadatos comunes y estandarizados. Las *propiedades de usuario* son una colección de pares clave-valor que la aplicación puede definir y establecer.
  
-En la tabla siguiente se enumeran las propiedades de agente predefinidas. Los nombres se utilizan con todas las API de cliente oficiales y también en el objeto [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON de la asignación de protocolo HTTP.
+En la tabla siguiente se enumeran las propiedades de agente predefinidas. Los nombres se utilizan con todas las API de cliente oficiales y también en el objeto [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON de la asignación de protocolo HTTP.
  
 Los nombres equivalentes usados en el nivel de protocolo AMQP aparecen entre paréntesis. 
 

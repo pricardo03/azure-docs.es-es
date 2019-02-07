@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
-ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/10/2019
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198191"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750348"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar una base de datos distribuida geográficamente
 
@@ -36,7 +36,7 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Una base de datos SQL de Azure. Para crear uno, use:
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 > [!IMPORTANT]
 > Asegúrese de configurar las reglas de firewall para usar la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Las reglas de firewall a nivel de base de datos se replicarán automáticamente al servidor secundario.
 >
-> Para obtener más información, vea [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) (Creación de una regla de firewall a nivel de base de datos) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, vea [Create a server-level firewall](sql-database-get-started-portal-firewall.md) (Crear un firewall de nivel de servidor).  
+> Para obtener más información, vea [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) (Creación de una regla de firewall a nivel de base de datos) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, vea [Create a server-level firewall](sql-database-server-level-firewall-rule.md) (Crear un firewall de nivel de servidor).  
 
 ## <a name="create-a-failover-group"></a>Creación de un grupo de conmutación por error
 

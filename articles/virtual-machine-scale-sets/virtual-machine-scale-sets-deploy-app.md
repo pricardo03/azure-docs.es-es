@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2448d941db7f27a87fbb5e2267847165f84ede3d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 4b977a2fe9dadfe42e02063fa4fa291b9be484ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881705"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733151"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En este artículo se presentan distintas formas de crear una imagen de máquina virtual personalizada para las instancias de un conjunto de escalado o de ejecutar automáticamente la instalación de scripts en instancias de máquinas virtuales existentes. También puede obtener información sobre cómo administrar actualizaciones del sistema operativo de la aplicación en un conjunto de escalado.
@@ -97,7 +97,7 @@ cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get
 
 Para obtener más información, incluido un archivo *cloud-init.txt* de ejemplo, consulte [Uso de cloud-init para personalizar máquinas virtuales de Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Para crear un conjunto de escalado y usar un archivo cloud-init, agregue el parámetro `--custom-data` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) y especifique el nombre de un archivo cloud-int. En el siguiente ejemplo se crea un conjunto de escalado denominado *myScaleSet* en *myResourceGroup* y configuran instancias de máquinas virtuales con un archivo denominado *cloud-init.txt*. Escriba sus propios nombres, como se indica a continuación:
+Para crear un conjunto de escalado y usar un archivo cloud-init, agregue el parámetro `--custom-data` al comando [az vmss create](/cli/azure/vmss) y especifique el nombre de un archivo cloud-int. En el siguiente ejemplo se crea un conjunto de escalado denominado *myScaleSet* en *myResourceGroup* y configuran instancias de máquinas virtuales con un archivo denominado *cloud-init.txt*. Escriba sus propios nombres, como se indica a continuación:
 
 ```azurecli
 az vmss create \

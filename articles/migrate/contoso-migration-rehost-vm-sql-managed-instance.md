@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826622"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694489"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migración de Contoso: rehospedar una aplicación local en una máquina virtual de Azure e Instancia administrada de Azure SQL Database
 
@@ -173,7 +173,7 @@ Para configurar una instancia administrada de Azure SQL Database, Contoso necesi
 - La subred debe tener una tabla de enrutamiento definida por el usuario (UDR). La única ruta asignada debe ser 0.0.0.0/0, con Internet como próximo salto. 
 - DNS personalizado opcional: si se especifica un DNS personalizado en la red virtual de Azure, es necesario agregar a la lista la dirección IP de las resoluciones recursivas de Azure (por ejemplo, 168.63.129.16). Más información sobre cómo [configurar DNS personalizado para una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - La subred no puede tener un punto de conexión de servicio (Storage o SQL) asociado a ella. Los puntos de conexión de servicio se deben deshabilitar en la red virtual.
-- La subred tiene que tener como mínimo 16 direcciones IP. Más información sobre cómo [cambiar el tamaño de la subred de Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- La subred tiene que tener como mínimo 16 direcciones IP. Más información sobre cómo [cambiar el tamaño de la subred de Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - En el entorno híbrido de Contoso, se requiere la configuración de DNS personalizada. Contoso configura los valores de DNS para usar uno o varios de los servidores de Azure DNS de la empresa. Más información sobre la [personalización de DNS](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Configuración de una red virtual para una instancia administrada
@@ -207,7 +207,7 @@ Los administradores de Contoso configuran la red virtual de la forma siguiente:
 *¿Necesita más ayuda?*
 
 - Más información general sobre [Instancia administrada de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Más información sobre cómo [crear una red virtual para una instancia administrada de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Más información sobre cómo [crear una red virtual para una instancia administrada de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Más información sobre cómo [configurar el emparejamiento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Más información sobre cómo [actualizar la configuración de DNS de Azure Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ El equipo de seguridad de Contoso revisa las máquinas virtuales de Azure e Inst
 
      ![Seguridad de Instancia administrada: detección de amenazas](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-Para más información sobre los procedimientos de seguridad para máquinas virtuales, consulte [Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+Para más información sobre los procedimientos de seguridad para máquinas virtuales, consulte [Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

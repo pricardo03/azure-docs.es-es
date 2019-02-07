@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360010"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496710"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
 
@@ -38,6 +38,8 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con n
 
 <a id="add" />
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add"></a>agregar
 `add(operand1, operand2)`
 
@@ -45,7 +47,7 @@ Devuelve la suma de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sí |int |Primer número que se agregará. |
 |operand2 |Sí |int |Segundo número que se agregará. |
@@ -93,7 +95,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| addResult | int | 8 |
+| addResult | Int | 8 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -104,7 +106,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
 ```
 
 <a id="copyindex" />
@@ -116,7 +118,7 @@ Devuelve el índice actual de un bucle de iteración.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | loopName | Sin  | string | El nombre del bucle para obtener la iteración. |
 | Offset |Sin  |int |El número que se agregará al valor de iteración basado en cero. |
@@ -162,7 +164,7 @@ Devuelve la división de enteros de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir. No puede ser 0. |
@@ -210,7 +212,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| divResult | int | 2 |
+| divResult | Int | 2 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -221,7 +223,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
 ```
 
 <a id="float" />
@@ -233,7 +235,7 @@ Convierte el valor en un número de punto flotante. Solo use esta función al pa
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en número de punto flotante. |
 
@@ -267,7 +269,7 @@ Convierte el valor especificado en un entero.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí |cadena o entero |Valor que se convierte en entero. |
 
@@ -304,7 +306,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| intResult | int | 4 |
+| intResult | Int | 4 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -315,7 +317,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
 <a id="max" />
@@ -327,7 +329,7 @@ Devuelve el valor máximo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
@@ -367,8 +369,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -379,7 +381,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 <a id="min" />
@@ -391,7 +393,7 @@ Devuelve el valor mínimo de una matriz de enteros o una lista separada por coma
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
@@ -431,8 +433,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -443,7 +445,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 <a id="mod" />
@@ -455,7 +457,7 @@ Devuelve el resto de la división de enteros de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir; no puede ser 0. |
@@ -502,7 +504,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| modResult | int | 1 |
+| modResult | Int | 1 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -513,7 +515,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
 ```
 
 <a id="mul" />
@@ -525,7 +527,7 @@ Devuelve la multiplicación de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Primer número que se va a multiplicar. |
 | operand2 |Sí |int |Segundo número que se va a multiplicar. |
@@ -573,7 +575,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| mulResult | int | 15 |
+| mulResult | Int | 15 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -584,7 +586,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
 ```
 
 <a id="sub" />
@@ -596,7 +598,7 @@ Devuelve la resta de los dos enteros especificados.
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número del que se resta. |
 | operand2 |Sí |int |Número que se resta. |
@@ -643,7 +645,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | Int | 4 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -654,7 +656,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

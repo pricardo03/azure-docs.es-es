@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179487"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751028"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -41,7 +41,7 @@ Si decide instalar y usar la CLI localmente, en este tutorial es preciso que eje
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de un conjunto de escalado de máquinas virtuales. Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). En este ejemplo se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*. 
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de un conjunto de escalado de máquinas virtuales. Cree un grupo de recursos con el comando [az group create](/cli/azure/group). En este ejemplo se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ Se tardan unos minutos en crear y configurar todos los recursos del conjunto de 
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>Visualización de las instancias de máquina virtual de un conjunto de escalado
-Para ver una lista de instancias de máquina virtual de un conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) de la manera siguiente:
+Para ver una lista de instancias de máquina virtual de un conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss) de la manera siguiente:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ La salida del ejemplo siguiente muestra dos instancias de máquina virtual del c
 ```
 
 
-La primera columna de la salida muestra *InstanceId*. Para ver información adicional sobre una instancia específica de la máquina virtual, agregue el parámetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view). En el ejemplo siguiente, se ve información sobre la instancia de máquina virtual *1*:
+La primera columna de la salida muestra *InstanceId*. Para ver información adicional sobre una instancia específica de la máquina virtual, agregue el parámetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss). En el ejemplo siguiente, se ve información sobre la instancia de máquina virtual *1*:
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Imágenes de instancia de máquina virtual
-Cuando creó un conjunto de escalado al inicio de este tutorial, se especificó un parámetro `--image` de *UbuntuLTS* para las instancias de máquina virtual. Azure Marketplace incluye muchas imágenes que pueden usarse para crear instancias de máquina virtual. Para ver una lista de las imágenes usadas con más frecuencia, use el comando [az vm image list](/cli/azure/vm/image#az_vm_image_list).
+Cuando creó un conjunto de escalado al inicio de este tutorial, se especificó un parámetro `--image` de *UbuntuLTS* para las instancias de máquina virtual. Azure Marketplace incluye muchas imágenes que pueden usarse para crear instancias de máquina virtual. Para ver una lista de las imágenes usadas con más frecuencia, use el comando [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Cambio de la capacidad de un conjunto de escalado
 Cuando creó un conjunto de escalado al comienzo del tutorial, se implementaron de forma predeterminada dos instancias de máquina virtual. Puede especificar el parámetro `--instance-count` con [az vmss create](/cli/azure/vmss) para cambiar el número de instancias creadas con un conjunto de escalado. Para aumentar o disminuir el número de instancias de máquina virtual del conjunto de escalado existente, puede cambiar manualmente la capacidad. El conjunto de escalado crea o quita el número necesario de instancias de máquina virtual y, luego, configura el equilibrador de carga para distribuir el tráfico.
 
-Para aumentar o reducir manualmente el número de instancias de máquina virtual del conjunto de escalado, use [az vmss scale](/cli/azure/vmss#az_vmss_scale). En el ejemplo siguiente se establece el número de instancias de máquina virtual del conjunto de escalado en *3*:
+Para aumentar o reducir manualmente el número de instancias de máquina virtual del conjunto de escalado, use [az vmss scale](/cli/azure/vmss). En el ejemplo siguiente se establece el número de instancias de máquina virtual del conjunto de escalado en *3*:
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-La capacidad del conjunto de escalado tarda unos minutos en actualizarse. Para ver el número de instancias que tiene ahora en un conjunto de escalado, use [az vmss show](/cli/azure/vmss#az_vmss_show) y realice consultas a *sku.capacity*:
+La capacidad del conjunto de escalado tarda unos minutos en actualizarse. Para ver el número de instancias que tiene ahora en un conjunto de escalado, use [az vmss show](/cli/azure/vmss) y realice consultas a *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 Ahora puede crear un conjunto de escalado, mostrar información de conexión y conectarse a instancias de máquina virtual. Ha aprendido cómo podría usar otra imagen de sistema operativo para sus instancias de máquina virtual, cómo seleccionar otro tamaño de máquina virtual o cómo escalar manualmente el número de instancias. Como parte de la administración diaria, puede que deba detener, iniciar o reiniciar las instancias de máquina virtual del conjunto de escalado.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Detención y desasignación de instancias de máquina virtual de un conjunto de escalado
-Para detener una o más instancias de máquina virtual de un conjunto de escalado, use [az vmss stop](/cli/azure/vmss#az_vmss_stop). El parámetro `--instance-ids` le permite especificar que se detengan una o varias máquinas virtuales. Si no especifica un identificador de instancia, se detienen todas las instancias de máquina virtual del conjunto de escalado. En el ejemplo siguiente se detiene la instancia *1*:
+Para detener una o más instancias de máquina virtual de un conjunto de escalado, use [az vmss stop](/cli/azure/vmss). El parámetro `--instance-ids` le permite especificar que se detengan una o varias máquinas virtuales. Si no especifica un identificador de instancia, se detienen todas las instancias de máquina virtual del conjunto de escalado. En el ejemplo siguiente se detiene la instancia *1*:
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-Las instancias de máquina virtual detenidas permanecen asignadas y siguen acumulando cargos por procesos. Si lo que desea es desasignar las instancias de máquina virtual y solo acumular cargos por procesos, use [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). En el ejemplo siguiente se detiene y desasigna la instancia *1*:
+Las instancias de máquina virtual detenidas permanecen asignadas y siguen acumulando cargos por procesos. Si lo que desea es desasignar las instancias de máquina virtual y solo acumular cargos por procesos, use [az vmss deallocate](/cli/azure/vmss). En el ejemplo siguiente se detiene y desasigna la instancia *1*:
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>Inicio de las instancias de máquina virtual de un conjunto de escalado
-Para iniciar una o varias instancias de máquina virtual de un conjunto de escalado, use [az vmss start](/cli/azure/vmss#az_vmss_start). El parámetro `--instance-ids` le permite especificar que se inicien una o varias instancias de máquina virtual. Si no especifica un identificador de instancia, se inician todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se inicia la instancia *1*:
+Para iniciar una o varias instancias de máquina virtual de un conjunto de escalado, use [az vmss start](/cli/azure/vmss). El parámetro `--instance-ids` le permite especificar que se inicien una o varias instancias de máquina virtual. Si no especifica un identificador de instancia, se inician todas las máquinas virtuales del conjunto de escalado. En el ejemplo siguiente se inicia la instancia *1*:
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>Reinicio de las instancias de máquina virtual de un conjunto de escalado
-Para reiniciar una o varias instancias de máquina virtual de un conjunto de escalado, use [az vmss restart](/cli/azure/vmss#az_vm_restart). El parámetro `--instance-ids` le permite especificar que se reinicien una o varias instancias de máquina virtual. Si no especifica un identificador de instancia, se reinician todas las instancias de máquina virtual del conjunto de escalado. En el ejemplo siguiente, se reinicia la instancia *1*:
+Para reiniciar una o varias instancias de máquina virtual de un conjunto de escalado, use [az vmss restart](/cli/azure/vmss). El parámetro `--instance-ids` le permite especificar que se reinicien una o varias instancias de máquina virtual. Si no especifica un identificador de instancia, se reinician todas las instancias de máquina virtual del conjunto de escalado. En el ejemplo siguiente, se reinicia la instancia *1*:
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 831286f1c98a2fc3d26277f4006283c3de64f900
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee53cc3a639a79e1b29ac6cd537bfb04e05b1bca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463249"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692483"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato del archivo de manifiesto de servicio de Azure Import/Export
 El archivo de manifiesto de la unidad describe la asignación entre los blobs de Azure Blob Storage y los archivos de la unidad que componen un trabajo de importación o exportación. En el caso de una operación de importación, el archivo de manifiesto se crea como parte del proceso de preparación de la unidad y se almacena en la unidad antes de que esta se envíe al centro de datos de Azure. Durante una operación de exportación, el servicio Azure Import/Export crea y almacena el manifiesto en la unidad.  
@@ -97,7 +97,7 @@ Los elementos de datos y atributos del formato XML del manifiesto de la unidad s
 |`Drive`|Elemento XML anidado|Contiene el manifiesto de cada unidad.|  
 |`DriveId`|string|Identificador único de la unidad. Para encontrar el identificador de la unidad es preciso consultar su número de serie. El número de serie de la unidad normalmente también está impreso en la parte exterior de la unidad. El elemento `DriveID` debe aparecer antes de todos los elementos `BlobList` en el archivo de manifiesto.|  
 |`StorageAccountKey`|string|Se requiere para trabajos de importación si, y solo si, no se ha especificado `ContainerSas`. La clave de la cuenta de Azure Storage asociada al job.<br /><br /> Este elemento se omite del manifiesto en las operaciones de exportación.|  
-|`ContainerSas`|string|Se requiere para trabajos de importación si, y solo si, no se ha especificado `StorageAccountKey`. El SAS del contenedor para acceder a los blobs asociados al trabajo. Consulte [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) para conocer su formato. Este elemento se omite del manifiesto en las operaciones de exportación.|  
+|`ContainerSas`|string|Se requiere para trabajos de importación si, y solo si, no se ha especificado `StorageAccountKey`. El SAS del contenedor para acceder a los blobs asociados al trabajo. Consulte [Put Job](/rest/api/storageimportexport/jobs) para conocer su formato. Este elemento se omite del manifiesto en las operaciones de exportación.|  
 |`ClientCreator`|string|Especifica que el cliente que creó el archivo XML. El servicio Import/Export no interpreta este valor.|  
 |`BlobList`|Elemento XML anidado|Contiene una lista de los blobs que forman parte del trabajo de importación o exportación. Todos los blobs de una lista de blobs comparten los mismos metadatos y propiedades.|  
 |`BlobList/MetadataPath`|string|Opcional. Especifica la ruta de acceso relativa de un archivo en el disco que contiene los metadatos predeterminados que se establecerán los blobs de la lista en una operación de importación. Opcionalmente, estos metadatos se pueden reemplazar en función del blob.<br /><br /> Este elemento se omite del manifiesto en las operaciones de exportación.|  

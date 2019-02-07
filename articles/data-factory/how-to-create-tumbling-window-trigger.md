@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019731"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567043"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 En este artículo se explica cómo crear, iniciar y supervisar un desencadenador de ventana de saltos de tamaño constante. Para obtener información general sobre los desencadenadores y los tipos compatibles, vea [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -33,7 +33,7 @@ Para crear un desencadenador de ventana de saltos de tamaño constante en Azure 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propiedades del tipo de desencadenador de ventana de saltos de tamaño constante
 Una ventana de saltos de tamaño constante tiene las siguientes propiedades del tipo de desencadenador:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,44 +47,43 @@ Una ventana de saltos de tamaño constante tiene las siguientes propiedades del 
             "delay": "<<timespan – optional>>",
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
-                "count":  <<int - optional, default: 0>>,
+                "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
             }
         },
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "parameter1": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "parameter1": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter2": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
-                }
+                "parameter2": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
+                },
+                "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 En la tabla siguiente se muestra una descripción general de los elementos JSON más importantes relacionados con la periodicidad y la programación de un desencadenador de ventana de saltos de tamaño constante:
 
-| Elemento JSON | DESCRIPCIÓN | Escriba | Valores permitidos | Obligatorio |
+| Elemento JSON | DESCRIPCIÓN | Type | Valores permitidos | Obligatorio |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | SÍ |
-| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | string | "Started," "Stopped," "Disabled" | SÍ |
-| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | SÍ |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Entero | Un número entero positivo. | SÍ |
-| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | Datetime | Un valor DateTime. | SÍ |
-| **endTime**| La última repetición, que puede ser en el pasado. | Datetime | Un valor DateTime. | SÍ |
+| **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | Sí |
+| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | string | "Started," "Stopped," "Disabled" | Sí |
+| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sí |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Entero | Un número entero positivo. | Sí |
+| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | DateTime | Un valor DateTime. | Sí |
+| **endTime**| La última repetición, que puede ser en el pasado. | DateTime | Un valor DateTime. | Sí |
 | **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo donde el valor predeterminado es 00:00:00. | Sin  |
-| **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Entero | Un número entero comprendido entre uno y cincuenta. | SÍ |
+| **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Entero | Un número entero comprendido entre uno y cincuenta. | Sí |
 | **retryPolicy: Count** | El número de reintentos antes de que la ejecución de la canalización se marque como "error".  | Entero | Un entero, donde el valor predeterminado es 0 (ningún reintento). | Sin  |
 | **retryPolicy: intervalInSeconds** | El retraso entre intentos de reintentos, especificado en segundos. | Entero | El número de segundos, donde el valor predeterminado es 30. | Sin  |
 
@@ -92,32 +91,31 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 
 Puede usar las variables del sistema **WindowStart** y **WindowEnd** del desencadenador de ventana de saltos de tamaño constante en la definición de **pipeline** (es decir, para la parte de una consulta). Pase las variables del sistema como parámetros a la canalización en la definición de **trigger**. En el ejemplo siguiente se muestra cómo pasar estas variables como parámetros:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
         "type": "TumblingWindowTrigger",
             ...
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "MyWindowStart": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "MyWindowStart": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "MyWindowEnd": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    }
+                "MyWindowEnd": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 }
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 Para usar los valores de las variables del sistema **WindowStart** y **WindowEnd** en la definición de la canalización, use los parámetros "MyWindowStart" y "MyWindowEnd", según corresponda.
 
@@ -135,10 +133,10 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
 
 1. Cree un archivo JSON llamado **MyTrigger.json** en la carpeta C:\ADFv2QuickStartPSH\ con el siguiente contenido:
 
-   > [!IMPORTANT]
-   > Antes de guardar el archivo JSON, establezca el valor del elemento **startTime** en la hora UTC actual. Establezca el valor del elemento **endTime** en una hora anterior a la hora UTC actual.
+    > [!IMPORTANT]
+    > Antes de guardar el archivo JSON, establezca el valor del elemento **startTime** en la hora UTC actual. Establezca el valor del elemento **endTime** en una hora anterior a la hora UTC actual.
 
-    ```json   
+    ```json
     {
       "name": "PerfTWTrigger",
       "properties": {
@@ -167,7 +165,7 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
         "runtimeState": "Started"
       }
     }
-    ```  
+    ```
 
 2. Cree un desencadenador mediante el cmdlet **Set-AzureRmDataFactoryV2Trigger**.
 

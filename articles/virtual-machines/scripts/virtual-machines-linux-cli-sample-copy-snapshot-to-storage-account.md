@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 631e20f44ab0cd2c35df459695af0de6059e6788
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2ca70eae4a7ab14be9eba82324d41f9e5a24bcff
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582293"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727679"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportación o copia de una instantánea administrada como un VHD a una cuenta de almacenamiento en una región diferente con la CLI
 
@@ -43,8 +43,8 @@ Este script usa los siguientes comandos para generar el identificador URI de SAS
 
 | Get-Help | Notas |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | Genera la SAS de solo lectura que se usa para copiar el archivo de VHD subyacente a una cuenta de almacenamiento o descargarlo localmente.  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Copia un blob de forma asincrónica desde una cuenta de almacenamiento a otra. |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | Genera la SAS de solo lectura que se usa para copiar el archivo de VHD subyacente a una cuenta de almacenamiento o descargarlo localmente.  |
+| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copia un blob de forma asincrónica desde una cuenta de almacenamiento a otra. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

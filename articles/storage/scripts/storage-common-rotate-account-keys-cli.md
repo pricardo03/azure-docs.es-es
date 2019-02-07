@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 160509a5a82b71b281d57d97e103bb4190605b7c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847818"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693928"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Creación de una cuenta de almacenamiento y rotación de sus claves de acceso de cuenta
 
@@ -48,10 +48,10 @@ Este script usa los siguientes comandos para crear la cuenta de almacenamiento y
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea una cuenta de Azure Storage en el grupo de recursos especificado. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Muestra las claves de acceso de la cuenta de almacenamiento para la cuenta especificada. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Vuelve a generar la clave de acceso de la cuenta de almacenamiento primaria o secundaria. |
+| [az group create](/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](/cli/azure/storage/account) | Crea una cuenta de Azure Storage en el grupo de recursos especificado. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Muestra las claves de acceso de la cuenta de almacenamiento para la cuenta especificada. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | Vuelve a generar la clave de acceso de la cuenta de almacenamiento primaria o secundaria. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

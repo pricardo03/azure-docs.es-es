@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c98e59cd0e547381d6b173b3a4b91c3a3e27b3a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855829"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731128"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementación de Oracle Data Guard en una máquina virtual Linux en Azure 
 
@@ -70,7 +70,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). 
+Cree una máquina virtual con el comando [az vm create](/cli/azure/vm). 
 
 En el ejemplo siguiente se crean dos máquinas virtuales, denominadas `myVM1` y `myVM2`. También se crean claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
 

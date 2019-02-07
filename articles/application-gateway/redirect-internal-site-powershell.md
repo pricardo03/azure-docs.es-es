@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6c60fdbcc7003b9da22d0bd3f3512fc616011703
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0d1cd05d9af647230ef80df0b23df0c380775c11
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434383"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732624"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell
 
@@ -40,7 +40,7 @@ Si decide instalar y usar PowerShell localmente, para este tutorial se requiere 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -98,7 +98,7 @@ Cree un grupo de back-end llamado *contosoPool* para la puerta de enlace de apli
 
 ```azurepowershell-interactive
 $contosoPool = New-AzureRmApplicationGatewayBackendAddressPool `
-  -Name contosoPool 
+  -Name contosoPool
 $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
@@ -177,7 +177,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-redirection-configuration"></a>Adición de la configuración de redireccionamiento
 
-Puede configurar el redireccionamiento del agente de escucha mediante [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration). 
+Puede configurar el redireccionamiento del agente de escucha mediante [Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration).
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -212,7 +212,7 @@ $contosoOrglistener = Get-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw
 $redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
   -Name redirectOrgtoCom `
-  -ApplicationGateway $appgw   
+  -ApplicationGateway $appgw
 Add-AzureRmApplicationGatewayRequestRoutingRule `
   -ApplicationGateway $appgw `
   -Name contosoOrgRule `
@@ -269,7 +269,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>Instalación de IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `

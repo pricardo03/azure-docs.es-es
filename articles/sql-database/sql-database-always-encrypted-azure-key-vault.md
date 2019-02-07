@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041244"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755669"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: protección de datos confidenciales y almacenamiento de las claves de cifrado en Azure Key Vault
 
@@ -81,7 +81,7 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
 ## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Vaya a **Crear un recurso** > **Bases de datos** > **SQL Database**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera instancia de Azure SQL Database](sql-database-get-started-portal.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera instancia de Azure SQL Database](sql-database-single-database-get-started.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

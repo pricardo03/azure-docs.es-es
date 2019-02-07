@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a3fcff530077a08414b343a775e7ae694b29bc75
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cecdb9f9af9c5194eb56cfefd63b31348f111980
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021006"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562766"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copia de datos de Magento con Azure Data Factory (versión preliminar)
 
@@ -44,9 +44,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Magento:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **Magento** | SÍ |
-| host | Dirección URL de la instancia de Magento. (es decir, 192.168.222.110/magento3)  | SÍ |
-| accessToken | Token de acceso de Magento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| Tipo | La propiedad type se debe establecer en: **Magento** | Sí |
+| host | Dirección URL de la instancia de Magento. (es decir, 192.168.222.110/magento3)  | Sí |
+| accessToken | Token de acceso de Magento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -61,8 +61,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Magento:
         "typeProperties": {
             "host" : "192.168.222.110/magento3",
             "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
+                "type": "SecureString",
+                "value": "<accessToken>"
             },
             "useEncryptedEndpoints" : true,
             "useHostVerification" : true,
@@ -80,7 +80,7 @@ Para copiar datos de Magento, establezca la propiedad type del conjunto de datos
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **MagentoObject** | SÍ |
+| Tipo | La propiedad type del conjunto de datos se debe establecer en: **MagentoObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -109,7 +109,7 @@ Para copiar datos de Magento, establezca el tipo de origen de la actividad de co
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MagentoSource** | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MagentoSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Customers"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

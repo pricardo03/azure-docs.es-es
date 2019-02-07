@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 47c7a20776d37f88d66c7d6bf8411e8e4d97873b
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 389578cb45977890645020fe7fcd6c69c08c41f5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412929"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694258"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configuración del dispositivo de firewall o VPN de terceros sugerida por la comunidad para Azure VPN Gateway
 
@@ -48,7 +48,7 @@ En la tabla siguiente se enumeran varios dispositivos comunes y la ayuda relacio
 
 ## <a name="next-step"></a>Paso siguiente
 
-[Configuración de las puertas de enlace de Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
+[Configuración de las puertas de enlace de Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
 
 [Dispositivos compatibles conocidos](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)
 

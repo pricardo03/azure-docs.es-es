@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038592"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746955"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Creación de una instancia de Azure Cache for Redis mediante una plantilla
 En este tema, aprenderá a crear una plantilla de Azure Resource Manager que implementa Azure Cache for Redis. La memoria caché se puede usar con una cuenta de almacenamiento existente para mantener los datos de diagnóstico. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
@@ -33,7 +33,7 @@ Para ver la plantilla completa, consulte [Azure Cache for Redis template](https:
 > [!NOTE]
 > Las plantillas de Resource Manager para el nuevo [nivel Premium](cache-premium-tier-intro.md) están disponibles. 
 > 
-> * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con agrupación en clústeres](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con agrupación en clústeres](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con persistencia de datos](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Creación de una instancia de Azure Cache for Redis de nivel Prémium con red virtual y agrupación en clústeres](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 

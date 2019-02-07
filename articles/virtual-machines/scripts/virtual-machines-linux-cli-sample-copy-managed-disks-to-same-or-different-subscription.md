@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4f870c052d83352c8cfd692ea5f30a42071c95a0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aea21d09aa37eb2f0902df6245e9baebfcbb37fd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582053"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698572"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copia de discos administrados en la misma suscripción o en otra con CLI
 
@@ -43,8 +43,8 @@ Este script usa los siguientes comandos para crear un nuevo disco administrado e
 
 | Get-Help | Notas |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtiene todas las propiedades de un disco administrado usando las propiedades de nombre y grupo de recursos del disco administrado. La propiedad del identificador se usa para copiar el disco administrado en otra suscripción.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Copia un disco administrado mediante la creación de un nuevo disco administrado en otra suscripción con el identificador y nombre el disco administrado primario.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Obtiene todas las propiedades de un disco administrado usando las propiedades de nombre y grupo de recursos del disco administrado. La propiedad del identificador se usa para copiar el disco administrado en otra suscripción.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Copia un disco administrado mediante la creación de un nuevo disco administrado en otra suscripción con el identificador y nombre el disco administrado primario.  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

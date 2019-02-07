@@ -10,12 +10,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 13454e7dfb18e4d0e87b9b041b53dbef155153a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cd42a347de236de2e3374d7ac854779f4c222a00
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251646"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768153"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
@@ -97,11 +97,11 @@ Los recursos de la tabla siguiente se usan en la máquina virtual y deben ya exi
 
 |Recurso|Obligatorio|DESCRIPCIÓN|
 |---------|---------|---------|
-|Grupos de recursos|SÍ|La máquina virtual debe encontrarse en un grupo de recursos.|
+|Grupos de recursos|Sí|La máquina virtual debe encontrarse en un grupo de recursos.|
 |Cuenta de almacenamiento|Sin |La máquina virtual no necesita la cuenta de Storage almacene sus discos duros virtuales si usa Managed Disks. <br>La máquina virtual necesita la cuenta de Storage almacene sus discos duros virtuales si usa discos sin administrar.|
-|Virtual network|SÍ|La máquina virtual debe ser miembro de una red virtual.|
+|Virtual network|Sí|La máquina virtual debe ser miembro de una red virtual.|
 |Dirección IP pública|Sin |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella.|
-|interfaz de red|SÍ|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
+|interfaz de red|Sí|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
 |Discos de datos|Sin |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento.|
 
 ## <a name="create-your-first-vm"></a>Creación de la primera máquina virtual
