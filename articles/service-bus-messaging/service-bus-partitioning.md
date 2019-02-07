@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856594"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818080"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -39,7 +39,7 @@ Para usar colas o temas con particiones con Azure Service Bus, use la versión 2
 
 ### <a name="standard"></a>Estándar
 
-En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 4 copias (4 particiones) de la entidad por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 4 particiones, el tamaño de cola máximo se convierte en (5 \* 4) = 20 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
 
 ### <a name="premium"></a>Premium
 

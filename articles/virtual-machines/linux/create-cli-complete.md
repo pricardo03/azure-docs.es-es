@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7090f9da1ec1bd1453b6f0ddb327abe2f1374844
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180372"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697080"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual completa de Linux con la CLI de Azure
 Para crear rápidamente una máquina virtual en Azure, puede usar un solo comando de la CLI de Azure que use valores predeterminados para crear los recursos de apoyo necesarios. Los recursos como una red virtual, una dirección IP pública y reglas de grupo de seguridad de red se crean automáticamente. Para tener más control del entorno en uso de producción, puede crear estos recursos antes de tiempo y luego agregarles las máquinas virtuales. Este artículo lo guía a lo largo del proceso de creación de una máquina virtual y de cada uno de los recursos de apoyo.
 
-Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
+Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
 
@@ -51,7 +51,7 @@ De forma predeterminada, la salida de los comandos de la CLI de Azure está en J
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creación de una red virtual y una subred
-Después el usuario crea una red virtual en Azure y una subred en la que pueda crear las máquinas virtuales. Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) para crear una red virtual denominada *myVnet* con el prefijo de dirección *192.168.0.0/16*. Agregue también una subred denominada *mySubnet* con el prefijo de dirección *192.168.1.0/24*:
+Después el usuario crea una red virtual en Azure y una subred en la que pueda crear las máquinas virtuales. Use [az network vnet create](/cli/azure/network/vnet) para crear una red virtual denominada *myVnet* con el prefijo de dirección *192.168.0.0/16*. Agregue también una subred denominada *mySubnet* con el prefijo de dirección *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ La salida muestra que la subred está creada lógicamente dentro de la red virtu
 
 
 ## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
-Ahora cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Esta dirección IP pública le permite conectarse a las máquinas virtuales desde Internet. Dado que la dirección predeterminada es dinámica, cree una entrada DNS con nombre con el parámetro `--domain-name-label`. En el ejemplo siguiente se crea una IP pública denominada "*myPublicIP*" con el nombre DNS *mypublicdns*. Como el nombre DNS debe ser único, especifique su propio nombre DNS único:
+Ahora cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip). Esta dirección IP pública le permite conectarse a las máquinas virtuales desde Internet. Dado que la dirección predeterminada es dinámica, cree una entrada DNS con nombre con el parámetro `--domain-name-label`. En el ejemplo siguiente se crea una IP pública denominada "*myPublicIP*" con el nombre DNS *mypublicdns*. Como el nombre DNS debe ser único, especifique su propio nombre DNS único:
 
 ```azurecli
 az network public-ip create \
@@ -142,7 +142,7 @@ Salida:
 
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
-Para controlar el flujo de tráfico de entrada y salida de las máquinas virtuales, aplique un grupo de seguridad de red a una NIC virtual o subred. En el ejemplo siguiente se usa [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) para crear un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
+Para controlar el flujo de tráfico de entrada y salida de las máquinas virtuales, aplique un grupo de seguridad de red a una NIC virtual o subred. En el ejemplo siguiente se usa [az network nsg create](/cli/azure/network/nsg) para crear un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -150,7 +150,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Defina las reglas que permiten o deniegan el tráfico específico. Para permitir conexiones entrantes en el puerto 22 (para permitir el acceso SSH), cree una regla de entrada con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). En el ejemplo siguiente se crea una regla denominada *myNetworkSecurityGroupRuleSSH*:
+Defina las reglas que permiten o deniegan el tráfico específico. Para permitir conexiones entrantes en el puerto 22 (para permitir el acceso SSH), cree una regla de entrada con [az network nsg rule create](/cli/azure/network/nsg/rule). En el ejemplo siguiente se crea una regla denominada *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -176,7 +176,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Examine el grupo de seguridad de red y las reglas con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_show):
+Examine el grupo de seguridad de red y las reglas con [az network nsg create](/cli/azure/network/nsg):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -445,7 +445,7 @@ Los dominios de actualización indican grupos de máquinas virtuales y hardware 
 
 Azure distribuye automáticamente las máquinas virtuales en los dominios de error y actualización al colocarlas en un conjunto de disponibilidad. Para más información, vea [Administración de la disponibilidad de las máquinas virtuales](manage-availability.md).
 
-Cree un conjunto de disponibilidad para las máquinas virtuales con [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
+Cree un conjunto de disponibilidad para las máquinas virtuales con [az vm availability-set create](/cli/azure/vm/availability-set). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -478,11 +478,11 @@ La salida anota los dominios de error y de actualización:
 
 
 ## <a name="create-a-vm"></a>Crear una VM
-Ha creado los recursos de red para dar soporte a VM con acceso a Internet. Ahora cree una máquina virtual y protéjala con una clave SSH. En este ejemplo, vamos a crear una máquina virtual con Ubuntu basada en la LTS más reciente. Puede encontrar imágenes adicionales con [az vm image list](/cli/azure/vm/image#az_vm_image_list), como se explica en [Finding Azure VM images (Búsqueda de imágenes de máquina virtual de Azure)](cli-ps-findimage.md).
+Ha creado los recursos de red para dar soporte a VM con acceso a Internet. Ahora cree una máquina virtual y protéjala con una clave SSH. En este ejemplo, vamos a crear una máquina virtual con Ubuntu basada en la LTS más reciente. Puede encontrar imágenes adicionales con [az vm image list](/cli/azure/vm/image), como se explica en [Finding Azure VM images (Búsqueda de imágenes de máquina virtual de Azure)](cli-ps-findimage.md).
 
 Especifique una clave SSH para usarla para la autenticación. Si no tiene un par de claves públicas de SSH, puede [crearlas](mac-create-ssh-keys.md) o usar el parámetro `--generate-ssh-keys` para crearlas automáticamente. Si ya tiene un par de claves, este parámetro usa las claves existentes en `~/.ssh`.
 
-Cree la máquina virtual al recopilar toda la información y los recursos con el comando [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
+Cree la máquina virtual al recopilar toda la información y los recursos con el comando [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
 
 ```azurecli
 az vm create \
@@ -567,7 +567,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Este comando crea el archivo `myResourceGroup.json` en el directorio de trabajo actual. Al crear un entorno a partir de esta plantilla, se le piden todos los nombres de recursos. Puede rellenar estos nombres en el archivo de plantilla si agrega el parámetro `--include-parameter-default-value` al comando `az group export`. Edite su plantilla JSON para especificar los nombres de recursos o [cree un archivo parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique los nombres de recursos.
 
-Para crear un entorno desde su plantilla, use [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) de la siguiente manera:
+Para crear un entorno desde su plantilla, use [az group deployment create](/cli/azure/group/deployment) de la siguiente manera:
 
 ```azurecli
 az group deployment create \

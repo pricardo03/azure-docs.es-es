@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091613"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749221"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager
 
@@ -42,7 +42,7 @@ Cree dos o más perfiles de Azure CDN y puntos de conexión con diferentes prove
 ## <a name="set-up-azure-traffic-manager"></a>Configurar Azure Traffic Manager
 Cree un perfil de Traffic Manager de Azure y configure el equilibrio de carga entre los puntos de conexión de CDN. 
 
-1. Cree un perfil de Azure Traffic Manager siguiendo los pasos descritos en [Crear un perfil de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. Cree un perfil de Azure Traffic Manager siguiendo los pasos descritos en [Crear un perfil de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
     Para **Método de enrutamiento**, seleccione **Prioridad**.
 

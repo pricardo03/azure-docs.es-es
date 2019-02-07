@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184978"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822534"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
 
@@ -88,7 +88,7 @@ Siga la guía de [solución de problemas de la extensión del Panel de acceso pa
 
 Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
 
--   [Incorporación de una aplicación desde la galería de Azure AD](#_Add_an_application)
+-   Incorporación de una aplicación desde la galería de Azure AD
 
 -   [Configuración de la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Para configurar el inicio de sesión único para una aplicación, siga estos pas
 
 8.  Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  [Asigne usuarios a la aplicación](#_How_to_assign).
+9.  Asigne usuarios a la aplicación.
 
 10. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 

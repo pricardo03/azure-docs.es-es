@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9fab5394fadc029b9415370c6bc8c0a3a3642054
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 52ec7c83b4070a4c38963b3ab12f58f923fa889d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156707"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562635"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformaciones de notificaciones de cuentas de redes sociales
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En Azure Active Directory (Azure AD) B2C, las identidades de cuentas de redes sociales se almacenan en un atributo `userIdentities` de un tipo de notificación **alternativeSecurityIdCollection**. Cada elemento de **alternativeSecurityIdCollection** especifica el emisor (nombre del proveedor de identidades, como facebook.com) y `issuerUserId`, que es un identificador de usuario único para el emisor. 
+En Azure Active Directory (Azure AD) B2C, las identidades de cuentas de redes sociales se almacenan en un atributo `userIdentities` de un tipo de notificación **alternativeSecurityIdCollection**. Cada elemento de **alternativeSecurityIdCollection** especifica el emisor (nombre del proveedor de identidades, como facebook.com) y `issuerUserId`, que es un identificador de usuario único para el emisor.
 
 ```JSON
 "userIdentities": [{
@@ -46,7 +46,7 @@ Crea una representación JSON de la propiedad alternativeSecurityId del usuario 
 | InputClaim | identityProvider | string | Elemento ClaimType que especifica el nombre del proveedor de identidades de cuentas de redes sociales, como facebook.com. |
 | OutputClaim | alternativeSecurityId | string | Elemento ClaimType que se produce después de invocar a ClaimsTransformation. Contiene información sobre la identidad de un usuario de cuenta de red social. El **emisor** es el valor de la notificación `identityProvider`. El elemento **issuerUserId** es el valor de la notificación `key` en formato Base 64. |
 
-Use esta transformación de notificaciones para generar un elemento ClaimType `alternativeSecurityId`. Se usa en todos los perfiles técnicos de proveedores de identidades de redes sociales, como `Facebook-OAUTH`. La siguiente transformación de notificaciones recibe el id. de cuenta de red social del usuario y el nombre del proveedor de identidades. El resultado de este perfil técnico es un formato de cadena JSON que puede usarse en los servicios de directorio de Azure AD.  
+Use esta transformación de notificaciones para generar un elemento ClaimType `alternativeSecurityId`. Se usa en todos los perfiles técnicos de proveedores de identidades de redes sociales, como `Facebook-OAUTH`. La siguiente transformación de notificaciones recibe el id. de cuenta de red social del usuario y el nombre del proveedor de identidades. El resultado de este perfil técnico es un formato de cadena JSON que puede usarse en los servicios de directorio de Azure AD.
 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -70,7 +70,7 @@ Use esta transformación de notificaciones para generar un elemento ClaimType `a
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
-Agrega un elemento `AlternativeSecurityId` a una notificación `alternativeSecurityIdCollection`. 
+Agrega un elemento `AlternativeSecurityId` a una notificación `alternativeSecurityIdCollection`.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -78,21 +78,21 @@ Agrega un elemento `AlternativeSecurityId` a una notificación `alternativeSecur
 | InputClaim | collection | alternativeSecurityIdCollection | Elementos ClaimTypes que usa la transformación de notificaciones (si están disponibles en la directiva). Si se especifica, la transformación de notificaciones agrega el elemento `item` al final de la colección. |
 | OutputClaim | collection | alternativeSecurityIdCollection | Elementos ClaimTypes que se producen después de invocar a ClaimsTransformation. La nueva colección que contiene los dos elementos de entrada `collection` y `item`. |
 
-En el ejemplo siguiente, se vincula una nueva identidad de red social a una cuenta existente. Para vincular una nueva identidad de red social: 
+En el ejemplo siguiente, se vincula una nueva identidad de red social a una cuenta existente. Para vincular una nueva identidad de red social:
 1. En los perfiles técnicos **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserReadUsingObjectId**, se muestra la salida de la notificación **alternativeSecurityIds** del usuario.
-1. Pida al usuario que inicie sesión con uno de los proveedores de identidades que no esté asociado a este usuario. 
-1. Al usar la transformación de notificaciones **CreateAlternativeSecurityId**, se crea un tipo de notificación **alternativeSecurityId** con el nombre `AlternativeSecurityId2`. 
-1. Realice una llamada a la transformación de notificaciones **AddItemToAlternativeSecurityIdCollection** para agregar la notificación **AlternativeSecurityId2** a la notificación **AlternativeSecurityIds** existente. 
+1. Pida al usuario que inicie sesión con uno de los proveedores de identidades que no esté asociado a este usuario.
+1. Al usar la transformación de notificaciones **CreateAlternativeSecurityId**, se crea un tipo de notificación **alternativeSecurityId** con el nombre `AlternativeSecurityId2`.
+1. Realice una llamada a la transformación de notificaciones **AddItemToAlternativeSecurityIdCollection** para agregar la notificación **AlternativeSecurityId2** a la notificación **AlternativeSecurityIds** existente.
 1. Hacer persistir la notificación **alternativeSecurityIds** en la cuenta de usuario
 
 ```XML
 <ClaimsTransformation Id="AddAnotherAlternativeSecurityId" TransformationMethod="AddItemToAlternativeSecurityIdCollection">
   <InputClaims>
-      <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
-      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="AlternativeSecurityId2" TransformationClaimType="item" />
+    <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
   </InputClaims>
   <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -114,7 +114,7 @@ Muestra la lista de emisores de la notificación **alternativeSecurityIdCollecti
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | El elemento ClaimType que se usará para obtener la lista de proveedores de identidades (emisor). |
 | OutputClaim | identityProvidersCollection | stringCollection | Elementos ClaimTypes que se producen después de invocar a ClaimsTransformation. Lista de proveedores de identidades asociados a la notificación de entrada alternativeSecurityIdCollection |
 
-La siguiente transformación de notificaciones lee la notificación **alternativeSecurityIds** del usuario y extrae la lista de nombres de proveedores de identidades asociados a esa cuenta. Use el resultado de **identityProvidersCollection** para mostrar al usuario la lista de proveedores de identidades asociados a la cuenta. O bien, en la página de selección de proveedor de identidades, filtre la lista de proveedores de identidades según la notificación **identityProvidersCollection** de salida. Por lo tanto, el usuario puede vincular una nueva identidad de red social que aún no esté asociada a la cuenta. 
+La siguiente transformación de notificaciones lee la notificación **alternativeSecurityIds** del usuario y extrae la lista de nombres de proveedores de identidades asociados a esa cuenta. Use el resultado de **identityProvidersCollection** para mostrar al usuario la lista de proveedores de identidades asociados a la cuenta. O bien, en la página de selección de proveedor de identidades, filtre la lista de proveedores de identidades según la notificación **identityProvidersCollection** de salida. Por lo tanto, el usuario puede vincular una nueva identidad de red social que aún no esté asociada a la cuenta.
 
 ```XML
 <ClaimsTransformation Id="ExtractIdentityProviders" TransformationMethod="GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation">
@@ -134,7 +134,7 @@ La siguiente transformación de notificaciones lee la notificación **alternativ
 
 ## <a name="removealternativesecurityidbyidentityprovider"></a>RemoveAlternativeSecurityIdByIdentityProvider
 
-Quita un elemento **AlternativeSecurityId** de una notificación **alternativeSecurityIdCollection**. 
+Quita un elemento **AlternativeSecurityId** de una notificación **alternativeSecurityIdCollection**.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -142,9 +142,9 @@ Quita un elemento **AlternativeSecurityId** de una notificación **alternativeSe
 | InputClaim | collection | alternativeSecurityIdCollection | Elemento ClaimTypes que se usará en la transformación de notificaciones. La transformación de notificaciones quita el elemento identityProvider de la colección. |
 | OutputClaim | collection | alternativeSecurityIdCollection | Elementos ClaimTypes que se producen después de invocar a ClaimsTransformation. Nueva colección, después de quitar el elemento identityProvider de la colección. |
 
-En el ejemplo siguiente, se desvincula una de las identidades de red social de una cuenta existente. Para desvincular una identidad de red social: 
+En el ejemplo siguiente, se desvincula una de las identidades de red social de una cuenta existente. Para desvincular una identidad de red social:
 1. En los perfiles técnicos **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserReadUsingObjectId**, se muestra la salida de la notificación **alternativeSecurityIds** del usuario.
-2. Pida al usuario que seleccione la cuenta de red social que quiere quitar de la lista de proveedores de identidades asociados a este usuario. 
+2. Pida al usuario que seleccione la cuenta de red social que quiere quitar de la lista de proveedores de identidades asociados a este usuario.
 3. Realiza una llamada a un perfil técnico de transformación de notificaciones que llama a la transformación de notificaciones **RemoveAlternativeSecurityIdByIdentityProvider**, que ha quitado la identidad de red social seleccionada, mediante el nombre del proveedor de identidades.
 4. Hace persistir la notificación **alternativeSecurityIds** en la cuenta de usuario.
 
@@ -157,7 +157,7 @@ En el ejemplo siguiente, se desvincula una de las identidades de red social de u
     <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" TransformationClaimType="collection" />
     </OutputClaims>
-</ClaimsTransformation>               
+</ClaimsTransformation>
 </ClaimsTransformations>
 ```
 

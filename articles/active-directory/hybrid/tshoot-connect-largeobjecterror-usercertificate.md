@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195621"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663645"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronización de Azure AD Connect: Control de errores LargeObject causados por el atributo userCertificate
 
@@ -33,7 +33,7 @@ El error LargeObject puede deberse a otros atributos de AD. Para confirmar que r
 
 Para obtener la lista de objetos en el inquilino con errores LargeObject, siga uno de los métodos siguientes:
 
- * Si está habilitado el inquilino para Azure AD Connect Health para sincronización, puede hacer referencia al [informe de errores de sincronización](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) proporcionado.
+ * Si está habilitado el inquilino para Azure AD Connect Health para sincronización, puede hacer referencia al [informe de errores de sincronización](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) proporcionado.
  
  * El correo electrónico de notificación de los errores de sincronización de directorios que se envía al final de cada ciclo de sincronización tiene la lista de objetos con errores LargeObject. 
  * La pestaña [Operaciones de Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) muestra la lista de objetos con errores LargeObject si hace clic en la exportación más reciente a la operación de Azure AD.

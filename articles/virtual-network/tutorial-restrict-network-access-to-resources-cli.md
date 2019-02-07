@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150555"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751504"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
 
@@ -43,7 +43,7 @@ Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio 
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Antes de crear una red virtual, cree un grupo de recursos para ella y los demás recursos que se crearon en este artículo. Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+Antes de crear una red virtual, cree un grupo de recursos para ella y los demás recursos que se crearon en este artículo. Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Cree una red virtual con una subred con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Cree una red virtual con una subred con [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Habilitación de un punto de conexión de servicio 
 
-Puede habilitar puntos de conexión de servicio únicamente para los servicios que admiten estos puntos de conexión. Vea los servicios habilitados para puntos de conexión de servicio disponibles en una ubicación de Azure con [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). En el ejemplo siguiente se devuelve una lista de servicios habilitados para puntos de conexión de servicio disponibles en la región *eastus*. La lista de servicios devuelta crecerá con el tiempo a medida que más servicios de Azure pasan a estar habilitados para puntos de conexión de servicio.
+Puede habilitar puntos de conexión de servicio únicamente para los servicios que admiten estos puntos de conexión. Vea los servicios habilitados para puntos de conexión de servicio disponibles en una ubicación de Azure con [az network vnet list-endpoint-services](/cli/azure/network/vnet). En el ejemplo siguiente se devuelve una lista de servicios habilitados para puntos de conexión de servicio disponibles en la región *eastus*. La lista de servicios devuelta crecerá con el tiempo a medida que más servicios de Azure pasan a estar habilitados para puntos de conexión de servicio.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Cree reglas de seguridad con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). La regla siguiente permite el acceso de salida a las direcciones IP públicas asignadas al servicio Azure Storage: 
+Cree reglas de seguridad con [az network nsg rule create](/cli/azure/network/nsg/rule). La regla siguiente permite el acceso de salida a las direcciones IP públicas asignadas al servicio Azure Storage: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Después de crear la cuenta de almacenamiento, recupere la cadena de conexión para dicha cuenta en una variable con [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). La cadena de conexión se utiliza para crear un recurso compartido de archivos en un paso posterior.
+Después de crear la cuenta de almacenamiento, recupere la cadena de conexión para dicha cuenta en una variable con [az storage account show-connection-string](/cli/azure/storage/account). La cadena de conexión se utiliza para crear un recurso compartido de archivos en un paso posterior.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ Para probar el acceso de la red a una cuenta de almacenamiento, implemente una m
 
 ### <a name="create-the-first-virtual-machine"></a>Creación de la primera máquina virtual
 
-Cree una máquina virtual en la subred *Public* con [az vm create](/cli/azure/vm#az_vm_create). Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
+Cree una máquina virtual en la subred *Public* con [az vm create](/cli/azure/vm). Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -322,7 +322,7 @@ El acceso se deniega y recibe un error `mount error(13): Permission denied` porq
 
 Salga de la sesión de SSH en la máquina virtual *myVmPublic*.
 
-Desde su equipo, intente ver los recursos compartidos en la cuenta de almacenamiento con [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Reemplace `<account-name>` y `<account-key>` con el nombre de la cuenta de almacenamiento y la clave de [Crear una cuenta de almacenamiento](#create-a-storage-account):
+Desde su equipo, intente ver los recursos compartidos en la cuenta de almacenamiento con [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Reemplace `<account-name>` y `<account-key>` con el nombre de la cuenta de almacenamiento y la clave de [Crear una cuenta de almacenamiento](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

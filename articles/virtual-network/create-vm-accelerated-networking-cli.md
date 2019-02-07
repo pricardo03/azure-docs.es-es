@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214494"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765745"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
@@ -42,7 +42,7 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure: 
-* **Ubuntu 16.04** 
+* **Ubuntu 16.04+** 
 * **SLES 12 SP3** 
 * **RHEL 7.4**
 * **CentOS 7.4**
@@ -76,9 +76,9 @@ Aunque en este artículo se explica cómo crear una máquina virtual con redes a
 
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Instale la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myNic* y *myVM*.
+Instale la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myNic* y *myVM*.
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *centralus*:
+Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *centralus*:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -86,7 +86,7 @@ az group create --name myResourceGroup --location centralus
 
 Seleccione una región de Linux admitida enumerada en [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) (Accelerated Networking para Linux).
 
-Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con una subred:
+Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con una subred:
 
 ```azurecli
 az network vnet create \
@@ -98,7 +98,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
-Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
+Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -106,7 +106,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-El grupo de seguridad de red contiene varias reglas predeterminadas, una de las cuales deshabilita todo el acceso entrante desde Internet. Abra un puerto para permitir el acceso SSH a la máquina virtual con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
+El grupo de seguridad de red contiene varias reglas predeterminadas, una de las cuales deshabilita todo el acceso entrante desde Internet. Abra un puerto para permitir el acceso SSH a la máquina virtual con [az network nsg rule create](/cli/azure/network/nsg/rule):
 
 ```azurecli
 az network nsg rule create \
@@ -125,7 +125,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>Creación de una interfaz de red con Accelerated Networking
 
-Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). No se requiere una dirección IP pública si no tiene pensado acceder a la máquina virtual desde Internet, pero, para completar los pasos de este artículo, sí es necesaria.
+Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip). No se requiere una dirección IP pública si no tiene pensado acceder a la máquina virtual desde Internet, pero, para completar los pasos de este artículo, sí es necesaria.
 
 ```azurecli
 az network public-ip create \
@@ -133,7 +133,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Cree una interfaz de red con [az network nic create](/cli/azure/network/nic#az_network_nic_create) con Accelerated Networking habilitado. En el ejemplo siguiente se crea una interfaz de red denominada *myNic* en la subred *mySubnet* de la red virtual *myVnet* y asocia el grupo de seguridad de red  *myNetworkSecurityGroup* a la interfaz de red:
+Cree una interfaz de red con [az network nic create](/cli/azure/network/nic) con Accelerated Networking habilitado. En el ejemplo siguiente se crea una interfaz de red denominada *myNic* en la subred *mySubnet* de la red virtual *myVnet* y asocia el grupo de seguridad de red  *myNetworkSecurityGroup* a la interfaz de red:
 
 ```azurecli
 az network nic create \
@@ -149,7 +149,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Creación de una máquina virtual y conexión de NIC
 Cuando cree la máquina virtual, especifique las NIC creadas con `--nics`. Seleccione un tamaño y una distribución enumerados en [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) (Accelerated Networking para Linux). 
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* con la imagen de UbuntuTLS y un tamaño que admite Accelerated Neworking (*Standard_DS4_v2*):
+Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* con la imagen de UbuntuTLS y un tamaño que admite Accelerated Neworking (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

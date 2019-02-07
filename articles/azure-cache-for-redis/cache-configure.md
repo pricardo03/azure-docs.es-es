@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104682"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819848"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuración de Azure Cache for Redis
 En este tema se describe la configuración disponible para las instancias de Azure Cache for Redis. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Cache for Redis.
@@ -57,7 +57,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
     * [Propiedades](#properties)
     * [Bloqueos](#locks)
     * [Script de Automation](#automation-script)
-* [Administración](#administration)
+* Administración
     * [Importación de datos](#importexport)
     * [Exportación de datos](#importexport)
     * [Reboot](#reboot)
@@ -65,7 +65,7 @@ Puede ver y configurar las siguientes opciones con el **menú Recursos**.
     * [Métricas de Redis](#redis-metrics)
     * [Reglas de alertas](#alert-rules)
     * [Diagnóstico](#diagnostics)
-* [Configuración de soporte técnico y solución de problemas](#support-amp-troubleshooting-settings)
+* Configuración de soporte técnico y solución de problemas
     * [Estado de los recursos](#resource-health)
     * [Nueva solicitud de soporte técnico](#new-support-request)
 

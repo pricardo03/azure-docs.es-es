@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e568f2adb3ff9310ed92ed19c9543f249cca7658
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098704"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745724"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
@@ -74,8 +74,10 @@ De ese modo, la alerta ejecutaría la consulta cada 5 minutos, con 30 minutos de
 
 ### <a name="metric-measurement-alert-rules"></a>Reglas de alertas para medición de métricas
 
-- Las reglas de alertas para **unidades métricas** crean una alerta para cada objeto de una consulta con un valor que supera un umbral especificado.  Presentan las siguientes diferencias con respecto a las reglas de alerta para **número de resultados**.
+Las reglas de alertas para **unidades métricas** crean una alerta para cada objeto de una consulta con un valor que supera un umbral especificado.  Presentan las siguientes diferencias con respecto a las reglas de alerta para **número de resultados**.
+
 - **Función de agregado**: Determina el cálculo que se lleva a cabo y potencialmente un campo numérico para agregar.  Por ejemplo, **count()** devuelve el número de registros de la consulta y **avg(CounterValue)**, el promedio del campo CounterValue durante el intervalo. La función de agregado en la consulta debe recibir el siguiente nombre: AggregatedValue y proporcionar un valor numérico. 
+
 - **Campo de grupo**: Se crea un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo). En caso de que haya varios campos de grupos especificados en la consulta de alerta, el usuario puede especificar qué campo desea usar para clasificar los resultados mediante el parámetro **Aggregate On** (metricColumn).
 
     > [!NOTE]

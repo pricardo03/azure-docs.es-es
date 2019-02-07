@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856135"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733321"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -60,13 +60,13 @@ Este comportamiento no se puede deshabilitar, pero puede establecer [MaxDelivery
 
 ## <a name="exceeding-timetolive"></a>Superación de TimeToLive
 
-Cuando las propiedades [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) o [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) están establecidas en **true** (el valor predeterminado es **false**), todos los mensajes que expiran se mueven a la cola de mensajes fallidos y se especifica el código de motivo `TTLExpiredException`.
+Cuando las propiedades [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) están establecidas en **true** (el valor predeterminado es **false**), todos los mensajes que expiran se mueven a la cola de mensajes fallidos y se especifica el código de motivo `TTLExpiredException`.
 
 Tenga en cuenta que los mensajes expirados solo se purgan y se mueven a la cola de mensajes fallidos cuando hay, al menos, un receptor activo que extrae contenido de la cola o suscripción principal. Este es el comportamiento predeterminado.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Errores al procesar reglas de suscripción
 
-Cuando la propiedad [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) está habilitada en una suscripción, todos los errores que se producen mientras se ejecuta la regla de filtro SQL de una suscripción se capturan en la cola de mensajes fallidos junto con el mensaje infractor.
+Cuando la propiedad [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) está habilitada en una suscripción, todos los errores que se producen mientras se ejecuta la regla de filtro SQL de una suscripción se capturan en la cola de mensajes fallidos junto con el mensaje infractor.
 
 ## <a name="application-level-dead-lettering"></a>Mensajes fallidos de nivel de aplicación
 
@@ -84,7 +84,7 @@ Para recuperar estos mensajes fallidos, puede crear un receptor con el método d
 
 ## <a name="example"></a>Ejemplo
 
-El siguiente fragmento de código crea un receptor de mensajes. En el bucle de recepción de la cola principal, el código recupera el mensaje con [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), que solicita al agente que devuelva al instante cualquier mensaje disponible, o que vuelva sin ningún resultado. Si el código recibe un mensaje, inmediatamente lo abandona, lo que incrementa `DeliveryCount`. Una vez que el sistema mueve el mensaje a la cola de mensajes fallidos, la cola principal se vacía y se sale del bucle, dado que [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) devuelve **null**.
+El siguiente fragmento de código crea un receptor de mensajes. En el bucle de recepción de la cola principal, el código recupera el mensaje con [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que solicita al agente que devuelva al instante cualquier mensaje disponible, o que vuelva sin ningún resultado. Si el código recibe un mensaje, inmediatamente lo abandona, lo que incrementa `DeliveryCount`. Una vez que el sistema mueve el mensaje a la cola de mensajes fallidos, la cola principal se vacía y se sale del bucle, dado que [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) devuelve **null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

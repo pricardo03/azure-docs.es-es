@@ -495,8 +495,7 @@ ORDER BY <sort_specification>
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> AND bit a bit.<br /><br /> XOR bit a bit.<br /><br /> Desplazamiento a la izquierda.<br /><br /> Desplazamiento a la derecha.<br /><br /> Desplazamiento a la derecha con relleno de ceros.|  
 |**lógicos**|**AND**<br /><br /> **O bien**|Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.<br /><br /> Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.|  
 |**de comparación**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devuelve **true** si ambos argumentos son iguales, en caso contrario, devuelve **false**.<br /><br /> Diferente de. Devuelve **true** si ambos argumentos no son iguales, en caso contrario, devuelve **false**.<br /><br /> Mayor que. Devuelve **true** si el primer argumento es mayor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Mayor o igual que. Devuelve **true** si el primer argumento es mayor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor que. Devuelve **true** si el primer argumento es menor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor o igual que. Devuelve **true** si el primer argumento es menor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Fusionar. Devuelve el segundo argumento si el primero es un valor **undefined**.|  
-|**String**|
-  **&#124;&#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
+|**String**|**&#124;&#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
   
  **Operadores ternarios:**  
   

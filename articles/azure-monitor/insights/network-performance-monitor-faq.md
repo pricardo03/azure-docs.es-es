@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232349"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734562"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -134,7 +134,7 @@ NPM puede supervisar la conectividad entre redes en cualquier parte del mundo, d
 NPM puede supervisar la conectividad con servicios en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las [regiones admitidas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>¿Qué regiones se admiten con Supervisión de ExpressRoute de NPM?
-NPM puede supervisar los circuitos ExpressRoute ubicados en cualquier región de Azure. Para incorporarse a NPM, requerirá un área de trabajo de Log Analytics que debe hospedarse en una de Las [regiones admitidas](/azure/expressroute/how-to-npm#regions)
+NPM puede supervisar los circuitos ExpressRoute ubicados en cualquier región de Azure. Para incorporarse a NPM, requerirá un área de trabajo de Log Analytics que debe hospedarse en una de Las [regiones admitidas](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
