@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042162"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470695"
 ---
-# <a name="understanding-your-azure-cosmos-db-bill"></a>Introducción a la factura de Azure Cosmos DB
+# <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
 Azure Cosmos DB, como servicio de bases de datos nativo de la nube totalmente administrado, simplifica la facturación al cobrar solo el rendimiento aprovisionado y el almacenamiento consumido. No existen cuotas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 

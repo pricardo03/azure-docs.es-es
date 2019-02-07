@@ -6,15 +6,15 @@ items:
 - name: Información general
   items:
   - name: ¿Qué es Azure IoT Central?
-    href: ../iot-central/overview-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/overview-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Opciones de solución de IoT
-    href: ../iot-central/overview-iot-options.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/overview-iot-options-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Paseo por la interfaz de usuario
     href: ../iot-central/overview-iot-central-tour-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
 - name: Guías de inicio rápido
   items:
   - name: Creación de una aplicación
-    href: ../iot-central/quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   expanded: true
 - name: Tutoriales
   items:
@@ -31,17 +31,17 @@ items:
 - name: Conceptos
   items:
   - name: Arquitectura
-    href: ../iot-central/concepts-architecture.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/concepts-architecture-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Conectividad
-    href: ../iot-central/concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
 - name: Guías de procedimientos
   items:
   - name: Conexión de dispositivos
     items:
     - name: Preparación y conexión de una aplicación de Node.js (genérica)
-      href: ../iot-central/howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-connect-nodejs-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Preparación y conexión de una instancia de MXChip IoT DevKit
-      href: ../iot-central/howto-connect-devkit.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-connect-devkit-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Preparación y conexión de una instancia de Raspberry Pi (Python)
       href: ../iot-central/howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Preparación y conexión de una instancia de Raspberry Pi (C#)
@@ -49,7 +49,7 @@ items:
     - name: Preparación y conexión de un dispositivo de Windows IoT Core
       href: ../iot-central/howto-connect-windowsiotcore.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Supervisión de la conectividad de dispositivos mediante la línea de comandos
-      href: ../iot-central/howto-use-iotc-explorer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-use-iotc-explorer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Administración de dispositivos
     items:
     - name: Configuración de una plantilla de dispositivo
@@ -57,9 +57,9 @@ items:
     - name: Administración de los dispositivos
       href: ../iot-central/howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Ejecución de un trabajo
-      href: ../iot-central/howto-run-a-job.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-run-a-job-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Uso de conjuntos de dispositivos
-      href: ../iot-central/howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Versión de la plantilla del dispositivo
       href: ../iot-central/howto-version-devicetemplate.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Supervisión y análisis
@@ -69,19 +69,19 @@ items:
     - name: Creación de una regla de eventos
       href: ../iot-central/howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Analizar los datos del dispositivo
-      href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-create-analytics-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Acciones y extensibilidad
     items:
     - name: Crear acciones de webhook en reglas
-      href: ../iot-central/howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Compilación de flujos de trabajo en Microsoft Flow
-      href: ../iot-central/howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Creación de flujos de trabajo en Azure Logic Apps
-      href: ../iot-central/howto-build-azure-logic-apps.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-build-azure-logic-apps-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Desencadenar Azure Functions
       href: ../iot-central/howto-trigger-azure-functions.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Exportación de los datos
-      href: ../iot-central/howto-export-data.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-export-data-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
       items:
       - name: Exportación a Event Hubs y Service Bus
         href: ../iot-central/howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
@@ -94,9 +94,9 @@ items:
   - name: Administración
     items:
     - name: Administración de la aplicación
-      href: ../iot-central/howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Preparación y carga de imágenes
-      href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Administración de IoT Central desde el Portal de administración de Azure
       href: ../iot-central/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Administración de IoT Central desde Azure PowerShell
@@ -104,7 +104,7 @@ items:
     - name: Creación y administración de una aplicación como un CSP
       href: ../iot-central/howto-create-and-manage-applications-as-CSP.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Configuración de página principal
-      href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-configure-homepage-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Personalización
     items:
     - name: Administración de las preferencias
@@ -141,9 +141,9 @@ items:
     href: ../iot-central/iot-central-customer-data-requests.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: Exploradores compatibles
     href: ../iot-central/iot-central-supported-browsers.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
-ms.openlocfilehash: 5eef62e35c8927262c9f2e303cb697b5e63333eb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7d431a6e71155ae7bcda87532042566460e39a2c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727167"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818454"

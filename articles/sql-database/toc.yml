@@ -10,19 +10,19 @@ items:
 - name: Guías de inicio rápido
   items:
   - name: Guía de inicio rápido de Base de datos única
-    href: sql-database-quickstart-guide.md
+    href: sql-database-single-database-quickstart-guide.md
   - name: Guía de inicio rápido de Instancia administrada de SQL Database
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Crear
     items:
     - name: Base de datos única
-      href: sql-database-get-started-portal.md
+      href: sql-database-single-database-get-started.md
     - name: Instancia administrada
       href: sql-database-managed-instance-get-started.md
   - name: Configuración
     items:
-    - name: Reglas de firewall del servidor de bases de datos
-      href: sql-database-get-started-portal-firewall.md
+    - name: Reglas de firewall de IP en el nivel de servidor
+      href: sql-database-server-level-firewall-rule.md
     - name: Conexión de máquina virtual de cliente a una instancia administrada
       href: sql-database-managed-instance-configure-vm.md
     - name: Conexión de punto a sitio a una instancia administrada
@@ -97,6 +97,8 @@ items:
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
+  - name: Azure Resource Manager
+    href: sql-database-resource-manager-samples.md
 - name: Conceptos
   items:
   - name: Modelos de compra
@@ -225,7 +227,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: Detección de amenazas
         href: sql-database-threat-detection-overview.md
-    - name: Reglas de firewall de la dirección IP del servidor de bases de datos
+    - name: Reglas de firewall de IP en el nivel de servidor
       items:
       - name: Creación y administración
         href: sql-database-firewall-configure.md
@@ -710,9 +712,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalación de trabajo elástico (en desuso)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: fc900fc17f4dbd1ee1527fc8a84053408d83d98d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731298"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756740"

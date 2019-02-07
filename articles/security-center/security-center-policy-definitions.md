@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261900"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180677"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Directivas de Azure supervisadas en Azure Security Center
 Este artículo proporciona una lista de definiciones de Azure Policy que puede supervisarse en Security Center. Para más información acerca de las directivas de seguridad, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
