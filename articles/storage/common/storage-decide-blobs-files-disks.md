@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474690"
+ms.locfileid: "55509140"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
-
 Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Disks, y está diseñado para ayudarle a elegir entre estas características.
 
 ## <a name="scenarios"></a>Escenarios
-
 En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Disks y se muestran los escenarios de ejemplo adecuados para cada uno.
 
 | Característica | DESCRIPCIÓN | Cuándo se deben usar |
@@ -30,7 +28,6 @@ En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Disks y se mue
 | **Azure Disks** | Proporciona bibliotecas de cliente y una [interfaz de REST](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que los datos se almacenen persistentemente y se acceda a ellos desde un disco duro virtual conectado. | Cuando desea migrar mediante lift-and-shift aplicaciones que usan las API del sistema de archivos nativo para leer y escribir datos en discos persistentes.<br/><br/>Cuando desea almacenar datos a los que no se necesita acceder desde fuera de la máquina virtual a la que está conectado el disco. |
 
 ## <a name="comparison-files-and-blobs"></a>Comparación: Files y Blobs
-
 En la tabla siguiente se compara Azure Files con Azure Blobs.  
   
 ||||  
@@ -49,7 +46,6 @@ En la tabla siguiente se compara Azure Files con Azure Blobs.
 |Bibliotecas de clientes|Varios idiomas|Varios idiomas|  
   
 ## <a name="comparison-files-and-disks"></a>Comparación: Files y Disks
-
 Azure Files complementa a Azure Disks. Solo se pueden conectar un disco a una máquina virtual de Azure en cada momento. Los discos son VHD de formato fijo almacenados como blobs en páginas en Azure Storage y los utiliza la máquina virtual para almacenar datos duraderos. Se puede acceder a los recursos compartidos de archivos de Azure Files de la misma manera que se accede al disco local (mediante API del sistema de archivos nativo) y se pueden compartir entre muchas máquinas virtuales.  
  
 En la tabla siguiente se compara Azure Files con Azure Disks.  
@@ -58,17 +54,15 @@ En la tabla siguiente se compara Azure Files con Azure Disks.
 |-|-|-|  
 |**Atributo**|**Azure Disks**|**Archivos de Azure**|  
 |Ámbito|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
-|Instantáneas y copia|SÍ|SÍ|  
+|Instantáneas y copia|Sí|Sí|  
 |Configuración|Se conecta al iniciarse la máquina virtual|Se conecta una vez iniciada la máquina virtual|  
-|Autenticación|Característica integrada|Configurar con el uso de la red|  
-|Limpieza|Automático|Manual|  
+|Authentication|Característica integrada|Configurar con el uso de la red|  
 |Acceso con REST|No se puede acceder a archivos dentro del VHD|Se puede acceder a archivos almacenados en un recurso compartido|  
 |Tamaño máximo|Disco de 4 TiB|Recurso compartido de archivos de 5 TiB y archivo de 1 TiB dentro del recurso compartido|  
 |IOPS máx.|500 IOPS|1000 IOPS|  
 |Throughput|Hasta 60 MiB/s por disco|El objetivo es 60 MiB/s por recurso compartido de archivos (puede ser mayor para tamaños de IO superiores)|  
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos, también debe tener en cuenta los costos implicados. Para más información, consulte [Precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/).
   
 Algunas características SMB no son aplicables a la nube. Para más información, consulte [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Características que no admite el servicio Azure File).

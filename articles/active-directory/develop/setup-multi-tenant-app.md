@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: b9e12f159f62d08056e3dbd54d9ba8ccc3773533
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 30e56c85023aeb1cb4c6ba7575005a5dac086cd7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100876"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755499"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Configuración de una nueva aplicación multiinquilino
 
 Esta es una lista de temas recomendados para obtener más información sobre las aplicaciones multiinquilino:
 
 - Descripción general de [lo que es una aplicación multiinquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Descripción general de [cómo se configura una aplicación para que sea multiinquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-multi-tenant-applications)
-- Introducción paso a paso de [cómo se utiliza el marco de consentimiento de Azure AD para implementar el consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework), necesario para las aplicaciones multiinquilino
+- Descripción general de [cómo se configura una aplicación para que sea multiinquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+- Introducción paso a paso de [cómo se utiliza el marco de consentimiento de Azure AD para implementar el consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), necesario para las aplicaciones multiinquilino
 - Para más detalles, aprenda [cómo se configura una aplicación multiinquilino y se codifica completamente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluida la forma de realizar el registro, el uso del punto de conexión "común", la implementación del consentimiento de "usuario" y "administrador" y la implementación de otros escenarios más avanzados de varios niveles
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: dd75e21f94d342f521effb10f4557529fa3c2052
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b49182ebdcc93c4a51a55f27c3e0bf7a45307b7f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888607"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728901"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure que le permiten realizar estas tareas.
@@ -29,7 +29,7 @@ Para completar estas tareas de administración, se requiere la CLI de Azure más
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualización de información acerca de un conjunto de escalado
-Para ver información general sobre un conjunto de escalado, use [az vmss show](/cli/azure/vmss#az_vmss_show). En el ejemplo siguiente se obtiene información sobre el conjunto de escalado denominado *myScaleSet* del grupo de recursos *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
+Para ver información general sobre un conjunto de escalado, use [az vmss show](/cli/azure/vmss). En el ejemplo siguiente se obtiene información sobre el conjunto de escalado denominado *myScaleSet* del grupo de recursos *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -57,7 +57,7 @@ az vmss get-instance-view \
 
 
 ## <a name="list-connection-information-for-vms"></a>Lista de la información de conexión para máquinas virtuales
-Para conectarse a las máquinas virtuales de un conjunto de escalado, establezca una conexión SSH o RDP a una dirección IP pública y un número de puerto asignados. De manera predeterminada, las reglas de traducción de direcciones de red (NAT) se agregan a la instancia de Azure Load Balancer que reenvía el tráfico de conexión remota a cada máquina virtual. Para mostrar las direcciones y los puertos para conectarse a las instancias de VM en un conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). En el ejemplo siguiente, se muestra la información de conexión de las instancias de máquina virtual en el conjunto de escalado denominado *myScaleSet* y en el grupo de recursos *myResourceGroup*. Proporcione sus propios valores para estos nombres:
+Para conectarse a las máquinas virtuales de un conjunto de escalado, establezca una conexión SSH o RDP a una dirección IP pública y un número de puerto asignados. De manera predeterminada, las reglas de traducción de direcciones de red (NAT) se agregan a la instancia de Azure Load Balancer que reenvía el tráfico de conexión remota a cada máquina virtual. Para mostrar las direcciones y los puertos para conectarse a las instancias de VM en un conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss). En el ejemplo siguiente, se muestra la información de conexión de las instancias de máquina virtual en el conjunto de escalado denominado *myScaleSet* y en el grupo de recursos *myResourceGroup*. Proporcione sus propios valores para estos nombres:
 
 ```azurecli
 az vmss list-instance-connection-info \
@@ -69,7 +69,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Cambio de la capacidad de un conjunto de escalado
 Los comandos anteriores muestran información acerca del conjunto de escalado y las instancias de VM. Para aumentar o disminuir el número de instancias en el conjunto de escalado, puede cambiar la capacidad. El conjunto de escalado crea o quita el número necesario de máquinas virtuales y luego configura las máquinas virtuales para recibir tráfico de la aplicación.
 
-Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [az vmss show](/cli/azure/vmss#az_vmss_show) y realice consultas a *sku.capacity*:
+Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [az vmss show](/cli/azure/vmss) y realice consultas a *sku.capacity*:
 
 ```azurecli
 az vmss show \
@@ -79,7 +79,7 @@ az vmss show \
     --output table
 ```
 
-A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [az vmss scale](/cli/azure/vmss#az_vmss_scale). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *5*:
+A continuación, puede aumentar o reducir manualmente el número de máquinas virtuales del conjunto de escalado con [az vmss scale](/cli/azure/vmss). En el ejemplo siguiente se establece el número de máquinas virtuales en el conjunto de escalado en *5*:
 
 ```azurecli
 az vmss scale \
@@ -100,7 +100,7 @@ En el ejemplo siguiente se detiene la instancia *0* del conjunto de escalado den
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-Las máquinas virtuales detenidas permanecen asignadas y siguen acumulando cargos por procesos. Si en su lugar desea desasignar las máquinas virtuales y solo acumular cargos por procesos, use [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate). Para desasignar varias máquinas virtuales, separe cada identificador de instancia con un espacio. En el ejemplo siguiente se detiene y desasigna la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
+Las máquinas virtuales detenidas permanecen asignadas y siguen acumulando cargos por procesos. Si en su lugar desea desasignar las máquinas virtuales y solo acumular cargos por procesos, use [az vmss deallocate](/cli/azure/vmss). Para desasignar varias máquinas virtuales, separe cada identificador de instancia con un espacio. En el ejemplo siguiente se detiene y desasigna la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -118,7 +118,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Reinicio de máquinas virtuales en un conjunto de escalado
-Para reiniciar una o más máquinas virtuales en un conjunto de escalado, use [az vmss restart](/cli/azure/vmss#az_vmss_restart). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se reinicien. Si no especifica un identificador de instancia, se reinician todas las máquinas virtuales del conjunto de escalado. Para reiniciar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
+Para reiniciar una o más máquinas virtuales en un conjunto de escalado, use [az vmss restart](/cli/azure/vmss). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se reinicien. Si no especifica un identificador de instancia, se reinician todas las máquinas virtuales del conjunto de escalado. Para reiniciar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
 
 En el ejemplo siguiente se reinicia la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
 
@@ -128,7 +128,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Eliminación de las máquinas virtuales de un conjunto de escalado
-Para quitar una o más máquinas virtuales en un conjunto de escalado, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se eliminen. Si especifica * para el identificador de instancia, se quitarán todas las máquinas virtuales del conjunto de escalado. Para quitar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
+Para quitar una o más máquinas virtuales en un conjunto de escalado, use [az vmss delete-instances](/cli/azure/vmss). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se eliminen. Si especifica * para el identificador de instancia, se quitarán todas las máquinas virtuales del conjunto de escalado. Para quitar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
 
 En el ejemplo siguiente se quita la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
 

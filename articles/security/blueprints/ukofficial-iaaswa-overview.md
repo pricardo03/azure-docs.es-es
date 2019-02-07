@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239929"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699149"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Security and Compliance Blueprint: aplicación web de IaaS de tres niveles para clasificaciones OFFICIAL (Reino Unido)
 
@@ -186,7 +186,7 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 [Directrices para implementar Windows Server Active Directory en Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) o [Active Directory en Azure unido a un bosque local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Integración de Active Directory**: como alternativa a una arquitectura de AD DS dedicada, los clientes pueden preferir usar la integración de [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) o [Active Directory en Azure unido a un bosque local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
 
 ### <a name="security"></a>Seguridad
 

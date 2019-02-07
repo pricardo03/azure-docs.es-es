@@ -1,8 +1,21 @@
 ---
-título: "Paso 1: Creación de un área de trabajo" titleSuffix: Azure Machine Learning Studio description: "Paso 1 del tutorial de desarrollo de una solución predictiva: Aprenda a configurar una nueva área de trabajo de Azure Machine Learning Studio".
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 23/03/2017
+title: 'Paso 1: Crear un área de trabajo'
+titleSuffix: Azure Machine Learning Studio
+description: 'Paso 1 del tutorial de desarrollo de una solución predictiva: Aprenda a configurar una nueva área de trabajo de Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/23/2017
+ms.openlocfilehash: c018988eb36e395372b3d927732a1acbcb5c2fa9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509519"
 ---
 # <a name="walkthrough-step-1-create-an-azure-machine-learning-studio-workspace"></a>Paso 1 del tutorial: Creación de un área de trabajo de Azure Machine Learning Studio
 Este es el primer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md).

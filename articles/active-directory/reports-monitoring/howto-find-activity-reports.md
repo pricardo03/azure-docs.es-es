@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190792"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820324"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -49,8 +49,6 @@ El informe de registros de auditoría consolida los siguientes informes:
 
 Puede usar los filtros avanzados en el informe de auditoría para tener acceso a una categoría específica de datos, si especifica dicha categoría en el filtro **Categoría de actividad**. Por ejemplo, para ver todas las actividades relacionadas con los restablecimientos de contraseña de autoservicio, seleccione la categoría **Administración de contraseñas de autoservicio**. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Las categorías de actividad incluyen:
 
 - Core Directory (Directorio principal)
@@ -62,8 +60,6 @@ Las categorías de actividad incluyen:
 ## <a name="sign-ins-report"></a>Informe de inicios de sesión 
 
 La vista de **Inicios de sesión** incluye todos los inicios de sesión de usuario, así como el informe de **Uso de aplicaciones**. También puede consultar la información sobre el uso de las aplicaciones en la sección **Administrar** de la información general sobre **Aplicaciones empresariales**.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Para tener acceso al informe de inicios de sesión, realice lo siguiente:
 

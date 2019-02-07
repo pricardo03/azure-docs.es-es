@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 86461ea5840ec4f2ea70facd642de9e7e5c05fa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d6dce952eca3d528a310685106a017dd7e3b80f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981021"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699965"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalación de Elastic Stack en una máquina virtual de Azure
 
@@ -41,7 +41,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Cree la máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). 
+Cree la máquina virtual con el comando [az vm create](/cli/azure/vm). 
 
 En el ejemplo siguiente, se crea una máquina virtual denominada *myVM* y las claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
@@ -81,7 +81,7 @@ Cuando se ha creado la máquina virtual, la CLI de Azure muestra información si
 
 ## <a name="ssh-into-your-vm"></a>Conexión SSH con la máquina virtual
 
-Si no conoce la dirección IP pública de la máquina virtual, ejecute el comando [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list):
+Si no conoce la dirección IP pública de la máquina virtual, ejecute el comando [az network public-ip list](/cli/azure/network/public-ip):
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
