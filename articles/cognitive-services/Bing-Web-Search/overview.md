@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5c2a31e10d53c8088afd3c3910b1b2f9d2b2d247
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 46d79b1ac6c56ba953eb0908e46338387b69ff1f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159238"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768281"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>¿Qué es Bing Web Search API?
 
 Bing Web Search API es un servicio RESTful que proporciona respuestas instantáneas a las consultas de los usuarios. Los resultados de búsqueda se configuran fácilmente para incluir páginas web, imágenes, vídeos, noticias, traducciones y mucho más. Los resultados se proporcionan como JSON y según la pertinencia de la búsqueda y las suscripciones de Bing Web Search.
 
-Esta API es óptima para aplicaciones que necesitan acceso a todo el contenido que es relevante para la consulta de búsqueda de un usuario. Si va a compilar una aplicación que requiere solo un tipo de resultado específico, considere el uso de [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) o [Bing News Search API](../Bing-News-Search/search-the-web.md). Consulte [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis) para obtener una lista completa de Bing Search APIs.
+Esta API es óptima para aplicaciones que necesitan acceso a todo el contenido que es relevante para la consulta de búsqueda de un usuario. Si va a compilar una aplicación que requiere solo un tipo de resultado específico, considere el uso de [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) o [Bing News Search API](../Bing-News-Search/search-the-web.md). Consulte [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services) para obtener una lista completa de Bing Search APIs.
 
 ¿Quiere ver cómo funciona? Pruebe nuestra [demostración de Bing Web Search API](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 
