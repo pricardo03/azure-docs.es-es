@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163065"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751164"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
@@ -95,13 +95,13 @@ Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtene
 Puede crear y conectar discos durante la creación de un conjunto de escalado o a un conjunto de escalado existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Conexión de discos durante la creación del conjunto de escalado
-En primer lugar, cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). En este ejemplo se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
+En primer lugar, cree un grupo de recursos con el comando [az group create](/cli/azure/group). En este ejemplo se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree un conjunto de escalado de máquinas virtuales con el comando [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado llamado *myScaleSet* y se generan claves SSH si estas no existen aún. Se crean dos discos con el parámetro `--data-disk-sizes-gb`. Es el primer disco tiene un tamaño de *64* GB y, el segundo disco, de *128* GB:
+Cree un conjunto de escalado de máquinas virtuales con el comando [az vmss create](/cli/azure/vmss). En el ejemplo siguiente se crea un conjunto de escalado llamado *myScaleSet* y se generan claves SSH si estas no existen aún. Se crean dos discos con el parámetro `--data-disk-sizes-gb`. Es el primer disco tiene un tamaño de *64* GB y, el segundo disco, de *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 Se tardan unos minutos en crear y configurar todos los recursos del conjunto de escalado y las instancias de máquina virtual.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Conexión de un disco a un conjunto de escalado existente
-También puede conectar discos a un conjunto de escalado existente. Use el conjunto de escalado creado en el paso anterior para agregar otro disco con [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). En el ejemplo siguiente, se conecta un disco adicional de *128* GB:
+También puede conectar discos a un conjunto de escalado existente. Use el conjunto de escalado creado en el paso anterior para agregar otro disco con [az vmss disk attach](/cli/azure/vmss/disk). En el ejemplo siguiente, se conecta un disco adicional de *128* GB:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-Para confirmar que los discos se han preparado correctamente, conéctese mediante SSH a una de las instancias de máquina virtual. Para mostrar la información de conexión del conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Para confirmar que los discos se han preparado correctamente, conéctese mediante SSH a una de las instancias de máquina virtual. Para mostrar la información de conexión del conjunto de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Enumeración de los discos conectados
-Para ver información acerca de los discos conectados a un conjunto de escalado, use [az vmss show](/cli/azure/vmss#az_vmss_show) y consulte *virtualMachineProfile.storageProfile.dataDisks*:
+Para ver información acerca de los discos conectados a un conjunto de escalado, use [az vmss show](/cli/azure/vmss) y consulte *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ Se muestra información sobre el tamaño del disco, la capa de almacenamiento y 
 
 
 ## <a name="detach-a-disk"></a>Desconexión de un disco
-Cuando ya no se necesita un disco determinado, se puede desconectar del conjunto de escalado. El disco se quita de todas las instancias de máquina virtual del conjunto de escalado. Para desconectar un disco de un conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk) y especifique el LUN del disco. Los LUN se muestran en la salida de [az vmss show](/cli/azure/vmss#az_vmss_show), en la sección anterior. En el ejemplo siguiente, se desconecta el LUN *2* del conjunto de escalado:
+Cuando ya no se necesita un disco determinado, se puede desconectar del conjunto de escalado. El disco se quita de todas las instancias de máquina virtual del conjunto de escalado. Para desconectar un disco de un conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk) y especifique el LUN del disco. Los LUN se muestran en la salida de [az vmss show](/cli/azure/vmss), en la sección anterior. En el ejemplo siguiente, se desconecta el LUN *2* del conjunto de escalado:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Para quitar el conjunto de escalado y los discos, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group#az_group_delete). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Para quitar el conjunto de escalado y los discos, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

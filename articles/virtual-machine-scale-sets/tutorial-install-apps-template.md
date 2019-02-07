@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884000"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750399"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
@@ -77,13 +77,13 @@ Para obtener un ejemplo completo de una plantilla de Azure que implementa un con
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Vamos a usar la plantilla de ejemplo para crear un conjunto de escalado y aplicar la extensión de script personalizado. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Vamos a usar la plantilla de ejemplo para crear un conjunto de escalado y aplicar la extensión de script personalizado. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Cuando se le solicite, proporcione su propio nombre de usuario y la contraseña que se utilizan como credenciales para cada instancia de máquina virtual:
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az group deployment create](/cli/azure/group/deployment). Cuando se le solicite, proporcione su propio nombre de usuario y la contraseña que se utilizan como credenciales para cada instancia de máquina virtual:
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Cada instancia de máquina virtual del conjunto de escalado descarga y ejecuta e
 
 
 ## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
-Para ver el servidor web en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#show). En el ejemplo siguiente se obtiene la dirección IP de *myScaleSetPublicIP* que se ha creado como parte del conjunto de escalado:
+Para ver el servidor web en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip). En el ejemplo siguiente se obtiene la dirección IP de *myScaleSetPublicIP* que se ha creado como parte del conjunto de escalado:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Para actualizar la definición de la extensión de script personalizado, edite l
 }
 ```
 
-Aplique de nuevo la configuración de la extensión de script personalizado a las instancias de máquina virtual del conjunto de escalado con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). La plantilla *azuredeployv2.json* se usa para aplicar la versión actualizada de la aplicación. En la práctica, la plantilla *azuredeploy.json* existente se edita para que haga referencia al script de instalación actualizado, tal y como se muestra en la sección anterior. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para crear por primera vez el conjunto de escalado:
+Aplique de nuevo la configuración de la extensión de script personalizado a las instancias de máquina virtual del conjunto de escalado con [az group deployment create](/cli/azure/group/deployment). La plantilla *azuredeployv2.json* se usa para aplicar la versión actualizada de la aplicación. En la práctica, la plantilla *azuredeploy.json* existente se edita para que haga referencia al script de instalación actualizado, tal y como se muestra en la sección anterior. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para crear por primera vez el conjunto de escalado:
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ Todas las instancias de máquina virtual del conjunto de escalado se actualizan 
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group#az_group_delete). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

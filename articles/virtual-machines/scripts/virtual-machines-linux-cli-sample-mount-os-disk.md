@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5459ba31d30a86efbe40239f9531298c10cf9d98
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6f2d4c9a7871e0917b33407605abe1389eb4420e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413607"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753612"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Solución de problemas de un disco de sistema operativo de máquina virtual
 
@@ -41,11 +41,11 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 
 | Get-Help | Notas |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Devuelve una lista de máquinas virtuales. En este caso, la opción de consulta se utiliza para devolver el disco de sistema operativo de la máquina virtual. Este valor se agrega, posteriormente, a un nombre de variable "uri". |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Elimina una máquina virtual. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm) | Devuelve una lista de máquinas virtuales. En este caso, la opción de consulta se utiliza para devolver el disco de sistema operativo de la máquina virtual. Este valor se agrega, posteriormente, a un nombre de variable "uri". |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm) | Elimina una máquina virtual. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crea una máquina virtual.  |
 | [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Conecta un disco a una máquina virtual. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Devuelve las direcciones IP de una máquina virtual. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm) | Devuelve las direcciones IP de una máquina virtual. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

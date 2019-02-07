@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452862"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754607"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configuración de una identidad común en Data Science Virtual Machine
 
@@ -31,7 +31,7 @@ Active Directory es un conocido proveedor de identidades y se admite tanto en Az
 
 Si ya tiene una instancia de Active Directory para administrar las identidades, puede usarla como proveedor de identidad común. Si no tiene Active Directory, puede ejecutar una instancia de Active Directory administrada en Azure mediante un servicio llamado [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
 
-En la documentación de [Azure AD](https://docs.microsoft.com/azure/active-directory/) se proporcionan [instrucciones de administración](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), incluidas las de conexión de Azure AD al directorio local, si tiene uno. 
+En la documentación de [Azure AD](https://docs.microsoft.com/azure/active-directory/) se proporcionan [instrucciones de administración](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), incluidas las de conexión de Azure AD al directorio local, si tiene uno. 
 
 En este artículo se describen los pasos necesarios para configurar un servicio de dominio de Active Directory completamente administrado en Azure con Azure AD DS. A continuación, puede unir sus máquinas virtuales DSVM al dominio de Active Directory administrado para permitir que los usuarios accedan a un grupo de DSVM (y otros recursos de Azure) utilizando una cuenta de usuario común y sus credenciales. 
 

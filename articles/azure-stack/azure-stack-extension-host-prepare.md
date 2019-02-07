@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 840c230ae3b2fc167c0d59a4a9a0155fe5deb661
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3e838f932299a9ea7f837570f9d15725230eb4f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238264"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660092"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparación de un host de extensiones de Azure Stack
 
@@ -141,7 +141,7 @@ En el artículo [Integración del centro de datos de Azure Stack: publicar punto
 
 ### <a name="publish-new-endpoints"></a>Publicación de nuevos puntos de conexión
 
-Hay dos nuevos puntos de conexión que deben publicarse a través del firewall. Las direcciones IP asignadas del grupo VIP público se pueden recuperar mediante el siguiente código que debe ejecutarse a través del [punto de conexión con privilegios del entorno](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint)de Azure Stack.
+Hay dos nuevos puntos de conexión que deben publicarse a través del firewall. Las direcciones IP asignadas del grupo VIP público se pueden recuperar mediante el siguiente código que debe ejecutarse a través del [punto de conexión con privilegios del entorno](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)de Azure Stack.
 
 ```PowerShell
 # Create a PEP Session

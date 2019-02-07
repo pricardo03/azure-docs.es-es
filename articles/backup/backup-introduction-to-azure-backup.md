@@ -7,15 +7,15 @@ manager: carmonm
 keywords: copia de seguridad y restauración; servicios de recuperación; soluciones de copia de seguridad
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631174"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487887"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -116,11 +116,11 @@ En las secciones siguientes se proporcionan tablas que resumen la disponibilidad
 ### <a name="storage"></a>Storage
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Almacén de Recovery Services |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
-| Almacenamiento en disco | |![SÍ][green] |![SÍ][green] | |
-| Almacenamiento en cinta | |![SÍ][green] | | |
-| Compresión <br/>(en el almacén de Recovery Services) |![SÍ][green] |![Sí][green] |![SÍ][green] | |
-| Copia de seguridad incremental |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
+| Almacén de Recovery Services |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
+| Almacenamiento en disco | |![Sí][green] |![Sí][green] | |
+| Almacenamiento en cinta | |![Sí][green] | | |
+| Compresión <br/>(en el almacén de Recovery Services) |![Sí][green] |![Sí][green] |![Sí][green] | |
+| Copia de seguridad incremental |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
 | Desduplicación de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
 
 ![clave de tabla](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ La **copia de seguridad incremental** logra una alta eficacia de almacenamiento 
 ### <a name="security"></a>Seguridad
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Seguridad de las redes<br/> (en Azure) |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
-| Seguridad de los datos<br/> (en Azure) |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
+| Seguridad de las redes<br/> (en Azure) |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
+| Seguridad de los datos<br/> (en Azure) |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
 
 ![clave de tabla](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -176,8 +176,8 @@ La realización de copias de seguridad de máquinas virtuales de Azure requiere 
 ### <a name="network"></a>Red
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![SÍ][green] |![SÍ][green] | |
-| Compresión de red <br/>(en el **almacén de Recovery Services**) |![SÍ][green] |![Sí][green] |![SÍ][green] | |
+| Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![Sí][green] |![Sí][green] | |
+| Compresión de red <br/>(en el **almacén de Recovery Services**) |![Sí][green] |![Sí][green] |![Sí][green] | |
 | Protocolo de red <br/>(en el **servidor de copia de seguridad**) | |TCP |TCP | |
 | Protocolo de red <br/>(en el **almacén de Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 

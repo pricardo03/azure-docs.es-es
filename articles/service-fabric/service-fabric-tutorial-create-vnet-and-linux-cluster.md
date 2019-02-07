@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101812"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755203"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -137,7 +137,7 @@ A continuación, configure la topología de red e implemente el clúster de Serv
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creación de un clúster mediante un certificado existente
 
-El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) y una plantilla para implementar un clúster nuevo protegido con un certificado existente. El comando también crea un nuevo almacén de claves de Azure y carga el certificado.
+El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) y una plantilla para implementar un clúster nuevo protegido con un certificado existente. El comando también crea un nuevo almacén de claves de Azure y carga el certificado.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Creación de un clúster mediante un nuevo certificado autofirmado
 
-El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) y una plantilla para implementar un clúster nuevo en Azure. El comando también crea un almacén de claves en Azure, agrega un nuevo certificado autofirmado al almacén de claves y carga el certificado en el archivo de certificado de forma local.
+El script siguiente usa el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) y una plantilla para implementar un clúster nuevo en Azure. El comando también crea un almacén de claves en Azure, agrega un nuevo certificado autofirmado al almacén de claves y carga el certificado en el archivo de certificado de forma local.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

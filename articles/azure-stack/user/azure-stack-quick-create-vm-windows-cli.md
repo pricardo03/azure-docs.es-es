@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 1ba612a90ffb4c767ca333faee4b7d97180a2025
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249027"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659208"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guía de inicio rápido: Creación de una máquina virtual Windows Server con la CLI de Azure en Azure Stack
 
@@ -72,7 +72,7 @@ Cuando se crea la máquina virtual, el parámetro **PublicIPAddress** de la sali
 
 Dado que en esta máquina virtual se va a ejecutar el servidor web IIS, debe abrir el puerto 80 para el tráfico de Internet.
 
-Use el comando [az vm open-port](/cli/azure/vm#open-port) para abrir el puerto 80.
+Use el comando [az vm open-port](/cli/azure/vm) para abrir el puerto 80.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

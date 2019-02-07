@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 292bcf5974f8c51f99a676786c66316e9cde0748
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8a24ffa4717244d8ce2ef507183cff06cbea5797
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215924"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492239"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS en Node.js con Bot Framework 4.x y el bot de aplicación web de Azure
 Con Node.js puede crear un bot de chat que se integre con Language Understanding (LUIS). Este bot usa la aplicación HomeAutomation para implementar una solución de bot. El bot se compila con el [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y con la [versión 4 de Bot Framework](https://github.com/Microsoft/botbuilder-js).
@@ -114,7 +114,7 @@ Con el fin de desarrollar el código del bot de aplicación web, descargue el c�
 
 6. Abra el archivo bot.js y busque `const results = await this.luisRecognizer.recognize(context);`. Aquí es donde la expresión del usuario especificada en el bot se envía a LUIS.
 
-    ```nodejs
+   ```javascript
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -247,7 +247,7 @@ En el archivo `bot.js`, agregue código para controlar las intenciones nuevas.
 
 1. En la parte superior del archivo, busque la sección **Supported LUIS Intents** (Intenciones admitidas de LUIS) y agregue constantes para las intenciones de HomeAutomation:
 
-    ```nodejs
+   ```javascript
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -261,7 +261,7 @@ En el archivo `bot.js`, agregue código para controlar las intenciones nuevas.
 
 2. Busque **isTurnInterrupted** que recibe la predicción de LUIS de la expresión y agregue una línea para imprimir el resultado en la consola.
 
-    ```nodejs
+   ```javascript
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -309,7 +309,7 @@ En el archivo `bot.js`, agregue código para controlar las intenciones nuevas.
 
 3. Agregue las intenciones a la instrucción switch del método onTurn para el caso `DialogTurnStatus.empty`:
 
-    ```nodejs
+   ```javascript
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);

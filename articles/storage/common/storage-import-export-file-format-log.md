@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454851"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697839"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato del archivo de registro del servicio Azure Import/Export
 Cuando el servicio Microsoft Azure Import/Export realiza una acción en una unidad como parte de un trabajo de importación o de exportación, los registros se escriben en blobs en bloques de la cuenta de almacenamiento asociada a dicho trabajo.  
@@ -22,7 +22,7 @@ El servicio Import/Export puede escribir dos registros:
   
 -   El registro de errores siempre se genera en caso de error.  
   
--   El registro detallado no está habilitado de forma predeterminada; para habilitarlo, establezca la propiedad `EnableVerboseLog` en una operación [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) o [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).  
+-   El registro detallado no está habilitado de forma predeterminada; para habilitarlo, establezca la propiedad `EnableVerboseLog` en una operación [Put Job](/rest/api/storageimportexport/jobs) o [Update Job Properties](/rest/api/storageimportexport/jobs).  
   
 ## <a name="log-file-location"></a>Ubicación del archivo de registro  
 Los registros se escriben en blobs en bloques en el contenedor o directorio virtual especificados por el valor `ImportExportStatesPath`, que puede establecer en una operación `Put Job`. La ubicación en la que se escriben los registros depende de cómo se especifica la autenticación del trabajo, junto con el valor especificado para `ImportExportStatesPath`. La autenticación del trabajo se puede especificar a través de una clave de la cuenta de almacenamiento o una SAS (firma de acceso compartido) del contenedor.  
@@ -38,7 +38,7 @@ La siguiente tabla muestra las posibles opciones:
 |SAS de contenedor|Valor predeterminado|Un directorio virtual denominado `waimportexport`, que es el nombre predeterminado, debajo del contenedor especificado en el SAS.<br /><br /> Por ejemplo, si el SAS especificado para el trabajo es `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, la ubicación del registro sería `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAS de contenedor|Valor especificado por el usuario|Un directorio virtual al que el usuario ha asignado un nombre, debajo del contenedor especificado en el SAS.<br /><br /> Por ejemplo, si el SAS especificado para el trabajo es `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` y el directorio virtual especificado se llama `mylogblobs`, la ubicación del registro sería `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Para recuperar la dirección URL de los registros de errores y detallados, llame a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Los registros están disponibles una vez que haya finalizado el procesamiento de la unidad.  
+Para recuperar la dirección URL de los registros de errores y detallados, llame a la operación [Get Job](/rest/api/storageimportexport/jobs). Los registros están disponibles una vez que haya finalizado el procesamiento de la unidad.  
   
 ## <a name="log-file-format"></a>Formato de archivo de registro  
 El formato de ambos registros es el mismo: un blob que contiene descripciones XML de los eventos que se produjeron al copiar blobs entre el disco duro y la cuenta del cliente.  

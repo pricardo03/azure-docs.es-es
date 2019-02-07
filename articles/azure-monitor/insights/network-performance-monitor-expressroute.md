@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188782"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747465"
 ---
 # <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 
@@ -118,23 +118,12 @@ Puede ver los códigos de notificación y establecer alertas para ellos a travé
 
 | Código de notificación (registros) | DESCRIPCIÓN |
 | --- | --- |
-| 5101 | Las subinterfaces de Microsoft Edge muestra una latencia elevada |
-| 5102 | Las subinterfaces de Microsoft Edge están colocando el paquete | 
-| 5103 | La puerta de enlace de ExpressRoute tiene un estado incorrecto. | 
-| 5201 | El vínculo del proveedor de servicios muestra una latencia elevada. |
-| 5202 | Los paquetes no fluyen desde el circuito ExpressRoute previsto. |
-| 5301 | El enrutador perimetral del cliente muestra una latencia elevada. | 
-| 5302 | La latencia se debe a un dispositivo/vínculo en el entorno del cliente. El problema no parece estar en el circuito de ExpressRoute. | 
 | 5501 | No se puede atravesar una conexión secundaria del circuito ExpressRoute. |
 | 5502 | No se puede atravesar una conexión primaria del circuito ExpressRoute. |
 | 5503 | No se encuentra ningún circuito para la suscripción vinculada al área de trabajo. | 
-| 5506 | El uso está alcanzado su capacidad máxima. | 
-| 5507 | El uso es bajo. |
 | 5508 | No se puede determinar si el tráfico pasa a través de un circuito para la ruta de acceso. |
 | 5510 | El tráfico no pasa a través del circuito previsto. | 
 | 5511 | El tráfico no pasa a través de la red virtual prevista. | 
-| 5512 | No se puede determinar si el tráfico pasa a través del circuito previsto. |
-
 
 **El circuito está inactivo.** Network Performance Monitor le avisa cuando se pierde la conectividad entre los recursos locales y las redes virtuales de Azure. Esta notificación le ayuda a adoptar medidas preventivas antes de recibir las escalaciones de usuario y reducir el tiempo de inactividad.
 

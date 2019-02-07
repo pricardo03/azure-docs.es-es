@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436694"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812504"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -56,10 +56,10 @@ Además de seleccionar los algoritmos más adecuados, debe considerar si debe pr
 
 HDInsight tiene varias opciones de aprendizaje automático para un flujo de trabajo de análisis avanzado:
 
-* [Machine Learning y Apache Spark](#machine-learning-and-spark)
-* [R y ML Services](#r-and-r-server)
-* [Azure Machine Learning y Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark y aprendizaje profundo](#spark-and-deep-learning)
+* Machine Learning y Apache Spark
+* R y ML Services
+* Azure Machine Learning y Apache Hive
+* Apache Spark y aprendizaje profundo
 
 ### <a name="machine-learning-and-apache-spark"></a>Machine Learning y Apache Spark
 

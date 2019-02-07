@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306257"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697934"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 
@@ -194,9 +194,9 @@ Storage Analytics registra los siguientes tipos de solicitudes autenticadas y an
 
 El registro y supervisión de redes en Azure es completa y cubre dos amplias categorías:
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): la supervisión de red basada en un escenario se proporciona con las características de Network Watcher. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): la supervisión de red basada en un escenario se proporciona con las características de Network Watcher. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
 
-* [Supervisión de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): la supervisión en el nivel de recurso consta de cuatro características: registros de diagnóstico, métricas, solución de problemas y mantenimiento de recursos. Todas estas funciones se integran en el nivel de recursos de red.
+* [Supervisión de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): la supervisión en el nivel de recurso consta de cuatro características: registros de diagnóstico, métricas, solución de problemas y mantenimiento de recursos. Todas estas funciones se integran en el nivel de recursos de red.
 
 ![Registros de redes de Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Además de las funcionalidades de registro anteriores, Network Watcher tiene act
 
 * [Solución de problemas de las conexiones y la puerta de enlace de Virtual Network](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ayuda a solucionar problemas de las conexiones y las puertas de enlace de Virtual Network.
 
-* [Límites de suscripción de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): permite ver el uso de los recursos de la red en comparación con los límites.
+* [Límites de suscripción de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): permite ver el uso de los recursos de la red en comparación con los límites.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -371,10 +371,10 @@ Azure Log Integration admite actualmente la integración de registros de activid
 
 | Tipo de registro | Log Analytics admite JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Registros de auditoría de Azure AD|   SÍ|
-|Registros de actividad| SÍ|
-|Alertas de Security Center |SÍ|
-|Registros de diagnóstico (registros de recursos)|  SÍ|
+|Registros de auditoría de Azure AD|   Sí|
+|Registros de actividad| Sí|
+|Alertas de Security Center |Sí|
+|Registros de diagnóstico (registros de recursos)|  Sí|
 |Registros de VM|   Sí, mediante eventos reenviados y no mediante JSON|
 
 [Introducción a Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): este tutorial le guía por la instalación de Azure Log Integration y la integración de los registros de Azure Storage, los registros de actividad de Azure, las alertas de Azure Security Center y los registros de auditoría de Azure AD.

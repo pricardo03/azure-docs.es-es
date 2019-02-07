@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
 ms.author: priyamo
-ms.openlocfilehash: c19c5031c27ac37aee3707911268965912c20994
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e266ebca40ac9a3c1d6c1a77e30fed717f4b1b51
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158203"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753465"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage con una clave de acceso
 
@@ -173,5 +173,5 @@ Name              : testblob
 En este tutorial, ha aprendido a utilizar una identidad administrada asignada por el sistema para acceder a Azure Storage utilizando una clave de acceso.  Para obtener más información sobre las claves de acceso de Azure Storage, vea:
 
 > [!div class="nextstepaction"]
->[Administración de las claves de acceso de almacenamiento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Administración de las claves de acceso de almacenamiento](/azure/storage/common/storage-create-storage-account)
 

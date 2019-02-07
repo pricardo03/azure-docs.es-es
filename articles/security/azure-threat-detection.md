@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fe98caa2a78722d621c43f1ef708e24add0efb56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228804"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664121"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -29,7 +29,7 @@ Azure proporciona una amplia gama de opciones para configurar y personalizar la 
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) es una característica de la edición [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) que proporciona información general de los eventos de riesgo y las posibles vulnerabilidades que pueden afectar a las identidades de la organización. Identity Protection usa las funcionalidades de detección de anomalías existentes de Azure AD que están disponibles mediante [informes de actividad anómala de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) es una característica de la edición [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) que proporciona información general de los eventos de riesgo y las posibles vulnerabilidades que pueden afectar a las identidades de la organización. Identity Protection usa las funcionalidades de detección de anomalías existentes de Azure AD que están disponibles mediante [informes de actividad anómala de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports) e introduce nuevos tipos de eventos de riesgo que pueden detectar anomalías en tiempo real.
 
 ![Diagrama de Azure AD Identity Protection](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 

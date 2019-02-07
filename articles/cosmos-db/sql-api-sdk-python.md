@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 01f6fe3ef309f19896befe61512d524a8543745f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818794"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54041465"
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Descargar SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**Instrucciones de instalación del SDK**</td><td>[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Python](sql-api-python-application.md)</td></tr>
-
-<tr><td>**Plataforma admitida actualmente**</td><td>[Python 2.7](https://www.python.org/downloads/) y [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Descargar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**Documentación de la API**|[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**Instrucciones de instalación del SDK**|[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-cosmos-python)|
+|**Contribuya al SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**Primeros pasos**|[Introducción al SDK de Python](sql-api-python-application.md)|
+|**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>Notas de la versión
 
@@ -177,7 +171,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 | [1.6.0](#1.6.0) |29 de marzo de 2016 |--- |
 | [1.5.0](#1.5.0) |3 de enero de 2016 |--- |
 | [1.4.2](#1.4.2) |6 de octubre de 2015 |--- |
-| [1.4.1](#1.4.1) |6 de octubre de 2015 |--- |
+| 1.4.1 |6 de octubre de 2015 |--- |
 | [1.2.0](#1.2.0) |6 de agosto de 2015 |--- |
 | [1.1.0](#1.1.0) |09 de julio de 2015 |--- |
 | [1.0.1](#1.0.1) |25 de mayo de 2015 |--- |

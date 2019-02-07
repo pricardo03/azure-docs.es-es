@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61cfc458ed965fd4f1446ff8cfb5e9a6e244f246
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 69b6bd07699d179fc87ac6c5364a7a34b23d14eb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332394"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731723"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Consideraciones de seguridad para SQL Server en Azure Virtual Machines
 
@@ -54,7 +54,7 @@ Las opciones seleccionadas en el portal usan reglas de seguridad de entrada en e
 
 Además de las reglas NSG para restringir el tráfico de red, también puede usar el Firewall de Windows en la máquina virtual.
 
-Si está usando puntos de conexión con el modelo de implementación clásica, quite de la máquina virtual todos los puntos de conexión que no use. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint). Esto no es necesario para las máquinas virtuales que usan Resource Manager.
+Si está usando puntos de conexión con el modelo de implementación clásica, quite de la máquina virtual todos los puntos de conexión que no use. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Esto no es necesario para las máquinas virtuales que usan Resource Manager.
 
 Por último, considere la posibilidad de habilitar conexiones cifradas para la instancia del motor de base de datos de SQL Server en la máquina virtual de Azure. Configure la instancia de SQL Server con un certificado firmado. Para más información, consulte [Habilitar conexiones cifradas en el motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) y [Sintaxis de cadena de conexión](https://msdn.microsoft.com/library/ms254500.aspx).
 

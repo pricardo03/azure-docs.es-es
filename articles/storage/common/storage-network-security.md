@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473636"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699183"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -241,7 +241,7 @@ Cada cuenta de almacenamiento admite hasta 100 reglas de red IP, que se pueden c
 
 Para conceder acceso desde las redes locales a la cuenta de almacenamiento con una regla de red IP, debe identificar las direcciones IP orientadas a Internet que usa su red. Para obtener ayuda, póngase en contacto con el administrador de red.
 
-Puede usar [ExpressRoute](/azure/expressroute/expressroute-introduction) para conectar la red a la red de Azure. En este caso, cada circuito se configura con dos direcciones IP públicas. Pueden encontrarse en Microsoft Edge y usan [emparejamiento público de Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) para conectarse a servicios de Microsoft como Azure Storage. Para permitir la comunicación con Azure Storage, cree reglas de red IP para direcciones IP públicas de los circuitos. Para encontrar las direcciones IP públicas del circuito de ExpressRoute, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal.
+Puede usar [ExpressRoute](/azure/expressroute/expressroute-introduction) para conectar la red a la red de Azure. En este caso, cada circuito se configura con dos direcciones IP públicas. Pueden encontrarse en Microsoft Edge y usan [emparejamiento público de Azure](/azure/expressroute/expressroute-circuit-peerings) para conectarse a servicios de Microsoft como Azure Storage. Para permitir la comunicación con Azure Storage, cree reglas de red IP para direcciones IP públicas de los circuitos. Para encontrar las direcciones IP públicas del circuito de ExpressRoute, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal.
 
 ### <a name="managing-ip-network-rules"></a>Administración de reglas de red IP
 
@@ -355,7 +355,7 @@ Si habilita la excepción **Permitir que los servicios de Microsoft de confianza
 |Azure Event Grid|Microsoft.EventGrid|Habilite la publicación de eventos de Blob Storage y permita que Event Grid publique en las colas de almacenamiento. Obtenga información sobre los [eventos de Blob Storage](/azure/event-grid/event-sources) y la [publicación en las colas](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Archivo de datos con Event Hubs Capture. [Más información](/azure/event-hubs/event-hubs-capture-overview).|
 |Conexión a Azure|Microsoft.Networking|Almacenamiento y análisis de los registros de tráfico de red. [Más información](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights|Permite la escritura de los datos de supervisión en una cuenta segura de almacenamiento. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights|Permite la escritura de los datos de supervisión en una cuenta segura de almacenamiento. [Más información](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Permite escenarios de importación y exportación mediante PolyBase. [Más información](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento

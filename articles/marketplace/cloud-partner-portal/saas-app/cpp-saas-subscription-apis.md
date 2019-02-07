@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198843"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695379"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Venta de SaaS mediante Azure: API
 
@@ -168,21 +168,21 @@ La acción POST en el punto de conexión resolve permite a los usuarios resolver
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| Content-type       | SÍ          | `application/json`                                        |
-| authorization      | SÍ          | Token de portador JSON Web Token (JWT).                    |
-| x-ms-marketplace-token| SÍ| Parámetro de consulta del token de la dirección URL cuando se redirige al usuario al sitio web del ISV de SaaS desde Azure. **Nota:** Este token solo es válido durante 1 hora. Además, descodifique como dirección URL el valor del token del explorador antes de usarlo.|
+| Content-type       | Sí          | `application/json`                                        |
+| authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
+| x-ms-marketplace-token| Sí| Parámetro de consulta del token de la dirección URL cuando se redirige al usuario al sitio web del ISV de SaaS desde Azure. **Nota:** Este token solo es válido durante 1 hora. Además, descodifique como dirección URL el valor del token del explorador antes de usarlo.|
 |  |  |  |
   
 
 *Cuerpo de la respuesta*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Nombre de parámetro** | **Tipo de datos** | **Descripción**                       |
@@ -210,9 +210,9 @@ La acción POST en el punto de conexión resolve permite a los usuarios resolver
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
 | Retry-After        | Sin            | Este valor se establece solo para una respuesta 429.                                                                   |
 |  |  |  |
 
@@ -238,17 +238,17 @@ El punto de conexión de suscripción permite a los usuarios iniciar una suscrip
 | x-ms-requestid         |   Sin          | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | x-ms-correlationid     |   Sin          | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | If-Match/If-None-Match |   Sin          |   Valor ETag de validador seguro.                                                          |
-| content-type           |   SÍ        |    `application/json`                                                                   |
-|  authorization         |   SÍ        |    Token de portador JSON Web Token (JWT).                                               |
+| content-type           |   Sí        |    `application/json`                                                                   |
+|  authorization         |   Sí        |    Token de portador JSON Web Token (JWT).                                               |
 | x-ms-marketplace-session-mode| Sin  | Marca para habilitar el modo de simulacro al suscribirse a una oferta de SaaS. Si se establece, no se cargará la suscripción. Esto es útil para escenarios de pruebas del ISV. Se debe establecer en **'dryrun'**|
 |  |  |  |
 
 *Cuerpo*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **Nombre del elemento** | **Tipo de datos** | **Descripción**                      |
@@ -275,11 +275,11 @@ En el caso de una respuesta 202, realice un seguimiento del estado de la operaci
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este valor se utiliza para las reconciliaciones. |
-| Retry-After        | SÍ          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
-| Operation-Location | SÍ          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este valor se utiliza para las reconciliaciones. |
+| Retry-After        | Sí          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
+| Operation-Location | Sí          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
 |  |  |  |
 
 ### <a name="change-plan-endpoint"></a>Punto de conexión de cambio de plan
@@ -303,19 +303,17 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 | x-ms-requestid          | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
 | x-ms-correlationid      | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | If-Match /If-None-Match | Sin            | Valor ETag de validador seguro.                              |
-| content-type            | SÍ          | `application/json`                                        |
-| authorization           | SÍ          | Token de portador JSON Web Token (JWT).                    |
+| content-type            | Sí          | `application/json`                                        |
+| authorization           | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
-
 
 *Cuerpo*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **Nombre del elemento** |  **Tipo de datos**  | **Descripción**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -339,11 +337,11 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este valor se utiliza para las reconciliaciones. |
-| Retry-After        | SÍ          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
-| Operation-Location | SÍ          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este valor se utiliza para las reconciliaciones. |
+| Retry-After        | Sí          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
+| Operation-Location | Sí          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
 |  |  |  |
 
 ### <a name="delete-subscription"></a>Eliminar suscripción
@@ -368,9 +366,8 @@ La acción de eliminación en el punto de conexión de suscripción permite al u
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| authorization      | SÍ          | Token de portador JSON Web Token (JWT).                    |
+| authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
- 
 
 *Códigos de respuesta*
 
@@ -390,11 +387,11 @@ En el caso de una respuesta 202, realice un seguimiento del estado de la operaci
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
-| Retry-After        | SÍ          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
-| Operation-Location | SÍ          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
+| Retry-After        | Sí          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
+| Operation-Location | Sí          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
 |   |  |  |
 
 ### <a name="get-operation-status"></a>Obtención del estado de la operación
@@ -413,27 +410,25 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-
 *Encabezados*
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
-| authorization      | SÍ          | Token de portador JSON Web Token (JWT).                    |
+| authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  | 
-  
 
 *Cuerpo de la respuesta*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Nombre de parámetro** | **Tipo de datos** | **Descripción**                                                                                                                                               |
@@ -461,10 +456,10 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
-| Retry-After        | SÍ          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
+| Retry-After        | Sí          | Intervalo con el que el cliente puede comprobar el estado.                                                       |
 |  |  |  |
 
 ### <a name="get-subscription"></a>Obtención de la suscripción
@@ -489,21 +484,21 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| authorization      | SÍ          | Token de portador JSON Web Token (JWT).                                                                    |
+| authorization      | Sí          | Token de portador JSON Web Token (JWT).                                                                    |
 |  |  |  |
 
 *Cuerpo de la respuesta*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
@@ -532,13 +527,12 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
 | Retry-After        | Sin            | Intervalo con el que el cliente puede comprobar el estado.                                                       |
-| eTag               | SÍ          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
+| eTag               | Sí          | Vínculo a un recurso para obtener el estado de la operación.                                                        |
 |  |  |  |
-
 
 ### <a name="get-subscriptions"></a>Obtención de las suscripciones
 
@@ -561,22 +555,21 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.             |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
-| authorization      | SÍ          | Token de portador JSON Web Token (JWT).                    |
+| authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
-
 
 *Cuerpo de la respuesta*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
@@ -606,16 +599,15 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 | **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | SÍ          | Identificador de solicitud recibido del cliente.                                                                   |
-| x-ms-correlationid | SÍ          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | SÍ          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
+| x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
+| x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
 | Retry-After        | Sin            | Intervalo con el que el cliente puede comprobar el estado.                                                       |
 |  |  |  |
 
 ### <a name="saas-webhook"></a>Webhook de SaaS
 
 Un webhook de SaaS se usa para notificar los cambios de forma proactiva al servicio SaaS. Se espera que esta API POST no esté autenticada y el servicio de Microsoft la llamará. Se espera que el servicio SaaS llame a la API de operaciones para validar y autorizar antes de realizar alguna acción en la notificación de webhook. 
-
 
 *Cuerpo*
 

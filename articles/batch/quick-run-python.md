@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462086"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754428"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Inicio rápido: Ejecute su primer trabajo de Batch con Python API
 
@@ -153,7 +153,7 @@ Para crear un grupo de Batch, la aplicación usa la clase [PoolAddParameter](/py
 
 El número de nodos (`_POOL_NODE_COUNT`) y el tamaño de la máquina virtual (`_POOL_VM_SIZE`) son constantes definidas. De forma predeterminada el ejemplo crea un grupo de dos nodos de tamaño *Standard_A1_v2*. El tamaño que se sugiere ofrece un buen equilibrio entre rendimiento y costo para este ejemplo rápido.
 
-El método [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) envía el grupo al servicio Batch.
+El método [pool.add](/python/api/azure.batch.operations.pooloperations) envía el grupo al servicio Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 La aplicación crea una lista de objetos de tarea mediante la clase [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter). Cada tarea procesa un objeto `resource_files` de entrada mediante un parámetro `command_line`. En el ejemplo, la línea de comandos ejecuta el comando `cat` del shell de Bash para mostrar el archivo de texto. Este comando es un ejemplo sencillo para fines de demostración. Cuando se usa Batch, la línea de comandos es el lugar en el que se especifica la aplicación o el script. Batch proporciona varias formas de implementar aplicaciones y scripts en nodos de proceso.
 
-A continuación, la aplicación agrega tareas al trabajo con el método [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), que las pone en cola para que se ejecuten en los nodos de proceso. 
+A continuación, la aplicación agrega tareas al trabajo con el método [task.add_collection](/python/api/azure.batch.operations.taskoperations), que las pone en cola para que se ejecuten en los nodos de proceso. 
 
 ```python
 tasks = list()

@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117425"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729530"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de datos de telemetría y conectividad de dispositivo
 
 Los datos de telemetría enviados por los dispositivos y sensores son la columna de cualquier solución de IoT. La manera de representar estos diferentes recursos y de administrarlos en el contexto de una ubicación es una de las principales preocupaciones en el desarrollo de aplicaciones de IoT. Azure Digital Twins simplifica el proceso de desarrollar soluciones de IoT al unir dispositivos y sensores con un grafo de inteligencia espacial.
 
-Para empezar, cree un recurso de Azure IoT Hub en la raíz del grafo espacial. El recurso IoT Hub permite a todos los dispositivos situados debajo del espacio raíz enviar mensajes. Después de crear la instancia de IoT Hub, registre los dispositivos con sensores dentro de la instancia de Digital Twins. Los dispositivos pueden enviar datos a un servicio de Digital Twins mediante el [SDK de dispositivo IoT de Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Para empezar, cree un recurso de Azure IoT Hub en la raíz del grafo espacial. El recurso IoT Hub permite a todos los dispositivos situados debajo del espacio raíz enviar mensajes. Después de crear la instancia de IoT Hub, registre los dispositivos con sensores dentro de la instancia de Digital Twins. Los dispositivos pueden enviar datos a un servicio de Digital Twins mediante el [SDK de dispositivo IoT de Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
 Para obtener una guía paso a paso sobre cómo incorporar dispositivos, consulte el [tutorial para implementar y configurar Digital Twins](tutorial-facilities-setup.md). En resumen, los pasos son:
 
@@ -69,8 +69,8 @@ Puede personalizar la carga y el formato del mensaje del dispositivo para ajusta
 
 | Nombre de propiedad | Valor | Obligatorio | DESCRIPCIÓN |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | SÍ | Valor constante que identifica un mensaje en el sistema. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | SÍ | Identificador único del sensor que envía el **mensaje**. Este valor debe coincidir con la propiedad **HardwareId** de un objeto para que el sistema lo procese. Por ejemplo, `00FF0643BE88-CO2`. |
+| **DigitalTwins-Telemetry** | 1.0 | Sí | Valor constante que identifica un mensaje en el sistema. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Sí | Identificador único del sensor que envía el **mensaje**. Este valor debe coincidir con la propiedad **HardwareId** de un objeto para que el sistema lo procese. Por ejemplo, `00FF0643BE88-CO2`. |
 | **CreationTimeUtc** | `string` | Sin  | Cadena de fecha con formato según [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que identifica el tiempo de muestreo de la carga. Por ejemplo, `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | Sin  | UUID que puede usarse para el seguimiento de eventos en todo el sistema. Por ejemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826180"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563939"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -40,7 +40,7 @@ Puede conceder los [permisos](#iot-hub-permissions) de las maneras siguientes:
   | Directiva de acceso compartido | Permisos |
   | -------------------- | ----------- |
   | iothubowner | Todos los permisos |
-  | Azure | Permisos **ServiceConnect** |
+  | service | Permisos **ServiceConnect** |
   | device | Permisos **DeviceConnect** |
   | registryRead | Permisos **RegistryRead** |
   | registryReadWrite | Permisos**RegistryRead** y **RegistryWrite** |
@@ -57,7 +57,7 @@ Por ejemplo en una solución típica de IoT:
 > [!NOTE]
 > Para más detalles, vea [Permisos](#iot-hub-permissions).
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 Azure IoT Hub concede acceso a los puntos de conexión mediante la comprobación de un token con las directivas de acceso compartido y las credenciales de seguridad del registro de identidad.
 
@@ -146,7 +146,7 @@ Estos son los valores esperados:
 
 El siguiente fragmento de Node.js muestra una función denominada **generateSasToken** que calcula el token de las entradas `resourceUri, signingKey, policyName, expiresInMins`. Las secciones siguientes detallan cómo inicializar las entradas diferentes para los distintos casos de uso de token.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -260,7 +260,7 @@ Por ejemplo, un token creado para tener acceso a toda la funcionalidad de dispos
 
 Un ejemplo de cómo utilizar la función anterior de Node.js sería:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -294,7 +294,7 @@ Por ejemplo, un servicio de token que usa acceso compartido creado previamente d
 
 Un ejemplo de cómo utilizar la función anterior de Node.js sería:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -328,7 +328,7 @@ Por ejemplo, un servicio que genera el uso de la directiva de acceso compartido 
 * nombre de la directiva: `registryRead`,
 * cualquier fecha de expiración.
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';

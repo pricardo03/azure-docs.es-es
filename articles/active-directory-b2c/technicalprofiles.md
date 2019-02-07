@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180779"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568182"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -76,7 +76,7 @@ El elemento **TechnicalProfile** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 |---------|---------|---------|
-| Id | SÍ | Un identificador único del perfil técnico. Se puede hacer referencia al perfil técnico con este identificador desde otros elementos del archivo de directiva. Por ejemplo, **OrchestrationSteps** y **ValidationTechnicalProfile**. |
+| Id | Sí | Un identificador único del perfil técnico. Se puede hacer referencia al perfil técnico con este identificador desde otros elementos del archivo de directiva. Por ejemplo, **OrchestrationSteps** y **ValidationTechnicalProfile**. |
 
 El elemento **TechnicalProfile** contiene los elementos siguientes:
 
@@ -97,7 +97,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | OutputClaimsTransformations | 0:1 | Lista de referencias (definidas anteriormente) a transformaciones de notificaciones que tienen que ejecutarse cuando el proveedor de notificaciones reciba las notificaciones. |
 | ValidationTechnicalProfiles | 0:n | Lista de referencias a otros perfiles técnicos que el perfil técnico usa con fines de validación. Para obtener más información, vea [Validación del perfil técnico](validation-technical-profile.md).|
 | SubjectNamingInfo | 0:1 | Controla la producción del nombre de firmante en los tokens donde el nombre de firmante se especifica por separado de las notificaciones. Por ejemplo, OAuth o SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | Identificador de un perfil técnico cuyas notificaciones de entrada o salida quiere que se agreguen a este perfil técnico. El perfil técnico al que se haga referencia tiene que definirse en el mismo archivo de directiva. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | Identificador de un perfil técnico cuyas notificaciones de entrada o salida quiere que se agreguen a este perfil técnico. El perfil técnico al que se haga referencia tiene que definirse en el mismo archivo de directiva. |
 | IncludeTechnicalProfile |0:1 | Identificador de un perfil técnico cuyos datos quiere agregar a este perfil técnico. El perfil técnico al que se haga referencia tiene que existir en el mismo archivo de directiva. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Perfil técnico distinto que se usará para la administración de sesiones. |
 |EnabledForUserJourneys| 0:1 |Controla si el perfil técnico se ejecuta en un recorrido del usuario.  |
@@ -108,7 +108,7 @@ El elemento **Protocol** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Name | SÍ | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` o `None`. |
+| Name | Sí | El nombre de un protocolo válido admitido por Azure AD B2C que se usará como parte del perfil técnico. Valores posibles: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` o `None`. |
 | Controlador | Sin  | Cuando el nombre del protocolo se establece en `Proprietary`, especifique el nombre completo del ensamblado que usará Azure AD B2C para determinar el controlador de protocolo. |
 
 ### <a name="metadata"></a>Metadatos
@@ -125,7 +125,7 @@ El elemento **Item** del elemento **Metadata** contiene los atributos siguientes
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Clave | SÍ | La clave de metadatos. Puede ver la lista de elementos de metadatos en cada tipo de perfil técnico. |
+| Clave | Sí | La clave de metadatos. Puede ver la lista de elementos de metadatos en cada tipo de perfil técnico. |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 
@@ -142,7 +142,7 @@ El elemento **Key** contiene el atributo siguiente:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | Id | Sin  | Un identificador único de un par de claves específico al que se hace referencia desde otros elementos en el archivo de directiva. |
-| StorageReferenceId | SÍ | Un identificador del contenedor de claves de almacenamiento al que se hace referencia desde otros elementos en el archivo de directiva. |
+| StorageReferenceId | Sí | Un identificador del contenedor de claves de almacenamiento al que se hace referencia desde otros elementos en el archivo de directiva. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
@@ -158,7 +158,7 @@ El elemento **InputClaimsTransformation** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ReferenceId | SÍ | Un identificador de una transformación de notificaciones que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
+| ReferenceId | Sí | Un identificador de una transformación de notificaciones que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
 
 ### <a name="inputclaims"></a>InputClaims
 
@@ -168,13 +168,13 @@ El elemento **InputClaims** contiene el elemento siguiente:
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Un tipo de notificación de entrada esperado. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 El elemento **InputClaim** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | SÍ | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
+| ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
 | DefaultValue | Sin  | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
 | PartnerClaimType | Sin  | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
@@ -186,13 +186,13 @@ El elemento **PersistedClaims** contiene los elementos siguientes:
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | El tipo de notificación que persistirá. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 El elemento **PersistedClaim** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | SÍ | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
+| ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
 | DefaultValue | Sin  | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
 | PartnerClaimType | Sin  | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
 
@@ -204,13 +204,13 @@ El elemento **OutputClaims** contiene el elemento siguiente:
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Un tipo de notificación de salida esperado. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 El elemento **OutputClaim** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | SÍ | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
+| ClaimTypeReferenceId | Sí | El identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva o del archivo de directiva principal. |
 | DefaultValue | Sin  | Un valor predeterminado que se usará para crear una notificación si la notificación indicada por ClaimTypeReferenceId no existe, por lo que la notificación resultante puede usarse como un elemento InputClaim por el perfil técnico. |
 |AlwaysUseDefaultValue |Sin  |Obliga a usar el valor predeterminado.  |
 | PartnerClaimType | Sin  | El identificador del tipo de notificación del socio externo al que se asigna el tipo de notificación de directiva especificado. Si no se especifica el atributo PartnerClaimType, el tipo de notificación de directiva especificado se asignará al tipo de notificación del socio que tenga el mismo nombre. Use esta propiedad cuando el nombre del tipo de notificación sea distinto de la otra entidad. Por ejemplo, el nombre de la primera notificación es “givenName”, mientras que el socio usa una notificación denominada “first_name”. |
@@ -229,7 +229,7 @@ El elemento **OutputClaimsTransformation** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ReferenceId | SÍ | Un identificador de una transformación de notificaciones que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
+| ReferenceId | Sí | Un identificador de una transformación de notificaciones que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -245,7 +245,7 @@ El elemento **ValidationTechnicalProfile** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ReferenceId | SÍ | Un identificador de un perfil técnico que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
+| ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -253,7 +253,7 @@ El elemento **SubjectNamingInfo** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ClaimType | SÍ | Un identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva. |
+| ClaimType | Sí | Un identificador de un tipo de notificación que ya se ha definido en la sección ClaimsSchema del archivo de directiva. |
 
 ### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
@@ -261,7 +261,7 @@ El elemento **IncludeTechnicalProfile** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ReferenceId | SÍ | Un identificador de un perfil técnico que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
+| ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,15 +269,15 @@ El elemento **UseTechnicalProfileForSessionManagement** contiene el atributo sig
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ReferenceId | SÍ | Un identificador de un perfil técnico que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
+| ReferenceId | Sí | Un identificador de un perfil técnico que ya se ha definido en el archivo de directiva o en el archivo de directiva principal. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 El elemento **ClaimsProviderSelections** en un recorrido del usuario define la lista de opciones de selección de proveedor de notificaciones y el orden en que se mostrarán. Con el elemento **EnabledForUserJourneys**, puede filtrar los proveedores de notificaciones que estarán disponibles para el usuario. El elemento **EnabledForUserJourneys** contiene uno de los valores siguientes:
 
 - **Always**: ejecuta el perfil técnico.
-- **Never**: omite el perfil técnico. 
-- **OnClaimsExistence**: solo se ejecuta cuando existe una notificación específica (indicada en el perfil técnico). 
-- **OnItemExistenceInStringCollectionClaim**: solo se ejecuta cuando existe un elemento en una notificación de colección de cadenas. 
+- **Never**: omite el perfil técnico.
+- **OnClaimsExistence**: solo se ejecuta cuando existe una notificación específica (indicada en el perfil técnico).
+- **OnItemExistenceInStringCollectionClaim**: solo se ejecuta cuando existe un elemento en una notificación de colección de cadenas.
 - **OnItemAbsenceInStringCollectionClaim**: solo se ejecuta cuando no existe un elemento en una notificación de colección de cadenas.
 
 Para usar **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** o **OnItemAbsenceInStringCollectionClaim** es necesario que proporcione los siguientes metadatos: **ClaimTypeOnWhichToEnable** especifica el tipo de notificación que se va a evaluar, mientras **ClaimValueOnWhichToEnable** especifica el valor que se va a comparar.
@@ -289,22 +289,10 @@ El siguiente perfil técnico solo se ejecuta si la colección de cadenas **ident
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

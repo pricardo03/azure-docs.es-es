@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82f7d69120cf3d6f44c981f985ae29f467ee0655
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198909"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745765"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual de Azure
 
@@ -54,7 +54,7 @@ El diagrama siguiente muestra cómo funciona la autorización para las llamadas 
 La API de prueba automática contiene un punto de conexión único que solo admite el método POST.  Tiene la estructura siguiente.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -215,7 +215,7 @@ Para llamar a la API con cURL, siga estos pasos:
 ```
 CURL POST -H "Content-Type:application/json" 
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest 
+https://isvapp.azurewebsites.net/selftest-vm 
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 
 ```
@@ -260,7 +260,7 @@ Para registrar la aplicación cliente, realice los pasos siguientes.
 
    - **Nombre**: escriba un nombre descriptivo para la aplicación. Por ejemplo, "SelfTestClient".
    - En **Tipo de aplicación**, seleccione **Aplicación web o API**.
-   - **URL de inicio de sesión**: escriba "https://isvapp.azurewebsites.net/selftest"
+   - **URL de inicio de sesión**: escriba "https://isvapp.azurewebsites.net/selftest-vm"
 
 4. Seleccione **Crear**.
 5. En **Registros de aplicaciones** o **Aplicación registrada**, copia el **Id. de la aplicación**.
@@ -410,7 +410,7 @@ $token.AccessToken
 Pase el token a la API de prueba automática mediante el código siguiente en el encabezado de autorización:
 
 ```
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest’
+$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"

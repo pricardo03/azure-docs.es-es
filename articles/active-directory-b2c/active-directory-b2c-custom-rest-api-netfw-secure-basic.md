@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169168"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733695"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En un [artículo de Azure AD B2C relacionado](active-directory-b2c-custom-rest-api-netfw.md), se crea un servicio REST (API web) que se integra en los recorridos del usuario de Azure Active Directory B2C (Azure AD B2C) sin autenticación. 
+En un [artículo de Azure AD B2C relacionado](active-directory-b2c-custom-rest-api-netfw.md), se crea un servicio REST (API web) que se integra en los recorridos del usuario de Azure Active Directory B2C (Azure AD B2C) sin autenticación.
 
-En dicho artículo se agrega una autenticación HTTP básica al servicio REST, con el fin de que solo los usuarios comprobados, lo que incluye B2C, puedan acceder a la API. Con la autenticación HTTP básica, se establecen las credenciales de usuario (identificador de aplicación y secreto de aplicación) en la directiva personalizada. 
+En dicho artículo se agrega una autenticación HTTP básica al servicio REST, con el fin de que solo los usuarios comprobados, lo que incluye B2C, puedan acceder a la API. Con la autenticación HTTP básica, se establecen las credenciales de usuario (identificador de aplicación y secreto de aplicación) en la directiva personalizada.
 
 Para más información, consulte [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticación básica en ASP.NET Web API).
 
@@ -33,7 +33,7 @@ Complete los pasos del artículo [Azure Active Directory B2C: integración de in
 ## <a name="step-1-add-authentication-support"></a>Paso 1: Incorporación de compatibilidad con la autenticación
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Paso 1.1: Adición de la configuración de la aplicación al archivo web.config del proyecto
-1. Abra el proyecto de Visual Studio que ha creado. 
+1. Abra el proyecto de Visual Studio que ha creado.
 
 2. Agregue la siguiente configuración de la aplicación al archivo web.config en el elemento `appSettings`:
 
@@ -205,7 +205,7 @@ Agregue una clase de inicio de OWIN denominada `Startup.cs` a la API. Para ello:
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ Abra Controllers\IdentityController.cs y agregue la etiqueta `[Authorize]` a la 
 Para publicar el proyecto, en el Explorador de soluciones, haga clic con el botón derecho en el proyecto **Contoso.AADB2C.API** y seleccione **Publicar**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Paso 3: Adición del secreto y Id. de la aplicación de servicios REST a Azure AD B2C
-Tras proteger el servicio REST con el identificador (nombre de usuario) y el secreto del cliente, debe almacenar las credenciales en su inquilino de Azure AD B2C. Su directiva personalizada proporciona las credenciales al invocar los servicios REST. 
+Tras proteger el servicio REST con el identificador (nombre de usuario) y el secreto del cliente, debe almacenar las credenciales en su inquilino de Azure AD B2C. Su directiva personalizada proporciona las credenciales al invocar los servicios REST.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Paso 3.1: Adición de un Id. de cliente de servicios REST
 1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad**.
@@ -275,7 +275,7 @@ Tras proteger el servicio REST con el identificador (nombre de usuario) y el sec
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Agregue el siguiente fragmento de código XML inmediatamente después del elemento `<Metadata>` de cierre: 
+5. Agregue el siguiente fragmento de código XML inmediatamente después del elemento `<Metadata>` de cierre:
 
     ```xml
     <CryptographicKeys>

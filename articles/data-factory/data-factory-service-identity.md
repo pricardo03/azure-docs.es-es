@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017691"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814221"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidad de servicio de Azure Data Factory
 
@@ -44,7 +44,7 @@ Si observa que la factoría de datos no tiene una identidad de servicio asociada
 
 - [Generar una identidad de servicio con PowerShell](#generate-service-identity-using-powershell)
 - [Generar una identidad de servicio con la API de REST](#generate-service-identity-using-rest-api)
-- [Generar una identidad de servicio con una plantilla de Azure Resource Manager](#generate-service-identity-using-azure-resource-manager-template)
+- Generar una identidad de servicio con una plantilla de Azure Resource Manager
 - [Generar una identidad de servicio con el SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -192,4 +192,4 @@ Consulte los siguientes temas que presentan cuándo y cómo se utiliza la identi
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
 
-Vea [¿Qué es Managed Identities for Azure Resources?](~/articles/active-directory/msi-overview.md) para más información sobre las identidades administradas para los recursos de Azure y en qué identidad de servicio de factoría está basado. 
+Vea [¿Qué es Managed Identities for Azure Resources?](/azure/active-directory/managed-identities-azure-resources/overview) para más información sobre las identidades administradas para los recursos de Azure y en qué identidad de servicio de factoría está basado. 

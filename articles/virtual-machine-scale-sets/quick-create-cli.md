@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884901"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733185"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido creará un conjunto de escalado de máquinas virtuales e implementará una aplicación de ejemplo con la CLI de Azure.
@@ -40,7 +40,7 @@ Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az 
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#az_vmss_create). En el ejemplo siguiente se crea un conjunto de escalado llamado *myScaleSet* que se establece para actualizarse automáticamente a medida que se aplican los cambios, y se generan claves SSH si no existen en *~/.ssh/id_rsa*. Estas claves SSH se usan si necesita iniciar sesión en las instancias de máquina virtual. Para usar un conjunto existente de claves SSH, utilice en su lugar el parámetro `--ssh-key-value` y especifique la ubicación de las claves.
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss). En el ejemplo siguiente se crea un conjunto de escalado llamado *myScaleSet* que se establece para actualizarse automáticamente a medida que se aplican los cambios, y se generan claves SSH si no existen en *~/.ssh/id_rsa*. Estas claves SSH se usan si necesita iniciar sesión en las instancias de máquina virtual. Para usar un conjunto existente de claves SSH, utilice en su lugar el parámetro `--ssh-key-value` y especifique la ubicación de las claves.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 ## <a name="deploy-sample-application"></a>Implementación de una aplicación de ejemplo
 Para probar el conjunto de escalado, instale una aplicación web básica. La extensión de script personalizado de Azure se usa para descargar y ejecutar un script que instala una aplicación en las instancias de máquina virtual. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Para obtener más información, consulte [Información general de la extensión de script personalizado](../virtual-machines/linux/extensions-customscript.md).
 
-Use la extensión de script personalizado para instalar un servidor web de NGINX básico. Aplique la extensión de script personalizado que instala NGINX con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) como se indica a continuación:
+Use la extensión de script personalizado para instalar un servidor web de NGINX básico. Aplique la extensión de script personalizado que instala NGINX con [az vmss extension set](/cli/azure/vmss/extension) como se indica a continuación:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Permitir tráfico a la aplicación
-Cuando se creó el conjunto de escalado, se implementó automáticamente un equilibrador de carga de Azure. El equilibrador de carga distribuye el tráfico a las instancias de máquina virtual del conjunto de escalado. Para permitir que el tráfico llegue a la aplicación web de ejemplo, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
+Cuando se creó el conjunto de escalado, se implementó automáticamente un equilibrador de carga de Azure. El equilibrador de carga distribuye el tráfico a las instancias de máquina virtual del conjunto de escalado. Para permitir que el tráfico llegue a la aplicación web de ejemplo, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ Escriba la dirección IP pública del equilibrador de carga en un explorador web
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación. El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación. El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

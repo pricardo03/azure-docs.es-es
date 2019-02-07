@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180405"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766068"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)
 
@@ -28,7 +28,7 @@ Para configurar la información de seguridad tiene que iniciar sesión en su cue
 
 Dependiendo de la configuración de su organización, puede que se le pida que configure la aplicación Microsoft Authenticator cuando inicie sesión. En caso contrario, para comenzar la configuración de la aplicación Microsoft Authenticator en la información de seguridad, siga los pasos que encontrará en [Administración de la información de seguridad](security-info-manage-settings.md).
 
-Para descargar la aplicación Microsoft Authenticator y obtener más información sobre ella, vea [Introducción a la aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+Para descargar la aplicación Microsoft Authenticator y obtener más información sobre ella, vea [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 >[!Note]
 >Si no desea usar la aplicación Microsoft Authenticator, puede elegir una aplicación diferente durante la configuración. En este artículo se usa la aplicación Microsoft Authenticator. Si no ve la opción de la aplicación autenticadora, es posible que su organización no le permita usar una aplicación autenticadora para la verificación. Si este es el caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.

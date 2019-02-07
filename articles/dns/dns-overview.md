@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716283"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770527"
 ---
 # <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
@@ -32,7 +32,7 @@ Los dominios DNS de DNS de Azure se hospedan en la red global de servidores de n
 
 * [Control de acceso basado en rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control): para controlar quién tiene acceso a acciones específicas en la organización.
 
-* [Registros de actividad](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs): para supervisar cómo un usuario de su organización modificó un recurso o para encontrar errores al solucionar problemas.
+* [Registros de actividad](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview): para supervisar cómo un usuario de su organización modificó un recurso o para encontrar errores al solucionar problemas.
 
 * [Bloqueo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) para bloquear una suscripción, un grupo de recursos o un recurso. Los bloqueos impiden que otros usuarios de la organización eliminen o modifiquen de forma accidental recursos críticos.
 

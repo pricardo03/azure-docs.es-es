@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451210"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770591"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en VM Linux
 
@@ -98,7 +98,7 @@ Al acabar, pulse la tecla **Esc** y escriba **:wq** para guardar y cerrar el arc
 
 ## <a name="create-the-policy"></a>Creación de la directiva
 
-Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. La definición de directiva utiliza las reglas y los archivos de parámetros para definir la directiva. Cree la definición de directiva mediante la [creación de la definición de directivas az](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. La definición de directiva utiliza las reglas y los archivos de parámetros para definir la directiva. Cree la definición de directiva mediante la [creación de la definición de directivas az](/cli/azure/role/assignment?view=azure-cli-latest).
 
 En este ejemplo, las reglas y los parámetros son los archivos creados y almacenados como archivos .json en Cloud Shell.
 
@@ -115,9 +115,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Asignación de la directiva
 
-En este ejemplo se asigna la directiva a un grupo de recursos mediante la [creación de la asignación de directivas az](/cli/azure/policy/assignment#az_policy_assignment_create). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar el acceso a VM Linux ni las extensiones del script personalizado para Linux. El grupo de recursos debe existir para poder asignar la directiva.
+En este ejemplo se asigna la directiva a un grupo de recursos mediante la [creación de la asignación de directivas az](/cli/azure/policy/assignment). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar el acceso a VM Linux ni las extensiones del script personalizado para Linux. El grupo de recursos debe existir para poder asignar la directiva.
 
-Use la [lista de cuentas de az](/cli/azure/account?view=azure-cli-latest#az_account_list) para obtener el id. de suscripción que se debe utilizar en lugar del del ejemplo.
+Use la [lista de cuentas de az](/cli/azure/account?view=azure-cli-latest) para obtener el id. de suscripción que se debe utilizar en lugar del del ejemplo.
 
 
 ```azurecli-interactive

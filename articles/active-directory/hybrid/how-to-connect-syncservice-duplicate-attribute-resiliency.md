@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: acc2790f935eae9bcb68c9fa3c443d7449922e71
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815803"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronización de identidades y resistencia de atributos duplicados
 La resistencia de atributos duplicados es una característica de Azure Active Directory que eliminará la fricción causada por los conflictos entre **UserPrincipalName** y **ProxyAddress** al ejecutar una de las herramientas de sincronización de Microsoft.
@@ -81,7 +81,7 @@ A continuación, use los cmdlets y operadores siguientes para ver los errores de
 2. [Por tipo de propiedad](#by-property-type)
 3. [Por valor en conflicto](#by-conflicting-value)
 4. [Mediante una búsqueda de cadena](#using-a-string-search)
-5. [Ordenados](#sorted)
+5. Ordenados
 6. [En una cantidad limitada o todos](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Ver todos

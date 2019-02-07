@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 3381bf32bfd3df538641b11b35a64b53fda6744f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466880"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731876"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -44,7 +44,7 @@ Existe un límite para la cantidad de tablas de rutas que puede crear por suscri
 
 **Comandos**
 
-- CLI de Azure: [az network route-table create](/cli/azure/network/route-table/route#az_network_route_table_create)
+- CLI de Azure: [az network route-table create](/cli/azure/network/route-table/route)
 - PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Vista de las tablas de rutas
@@ -53,7 +53,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 
 **Comandos**
 
-- CLI de Azure: [az network route-table list](/cli/azure/network/route-table/route#az_network_route_table_list)
+- CLI de Azure: [az network route-table list](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Vista de los detalles de una tabla de rutas
@@ -62,14 +62,14 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 2. Seleccione en la lista la tabla de rutas cuyos detalles desea ver. En **CONFIGURACIÓN**, puede ver las **rutas** de la tabla de rutas y las **subredes** con las que está asociada la tabla de rutas.
 3. Para más información sobre la configuración común de Azure, consulte la información siguiente:
     *   [Registro de actividad](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Control de acceso (IAM)](../role-based-access-control/overview.md)
     *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Comandos**
 
-- CLI de Azure: [az network route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
+- CLI de Azure: [az network route-table show](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>Modificación de una tabla de rutas
@@ -79,7 +79,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 
 **Comandos**
 
-- CLI de Azure: [az network route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
+- CLI de Azure: [az network route-table update](/cli/azure/network/route-table/route)
 - PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Asociación de una tabla de rutas a una subred
@@ -124,7 +124,7 @@ Una tabla de rutas no se puede eliminar si está asociada a alguna subred. [Desa
 
 **Comandos**
 
-- CLI de Azure: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
+- CLI de Azure: [az network route-table delete](/cli/azure/network/route-table/route)
 - PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Creación de una ruta
@@ -143,7 +143,7 @@ Existe un límite para la cantidad de rutas por tabla de rutas que puede crear p
 
 **Comandos**
 
-- CLI de Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- CLI de Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Vista de las rutas
@@ -168,7 +168,7 @@ Una tabla de rutas contiene varias rutas o ninguna. Para más detalles sobre la 
 
 **Comandos**
 
-- CLI de Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- CLI de Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>Modificación de una ruta
@@ -194,7 +194,7 @@ Una tabla de rutas contiene varias rutas o ninguna. Para más detalles sobre la 
 
 **Comandos**
 
-- CLI de Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- CLI de Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Vista de las rutas eficaces
@@ -209,7 +209,7 @@ Las rutas eficaces de cada interfaz de red conectada a una máquina virtual son 
 
 **Comandos**
 
-- CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validación del enrutamiento entre dos puntos de conexión
@@ -226,7 +226,7 @@ Puede determinar el tipo de próximo paso entre una máquina virtual y la direcc
 
 **Comandos**
 
-- CLI de Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- CLI de Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>Permisos

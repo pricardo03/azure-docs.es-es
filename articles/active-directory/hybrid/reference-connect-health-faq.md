@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 744344c9427604f46c3f428d8dfcd279d8f2ffba
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077308"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486341"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -67,7 +67,7 @@ Azure AD Connect Health no se admite en la nube de Alemania, excepto para la [ca
 | Roles | Características | Se admite en la nube de Alemania |
 | ------ | --------------- | --- |
 | Connect Health para sincronización | Supervisión / Información / Alertas / análisis | Sin  |
-|  | Informe de error de sincronización | SÍ |
+|  | Informe de error de sincronización | Sí |
 | Connect Health para ADFS | Supervisión / Información / Alertas / análisis | Sin  |
 | Connect Health para ADDS | Supervisión / Información / Alertas / análisis | Sin  |
 

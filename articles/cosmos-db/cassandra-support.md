@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: a68d290bc21a8cdc36d5c85f770752ad67a4e91e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 57127f3a87d8ec3077c0e2f5f6e16f536931e97f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330767"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756859"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 
@@ -161,7 +161,6 @@ Cassandra API de Azure Cosmos DB ofrece opciones de coherencia para las operacio
 Azure Cosmos DB admite el control de acceso basado en rol (RBAC) y las claves o contraseñas de solo lectura y de lectura y escritura que pueden obtenerse en [Azure Portal](https://portal.azure.com). Azure Cosmos DB no admite aún usuarios y roles para las actividades en el plano de datos. 
 
 ## <a name="planned-support"></a>Soporte planeado 
-* Uso conjunto de marca de tiempo y TTL  
 * El nombre de la región en el comando para crear un espacio de claves se ignora de momento. La distribución de datos se implementa en la plataforma de Cosmos DB subyacente y se expone a través del portal o de PowerShell para la cuenta. 
 
 

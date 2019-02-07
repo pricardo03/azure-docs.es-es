@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
-ms.openlocfilehash: a4e860d4207eebb993b26bb45e531a6be734c5fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b655624b4bd611198eddcdcc79c75a52267b6dde
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167196"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756621"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure SQL
 
@@ -48,7 +48,7 @@ Hay dos pasos para conceder a la máquina virtual acceso a una base de datos:
 
 ## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilite la autenticación de Azure AD para el servidor SQL
 
-[Configure la autenticación de Azure AD para SQL Server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) mediante los siguientes pasos:
+[Configure la autenticación de Azure AD para SQL Server](/azure/sql-database/sql-database-aad-authentication-configure) mediante los siguientes pasos:
 
 1.  En Azure Portal, seleccione **Servidores SQL Server** en el panel de navegación izquierdo.
 2.  Haga clic en el servidor SQL para habilitarlo para la autenticación de Azure AD.

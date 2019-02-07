@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422922"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699693"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Realización de una llamada telefónica con Twilio en un rol web en Azure
 En esta guía se describe cómo usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante pide al usuario que llame a un determinado número y deje un mensaje, como se muestra en la siguiente captura de pantalla.
@@ -34,7 +34,7 @@ Tendrá que hacer lo siguiente para usar el código de este tema:
 
 Debe saber cómo crear un [rol web básico en Azure][azure_webroles_get_started].
 
-## <a name="howtocreateform"></a>Creación de un formulario web para hacer una llamada
+## <a name="howtocreateform"></a>Instrucciones: Creación de un formulario web para hacer una llamada
 <a id="use_nuget"></a>Para agregar las bibliotecas de Twilio al proyecto de rol web:
 
 1. Abra su solución en Visual Studio.
@@ -70,7 +70,7 @@ El siguiente código muestra cómo crear un formulario web para recuperar datos 
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Creación del código para realizar la llamada
+## <a id="howtocreatecode"></a>Instrucciones: Creación del código para realizar la llamada
 El siguiente código, al que se llama cuando el usuario completa el formulario, crea el mensaje de llamada y genera la llamada. En este ejemplo, el código se ejecuta en el controlador de eventos onclick del botón en el formulario. (Use su cuenta Twilio y su token de autenticación en lugar de los valores de marcador de posición asignados a `accountSID` y `authToken` en el siguiente código).
 
 ```csharp
@@ -96,7 +96,7 @@ namespace WebRole1
 
         protected void callpage_Click(object sender, EventArgs e)
         {
-            // Call porcessing happens here.
+            // Call processing happens here.
 
             // Use your account SID and authentication token instead of
             // the placeholders shown here.

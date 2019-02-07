@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193495"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755210"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -44,7 +44,7 @@ Si decide instalar y usar la CLI localmente, en este tutorial es preciso que eje
 >[!NOTE]
 > Este tutorial le guía por el proceso de creación y uso de una imagen de máquina virtual generalizada. No permite crear un conjunto de escalado a partir de una imagen de máquina virtual especializada.
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -87,7 +87,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Crear una imagen de máquina virtual personalizada a partir de la máquina virtual de origen
 La máquina virtual de origen ahora está personalizada con el servidor web de Nginx instalado. Vamos a crear la imagen de máquina virtual personalizada para usarla con un conjunto de escalado.
 
-Para crear una imagen, es necesario desasignar la máquina virtual. Desasigne la VM con [az vm deallocate](/cli//azure/vm#az_vm_deallocate). A continuación, establezca el estado de la máquina virtual como generalizado con [az vm generalize](/cli//azure/vm#az_vm_generalize) para que la plataforma Azure sepa que la máquina virtual está preparada para usarla como imagen personalizada. Solo se puede crear una imagen de una máquina virtual generalizada:
+Para crear una imagen, es necesario desasignar la máquina virtual. Desasigne la VM con [az vm deallocate](/cli//azure/vm). A continuación, establezca el estado de la máquina virtual como generalizado con [az vm generalize](/cli//azure/vm) para que la plataforma Azure sepa que la máquina virtual está preparada para usarla como imagen personalizada. Solo se puede crear una imagen de una máquina virtual generalizada:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -122,7 +122,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 
 ## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
-Para permitir que el tráfico llegue al conjunto de escalado y comprobar que el servidor web funciona correctamente, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule#create). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb* que permite tráfico en el puerto *TCP* *80*:
+Para permitir que el tráfico llegue al conjunto de escalado y comprobar que el servidor web funciona correctamente, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb* que permite tráfico en el puerto *TCP* *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Para ver el conjunto de escalado en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip#show). En el ejemplo siguiente se obtiene la dirección IP de *myScaleSetLBPublicIP* que se ha creado como parte del conjunto de escalado:
+Para ver el conjunto de escalado en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip show](/cli/azure/network/public-ip). En el ejemplo siguiente se obtiene la dirección IP de *myScaleSetLBPublicIP* que se ha creado como parte del conjunto de escalado:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -152,7 +152,7 @@ Escriba la dirección IP pública en un explorador web. Se muestra la página we
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group#az_group_delete). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
+Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [az group delete](/cli/azure/group). El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
