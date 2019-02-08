@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 437ab5fe8eec2a7c097805f3328df4dd9a2398c6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752252"
+ms.locfileid: "55769959"
 documentType: LandingData
 title: Documentación de Azure SQL Database
 metadata:
@@ -110,18 +110,18 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: Crear una instancia administrada
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Creación de un grupo elástico
       values:
       - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Crear una instancia administrada
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Tutoriales detallados
   items:
   - type: paragraph
@@ -129,11 +129,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Empiece a trabajar con <a href="/azure/sql-database/sql-database-quickstart-guide">bases de datos singleton</a> e <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">instancias administradas</a> con nuestros inicios rápidos.
+    - html: Empiece a trabajar con <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">una base de datos única</a> y una <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">instancia administrada</a> con nuestros inicios rápidos.
     - html: Creación y diseño del esquema de una nueva base de datos única mediante <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: Migración de una base de datos existente a Azure mediante <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> o <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
+    - html: Migración de una base de datos existente a Azure mediante <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">un archivo de copia de seguridad de SQL Server nativo</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Data Migration Assistant</a> o mediante la <a href="/azure/sql-database/sql-database-import">importación de un archivo de BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Protección de la base de datos de SQL Database</a>
-    - html: Distribución de los datos globalmente mediante una <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de datos distribuida geográficamente</a>
+    - html: Distribución global de los datos mediante una <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de datos distribuida geográficamente</a>
 - title: Desarrollo de aptitudes con Microsoft Learn
   items:
   - type: list

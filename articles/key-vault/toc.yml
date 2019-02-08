@@ -38,10 +38,12 @@ items:
         href: tutorial-net-windows-virtual-machine.md
       - name: Python
         href: tutorial-python-windows-virtual-machine.md
-  - name: 'Integración de Azure Storage Key Vault: Claves de cuentas de almacenamiento administradas en la CLI de Azure'
-    href: key-vault-ovw-storage-keys.md
-  - name: 'Integración de Azure Storage Key Vault: Claves de cuentas de almacenamiento administradas en PowerShell'
-    href: key-vault-overview-storage-keys-powershell.md
+  - name: Claves de cuenta de almacenamiento
+    items:
+    - name: Claves de cuenta de almacenamiento administrada mediante la CLI de Azure
+      href: key-vault-ovw-storage-keys.md
+    - name: 'Integración de Azure Storage Key Vault: Claves de cuentas de almacenamiento administradas en PowerShell'
+      href: key-vault-overview-storage-keys-powershell.md
   - name: Contenedores de Azure
     href: ../container-instances/container-instances-managed-identity.md
   - name: Plantilla de Azure Resource Manager
@@ -169,9 +171,9 @@ items:
     href: http://blogs.technet.com/b/kv/
 - name: Comentarios sobre el producto
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: d45c81e50aca7dbfdcaac9a4094dd1158772d7b9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 842530e7925388acec38ac04ee01bded101d5329
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815462"
