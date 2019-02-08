@@ -1,23 +1,18 @@
 ---
 title: Azure Service Health | Microsoft Docs
 description: Azure Service Health es un conjunto de experiencias que proporcionan guía y soporte técnico personalizados cuando aparecen problemas en los servicios de Azure.
-services: Azure Service Health
-author: czeumault
-manager: carolz
+author: stephbaron
 layout: LandingPage
-ms.assetid: ''
 ms.service: service-health
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/27/2018
-ms.author: carolz
-ms.openlocfilehash: ff22fb228b2b3fc2c456fbf272f0696136d35c38
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: stbaron
+ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262745"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881934"
 ---
 # <a name="azure-service-health-documentation"></a>Documentación de Azure Service Health
 
@@ -121,7 +116,24 @@ Conjuntamente, estas experiencias proporcionan una vista completa del estado de 
         </div>
         </a>
     </li>
-
+    <li>
+        <a href="./resource-health-alert-arm-template-guide.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/article.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Recepción de notificaciones en caso de que el recurso de Azure no esté disponible</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
