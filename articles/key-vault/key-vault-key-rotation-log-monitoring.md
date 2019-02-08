@@ -269,7 +269,7 @@ A continuación, debe [crear una función de Azure](../azure-functions/functions
 
 Para crear una función de Azure, elija **Crear un recurso**, busque _Function App_ en Marketplace y haga clic en **Crear**. Durante el proceso de creación, puede usar un plan de hospedaje existente o crear uno nuevo. También puede utilizar un plan de hospedaje dinámico. Encontrará más información sobre las opciones de hospedaje de funciones en [Escalado de Azure Functions](../azure-functions/functions-scale.md).
 
-Una vez creada la función de Azure, acceda a ella y elija una función de temporizador y C\#. A continuación, haga clic en **Crear esta función.
+Una vez creada la función de Azure, acceda a ella y elija una función de temporizador y C\#. A continuación, haga clic en **Crear esta función**
 
 ![Hoja de inicio de Azure Functions](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 

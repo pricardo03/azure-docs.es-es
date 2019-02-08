@@ -118,7 +118,7 @@ Abra la hoja del Explorador para mostrar los datos de rendimiento agregados de l
 
 ![En portal.azure.com, abra el recurso de la aplicación y haga clic en Configuración, Explorador](./media/javascript/03.png)
 
-¿Aún no hay datos? Haga clic en **Actualizar en la parte superior de la página. ¿Todavía nada? Vea [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md).
+¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página. ¿Todavía nada? Vea [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md).
 
 La hoja Explorador es una [hoja del Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) con filtros y selecciones de gráfico preestablecidos. Si lo desea, puede editar el intervalo de tiempo, los filtros y la configuración de los gráficos y guardar el resultado como favorito. Haga clic en **Restaurar valores predeterminados** para volver a la configuración original de la hoja.
 

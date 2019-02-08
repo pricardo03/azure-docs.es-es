@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102133"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751912"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -117,7 +117,7 @@ Si va a usar un proxy de firewall basado en direcciones URL para controlar la co
 
 **El recopilador no se puede conectar a Internet debido a un error de validación del certificado**
 
-Esto puede ocurrir si usa un proxy de interceptación para conectarse a Internet, y si no ha importado el certificado de proxy en la máquina virtual del recopilador. Puede importar el certificado de proxy mediante los pasos detallados [aquí](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Esto puede ocurrir si usa un proxy de interceptación para conectarse a Internet, y si no ha importado el certificado de proxy en la máquina virtual del recopilador. Puede importar el certificado de proxy mediante los pasos detallados [aquí](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **El recopilador no se puede conectar al proyecto con el identificador de proyecto y la clave que copié del portal**
 
@@ -172,7 +172,7 @@ Este problema podría producirse debido a un problema con la instalación de VMw
 
 No se puede conectar con vCenter Server "Servername.com:9443" por el siguiente error: There was no endpoint listening at https://Servername.com:9443/sdk that could accept the message (No había ningún punto de conexión escuchando en https://Servername.com:9443/sdk que pudiera aceptar el mensaje).
 
-Compruebe si está ejecutando la versión más reciente del dispositivo recopilador; de lo contrario, actualice el dispositivo a la [última versión](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Compruebe si está ejecutando la versión más reciente del dispositivo recopilador; de lo contrario, actualice el dispositivo a la [última versión](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Si el problema persiste con la última versión, es posible que el equipo recopilador no pueda resolver el nombre de vCenter Server especificado o que el puerto especificado sea incorrecto. De forma predeterminada, si no se especifica el puerto, el recopilador intentará conectarse el puerto número 443.
 

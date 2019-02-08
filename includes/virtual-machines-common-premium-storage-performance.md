@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553492"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757511"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Diseño de alto rendimiento
 
@@ -464,7 +464,7 @@ Usaremos cuatro subprocesos de trabajo para realizar las operaciones de escritur
 *IOPS de escritura máxima*  
  Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de escritura máxima. Asígnele el nombre "fiowrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Mientras se ejecuta la prueba, podrá ver el número de IOPS de escritura que en
 *IOPS de lectura máxima*  
  Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura máxima. Asígnele el nombre "fioread.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura que env�
 *IOPS de lectura y escritura máxima*  
  Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura y escritura combinadas máxima. Asígnele el nombre "fioreadwrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
