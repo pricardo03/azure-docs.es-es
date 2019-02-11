@@ -10,16 +10,16 @@ ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: a38158467664eb12b388ad6bdc4bb5d783aa8762
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283605"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979675"
 ---
-# <a name="media-services-documentation"></a>Documentación de Media Services
+# <a name="media-services-documentation-legacy"></a>Documentación de Media Services (heredada)
 
 Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo con Media Services, una plataforma en la nube extensible. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
 
@@ -191,7 +191,7 @@ Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en dir
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lenguajes</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
                    </div>
                 </div>

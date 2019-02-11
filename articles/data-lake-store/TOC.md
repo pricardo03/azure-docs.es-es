@@ -1,5 +1,5 @@
 # [Documentación de Data Lake Storage Gen1](index.md)
-# [Cambio a la documentación de Data Lake Storage Gen2 (versión preliminar)](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Cambio a la documentación de Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Información general
 ## [Introducción a Data Lake Storage Gen1](data-lake-store-overview.md)

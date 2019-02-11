@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e2fcdac282d0cca9fe993efdaf787e43c2b6e9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433823"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869201"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentación de Azure Data Lake Storage Gen1
 
-Aprenda cómo usar Azure Data Lake Storage Gen1 (anteriormente conocido como Azure Data Lake Store) para crear un repositorio de gran escala compatible con Hadoop para analizar datos de cualquier tamaño, tipo y velocidad de ingesta. Los tutoriales, referencias de API y otra documentación muestran cómo configurar, administrar y acceder a un repositorio de Data Lake para realizar análisis operativos y exploratorios.
+Azure Data Lake Storage Gen2 ya está disponible con carácter general. Se recomienda que empiece a usarlo hoy mismo. Para más información, consulte la [página del producto](https://aka.ms/adlsgen2-product).
 
-Si está interesado en conocer la versión preliminar de Data Lake Storage Gen2, consulte la [página del producto](https://aka.ms/adlsgen2-product).
+Aprenda cómo usar Azure Data Lake Storage Gen1 (anteriormente conocido como Azure Data Lake Store) para crear un repositorio de gran escala compatible con Hadoop para analizar datos de cualquier tamaño, tipo y velocidad de ingesta. Los tutoriales, referencias de API y otra documentación muestran cómo configurar, administrar y acceder a un repositorio de Data Lake para realizar análisis operativos y exploratorios.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -193,7 +193,7 @@ Si está interesado en conocer la versión preliminar de Data Lake Storage Gen2,
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lenguajes</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
