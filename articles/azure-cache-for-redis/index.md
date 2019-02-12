@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9204e12abbbdfdf9ac303497b828ebc39a629f37
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cd7cb65f6f76987eb891759bb50f4bb92b2e6234
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198333"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098825"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>Documentación de Azure Cache for Redis
 
@@ -205,8 +205,8 @@ Aprenda a usar Azure Cache for Redis, un agente de mensajería y memoria caché 
                 <div class="card">
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
-                        <p><a href="/powershell/module/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/azure/redis">Versión preliminar de la CLI de Azure 2.0</a></p>
+                        <p><a href="/powershell/module/az.rediscache">PowerShell</a></p>
+                        <p><a href="/cli/azure/redis">CLI de Azure</a></p>
                     </div>
                 </div>
             </div>
@@ -217,7 +217,7 @@ Aprenda a usar Azure Cache for Redis, un agente de mensajería y memoria caché 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Lenguajes</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.redis.rediscache">Java</a></p>
                         <p><a href="https://redis.io/clients">Clientes de Redis</a></p>
