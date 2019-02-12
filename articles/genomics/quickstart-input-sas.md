@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733504"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749030"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo a Microsoft Genomics mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento 
 
@@ -32,12 +32,12 @@ Se necesitan dos o más tokens de SAS para cada flujo de trabajo que se envía a
 
 La firma de acceso compartido de los archivos de entrada debe tener las siguientes propiedades:
 1.  Ámbito (cuenta, contenedor, blob): blob
-2.  Expiración: 48 horas a partir de ahora
+2.  Expiración: 48 horas desde ahora
 3.  Permisos: lectura
 
 La firma de acceso compartido del contenedor de salida debe tener las siguientes propiedades:
 1.  Ámbito (cuenta, contenedor, blob): contenedor
-2.  Expiración: 48 horas a partir de ahora
+2.  Expiración: 48 horas desde ahora
 3.  Permisos: lectura, escritura, eliminación
 
 
@@ -45,18 +45,18 @@ La firma de acceso compartido del contenedor de salida debe tener las siguientes
 Hay dos maneras de crear un token de SAS: mediante el Explorador de Azure Storage o mediante programación.  Si va a escribir código, puede construir la firma de acceso compartido por sí mismo o usar el SDK de Azure Storage en el lenguaje que prefiera.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuración: Creación de una SAS mediante el Explorador de Azure Storage
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuración: creación de una SAS mediante el Explorador de Azure Storage
 
 El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una herramienta para administrar los recursos que están almacenados en Azure Storage.  Puede obtener más información sobre cómo usar el Explorador de Azure Storage [aquí](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
+La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
 
  ![Genomics SAS Explorador de Storage](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Explorador de Storage")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Configuración: Creación de una firma de acceso compartido mediante programación
+### <a name="set-up-create-a-sas-programattically"></a>Configuración: creación de una firma de acceso compartido mediante programación
 
-Para crear una firma de acceso compartido mediante el SDK de Azure Storage, consulte la documentación existente para varios lenguajes, entre los que se incluyen [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) y [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
+Para crear una firma de acceso compartido mediante el SDK de Azure Storage, consulte la documentación existente para varios lenguajes, entre los que se incluyen [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage) y [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Para crear una SAS sin un SDK, la cadena de consulta de la SAS se puede construir directamente incluyendo toda la información necesaria para autenticarla. Estas [instrucciones](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) explican detalladamente los componentes de la cadena de consulta de SAS y cómo construirla. La firma SAS necesaria se crea generando un HMAC con la información de autenticación del blob o contenedor tal y como se describe en estas [instrucciones](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

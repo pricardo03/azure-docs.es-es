@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540391"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812079"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -101,7 +101,7 @@ Aunque no la revisaremos en profundidad, la biblioteca cliente de TSI **tsclient
 
 Los siguientes conceptos son universales y se aplican a las API de biblioteca de cliente de TSI en general.
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 
 Como ya se ha mencionado, este ejemplo es una aplicación de página única que usa la compatibilidad con OAuth 2.0 en ADAL para la autenticación de usuario. Aquí se presentan algunos puntos de interés de esta sección del script:
 
@@ -147,7 +147,7 @@ Las acciones de rellenar y representar controles de gráfico siguen un patrón g
    | `splitByObject`   | La propiedad de cadena por la que desea realizar la división (opcional: puede ser null). | `{property: 'Station', type: 'String'}` |
    | `color`         | El color de los objetos que desea representar. | `'pink'` |
    | `alias`           | Nombre descriptivo para la expresión de agregado. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Matriz de acciones que se enlazará a los objetos de la serie de tiempo en una visualización (opcional). | Para más información, consulte [Menús contextuales emergentes en la sección Características avanzadas](#popup-context-menus). |
+   | `contextMenuActions` | Matriz de acciones que se enlazará a los objetos de la serie de tiempo en una visualización (opcional). | Para más información, consulte Menús contextuales emergentes en la sección Características avanzadas. |
 
 3. Llame a una consulta de TSI mediante las API de `TsiClient.Server` para solicitar los datos de agregado:
 
@@ -260,7 +260,7 @@ La captura de pantalla muestra los gráficos con sus respectivos menús contextu
 
 Los pinceles se usan para definir el ámbito de un intervalo de tiempo para definir acciones como hacer zoom y explorar.
 
-El código que se usa para ilustrar los pinceles se muestra en el ejemplo de "Line Chart with Context Menu to Create Pie/Bar Chart" (Gráfico de líneas con menú contextual para crear gráficos circulares o de barras), en el que se describen los [menús contextuales emergentes](#popup-context-menus-section).
+El código que se usa para ilustrar los pinceles se muestra en el ejemplo de "Line Chart with Context Menu to Create Pie/Bar Chart" (Gráfico de líneas con menú contextual para crear gráficos circulares o de barras), en el que se describen los menús contextuales emergentes.
 
 1. Las acciones de los pinceles se parecen mucho a las de un menú contextual en que definen una serie de acciones personalizadas para el pincel. Cada acción contiene una matriz con uno o varios elementos. Cada elemento define un elemento de menú contextual único:
    - `name`: el texto que se usa para el elemento de menú: "Imprimir parámetros en la consola".

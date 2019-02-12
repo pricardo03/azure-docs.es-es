@@ -1,6 +1,6 @@
 ---
 title: Seguridad de Instancia administrada de Azure SQL Database mediante inicios de sesión de Azure AD | Microsoft Docs
-description: Conozca las técnicas y características para proteger una Instancia administrada en Azure SQL Database y utilice inicios de sesión de Azure AD.
+description: Conozca las técnicas y características para proteger una instancia administrada en Azure SQL Database y usar los inicios de sesión de Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229140"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732777"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Tutorial: Seguridad de la Instancia administrada en Azure SQL Database mediante inicios de sesión de Azure AD
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Tutorial: Seguridad de Instancia administrada de Azure SQL Database mediante inicios de sesión de Azure AD
 
-Instancia administrada de Azure SQL Database proporciona casi todas las características de seguridad que tiene el último motor de base de datos de SQL Server local (Enterprise Edition):
+Instancia administrada proporciona casi todas las características de seguridad que tiene el último motor de base de datos de SQL Server local (Enterprise Edition):
 
 - Límite del acceso en un entorno aislado
 - Uso de mecanismos de autenticación que requieran la identidad (Azure AD, autenticación de SQL)
@@ -29,8 +29,8 @@ Instancia administrada de Azure SQL Database proporciona casi todas las caracter
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> - Crear un inicio de sesión de Azure Active Directory (AD) para Instancias administradas
-> - Conceder permisos a los inicios de sesión de Azure AD en Instancias administradas
+> - Crear un inicio de sesión de Azure Active Directory (AD) para una instancia administrada
+> - Conceder permisos a los inicios de sesión de Azure AD en una instancia administrada
 > - Crear usuarios de Azure AD desde los inicios de sesión de Azure AD
 > - Asignar permisos a usuarios de Azure AD y administrar la seguridad de base de datos
 > - Usar la suplantación con usuarios de Azure AD
@@ -38,40 +38,40 @@ En este tutorial, aprenderá a:
 > - Aprenda sobre las características de seguridad, como la protección contra amenazas, la auditoría, el enmascaramiento de datos y el cifrado.
 
 > [!NOTE]
-> Los inicios de sesión de Azure AD para Instancia administrada de SQL Database se encuentran en **versión preliminar pública**.
+> Los inicios de sesión de Azure AD para instancias administradas se encuentran en **versión preliminar pública**.
 
-Para más información, consulte los artículos de [introducción a Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y de [funcionalidades](sql-database-managed-instance.md).
+Para más información, consulte los artículos de [introducción a Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y sus [funcionalidades](sql-database-managed-instance.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar el tutorial, asegúrese de que cuenta con estos requisitos previos:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
-- Instancia administrada de Azure SQL Database
-    - Siga este artículo: [Inicio rápido: Creación de una Instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started.md)
-- Poder acceder a la Instancia administrada de Azure SQL Database y [aprovisionar un administrador de Azure AD para la Instancia administrada](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Para obtener más información, consulte:
-    - [Conexión de la aplicación a Instancia administrada de Azure SQL Database](sql-database-managed-instance-connect-app.md) 
-    - [Arquitectura de conectividad de Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md)
+- Una instancia administrada de Azure SQL Database
+  - Siga este artículo: [Inicio rápido: Creación de una Instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started.md)
+- Poder acceder a la instancia administrada y [aprovisionar un administrador de Azure AD para ella](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Para obtener más información, consulte:
+    - [Conexión de aplicaciones a una instancia administrada](sql-database-managed-instance-connect-app.md). 
+    - [Arquitectura de conectividad de la instancia administrada](sql-database-managed-instance-connectivity-architecture.md)
     - [Configuración y administración de la autenticación de Azure Active Directory con SQL](sql-database-aad-authentication-configure.md)
 
-## <a name="limiting-access-to-your-managed-instance"></a>Límite del acceso a Instancia administrada
+## <a name="limiting-access-to-your-managed-instance"></a>Límite del acceso a la instancia administrada
 
-Solo se puede acceder a las Instancias administradas mediante una dirección IP privada. No hay puntos de conexión de servicio disponibles para conectarse a una Instancia administrada desde fuera de la red de Instancia administrada. Al igual que un entorno aislado de SQL Server local, las aplicaciones o los usuarios necesitan tener acceso a la red de Instancia administrada (VNet) antes de que se pueda establecer una conexión. Para más información, consulte el artículo [Conexión de la aplicación a Instancia administrada de Azure SQL Database](sql-database-managed-instance-connect-app.md).
+Solo se puede acceder a las instancias administradas mediante una dirección IP privada. No hay puntos de conexión de servicio disponibles para conectarse a una instancia administrada desde fuera de la red de instancia administrada. Al igual que en un entorno aislado de SQL Server local, las aplicaciones o los usuarios necesitan acceso a la red de instancia administrada (VNet) antes de que se pueda establecer una conexión. Para más información, consulte el artículo [Conexión de la aplicación a una instancia administrada](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
-> Dado que solo se puede acceder a las Instancias administradas dentro de su red virtual, no se aplican [las reglas de firewall de SQL Database](sql-database-firewall-configure.md). Instancias administradas tienen su propio [firewall integrado](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Dado que solo se puede acceder a las instancias administradas dentro de su red virtual, no se aplican [las reglas de firewall de SQL Database](sql-database-firewall-configure.md). Las instancias administradas tienen su propio [firewall integrado](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Creación de un inicio de sesión de Azure AD para una Instancia administrada mediante SSMS
+## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Creación de un inicio de sesión de Azure AD para una instancia administrada mediante SSMS
 
-El primer inicio de sesión de Azure AD lo debe crear la cuenta estándar de SQL Server (no Azure AD) con el rol de `sysadmin`. Consulte en los artículos siguientes ejemplos de conexión a la Instancia administrada:
+El primer inicio de sesión de Azure AD lo debe crear la cuenta estándar de SQL Server (no Azure AD) con el rol de `sysadmin`. Consulte los artículos siguientes para ver ejemplos de conexión a la instancia administrada:
 
-- [Inicio rápido: Configuración de una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vm.md)
-- [Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md)
+- [Inicio rápido: Configuración de una máquina virtual de Azure para conectarse a una instancia administrada](sql-database-managed-instance-configure-vm.md)
+- [Inicio rápido: Configuración de una conexión de punto a sitio a una instancia administrada desde el entorno local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> El administrador de Azure AD usado para configurar la Instancia administrada no se puede usar para crear un inicio de sesión de Azure AD dentro de la Instancia administrada. Debe crear el primer inicio de sesión de Azure AD con una cuenta de SQL Server que sea un `sysadmin`. Se trata de una limitación temporal que se quitará cuando los inicios de sesión de Azure AD se conviertan en disponibilidad general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> El administrador de Azure AD usado para configurar la instancia administrada no se puede usar para crear un inicio de sesión de Azure AD dentro de la instancia administrada. Debe crear el primer inicio de sesión de Azure AD con una cuenta de SQL Server que sea un `sysadmin`. Se trata de una limitación temporal que se quitará cuando los inicios de sesión de Azure AD se conviertan en disponibilidad general. Si intenta usar una cuenta de administrador de Azure AD para crear el inicio de sesión, verá el siguiente error: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
-1. Inicie sesión en la Instancia administrada mediante una cuenta estándar de SQL Server (que no sea de Azure AD) que sea un `sysadmin`, mediante [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Inicie sesión en la instancia administrada con una cuenta estándar de SQL Server (no de Azure AD) que sea `sysadmin`, mediante [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 
@@ -107,7 +107,7 @@ El primer inicio de sesión de Azure AD lo debe crear la cuenta estándar de SQL
 
 Para más información, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
-## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Concesión de permisos para permitir la creación de inicios de sesión de Instancia administrada
+## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Concesión de permisos para permitir la creación de inicios de sesión de instancia administrada
 
 Para crear otros inicios de sesión de Azure AD, se deben otorgar roles o permisos de SQL Server a la entidad de seguridad (SQL o Azure AD).
 
@@ -120,11 +120,11 @@ Para crear otros inicios de sesión de Azure AD, se deben otorgar roles o permis
 - Para permitir que el inicio de sesión de Azure AD recién creado pueda crear otros inicios de sesión para otros usuarios, grupos o aplicaciones de Azure AD, conceda el rol de servidor `sysadmin` o `securityadmin` de inicio de sesión. 
 - Como mínimo, se debe conceder el permiso **ALTER ANY LOGIN** al inicio de sesión de Azure AD para crear otros inicios de sesión de Azure AD. 
 - De forma predeterminada, el permiso estándar concedido a los nuevos inicios de sesión de Azure AD es: **CONNECT SQL** y **VIEW ANY DATABASE**.
-- El rol de servidor `sysadmin` se puede conceder a muchos inicios de sesión de Azure AD dentro de una Instancia administrada.
+- El rol de servidor `sysadmin` se puede conceder a muchos inicios de sesión de Azure AD dentro de una instancia administrada.
 
 Para agregar el inicio de sesión para el rol de servidor `sysadmin`:
 
-1. Vuelva a iniciar sesión en la Instancia administrada o use la conexión existente con la entidad de seguridad SQL que sea un `sysadmin`.
+1. Vuelva a iniciar sesión en la instancia administrada o use la conexión existente con la entidad de seguridad SQL que tenga el rol `sysadmin`.
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 
@@ -146,7 +146,7 @@ Para agregar el inicio de sesión para el rol de servidor `sysadmin`:
 
 Cuando se ha creado el inicio de sesión de Azure AD y se ha provisto con los privilegios `sysadmin`, ese inicio de sesión puede crear inicios de sesión adicionales mediante la cláusula **FROM EXTERNAL PROVIDER** con **CREATE LOGIN**.
 
-1. Conéctese al servidor de Instancia administrada con el inicio de sesión de Azure AD, mediante SQL Server Management Studio. Escriba el nombre de servidor de la Instancia administrada. Para la autenticación en SSMS, hay tres opciones para elegir al iniciar sesión con una cuenta de AD de Azure:
+1. Conéctese a la instancia administrada con el inicio de sesión de Azure AD mediante SQL Server Management Studio. Escriba el nombre de host de la instancia administrada. Para la autenticación en SSMS, hay tres opciones para elegir al iniciar sesión con una cuenta de AD de Azure:
 
     - Active Directory - Universal compatible con MFA
     - Active Directory - Contraseña
@@ -172,7 +172,7 @@ Cuando se ha creado el inicio de sesión de Azure AD y se ha provisto con los pr
 
     En este ejemplo se crea un inicio de sesión para el usuario de Azure AD bob@aadsqlmi.net, cuyo dominio aadsqlmi.net está federado con el dominio aadsqlmi.onmicrosoft.com de Azure AD.
 
-    Ejecute el siguiente comando T-SQL. Las cuentas de Azure AD federadas son los reemplazos de Instancia administrada para usuarios e inicios de sesión de Windows locales.
+    Ejecute el siguiente comando T-SQL. Las cuentas de Azure AD federadas son los reemplazos de instancia administrada para usuarios e inicios de sesión de Windows locales.
 
     ```sql
     USE master
@@ -181,7 +181,7 @@ Cuando se ha creado el inicio de sesión de Azure AD y se ha provisto con los pr
     GO
     ```
 
-1. Cree una base de datos en la Instancia administrada mediante la sintaxis [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Esta base de datos se usará para probar los inicios de sesión de usuario en la sección siguiente.
+1. Cree una base de datos en la instancia administrada con la sintaxis [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Esta base de datos se usará para probar los inicios de sesión de usuario en la sección siguiente.
     1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
     1. En la ventana de consulta, utilice la siguiente sintaxis para crear una base de datos denominada **MyMITestDB**.
 
@@ -190,7 +190,7 @@ Cuando se ha creado el inicio de sesión de Azure AD y se ha provisto con los pr
         GO
         ```
 
-1. Cree un inicio de sesión de Instancia administrada para un grupo de Azure AD. El grupo tendrá que existir en Azure AD antes de que pueda agregar el inicio de sesión a Instancia administrada. Consulte [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Cree un grupo _mygroup_ y agregue miembros a este grupo.
+1. Cree un inicio de sesión de instancia administrada para un grupo de Azure AD. El grupo deberá existir en Azure AD antes de poder agregar el inicio de sesión a la instancia administrada. Consulte [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Cree un grupo _mygroup_ y agregue miembros a este grupo.
 
 1. Abra una nueva ventana de consulta en SQL Server Management Studio.
 
@@ -203,7 +203,7 @@ Cuando se ha creado el inicio de sesión de Azure AD y se ha provisto con los pr
     GO
     ```
 
-1. Como prueba, inicie sesión en la Instancia administrada con el inicio de sesión o grupo que se acaba de crear. Abra una nueva conexión a la Instancia administrada y use el nuevo inicio de sesión al autenticar.
+1. Como prueba, inicie sesión en la instancia administrada con el inicio de sesión o grupo que se acaban de crear. Abra una nueva conexión a la instancia administrada y use el nuevo inicio de sesión al autenticarse.
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta** para la nueva conexión.
 1. Compruebe los permisos del servidor para el nuevo inicio de sesión de Azure AD mediante la ejecución del siguiente comando:
 
@@ -213,13 +213,13 @@ Cuando se ha creado el inicio de sesión de Azure AD y se ha provisto con los pr
     ```
 
 > [!NOTE]
-> Los usuarios invitados de Azure AD son compatibles con los inicios de sesión de Instancia administrada, solo cuando se agregan como parte de un grupo de Azure AD. Un usuario invitado de Azure AD es una cuenta que se ha invitado a la instancia de Azure AD a la que pertenece la Instancia administrada, desde otra instancia de Azure AD. Por ejemplo, joe@contoso.com (cuenta de Azure AD) o steve@outlook.com (cuenta MSA) pueden agregarse a un grupo en el dominio aadsqlmi de Azure AD. Una vez que los usuarios se agregan a un grupo, se puede crear un inicio de sesión en la base de datos **maestra** de la Instancia administrada para el grupo mediante la sintaxis **CREATE LOGIN**. Los usuarios invitados que son miembros de este grupo pueden conectarse a la Instancia administrada con sus nombres de usuario actuales (por ejemplo, joe@contoso.com o steve@outlook.com).
+> Se admiten usuarios invitados de Azure AD en los inicios de sesión de instancia administrada, solo cuando se agregan como parte de un grupo de Azure AD. Un usuario invitado de Azure AD es una cuenta que se ha invitado a la instancia de Azure AD a la que pertenece la instancia administrada, desde otra instancia de Azure AD. Por ejemplo, joe@contoso.com (cuenta de Azure AD) o steve@outlook.com (cuenta MSA) pueden agregarse a un grupo en el dominio aadsqlmi de Azure AD. Una vez que los usuarios se agregan a un grupo, se puede crear un inicio de sesión en la base de datos **maestra** de la instancia administrada para el grupo mediante la sintaxis **CREATE LOGIN**. Los usuarios invitados que son miembros de este grupo pueden conectarse a la instancia administrada con sus inicios de sesión actuales (por ejemplo, joe@contoso.com o steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Creación de un usuario de Azure AD desde el inicio de sesión de Azure AD y concesión de permisos
 
-La autorización para bases de datos individuales funciona de forma muy similar en Instancia administrada que con SQL Server local. Se puede crear un usuario a partir de un inicio de sesión existente en una base de datos y se le pueden proporcionar permisos sobre esa base de datos, o agregarse a un rol de base de datos.
+La autorización en bases de datos individuales funciona de forma muy parecida en la instancia administrada que con SQL Server local. Se puede crear un usuario a partir de un inicio de sesión existente en una base de datos y se le pueden proporcionar permisos sobre esa base de datos, o agregarse a un rol de base de datos.
 
-Ahora que hemos creado una base de datos llamada **MyMITestDB** y un inicio de sesión que solo tiene permisos predeterminados, el siguiente paso es crear un usuario a partir de ese inicio de sesión. Por el momento, el inicio de sesión puede conectarse a la Instancia administrada y ver todas las bases de datos, pero no puede interactuar con las bases de datos. Si inicia sesión con la cuenta de Azure AD que tiene los permisos predeterminados e intenta expandir la base de datos recientemente creada, verá el siguiente error:
+Ahora que hemos creado una base de datos llamada **MyMITestDB** y un inicio de sesión que solo tiene permisos predeterminados, el siguiente paso es crear un usuario a partir de ese inicio de sesión. Por el momento, el inicio de sesión puede conectarse a la instancia administrada y ver todas las bases de datos, pero no puede interactuar con las bases de datos. Si inicia sesión con la cuenta de Azure AD que tiene los permisos predeterminados e intenta expandir la base de datos recientemente creada, verá el siguiente error:
 
 ![ssms-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
@@ -227,7 +227,7 @@ Para más información sobre la concesión de permisos de base de datos, consult
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Creación de un usuario de Azure AD y creación de una tabla de ejemplo
 
-1. Inicie sesión en la Instancia administrada con una cuenta de `sysadmin` mediante SQL Server Management Studio.
+1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 1. En la ventana de consulta, utilice la siguiente sintaxis para crear un usuario de Azure AD a partir de un inicio de sesión de Azure AD:
 
@@ -292,7 +292,7 @@ Para más información sobre la concesión de permisos de base de datos, consult
 
 Para que el usuario vea los datos en la base de datos, hay que proporcionar [roles de nivel de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) al usuario.
 
-1. Inicie sesión en la Instancia administrada con una cuenta de `sysadmin` mediante SQL Server Management Studio.
+1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 
@@ -322,7 +322,7 @@ Para que el usuario vea los datos en la base de datos, hay que proporcionar [rol
     GO
     ```
 
-1. Cree una nueva conexión a la Instancia administrada con el usuario que se ha agregado al rol `db_datareader`.
+1. Cree una nueva conexión a la instancia administrada con el usuario al que se le ha agregado el rol `db_datareader`.
 1. Expanda la base de datos en el **Explorador de objetos** para ver la tabla.
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
@@ -340,11 +340,11 @@ Para que el usuario vea los datos en la base de datos, hay que proporcionar [rol
 
 ## <a name="impersonating-azure-ad-server-level-principals-logins"></a>Suplantación de entidades de seguridad de nivel de servidor de Azure AD (inicios de sesión)
 
-La Instancia administrada admite la suplantación de las entidades de seguridad a nivel de servidor de Azure AD (inicios de sesión).
+La instancia administrada admite la suplantación de las entidades de seguridad a nivel de servidor de Azure AD (inicios de sesión).
 
 ### <a name="test-impersonation"></a>Prueba de suplantación
 
-1. Inicie sesión en la Instancia administrada con una cuenta de `sysadmin` mediante SQL Server Management Studio.
+1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 
@@ -381,11 +381,11 @@ La Instancia administrada admite la suplantación de las entidades de seguridad 
 > - EXECUTE AS USER
 > - EXECUTE AS LOGIN
 
-## <a name="using-cross-database-queries-in-managed-instances"></a>Uso de consultas entre bases de datos en las Instancias administradas
+## <a name="using-cross-database-queries-in-managed-instances"></a>Uso de consultas entre bases de datos en instancias administradas
 
 Se admiten las consultas entre bases de datos para las cuentas de Azure AD con inicios de sesión de Azure AD. Para probar una consulta entre bases de datos con un grupo de Azure AD, hay que crear otra base de datos y una tabla. Puede omitir la creación de otra base de datos y tabla si ya existe una.
 
-1. Inicie sesión en la Instancia administrada con una cuenta de `sysadmin` mediante SQL Server Management Studio.
+1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
 1. En la ventana de consulta, utilice el siguiente comando para crear una base de datos denominada **MyMITestDB2** y una tabla llamada **TestTable2**:
 
@@ -414,7 +414,7 @@ Se admiten las consultas entre bases de datos para las cuentas de Azure AD con i
     GO
     ```
 
-1. Inicie sesión en la Instancia administrada mediante SQL Server Management Studio como miembro del grupo _mygroup_ de Azure AD. Abra una nueva ventana de consulta y ejecute la instrucción SELECT entre las bases de datos:
+1. Inicie sesión en la instancia administrada mediante SQL Server Management Studio como miembro del grupo _mygroup_ de Azure AD. Abra una nueva ventana de consulta y ejecute la instrucción SELECT entre las bases de datos:
 
     ```sql
     USE MyMITestDB
@@ -439,7 +439,7 @@ Se admiten las consultas entre bases de datos para las cuentas de Azure AD con i
 
 ### <a name="enable-security-features"></a>Habilitar características de seguridad
 
-Consulte el siguiente artículo [Funcionalidades de Instancia administrada](sql-database-managed-instance.md#azure-sql-database-security-features) para obtener una lista completa de formas de proteger la base de datos. Se abordan las características de seguridad siguientes:
+Consulte el siguiente artículo sobre las [características de seguridad de las funcionalidades de la instancia administrada](sql-database-managed-instance.md#azure-sql-database-security-features) para obtener una lista completa de formas de proteger la base de datos. Se abordan las características de seguridad siguientes:
 
 - [Auditoría de Instancia administrada](sql-database-managed-instance-auditing.md) 
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
@@ -448,9 +448,9 @@ Consulte el siguiente artículo [Funcionalidades de Instancia administrada](sql-
 - [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) 
 - [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Funcionalidades de Instancia administrada
+### <a name="managed-instance-capabilities"></a>Funcionalidades de instancia administrada
 
-Para una introducción general completa de las funcionalidades de Instancia administrada de Azure SQL Database, consulte:
+Para obtener una visión general completa de las funcionalidades de una instancia administrada, consulte:
 
 > [!div class="nextstepaction"]
 > [Funcionalidades de Instancia administrada](sql-database-managed-instance.md)

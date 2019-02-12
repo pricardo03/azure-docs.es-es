@@ -15,14 +15,14 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: f2b0cd404c0c5ee94b669f366abc79353096a5a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241419"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561202"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de servicios de confianza .NET en Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de .NET Reliable Services en Service Fabric
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables.
 
@@ -36,7 +36,6 @@ Mediante el uso de esta aplicación, aprenderá a hacer lo siguiente:
 * Usar ASP.NET Core como front-end web
 * Almacenar datos de la aplicación en un servicio con estado
 * Depurar la aplicación de forma local
-* Implementar la aplicación en un clúster en Azure
 * Escalar horizontalmente la aplicación en varios nodos
 * Realizar una actualización gradual de aplicaciones
 
@@ -50,6 +49,27 @@ Para completar esta guía de inicio rápido:
 4. Ejecute el comando siguiente para permitir que Visual Studio implemente en el clúster de Service Fabric local:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+    ```
+    
+## <a name="build-a-cluster"></a>Compilación de un clúster
+
+Después de instalar el entorno de ejecución, los SDK, las herramientas de Visual Studio y Docker, y de que Docker se ejecute, cree un clúster de desarrollo local de cinco nodos.
+
+> [!IMPORTANT]
+> Se **debe** ejecutar Docker antes de poder compilar un clúster.
+> Compruebe que Docker se está ejecutando. Para ello, abra una ventana de terminal y ejecute `docker ps` para ver si se produce un error. Si la respuesta no indica un error, Docker se está ejecutando y ya está listo para compilar un clúster.
+
+
+1. Abra una nueva ventana de PowerShell con privilegios elevados como administrador.
+2. Ejecute el siguiente comando de PowerShell para crear un clúster de desarrollo:
+
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+    ```
+3. Ejecute el siguiente comando para iniciar la herramienta de administración de clústeres locales:
+
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
 
 >[!NOTE]
@@ -70,14 +90,14 @@ Haga clic con el botón derecho en el icono de Visual Studio en el menú Inicio 
 
 Abra la solución **Voting.sln** de Visual Studio desde el repositorio que ha clonado.
 
-De manera predeterminada, la aplicación Voting está configurada para escuchar en el puerto 8080.  El puerto de la aplicación se establece en el archivo */VotingWeb/PackageRoot/ServiceManifest.xml*.  Puede cambiar el puerto de la aplicación si actualiza el atributo **Port** del elemento **Endpoint**.  Para implementar y ejecutar la aplicación localmente, el puerto de la aplicación debe estar abierto y disponible en el equipo.  Si cambia el puerto de la aplicación, sustituya el nuevo valor de este por “8080” a lo largo de este artículo.
+De manera predeterminada, la aplicación Voting escucha en el puerto 8080.  El puerto de la aplicación se establece en el archivo */VotingWeb/PackageRoot/ServiceManifest.xml*.  Puede cambiar el puerto de la aplicación si actualiza el atributo **Port** del elemento **Endpoint**.  Para implementar y ejecutar la aplicación localmente, el puerto de la aplicación debe estar abierto y disponible en el equipo.  Si cambia el puerto de la aplicación, sustituya el nuevo valor de este por “8080” a lo largo de este artículo.
 
 Pulse **F5** para implementar la aplicación.
 
 > [!NOTE]
-> La primera vez que ejecute e implemente la aplicación, Visual Studio creará un clúster local para la depuración. Es posible que esta operación tarde un tiempo. El estado de creación del clúster se muestra en la ventana de salida de Visual Studio.  En la salida, verá el mensaje "No se ha establecido la dirección URL de la aplicación o no es una dirección HTTP/HTTPS, por lo que no se abrirá el explorador para la aplicación".  Este mensaje no indica un error, sino que un explorador no se inicia de forma automática.
+> En la ventana de salida de Visual Studio, verá el mensaje "No se ha establecido la dirección URL de la aplicación o no es una dirección HTTP/HTTPS, por lo que no se abrirá el explorador para la aplicación".  Este mensaje no indica un error, sino que un explorador no se inicia de forma automática.
 
-Una vez completada la implementación, inicie un explorador y abra la página `http://localhost:8080`, que es el front-end web de la aplicación.
+Una vez completada la implementación, inicie un explorador y abra `http://localhost:8080` para ver el front-end web de la aplicación.
 
 ![Front-end de la aplicación](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
@@ -132,88 +152,6 @@ Para ver lo que ocurre en el código, siga estos pasos:
 
 Para detener la sesión de depuración, presione **Mayús+F5**.
 
-## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
-
-Para implementar la aplicación en Azure, se necesita un clúster de Service Fabric que ejecute la aplicación.
-
-### <a name="join-a-party-cluster"></a>Unirse a un clúster de entidad
-
-Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. El clúster usa un único certificado autofirmado para la seguridad de nodo a nodo y la de cliente a nodo.
-
-Inicie sesión y [únase a un clúster de Windows](https://aka.ms/tryservicefabric). Descargue los certificados PFX en el equipo. Para ello, haga clic en el vínculo **PFX**. Haga clic en el vínculo **How to connect to a secure Party cluster?** (Cómo conectarse a un clúster de entidad segura) y copie la contraseña del certificado. El certificado, la contraseña del certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
-
-![PFX y punto de conexión](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
-
-> [!Note]
-> Hay un número limitado de clústeres de entidad por hora. Si se produce un error al intentar iniciar sesión en un clúster de entidad, puede esperar un tiempo y volver a intentarlo, o puede seguir estos pasos del tutorial [Implementación de una aplicación .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para crear un clúster de Service Fabric en su suscripción de Azure e implementar la aplicación en él. Si aún no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Después de implementar y comprobar la aplicación en el clúster, puede ir directamente a [Escalar aplicaciones y servicios en un clúster](#scale-applications-and-services-in-a-cluster) en esta guía de inicio rápido.
->
-
-En la máquina Windows, instale el archivo PFX en el almacén de certificados *CurrentUser\My*.
-
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
-
-
-   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
-
-Recuerde la huella digital para un paso posterior.
-
-> [!Note]
-> De manera predeterminada, el servicio front-end web está configurado para escuchar en el puerto 8080 el tráfico entrante. El puerto 8080 está abierto en el clúster de entidad.  Si necesita cambiar el puerto de la aplicación, cámbielo a uno de los puertos abiertos en el clúster de entidad.
->
-
-### <a name="deploy-the-application-using-visual-studio"></a>Implementar la aplicación con Visual Studio
-
-Ahora que la aplicación está lista, puede implementarla en un clúster directamente desde Visual Studio.
-
-1. Haga clic con el botón derecho en el proyecto **Voting** en el Explorador de soluciones y seleccione **Publicar**. Aparece el cuadro de diálogo de publicación.
-
-2. Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión**. Por ejemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Haga clic en **Parámetros de conexión avanzada** y compruebe que los valores de *FindValue* y *ServerCertThumbprint* coincidan con la huella digital del certificado instalado en un paso anterior.
-
-    ![Cuadro de diálogo de publicación](./media/service-fabric-quickstart-dotnet/publish-app.png)
-
-    Todas las aplicaciones del clúster deben tener un nombre único.  Sin embargo, los clústeres de entidad son un entorno compartido y público, por lo que es posible que se produzca un conflicto con una aplicación existente.  Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
-
-3. Haga clic en **Publicar**.
-
-4. Abra un explorador y escriba la dirección del clúster seguida de ": 8080" para llegar a la aplicación en el clúster, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Ahora debería ver la aplicación en ejecución en el clúster de Azure.
-
-    ![Front-end de la aplicación](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
-
-## <a name="scale-applications-and-services-in-a-cluster"></a>Escalar aplicaciones y servicios en un clúster
-
-Es fácil escalar servicios de Service Fabric en un clúster para adaptarse a un cambio en la carga en los servicios. Para escalar un servicio, cambie el número de instancias que se ejecutan en el clúster. Existen varias formas de escalar los servicios, ya sea mediante scripts o comandos de PowerShell o la CLI de Service Fabric (sfctl). En este ejemplo, se usa Service Fabric Explorer.
-
-Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y es accesible desde un explorador. Para ello, vaya al puerto de administración HTTP de clústeres (19080), por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-
-Es posible que reciba una advertencia del explorador que le indica que la ubicación no es de confianza. Esto se debe a que se trata de un certificado autofirmado. Puede pasar por alto la advertencia y continuar.
-1. Cuando se lo solicite el explorador, seleccione el certificado instalado para conectarse. El certificado de clúster de entidad que seleccione en la lista debe coincidir con el clúster de entidad al que está intentando acceder. Por ejemplo, win243uja6w62r.westus.cloudapp.azure.com.
-2. Si el explorador se lo pide, conceda acceso a la clave privada de CryptoAPI para esta sesión.
-
-Para escalar el servicio front-end web, siga estos pasos:
-
-1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-
-2. En la vista de árbol, expanda **Applications** (Aplicaciones) ->**VotingType**->**fabric:/Voting**. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
-
-    ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
-
-    Ahora puede escalar el número de instancias del servicio front-end web.
-
-3. Cambie el número a **2** y haga clic en **Scale Service** (Escalar servicio).
-4. Haga clic en el nodo **fabric:/Voting/VotingWeb** en la vista de árbol y expanda el nodo de partición (representado por un GUID).
-
-    ![Escalar servicio de Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
-
-    Tras un pequeño retraso, podrá ver que el servicio tiene dos instancias.  En la vista de árbol puede consultar en qué nodos se ejecutan las instancias.
-
-Mediante esta sencilla tarea de administración, los recursos disponibles para el servicio front-end se duplican para procesar la carga de usuarios. Es importante entender que no hacen falta varias instancias de un servicio para que se ejecute de forma confiable. Si se produce un error en un servicio, Service Fabric se asegurará de que se ejecute una nueva instancia de servicio en el clúster.
-
 ## <a name="perform-a-rolling-application-upgrade"></a>Realizar una actualización gradual de aplicaciones
 
 Al implementar nuevas actualizaciones en la aplicación, Service Fabric implementa la actualización de forma segura. Las actualizaciones graduales eliminan el tiempo de inactividad durante el proceso de actualización y permiten la reversión automática en caso de que se produzcan errores.
@@ -228,14 +166,18 @@ Para actualizar la aplicación, haga lo siguiente:
 6. Cambie la versión del elemento **Code** situado bajo **VotingWebPkg** a "2.0.0", por ejemplo, y haga clic en **Guardar**.
 
     ![Cuadro de diálogo para cambiar versión](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. En el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, active la casilla Actualizar la aplicación y haga clic en **Publicar**.
+7. En el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, active la casilla **Actualizar la aplicación**.
+8.  Cambie **Perfil objetivo** a **PublishProfiles\Local.5Node.xml** y asegúrese de que **Punto de conexión** está establecido en **Clúster local**. 
+9. Seleccione **Actualizar la aplicación**.
 
     ![Configuración de actualización del cuadro de diálogo de publicación](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
+10. Haga clic en **Publicar**.
+
     Mientras se ejecuta la actualización, puede usar la aplicación. Dado que en el clúster se ejecutan dos instancias del servicio, algunas de las solicitudes podrían obtener una versión actualizada de la aplicación, mientras que otras podrían obtener la versión anterior.
 
-8. Abra el explorador y vaya a la dirección del clúster en el puerto 19080, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-9. Haga clic en el nodo **Aplicaciones** en la vista de árbol y, después, en **Upgrades in Progress** (Actualizaciones en curso) en el panel de la derecha. Verá cómo la actualización se aplica en los dominios de actualización del clúster y se asegura de que cada dominio es correcto antes de continuar con el siguiente. Una vez que se haya verificado el estado del dominio, aparecerá uno actualizado en verde en la barra de progreso.
+11. Abra el explorador y vaya a la dirección del clúster en el puerto 19080. Por ejemplo: `http://localhost:19080/`.
+12. Haga clic en el nodo **Aplicaciones** en la vista de árbol y, después, en **Upgrades in Progress** (Actualizaciones en curso) en el panel de la derecha. Verá cómo la actualización se aplica en los dominios de actualización del clúster y se asegura de que cada dominio es correcto antes de continuar con el siguiente. Una vez que se haya verificado el estado del dominio, aparecerá uno actualizado en verde en la barra de progreso.
     ![Vista de actualización en Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric hace que las actualizaciones sean seguras, ya que espera dos minutos después de actualizar el servicio en cada nodo del clúster. El proceso completo de actualización tardará aproximadamente ocho minutos.
@@ -248,7 +190,6 @@ En este tutorial, ha aprendido a hacer lo siguiente:
 * Usar ASP.NET Core como front-end web
 * Almacenar datos de la aplicación en un servicio con estado
 * Depurar la aplicación de forma local
-* Implementar la aplicación en un clúster en Azure
 * Escalar horizontalmente la aplicación en varios nodos
 * Realizar una actualización gradual de aplicaciones
 

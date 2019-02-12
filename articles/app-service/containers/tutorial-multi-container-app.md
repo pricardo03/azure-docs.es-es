@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716045"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657588"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Creación de una aplicación de varios contenedores (versión preliminar) en Web App for Containers
 
@@ -37,6 +37,11 @@ En este tutorial, aprenderá a:
 > * Solución de errores
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>Limitaciones de la característica en vista previa
+La versión de varios contenedores está actualmente en versión preliminar, las siguientes características de la plataforma de App Service no se admiten. Tenemos previsto habilitar estas características para la aplicación web de varios contenedores antes de la disponibilidad general (GA):
+* Autenticación/autorización
+* Identidades administradas
 
 ## <a name="prerequisites"></a>Requisitos previos
 

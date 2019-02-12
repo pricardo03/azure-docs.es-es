@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 167dce168f9adfa59a96c09c62548c7c6e253b09
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 53e975719b911a27667afc8565bd86261f927068
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211413"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820987"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extracción de nombres con una lista de entidades simples y frases
 
@@ -239,7 +239,7 @@ Abra el archivo [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitiv
 
     [![Captura de pantalla donde se muestra el cuadro de diálogo para crear una lista de frases que contiene palabras en el cuadro de valores de la lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. Vuelva a [entrenar](#train) y [publicar](#publish) la aplicación para que use la lista de frases.
+1. Vuelva a entrenar y publicar la aplicación para que use la lista de frases.
 
 1. Vuelva a realizar una consulta en el punto de conexión con la misma expresión: `This is the lead welder paperwork.`
 

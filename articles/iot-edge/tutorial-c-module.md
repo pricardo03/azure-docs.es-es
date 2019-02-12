@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 659d960881f143655e98c6f1d38696f44def3ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055105"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563259"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C en el dispositivo simulado
 
@@ -36,8 +36,8 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 Un dispositivo de Azure IoT Edge:
 
-* Puede usar la máquina de desarrollo o una máquina virtual como dispositivo Edge siguiendo los pasos que se indican en la guía de inicio rápido para dispositivos de [Linux](quickstart-linux.md) o de [Windows](quickstart.md).
-* Los módulos de C para Azure IoT Edge no son compatibles con contenedores de Windows. Si el dispositivo IoT Edge es un equipo Windows, configúrelo para que [use contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+* Puede usar la máquina de desarrollo o una máquina virtual como dispositivo Edge siguiendo los pasos que se indican en la guía de inicio rápido para dispositivos de [Linux](quickstart-linux.md) o de [Windows](quickstart.md). 
+* Los módulos de C para Azure IoT Edge no son compatibles con contenedores de Windows. Si el dispositivo IoT Edge es una máquina Windows, asegúrese de que está configurado para que use contenedores de Linux. Para información sobre las diferencias entre los contenedores de Windows y Linux, consulte [Instalación del entorno de ejecución de Azure IoT Edge en Windows](how-to-install-iot-edge-windows.md).
 
 Recursos en la nube:
 
@@ -49,9 +49,6 @@ Recursos de desarrollo:
 * [Extensión de C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) para Visual Studio Code.
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/).
-
->[!Note]
->Los módulos de C para Azure IoT Edge no son compatibles con contenedores de Windows.
 
 ## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 
@@ -99,7 +96,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
    | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución o acepte el valor predeterminado **EdgeSolution**. |
    | Seleccionar plantilla del módulo | Elija **Módulo C**. |
    | Proporcionar un nombre de módulo | Llame al módulo **CModule**. |
-   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente a partir del último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. La cadena final se parece a \<nombre del registro\>.azurecr.io/cmodule. |
+   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el nombre que proporcionó en el último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/cmodule. |
  
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-c-module/repository.png)
 
@@ -296,7 +293,7 @@ Agregue al módulo C código que le permita leer datos del sensor, compruebe si 
 
 12. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo le indica al agente de IoT Edge qué módulos implementar, en este caso **tempSensor** y **CModule**, y a IoT Edge Hub cómo enrutar los mensajes entre ellos. La extensión de Visual Studio Code rellena de forma automática la mayor parte de la información que necesita en la plantilla de implementación, aunque comprueba que todo sea correcto para la solución: 
 
-   1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **CModule** está establecido en la versión Linux amd64 de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** o **windows-amd64** si esa es la arquitectura del dispositivo de IoT Edge. 
+   1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **CModule** está establecido en la versión amd64 de Linux de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** si esa es la arquitectura del dispositivo de IoT Edge. 
 
       ![Actualización de la plataforma de imagen del módulo](./media/tutorial-c-module/image-platform.png)
 
@@ -340,6 +337,12 @@ Cuando le indica a Visual Studio Code que compile la solución, lo primero que h
 Después, Visual Studio Code ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos compilan el código, empaquetan `CModule.dll` en contenedores y lo insertan en el registro de contenedor que especificó cuando inicializó la solución.
 
 Puede ver la dirección de la imagen de contenedor completa con la etiqueta en el terminal integrado de VS Code. La dirección de la imagen se crea a partir de la información del archivo `module.json`, con el formato **\<repositorio\>:\<versión\>-\<plataforma\>**. Para este tutorial, debería ser similar a la siguiente: **registryname.azurecr.io/cmodule:0.0.1-amd64**.
+
+>[!TIP]
+>Si recibe un error al intentar compilar e insertar su módulo, realice las siguientes comprobaciones:
+>* ¿Ha iniciado sesión en Docker en Visual Studio Code con las credenciales de su registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure Portal.
+>* ¿Es el repositorio de contenedor correcto? Abra **Módulos** > **cmodule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes será similar a **\<nombre del Registro\>.azurecr.io/cmodule**. 
+>* ¿Va a compilar el mismo tipo de contenedores que está ejecutando la máquina de desarrollo? Visual Studio Code establece de forma predeterminada contenedores de Linux amd64. Si la máquina de desarrollo ejecuta contenedores de Linux arm32v7, actualice la plataforma en la barra de estado azul en la parte inferior de la ventana de VS Code para que coincida con la plataforma del contenedor. Los módulos de C no pueden compilarse como contenedores de Windows. 
 
 ## <a name="deploy-and-run-the-solution"></a>Implementación y ejecución de la solución
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d5633648ee94c4db20f095619871ac5cd9cec7da
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825191"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -180,7 +180,7 @@ Para configurar el inicio de sesión único de Azure AD con Amazon Web Services 
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -398,7 +398,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -442,6 +442,12 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Amazon 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Amazon Web Services (AWS) en el Panel de acceso, automáticamente iniciará sesión en Amazon Web Services (AWS) para el que se configura el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="known-issues"></a>Problemas conocidos
+
+ * En la sección **Aprovisionamiento**, en la subsección **Asignaciones** aparece un mensaje del tipo "Cargando..." y no se muestran las asignaciones de atributos. El único flujo de trabajo de aprovisionamiento que se admite actualmente es la importación de roles desde AWS a Azure AD para su selección durante la asignación de usuarios y grupos. Las asignaciones de atributos para esto vienen predeterminadas y no se pueden configurar.
+ 
+ * La sección **Aprovisionamiento** solo admite escribir un conjunto de credenciales para un inquilino de AWS cada vez. Todos los roles importados se escriben en la propiedad appRoles del [objeto servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) de Azure AD para el inquilino de AWS. Se pueden agregar varios inquilinos de AWS (representados por objetos servicePrincipal) a Azure AD desde la galería para el aprovisionamiento, pero hay un problema conocido que impide escribir automáticamente todos los roles importados desde los múltiples objetos servicePrincipal de AWS que se usaron para el aprovisionamiento en el objeto servicePrincipal único empleado para el inicio de sesión único. Una posible solución alternativa consiste en usar [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) para extraer todos los objetos appRoles importados en cada objeto servicePrincipal de AWS en los que esté configurado el aprovisionamiento. Estas cadenas de roles se pueden agregar posteriormente al objeto servicePrincipal de AWS donde esté configurado el inicio de sesión único.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

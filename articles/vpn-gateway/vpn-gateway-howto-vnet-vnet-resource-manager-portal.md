@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 245710d1ae3e7af4db5286a5db985fe35549ad3a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098794"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821694"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
@@ -99,7 +99,7 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
 - **Configuración de puerta de enlace de red virtual** 
     - **Nombre**: Escriba *TestVNet1GW*.
     - **Tipo de puerta de enlace**: Seleccione **VPN**.
-    - **Tipo de VPN**: Seleccione **Basada en rutas**.
+    - **Tipo de VPN**: seleccione **Basada en rutas**.
     - **SKU**: Seleccione la SKU de puerta de enlace que quiere usar.
     - **Nombre de dirección IP pública**: Escriba *TestVNet1GWIP*
     - **Connection** 
@@ -125,7 +125,7 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
 - **Configuración de puerta de enlace de red virtual** 
     - **Nombre**: Escriba *TestVNet4GW*.
     - **Tipo de puerta de enlace**: Seleccione **VPN**.
-    - **Tipo de VPN**: Seleccione **Basada en rutas**.
+    - **Tipo de VPN**: seleccione **Basada en rutas**.
     - **SKU**: Seleccione la SKU de puerta de enlace que quiere usar.
     - **Nombre de dirección IP pública**: Escriba *TestVNet4GWIP*.
     - **Connection** 
@@ -133,7 +133,7 @@ En este artículo se muestra cómo conectar redes virtuales mediante el tipo de 
        - **Clave compartida**: Escriba *abc123*. Puede crear usted mismo la clave compartida. Cuando crea la conexión entre las redes virtuales, los valores deben coincidir.
 
 ## <a name="create-and-configure-testvnet1"></a>Creación y configuración de TestVNet1
-Si ya dispone de una red virtual, compruebe que la configuración sea compatible con el diseño de la puerta de enlace de VPN. Preste especial atención a las subredes que se pueden superponer con otras redes. La conexión no funcionará correctamente si tiene subredes superpuestas. Una vez que la red virtual está configurada correctamente, puede comenzar con los pasos descritos en la sección [Especificación de un servidor DNS](#dns).
+Si ya dispone de una red virtual, compruebe que la configuración sea compatible con el diseño de la puerta de enlace de VPN. Preste especial atención a las subredes que se pueden superponer con otras redes. La conexión no funcionará correctamente si tiene subredes superpuestas. Una vez que la red virtual está configurada correctamente, puede comenzar con los pasos descritos en la sección Especificación de un servidor DNS.
 
 ### <a name="to-create-a-virtual-network"></a>Creación de una red virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]

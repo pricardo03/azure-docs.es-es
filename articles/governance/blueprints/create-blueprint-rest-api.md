@@ -4,17 +4,17 @@ description: Utilice los planos técnicos de Azure Blueprint para crear, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320691"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566989"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -76,7 +76,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -135,7 +135,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -155,7 +155,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -183,7 +183,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -211,7 +211,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -297,7 +297,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -320,14 +320,14 @@ Ahora que los artefactos se han agregado al plano técnico, es momento de public
 - URI DE LA API REST
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
 El valor de `{BlueprintVersion}` es una cadena de letras, números y guiones (sin espacios ni otros caracteres especiales) con una longitud máxima de 20 caracteres. Utilice un nombre único e informativo, como **v20180622-135541**.
 
 ## <a name="assign-a-blueprint"></a>Asignación de un plano técnico
 
-Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. El **cuerpo de la solicitud** especifica el plano técnico que se va a asignar, proporciona el nombre y la ubicación de cualquier grupo de recursos de la definición del plano técnico y proporciona todos los parámetros que se han definido en el plano técnico y que han sido utilizados por uno o más artefactos asociados.
+Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción. El **cuerpo de la solicitud** especifica el plano técnico que se va a asignar, proporciona el nombre y la ubicación de cualquier grupo de recursos de la definición del plano técnico y proporciona todos los parámetros que se han definido en el plano técnico y que han sido utilizados por uno o más artefactos asociados.
 
 1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tiene una autorización diferente.
 
@@ -342,7 +342,7 @@ Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar 
    - URI DE LA API REST
 
      ```http
-     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Cuerpo de la solicitud
@@ -395,7 +395,7 @@ Puede eliminar un plano de una suscripción. A menudo, la eliminación se realiz
 - URI DE LA API REST
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="delete-a-blueprint"></a>Eliminación de un plano técnico
@@ -405,7 +405,7 @@ Para quitar el mismo plano técnico, utilice la siguiente operación de la API R
 - URI DE LA API REST
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## <a name="next-steps"></a>Pasos siguientes

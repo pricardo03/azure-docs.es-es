@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de la red local a una red virtual de Azure: VPN de sitio a sitio (clásico): Portal | Microsoft Docs'
+title: 'Conexión de una red local a una instancia de Azure Virtual Network con una VPN de sitio a sitio (clásico): Portal | Microsoft Docs'
 description: Cree una conexión de IPsec desde la red local a una red virtual clásica de Azure a través de la red pública de Internet.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e9736adfce83fc449b68a7448441ecee481ad2a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477903"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695611"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)
 
@@ -54,19 +54,19 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo.
 
-* **Nombre de red virtual:** TestVNet1
+* **Nombre de la red virtual:** TestVNet1
 * **Espacio de direcciones:** 
   * 10.11.0.0/16
   * 10.12.0.0/16 (opcional para este ejercicio)
 * **Subredes:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (opcional para este ejercicio)
+  * front-end: 10.11.0.0/24
+  * BackEnd: 10.12.0.0/24 (opcional en este ejercicio)
 * **GatewaySubnet:** 10.11.255.0/27
-* **Grupo de recursos:** TestRG1
-* **Ubicación:** este de EE. UU.
-* **Servidor DNS:** 10.11.0.3 (opcional para este ejercicio)
+* **Grupos de recursos:** TestRG1
+* **Ubicación:** Este de EE. UU
+* **Servidor DNS:** 10.11.0.3 (opcional en este ejercicio)
 * **Nombre del sitio local:** Site2
-* **Espacio de direcciones del cliente:** es el espacio de direcciones que se encuentra en el sitio local.
+* **Espacio de direcciones de cliente:** el espacio de direcciones que se encuentra en el sitio local.
 
 ## <a name="CreatVNet"></a>1. Creación de una red virtual
 
@@ -128,8 +128,8 @@ Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene 
 3. En la página **Nueva conexión VPN**, seleccione **De sitio a sitio**.
 4. Haga clic en **Sitio local: Configurar valores obligatorios** para abrir la página **Sitio local**. Configure las opciones y haga clic en **Aceptar** para guardar la configuración.
   - **Nombre:** cree un nombre para el sitio local para que sea fácil de identificar.
-  - **Dirección IP de puerta de enlace VPN:** es la dirección IP pública del dispositivo VPN para la red local. El dispositivo VPN requiere una dirección IP IPv4 pública. Especifique una dirección IP pública válida para el dispositivo VPN al que desea conectarse. No puede encontrarse detrás de NAT y debe estar al alcance de Azure. Si no conoce la dirección IP del dispositivo VPN, siempre puede poner un valor de marcador de posición (siempre que tenga el formato de una dirección IP pública válida) y cambiarlo más adelante.
-  - **Espacio de direcciones de cliente:** lista de los intervalos de direcciones IP que desea enrutar a la red local a través de esta puerta de enlace. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superponen con los intervalos de otras redes a la que se conecta su red virtual, ni con los intervalos de direcciones de la propia red virtual.
+  - **Dirección IP de la puerta de enlace de VPN:** es la dirección IP pública del dispositivo VPN en la red local. El dispositivo VPN requiere una dirección IP IPv4 pública. Especifique una dirección IP pública válida para el dispositivo VPN al que desea conectarse. No puede encontrarse detrás de NAT y debe estar al alcance de Azure. Si no conoce la dirección IP del dispositivo VPN, siempre puede poner un valor de marcador de posición (siempre que tenga el formato de una dirección IP pública válida) y cambiarlo más adelante.
+  - **Espacio de direcciones de cliente:** lista de los intervalos de direcciones IP que quiere enrutar a la red local mediante esta puerta de enlace. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superponen con los intervalos de otras redes a la que se conecta su red virtual, ni con los intervalos de direcciones de la propia red virtual.
 
   ![Sitio local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configuración de sitio local")
 
@@ -208,7 +208,7 @@ Al trabajar con PowerShell y el modelo de implementación clásico, a veces los 
   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
   ```
-Cuando se crea la conexión, el resultado es: **Status: Successful**.
+Cuando se crea la conexión, el resultado es: **Estado: Correcto**.
 
 ## <a name="verify"></a>9. Comprobación de la conexión
 
@@ -226,5 +226,5 @@ Para que conocer los pasos para cambiar la SKU de puerta de enlace, consulte la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.
+* Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/) para más información.
 * Para más información acerca de la tunelización forzada, consulte la [información acerca de la tunelización forzada](vpn-gateway-about-forced-tunneling.md).

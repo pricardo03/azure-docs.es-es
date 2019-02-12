@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970821"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700118"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -107,7 +107,7 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 
 
 ## <a name="failback-requirements"></a>Requisitos de conmutación por recuperación
-Si va a conmutar por recuperación en su entorno local, también deberá asegurarse de que ciertos [requisitos previos se cumplen](vmware-azure-reprotect.md##before-you-begin). Sin embargo, **no se requiere empezar con la habilitación de la recuperación ante desastres** de las máquinas virtuales y también se puede realizar después de la conmutación por error a Azure.
+Si va a conmutar por recuperación en su entorno local, también deberá asegurarse de [cumplir ciertos requisitos previos](vmware-azure-reprotect.md##before-you-begin). Sin embargo, **no se requiere empezar con la habilitación de la recuperación ante desastres** de las máquinas virtuales y también se puede realizar después de la conmutación por error a Azure.
 
 ## <a name="useful-links"></a>Vínculos útiles
 

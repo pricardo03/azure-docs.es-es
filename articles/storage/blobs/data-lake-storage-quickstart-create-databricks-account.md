@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239934"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694174"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -29,15 +29,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Reserva de la configuración de la cuenta de almacenamiento
-
-Necesitará el nombre de la cuenta de almacenamiento y un identificador URI del punto de conexión del sistema de archivos.
+## <a name="get-the-name-of-your-storage-account"></a>Obtención del nombre de la cuenta de almacenamiento
 
 Para obtener el nombre de la cuenta de almacenamiento en Azure Portal, elija **Todos los servicios** y filtre por el término *almacenamiento*. Luego, seleccione **Cuentas de almacenamiento** y localice su cuenta de almacenamiento.
 
-Para obtener el identificador URI del punto de conexión del sistema de archivos, elija **Propiedades**y en el panel Propiedades, busque el valor del campo **Primary ADLS FILE SYSTEM ENDPOINT** (PUNTO DE CONEXIÓN DEL SISTEMA DE ARCHIVOS ADLS principal).
-
-Pegue los dos valores en un archivo de texto, ya que los necesitará pronto.
+Pegue ese nombre en un archivo de texto. Lo necesitará pronto.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Pegue los dos valores en un archivo de texto, ya que los necesitará pronto.
 
 Cree a una entidad de servicio siguiendo la guía de este tema: [Uso de portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Hay varias acciones concretas que tendrá que hacer al realizar los pasos de este artículo.
-
-:heavy_check_mark: Al realizar los pasos que se describen en la sección [Creación de una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) del artículo, asegúrese de que en el campo **URL de inicio de sesión** del cuadro de diálogo **Crear** selecciona el identificador URI del punto de conexión que acaba de recopilar.
+Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
 
 :heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar la aplicación al **rol de colaborador de Blob Storage**.
 
@@ -136,7 +130,7 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
     > [!NOTE]
     > Dicho bloque de código accede directamente al punto de conexión de Data Lake Gen2 mediante OAuth, pero hay otras maneras de conectarse el área de trabajo de Databricks con su cuenta de Data Lake Storage Gen2. Por ejemplo, podría montar el sistema de archivos mediante OAuth, o bien usar un acceso directo con una clave compartida. <br>Para ver ejemplos de estos métodos, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio web de Azure Databricks.
 
-5. En este bloque de código, reemplace los valores `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` del marcador de posición de este bloque de código por los valores que recopiló al completar los pasos de las secciones [Reserva de la configuración de la cuenta de almacenamiento](#config) y [Creación de una entidad de servicio](#service-principal) de este artículo.  Establezca el valor del marcador `file-system-name` en el nombre que desea dar el sistema de archivos.
+5. En este bloque de código, reemplace los valores de marcador de posición `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` de este bloque de código por los valores que recopiló cuando realizó los pasos de las secciones [Obtención del nombre de la cuenta de almacenamiento](#config) y [Creación de una entidad de servicio](#service-principal) de este artículo.  Establezca el valor del marcador `file-system-name` en el nombre que desea dar el sistema de archivos.
 
 6. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 

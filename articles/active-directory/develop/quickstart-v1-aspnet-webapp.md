@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095862"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816278"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -64,7 +64,7 @@ Estos pasos le indican cómo instalar y configurar la canalización de autentica
 
 Para descargar este proyecto de Visual Studio de ejemplo en su lugar, siga estos pasos:
 1. [Descargue el proyecto en GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Vaya al [paso de configuración](#configure-your-webconfig-and-register-an-application) para configurar el código de ejemplo antes de ejecutarlo.
+1. Vaya al paso de configuración para configurar el código de ejemplo antes de ejecutarlo.
 
 ## <a name="step-2-create-your-aspnet-project"></a>Paso 2: Creación del proyecto de ASP.NET
 

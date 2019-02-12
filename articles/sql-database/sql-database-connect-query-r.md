@@ -11,58 +11,42 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/30/2018
-ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/31/2019
+ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725750"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815549"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Guía de inicio rápido: Uso de Machine Learning Services (con R) en Azure SQL Database (versión preliminar)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Inicio rápido: Uso de Machine Learning Services (con R) en Azure SQL Database (versión preliminar)
 
-En este artículo se explica cómo puede utilizar la versión preliminar pública de Machine Learning Services (con R) en Azure SQL Database. Le guía por los conceptos básicos para mover datos entre la base de datos SQL y R. También explica cómo encapsular código R bien formado en el procedimiento almacenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) para crear, entrenar y utilizar modelos de aprendizaje automático en una base de datos SQL.
+En este artículo se explica cómo puede utilizar la versión preliminar pública de [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md). Le guía por los conceptos básicos para mover datos entre la base de datos SQL y R. También explica cómo encapsular código R bien formado en el procedimiento almacenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) para crear, entrenar y utilizar modelos de aprendizaje automático en una base de datos SQL.
 
-El aprendizaje automático en SQL Database se utiliza para ejecutar funciones y código R y el código está totalmente disponible para los datos relacionales como procedimientos almacenados, como script T-SQL que contiene instrucciones de R, o como código R que contiene T-SQL. Utilice la eficacia de los paquetes empresariales de R para ofrecer análisis avanzados a escala, y la capacidad de llevar los cálculos y el procesamiento a donde residen los datos, sin necesidad de extraer los datos a través de la red.
+Utilice la potencia del lenguaje R para ofrecer análisis avanzados y aprendizaje automático en la base de datos. Esta capacidad lleva los cálculos y el procesamiento al lugar donde residen los datos, con lo que se elimina la necesidad de extraer datos a través de la red. Además, aproveche la eficacia de los paquetes R empresariales para ofrecer análisis avanzados a escala.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Machine Learning Services incluye una distribución básica de R, que se superpone con paquetes R empresariales de Microsoft. Las funciones y los algoritmos de R de Microsoft están diseñados tanto para la escala como para la utilidad y ofrecen análisis predictivos, modelado estadístico, visualización de datos y algoritmos de aprendizaje de máquinas de vanguardia.
 
-## <a name="sign-up-for-the-preview"></a>Suscríbase a la vista previa
+Si no tiene una suscripción a Azure, cree una [cuenta](https://azure.microsoft.com/free/) antes de empezar.
 
-De forma predeterminada, la versión preliminar pública de Machine Learning Services (con R) en SQL Database no está habilitada. Envíe un correo electrónico a Microsoft en [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) para registrarse en la versión preliminar pública.
-
-Cuando ya esté inscrito en el programa, Microsoft lo incorporará a la versión preliminar pública y migrará la base de datos existente o creará una nueva base de datos en un servicio habilitado para R.
-
-Machine Learning Services (con R) en SQL Database actualmente solo está disponible en el modelo de compra basado en núcleos virtuales de los niveles de servicio **Propósito general** y **Crítico para la empresa** para bases de datos únicas y en grupo. En esta versión preliminar pública inicial, no se admiten ni el nivel de servicio **Hiperescala** ni **Instancia administrada**. No se debe usar Machine Learning Services con R para cargas de trabajo de producción durante la versión preliminar pública.
-
-Cuando Machine Learning Services (con R) se ha habilitado para la instancia de SQL Database, regrese a esta página para aprender a ejecutar scripts de R en el contexto de un procedimiento almacenado.
-
-Actualmente, R es el único lenguaje que se admite. En este momento no hay ninguna compatibilidad con Python.
+> [!NOTE]
+> Machine Learning Services (con R) en Azure SQL Database se encuentra actualmente en versión preliminar pública. [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para ejecutar el código de ejemplo en estos ejercicios, primero debe tener una instancia de SQL Database con Machine Learning Services (con R) habilitado. Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente, tal como se ha descrito anteriormente.
+Para ejecutar el código de ejemplo en estos ejercicios, primero debe tener una instancia de SQL Database con Machine Learning Services (con R) habilitado. Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente. Siga los pasos que se indican en [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
 
 Puede conectarse a SQL Database y ejecutar los scripts de R con cualquier herramienta de administración o de consulta de bases de datos, siempre y cuando pueda conectarse a una instancia de SQL Database y ejecutar una consulta T-SQL o un procedimiento almacenado. En esta guía de inicio rápido se usa [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
 Para el ejercicio de [agregar un paquete](#add-package), también deberá instalar [R](https://www.r-project.org/) y [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) en el equipo local.
 
-Esta guía de inicio rápido también exige configurar una regla de firewall de nivel de servidor. Para consultar una guía de inicio rápido en donde se muestra cómo hacerlo, vea [Create server-level firewall rule](sql-database-get-started-portal-firewall.md) (Crear regla de firewall de nivel de servidor).
-
-## <a name="different-from-sql-server"></a>Diferente de SQL Server
-
-La funcionalidad de Machine Learning Services (con R) en Azure SQL Database es similar a [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Sin embargo, hay algunas diferencias:
-
-- Solo R. Actualmente no hay compatibilidad para Python.
-- No es necesario configurar `external scripts enabled` mediante `sp_configure`.
-- Los paquetes deben instalarse mediante **sqlmlutils**.
-- No hay ningún gobierno de recursos externos independiente. Los recursos de R representan un determinado porcentaje de los recursos de SQL, dependiendo del nivel.
+Esta guía de inicio rápido también exige configurar una regla de firewall de nivel de servidor. Para consultar una guía de inicio rápido en donde se muestra cómo hacerlo, vea [Create server-level firewall rule](sql-database-server-level-firewall-rule.md) (Crear regla de firewall de nivel de servidor).
 
 ## <a name="verify-r-exists"></a>Comprobación de la existencia de R
 
 Puede confirmar que Machine Learning Services (con R) está habilitado para la base de datos SQL. Siga estos pasos:
 
-1. Abra SQL Server Management Studio y conéctese a la base de datos SQL.
+1. Abra SQL Server Management Studio y conéctese a la base de datos SQL. Para más información sobre cómo conectarse, consulte [Inicio rápido: Uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella](sql-database-connect-query-ssms.md).
 
 1. Ejecute el código siguiente. 
 
@@ -263,7 +247,6 @@ Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learn
 
     ![Paquetes instalados de R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## <a name="create-a-predictive-model"></a>Creación de un modelo predictivo
 
 Puede entrenar un modelo con R y guardarlo en una tabla de la base de datos SQL. En este ejercicio, entrenará un modelo de regresión simple que predice la distancia de frenado de un coche basado en la velocidad. Deberá usar el conjunto de datos `cars` incluido con R, porque es pequeño y fácil de entender.
@@ -293,7 +276,7 @@ Puede entrenar un modelo con R y guardarlo en una tabla de la base de datos SQL.
     - Proporcione los datos de entrada para utilizarlos en el entrenamiento del modelo.
 
     > [!TIP]
-    > Si necesita un actualizador de los modelos lineales, le recomendamos este tutorial, que describe el proceso de ajuste de un modelo mediante rxLinMod: [Ajuste de modelos lineales](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model).
+    > Si necesita un actualizador de los modelos lineales, le recomendamos este tutorial, que describe el proceso de ajuste de un modelo mediante rxLinMod: [Ajuste de modelos lineales](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Para crear el modelo, se define la fórmula dentro del código R y se pasan los datos como un parámetro de entrada.
 
@@ -530,8 +513,9 @@ Si necesita usar un paquete que no esté ya instalado en la base de datos SQL, p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Machine Learning Services, consulte los siguientes artículos sobre SQL Server Machine Learning Services. Aunque estos artículos son para SQL Server, la mayor parte de la información también se aplica a Machine Learning Services (con R) en Azure SQL Database.
+Para más información sobre Machine Learning Services, consulte los siguientes artículos. Aunque algunos de estos artículos son para SQL Server, la mayor parte de la información también se aplica a Machine Learning Services (con R) en Azure SQL Database.
 
+- [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [Tutorial: Información de los análisis en bases de datos con R en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [Tutorial completo de ciencia de datos para R y SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)

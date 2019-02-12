@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6e378263ac8bcd7cfee36209f70f26680988e6e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883982"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753805"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -31,7 +31,7 @@ Algunos de los atributos clave de la característica de HTTPS personalizado son:
 
 - Habilitación simple: el aprovisionamiento en un solo clic está disponible desde [Azure Portal](https://portal.azure.com). También puede utilizar la API de REST u otras herramientas de desarrollo para habilitar la característica.
 
-- Dispone de administración de certificados completa: toda la adquisición y administración de certificados se controla de manera automática. Los certificados se aprovisionan y se renuevan automáticamente antes de la expiración, lo que elimina los riesgos de interrupción del servicio debido a la expiración de un certificado.
+- La administración completa de certificados está disponible: toda la adquisición y administración de certificados se controla de manera automática. Los certificados se aprovisionan y se renuevan automáticamente antes de la expiración, lo que elimina los riesgos de interrupción del servicio debido a la expiración de un certificado.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -43,14 +43,14 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder completar los pasos de este tutorial, primero debe crear una instancia de Front Door e incorporar al menos un dominio personalizado. Para más información, consulte [Tutorial: Adición de un dominio personalizado a una instancia de Front Door](front-door-custom-domain.md).
+Para poder completar los pasos de este tutorial, primero debe crear una instancia de Front Door e incorporar al menos un dominio personalizado. Para más información, consulte [Tutorial: Incorporación de un dominio personalizado a Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
 Para habilitar el protocolo HTTPS para entregar contenido en un dominio personalizado de Front Door de forma segura, debe usar un certificado SSL. Puede usar un certificado que esté administrado por Azure Front Door Service o usar su propio certificado.
 
 
-### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opción 1 (valor predeterminado): Use un certificado administrado por Front Door
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opción 1 (valor predeterminado): use un certificado administrado por Front Door
 
 Cuando usa un certificado administrado por Azure Front Door Service, la característica HTTPS se puede activar con solo unos pocos clics. Azure Front Door Service administra completamente las tareas de administración de certificados, como adquisición y renovación. Después de habilitar la característica, el proceso se inicia inmediatamente. Si el dominio personalizado ya está asignado al host de front-end predeterminado de Front Door (`{hostname}.azurefd.net`), no es necesario realizar ninguna otra acción. Front Door procesa los pasos y completa la solicitud automáticamente. Sin embargo, si su dominio personalizado se asigna en otra parte, debe usar el correo electrónico para validar la propiedad del dominio.
 
@@ -143,7 +143,7 @@ El registro CNAME debe tener el formato siguiente, donde *Nombre* es el nombre d
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azurefd.net |
 
-Para obtener más información sobre los registros CNAME, consulte [Creación de los registros DNS de CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+Para obtener más información sobre los registros CNAME, consulte [Creación de los registros DNS de CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 Si el registro CNAME tiene el formato correcto, DigiCert automáticamente comprueba su nombre de dominio personalizado y crea un certificado dedicado para el nombre de dominio. DigitCert no enviará un correo electrónico de comprobación, y usted no tendrá que aprobar la solicitud. El certificado tiene una validez de un año y se renovará automáticamente antes de expirar. Continúe con [Esperar a la propagación](#wait-for-propagation). 
 

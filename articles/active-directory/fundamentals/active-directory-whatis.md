@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450224"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491746"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory? 
 Azure Active Directory (Azure AD) es un servicio de administración de acceso y de identidades basado en la nube de Microsoft. Azure AD ayuda a sus empleados a iniciar sesión y a acceder a los recursos en:
@@ -72,13 +72,13 @@ Para conocer mejor Azure AD y su documentación, debe revisar los términos sigu
 |Administrador global de Azure AD|Este rol de administrador se asigna automáticamente a quien haya creado el inquilino de Azure AD. Los administradores globales pueden realizar todas las funciones administrativas de Azure AD y los servicios que se federan con Azure AD, como Exchange Online, SharePoint Online y Skype Empresarial Online. Puede tener varios administradores globales, pero estos administradores son los únicos que pueden asignar roles de administrador (lo que incluye la asignación de otros administradores globales) a los usuarios.<br><br>**Nota:**<br>Este rol de administrador se denomina Administrador global en Azure Portal, pero se denomina  **Administrador de la compañía** en Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell.<br><br>Para más información acerca de los distintos roles de administrador, consulte [Permisos de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Cuenta Microsoft (también denominada MSA)|Las cuentas personales que proporcionan acceso a los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook, OneDrive, Xbox LIVE u Office 365. Su cuenta Microsoft se crean y almacenan en el sistema de cuentas de identidad de consumidor de Microsoft que ejecuta Microsoft.|
 
-## <a name="what-features-work-in-azure-ad"></a>¿Qué características funcionan en Azure AD?
+## <a name="which-features-work-in-azure-ad"></a>¿Qué características funcionan en Azure AD?
 Después de elegir su licencia de Azure AD, obtendrá acceso a algunas de las características siguientes para su organización o a todas ellas:
 
 |Categoría|DESCRIPCIÓN|
 |-------|-----------|
 |Administración de aplicaciones|Administre las aplicaciones en la nube y locales mediante el proxy de aplicación, el inicio de sesión único, el portal Mis aplicaciones (también conocido como Panel de acceso) y aplicaciones de software como servicio (SaaS). Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](../manage-apps/application-proxy.md) y [Documentación sobre la administración de aplicaciones](../manage-apps/index.yml).|
-|Autenticación|Administre el restablecimiento de contraseñas de autoservicio de Azure Active Directory, Multi-Factor Authentication, la lista personalizada de contraseñas prohibidas y el bloqueo inteligente. Para más información, consulte la [documentación de Autenticación de Azure AD](../authentication/index.yml).|
+|Authentication|Administre el restablecimiento de contraseñas de autoservicio de Azure Active Directory, Multi-Factor Authentication, la lista personalizada de contraseñas prohibidas y el bloqueo inteligente. Para más información, consulte la [documentación de Autenticación de Azure AD](../authentication/index.yml).|
 |Negocio a negocio (B2B)|Administre los usuarios invitados y los asociados externos sin perder el control sobre sus propios datos corporativos. Para más información, consulte [Documentación de Azure Active Directory B2B](../b2b/index.yml).|
 |Negocio a cliente (B2C)|Personalice y controle la forma en que los usuarios se suscriben, inician sesión y administran sus perfiles al usar sus aplicaciones. Para más información, consulte [Documentación de Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Acceso condicional|Administre el acceso a sus aplicaciones en la nube. Para más información, consulte [Documentación sobre el acceso condicional de Azure AD](../conditional-access/index.yml).|

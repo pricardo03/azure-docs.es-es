@@ -1,6 +1,6 @@
 ---
-title: Administración del ciclo de vida de los dispositivos de Azure AD | Microsoft Docs
-description: Obtenga más información sobre cómo la administración de dispositivos puede ayudarle a tener bajo control los dispositivos que acceden a los recursos de su entorno.
+title: Administración de los dispositivos obsoletos de Azure AD | Microsoft Docs
+description: En el entorno suele haber dispositivos obsoletos ya que se pierden, se rompen o se deterioran, y también debido a la reinstalación de los sistemas operativos. Obtenga información sobre cómo quitar dispositivos obsoletos de la base de datos de dispositivos registrados en Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092189"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493327"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
 Lo ideal es que, para completar el ciclo de vida, se anule el registro de los dispositivos registrados cuando ya no se necesiten. Sin embargo, debido, por ejemplo, a dispositivos perdidos, robados o rotos, o a reinstalaciones de sistemas operativos, normalmente tiene dispositivos obsoletos en su entorno. Como administrador de TI, es probable que desee un método para quitar los dispositivos obsoletos, de modo que pueda centrar sus recursos en la administración de los dispositivos que realmente requieren administración.
 

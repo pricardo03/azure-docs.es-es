@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685370"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745816"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hub
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hubs
 
 En este tutorial, usará herramientas del portal de Azure IoT Hub y comandos de la CLI de Azure para probar la conectividad de los dispositivos. En este tutorial también se usa un simulador de dispositivos sencillo que se ejecuta en la máquina de escritorio.
 
@@ -75,7 +75,7 @@ Para recuperar la cadena de conexión de **MyTestDevice**, haga clic en ella en 
 
 Para simular el envío de telemetría de **MyTestDevice** a su centro de IoT, ejecute la aplicación de dispositivo simulado de Node.js que descargó anteriormente.
 
-En una ventana de terminal de su máquina de desarrollo, desplácese a la carpeta raíz del proyecto de ejemplo de Node.js que descargó. A continuación, vaya a la carpeta **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+En una ventana de terminal de su máquina de desarrollo, desplácese a la carpeta raíz del proyecto de ejemplo de Node.js que descargó. A continuación, vaya a la carpeta **iot-hub\Tutorials\ConnectivityTests**.
 
 En la ventana de terminal, ejecute los comandos siguientes para instalar las bibliotecas necesarias y ejecute la aplicación de dispositivo simulado. Use la cadena de conexión del dispositivo que anotó cuando agregó el dispositivo en el portal.
 

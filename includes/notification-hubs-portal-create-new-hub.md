@@ -8,34 +8,31 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: b68fa345d4772134c30ce8b8b559f98113a0496f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 00b7ffcba876b6abea59cff170331c7413a61d39
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453109"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55823324"
 ---
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Seleccione **Todos los servicios** en el menú de la izquierda y seleccione **Notification Hubs** en la sección **Móvil**. Seleccione la estrella (`*`) junto al nombre del servicio para agregarlo a la sección **FAVORITOS** en el menú de la izquierda. Cuando **Notification Hubs** se agrega a **FAVORITOS**, selecciónelo en el menú de la izquierda. 
 
-2. Seleccione **Crear un recurso** > **Móvil** > **Centro de notificaciones**.
+      ![Azure Portal: selección de Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
+3. En la página **Notification Hubs**, seleccione **Agregar** en la barra de herramientas. 
 
-      ![Azure Portal: creación de centros de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+      ![Notification Hubs: botón Agregar de la barra de herramientas](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+4. En la página **Notification Hubs**, realice los pasos siguientes: 
+    1. Especifique un **nombre** para el **centro** de notificaciones.  
+    2. Especifique un **nombre** para el **espacio de nombres**.
+    3. Seleccione la **ubicación** en la que quiere crear el centro de notificaciones. 
+    4. Seleccione un grupo de recursos existente o escriba un nombre para el nuevo **grupo**.
+    5. Seleccione **Crear**. 
 
-3. En el cuadro **Centro de notificaciones**, escriba un nombre único. Seleccione el elemento **Región**, **Suscripción** y **Grupo de recursos** (si dispone ya de uno).
+        ![Azure Portal: establecimiento de las propiedades del centro de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+4. Seleccione **Notificaciones** (icono de campana), seleccione **Ir al recurso**, o actualice la lista en la página **Notification Hubs** y seleccione el centro de notificaciones. 
 
-      Si aún no tiene un espacio de nombres de Service Bus, puede usar el predeterminado, que se crea en función del nombre del centro (si está disponible el espacio de nombres).
-
-      Si ya tiene un espacio de nombres de Service Bus donde crear el centro, siga estos pasos:
-
-     a. En el área **Espacio de nombres**, seleccione el vínculo **Seleccionar uno existente**.
-
-    b. Seleccione **Crear**.
-
-    ![Azure Portal: establecimiento de las propiedades del centro de notificaciones](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-
-4. Seleccione **Notificaciones** (icono de campana) y, luego, **Go to resource** (Ir al recurso).
-
-      ![Azure Portal: notificaciones -> Go to resource (Ir al recurso)](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)
+      ![Azure Portal: notificaciones -> Go to resource (Ir al recurso)](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 5. Seleccione **Directivas de acceso** en la lista. Anote las dos cadenas de conexión disponibles. Las necesitará para gestionar las notificaciones push más tarde.
 
       >[!IMPORTANT]

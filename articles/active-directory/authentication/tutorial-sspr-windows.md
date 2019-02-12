@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474877"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694030"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -33,6 +33,7 @@ En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde
    * [Unidos a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), con conectividad de red a un controlador de dominio.
 * Debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD.
 * Si los dispositivos Windows 10 se encuentran detrás de un servidor proxy o un firewall, debe agregar las direcciones URL, `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com` a la lista de direcciones URL permitidas (puerto 443) del tráfico HTTPS.
+* Revise las limitaciones siguientes antes de probar esta característica en su entorno.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configuración del vínculo de restablecimiento de contraseña con Intune
 
@@ -86,7 +87,7 @@ Ahora ha creado y asignado una directiva de configuración de dispositivo para h
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configuración del vínculo de restablecimiento de contraseña con el registro
 
-1. Inicie sesión en el equipo Windows con credenciales administrativas
+1. Inicio de sesión en el equipo Windows con credenciales administrativas
 2. Ejecute **regedit** como administrador
 3. Establezca la siguiente clave del Registro
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -98,13 +99,15 @@ Ahora que la directiva está configurada y asignada, ¿qué cambia para el usuar
 
 ![LoginScreen][LoginScreen]
 
-Cuando los usuarios intenten iniciar sesión verán un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
+Cuando los usuarios intenten iniciar sesión, ahora verán un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
 
 Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 El registro de auditoría de Azure AD incluirá información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
 
 ![Ejemplo de pantalla de inicio de sesión con restablecimiento de contraseña en el registro de auditoría de Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Cuando los usuarios restablecen su contraseña desde la pantalla de inicio de sesión de un dispositivo Windows 10, se crea una cuenta temporal con pocos privilegios denominada "defaultuser1". Esta cuenta se usa para proteger el proceso de restablecimiento de contraseña. La propia cuenta tiene una contraseña generada aleatoriamente, no se muestra en el inicio de sesión del dispositivo y se elimina automáticamente después de que el usuario restablece su contraseña. Aunque pueden existir varios perfiles "defaultuser", se pueden omitir con seguridad.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -116,7 +119,9 @@ Al probar esta funcionalidad con Escritorio remoto o con una sesión de máquina
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
-Si la directiva requiere Ctrl + Alt + Supr o si las notificaciones de pantalla de bloqueo están desactivadas, **Restablecer contraseña** no funcionará.
+Si en versiones de Windows 10 anteriores a la 1809 la directiva requiere Ctrl+Alt+Del, no funcionará el vínculo **Restablecer contraseña**.
+
+Si las notificaciones de la pantalla de bloqueo están desactivadas, tampoco funcionará el vínculo **Restablecer contraseña**.
 
 Los siguientes valores directiva se sabe que interfieren con la capacidad de restablecer contraseñas
 
@@ -128,7 +133,7 @@ Los siguientes valores directiva se sabe que interfieren con la capacidad de res
 
 Esta característica no funciona para las redes con la red autenticación 802.1X implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
 
-Para los escenarios de dominios híbridos, existe un escenario en el que el flujo de trabajo de SSPR se completará sin necesidad de un controlador de dominio de Active Directory. Se necesita conectividad con un controlador de dominio para usar la nueva contraseña por primera vez.
+En escenarios de unión a dominios híbridos, el flujo de trabajo de SSPR se completará correctamente sin necesidad de un controlador de dominio de Active Directory. Si un usuario completa el proceso de restablecimiento de contraseña cuando la comunicación con un controlador de dominio de Active Directory no está disponible, por ejemplo, al trabajar de forma remota, el usuario no podrá iniciar sesión en el dispositivo hasta que este pueda comunicarse con un controlador de dominio y actualizar las credenciales almacenadas en caché. **Se necesita conectividad con un controlador de dominio para usar la nueva contraseña por primera vez**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

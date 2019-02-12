@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190295"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566126"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Guía de inicio rápido: Ejecución de una aplicación de contenedor en Azure Container Instances con Azure Portal
 
@@ -41,7 +41,7 @@ Escriba los valores siguientes en los cuadros de texto **Nombre de contenedor**,
 
 ![Configuración básica de una instancia de contenedor nueva en Azure Portal][aci-portal-03]
 
-Puede crear los contenedores de Windows y Linux en Azure Container Instances. Para este tutorial rápido, deje la configuración predeterminada de **Linux** para implementar la imagen `microsoft/aci-helloworld` basada en Linux.
+En este artículo de inicio rápido, deje el valor predeterminado **Público** para implementar la imagen `microsoft/aci-helloworld` del registro público de Docker Hub. Esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
 
 En **Configuración**, especifique una **etiqueta de nombre DNS** para el contenedor. El nombre debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. El contenedor estará públicamente accesible en `<dns-name-label>.<region>.azurecontainer.io`.
 

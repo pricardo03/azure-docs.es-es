@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052894"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565775"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desarrollo e implementación de un módulo de Python de IoT Edge en su dispositivo simulado
 
@@ -113,7 +113,7 @@ Use el paquete **cookiecutter** de Python para crear una plantilla con la que ge
    | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución o acepte el valor predeterminado **EdgeSolution**. |
    | Seleccionar plantilla del módulo | Elija **Módulo de Python**. |
    | Proporcionar un nombre de módulo | Llame al módulo **PythonModule**. |
-   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente a partir del último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. La cadena final será similar a esta: \<nombre del Registro\>.azurecr.io/pythonmodule. |
+   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el nombre que proporcionó en el último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br>El repositorio de imágenes final será similar a este: \<nombre del Registro\>.azurecr.io/pythonmodule. |
  
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-python-module/repository.png)
 
@@ -246,6 +246,12 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a **P
 Cuando le indica a Visual Studio Code que compile la solución, esta herramienta primero toma la información de la plantilla de implementación y genera un archivo deployment.json en una nueva carpeta denominada **config**. Después, ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos compilan el código, empaquetan el código Python en contenedores e insertan el código en el registro de contenedor que especificó cuando inicializó la solución. 
 
 Puede ver la dirección completa de la imagen de contenedor con la etiqueta del comando `docker build` que se ejecuta en el terminal integrado de VS Code. La dirección de la imagen se crea a partir de la información del archivo module.json, con el formato \<repositorio\>:\<versión\>-\<plataforma\>. En este tutorial, debería ser similar a registryname.azurecr.io/pythonmodule:0.0.1-amd64.
+
+>[!TIP]
+>Si recibe un error al intentar compilar e insertar su módulo, realice las siguientes comprobaciones:
+>* ¿Ha iniciado sesión en Docker en Visual Studio Code con las credenciales de su registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure Portal.
+>* ¿Es el repositorio de contenedor correcto? Abra **Módulos** > **cmodule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes final será similar a este: **\<nombre del Registro\>.azurecr.io/pythonmodule**. 
+>* ¿Va a compilar el mismo tipo de contenedores que está ejecutando la máquina de desarrollo? Visual Studio Code establece de forma predeterminada contenedores de Linux amd64. Si el equipo de desarrollo ejecuta contenedores de Linux arm32v7, actualice la plataforma en la barra de estado azul en la parte inferior de la ventana de VS Code para que coincida. Los módulos de Python no son compatibles con los contenedores de Windows. 
 
 ## <a name="deploy-and-run-the-solution"></a>Implementación y ejecución de la solución
 

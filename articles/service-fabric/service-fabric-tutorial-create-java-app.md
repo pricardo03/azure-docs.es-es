@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667224"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810821"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutorial: Creación de una aplicación con un servicio front-end de Java Web API y un servicio back-end con estado en Service Fabric
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 El agente de escucha de la comunicación HTTP actúa como el controlador que configura el servidor HTTP y expone las API que definen las acciones de votación. Haga clic con el botón derecho en el paquete *statelessservice* de la carpeta *VotingWeb/src/statelessservice* y seleccione **New->File** (Nuevo->Archivo).  Asignar al archivo el nombre *HttpCommunicationListener.java* y haga clic en **Finish** (Finalizar).
 
-Reemplace el contenido del archivo por el siguiente y guarde los cambios.  Más adelante, en [Actualización del archivo HttpCommunicationListener.java](#updatelistener_anchor), este archivo se modifica para que represente, lea y escriba los datos de votación del servicio back-end.  Por ahora, el agente de escucha simplemente devuelve el código HTML estático para la aplicación Voting.
+Reemplace el contenido del archivo por el siguiente y guarde los cambios.  Más adelante, en Actualización del archivo HttpCommunicationListener.java, este archivo se modifica para que represente, lea y escriba los datos de votación del servicio back-end.  Por ahora, el agente de escucha simplemente devuelve el código HTML estático para la aplicación Voting.
 
 ```java
 // ------------------------------------------------------------
@@ -891,7 +891,7 @@ En este momento, la aplicación está lista para implementarse en un clúster lo
 
 2. Ejecute el clúster local de Service Fabric. Este paso depende del entorno de desarrollo (Mac o Linux).
 
-    Si utiliza un equipo Mac, ejecute el clúster local con el siguiente comando: reemplace el comando que se usa en el **- v** parámetro por la ruta de acceso a su propia área de trabajo.
+    Si usa un equipo Mac, ejecute el clúster local con el siguiente comando: Reemplace el comando pasado al parámetro **-v** por la ruta de acceso a su propio espacio de trabajo.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox

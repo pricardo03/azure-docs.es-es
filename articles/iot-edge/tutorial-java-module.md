@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1b2692df51afb50822ec542fbda423f598bcb8e4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 9abdbd232b7f346aae9ee5fbe93d23afa4aaf32c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054748"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562375"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con Java en el dispositivo simulado
 
@@ -99,7 +99,7 @@ Cree una plantilla de solución de Java que pueda personalizar con su propio có
    | Seleccionar plantilla del módulo | Elija **Módulo de Java**. |
    | Proporcionar valor de groupId | Escriba un valor de identificador de grupo o acepte el valor predeterminado **com.edgemodule**. |
    | Proporcionar un nombre de módulo | Llame al módulo **JavaModule**. |
-   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente a partir del último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. La cadena final se parece a \<nombre del registro\>.azurecr.io/javamodule. |
+   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el nombre que proporcionó en el último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br>El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/javamodule. |
  
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-java-module/repository.png)
    
@@ -260,6 +260,12 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a **J
 Cuando le indica a Visual Studio Code que compile la solución, esta herramienta primero toma la información de la plantilla de implementación y genera un archivo deployment.json en una nueva carpeta denominada **config**. Después, ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos compilan el código, empaquetan en contenedores la aplicación Java e insertan el código en el registro de contenedor que especificó cuando inicializó la solución. 
 
 Puede ver la dirección de la imagen de contenedor completa con la etiqueta en el terminal integrado de VS Code. La dirección de la imagen se crea a partir de la información del archivo module.json, con el formato \<repositorio\>:\<versión\>-\<plataforma\>. Para este tutorial, se debería parecer a registryname.azurecr.io/javamodule:0.0.1-amd64.
+
+>[!TIP]
+>Si recibe un error al intentar compilar e insertar su módulo, realice las siguientes comprobaciones:
+>* ¿Ha iniciado sesión en Docker en Visual Studio Code con las credenciales de su registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure Portal.
+>* ¿Es el repositorio de contenedor correcto? Abra **Módulos** > **cmodule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes será similar a **\<nombre del Registro\>.azurecr.io/javamodule**. 
+>* ¿Va a compilar el mismo tipo de contenedores que está ejecutando la máquina de desarrollo? Visual Studio Code establece de forma predeterminada contenedores de Linux amd64. Si la máquina de desarrollo ejecuta contenedores de Windows o de Linux arm32v7, actualice la plataforma en la barra de estado azul en la parte inferior de la ventana de VS Code para que coincida con la plataforma del contenedor.
 
 ## <a name="deploy-and-run-the-solution"></a>Implementación y ejecución de la solución
 

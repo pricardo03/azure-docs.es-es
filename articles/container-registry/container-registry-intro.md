@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298354"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814255"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introducción a los registros de contenedores privados de Docker en Azure
 
@@ -32,7 +32,7 @@ Extraiga imágenes desde un registro de contenedor de Azure a varios destinos de
 
 Los desarrolladores también pueden insertar en un registro de contenedor como parte de un flujo de trabajo de desarrollo de contenedor. Por ejemplo, puede dirigir un registro de contenedor desde una herramienta de implementación e integración continua como [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) o [Jenkins](https://jenkins.io/).
 
-Configure [ACR Tasks](#azure-container-registry-build) para volver a compilar automáticamente las imágenes de la aplicación cuando se actualicen las imágenes base. Utilice ACR Tasks para automatizar las compilaciones de imágenes cuando el equipo guarde el código en un repositorio de Git.
+Configure ACR Tasks para volver a compilar automáticamente las imágenes de la aplicación cuando se actualicen las imágenes base. Utilice ACR Tasks para automatizar las compilaciones de imágenes cuando el equipo guarde el código en un repositorio de Git.
 
 ## <a name="key-concepts"></a>Conceptos clave
 

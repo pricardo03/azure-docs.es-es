@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224248"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770442"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -202,6 +202,7 @@ Para asegurar copias de seguridad sin problemas con Azure Backup para SQL Server
 
   * Espacios iniciales o finales
   * Signos '!' finales
+  * Corchete de cierre ‘]’
 
 Hay alias para los caracteres no admitidos de la tabla Azure, pero se recomienda evitarlos también. Para más información, consulte [este](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) artículo.
 
@@ -721,6 +722,8 @@ Cuando se detiene la protección de una base de datos de SQL Server, Azure Backu
 * Detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación.
 
 Si decide detener la copia de seguridad con datos de retención, los puntos de recuperación se limpiarán en función de la directiva de copia de seguridad. Hasta que no se hayan limpiado todos los puntos de recuperación, habrá un cargo del precio de instancia protegida de SQL, más el almacenamiento consumido. Para más información sobre los precios de Azure Backup para SQL, vea la [página de precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+
+Cada vez que detenga la copia de seguridad con datos de retención, los puntos de recuperación expirarán según la directiva de retención, pero Azure Backup siempre conservará el último punto de recuperación hasta que se eliminen explícitamente los datos de la copia de seguridad. De igual forma, si elimina un origen de datos sin realizar Detener copia de seguridad, las copias de seguridad nuevas comenzarán a generar errores y los puntos de recuperación antiguos expirarán debido a la directiva de retención, pero siempre se conservará un último punto de recuperación hasta que realice Detener copia de seguridad con eliminación de datos.
 
 Para detener la protección de una base de datos:
 

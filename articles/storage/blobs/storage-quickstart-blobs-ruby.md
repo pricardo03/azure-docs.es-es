@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 7f6bd1857c056d7b3570d5d2367ade7e20a19108
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711232"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752623"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
 
@@ -26,7 +26,7 @@ En esta guía de inicio rápido, aprenderá a usar Ruby para cargar, descargar y
 Asegúrese de tener instalados los siguientes requisitos previos adicionales:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Instale la [biblioteca de Azure Storage para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) mediante el paquete rubygem: 
+* Instale la [biblioteca de Azure Storage para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage) mediante el paquete rubygem: 
 
     ```
     gem install azure-storage-blob

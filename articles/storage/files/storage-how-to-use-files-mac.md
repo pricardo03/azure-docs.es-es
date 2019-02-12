@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: c393942112f42dc0d56388b8beac44b4287bca23
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475716"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820409"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar con el protocolo estándar del sector SMB 3 a partir de macOS El Capitan 10.11+. En este artículo se muestran dos maneras diferentes de montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.
@@ -38,7 +38,7 @@ ms.locfileid: "55475716"
 1. **Abra Finder**: Finder está abierto en macOS de forma predeterminada, pero para asegurarse de que es la aplicación actualmente seleccionada, haga clic en el "icono de cara de macOS" en el Dock:  
     ![Icono de cara de macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Seleccione "Connect to Server" (Conectar a servidor) en el menú "Go" (Ir)**: en la ruta de acceso UNC de los [requisitos previos](#preq), convierta la doble barra diagonal inversa de comienzo (`\\`) en `smb://` y todas las otras barras diagonales inversas (`\`) en barras diagonales (`/`). El vínculo debería tener este aspecto: ![Cuadro de diálogo "Connect to Server" (Conectar a servidor)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Seleccione "Connect to Server" (Conectar a servidor) en el menú "Go" (Ir)**: en la ruta de acceso UNC de los requisitos previos, convierta la doble barra diagonal inversa de comienzo (`\\`) en `smb://` y todas las otras barras diagonales inversas (`\`) en barras diagonales (`/`). El vínculo debería tener este aspecto: ![Cuadro de diálogo "Connect to Server" (Conectar a servidor)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Use el nombre y la clave de la cuenta de almacenamiento cuando se le pida un nombre de usuario y una contraseña**: al hacer clic en "Connect" (Conectar) en el cuadro de diálogo "Connect to Server" (Conectar a servidor), se le solicitará el nombre de usuario y la contraseña (este se rellenará automáticamente con el nombre de usuario de macOS). Puede guardar el nombre y la clave de la cuenta de almacenamiento en la cadena de claves de macOS.
 

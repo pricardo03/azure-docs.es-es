@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051318"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812351"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de redes virtuales (versión preliminar)
 
@@ -154,7 +154,7 @@ No se dispone de un registro centralizado para las directivas de punto de conexi
 ### <a name="troubleshooting-scenarios"></a>Escenarios de solución de problemas
 - Acceso permitido a cuentas de almacenamiento no enumeradas en las directivas de punto de conexión
   - Los grupos de seguridad de red pueden estar permitiendo el acceso a Internet o a cuentas de Azure Storage en otras regiones.
-  - Los grupos de seguridad de red deben configurarse para denegar todo el tráfico de salida de Internet y permitir solo el tráfico a regiones específicas de Azure Storage. Para más información, consulte [Grupos de seguridad de red](#network-security-groups).
+  - Los grupos de seguridad de red deben configurarse para denegar todo el tráfico de salida de Internet y permitir solo el tráfico a regiones específicas de Azure Storage. Para más información, consulte Grupos de seguridad de red.
 - Se niega el acceso a las cuentas enumeradas en las directivas de punto de conexión.
   - Los grupos de seguridad de red o el filtrado de firewall podrían estar bloqueando el acceso.
   - Si al quitar o volver a aplicar la directiva se produce una pérdida de conectividad:

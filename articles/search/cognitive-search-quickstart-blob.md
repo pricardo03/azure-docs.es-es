@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015279"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564568"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guía de inicio rápido: Creación de una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
@@ -147,15 +147,19 @@ El asistente normalmente puede inferir un índice predeterminado. En este paso, 
 
 En esta guía de inicio rápido, el asistente realiza un trabajo remarcable a la hora de configurar valores predeterminados razonables: 
 
-+ El nombre predeterminado es *azureblob-index*.
++ El nombre predeterminado es *azureblob-index* basado en el tipo de origen de datos. 
+
++ Los campos predeterminados se basan en el campo de datos de origen original (`content`), además de los campos de salida (`people`, `organizations` y `locations`) creados por la canalización cognitiva. Los tipos de datos predeterminados se deducen del muestreo de datos y metadatos.
+
 + La clave predeterminada es *metadata_storage_path* (este campo contiene valores únicos).
-+ Los tipos de datos y atributos predeterminados son válidos para los escenarios de búsqueda de texto completo.
 
-Considere la posibilidad de borrar el atributo **Retrievable** del campo `content`. En los blobs, este campo puede tener miles de líneas. Puede imaginar lo difícil que sería ver archivos de gran contenido tales como documentos de Word o diapositivas de PowerPoint como JSON en una lista de resultados de búsqueda. 
-
-Dado que definió un conjunto de aptitudes, el asistente supone que quiere recuperar el campo de datos de origen originales y los campos de salida creados por la canalización cognitiva. Por este motivo, el portal agrega campos de índice para `content`, `people`, `organizations` y `locations`. Tenga en cuenta que el asistente habilita automáticamente los atributos **Retrievable** y **Searchable** de estos campos. El atributo **Searchable** indica que se puede buscar un campo. El atributo **Retrievable** indica que un valor puede aparecer en los resultados. 
++ Los atributos predeterminados son **Retrievable** (Recuperable) y **Searchable** (Permite búsquedas) para estos campos. El atributo **Searchable** indica que se puede buscar un campo. El atributo **Retrievable** indica que un valor puede aparecer en los resultados. El asistente da por supuesto que desea que estos campos se puedan recuperar y permitan búsquedas porque los creó a través de un conjunto de aptitudes.
 
   ![Campos de índice](media/cognitive-search-quickstart-blob/index-fields.png)
+
+Observe el tachado y el signo de interrogación en el atributo **Retrievable** del campo `content`. En el caso de los documentos blob con mucho texto, el campo `content` contiene la mayor parte del archivo, posiblemente con miles de líneas. Si tiene que pasar el contenido del archivo al código de cliente, asegúrese de que **Retrievable** sigue seleccionado. De lo contrario, considere la posibilidad de borrar este atributo en `content` si los elementos extraídos (`people`, `organizations` y `locations`) son suficientes para sus fines.
+
+Marcar un campo como **Retrievable** no significa que el campo *debe* esté presente en los resultados de búsqueda. Puede controlar con precisión la composición de los resultados de búsqueda si usa el parámetro de consulta **$select** para especificar qué campos desea incluir. En el caso de campos con mucho texto como `content`, el parámetro **$select** es la solución para proporcionar resultados de búsqueda fáciles de administrar a los usuarios de la aplicación, al tiempo que se asegura de que el código de cliente tenga acceso a toda la información que necesita a través del atributo **Retrievable**.
   
 Continúe en la siguiente página.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 1698b89cd32fd7fd90a178ece25ee6869c1aa3e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7fa72df04b0507a915a75688b38e26ed0f21e5a5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229700"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486017"
 ---
 # <a name="what-is-traffic-manager"></a>¿Qué es el Administrador de tráfico?
 Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS que le permite distribuir el tráfico de forma óptima a servicios de regiones de Azure globales, al tiempo que proporciona una alta disponibilidad y capacidad de respuesta.
@@ -26,9 +26,9 @@ Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS que 
 Traffic Manager usa DNS para dirigir las solicitudes del cliente al punto de conexión de servicio más adecuado en función de un método de enrutamiento del tráfico y el mantenimiento de los puntos de conexión. Un punto de conexión es cualquier servicio accesible desde Internet hospedado dentro o fuera de Azure. Traffic Manager proporciona una serie de [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) y [opciones de supervisión del punto de conexión](traffic-manager-monitoring.md) para satisfacer las distintas necesidades de las aplicaciones y los modelos de conmutación automática por error. Traffic Manager es resistente a errores, incluidos los que afecten a toda una región de Azure.
 
 >[!NOTE]
-> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si desea finalización con el protocolo de seguridad de la capa de transporte (TLS) ("descarga SSL") procesamiento de niveles de aplicación por solicitud HTTP/HTTPS, revise [Application Gateway](../application-gateway/application-gateway-introduction.md). Si desea obtener un equilibrio de carga regional, revise [Load Balancer](../load-balancer/load-balancer-overview.md). Sus escenarios integrales pueden beneficiarse de la combinación de estas soluciones según sea necesario.
+> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si desea finalización con el protocolo de seguridad de la capa de transporte (TLS) ("descarga SSL") procesamiento de niveles de aplicación por solicitud HTTP/HTTPS, revise [Application Gateway](../application-gateway/application-gateway-introduction.md). Si desea conseguir equilibrio de carga en la región, consulte [Load Balancer](../load-balancer/load-balancer-overview.md). Sus escenarios integrales pueden beneficiarse de la combinación de estas soluciones según sea necesario.
 
-Estas son las características que se incluyen con Traffic Manager:
+Traffic Manager ofrece las siguientes características:
 
 ## <a name="increase-application-availability"></a>Aumento de la disponibilidad de la aplicación
 
@@ -40,7 +40,7 @@ Azure permite ejecutar servicios en la nube en los centros de datos ubicados en 
 
 ## <a name="perform-service-maintenance-without-downtime"></a>Realizar el mantenimiento del servicio sin tiempo de inactividad
 
-Puede realizar operaciones de mantenimiento planeado en sus aplicaciones sin tiempo de inactividad. Traffic Manager dirige el tráfico a puntos de conexión alternativos mientras el mantenimiento está en curso.
+Puede realizar operaciones de mantenimiento planeado en sus aplicaciones sin tiempo de inactividad. Traffic Manager puede dirigir el tráfico a puntos de conexión alternativos mientras el mantenimiento está en curso.
 
 ## <a name="combine-hybrid-applications"></a>Combinación de aplicaciones híbridas
 
@@ -48,7 +48,7 @@ Traffic Manager admite puntos de conexión externos (que no forman parte de Azur
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>Distribución del tráfico para implementaciones complejas
 
-Mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md), se pueden combinar métodos de enrutamiento del tráfico para crear reglas complejas y flexibles que satisfagan las necesidades de escalado de las implementaciones más grandes y complejas.
+Mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md), se pueden combinar varios métodos de enrutamiento del tráfico para crear reglas complejas y flexibles que satisfagan las necesidades de escalado de las implementaciones más grandes y complejas.
 
 ## <a name="pricing"></a>Precios
 

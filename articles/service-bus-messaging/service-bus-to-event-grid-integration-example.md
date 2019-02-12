@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409583"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821830"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Ejemplos de integración de Azure Service Bus en Azure Event Grid
 
 En este artículo, aprenderá a configurar una función de Azure y una aplicación lógica que reciben mensajes basados en la recepción de un evento de Azure Event Grid. Puede realizar las siguientes acciones:
  
-* Crear una [sencilla función de Azure de prueba](#test-function-setup) para depurar y ver el flujo inicial de eventos de Event Grid. Realice este paso, independientemente de si va a realizar o no los demás.
-* Crear una [función de Azure para recibir y procesar los mensajes de Azure Service Bus](#receive-messages-using-azure-function) basados en eventos de Event Grid.
-* Utilizar la [característica Logic Apps de Azure App Service](#receive-messages-using-azure-logic-app).
+* Crear una sencilla función de Azure de prueba para depurar y ver el flujo inicial de eventos de Event Grid. Realice este paso, independientemente de si va a realizar o no los demás.
+* Cree una función de Azure para recibir y procesar los mensajes de Azure Service Bus basados en eventos de Event Grid.
+* Utilizar la característica Logic Apps de Azure App Service.
 
 En el ejemplo que cree se da por supuesto que el tema de Service Bus tiene dos suscripciones. El ejemplo también supone que la suscripción de Event Grid se creó para enviar eventos para una sola suscripción de Service Bus. 
 
@@ -197,7 +197,7 @@ Conecte una aplicación lógica con Azure Service Bus y Azure Event Grid haciend
 
 1. Agregue su información haciendo lo siguiente:
 
-    a. En el cuadro **Nombre de recurso**, escriba el nombre de su espacio de nombres. 
+     a. En el cuadro **Nombre de recurso**, escriba el nombre de su espacio de nombres. 
 
     b. En **Opciones avanzadas**, en el cuadro **Filtro de sufijo**, escriba el filtro para la suscripción.
 

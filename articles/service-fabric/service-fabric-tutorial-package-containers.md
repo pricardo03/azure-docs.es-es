@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135189c576c67212dac6afc1388a6ef9fb045346
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255564"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512387"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como aplicación de Service Fabric mediante Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como una aplicación de Service Fabric mediante Yeoman
 
 Este tutorial es la segunda parte de una serie. En este tutorial, se emplea una herramienta de generador de plantillas (Yeoman) para generar una definición de aplicación de Service Fabric. Por lo tanto, esta aplicación se puede usar para implementar contenedores en Service Fabric. En este tutorial, aprenderá a:
 
@@ -227,28 +227,53 @@ En este punto del tutorial, la plantilla para una aplicación de paquete de serv
 
 ## <a name="create-a-service-fabric-cluster"></a>Creación de un clúster de Service Fabric
 
-Para implementar la aplicación en un clúster de Azure, cree su propio clúster.
+Para implementar la aplicación en Azure, se necesita un clúster de Service Fabric que ejecute la aplicación. Los siguientes comandos crean un clúster de cinco nodos en Azure.  Los comandos también crean un certificado autofirmado, lo agregan a un almacén de claves y los descargan en el sitio local como un archivo PEM. El nuevo certificado se usa para proteger el clúster al implementarlo y también para autenticar a los clientes.
 
-Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure. Los ejecuta el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y conocer más información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](https://aka.ms/tryservicefabric).
+```azurecli
+#!/bin/bash
 
-Para poder realizar operaciones de administración en el clúster de entidad segura, puede utilizar Service Fabric Explorer, CLI o Powershell. Para usar Service Fabric Explorer, tendrá que descargar el archivo PFX desde el sitio web de Party Cluster e importar el certificado en el almacén de certificados (Windows o Mac) o en el explorador mismo (Ubuntu). No hay ninguna contraseña para los certificados autofirmados desde el clúster de entidad.
+# Variables
+ResourceGroupName="containertestcluster" 
+ClusterName="containertestcluster" 
+Location="eastus" 
+Password="q6D7nN%6ck@6" 
+Subject="containertestcluster.eastus.cloudapp.azure.com" 
+VaultName="containertestvault" 
+VmPassword="Mypa$$word!321"
+VmUserName="sfadminuser"
 
-Para realizar operaciones de administración con Powershell o CLI, necesitará el PFX (Powershell) o PEM (CLI). Para convertir el archivo PFX en un archivo PEM, ejecute el siguiente comando:
+# Login to Azure and set the subscription
+az login
 
-```bash
-openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+az account set --subscription <mySubscriptionID>
+
+# Create resource group
+az group create --name $ResourceGroupName --location $Location 
+
+# Create secure five node Linux cluster. Creates a key vault in a resource group
+# and creates a certficate in the key vault. The certificate's subject name must match 
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
-Para obtener información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+> [!Note]
+> El servicio front-end web está configurado para escuchar en el puerto 80 el tráfico entrante. De forma predeterminada, el puerto 80 está abierto en las máquinas virtuales del el clúster y en el equilibrador de carga de Azure.
+>
+
+Para información sobre cómo crear su propio clúster, consulte [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Creación e implementación de la aplicación en el clúster
 
 Puede implementar la aplicación en el clúster de Azure mediante la CLI de Service Fabric. Si la CLI de Service Fabric CLI no está instalada en su máquina, siga las instrucciones [aquí](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) para instalarla.
 
-Conéctese al clúster de Service Fabric en Azure. Reemplace el punto de conexión del ejemplo por uno propio. El punto de conexión debe ser una dirección URL completa similar a la siguiente.
+Conéctese al clúster de Service Fabric en Azure. Reemplace el punto de conexión del ejemplo por uno propio. El punto de conexión debe ser una dirección URL completa similar a la siguiente.  El archivo PEM es el certificado autofirmado que se creó anteriormente.
 
 ```bash
-sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Use el script de instalación proporcionado en el directorio **TestContainer** para copiar el paquete de aplicación en el almacén de imágenes del clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.
@@ -257,11 +282,11 @@ Use el script de instalación proporcionado en el directorio **TestContainer** p
 ./install.sh
 ```
 
-Abra un explorador y vaya a Service Fabric Explorer en http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
+Abra un explorador y vaya a Service Fabric Explorer en http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
 
 ![Service Fabric Explorer][sfx]
 
-Para conectarse a la aplicación en ejecución, abra un explorador web y vaya a la dirección URL del clúster, por ejemplo, http://lin0823ryf2he.cloudapp.azure.com:80. Debería ver la aplicación de votación en la interfaz de usuario web.
+Para conectarse a la aplicación en ejecución, abra un explorador web y vaya a la dirección URL del clúster, por ejemplo, http://containertestcluster.eastus.cloudapp.azure.com:80. Debería ver la aplicación de votación en la interfaz de usuario web.
 
 ![votingapp][votingapp]
 

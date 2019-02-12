@@ -4,17 +4,17 @@ description: Azure Blueprint es un servicio de Azure que se usa para crear, defi
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246252"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563378"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -56,17 +56,14 @@ Un plano técnico se compone de _artefactos_. Los planos técnicos actualmente a
 
 |Recurso  | Opciones de la jerarquía| DESCRIPCIÓN  |
 |---------|---------|---------|
-|Grupos de recursos     | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Azure Resource Manager.         |
-|Plantilla del Administrador de recursos de Azure      | Suscripción, grupo de recursos | Las plantillas se utilizan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
-|Asignación de directiva     | Suscripción, grupo de recursos | Permite la asignación de una directiva o iniciativa a la suscripción a la que está asignado el plano técnico. La directiva o iniciativa debe estar dentro del ámbito del plano técnico (en el grupo de administración del plano técnico o por debajo). Si la directiva o iniciativa tiene parámetros, estos se asignan en la creación del plano técnico o durante su asignación.       |
-|Asignación de roles   | Suscripción, grupo de recursos | Agregue un grupo o usuario existente a un rol integrado para asegurarse de que las personas adecuadas siempre tienen derechos de acceso a los recursos. Las asignaciones de roles se pueden definir para toda la suscripción o anidarse para un grupo de recursos específico incluido en el plano técnico. |
+|Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Azure Resource Manager. |
+|Plantilla del Administrador de recursos de Azure | Suscripción, grupo de recursos | Las plantillas se utilizan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
+|Asignación de directiva | Suscripción, grupo de recursos | Permite la asignación de una directiva o iniciativa a la suscripción a la que está asignado el plano técnico. La directiva o iniciativa debe estar dentro del ámbito de la ubicación de la definición del plano técnico. Si la directiva o iniciativa tiene parámetros, estos se asignan en la creación del plano técnico o durante su asignación. |
+|Asignación de roles | Suscripción, grupo de recursos | Agregue un grupo o usuario existente a un rol integrado para asegurarse de que las personas adecuadas siempre tienen derechos de acceso a los recursos. Las asignaciones de roles se pueden definir para toda la suscripción o anidarse para un grupo de recursos específico incluido en el plano técnico. |
 
-### <a name="blueprints-and-management-groups"></a>Planos técnicos y grupos de administración
+### <a name="blueprint-definition-locations"></a>Ubicaciones de definición de plano técnico
 
-Al crear una definición de plano técnico, definirá dónde se guarda. Actualmente, los planos técnicos solo se pueden guardar en un [grupo de administración](../management-groups/overview.md) al que tenga acceso de **colaborador**. El plano técnico está disponible para su asignación a cualquier suscripción secundaria de ese grupo de administración.
-
-> [!IMPORTANT]
-> Si no tiene acceso a ningún grupo de administración o a ningún grupo de administración configurado, al cargar la lista de definiciones de planos técnicos, se mostrará que ninguno está disponible y, al hacer clic en **Ámbito**, se abrirá una ventana con una advertencia acerca de cómo recuperar los grupos de administración. Para resolver este problema, asegúrese de que una suscripción a la que tenga el acceso adecuado forme parte de un [grupo de administración](../management-groups/overview.md).
+Al crear una definición de plano técnico, definirá dónde se guarda. Los planos técnicos se pueden guardar en un [grupo de administración](../management-groups/overview.md) o suscripción a los que tenga acceso de **colaborador**. Si la ubicación es un grupo de administración, el plano técnico está disponible para asignarlo a cualquier suscripción secundaria de ese grupo de administración.
 
 ### <a name="blueprint-parameters"></a>Parámetros de plano técnico
 
@@ -101,7 +98,7 @@ Para eliminar planos técnicos, su cuenta necesita los siguientes permisos:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> Como las definiciones de los planos técnicos se crean en un grupo de administración, los permisos de definición se deben conceder o heredar en un ámbito de un grupo de administración.
+> Los permisos de definición de plano técnico deben ser concedidos o heredados en el ámbito de la suscripción o grupo de administración donde se guarda.
 
 Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita los siguientes permisos:
 

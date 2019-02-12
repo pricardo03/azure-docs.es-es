@@ -7,16 +7,16 @@ author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/30/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7e7c9ca30659fd1e99989bb77406b653a8ed9e7f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5219241de9b18008032a3eb78c6aab25a2713370
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55303018"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660415"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configuración de PHS como copia de seguridad de AD FS en Azure AD Connect
 
@@ -43,7 +43,7 @@ Haga lo siguiente:
 10. Eso es todo.  Listo.  Ahora se producirá la sincronización de hash de contraseña, que se podrá usar como copia de seguridad si AD FS no está disponible.
 
 ## <a name="switch-to-password-hash-synchronization"></a>Cambio a la sincronización de hash de contraseña
-Ahora le mostraremos cómo cambiar a la sincronización de hash de contraseña, en caso de que sea necesario.  Haga lo siguiente:
+Ahora le mostraremos cómo cambiar a la sincronización de hash de contraseña. Antes de comenzar, considere en qué condiciones debe realizar el cambio. No realice el cambio por motivos temporales, como una interrupción de la red, un problema de AD FS menor u otro que afecte a un subconjunto de usuarios. Si decide realizar el cambio porque tardaría mucho en solucionar el problema, realice lo siguiente:
 
 1. Haga doble clic en el icono de Azure AD Connect que se creó en el escritorio.
 2.  Haga clic en **Configurar**.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352821"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819355"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
@@ -26,7 +26,7 @@ Microsoft Azure Media Services (AMS) permite cargar, almacenar, codificar y empa
 
 AMS funciona en varios centros de datos del mundo. Estos centros de datos se agrupan en regiones geográficas, proporcionándole flexibilidad al elegir dónde crear sus aplicaciones. Puede revisar la [lista de regiones y sus ubicaciones](https://azure.microsoft.com/regions/). 
 
-En este tema se muestran escenarios comunes para la entrega de contenido [en directo](#live_scenarios) o [a petición](#vod_scenarios). El tema también proporciona detalles acerca de la disponibilidad de las características y servicios multimedia en los centros de datos.
+En este tema se muestran escenarios comunes para la entrega de contenido [en vivo](#live_scenarios) o a petición. El tema también proporciona detalles acerca de la disponibilidad de las características y servicios multimedia en los centros de datos.
 
 ## <a name="overview"></a>Información general
 
@@ -183,7 +183,7 @@ Los clientes de Media Services pueden elegir un punto de conexión de streaming 
 
 #### <a name="availability"></a>Disponibilidad
 
-Disponible en todos los centros de datos excepto: Alemania, Sur de Brasil, India occidental, Sur de India e India central. 
+Está disponible en todos los centros de datos, excepto: Alemania, Sur de Brasil, Oeste de la India, Sur de la India y Centro de la India. 
 
 ### <a name="encoding-media-processors"></a>Codificación de procesadores de multimedia
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Alta disponibilidad en Azure para los datos de aplicación | Microsoft Docs'
+title: 'Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage en Azure Storage'
 description: Use el almacenamiento con redundancia geográfica con acceso de lectura para lograr alta disponibilidad para los datos de aplicación
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245395"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510640"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Tutorial: Logre alta disponibilidad de los datos de aplicación con Azure Storage
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
 Este tutorial es la primera parte de una serie. En él, aprenderá a conseguir una alta disponibilidad de los datos de aplicación en Azure.
 

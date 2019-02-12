@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720669"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754564"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -67,10 +67,10 @@ En primer lugar, obtenga el identificador de recursos de ACR mediante [az acr sh
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Para conceder el acceso correcto al clúster de AKS para usar las imágenes almacenadas en ACR, cree una asignación de roles mediante el comando [az role assignment create][]. Reemplace `<appId`> y `<acrId>` por los valores recopilados en los dos pasos anteriores.
+Para conceder el acceso correcto al clúster de AKS para extraer las imágenes almacenadas en ACR, asigne el rol `AcrPull` mediante el comando [az role assignment create][]. Reemplace `<appId`> y `<acrId>` por los valores recopilados en los dos pasos anteriores.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Creación de un clúster de Kubernetes

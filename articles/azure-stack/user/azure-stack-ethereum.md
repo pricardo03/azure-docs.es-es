@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239237"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697487"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Implementación de una red de la cadena de bloques Ethereum en Azure Stack
 
@@ -25,7 +25,7 @@ La plantilla de la solución Ethereum está diseñada para facilitar y agilizar 
 
 Con un conjunto de entradas de usuario y una implementación con un solo clic a través del portal de inquilino Azure Stack, cada miembro puede aprovisionar su consumo de red. La huella de red de cada miembro se compone de un conjunto de nodos de transacción de carga equilibrada con el que una aplicación o un usuario pueden interactuar para enviar las transacciones, un conjunto de nodos de minería de datos para registrar transacciones y una aplicación virtual de red (NVA). Un paso posterior de la conexión conecta las aplicaciones virtuales de red para crear una red de cadena de bloques con varios miembros totalmente configurada.
 
-Para configurar esta opción, tiene que:
+Para realizar la configuración:
 
 - Elegir una arquitectura de implementación
 - Implementar un líder de consorcio independiente o una red miembro del consorcio
@@ -157,7 +157,7 @@ Para comprobar la implementación de un miembro, examine el sitio de administrac
 
 ![Resumen de la implementación de un miembro](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Como se muestra en la imagen, el estado de los nodos del miembro es **Not running** (No está en ejecución). Esto se debe a que no se ha establecido la conexión entre el miembro y el cliente potencial. La conexión entre los miembros y los clientes potenciales es bidireccional. Cuando se implementa un miembro, la plantilla crea automáticamente la conexión del miembro al cliente potencial. Para crear la conexión inversa, vaya al paso siguiente.
+Como se muestra en la imagen, el estado de los nodos del miembro es **Not running** (No está en ejecución). Este estado se debe a que no se ha establecido la conexión entre el miembro y el cliente potencial. La conexión entre los miembros y los clientes potenciales es bidireccional. Cuando se implementa un miembro, la plantilla crea automáticamente la conexión del miembro al cliente potencial. Para crear la conexión inversa, vaya al paso siguiente.
 
 ### <a name="connect-member-and-leader"></a>Conexión de un miembro y un cliente potencial
 

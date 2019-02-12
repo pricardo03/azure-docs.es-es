@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809811"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configuración de una conexión de punto a sitio mediante la autenticación de certificado (clásica)
 
@@ -249,7 +249,7 @@ Puede agregar y quitar certificados raíz de confianza de Azure. Al quitar un ce
 
 ### <a name="to-add-a-trusted-root-certificate"></a>Para agregar un certificado raíz de confianza
 
-Puede agregar hasta 20 archivos .cer de certificado raíz de confianza a Azure. Para ver instrucciones, consulte [Carga del archivo .cer de certificado raíz](#upload-the-root-certificate-.cer-file).
+Puede agregar hasta 20 archivos .cer de certificado raíz de confianza a Azure. Para ver instrucciones, consulte Carga del archivo .cer de certificado raíz.
 
 ### <a name="to-remove-a-trusted-root-certificate"></a>Eliminación de un certificado raíz de confianza
 
@@ -290,7 +290,7 @@ Una vez finalizada la actualización, el certificado no se puede usar para conec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información. 
+- Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Virtual Machines](https://docs.microsoft.com/azure/) para más información. 
 
 - Para más información sobre las redes y las máquinas virtuales Linux, consulte [Información general sobre las redes de máquina virtual con Linux y Azure](../virtual-machines/linux/network-overview.md).
 

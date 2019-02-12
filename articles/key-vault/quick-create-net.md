@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node: Azure Key Vault | Microsoft Docs'
-description: 'Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET'
+description: En este inicio rápido, establecerá y recuperará un secreto de Azure Key Vault mediante una aplicación web de .NET
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,31 +9,32 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002610"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565554"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET
 
-En esta guía de inicio rápido, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades administradas para recursos de Azure. Aprenderá a:
+En este inicio rápido, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades administradas para recursos de Azure. El uso de Key Vault le ayuda a proteger la información. Aprenderá a:
 
-> [!div class="checklist"]
-> * Cree un almacén de claves.
-> * Almacenar un secreto en el almacén de claves.
-> * Recuperar un secreto del almacén de claves.
-> * Crear una aplicación web de Azure.
-> * Habilite una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) para la aplicación web.
-> * Conceder los permisos necesarios para que la aplicación web lea datos del almacén de claves.
+* Cree un almacén de claves.
+* Almacenar un secreto en el almacén de claves.
+* Recuperar un secreto del almacén de claves.
+* Crear una aplicación web de Azure.
+* Habilite una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) para la aplicación web.
+* Conceder los permisos necesarios para que la aplicación web lea datos del almacén de claves.
 
-Antes de que sigamos avanzando, conozca los [conceptos básicos](key-vault-whatis.md#basic-concepts).
+Antes de seguir, conozca los [conceptos básicos de Key Vault](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
->Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad debe cambiar este secreto periódicamente. 
+>Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad, debe cambiar este secreto periódicamente. 
 >
->Con [las identidades de servicio administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md), a las aplicaciones que se ejecutan en Azure se les asigna una identidad que Azure administra automáticamente. Esto ayuda a solucionar el *problema de introducción de secretos* por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto.
+>Con [las identidades de servicio administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md), las aplicaciones que se ejecutan en Azure obtienen una identidad que Azure administra automáticamente. Esto ayuda a solucionar el *problema de introducción de secretos* por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -77,7 +78,7 @@ El grupo de recursos que acaba de crear se utiliza en todo este artículo.
 
 A continuación, creará un almacén de claves en el grupo de recursos creado en el paso anterior. Proporcione la siguiente información:
 
-* Nombre del almacén de claves: el nombre debe ser una cadena de entre 3 y 24 caracteres y solo debe contener alguno de estos caracteres: 0-9, a-z, A-Z y "-".
+* Nombre del almacén de claves: el nombre debe ser una cadena de entre 3 y 24 caracteres, y solo debe contener estos caracteres: 0-9, a-z, A-Z y un guion (-).
 * Nombre del grupo de recursos.
 * Ubicación: **Este de EE. UU**.
 
@@ -143,8 +144,7 @@ Publique esta aplicación en Azure para verla en vivo como una aplicación web y
 
 Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. En [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) se facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código.
 
-1. Vuelva a la CLI de Azure.
-2. Ejecute el comando assign-identity para crear la identidad de esta aplicación:
+En la CLI de Azure, ejecute el comando assign-identity para crear la identidad de esta aplicación:
 
    ```azurecli
    az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
@@ -171,10 +171,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado. En el comando anterior, otorga a la identidad (MSI) de App Service permisos para realizar operaciones **get** y **list** en Key Vault.
+Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado. En el comando anterior, otorga a la identidad de App Service los permisos para realizar operaciones **get** y **list** en Key Vault.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados Cuando ya no los necesite. Para ello, seleccione el grupo de recursos de la máquina virtual y seleccione **Eliminar**.
+
+Elimine el almacén de claves mediante el comando [az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información acerca de Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [SDK de Azure para .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Referencia de API REST en Azure](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Más información acerca de Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

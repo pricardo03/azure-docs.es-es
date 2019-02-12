@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165104"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736233"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>Eliminación de una aplicación en la nube
 
 1. Inicie sesión en el Portal de Azure.
 2. Solo se puede eliminar un dispositivo desactivado que no contiene datos. Elimine primero los datos en el dispositivo o puede [conmutar por error los datos](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md) en contenedores de volúmenes a otro dispositivo. Una vez que se eliminan los datos, está preparado para desactivar el dispositivo.
-3. En la página del servicio Administrador de dispositivo de StorSimple, haga clic en **Dispositivos** y, a continuación, seleccione el dispositivo. Haga clic con el botón derecho y seleccione **Desactivar**.
+3. En la página del servicio Administrador de dispositivos de StorSimple, haga clic en **Devices** (Dispositivos) y, luego, seleccione el dispositivo. Haga clic con el botón derecho y seleccione **Desactivar**.
 4. Una vez que el dispositivo está desactivado, haga clic en el dispositivo y seleccione **Eliminar**.
 
     ![Seleccione el dispositivo desactivado y haga clic en eliminar](./media/storsimple-8000-delete-cloud-appliance/delete-cloud-appliance1.png)

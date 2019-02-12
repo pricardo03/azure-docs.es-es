@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093315"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819100"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Inicio rápido: Actualización de una aplicación en Azure Active Directory
 
@@ -156,7 +156,7 @@ Al registrar una aplicación en Azure AD, tal vez quiera que solo tengan acceso 
 Es importante tener en cuenta las diferencias entre una aplicación de un solo inquilino y otra multiinquilino:  
 
 - La finalidad de una aplicación de un solo inquilino es su uso en una sola organización. Suele tratarse de aplicaciones de línea de negocio (LOB) escritas por un desarrollador de la empresa. Una aplicación de un solo inquilino solo es accesible por usuarios con cuentas en el mismo inquilino que el de registro de aplicación. Como resultado, solo debe haberse aprovisionado en un directorio.
-- La finalidad de una aplicación multiinquilino es su uso en muchas organizaciones. Se trata de aplicaciones web de software como servicio (SaaS) que suelen ser creadas por un proveedor de software independiente (ISV). Las aplicaciones multiinquilino deben haberse aprovisionado en cada inquilino en el que los usuarios necesiten tener acceso. Para los inquilinos distintos de aquél donde se registró la aplicación, es necesario para registrarlos el consentimiento de un usuario o administrador. Tenga en cuenta que las aplicaciones cliente nativas son multiinquilino de forma predeterminada porque están instaladas en el dispositivo del propietario del recurso. Consulte la sección [Información general sobre el marco de consentimiento](#overview-of-the-consent-framework) presentada anteriormente para más detalles sobre el marco de consentimiento.
+- La finalidad de una aplicación multiinquilino es su uso en muchas organizaciones. Se trata de aplicaciones web de software como servicio (SaaS) que suelen ser creadas por un proveedor de software independiente (ISV). Las aplicaciones multiinquilino deben haberse aprovisionado en cada inquilino en el que los usuarios necesiten tener acceso. Para los inquilinos distintos de aquél donde se registró la aplicación, es necesario para registrarlos el consentimiento de un usuario o administrador. Tenga en cuenta que las aplicaciones cliente nativas son multiinquilino de forma predeterminada porque están instaladas en el dispositivo del propietario del recurso. Consulte la sección Información general sobre el marco de consentimiento presentada anteriormente para más detalles sobre el marco de consentimiento.
 
 Hacer que una aplicación sea multiinquilino requiere cambios tanto en el registro de la aplicación como en la propia aplicación web. Las secciones siguientes tratan ambos.
 
@@ -184,7 +184,7 @@ La compatibilidad para aplicaciones multiinquilino se basa principalmente en el 
 La aplicación web también puede ofrecer:
 
 - La capacidad para que los administradores puedan "suscribir mi compañía." Esta experiencia, que se conoce como "consentimiento del administrador", ofrece al administrador la funcionalidad de conceder consentimiento en nombre de *todos los usuarios* de su organización. Solo un usuario que se autentique con una cuenta que pertenezca al rol Administrador global puede proporcionar el consentimiento del administrador; otros usuarios reciben un error.
-- Una experiencia de inicio de sesión para los usuarios. Se espera que se proporcione al usuario un botón "Inicio de sesión" que redirigirá el explorador al punto de conexión `/authorize` de OAuth2.0 de Azure AD o al punto de conexión `/userinfo` de OpenID Connect. Estos extremos permiten que la aplicación obtenga información sobre el nuevo usuario inspeccionando el id_token. Después de la fase de inicio de sesión, se presentará al usuario una petición de consentimiento similar a la que se mostró en la sección [Información general sobre el marco de consentimiento](#overview-of-the-consent-framework).
+- Una experiencia de inicio de sesión para los usuarios. Se espera que se proporcione al usuario un botón "Inicio de sesión" que redirigirá el explorador al punto de conexión `/authorize` de OAuth2.0 de Azure AD o al punto de conexión `/userinfo` de OpenID Connect. Estos extremos permiten que la aplicación obtenga información sobre el nuevo usuario inspeccionando el id_token. Después de la fase de inicio de sesión, se presentará al usuario una petición de consentimiento similar a la que se mostró en la sección Información general sobre el marco de consentimiento.
 
 Para más información sobre los cambios de aplicación necesarios para admitir el acceso multiinquilino y experiencias de inicio de sesión y suscripción, consulte:
 

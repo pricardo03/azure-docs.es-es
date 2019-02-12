@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Virtual WAN para crear conexiones de ExpressRoute para Azure y entornos locales | Microsoft Docs
+title: Uso de Azure Virtual WAN para crear conexiones de ExpressRoute con Azure y entornos locales | Microsoft Docs
 description: En este tutorial, aprenderá a usar Azure Virtual WAN para crear conexiones de ExpressRoute con Azure y con entornos locales.
 services: virtual-wan
 author: cherylmc
@@ -7,13 +7,13 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248187"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692895"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN (versión preliminar)
 
@@ -45,7 +45,7 @@ Para poder configurar una instancia de Virtual WAN, primero hay que inscribir un
 
 **Consideraciones de la versión preliminar**
 
-* Disponibilidad por región: Centro-oeste de EE. UU.
+* Disponibilidad en regiones: Centro occidental de EE.UU.
 * El circuito ExpressRoute debe estar habilitado en un país que admita [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Creación de una red virtual
@@ -71,7 +71,7 @@ En un explorador, vaya a [Azure Portal (versión preliminar)](https://aka.ms/azu
 1. Seleccione su WAN virtual y en **Virtual WAN Architecture** (Arquitectura de WAN virtual), seleccione **ExpressRoute Circuits** (Circuitos de ExpressRoute)
 2. Si el circuito de ExpressRoute se encuentra en la misma suscripción que su WAN virtual, haga clic en **Select ExpressRoute circuit** (Seleccionar circuito de ExpressRoute) de sus suscripciones 
 3. Mediante la lista desplegable, seleccione la instancia de ExpressRoute que desea asociar al centro.
-4. Si el circuito de ExpressRoute no está en la misma suscripción o se le ha proporcionado [una clave de autorización y un identificador de par ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), seleccione **Find a circuit redeeming an authorization key** (Buscar un circuito que canjee una clave de autorización)
+4. Si el circuito de ExpressRoute no está en la misma suscripción o si se le ha proporcionado [una clave de autorización y un identificador de par ](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), seleccione **Find a circuit redeeming an authorization key** (Buscar un circuito que canjee una clave de autorización)
 5. Escriba la siguiente información:
 * **Clave de autorización** : generada por el propietario del circuito como se describió anteriormente
 * **URI de circuito del mismo nivel**: identificador URI del circuito que proporciona el propietario del circuito y es el identificador único del circuito

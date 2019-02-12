@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458250"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815751"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
 
@@ -54,7 +54,7 @@ Hay tres requisitos clave para que este escenario funcione correctamente:
 - No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 - Asegúrese de establecer **AllowGatewayTransit** al emparejar VNet-Hub con VNet-Spoke y **UseRemoteGateways** al emparejar VNet-Spoke con VNet-Hub.
 
-Consulte la sección [Creación de rutas](#create-routes) en este tutorial para ver cómo se crean estas rutas.
+Consulte la sección Creación de rutas en este tutorial para ver cómo se crean estas rutas.
 
 >[!NOTE]
 >Azure Firewall debe tener conectividad directa a Internet. Si ha habilitado la tunelización forzada a local a través de Application Gateway o ExpressRoute, deberá configurar UDR 0.0.0.0/0 con el valor **NextHopType** establecido en **Internet** y, a continuación, asignarlo a **AzureFirewallSubnet**.

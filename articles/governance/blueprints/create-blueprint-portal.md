@@ -4,17 +4,17 @@ description: Utilice los planos técnicos de Azure Blueprint para crear, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315305"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566319"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en Azure Portal
 
@@ -42,10 +42,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    ![Creación de un plano técnico](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Proporcione un **nombre del plano técnico** como MiPlanoTécnico (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora.  En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) donde desea guardar el plano técnico y haga clic en **Seleccionar**.
-
-   > [!NOTE]
-   > Solo se pueden guardar las definiciones del plano técnico en los grupos de administración. Para crear el primer grupo de administración, siga [estos pasos](../management-groups/create.md).
+1. Proporcione un **nombre del plano técnico** como MiPlanoTécnico (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora.  En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) o la suscripción donde desea guardar el plano técnico y haga clic en **Seleccionar**.
 
 1. Compruebe que la información es correcta (los campos **Nombre del plano técnico** y **Ubicación de definición** no se pueden cambiar posteriormente) y haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
@@ -154,7 +151,7 @@ La publicación lo hace disponible para ser asignado a una suscripción.
 
 ## <a name="assign-a-blueprint"></a>Asignación de un plano técnico
 
-Una vez que se publica un plano técnico, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración.
+Una vez que se publica un plano técnico, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción.
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 

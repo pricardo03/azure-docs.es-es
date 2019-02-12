@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474989"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728054"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutar eventos personalizados a Azure Queue Storage con la CLI de Azure y Event Grid
 
@@ -24,9 +24,12 @@ Azure Event Grid es un servicio de eventos para la nube. Azure Queue Storage es 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>Instalación de la característica en vista previa
+Si va a usar la CLI de Azure o Azure PowerShell en la máquina local en lugar de usar Cloud Shell en Azure Portal, asegúrese de tener las siguientes versiones de la CLI de Azure y Azure PowerShell. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- CLI de Azure versión 2.0.56 o posterior. Para instrucciones sobre cómo instalar la versión más reciente de la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+- Azure PowerShell versión 1.1.0 o superior. Descargue la versión más reciente de Azure PowerShell en la máquina Windows desde [Descargas de Azure: herramientas de línea de comandos](https://azure.microsoft.com/downloads/). 
+
+En este artículo se proporcionan los comandos para usar la CLI de Azure. 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Un tema de cuadrícula de eventos proporciona un punto de conexión definido por el usuario en el que se registran los eventos. En el ejemplo siguiente se crea el tema personalizado en el grupo de recursos. Reemplace `<topic_name>` por un nombre único para el tema personalizado. El nombre del tema de cuadrícula de eventos debe ser único porque se representa mediante una entrada DNS.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

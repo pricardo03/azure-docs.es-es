@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095709"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814027"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Inicio rápido: Configuración de una aplicación para exponer API web (versión preliminar)
 
@@ -116,7 +116,7 @@ Para exponer un ámbito nuevo mediante el manifiesto de aplicación:
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Comprobación de que la web API se expone a otras aplicaciones
 
 1. Vuelva al inquilino de Azure AD, seleccione **Registros de aplicaciones** y busque o seleccione la aplicación cliente que desea configurar.
-1. Repita los pasos descritos en [Configuración de una aplicación cliente para tener acceso a las API web](#configure-a-client-application-to-access-web-apis).
+1. Repita los pasos descritos en Configuración de una aplicación cliente para tener acceso a las API web.
 1. Cuando llegue al paso **Seleccionar una API**, seleccione el recurso. Debería ver el nuevo ámbito, disponible para las solicitudes de permiso de clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Más sobre el manifiesto de aplicación

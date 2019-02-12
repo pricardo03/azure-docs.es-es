@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3ceb7585a26290985cd5a2c523ad8094b1d1a40a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194243"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811433"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
 
@@ -267,7 +267,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 Puede encontrar más información sobre los paquetes de aplicación en [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).
 
 > [!IMPORTANT]
-> Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Azure Storage](#linked-storage-account-autostorage) a su cuenta de Batch.
+> Para utilizar paquetes de aplicación, primero se debe vincular una cuenta de Azure Storage a su cuenta de Batch.
 
 ### <a name="update-a-pools-application-packages"></a>Actualización de los paquetes de aplicación de un grupo
 

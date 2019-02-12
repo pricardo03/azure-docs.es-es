@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997125"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768664"
 ---
 # <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
 
-La administración de costos es el proceso en el que se planifican y controlan eficazmente los costos implicados en su negocio. Normalmente, los equipos de finanzas, administración y aplicación realizan las tareas de administración de costos. Azure Cost Management ayuda a las organizaciones con Contratos Enterprise (EA) de Microsoft a planificar con los costos en mente. También ayuda a analizar eficazmente los costos y a tomar medidas para optimizar el gasto en la nube. Para obtener más información sobre cómo abordar la administración de costos como organización, eche un vistazo al artículo [Azure Cost Management best practices](cost-mgt-best-practices.md) (Procedimientos recomendados de Azure Cost Management).
+La administración de costos es el proceso en el que se planifican y controlan eficazmente los costos implicados en su negocio. Normalmente, los equipos de finanzas, administración y aplicación realizan las tareas de administración de costos. Azure Cost Management ayuda a las organizaciones a planear teniendo en cuenta los costos. También ayuda a analizar eficazmente los costos y a tomar medidas para optimizar el gasto en la nube. Para obtener más información sobre cómo abordar la administración de costos como organización, eche un vistazo al artículo [Azure Cost Management best practices](cost-mgt-best-practices.md) (Procedimientos recomendados de Azure Cost Management).
 
 Aunque están relacionados, la facturación difiere de administración de costos. La facturación es el proceso de facturar a los clientes por bienes o servicios y administrar la relación comercial.  Los equipos de adquisiciones y finanzas son los que normalmente realizan las tareas de facturación.
 
@@ -45,7 +45,7 @@ Si usa los sistemas externos para acceder o revisar los datos de administración
 
 ## <a name="additional-azure-tools"></a>Herramientas de Azure adicionales
 
-Azure tiene otras herramientas que no forman parte del conjunto de características de Azure Cost Management. Sin embargo, cumplen un papel importante en el proceso de administración de costos. Para aprender más sobre dichas herramientas, consulte los siguientes vínculos.
+Azure tiene otras herramientas que no forman parte del conjunto de características de Azure Cost Management. Sin embargo, tienen un rol importante en el proceso de administración de costos. Para aprender más sobre dichas herramientas, consulte los siguientes vínculos.
 
 - [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/): utilice esta herramienta para calcular los en la nube costos por adelantado.
 - [Azure Migrate](../migrate/migrate-overview.md): evalué la carga de trabajo actual de su centro de datos para obtener información sobre lo que se necesita de la solución de reemplazo de Azure.

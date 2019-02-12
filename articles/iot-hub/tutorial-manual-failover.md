@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250060"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821293"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Conmutación por error manual de un centro de IoT (versión preliminar pública)
 
@@ -50,13 +50,13 @@ En este tutorial se realizan las siguientes tareas:
     **Región**: seleccione una región cercana que forme parte de la versión preliminar. En este tutorial se usa `westus2`. Las conmutaciones por error solo se pueden realizar entre regiones de Azure emparejadas geográficamente. La región emparejada geográficamente con westus2 es WestCentralUS.
     
    > [!NOTE]
-   > La conmutación por error manual se encuentra actualmente en versión preliminar pública y *no* está disponible en las siguientes regiones de Azure: Este de EE. UU., Oeste de EE. UU, Europa del Norte, Europa Occidental, Sur de Brasil y Centro-sur de EE. UU.
+   > La conmutación por error manual está actualmente en versión preliminar pública y *no* está disponible en las siguientes regiones de Azure: Este de EE. UU., Oeste de EE. UU., Europa del Norte, Europa Occidental, Sur de Brasil y Centro y Sur de EE. UU.
 
    **IoT Hub Name** (Nombre del centro de IoT): especifique el nombre del centro de IoT. Dicho nombre debe ser único globalmente. 
 
    ![Captura de pantalla que muestra el panel Basics (Datos básicos) para crear un centro de IoT](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
-   Haga clic en **Revisar + crear** (usa los valores predeterminados para el tamaño y la escala). 
+   Haga clic en **Revisar + crear**. (usa los valores predeterminados para el tamaño y la escala). 
 
 4. Revise la información y haga clic en **Create** (Crear) para crear el centro de IoT. 
 
@@ -112,7 +112,7 @@ Las conmutaciones por recuperación se realizan de la misma forma que las conmut
 
    ![Captura de pantalla de solicitud de conmutación por recuperación manual](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   Los banners se muestran como se explica en la sección acerca de la [realización de una conmutación por error](#perform-a-failover). Cuando la conmutación por recuperación termina, vuelve a mostrar `westus2` como ubicación principal y `WestCentralUS` como ubicación secundaria, como se estableció originalmente.
+   Los banners se muestran como se explica en la sección acerca de la realización de una conmutación por error. Cuando la conmutación por recuperación termina, vuelve a mostrar `westus2` como ubicación principal y `WestCentralUS` como ubicación secundaria, como se estableció originalmente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 

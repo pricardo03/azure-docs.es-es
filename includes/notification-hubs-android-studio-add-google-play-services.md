@@ -5,30 +5,37 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f00ca7ddf44a9d5b850cd47520970a0396a0c1b5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55823299"
 ---
-1. Abra el Administrador de SDK de Android haciendo clic en el icono de la barra de herramientas de Android Studio o haciendo clic en **Herramientas** > **Android** > **SDK Manager** en el menú. Busque la versión de destino de Android SDK que se usa en su proyecto, ábrala, para lo que debe hacer clic en **Show Package Details** (Mostrar detalles de paquete), y elija **Google APIs** (API de Google), en caso de que no esté instalado.
-2. Haga clic en la pestaña **SDK Tools** (Herramientas del SDK). Si no ha instalado todavía el servicio Google Play, haga clic en **Google Play Services** (Servicios de Google Play), tal como se muestra a continuación. A continuación, haga clic en **Apply** (Aplicar) para instalarlo. Tome nota de la ruta de acceso del SDK para usarla en el paso siguiente.
+1. En **Android Studio**, seleccione **Tools** (Herramientas) en el menú y seleccione **SDK Manager**. 
+2. Seleccione la versión de destino de Android SDK que se utiliza en el proyecto y seleccione **Show Package Details** (Mostrar detalles de paquete). 
 
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Abra el archivo `build.gradle` en el directorio de la aplicación.
+    ![Android SDK Manager: selección de la versión de destino](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Seleccione **Google APIs**, si no están ya instaladas.
 
-    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
-4. Agregue esta línea en `dependencies`:
+    ![Android SDK Manager: Google APIs seleccionado](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Cambie a la pestaña **SDK Tools**. Si no ha instalado todavía el servicio Google Play, seleccione **Google Play Services**, tal como se muestra en la imagen siguiente. A continuación, haga clic en **Apply** (Aplicar) para instalarlo. Tome nota de la ruta de acceso del SDK para usarla en el paso siguiente.
+
+    ![Android SDK Manager: Google Play Services seleccionado](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Si ve el cuadro de diálogo **Confirm Change** (Confirmar cambio), seleccione **OK** (Aceptar). El instalador de componentes se instala los componentes solicitados. Seleccione **Finish** (Finalizar) una vez instalados los componentes.
+4. Seleccione **OK** (Aceptar) para cerrar el cuadro de diálogo **Settings for New Projects** (Configuración para nuevos proyectos).  
+5. Abra el archivo `build.gradle` en el directorio **app** y agregue esta línea en `dependencies`. 
 
     ```text
-    compile 'com.google.android.gms:play-services-gcm:12.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
-5. Haga clic en el botón **Sincronizar proyecto con archivos de Gradle** en la barra de herramientas.
-6. Abra **AndroidManifest.xml** y agregue esta etiqueta a la etiqueta *application* .
+5. Seleccione el icono **Sync Now** (Sincronizar ahora) en la barra de herramientas.
+
+    ![Sincronización con Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
+1. Abra **AndroidManifest.xml** y agregue esta etiqueta a la etiqueta *application* .
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"

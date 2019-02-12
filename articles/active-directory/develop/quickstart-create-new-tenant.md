@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101267"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692144"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Inicio rápido: Configuración de un entorno de desarrollo
 
@@ -64,8 +64,11 @@ Si no tiene un inquilino existente asociado a la cuenta, verá un GUID bajo el n
 Si aún no tiene un inquilino de Azure AD o si desea crear uno nuevo para su desarrollo, siga la [experiencia de creación de directorio](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Tendrá que proporcionar la información siguiente para crear el nuevo inquilino:
 
 - **Nombre de la organización**
-- **Dominio inicial**: formará parte de *.onmicrosoft.com. El dominio se puede personalizar más adelante. 
+- **Dominio inicial**: formará parte de *.onmicrosoft.com. El dominio se puede personalizar más adelante.
 - **País o región**
+
+> [!NOTE]
+> Al asignar un nombre a su inquilino, utilice caracteres alfanuméricos. No se aceptan caracteres especiales. El nombre no puede tener más de 256 caracteres.
 
 ## <a name="social-and-local-accounts"></a>Cuentas locales y sociales
 

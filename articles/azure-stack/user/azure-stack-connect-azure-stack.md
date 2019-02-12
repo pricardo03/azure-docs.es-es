@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243773"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816414"
 ---
 # <a name="connect-to-azure-stack"></a>Conexión a Azure Stack
 
 Para administrar recursos, debe conectarse al Kit de desarrollo de Azure Stack. En este artículo se detallan los pasos necesarios para conectar con el kit de desarrollo. Puede utilizar cualquiera de las siguientes opciones de conexión:
 
-* [Escritorio remoto](#connect-with-remote-desktop): permite a un solo usuario simultáneo conectarse rápidamente al kit de desarrollo.
-* [Red privada virtual (VPN)](#connect-with-vpn): permite que varios usuarios simultáneos se conecten desde clientes fuera de la infraestructura de Azure Stack (requiere configuración).
+* Escritorio remoto: permite a un solo usuario simultáneo conectarse rápidamente al kit de desarrollo.
+* Red privada virtual (VPN): permite que varios usuarios simultáneos se conecten desde clientes fuera de la infraestructura de Azure Stack (requiere configuración).
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Conexión a Azure Stack con Escritorio remoto
 Con una conexión a Escritorio remoto, un único usuario simultáneo puede trabajar con el portal para administrar los recursos.

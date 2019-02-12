@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458257"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696153"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Inicio rápido: Uso de Translator Text API para determinar las longitudes de oración con Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Actualmente, hay un punto de conexión disponible para Translator Text y está establecido como `base_url`. `path` establece la ruta de `breaksentence` e identifica que deseamos usar la versión 3 de la API.
+El punto de conexión global de Translator Text se establece como `base_url`. `path` establece la ruta de `breaksentence` e identifica que deseamos usar la versión 3 de la API.
 
 Los elementos `params` de este ejemplo se utilizan para establecer el idioma del texto proporcionado. Los elementos `params` no son necesarios para la ruta `breaksentence`. Si no se incluye en la solicitud, la API intentará detectar el idioma del texto proporcionado y proporcionará esta información junto con una puntuación de confianza en la respuesta.
 

@@ -3,7 +3,7 @@ title: Ejemplos de script de la CLI de Azure para SQL Database | Microsoft Docs
 description: Ejemplos de script de la CLI de Azure para crear y administrar servidores de Azure SQL Database, grupos elásticos, bases de datos y firewalls.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,15 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 3eb077cf705f08e1ad953211c00c6b1eaa50ee3b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/03/2019
+ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477903"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560828"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Ejemplos de la CLI de Azure para Azure SQL Database
+
+Azure SQL Database se puede configurar con la <a href="/cli/azure">CLI de Azure</a>.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
+
+## <a name="single-database--elastic-pools"></a>Grupos elásticos y base de datos única
 
 En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Azure para Azure SQL Database.
 
@@ -31,5 +41,19 @@ En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Az
 |**Escalado de una base de datos única y un grupo elástico**||
 | [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI escala una sola base de datos de Azure SQL a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos. |
 | [Escalado de un grupo elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI escala un grupo elástico de SQL a un tamaño de proceso distinto.  |
-| [Creación y administración de una Instancia administrada](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | Estos scripts de la CLI muestran que debe crear y administrar una Instancia administrada mediante la CLI de Azure |
 |||
+
+Obtenga más información sobre la [API de la CLI de Azure de la base de datos única](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
+
+## <a name="managed-instance"></a>Instancia administrada
+
+En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Azure para la instancia administrada de Azure SQL Database.
+
+| |  |
+|---|---|
+| [Creación de una instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Este script de la CLI muestra cómo crear una Instancia administrada. |
+| [Actualización una Instancia administrada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Este script de la CLI muestra cómo crear una Instancia administrada. |
+| [Move a database to another Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) (Traslado de una base de datos a otra Instancia administrada) | Este script de la CLI muestra cómo restaurar una copia de seguridad de una base de datos de una instancia a otra. |
+|||
+
+Obtenga más información sobre la [API de la CLI de Azure de la instancia administrada](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) y encuentre [más ejemplos aquí](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

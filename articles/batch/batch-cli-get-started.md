@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476832"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812368"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure
 
@@ -63,7 +63,7 @@ Para utilizar la CLI de Azure con Batch, debe iniciar sesión y autenticarse. Ha
 Hay varias maneras diferentes de iniciar sesión en Azure, las cuales se describen en detalle en [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli):
 
 1. [Inicie sesión de forma interactiva](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Inicie sesión de forma interactiva cuando ejecute comandos de la CLI de Azure desde la línea de comandos.
-2. [Inicie sesión con una entidad de servicio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
+2. [Inicie sesión con una entidad de servicio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
 
 Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) en la línea de comandos:
 
@@ -76,7 +76,7 @@ El comando `az login` devuelve un token que puede usar para autenticarse, como s
 
 ![Inicio de sesión en Azure](./media/batch-cli-get-started/az-login.png)
 
-Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts) también muestran cómo iniciar la sesión de la CLI de Azure mediante el inicio interactivo en Azure. Una vez que haya iniciado sesión, puede llamar a comandos para trabajar con recursos de administración de Batch, incluidas cuentas de Batch, claves, paquetes de aplicación y cuotas.  
+Los ejemplos en la sección Scripts de shell de ejemplo también muestran cómo iniciar la sesión de la CLI de Azure mediante el inicio interactivo en Azure. Una vez que haya iniciado sesión, puede llamar a comandos para trabajar con recursos de administración de Batch, incluidas cuentas de Batch, claves, paquetes de aplicación y cuotas.  
 
 ### <a name="log-in-to-your-batch-account"></a>Inicio de sesión en la cuenta de Batch
 
@@ -110,7 +110,7 @@ Tiene dos opciones para autenticarse en su cuenta de Batch:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts) muestran cómo iniciar sesión en su cuenta de Batch con la CLI de Azure mediante Azure AD y la clave compartida.
+Los ejemplos en la sección Scripts de shell de ejemplo muestran cómo iniciar sesión en su cuenta de Batch con la CLI de Azure mediante Azure AD y la clave compartida.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Uso de los comandos de la extensión de la CLI de Azure Batch
 
@@ -168,7 +168,7 @@ Las siguientes sugerencias pueden ayudarle cuando esté solucionando problemas d
 
 * Use `-h` para obtener **texto de ayuda** de cualquier comando de CLI.
 * Use `-v` y `-vv` para mostrar la salida **detallada** de comandos. Cuando se incluye la marca `-vv`, la CLI de Azure muestra las solicitudes y respuestas REST en sí. Estos modificadores son útiles para mostrar la salida completa del error.
-* Puede ver la **salida del comando como JSON** con la opción `--json`. Por ejemplo, `az batch pool show pool001 --json` muestra las propiedades de pool001 en formato JSON. Puede copiar y modificar esta salida para usarla en `--json-file` (consulte [Archivos JSON](#json-files) en este mismo artículo).
+* Puede ver la **salida del comando como JSON** con la opción `--json`. Por ejemplo, `az batch pool show pool001 --json` muestra las propiedades de pool001 en formato JSON. Puede copiar y modificar esta salida para usarla en `--json-file` (consulte Archivos JSON en este mismo artículo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Pasos siguientes

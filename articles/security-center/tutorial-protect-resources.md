@@ -3,7 +3,7 @@ title: 'Tutorial de Azure Security Center: protección de los recursos con Azure
 description: En este tutorial se muestra cómo configurar una directiva de acceso a VM Just-In-Time y una directiva de control de aplicaciones.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -14,16 +14,16 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 19b5f6d6cb8e0e17dba9944e8b72c6938f168c70
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: monhaber
+ms.openlocfilehash: df9e804e8b8f3a9b40a18873f61ec96edee1503d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839354"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490276"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: protección de los recursos con Azure Security Center
-Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
+Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
 
 En este tutorial, aprenderá a:
 
@@ -37,15 +37,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ## <a name="manage-vm-access"></a>Administración de acceso a VM
-El acceso a VM Just-In-Time se puede usar para bloquear el tráfico entrante a las VM de Azure. Para ello, se reduce la exposición a ataques al mismo tiempo que se proporciona un acceso sencillo para conectarse a las VM cuando sea necesario.
+El acceso a VM JIT se puede usar para bloquear el tráfico entrante a las VM de Azure. Para ello, se reduce la exposición a ataques al mismo tiempo que se proporciona un acceso sencillo para conectarse a las VM cuando sea necesario.
 
 No es necesario que los puertos de administración estén abiertos en todo momento. Solo deben estar abiertos mientras se está conectado a la máquina virtual, por ejemplo, para realizar tareas de administración o mantenimiento. Cuando se habilita Just-In-Time, Security Center usa las reglas del grupo de seguridad de red (NSG), que restringen el acceso a los puertos de administración para que no puedan ser objeto de ataques.
 
-1. En el menú principal de Security Center, seleccione **Acceso a VM Just-In-Time** en **PROTECCIÓN EN LA NUBE AVANZADA**.
+1. En el menú principal de Security Center, seleccione **Just-in-Time VM access** (Acceso Just-In-Time a la máquina virtual) en **PROTECCIÓN EN LA NUBE AVANZADA**.
 
   ![Acceso Just-In-Time a la máquina virtual][1]
 
-  La hoja **Acceso a VM Just-In-Time** proporciona información sobre el estado de las máquinas virtuales:
+  **Just-in-time VM access** (Acceso Just-In-Time a la máquina virtual) proporciona información acerca del estado de las máquinas virtuales:
 
   - **Configurado**: máquinas virtuales que se han configurado para admitir el acceso a máquina virtual Just-In-Time.
   - **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time pero que no se han configurado para ello.
@@ -82,8 +82,8 @@ Esta característica solo está disponible para máquinas Windows.
   La sección **Grupos de recursos** contiene tres pestañas:
 
   - **Configurado**: lista de grupos de recursos con VM configuradas con control de aplicación.
-  - **Recomendado**: lista de grupos de recursos para los que se recomienda el control de aplicación.
-  - **No recommendation** (Ninguna recomendación): lista de grupos de recursos que contienen VM sin ninguna recomendación de control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
+  - **Recomendaciones**: lista de grupos de recursos para los que se recomienda el control de aplicación.
+  - **Ninguna recomendación**: lista de grupos de recursos que contienen máquinas virtuales sin ninguna recomendación de control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
 
 2. Seleccione la pestaña **Recomendado** para obtener una lista de grupos de recursos con las recomendaciones de control de aplicación.
 
@@ -128,7 +128,7 @@ En este tutorial, aprendió a limitar la exposición a amenazas mediante:
 Pase al siguiente tutorial para aprender a responder a incidentes relacionados con la seguridad.
 
 > [!div class="nextstepaction"]
-> [Tutorial: respuesta a incidentes relacionados con la seguridad](tutorial-security-incident.md)
+> [Tutorial: Respuesta a incidentes de seguridad](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

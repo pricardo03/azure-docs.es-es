@@ -4,15 +4,15 @@ description: Describe cómo detectar y evaluar VM de VMware locales para la migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298728"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730771"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -78,7 +78,7 @@ Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Est
     > [!NOTE]
     > El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure.
 
-    **Gratificación instantánea:** con el dispositivo de detección continua, una vez que la detección se ha completado (tarda un par de horas según el número de máquinas virtuales), podrá crear valoraciones de forma instantánea. Puesto que la recopilación de datos de rendimiento se inicia al iniciar la detección, si desea obtener gratificación instantánea, para el criterio de tamaño en la valoración debe seleccionar *como local*. Para obtener valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección para obtener recomendaciones de tamaño que sean confiables.
+    **Valoraciones rápidas:** con el dispositivo de detección continua, una vez que la detección se ha completado (tarda un par de horas según el número de máquinas virtuales), podrá crear valoraciones de forma instantánea. Puesto que la recopilación de datos de rendimiento se inicia al comenzar la detección, si lo que busca es obtener valoraciones rápidas, para el criterio de tamaño en la valoración debe seleccionar *como local*. Para obtener valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección para obtener recomendaciones de tamaño que sean confiables.
 
     El dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (es decir incorporación o eliminación de una máquina virtual, incorporación de un disco, etc.). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
 
@@ -185,7 +185,7 @@ Importe el archivo descargado en el servidor vCenter Server.
     - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) a las que tiene acceso el recopilador.
 
       > [!NOTE]
-      > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado de dicho proxy, se podría producir un error inicialmente en la conexión a Internet; [conozca más](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre cómo solucionar este problema mediante la importación del certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
+      > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado de dicho proxy, se podría producir un error inicialmente en la conexión a Internet; [conozca más](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre cómo solucionar este problema mediante la importación del certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
 
     - El recopilador comprueba que el servicio del recopilador se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
     - Descargue e instale VMware PowerCLI.
@@ -196,7 +196,7 @@ Importe el archivo descargado en el servidor vCenter Server.
     - En **Ámbito del grupo**, seleccione un ámbito para la detección de VM. El recopilador solo puede detectar VM dentro del ámbito especificado. El ámbito se puede establecer en una carpeta, centro de datos o clúster específico. No debe contener más de 1500 máquinas virtuales. [Obtener más información](how-to-scale-assessment.md) acerca de cómo puede detectar un entorno mayor.
 
 7. En **Specify migration project** (Especificar proyecto de migración), especifique la clave y el identificador de proyecto de Azure Migrate que copió del portal. Si no los copió, abra Azure Portal desde la VM de recopilador. En la página **Introducción** del proyecto, haga clic en **Detectar máquinas** y copie los valores.  
-8. En **Ver el progreso de la recopilación**, supervise el estado de la detección. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sobre qué datos reúne Azure Migrate Collector.
+8. En **Ver el progreso de la recopilación**, supervise el estado de la detección. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre qué datos reúne Azure Migrate Collector.
 
 > [!NOTE]
 > El recopilador solo admite "Inglés (Estados Unidos)" como el idioma del sistema operativo y el idioma de la interfaz del recopilador.

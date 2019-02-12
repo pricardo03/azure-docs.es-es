@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754074"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818590"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -62,7 +62,7 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
   * [Tarea de inicio](#start-task)
   * [Tareas del Administrador de trabajos](#job-manager-task)
   * [Tareas de preparación y liberación de trabajos](#job-preparation-and-release-tasks)
-  * [Tarea de instancias múltiples (MPI)](#multi-instance-tasks)
+  * Tarea de instancias múltiples (MPI)
   * [Dependencias de las tareas](#task-dependencies)
 * [Paquetes de aplicación](#application-packages)
 
@@ -153,7 +153,7 @@ Para conocer los requisitos y pasos de manera detallada, consulte [Uso de una im
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Compatibilidad con contenedores en grupos de máquinas virtuales
 
-Al crear un grupo de configuración de máquinas virtuales mediante las API de Batch, puede configurar el grupo para ejecutar tareas en contenedores de Docker. Actualmente, debe crear el grupo con una imagen que admita contenedores de Docker. Use Windows Server 2016 Datacenter con la imagen Containers de Azure Marketplace, o proporcione una imagen de máquina virtual personalizada que incluya Docker Community Edition o Enterprise y los controladores necesarios. La configuración del grupo debe incluir una [configuración de contenedor](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie las imágenes del contenedor en las máquinas virtuales cuando se crea el grupo. De esta forma, las tareas que se ejecutan en el grupo pueden hacer referencia a las imágenes y a las opciones de ejecución del contenedor.
+Al crear un grupo de configuración de máquinas virtuales mediante las API de Batch, puede configurar el grupo para ejecutar tareas en contenedores de Docker. Actualmente, debe crear el grupo con una imagen que admita contenedores de Docker. Use Windows Server 2016 Datacenter con la imagen Containers de Azure Marketplace, o proporcione una imagen de máquina virtual personalizada que incluya Docker Community Edition o Enterprise y los controladores necesarios. La configuración del grupo debe incluir una [configuración de contenedor](/rest/api/batchservice/pool/add) que copie las imágenes del contenedor en las máquinas virtuales cuando se crea el grupo. De esta forma, las tareas que se ejecutan en el grupo pueden hacer referencia a las imágenes y a las opciones de ejecución del contenedor.
 
 Para más información, vea [Ejecución de aplicaciones de contenedor de Docker en Azure Batch](batch-docker-container-workloads.md).
 
@@ -215,7 +215,7 @@ Puede especificar los [paquetes de aplicación](#application-packages) que se im
 
 ### <a name="network-configuration"></a>Network configuration (Configuración de red)
 
-Puede especificar la subred de una [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en la que se deben crear los nodos de proceso del grupo. Consulte la sección [Configuración de la red del grupo](#pool-network-configuration) para más información.
+Puede especificar la subred de una [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en la que se deben crear los nodos de proceso del grupo. Consulte la sección Configuración de la red del grupo para más información.
 
 
 ## <a name="job"></a>Trabajo
@@ -271,7 +271,7 @@ Además de las tareas que se definen para realizar cálculos en un nodo, el serv
 * [Tarea de inicio](#start-task)
 * [Tareas del Administrador de trabajos](#job-manager-task)
 * [Tareas de preparación y liberación de trabajos](#job-preparation-and-release-tasks)
-* [Tareas de instancias múltiples (MPI)](#multi-instance-tasks)
+* Tareas de instancias múltiples (MPI)
 * [Dependencias de las tareas](#task-dependencies)
 
 ### <a name="start-task"></a>Tarea de inicio

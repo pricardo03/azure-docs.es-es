@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198153"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816550"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>¿Qué es Computer Vision API versión 1.0?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198153"
 >- [Computer Vision API versión 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 Computer Vision API, basada en la nube, provee a los desarrolladores de acceso a algoritmos avanzados para procesar imágenes y devolver información. Al cargar una imagen o al especificar una URL de imagen, los algoritmos del servicio Computer Vision pueden analizar el contenido visual de diferentes maneras basándose en las entradas y las opciones del usuario. Con Computer Vision API, los usuarios pueden analizar imágenes para:
-* [Etiquetar imágenes según el contenido.](#Tagging)
-* [Categorizar imágenes.](#Categorizing)
-* [Identificar el tipo y la calidad de las imágenes.](#Identifying)
+* Etiquetar imágenes según el contenido.
+* Categorizar imágenes.
+* Identificar el tipo y la calidad de las imágenes.
 * [Detectar caras humanas y devolver sus coordenadas. ](#Faces)
-* [Reconocer contenido específico del dominio.](#Domain-Specific)
-* [Generar descripciones de contenido.](#Descriptions)
-* [Utilizar reconocimiento óptico de caracteres para identificar el texto encontrado en las imagenes.](#OCR)
-* [Reconocer texto manuscrito.](#RecognizeText)
-* [Distinguir combinaciones de colores.](#Color)
-* [Marcar contenido solo para adultos.](#Adult)
-* [Recortar fotografías para usarlas como miniaturas.](#Thumbnails)
+* Reconocer contenido específico del dominio.
+* Generar descripciones de contenido.
+* Utilizar reconocimiento óptico de caracteres para identificar el texto encontrado en las imágenes.
+* Reconocer texto manuscrito.
+* Distinguir combinaciones de colores.
+* Marcar contenido solo para adultos.
+* Recortar fotografías para usarlas como miniaturas.
 
 ## <a name="requirements"></a>Requisitos
 * Métodos de entrada admitidos: binarios de imagen RAW en forma de application/octet-stream o URL de imagen.

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 8ef1b2a2271106a382faf9e06d57b44ca1bf033b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993015"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810803"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Ejecución de Azure Functions desde trabajos de Azure Stream Analytics 
 
@@ -40,10 +40,10 @@ En esta sección se muestra cómo configurar un trabajo de Stream Analytics para
 
 Para llevar a cabo esta tarea, se requieren los siguientes pasos:
 * [Creación de un trabajo de Stream Analytics con Event Hubs como entrada](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Creación de una instancia de Azure Redis Cache](#create-an-azure-redis-cache-instance)  
-* [Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* Creación de una instancia de Azure Redis Cache  
+* Creación de una función en Azure Functions que pueda escribir datos en Azure Redis Cache    
 * [Actualización del trabajo de Stream Analytics con la función como salida](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Búsqueda de resultados en Azure Redis Cache](#check-azure-redis-cache-for-results)  
+* Búsqueda de resultados en Azure Redis Cache  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Creación de un trabajo de Stream Analytics con Event Hubs como entrada
 

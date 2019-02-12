@@ -4,245 +4,212 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 6aa9bb8214496a5457947eab0b42a01bbe89244a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a06f0963c90da1d21f1ec0e5545ae45698e46e86
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154004"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integración de Azure Active Directory con el Portal de administración en la nube de Microsoft Azure
 
 En este tutorial, aprenderá a integrar Cloud Management Portal for Microsoft Azure con Azure Active Directory (Azure AD).
-
 Integrar el Portal de administración en la nube de Microsoft Azure con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso al Portal de administración en la nube de Microsoft Azure.
-- Puede permitir que los usuarios inicien sesión automáticamente en el Portal de administración en la nube para Microsoft Azure (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso al Portal de administración en la nube para Microsoft Azure.
+* Puede permitir que los usuarios inicien sesión automáticamente en el Portal de administración en la nube para Microsoft Azure (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con el Portal de administración en la nube de Microsoft Azure, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Un Portal de administración en la nube para suscripciones con inicio de sesión único habilitado de Microsoft Azure
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada de inicio de sesión único del Portal de administración en la nube para Microsoft Azure
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación del Portal de administración en la nube de Microsoft Azure desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* El Portal de administración en la nube para Microsoft Azure admite inicio de sesión único iniciado por **SP**
 
 ## <a name="adding-cloud-management-portal-for-microsoft-azure-from-the-gallery"></a>Incorporación del Portal de administración en la nube de Microsoft Azure desde la galería
+
 Para configurar la integración del Portal de administración en la nube de Microsoft Azure en Azure AD, debe agregar el Portal de administración en la nube de Microsoft Azure desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar el Portal de administración en la nube de Microsoft Azure desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Portal de administración en la nube de Microsoft Azure**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/newsignature-tutorial/tutorial_newsignature_search.png)
+4. En el cuadro de búsqueda, escriba **Portal de administración en la nube para Microsoft Azure**, en el panel de resultados seleccione **Portal de administración en la nube para Microsoft Azure** y luego haga clic en el botón **Agregar**para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **Cloud Management Portal for Microsoft Azure** y, luego, haga clic en **Completar** para agregar la aplicación.
+     ![Portal de administración en la nube para Microsoft Azure en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/newsignature-tutorial/tutorial_newsignature_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Cloud Management Portal for Microsoft Azure con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Cloud Management Portal for Microsoft Azure para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado del Portal de administración en la nube de Microsoft Azure.
-
-Para establecer la relación de vínculo, en Cloud Management Portal for Microsoft Azure, asigne el valor del **nombre de usuario** de Azure AD como el valor de **nombre de usuario**.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Portal de administración en la nube para Microsoft Azure con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado del Portal de administración en la nube para Microsoft Azure.
 
 Para configurar y probar el inicio de sesión único de Azure AD con el Portal de administración en la nube de Microsoft Azure, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba para Cloud Management Portal for Microsoft Azure](#creating-a-cloud-management-portal-for-microsoft-azure-test-user)**: el objetivo es tener un homólogo de Britta Simon en Cloud Management Portal for Microsoft Azure que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único del Portal de administración en la nube para Microsoft Azure](#configure-cloud-management-portal-for-microsoft-azure-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba del Portal de administración en la nube para Microsoft Azure](#create-cloud-management-portal-for-microsoft-azure-test-user)**: el objetivo es tener un homólogo de Britta Simon en el Portal de administración en la nube para Microsoft Azure que esté vinculado a la representación del usuario de Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Cloud Management Portal for Microsoft Azure.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con el Portal de administración en la nube de Microsoft Azure, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con el Portal de administración en la nube para Microsoft Azure, realice los pasos siguientes:
 
-1. En la página de integración de la aplicación **Cloud Management Portal for Microsoft Azure** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones del **Portal de administración en la nube para Microsoft Azure**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/newsignature-tutorial/tutorial_newsignature_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Cloud Management Portal for Microsoft Azure**, realice los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/newsignature-tutorial/tutorial_newsignature_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
-    
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información de dominio y direcciones URL del inicio de sesión único del Portal de administración de nube para Microsoft Azure](common/sp-identifier-reply.png)
+
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://portal.newsignature.com/<instancename>` |   
     | `https://portal.igcm.com/<instancename>` |
-    
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: 
-    
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://<subdomain>.igcm.com` |
     | `https://<subdomain>.newsignature.com` |
 
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con los siguientes patrones: 
-    
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
     | `https://<subdomain>.newsignature.com` |
-    | `https://<subdomain>.newsignature.com/<instancename>` |
+    | `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
 
-    > [!NOTE] 
-    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) para obtener estos valores. 
- 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+    > [!NOTE]
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Configurar inicio de sesión único](./media/newsignature-tutorial/tutorial_newsignature_certificate.png) 
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-1. Haga clic en el botón **Guardar** .
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-    ![Configurar inicio de sesión único](./media/newsignature-tutorial/tutorial_general_400.png)
+6. En la sección de **Configuración del Portal de administración de nube para Microsoft Azure**, copie las direcciones URL que necesite.
 
-1. En la sección **Configuración de Cloud Management Portal for Microsoft Azure**, haga clic en **Configurar Cloud Management Portal for Microsoft Azure** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-    ![Configurar inicio de sesión único](./media/newsignature-tutorial/tutorial_newsignature_configure.png) 
+    a. URL de inicio de sesión
 
-1. Para configurar el inicio de sesión único en **Cloud Management Portal for Microsoft Azure**, debe enviar el **certificado** descargado, la **URL de cierre de sesión**, la **dirección URL del servicio de inicio de sesión único de SAML** y el **id. de entidad de SAML** al [equipo de soporte técnico de Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+    b. Identificador de Azure AD
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    c. URL de cierre de sesión
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="configure-cloud-management-portal-for-microsoft-azure-single-sign-on"></a>Configuración del inicio de sesión único del Portal de administración en la nube para Microsoft Azure
+
+Para configurar el inicio de sesión único en el lado del **Portal de administración en la nube para Microsoft Azure**, tiene que enviar el **certificado (Base64)** descargado, y las direcciones URL copiadas correctamente desde Azure Portal al [equipo de soporte técnico del Portal de administración en la nube para Microsoft Azure](mailto:jczernuszka@newsignature.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
+
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/newsignature-tutorial/create_aaduser_01.png) 
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/newsignature-tutorial/create_aaduser_02.png) 
+3. En las propiedades Usuario, siga estos pasos.
 
-1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/newsignature-tutorial/create_aaduser_03.png) 
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/newsignature-tutorial/create_aaduser_04.png) 
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="creating-a-cloud-management-portal-for-microsoft-azure-test-user"></a>Creación de un usuario de prueba para el Portal de administración en la nube de Microsoft Azure
 
-El objetivo de esta sección es crear un usuario llamado Britta Simon en el Portal de administración en la nube de Microsoft Azure. Trabaje con el equipo de soporte técnico de [Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) para agregar los usuarios a la cuenta de Cloud Management Portal for Microsoft Azure.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure, para lo que se le concederá acceso a Cloud Management Portal for Microsoft Azure.
 
-![Asignar usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Portal de administración en la nube para Microsoft Azure**.
 
-**Para asignar a Britta Simon al Portal de administración en la nube de Microsoft Azure, siga los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **Portal de administración en la nube de Microsoft Azure**.
 
-    ![Asignar usuario][201] 
+    ![El Portal de administración en la nube para Microsoft Azure en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **Portal de administración en la nube de Microsoft Azure**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Configurar inicio de sesión único](./media/newsignature-tutorial/tutorial_newsignature_app.png) 
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][202] 
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Asignar usuario][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-cloud-management-portal-for-microsoft-azure-test-user"></a>Creación de un usuario de prueba para el Portal de administración en la nube para Microsoft Azure
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+En esta sección va a crear un usuario llamado Britta Simon en el Portal de administración en la nube para Microsoft Azure. Trabaje con el  [equipo de soporte técnico de Portal de administración en la nube para Microsoft Azure](mailto:jczernuszka@newsignature.com) para agregar los usuarios a la cuenta de Portal de administración en la nube para Microsoft Azure. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
-Al hacer clic en el icono del Portal de administración en la nube de Microsoft Azure en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación del Portal de administración en la nube de Microsoft Azure.
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono del Portal de administración en la nube para Microsoft Azure en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación del Portal de administración en la nube para Microsoft Azure para el que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/newsignature-tutorial/tutorial_general_01.png
-[2]: ./media/newsignature-tutorial/tutorial_general_02.png
-[3]: ./media/newsignature-tutorial/tutorial_general_03.png
-[4]: ./media/newsignature-tutorial/tutorial_general_04.png
-
-[100]: ./media/newsignature-tutorial/tutorial_general_100.png
-
-[200]: ./media/newsignature-tutorial/tutorial_general_200.png
-[201]: ./media/newsignature-tutorial/tutorial_general_201.png
-[202]: ./media/newsignature-tutorial/tutorial_general_202.png
-[203]: ./media/newsignature-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
