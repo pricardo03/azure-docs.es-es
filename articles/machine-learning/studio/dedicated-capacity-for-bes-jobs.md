@@ -1,14 +1,30 @@
 ---
-título: Servicio de Azure Batch para trabajos de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Información general de los servicios de Azure Batch para trabajos de Machine Learning. El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='Servicios Azure Batch para Machine Learning Studio | Microsoft Docs' ms.date: 19/04/2017
+title: Servicio Azure Batch para trabajos de Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Información general de los servicios de Azure Batch para trabajos de Machine Learning. El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697507"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Servicio Azure Batch para trabajos de Azure Machine Learning Studio
 
 El procesamiento de grupo de lote de Machine Learning proporciona una escala administrada por el cliente para el servicio de ejecución de lotes de Azure Machine Learning. El procesamiento por lotes clásico para aprendizaje automático tiene lugar en un entorno de varios inquilinos, lo que limita el número de trabajos simultáneos que se pueden enviar, y los trabajos se ponen en una cola que funciona según el principio de "el primero en entrar es el primero en salir". Esta incertidumbre significa que no se puede predecir con exactitud cuándo se ejecutará el trabajo.
 
 El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes. Usted controla el tamaño del grupo y a qué grupo se envía el trabajo. El trabajo BES se ejecuta en su propio espacio de procesamiento, proporcionando un rendimiento del procesamiento predecible y la capacidad para crear grupos de recursos que corresponden a la carga de procesamiento que se envía.
+
+> [!NOTE]
+> Debe tener un servicio web Machine Learning basado en el nuevo Resource Manager para crear un grupo. Una vez creado, puede ejecutar en el grupo cualquier servicio web BES, tanto basado en el nuevo Resource Manager como en el clásico.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Cómo utilizar el procesamiento de grupo de lote
 
@@ -23,7 +39,7 @@ Después de crear su cuenta, utilice la dirección URL del servicio de grupo y l
 
 ![Arquitectura del servicio de grupo de lote.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Cree grupos mediante una llamada a la operación Create Pool (Crear grupo) en la dirección URL de servicio de grupo que le proporcionó CSS. Cuando cree un grupo, especifique el número de máquinas virtuales y la dirección URL de swagger.json de un servicio web de Machine Learning basado en el nuevo Resource Manager. Este servicio web se proporciona para establecer la asociación de facturación. El servicio de grupo de lote utiliza el swagger.json para asociar el grupo a un plan de facturación. Puede ejecutar cualquier servicio web BES, tanto basado en el nuevo Resource Manager como en el clásico, que elija en el grupo.
+Cree grupos mediante una llamada a la operación Create Pool (Crear grupo) en la dirección URL de servicio de grupo que le proporcionó CSS. Cuando cree un grupo, especifique el número de máquinas virtuales y la dirección URL de swagger.json de un servicio web de Machine Learning basado en el nuevo Resource Manager. Este servicio web se proporciona para establecer la asociación de facturación. El servicio de grupo de lote utiliza el swagger.json para asociar el grupo a un plan de facturación. Puede ejecutar en el grupo cualquier servicio web BES, tanto basado en el nuevo Resource Manager como en el clásico.
 
 Puede usar cualquier servicio web basado en el nuevo Resource Manager, pero tenga en cuenta que la facturación de los trabajos se cobra con respecto al plan de facturación asociado a ese servicio. Es posible que desee crear un servicio web y un nuevo plan de facturación específicamente para ejecutar trabajos de grupo de Batch.
 

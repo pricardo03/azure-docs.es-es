@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 246b7ae21ceca80c2d1af74330691e527c73cf51
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452743"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751419"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -252,6 +252,9 @@ Azure File Sync solo se admite la sincronización con recursos compartidos de ar
 
 ### <a name="azure-disaster-recovery"></a>Azure Disaster Recovery
 Para protegerse contra la pérdida de una región de Azure, Azure File Sync se integra con la opción de [almacenamiento con redundancia geográfica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). El almacenamiento GRS utiliza la replicación asincrónica de bloques entre el almacenamiento en la región primaria, con la que normalmente se interactúa, y el almacenamiento en la región secundaria emparejada. En caso de desastre que haga que una región de Azure se desconecte temporalmente o permanentemente, Microsoft conmutará por error el almacenamiento a la región emparejada. 
+
+> [!Warning]  
+> Si usa el recurso compartido de archivos de Azure como punto de conexión en la nube en una cuenta de almacenamiento GRS, no debe iniciar la conmutación por error de la cuenta de almacenamiento. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas. En caso de pérdida de una región de Azure, Microsoft activará la conmutación por error de la cuenta de almacenamiento de forma que sea compatible con Azure File Sync.
 
 Para admitir la integración de la conmutación por error entre el almacenamiento con redundancia geográfica y Azure File Sync, todas las regiones de Azure File Sync se emparejan con una región secundaria que coincide con la región secundaria que el almacenamiento utiliza. Se emparejan de la siguiente manera:
 

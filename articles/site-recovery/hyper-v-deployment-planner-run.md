@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321184"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815087"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
 Puede ejecutar la herramienta de línea de comandos Site Recovery Deployment Planner (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes: 
--   [Obtención de la lista de máquinas virtuales (VM)](#get-vm-list-for-profiling-hyper-v-vms)
+-   Obtención de la lista de máquinas virtuales
 -   [Perfil](#profile-hyper-v-vms)
--   [Generación de un informe](#generate-report)
+-   Generación de un informe
 -   [Obtención de rendimiento](#get-throughput)
 
 En primer lugar, ejecute la herramienta para obtener la lista de máquinas virtuales de uno o varios hosts de Hyper-V. A continuación, ejecute la herramienta en modo de generación de perfiles para recopilar la actividad de datos y las IOPS de la máquina virtual. Después, ejecute la herramienta para generar el informe para ver los requisitos de ancho de banda de red y de almacenamiento.
@@ -74,7 +74,7 @@ La herramienta consulta el host de Hyper-V una vez cada 15 segundos, para garant
 La herramienta administra sin problemas la migración de las máquinas virtuales de un nodo a otro nodo del clúster y la migración del almacenamiento dentro de un host.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Obtención de la lista de máquinas virtuales para la generación de perfiles
-Consulte la operación [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) para crear una lista de máquinas virtuales para la generación de perfiles.
+Consulte la operación GetVMList para crear una lista de máquinas virtuales para la generación de perfiles.
 
 Una vez que tenga la lista de máquinas virtuales cuyo perfil se va a generar, puede ejecutar la herramienta en modo de generación de perfiles. 
 

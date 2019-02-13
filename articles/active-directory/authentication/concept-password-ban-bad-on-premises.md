@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 816c459ca6edd7204ccdcdf9d402f2d4499d9116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077837"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662530"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Vista previa: Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
@@ -29,7 +29,7 @@ Protección con contraseña de Azure AD es la versión preliminar pública de un
 Hay tres componentes de software que forman Protección con contraseña de Azure AD:
 
 * El servicio de proxy de Protección con contraseña de Azure AD se ejecuta en cualquier máquina unida a un dominio del bosque de Active Directory actual. Este servicio reenvía las solicitudes de los controladores de dominio a Azure AD y devuelve la respuesta de Azure AD al controlador de dominio.
-* El servicio de agente de controlador de dominio de Protección con contraseña de Azure AD recibe solicitudes de validación de contraseñas de la DLL de filtro de contraseñas de este agente, las procesa mediante la directiva de contraseñas actual disponible localmente y devuelve el resultado (sin errores\con errores). Este servicio es responsable de llamar periódicamente (cada hora) al servicio de proxy de Protección con contraseña de Azure AD para recuperar las nuevas versiones de la directiva de contraseñas. Las comunicaciones hacia el servicio de proxy de Protección con contraseña de Azure AD y desde este servicio se controlan mediante RPC (Llamada a procedimiento remoto) a través de TCP. Tras la recuperación, las nuevas directivas se almacenan en una carpeta sysvol desde la que se pueden replicar en otros controladores de dominio. El servicio del agente de controlador de dominio también supervisa la carpeta sysvol para detectar cambios en caso de que otros controladores de dominio hayan escrito nuevas directivas de contraseñas allí. Si ya hay una directiva adecuadamente reciente disponible, se omitirá la comprobación del servicio de proxy de Protección con contraseña de Azure AD.
+* El servicio de agente de controlador de dominio de Protección con contraseña de Azure AD recibe solicitudes de validación de contraseñas de la DLL de filtro de contraseñas de este agente, las procesa mediante la directiva de contraseñas actual disponible localmente y devuelve el resultado (sin errores\con errores). Este servicio es responsable de llamar periódicamente (cada hora) al servicio de proxy de Protección con contraseña de Azure AD para recuperar las nuevas versiones de la directiva de contraseñas. La comunicación entre el servicio de agente de controlador de dominio de protección con contraseña de Azure AD y el servicio de proxy de protección con contraseña de Azure AD se administra mediante RPC (llamada a procedimiento remoto) a través de TCP. Tras la recuperación, las nuevas directivas se almacenan en una carpeta sysvol desde la que se pueden replicar en otros controladores de dominio. El servicio del agente de controlador de dominio también supervisa la carpeta sysvol para detectar cambios en caso de que otros controladores de dominio hayan escrito nuevas directivas de contraseñas allí. Si ya hay una directiva adecuadamente reciente disponible, se omitirán las nuevas solicitudes de descarga de directiva.
 * La DLL de filtro de contraseña del agente de controlador de dominio recibe solicitudes de validación de contraseñas del sistema operativo y las reenvía al servicio de agente de controlador de dominio de Protección con contraseña de Azure AD que se ejecuta localmente en el controlador de dominio.
 
 ![Funcionamiento conjunto de los componentes de Protección con contraseña de Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -57,7 +57,7 @@ Se necesitan dos instaladores para Protección con contraseña de Azure AD que s
 * No hay ningún requisito mínimo de dominio de Active Directory ni de nivel funcional del bosque (DFL/FFL).
 * El software no crea ni requiere ninguna cuenta en los dominios de Active Directory que protege.
 * Se admite la implementación incremental a cambio de que la directiva de contraseñas se aplique solamente allí donde se haya instalado el agente de controlador de dominio.
-* Se recomienda instalar el agente de controlador de dominio en todos los controladores de dominio para garantizar el cumplimiento de la protección con contraseña. 
+* Se recomienda instalar el agente de controlador de dominio en todos los controladores de dominio para garantizar el cumplimiento de la protección con contraseña.
 * Protección con contraseña de Azure AD no es un motor de aplicación de directivas en tiempo real. Puede que se produzca un retraso entre un cambio en la configuración de la directiva de contraseñas y el momento en el que este alcanza y se aplica a todos los controladores de dominio.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d6879c6b9be06af4bb289761cc8f26b7e56d18e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355338"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658715"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -47,6 +47,7 @@ En la tabla siguiente se enumeran los tipos de oferta actuales compatibles con [
 | [Dynamics 365 for Customer Engagement ](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Paquete que extiende este sistema de administración de recursos del usuario (CRM) gracias a los módulos de ventas, servicios, servicio de proyecto y servicio de campo.  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Paquete que extiende al servicio de planeación de recursos empresariales (ERP) que admite finanzas avanzadas, operaciones, fabricación y administración de la cadena de suministro. |
 | [Módulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Contenedor compatible con Docker que se ejecuta en un dispositivo IoT Edge.  Contiene módulos pequeños de cálculo que usan una combinación de código personalizado, otros servicios de Azure y servicios de terceros. |
+| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Un paquete que utiliza flujos de datos para conectar informes y paneles a los datos del almacenamiento de datos común. |
 | [Aplicación SaaS](./saas-app/cpp-saas-offer.md) | Azure | Suscripción de software como servicio administrada por el anunciante en la que los usuarios inician sesión mediante una interfaz personalizada que aprovecha las funciones de Azure Active Directory. |
 | [Máquina virtual](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Solución contenida dentro de una sola máquina virtual que se implementa en la suscripción del cliente.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

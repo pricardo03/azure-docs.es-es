@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: Tutoriales
   items:
-  - name: Diseño de una base de datos de Azure SQL Database
+  - name: Diseño de una base de datos en SQL Database
     items:
     - name: Diseño de base de datos con SSMS
       href: sql-database-design-first-database.md
     - name: Diseño de base de datos con .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migración a Azure SQL Database
+  - name: Migración a SQL Database
     items:
     - name: Migración a una base de datos única o agrupada mediante DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migración a una instancia administrada mediante DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Seguridad en Azure SQL Database
+  - name: Seguridad en SQL Database
     items:
-    - name: Seguridad de base de datos única
+    - name: Seguridad en bases de datos únicas y agrupadas
       href: sql-database-security-tutorial.md
-    - name: Seguridad de Instancia administrada con inicios de sesión de Azure AD
+    - name: Seguridad de la Instancia administrada
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implementar una base de datos distribuida geográficamente
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: Modelos de compra
     items:
     - name: Información general
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: Modelo basado en núcleos virtuales
       href: sql-database-service-tiers-vcore.md
-    - name: Modelo de DTU
+    - name: Niveles de servicio de DTU
       href: sql-database-service-tiers-dtu.md
     - name: Pago por adelantado de capacidad reservada
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: Información general
       href: sql-database-howto-single-database.md
-    - name: Migración a SQL Database
-      href: sql-database-cloud-migrate.md
+    - name: Migración a una base de datos única o agrupada
+      href: sql-database-single-database-migrate.md
     - name: Administración de una base de datos SQL después de una migración
       href: sql-database-manage-after-migration.md
     - name: Configuración de la replicación
@@ -405,7 +405,7 @@ items:
         href: sql-database-elastic-scale-add-a-shard.md
       - name: Solución de problemas de asignación de particiones
         href: sql-database-elastic-database-recovery-manager.md
-      - name: Migración de bases de datos con particiones
+      - name: Migración de una base de datos con particiones
         href: sql-database-elastic-convert-to-use-elastic-tools.md
       - name: Creación de contadores
         href: sql-database-elastic-database-perf-counters.md
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: Consulta de tablas con esquemas diferentes
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Trabajos de Elastic Database
+    - name: Trabajos elásticos
       items:
       - name: Creación y administración (PowerShell)
         href: elastic-jobs-powershell.md
@@ -607,7 +607,7 @@ items:
             items:
             - name: Con SQL Database
               href: saas-tenancy-tenant-analytics.md
-            - name: Con SQL DW
+            - name: Con SQL Data Warehouse
               href: saas-tenancy-tenant-analytics-adf.md
         - name: Recuperación ante desastres mediante la restauración geográfica
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalación de trabajo elástico (en desuso)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960554"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100047"

@@ -4,17 +4,17 @@ description: Las evaluaciones y los efectos de Azure Policy determinan el cumpli
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853636"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766432"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -45,6 +45,8 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 - Un recurso se implementa en un ámbito con una asignación a través del Administrador de recursos, REST, CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
 
 - Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se vuelven a evaluar automáticamente. Una directiva o iniciativa grande de muchos recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de la evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
+
+- Un recurso administrado actualiza el proveedor de recursos [Configuración de invitado](../concepts/guest-configuration.md) con detalles de cumplimiento.
 
 - Examen a petición
 
@@ -139,6 +141,26 @@ Los eventos (anexar, auditar, denegar, implementar) que desencadena la solicitud
 Haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Mostrar los registros de actividad**. Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
 
 ![Registro de actividades de cumplimiento de directiva](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>Historial de cambios (versión preliminar)
+
+Como parte de una nueva **versión preliminar pública**, los últimos catorce días del historial de cambios están disponibles para un recurso que no es compatible. El historial de cambios proporciona información acerca de cuándo se detectó un cambio y una _diferencia visual_ para cada cambio. Se desencadena una detección de cambios cuando se agregan, eliminan o modifican las propiedades de Resource Manager de un recurso no compatible.
+
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+
+1. En la página **Información general** o **Cumplimiento**, seleccione una directiva que sea _No compatible_.
+
+1. En la pestaña **Compatibilidad de recursos**, de la página **Cumplimiento de directiva**, seleccione un recurso que sea _No compatible_.
+
+1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
+
+   ![Historial de cambios de directiva: pestaña](../media/getting-compliance-data/change-history-tab.png)
+
+1. Seleccione uno de los cambios detectados. Las _diferencias visuales_ para el recurso no compatible se presentan en la página **Historial de cambios**.
+
+   ![Historial de cambios de directiva: diferencia visual](../media/getting-compliance-data/change-history-visual-diff.png)
+
+Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados pueden no estar relacionados con lo que provocó que el recurso fuera no compatible con la directiva seleccionada.
 
 ## <a name="command-line"></a>Línea de comandos
 

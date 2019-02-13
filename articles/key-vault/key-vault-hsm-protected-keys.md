@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079211"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693891"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generación y transferencia de claves protegidas con HSM para Azure Key Vault
 
@@ -260,6 +260,9 @@ Inicie un símbolo del sistema y ejecute el programa new-world de Thales.
    ```
 
 Este programa crea un archivo de **espacio de seguridad** en %NFAST_KMDATA%\local\world, que corresponde a la carpeta C:\ProgramData\nCipher\Key Management Data\local. Puede usar valores diferentes para el quórum, pero en nuestro ejemplo, se le pedirá que escriba tres tarjetas en blanco y PIN para cada una de ellos. A continuación, dos tarjetas cualesquiera le proporcionarán acceso total al espacio de seguridad. Estas tarjetas pasan a ser el **Conjunto de tarjetas de administrador** del nuevo espacio de seguridad.
+
+> [!NOTE]
+> Si su dispositivo HSM admite el conjunto de cifrado más reciente DLf3072s256mRijndael, puede reemplazar --cipher-suite=DLf1024s160mRijndael por --cipher-suite=DLf3072s256mRijndael.
 
 A continuación, haga lo siguiente:
 

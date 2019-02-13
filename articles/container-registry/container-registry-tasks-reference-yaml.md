@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334489"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820392"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -83,11 +83,11 @@ az configure --defaults acr=myregistry
 
 Las propiedades de tareas suelen aparecer en la parte superior de un archivo `acr-task.yaml` y son propiedades globales que se aplican a lo largo de la ejecución completa de la tarea. Algunas de estas propiedades globales se pueden reemplazar dentro de un paso individual.
 
-| Propiedad | Escriba | Opcional | DESCRIPCIÓN | Invalidación admitida | Valor predeterminado |
+| Propiedad | Type | Opcional | DESCRIPCIÓN | Invalidación admitida | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sin  | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. | Sin  | None |
-| `stepTimeout` | int (segundos) | SÍ | El número máximo de segundos que se puede ejecutar un paso. Esta propiedad se puede invalidar en un paso si se establece la propiedad [timeout](#timeout) del paso. | SÍ | 600 (10 minutos) |
-| `totalTimeout` | int (segundos) | SÍ | El número máximo de segundos que se puede ejecutar una tarea. Una "ejecución" incluye la ejecución y la finalización de todos los pasos de la tarea, ya sea de forma correcta o con errores. También incluye la impresión de la salida de la tarea, como las dependencias de imagen detectadas y el estado de ejecución de la tarea. | Sin  | 3600 (1 hora) |
+| `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Esta propiedad se puede invalidar en un paso si se establece la propiedad timeout del paso. | Sí | 600 (10 minutos) |
+| `totalTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar una tarea. Una "ejecución" incluye la ejecución y la finalización de todos los pasos de la tarea, ya sea de forma correcta o con errores. También incluye la impresión de la salida de la tarea, como las dependencias de imagen detectadas y el estado de ejecución de la tarea. | Sin  | 3600 (1 hora) |
 
 ## <a name="task-step-types"></a>Tipos de pasos de tareas
 
@@ -116,8 +116,8 @@ El tipo de paso `build` admite los parámetros de la tabla siguiente. El tipo de
 
 | Parámetro | DESCRIPCIÓN | Opcional |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Define el elemento completo `image:tag` de la imagen compilada.<br /><br />Como se pueden usar imágenes para las validaciones de tareas internas, no todas las imágenes requieren la acción `push` en un registro. Sin embargo, para crear una instancia de una imagen dentro de una ejecución de tareas, la imagen necesita un nombre al que hacer referencia.<br /><br />A diferencia de `az acr build`, la ejecución de ACR Tasks no proporciona un comportamiento de inserción predeterminado. Con ACR Tasks, en el escenario predeterminado se da por hecho la posibilidad de compilar, validar y luego insertar una imagen. Consulte [push](#push) para ver como insertar opcionalmente imágenes compiladas. | SÍ |
-| `-f` &#124; `--file` | Especifica el archivo Dockerfile que se pasa a `docker build`. Si no se especifica, se da por hecho el archivo Dockerfile predeterminado en la raíz del contexto. Para especificar un archivo Dockerfile alternativo, pase el nombre de archivo relativo a la raíz del contexto. | SÍ |
+| `-t` &#124; `--image` | Define el elemento completo `image:tag` de la imagen compilada.<br /><br />Como se pueden usar imágenes para las validaciones de tareas internas, no todas las imágenes requieren la acción `push` en un registro. Sin embargo, para crear una instancia de una imagen dentro de una ejecución de tareas, la imagen necesita un nombre al que hacer referencia.<br /><br />A diferencia de `az acr build`, la ejecución de ACR Tasks no proporciona un comportamiento de inserción predeterminado. Con ACR Tasks, en el escenario predeterminado se da por hecho la posibilidad de compilar, validar y luego insertar una imagen. Consulte [push](#push) para ver como insertar opcionalmente imágenes compiladas. | Sí |
+| `-f` &#124; `--file` | Especifica el archivo Dockerfile que se pasa a `docker build`. Si no se especifica, se da por hecho el archivo Dockerfile predeterminado en la raíz del contexto. Para especificar un archivo Dockerfile alternativo, pase el nombre de archivo relativo a la raíz del contexto. | Sí |
 | `context` | El directorio raíz pasado a `docker build`. El directorio raíz de cada tarea se establece en un directorio [workingDirectory](#task-step-properties) compartido, e incluye la raíz del directorio clonado de Git asociado. | Sin  |
 
 ### <a name="properties-build"></a>Propiedades: build
@@ -315,18 +315,18 @@ Mediante la convención de referencia de imágenes `docker run` estándar, `cmd`
 
 Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla siguiente se definen todas las propiedades de pasos disponibles. No todos los tipos de pasos admiten todas las propiedades. Para ver cuál de estas propiedades está disponible para cada tipo de paso, consulte las acciones de referencia de tipos de pasos [cmd](#cmd), [build](#build) y [push](#push).
 
-| Propiedad | Escriba | Opcional | DESCRIPCIÓN |
+| Propiedad | Type | Opcional | DESCRIPCIÓN |
 | -------- | ---- | -------- | ----------- |
-| `detach` | booleano | SÍ | Si el contenedor se debe desasociar cuando se ejecuta. |
-| `entryPoint` | string | SÍ | Invalida el elemento `[ENTRYPOINT]` del contenedor de un paso. |
-| `env` | [string, string, ...] | SÍ | Matriz de cadenas en formato `key=value` que define las variables de entorno del paso. |
-| [`id`](#example-id) | string | SÍ | Identifica el paso de forma única dentro de la tarea. Otros pasos de la tarea pueden hacer referencia al elemento `id` del paso, por ejemplo, para la comprobación de dependencias con `when`.<br /><br />`id` también es el nombre del contenedor en ejecución. Los procesos que se ejecutan en otros contenedores de la tarea pueden hacer referencia a `id` como su nombre de host DNS, o para acceder a él con registros de docker [id], por ejemplo. |
-| `ignoreErrors` | booleano | SÍ | Cuando se establece en `true`, el paso se marca como completado, con independencia de si se produjo un error durante su ejecución. Valor predeterminado: `false`. |
-| `keep` | booleano | SÍ | Si se debe mantener el contenedor del paso después de la ejecución. |
-| `startDelay` | int (segundos) | SÍ | Número de segundos para retrasar la ejecución de un paso. |
-| `timeout` | int (segundos) | SÍ | Número máximo de segundos que se puede ejecutar un paso antes de terminar. |
-| [`when`](#example-when) | [string, string, ...] | SÍ | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. |
-| `workingDirectory` | string | SÍ | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. |
+| `detach` | booleano | Sí | Si el contenedor se debe desasociar cuando se ejecuta. |
+| `entryPoint` | string | Sí | Invalida el elemento `[ENTRYPOINT]` del contenedor de un paso. |
+| `env` | [string, string, ...] | Sí | Matriz de cadenas en formato `key=value` que define las variables de entorno del paso. |
+| [`id`](#example-id) | string | Sí | Identifica el paso de forma única dentro de la tarea. Otros pasos de la tarea pueden hacer referencia al elemento `id` del paso, por ejemplo, para la comprobación de dependencias con `when`.<br /><br />`id` también es el nombre del contenedor en ejecución. Los procesos que se ejecutan en otros contenedores de la tarea pueden hacer referencia a `id` como su nombre de host DNS, o para acceder a él con registros de docker [id], por ejemplo. |
+| `ignoreErrors` | booleano | Sí | Cuando se establece en `true`, el paso se marca como completado, con independencia de si se produjo un error durante su ejecución. Valor predeterminado: `false`. |
+| `keep` | booleano | Sí | Si se debe mantener el contenedor del paso después de la ejecución. |
+| `startDelay` | int (segundos) | Sí | Número de segundos para retrasar la ejecución de un paso. |
+| `timeout` | int (segundos) | Sí | Número máximo de segundos que se puede ejecutar un paso antes de terminar. |
+| [`when`](#example-when) | [string, string, ...] | Sí | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. |
+| `workingDirectory` | string | Sí | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. |
 
 ### <a name="examples-task-step-properties"></a>Ejemplos: Propiedades de pasos de tareas
 

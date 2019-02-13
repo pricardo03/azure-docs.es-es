@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352825"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755052"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
-Con el fin de supervisar y administrar máquinas virtuales o equipos físicos en el centro de datos local o en otro entorno en la nube mediante Log Analytics, debe implementar Microsoft Monitoring Agent (MMA) y configurarlo para que informe a una o varias áreas de trabajo de Log Analytics.  Asimismo, el agente admite el rol de Hybrid Runbook Worker de Azure Automation.  
+Con el fin de supervisar y administrar máquinas virtuales o equipos físicos en el centro de datos local o en otro entorno en la nube mediante Log Analytics, debe implementar el agente de Log Analytics (también conocido como Microsoft Monitoring Agent (MMA)) y configurarlo para que informe a una o varias áreas de trabajo de Log Analytics. Asimismo, el agente admite el rol de Hybrid Runbook Worker de Azure Automation.  
 
 En un equipo Windows supervisado, el agente aparece como el servicio Microsoft Monitoring Agent. El servicio Microsoft Monitoring Agent se encarga de recopilar eventos de archivos de registro y del registro de eventos de Windows, datos de rendimiento y otros datos de telemetría. Incluso cuando el agente no puede comunicarse con el servicio Log Analytics al que debe informar, este continúa ejecutándose y pone en cola los datos recopilados en el disco del equipo supervisado. Cuando se restaura la conexión, el servicio Microsoft Monitoring Agent envía los datos recopilados al servicio.
 
@@ -36,7 +36,7 @@ El agente puede instalarse mediante uno de los métodos siguientes. La mayoría 
 Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-agent.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
-Antes de instalar Microsoft Monitoring Agent para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la configuración de cada método de instalación para configurar de forma correcta el agente y garantizar que puede comunicarse correctamente con Log Analytics en la nube Gobierno de EE. UU. y comercial de Azure.  
+Antes de instalar el agente Log Analytics para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la configuración de cada método de instalación para configurar de forma correcta el agente y garantizar que puede comunicarse correctamente con Log Analytics en la nube Gobierno de EE. UU. y comercial de Azure.  
 
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que quiera configurar para informar al agente.
@@ -64,7 +64,7 @@ Configure .NET Framework 4.6 o posterior para que sea compatible con la criptogr
 5. Reinicie el sistema para que la configuración surta efecto. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Instalación del agente con el asistente para instalación
-Los siguientes pasos permiten la instalación y configuración de Log Analytics en Azure y en la nube de Azure Government mediante el asistente para configuración para Microsoft Monitoring Agent en su equipo. Si desea aprender a configurar el agente para que también informe a un grupo de administración de System Center Operations Manager, consulte [Para implementar el agente de Operations Manager con el Asistente para instalación del agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Los siguientes pasos permiten la instalación y configuración de Log Analytics en Azure y en la nube de Azure Government mediante el asistente para la configuración del agente en su equipo. Si desea aprender a configurar el agente para que también informe a un grupo de administración de System Center Operations Manager, consulte [Para implementar el agente de Operations Manager con el Asistente para instalación del agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. En el área de trabajo de Log Analytics, en la página **Servidores Windows** a la que navegó anteriormente, seleccione la versión **Descargar el agente de Windows** que desee descargar según la arquitectura del procesador del sistema operativo Windows.   
 2. Ejecute el programa de instalación para instalar al agente en el equipo.
@@ -87,7 +87,7 @@ El archivo descargado del agente es un paquete de instalación independiente.  E
 >[!NOTE]
 >Si desea actualizar a un agente, debe utilizar la API de scripting de Log Analytics. Si quiere obtener más información, consulte [Administrar y mantener el agente de Log Analytics para Windows y Linux](agent-manage.md).
 
-En la tabla siguiente se resaltan los parámetros de Log Analytics específicos que admite el programa de instalación del agente, aunque la implementación se haya realizado mediante DSC de Automatización.
+En la tabla siguiente se resaltan los parámetros específicos que admite la configuración del agente, aunque la implementación se haya realizado mediante DSC de Automatización.
 
 |Opciones específicas de MMA                   |Notas         |
 |---------------------------------------|--------------|

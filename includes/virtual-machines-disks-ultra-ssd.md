@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285719"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736262"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Managed Disks con Ultra SSD (versión preliminar) para cargas de trabajo de máquinas virtuales de Azure
 
@@ -21,11 +21,11 @@ Azure Ultra SSD (versión preliminar) le ofrece un alto rendimiento, IOPS elevad
 
 ## <a name="ultra-ssd-features"></a>Características de Ultra SSD
 
-**Managed Disks**: los discos Ultra SSD solo están disponibles como instancias de Managed Disks. Además, los discos Ultra SSD no se pueden implementar como un disco no administrado o un blob en páginas. Al crear el disco administrado, debe especificar el tipo de SKU del disco como Ultra SSD_LRS e indicar el tamaño del mismo, las unidades IOPS y el rendimiento que necesite; asimismo, Azure creará y administrará el disco automáticamente.  
+**Discos administrados**: Los SSD Ultra solo están disponibles como discos administrados. Además, los discos Ultra SSD no se pueden implementar como un disco no administrado o un blob en páginas. Al crear el disco administrado, debe especificar el tipo de SKU del disco como Ultra SSD_LRS e indicar el tamaño del mismo, las unidades IOPS y el rendimiento que necesite; asimismo, Azure creará y administrará el disco automáticamente.  
 
-**Virtual Machines**: los discos Ultra SSD están diseñados para funcionar con todas las SKU de Azure Virtual Machine que fueron habilitadas con SSD Premium; sin embargo, ya que está ahora en la versión preliminar, los tamaños de las máquinas virtuales se limitarán a ES/DS v3.
+**Máquinas virtuales**: los discos Ultra SSD están diseñados para funcionar con todas las SKU de Azure Virtual Machine que fueron habilitadas con SSD Premium; sin embargo, ya que está ahora en la versión preliminar, los tamaños de las máquinas virtuales se limitarán a ES/DS v3.
 
-**Configuración de rendimiento dinámico**: los discos Ultra SSD le permiten cambiar dinámicamente el rendimiento (unidades IOPS y rendimiento) del disco junto con sus necesidades de carga de trabajo, sin tener que reiniciar sus máquinas virtuales.
+**Configuración del rendimiento dinámico**: los discos Ultra SSD le permiten cambiar dinámicamente el rendimiento (unidades IOPS y capacidad de proceso) del disco junto con sus necesidades de carga de trabajo, sin tener que reiniciar sus máquinas virtuales.
 
 ## <a name="scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento
 
@@ -33,9 +33,9 @@ Cuando aprovisione un disco Ultra SSD, tendrá la opción de configurar de forma
 
 Estas son algunas capacidades clave de los discos Ultra SSD:
 
-- Capacidad del disco: Ultra SSD le ofrece una gama de diferentes tamaños de disco que van desde los 4 GiB hasta los 64 TiB.
-- IOPS de disco: los dispositivos Ultra SSD admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que la cantidad de IOPS de la máquina virtual. El mínimo de IOPS de disco es de 100 IOPS.
-- Rendimiento del disco: con Ultra SSD, el límite de rendimiento de un solo disco es de 256 KiB/s para cada IOPS aprovisionada, y hasta un máximo de 2000 MBps por disco (donde MBps = 10^6 bytes por segundo). El rendimiento de disco mínimo es de 1 MiB.
+- Capacidad de disco: Ultra SSD le ofrece una gama de distintos tamaños de disco, de 4 GiB a 64 TiB.
+- IOPS de disco: los dispositivos Ultra SSD admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que la cantidad de IOPS de la máquina virtual. El mínimo de IOPS de disco es de 100 IOPS.
+- Rendimiento del disco: con los discos Ultra SSD, el límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento de disco mínimo es de 1 MiB.
 
 En la tabla siguiente, se resumen las diferentes configuraciones que se admiten para los diferentes tamaños de disco:  
 
@@ -74,7 +74,7 @@ IOPS es el número de solicitudes que la aplicación envía a los discos en un s
 
 El rendimiento es la cantidad de datos que la aplicación envía a los discos en un intervalo especificado, y se mide en bytes/segundo. Si la aplicación está realizando operaciones de entrada y salida, necesitará tener un alto rendimiento.  
 
-Existe una relación entre el rendimiento y las IOPS, tal como se muestra en la siguiente fórmula: IOPS x tamaño de E/S = rendimiento.
+Hay una relación entre el rendimiento y la IOPS, tal como se muestra en la siguiente fórmula:  IOPS x tamaño de E/S = rendimiento
 
 Por lo tanto, es importante determinar los valores óptimos de rendimiento e IOPS que requiere su aplicación. Si intenta optimizar uno, el otro también se ve afectado. Le recomendamos comenzar con un rendimiento correspondiente a un tamaño de 16 KiB de E/S y ajustarlo si necesita más rendimiento.
 

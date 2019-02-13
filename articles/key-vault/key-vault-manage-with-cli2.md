@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198905"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822500"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
@@ -247,7 +247,7 @@ Habilitar Key Vault para la implementación de plantillas: permite que Resource 
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Trabajar con un módulo de seguridad de hardware (HSM)
 
-Para obtener seguridad adicional, puede importar o generar claves de módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM tienen la validación FIPS 140-2 de nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete-the-key-vault-and-associated-keys-and-secrets).
+Para obtener seguridad adicional, puede importar o generar claves de módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM tienen la validación FIPS 140-2 de nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso Eliminación del Almacén de claves junto con las claves y secretos asociados.
 
 Para crear estas claves protegidas con HSM, debe contar con una suscripción de almacén que admita claves protegidas mediante HSM.
 

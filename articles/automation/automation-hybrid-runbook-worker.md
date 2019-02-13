@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820689"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512217"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
 
@@ -51,13 +51,13 @@ Revise la [información para planear la red](#network-planning) antes de empezar
 Puede quitar una o varias instancias de Hybrid Runbook Worker de un grupo o puede quitar el grupo, dependiendo de sus requisitos. Para quitar una instancia de Hybrid Runbook Worker de un equipo local, siga estos pasos:
 
 1. En Azure Portal, abra su cuenta de Automation.
-2. En **Configuración**, seleccione **Claves** y anote los valores de **URL** y **Clave de acceso primaria**. Esta información la necesita para el siguiente paso.
+2. En **Configuración de la cuenta**, seleccione **Claves** y anote los valores de **URL** y **Clave de acceso primaria**. Esta información la necesita para el siguiente paso.
 
 ### <a name="windows"></a> Windows
 
 Abra una sesión de PowerShell en modo Administrador y ejecute el comando siguiente. Use el modificador **-Verbose** para ver un registro detallado del proceso de eliminación.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+Puede usar el comando `ls /var/opt/microsoft/omsagent` en Hybrid Runbook Worker para obtener el identificador del área de trabajo. Hay una carpeta en el directorio cuyo nombre es el del identificador del área de trabajo.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Para quitar un grupo, primero debe quitar el Hybrid Runbook Worker de todos los equipos que sean miembros del grupo mediante el procedimiento mostrado anteriormente. Después, siga estos pasos para quitar el grupo:
 
 1. Abra la cuenta de Automation en Azure Portal.
-1. En **Automatización de procesos**, seleccione **Grupos de Hybrid Worker**. Seleccione el grupo que quiere eliminar. Aparece la página de propiedades de ese grupo.
+2. En **Automatización de procesos**, seleccione **Grupos de Hybrid Worker**. Seleccione el grupo que quiere eliminar. Aparece la página de propiedades de ese grupo.
 
    ![Página de propiedades](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. En la página de propiedades del grupo seleccionado, seleccione **Eliminar**. Un mensaje le solicita que confirme esta acción. Seleccione **Sí** si está seguro de que quiere continuar.
+3. En la página de propiedades del grupo seleccionado, seleccione **Eliminar**. Un mensaje le solicita que confirme esta acción. Seleccione **Sí** si está seguro de que quiere continuar.
 
    ![Mensaje de confirmación](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
@@ -101,7 +103,7 @@ Si se usa un servidor proxy para realizar la comunicación entre el agente y el 
 
 Los siguientes puertos y direcciones URL son necesarios para que el rol Hybrid Runbook Worker se comunique con Automation:
 
-* Puerto: Solo se requiere el puerto TCP 443 para el acceso a Internet.
+* Puerto: solo se requiere el puerto TCP 443 para el acceso a Internet.
 * URL global: *.azure-automation.net
 * Direcciones URL globales de US Gov Virginia: *.azure-automation.us
 * Servicio de agente: https://\<workspaceId\>.agentsvc.azure-automation.net

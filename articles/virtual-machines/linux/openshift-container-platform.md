@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085893"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730720"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementación de OpenShift Container Platform en Azure
 
@@ -264,7 +264,7 @@ La manera más sencilla de implementar OpenShift Container Platform en Azure es 
 
 Se trata de la opción más sencilla, pero también tiene funcionalidades de personalización limitadas. La oferta de Marketplace incluye las siguientes opciones de configuración:
 
-- **Nodos Maestros**: tres (3) nodos maestros con tipo de instancia configurable.
+- **Nodos maestros**: tres (3) nodos maestros con tipo de instancia configurable.
 - **Nodos de infraestructura**: tres (3) nodos de infraestructura con tipo de instancia configurable.
 - **Nodos**: el número de nodos es configurable (entre 2 y 9), así como el tipo de instancia.
 - **Tipo de disco**: se usan discos administrados.
@@ -272,7 +272,7 @@ Se trata de la opción más sencilla, pero también tiene funcionalidades de per
 - **CNS**: se puede habilitar CNS.
 - **Métricas**: se pueden habilitar métricas.
 - **Registro**: se puede habilitar el registro.
-- **Proveedor en la nube de Azure**: puede habilitarse.
+- **Proveedor de soluciones en la nube de Azure**: Se puede habilitar.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conexión con el clúster de OpenShift
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el clúster de OpenShift y todos los recursos relacionados.
+Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group) para quitar el grupo de recursos, el clúster de OpenShift y todos los recursos relacionados.
 
 ```azurecli 
 az group delete --name openshiftrg

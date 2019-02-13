@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902668"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691412"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Creación y administración de réplicas de lectura en Azure Portal
 
@@ -141,7 +141,7 @@ Como alternativa, puede eliminarla desde la ventana Replicación.
 
 ## <a name="monitor-a-replica"></a>Supervisión de una réplica
 ### <a name="max-lag-across-replicas"></a>Retraso máximo entre réplicas
-La métrica **Max lag across replicas** (Retraso máximo entre réplicas) muestra el tiempo de retardo entre la réplica con mayor retardo y el servidor maestro. 
+La métrica **Retraso máximo entre réplicas** muestra el retardo en bytes entre la réplica con mayor retardo y el servidor maestro. 
 
 1.  En Azure Portal, seleccione el **servidor maestro** de Azure Database for PostgreSQL.
 

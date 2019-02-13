@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559049"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698264"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL
 
@@ -49,6 +49,6 @@ La otra opción es usar la característica de replicación geográfica de Azure 
 > La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica. Si quiere cambiar de copias de seguridad con redundancia local a copias de seguridad con redundancia geográfica para un servidor existente, debe realizar un volcado mediante pg_dump del servidor existente y restaurarlo en un servidor recién creado, configurado con copias de seguridad con redundancia geográfica.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información acerca de las copias de seguridad automatizadas, consulte [Copia de seguridad en Azure Database for PostgreSQL](concepts-backup.md). 
-- Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).
-- Para restaurar a un momento dado mediante la CLI de Azure, consulte cómo  [restaurar una base de datos a un momento dado con la CLI](howto-restore-server-cli.md).
+- Obtenga más información acerca de las [copias de seguridad automatizadas en Azure Database for PostgreSQL](concepts-backup.md). 
+- Obtenga información sobre cómo restaurar mediante [Azure Portal](howto-restore-server-portal.md) o la [CLI de Azure](howto-restore-server-cli.md).
+- Obtenga información sobre las [réplicas de lectura en Azure Database for PostgreSQL](concepts-read-replicas.md).

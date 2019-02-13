@@ -3,7 +3,7 @@ title: Pago por adelantado de los núcleos virtuales de Azure SQL Database para 
 description: Aprenda a comprar capacidad reservada de Azure SQL Database para ahorrar en los costos de proceso.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8f8884f903108deae673d030f8fd2ee1d0d9f982
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455763"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745459"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -26,9 +26,10 @@ Ahorre dinero al pagar por adelantado los recursos de proceso de Azure SQL Datab
 No es necesario asignar la reserva a las instancias de SQL Database. Al igualarse las instancias de SQL Database en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se adelanta el pago de los costos de proceso de las instancias de SQL Database durante un período de uno a tres años. En cuando se compra una reserva, los costos de proceso de SQL Database que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados a la instancia de SQL Database. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de SQL Database se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Puede comprar capacidad reservada de Azure SQL Database en [Azure Portal](https://portal.azure.com). Para comprar capacidad reservada de SQL Database:
+
 - Debe tener rol de propietario al menos en una suscripción Enterprise o de Pago por uso.
-- Para las suscripciones Enterprise, las compras de reserva de Azure deben habilitarse en el [portal de EA](https://ea.azure.com).
--  En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de SQL Database son los agentes de administración o de ventas.
+- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
+- En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de SQL Database son los agentes de administración o de ventas.
 
 Para información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md).
 
@@ -50,8 +51,8 @@ Por ejemplo, supongamos que está ejecutando un grupo elástico de propósito ge
     | Campo      | DESCRIPCIÓN|
     |:------------|:--------------|
     |NOMBRE        |Nombre de esta reserva.| 
-    |Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser un Contrato Enterprise (número de la oferta: MS-AZR-0017P) o de pago por uso (número de la oferta: MS-AZR-0003P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
-    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database de esta suscripción. </li><li>Compartido: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes de Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones (excepto las suscripciones de desarrollo y pruebas) dentro de la inscripción. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
+    |Subscription|La usada para pagar la reserva de capacidad reservada de SQL Database. Los costos anticipados por la capacidad reservada de SQL Database se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
+    |Ámbito       |El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database de esta suscripción. </li><li>Compartido: el descuento por la reserva de núcleos virtuales se aplica a las instancias de SQL Database en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
     |Region      |La región de Azure que abarca la capacidad reservada de SQL Database.|    
     |Tipo de implementación|El tipo de recurso de SQL para el que desea adquirir la reserva.|
     |Nivel de rendimiento|El nivel de servicio de las instancias de SQL Database.

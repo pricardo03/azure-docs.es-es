@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429641"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819797"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnóstico de problemas de enrutamiento en una máquina virtual
 
@@ -116,7 +116,7 @@ La resolución de problemas de enrutamiento supone normalmente:
 - Asegurarse de que la tabla de rutas que contiene las rutas personalizadas que ha definido está asociada a la subred en la que se encuentra la interfaz de red. Aprenda cómo [asociar una tabla de rutas a una subred](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Asegurarse de que los dispositivos, como las aplicaciones virtuales de red o de puerta de enlace de VPN que ha implementado se pueden usar. Use la funcionalidad [Diagnósticos de VPN](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Network Watcher para determinar los problemas con una puerta de enlace de VPN de Azure.
 
-Si sigue teniendo problemas de comunicación, consulte las secciones [Diagnóstico adicional](#considerations) y [Consideraciones](#additional-dignosis).
+Si sigue teniendo problemas de comunicación, consulte las secciones [Consideraciones](#considerations) y Diagnóstico adicional.
 
 ## <a name="considerations"></a>Consideraciones
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203953"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821837"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -127,7 +127,7 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
     e. Repita los pasos anteriores para todos los dominios adicionales que se van a agregar a Google Apps.
      
      > [!WARNING]
-     > Si cambia el dominio principal del inquilino de G Suite y ya ha configurado el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en [Paso 2: Habilitación del inicio de sesión único](#step-two-enable-single-sign-on).
+     > Si cambia el dominio principal del inquilino de G Suite y ya ha configurado el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en Paso 2: Habilitar el inicio de sesión único.
        
 1. En la [Consola de administración de Google Apps](https://admin.google.com/), seleccione **Admin Roles** (Funciones de administrador).
    

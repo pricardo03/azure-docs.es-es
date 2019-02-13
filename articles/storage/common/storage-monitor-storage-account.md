@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452650"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817282"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452650"
 
 1. Al finalizar la configuración de la supervisión, seleccione **Guardar**.
 
-Se muestra un conjunto predeterminado de métricas en los gráficos de la hoja de la cuenta de almacenamiento, así como las hojas de cada servicio (Blob, Cola, Tabla y Archivo). Una vez que ha habilitado las métricas de un servicio, puede tardar una hora hasta que los datos aparezcan en los gráficos. Puede seleccionar **Editar** en cualquier gráfico de métricas para [configurar qué métricas](#how-to-customize-metrics-charts) se muestran en el gráfico.
+Se muestra un conjunto predeterminado de métricas en los gráficos de la hoja de la cuenta de almacenamiento, así como las hojas de cada servicio (Blob, Cola, Tabla y Archivo). Una vez que ha habilitado las métricas de un servicio, puede tardar una hora hasta que los datos aparezcan en los gráficos. Puede seleccionar **Editar** en cualquier gráfico de métricas para configurar qué métricas se muestran en el gráfico.
 
 Puede deshabilitar la recopilación y el registro de métricas estableciendo el **estado** en **Desactivado**.
 
@@ -116,7 +116,7 @@ Puede agregar gráficos de métricas de Azure Storage a cualquiera de las cuenta
    ![Galería de iconos de Azure Portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Seleccione la opción **Personalización finalizada** situada cerca de la parte superior del panel cuando haya terminado de agregar los gráficos.
 
-Una vez que haya agregado los gráficos al panel, los puede personalizar aún más tal y como se describe en [Personalización de gráficos de métricas](#how-to-customize-metrics-charts).
+Una vez que haya agregado los gráficos al panel, los puede personalizar aún más tal y como se describe en Personalización de gráficos de métricas.
 
 ## <a name="configure-logging"></a>registro
 

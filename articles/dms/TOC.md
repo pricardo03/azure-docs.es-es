@@ -11,6 +11,7 @@
 ## [Migración de SQL Server a Azure SQL Database en línea](tutorial-sql-server-azure-sql-online.md)
 ## [Migración de SQL Server a la Instancia administrada de Azure SQL Database sin conexión](tutorial-sql-server-to-managed-instance.md)
 ## [Migración de SQL Server a la Instancia administrada de Azure SQL Database en línea](tutorial-sql-server-managed-instance-online.md)
+## [Migración de RDS SQL Server a Azure SQL Database o a la Instancia administrada de Azure SQL Database en línea](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [Migración de MySQL a Azure DB for MySQL en línea](tutorial-mysql-azure-mysql-online.md)
 ## [Migración de PostgreSQL a Azure DB for PostgreSQL en línea](tutorial-postgresql-azure-postgresql-online.md)
 ## [Migración de MongoDB a la API de Mongo de Azure Cosmos DB sin conexión](tutorial-mongodb-cosmos-db.md)

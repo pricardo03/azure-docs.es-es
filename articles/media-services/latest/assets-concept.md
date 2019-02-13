@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969582"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746003"
 ---
 # <a name="assets"></a>Recursos
 
@@ -27,25 +27,8 @@ Un recurso se asigna a un contenedor de blobs en la [cuenta de Azure Storage](st
 
 El nivel de almacenamiento de **archivos** solo se recomienda para archivos de origen muy grandes que ya se hayan codificado y cuya salida del trabajo de codificación se haya colocado en un contenedor de blobs de salida. Los blobs del contenedor de salida que quiera asociar con un recurso y usar para hacer streaming o analizar contenido, deben existir en un nivel de almacenamiento **frecuente** o **esporádico**.
 
-## <a name="asset-definition"></a>Definición de recursos
-
-En la tabla siguiente se muestran las propiedades de los recursos y se proporcionan sus definiciones.
-
-|NOMBRE|Descripción|
-|---|---|
-|id|Identificador de recurso completo del recurso.|
-|Nombre|Nombre del recurso.|
-|properties.alternateId |Id. alternativo del recurso.|
-|properties.assetId |Identificador del recurso.|
-|properties.container |Nombre del contenedor de blobs del recurso.|
-|properties.created |Fecha de creación del recurso.<br/> La fecha y la hora siempre están en formato UTC.|
-|properties.description|Descripción del recurso.|
-|properties.lastModified |Fecha de última modificación del recurso. <br/> La fecha y la hora siempre están en formato UTC.|
-|properties.storageAccountName |El nombre de la cuenta de almacenamiento.|
-|properties.storageEncryptionFormat |Formato de cifrado del recurso. Uno entre Ninguno y MediaStorageEncryption.|
-|Tipo|Tipo de recurso.|
-
-Para obtener la definición completa, consulte [Assets](https://docs.microsoft.com/rest/api/media/assets) (Recursos).
+> [!NOTE]
+> Las propiedades del recurso del tipo Datetime siempre están en formato UTC.
 
 ## <a name="upload-digital-files-into-assets"></a>Cargar los archivos digitales en recursos
 
@@ -104,113 +87,7 @@ Para obtener un ejemplo completo, consulte [Creación de una entrada de trabajo 
 
 ## <a name="filtering-ordering-paging"></a>Filtrado, ordenación, paginación
 
-Media Services admite las siguientes opciones de consulta de OData para los recursos: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Descripción del operador:
-
-* Eq = es igual que
-* Ne = no es igual que
-* Ge = es mayor o igual que
-* Le = es menor o igual que
-* Gt = es mayor que
-* Lt = es menor que
-
-### <a name="filteringordering"></a>Filtrado y ordenación
-
-En la tabla siguiente se muestra cómo pueden aplicarse estas opciones a las propiedades del recurso: 
-
-|NOMBRE|Filtrar|Orden|
-|---|---|---|
-|id|||
-|Nombre|Admite: Eq, Gt, Lt|Admite: Ascendente y descendente|
-|properties.alternateId |Admite: Eq||
-|properties.assetId |Admite: Eq||
-|properties.container |||
-|properties.created|Admite: Eq, Gt, Lt| Admite: Ascendente y descendente|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|Tipo|||
-
-El ejemplo de C# siguiente se filtra según la fecha de creación:
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>Paginación
-
-La paginación se admite para cada uno de los cuatro criterios de ordenación habilitados. En este momento, el tamaño de página es 1000.
-
-> [!TIP]
-> Siempre debe usar el vínculo siguiente para enumerar la colección y así no tener que depender de un tamaño de página determinado.
-
-Si una respuesta de consulta contiene muchos elementos, el servicio devuelve una propiedad "\@odata.nextLink" para obtener la siguiente página de resultados. Esto se puede utilizar para pasar de página en el conjunto de resultados completo. No puede configurar el tamaño de página. 
-
-Si se crean o eliminan recursos durante la paginación a través de la colección, los cambios se ven reflejados en los resultados que se devuelven (si esos cambios se encuentran en la parte de la colección que no se ha descargado). 
-
-#### <a name="c-example"></a>Ejemplo de C#
-
-En el ejemplo de C# siguiente se muestra cómo enumerar todos los recursos de la cuenta.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>Ejemplo de REST
-
-Analice el siguiente ejemplo de donde se usa $skiptoken. Asegúrese de reemplazar *amstestaccount* con el nombre de cuenta y establezca el valor de *api-version* a la versión más reciente.
-
-Si solicita una lista de recursos similar a la siguiente:
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-Obtendrá una respuesta similar a esta:
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-A continuación, puede solicitar la siguiente página si envía una solicitud "get":
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-Para obtener más ejemplos de REST, consulte [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list) (Recursos: lista).
+Consulte [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md).
 
 ## <a name="storage-side-encryption"></a>Cifrado del lado de almacenamiento
 
@@ -228,6 +105,6 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Streaming de un archivo](stream-files-dotnet-quickstart.md)
-
-[Diferencias entre la versión v2 y v3 de Media Services](migrate-from-v2-to-v3.md)
+* [Streaming de un archivo](stream-files-dotnet-quickstart.md)
+* [Uso de un DVR en la nube](live-event-cloud-dvr.md)
+* [Diferencias entre la versión v2 y v3 de Media Services](migrate-from-v2-to-v3.md)

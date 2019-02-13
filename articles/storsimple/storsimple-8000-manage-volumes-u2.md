@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26578880"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822313"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -34,7 +34,7 @@ El servicio StorSimple Device Manager es una extensión de Azure Portal que perm
 Los volúmenes de StorSimple pueden ser:
 
 * **Volúmenes anclados localmente**: los datos de estos volúmenes se mantienen en el dispositivo StorSimple local en todo momento.
-* **Volúmenes en capas**: los datos de estos volúmenes pueden escribirse en la nube.
+* **Volúmenes en capas**: los datos de estos volúmenes pueden volcarse en la nube.
 
 Un volumen de archivo es un tipo de volumen en capas. El tamaño del fragmento de desduplicación más grande utilizado para los volúmenes de archivo permite que el dispositivo transfiera a la nube segmentos más grandes de datos.
 
@@ -120,9 +120,9 @@ Ya [creó un volumen](storsimple-8000-deployment-walkthrough-u2.md#step-6-create
       
        Si se aprovisiona un volumen anclado localmente de 8,5 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en él. No puede crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya cuenta con volúmenes en capas de aproximadamente 106 TB, solo 4 TB de espacio estarán disponibles para volúmenes anclados localmente.
 
-    6. En el campo **Hosts conectados**, haga clic en la flecha. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Si elige un nuevo ACR, proporcione después un **Nombre** para el ACR y proporcione el **Nombre calificado iSCSI** (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host). Haga clic en **Crear**. Se creará un volumen con la configuración especificada.
+    6. En el campo **Hosts conectados**, haga clic en la flecha. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Si elige un nuevo ACR, proporcione después un **Nombre** para el ACR y proporcione el **Nombre calificado iSCSI** (IQN) del host de Windows. Si no tiene el IQN, vaya a Obtener el IQN de un host de Windows Server. Haga clic en **Create**(Crear). Se creará un volumen con la configuración especificada.
 
-        ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Haga clic en Crear.](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
 El nuevo volumen ya está listo para usarse.
 
@@ -173,7 +173,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
    
    1. Vaya a **Administración de equipos** ->**Administración de discos**.
    2. Haga clic con el botón derecho en **Administración de discos** y seleccione **Volver a examinar los discos**.
-   3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
+   3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Next**.
    4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
       
       > [!NOTE]
@@ -303,7 +303,7 @@ Siga estos pasos para eliminar un volumen.
    > [!NOTE]
    > Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio Administrador de dispositivos de StorSimple actualiza el espacio local disponible de forma periódica. Le recomendamos esperar unos minutos antes de tratar de crear el nuevo volumen.
    >
-   > Además, si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutarán de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
+   >  Además, si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutarán de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
 
 ## <a name="monitor-a-volume"></a>Supervisar un volumen
 
@@ -328,5 +328,5 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda cómo [clonar un volumen de StorSimple](storsimple-8000-clone-volume-u2.md).
-* Obtenga información sobre cómo [usar el servicio Administrador de dispositivos de StorSimple para administrar el dispositivo de StorSimple](storsimple-8000-manager-service-administration.md).
+* Aprenda a [usar el servicio StorSimple Device Manager para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

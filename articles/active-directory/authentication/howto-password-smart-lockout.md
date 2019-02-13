@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 101070dab80c69ea1d24dd11fe5e067947505d19
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 8364d09aa2d068e347199d104c069047aa24d7a4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077971"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511911"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -23,7 +23,7 @@ El bloqueo inteligente ayuda a bloquear a los actores malintencionados que inten
 
 De forma predeterminada, el bloqueo inteligente impide los intentos de inicio de sesión en la cuenta durante un minuto, después de realizar diez intentos incorrectos. La cuenta se bloquea de nuevo después de cada intento de inicio de sesión incorrecto, durante un minuto en el primero y más tiempo en los intentos posteriores.
 
-El bloqueo inteligente realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que se vuelva a incrementar el contador de bloqueo. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee.
+El bloqueo inteligente realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee.
 
  > [!NOTE]
  > La funcionalidad de seguimiento de hash no está disponible para los clientes con la autenticación de paso a través habilitada, ya que la autenticación se produce en el entorno local y no en la nube.

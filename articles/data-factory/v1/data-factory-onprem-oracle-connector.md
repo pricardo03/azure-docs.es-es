@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822262"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 
@@ -92,7 +92,7 @@ Tanto si usa las herramientas como las API, complete los pasos siguientes para c
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el paso anterior, cree un conjunto de datos para especificar la tabla de la base de datos de Oracle que contiene los datos de entrada. Cree también otro conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos copiados de la base de datos de Oracle. Para conocer las propiedades del conjunto de datos que son específicas de Oracle, consulte [Propiedades del conjunto de datos](#dataset-properties).
 4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo anterior, se usa **OracleSource** como origen y **BlobSink** como receptor para la actividad de copia. De igual forma, si realiza la copia de Azure Blob Storage a una base de datos de Oracle, usa **BlobSource** y **OracleSink** en la actividad de copia. Para conocer las propiedades de la actividad de copia que son específicas de la base de datos de Oracle, consulte [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, seleccione el vínculo para el almacén de datos en la sección anterior.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory: servicios vinculados, conjuntos de datos y la canalización. Al usar herramientas o API (excepto para la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para ver ejemplos con definiciones de JSON de entidades de Data Factory que se usan para copiar datos a una base de datos de Oracle local o desde ella, consulte [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory: servicios vinculados, conjuntos de datos y la canalización. Al usar herramientas o API (excepto para la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para ver ejemplos con definiciones de JSON de entidades de Data Factory que se usan para copiar datos a una base de datos de Oracle local o desde ella, consulte Ejemplos de JSON.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory.
 
@@ -102,10 +102,10 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad **type** debe establecerse en: **OnPremisesOracle**. |SÍ |
+| Tipo |La propiedad **type** debe establecerse en: **OnPremisesOracle**. |Sí |
 | driverType | Especifique qué controlador usar para copiar datos en bases de datos de Oracle o desde ellas. Los valores permitidos son **Microsoft** y **ODP** (valor predeterminado). Consulte [Versiones compatibles e instalación](#supported-versions-and-installation) para obtener información detallada sobre los controladores. | Sin  |
-| connectionString | Especifique la información necesaria para conectarse a la instancia de la base de datos de Oracle para la propiedad **connectionString**. | SÍ |
-| gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor local de Oracle. |SÍ |
+| connectionString | Especifique la información necesaria para conectarse a la instancia de la base de datos de Oracle para la propiedad **connectionString**. | Sí |
+| gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor local de Oracle. |Sí |
 
 **Ejemplo: Uso del controlador de Microsoft**
 
@@ -601,7 +601,7 @@ Al mover datos de Oracle, se usan las siguientes asignaciones del tipo de datos 
 | BLOB |Byte[]<br/>(solo compatible con Oracle 10g y versiones posteriores cuando se usa un controlador de Microsoft) |
 | CHAR |string |
 | CLOB |string |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, String (si la precisión > 28) |
 | INTEGER |Decimal, String (si la precisión > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Al mover datos de Oracle, se usan las siguientes asignaciones del tipo de datos 
 | NVARCHAR2 |string |
 | RAW |Byte[] |
 | ROWID |string |
-| TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
-| TIMESTAMP WITH TIME ZONE |Datetime |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |string |
 | XML |string |

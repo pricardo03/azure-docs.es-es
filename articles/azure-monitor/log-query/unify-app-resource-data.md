@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265216"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766019"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificación de varios recursos de Application Insights de Azure Monitor 
-En este artículo se describe cómo consultar y ver todos los datos de registro de aplicación de Application Insights en un mismo lugar, incluso cuando están en diferentes suscripciones de Azure, como un reemplazo para Application Insights Connector en desuso.  
+En este artículo se describe cómo consultar y ver todos los datos de registro de aplicación de Application Insights en un mismo lugar, incluso cuando están en diferentes suscripciones de Azure, como un reemplazo para Application Insights Connector en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Enfoque recomendado para consultar varios recursos de Application Insights 
 Enumerar varios recursos de Application Insights en una consulta puede ser pesado y difícil de mantener. En su lugar, puede aprovechar la función para separar la lógica de consulta del ámbito de las aplicaciones.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >El operador de análisis es opcional en este ejemplo, extrae el nombre de la aplicación de la propiedad SourceApp. 
 
-Ahora está listo para usar la función applicationsScoping en la consulta entre recursos. El alias de la función devuelve la unión de las solicitudes de todas las aplicaciones definidas. A continuación, la consulta filtra las solicitudes erróneas y visualiza las tendencias por aplicación. ![Ejemplo de resultados entre consultas](media/unify-app-resource-data/app-insights-query-results.png)
+Ahora está listo para usar la función applicationsScoping en la consulta entre recursos:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+El alias de la función devuelve la unión de las solicitudes de todas las aplicaciones definidas. A continuación, la consulta filtra las solicitudes erróneas y visualiza las tendencias por aplicación.
+
+![Ejemplo de resultados entre consultas](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Consulta entre recursos de Application Insights y datos del área de trabajo 
 Cuando detiene el conector y tiene que realizar consultas durante un intervalo de tiempo que se ha recortado por la retención de datos de Application Insights (90 días), deberá realizar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) en el área de trabajo y los recursos de Application Insights durante un período intermedio. Esto es hasta que los datos de las aplicaciones se acumulen según la nueva retención de datos de Application Insights mencionada anteriormente. La consulta requiere ciertas manipulaciones, ya que los esquemas de Application Insights y del área de trabajo son diferentes. Consulte la tabla más adelante en esta sección que destaca las diferencias en los esquemas. 

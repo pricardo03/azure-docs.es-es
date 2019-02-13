@@ -6,15 +6,15 @@ manager: jeconnoc
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 2/04/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 29f2b725972f5ce92e756cb21621a19850ba9386
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250933"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732947"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servicio de contenido desde Azure Storage en App Service en Linux
 
@@ -49,7 +49,7 @@ Para cargar un directorio local en la cuenta de almacenamiento, use el comando [
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
-## <a name="link-storage-to-your-web-app"></a>Vinculación del almacenamiento a la aplicación web
+## <a name="link-storage-to-your-web-app-preview"></a>Vinculación del almacenamiento a la aplicación web (versión preliminar)
 
 > [!CAUTION]
 > Al vincular un directorio existente en una aplicación web a una cuenta de almacenamiento, se eliminará el contenido del directorio. Si va a migrar archivos de una aplicación existente, realice una copia de seguridad de la aplicación y de su contenido antes de comenzar.

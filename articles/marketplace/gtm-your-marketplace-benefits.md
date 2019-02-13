@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355317"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747533"
 ---
 # <a name="your-marketplace-benefits"></a>Sus ventajas de Marketplace
 
@@ -61,7 +61,7 @@ El soporte de comercialización (GTM) incluye plantillas, contenido web, aprendi
 Para obtener acceso a estas ventajas, necesitará:
 
 1. Publicar una oferta en Azure Marketplace o AppSource.
-2. Asegurarse de que ha escrito un contacto de marketing la sección **Información de contacto** de la oferta. Debe tratarse de un recurso dedicado de marketing, en lugar de un alias comodín. (Es decir, evite el uso de "soporte@", "info@", "marketing@" y otros).
+2. Asegurarse de que ha escrito un contacto de marketing la sección **Información de contacto** de la oferta. Debe tratarse de un recurso dedicado de marketing, en lugar de un alias comodín. (es decir, evite el uso de "soporte\@", "info\@", "marketing\@", etc.)
 
 Según el estado de la solución, recibirá un correo electrónico con recursos de autoayuda o una invitación a una llamada de consulta con un administrador de involucración dedicado. No es necesario hacer nada para iniciar la llamada, el equipo de incorporación de Marketplace se comunicará con usted en función de la información proporcionada en [Cloud Partner Portal](https://cloudpartner.azure.com/).
 

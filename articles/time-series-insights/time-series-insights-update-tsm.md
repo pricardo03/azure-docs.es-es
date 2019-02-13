@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099907"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507831"
 ---
 # <a name="time-series-model"></a>Modelo de Time Series
 
@@ -152,9 +152,11 @@ En el ejemplo anterior, ID1 e ID4 se muestran como parte de la jerarquía H1 en 
 
 Las instancias son la serie temporal en sí mismas. En la mayoría de los casos, *deviceId* o *assetId* funcionan como el identificador único del recurso en el entorno. Las instancias tienen información descriptiva asociada a ellas que se denomina "propiedades de la instancia". Como mínimo, las propiedades de la instancia incluyen información de la jerarquía. También pueden incluir datos útiles y descriptivos como el fabricante, el operador o la última fecha de servicio.
 
-Las instancias se definen en función de los valores de *timeSeriesId*, *typeId*, *hierarchyId* e *instanceFields*. Cada instancia se asigna a solo un *tipo* y a una o más jerarquías. Asimismo, las instancias heredan todas las propiedades de las jerarquías y se pueden agregar valores de *instanceFields* adicionales para obtener una definición de propiedad de instancia adicional.
+Las instancias se definen en función de los valores de *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds* e *instanceFields*. Cada instancia se asigna a solo un *tipo* y a una o más jerarquías. Asimismo, las instancias heredan todas las propiedades de las jerarquías y se pueden agregar valores de *instanceFields* adicionales para obtener una definición de propiedad de instancia adicional.
 
 Los valores de *instanceFields* son propiedades de una instancia y cualquier dato estático que defina esa instancia. Definen valores de jerarquía o propiedades no jerárquicas a la vez que admiten la indexación para realizar operaciones de búsqueda.
+
+La propiedad *name* es opcional y distingue mayúsculas de minúsculas. Si *name* no está disponible, se establecerá de forma predeterminada en el identificador de serie temporal. Si se especifica un valor para *name*, el identificador de serie temporal seguirá estando disponible en la cuadrícula situada bajo los gráficos del explorador. 
 
 ## <a name="time-series-model-instance-json-example"></a>Ejemplo JSON de la instancia del modelo de serie temporal
 
@@ -164,6 +166,7 @@ Sample:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

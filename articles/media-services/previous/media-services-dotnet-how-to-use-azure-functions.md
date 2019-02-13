@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 31a12d43ba71f1a0eacbb12887b047f2fafe3b53
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6079b68dc0f9a00ccb71683fc1d80cdbd8da6564
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784604"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730823"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo empezar a crear instancias de Azure Functions
 
 Si desea explorar e implementar instancias de Azure Functions existentes que usan Azure Media Services, visite [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Este repositorio incluye ejemplos que usan Azure Media Services para mostrar flujos de trabajo relacionados con la ingesta directa de contenido desde Blob Storage, la codificación y la escritura de contenido de nuevo en Blob Storage. También incluye ejemplos de cómo supervisar las notificaciones de trabajo por medio de webhooks y colas de Azure. También puede desarrollar sus funciones a partir de los ejemplos del repositorio [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implementar las funciones, presione el botón **Implementar en Azure**.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Para poder crear la primera función, es necesario tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [tiene a su disposición la creación de una cuenta gratis](https://azure.microsoft.com/free/).
 - Si va a crear instancias de Azure Functions que llevan a cabo acciones en su cuenta de Azure Media Services (AMS) o escuchan eventos enviados por Media Services, debe crear una cuenta de AMS, tal como se describe [aquí](media-services-portal-create-account.md).
@@ -46,13 +46,13 @@ Cuando desarrolle funciones de Media Services, es útil agregar variables de ent
 
 La función, definida en este artículo, da por hecho que tiene las siguientes variables de entorno en la configuración de la aplicación:
 
-**AMSAADTenantDomain**: punto de conexión de inquilino de Azure AD. Para más información sobre cómo conectarse a la API de AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artículo.
+**AMSAADTenantDomain**: Punto de conexión de inquilino de Azure AD. Para más información sobre cómo conectarse a la API de AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artículo.
 
-**AMSRESTAPIEndpoint**: identificador URI que representa el punto de conexión de la API de REST. 
+**AMSRESTAPIEndpoint**:  identificador URI que representa el punto de conexión de API REST. 
 
-**AMSClientId**: identificador de cliente de aplicación de Azure AD.
+**AMSClientId**: Identificador de cliente de la aplicación de Azure AD.
 
-**AMSClientSecret**: secreto de cliente de aplicación de Azure AD.
+**AMSClientSecret**: Secreto de cliente de la aplicación de Azure AD.
 
 **StorageConnection**: conexión de almacenamiento de la cuenta asociada a la cuenta de Media Services. Este valor se utiliza en los archivos **function.json** y **run.csx** (descritos a continuación).
 
@@ -135,7 +135,7 @@ En el ejemplo definido en esta sección se muestra
 
 En un escenario real, lo más probable es que quisiera realizar un seguimiento del progreso del trabajo y, a continuación, publicar el recurso codificado. Para obtener más información, consulte [Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Para obtener más ejemplos, consulte [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Reemplace el contenido del archivo run.csx existente por el código siguiente: una vez que haya terminado de definir la función, haga clic en **Guardar y ejecutar**.
+Reemplace el contenido del archivo run.csx existente por el código siguiente: Una vez que haya terminado de definir la función, haga clic en **Guardar y ejecutar**.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -338,7 +338,7 @@ Para probar la función, debe cargar un archivo MP4 en el contenedor **input** d
 4. Presione **Cargar** y busque un archivo .mp4 que quiera cargar.
 
 >[!NOTE]
-> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para más información, consulte [Desencadenadores y enlaces de Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
+> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para más información, consulte [Desencadenadores y enlaces de Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

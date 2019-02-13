@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166584"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822058"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -55,7 +55,7 @@ Una aplicación cliente puede solicitar un [token de acceso de solo aplicación]
 | [Obtención de un token con Go](#get-a-token-using-go) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de Go |
 | [Obtención de un token con Azure PowerShell](#get-a-token-using-azure-powershell) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de PowerShell |
 | [Obtención de un token con CURL](#get-a-token-using-curl) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de Bash o CURL |
-| [Controlar el almacenamiento en caché de tokens](#handling-token-caching) | Instrucciones para controlar los tokens de acceso expirados |
+| Control del almacenamiento en caché de tokens | Instrucciones para controlar los tokens de acceso expirados |
 | [Control de errores](#error-handling) | Instrucciones para controlar los errores HTTP devueltos desde el punto de conexión del token de las identidades administradas de recursos de Azure |
 | [Identificadores de recurso de servicios de Azure](#resource-ids-for-azure-services) | Dónde obtener identificadores de recurso de los servicios de Azure admitidos |
 
@@ -373,14 +373,14 @@ En esta sección se documentan las posibles respuestas de error. Un estado de "2
 | Código de estado | Error | Descripción del error | Solución |
 | ----------- | ----- | ----------------- | -------- |
 | 400 - Solicitud incorrecta | invalid_resource | AADSTS50001: la aplicación denominada *\<URI\>* no se encontró en el inquilino llamado *\<TENANT-ID\>*. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto. | (Solo Linux). |
-| 400 - Solicitud incorrecta | bad_request_102 | Encabezado de metadatos necesario no especificado. | El campo `Metadata` del encabezado de la solicitud no está en la solicitud o tiene un formato incorrecto. El valor debe especificarse como `true`, todo en minúsculas. Consulte "Solicitud de ejemplo" en la [sección REST anterior](#rest) para obtener un ejemplo.|
-| 401 No autorizado | unknown_source | Origen desconocido *\<URI\>*. | Compruebe que el identificador URI de la solicitud HTTP GET tiene el formato correcto. La parte `scheme:host/resource-path` debe especificarse como `http://localhost:50342/oauth2/token`. Consulte "Solicitud de ejemplo" en la [sección REST anterior](#rest) para obtener un ejemplo.|
+| 400 - Solicitud incorrecta | bad_request_102 | Encabezado de metadatos necesario no especificado. | El campo `Metadata` del encabezado de la solicitud no está en la solicitud o tiene un formato incorrecto. El valor debe especificarse como `true`, todo en minúsculas. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo.|
+| 401 No autorizado | unknown_source | Origen desconocido *\<URI\>*. | Compruebe que el identificador URI de la solicitud HTTP GET tiene el formato correcto. La parte `scheme:host/resource-path` debe especificarse como `http://localhost:50342/oauth2/token`. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo.|
 |           | invalid_request | En la solicitud falta un parámetro necesario, incluye un valor de parámetro no válido o un parámetro repetido, o bien no tiene el formato correcto. |  |
 |           | unauthorized_client | El cliente no está autorizado a solicitar un token de acceso con este método. | Esto se debe a que una solicitud no usó el bucle invertido local para llamar a la extensión, o bien que una máquina virtual no tiene identidades administradas de recursos de Azure configuradas correctamente. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM. |
 |           | access_denied | El propietario del recurso o el servidor de consentimiento rechazaron la solicitud. |  |
 |           | unsupported_response_type | El servidor de consentimiento no admite la obtención de un token de acceso con este método. |  |
 |           | invalid_scope | El ámbito solicitado no es válido, es desconocido o tiene un formato incorrecto. |  |
-| 500 Error interno del servidor | unknown | No se pudo recuperar el token de Active Directory. Para obtener información, consulte los registros en *\<ruta de acceso del archivo\>*. | Compruebe que las identidades administradas de recursos de Azure se han habilitado en la máquina virtual. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM.<br><br>Compruebe que el URI de la solicitud HTTP GET tiene el formato correcto, especialmente el del recurso especificado en la cadena de consulta. Consulte "Solicitud de ejemplo" en la [sección REST anterior](#rest) para obtener un ejemplo o [Servicios de Azure que admiten la autenticación de Azure AD](services-support-msi.md) para obtener una lista de servicios y sus respectivos identificadores de recurso.
+| 500 Error interno del servidor | unknown | No se pudo recuperar el token de Active Directory. Para obtener información, consulte los registros en *\<ruta de acceso del archivo\>*. | Compruebe que las identidades administradas de recursos de Azure se han habilitado en la máquina virtual. Consulte [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) (Configuración de identidades administradas de recursos de Azure en una VM mediante Azure Portal) si necesita ayuda con la configuración de la VM.<br><br>Compruebe que el URI de la solicitud HTTP GET tiene el formato correcto, especialmente el del recurso especificado en la cadena de consulta. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo o [Servicios de Azure que admiten la autenticación de Azure AD](services-support-msi.md) para obtener una lista de servicios y sus respectivos identificadores de recurso.
 
 ## <a name="retry-guidance"></a>Instrucciones de reintento 
 

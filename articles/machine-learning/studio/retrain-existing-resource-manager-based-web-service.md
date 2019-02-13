@@ -1,8 +1,21 @@
 ---
-título: Repetición del entrenamiento de un servicio web predictivo existente en Studio titleSuffix: Azure Machine Learning Studio description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web para que utilice este modelo en Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 07/11/2017
+title: Repetición del entrenamiento de un servicio web predictivo existente en Studio
+titleSuffix: Azure Machine Learning Studio
+description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web para que utilice este modelo en Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/07/2017
+ms.openlocfilehash: cb33b32be276c2deb61a1a718a609612c6a4989e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511962"
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Repetición del entrenamiento de un servicio web predictivo existente en Azure Machine Learning Studio
 

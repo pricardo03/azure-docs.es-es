@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103962"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816499"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conexión de forma remota al dispositivo StorSimple serie 8000
 
@@ -46,7 +46,7 @@ Conectarse a Windows PowerShell para StorSimple a través de una sesión HTTP pr
 
 Puede usar Azure Portal o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
 
-* [Uso de Azure Portal para habilitar la administración remota a través de HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* Uso de Azure Portal para habilitar la administración remota a través de HTTP
 * [Utilice la consola en serie para habilitar la administración remota a través de HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
 Después de habilitar la administración remota, utilice el procedimiento siguiente para preparar al cliente para una conexión remota.
@@ -85,7 +85,7 @@ Realice los pasos siguientes en la consola en serie del dispositivo para habilit
 Realice los pasos siguientes en el cliente para habilitar la administración remota.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Para preparar al cliente para la conexión remota
-1. Iniciar una sesión de Windows PowerShell como administrador. Si utiliza un cliente de Windows 10, el servicio de administración remota de Windows se establece en modo manual de forma predeterminada. Si necesita iniciar el servicio, escriba lo siguiente:
+1. Iniciar una sesión de Windows PowerShell como administrador. Si utiliza un cliente de Windows 10, el servicio de Administración remota de Windows se establece en modo manual de forma predeterminada. Si necesita iniciar el servicio, escriba lo siguiente:
 
     `Start-Service WinRM`
     
@@ -124,7 +124,7 @@ Conectarse a Windows PowerShell para StorSimple a través de una sesión HTTPS e
 
 Puede usar Azure Portal o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
 
-* [Uso de Azure Portal para habilitar la administración remota a través de HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* Uso de Azure Portal para habilitar la administración remota a través de HTTPS
 * [Utilice la consola en serie para habilitar la administración remota a través de HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
 Después de habilitar la administración remota, utilice los procedimientos siguientes para preparar el host para la administración remota y conectarse con el dispositivo desde el host remoto.
@@ -203,7 +203,7 @@ A continuación se describe cada uno de los procedimientos anteriores.
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para agregar números de serie del dispositivo con el host remoto
 1. Inicie el Bloc de notas como administrador y, a continuación, abra el archivo de hosts que se encuentra en \Windows\System32\Drivers\etc.
-2. Agregue las siguientes tres entradas al archivo de hosts: **Dirección IP de DATA 0**, **Dirección IP fija del Controlador 0** y **Dirección IP fija del Controlador 1**.
+2. Agregue las tres entradas siguientes al archivo hosts: **Dirección IP DATA 0**, **dirección IP fija del controlador 0** y **dirección IP fija del controlador 1**.
 3. Escriba el número de serie del dispositivo que guardó anteriormente. Asigne esto a la dirección IP como se muestra en la siguiente imagen. Para Controlador 0 y 1, anexe **Controller0** y **Controller1** al final del número de serie (nombre CN).
    
     ![Adición de nombre CN a archivo de hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
@@ -244,7 +244,7 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
    
     ![Conexión remota de PowerShell mediante HTTP y SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información acerca del [uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

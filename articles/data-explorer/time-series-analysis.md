@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636702"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750569"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
 
@@ -77,8 +77,8 @@ Cuando se ha creado un conjunto de series temporales, Azure Data Explorer admite
 
 El filtrado es una práctica común en el procesamiento de señales y muy útil para tareas de procesamiento de series temporales (por ejemplo, suavizar una señal con ruido o detectar cambios).
 - Hay dos funciones de filtrado genéricas:
-    - [`series_fir()`](/azure/kusto/query/series-firfunction): Aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
-    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
 - `Extend` la serie temporal establecida mediante la adición de una nueva serie de media acumulada de intervalos de tamaño 5 (denominada *ma_num*) a la consulta:
 
 ```kusto
@@ -103,7 +103,7 @@ Ejemplo de las funciones `series_fit_line()` y `series_fit_2lines()` en una cons
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
-| render linechart
+| render linechart with(xcolumn=x)
 ```
 
 ![Regresión de serie temporal](media/time-series-analysis/time-series-regression.png)
@@ -206,7 +206,7 @@ let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h)
-| render timechart 
+| render timechart with(ymin=0) 
 ```
 
 ![Serie temporal a escala](media/time-series-analysis/time-series-at-scale.png)
@@ -217,7 +217,7 @@ El comportamiento anterior es engañoso, ya que la única serie temporal normal 
 
 ```kusto
 demo_many_series1
-| summarize by Loc, anonOp, DB
+| summarize by Loc, Op, DB
 | count
 ```
 
@@ -232,7 +232,7 @@ Ahora, vamos a crear un conjunto de 23 115 series temporales de la métrica de r
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
 | render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
@@ -246,17 +246,17 @@ Mostrar las instancias:
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
 let max_t = toscalar(demo_many_series1 | summarize max(TIMESTAMP));  
 demo_many_series1
-| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, anonOp, DB
+| make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc
-| project Loc, anonOp, DB, slope 
+| project Loc, Op, DB, slope 
 ```
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | anonOp | DB | slope |
-|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc | Op | DB | slope |
+|   | Loc 15 | 37 | 1151 | -102743.910227889 |
+|   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
 En menos de dos minutos, Azure Data Explorer analizó más de 20 000 series temporales y detectó dos series temporales anormales en las que el recuento de lecturas bajó repentinamente.
 

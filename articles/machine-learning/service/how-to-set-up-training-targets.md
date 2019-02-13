@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250714"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756536"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo
 
@@ -38,18 +38,14 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 Azure Machine Learning Service tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
 
 
-|Destinos de proceso para entrenamiento| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado</br> aprendizaje automático | Canalización descriptiva|
+|Destinos de proceso para entrenamiento| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado</br> aprendizaje automático | Canalizaciones de Azure Machine Learning |
 |----|:----:|:----:|:----:|:----:|
 |[Equipo local](#local)| Es posible | &nbsp; | ✓ | &nbsp; |
 |[Proceso de Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Máquina virtual remota](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Análisis con Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
+|[Análisis con Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[HDInsight de Azure](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-<a id="pipeline-only"></a>__*__ Azure Databricks y Azure Data Lake Analytics __solo__ se pueden usar en una canalización. 
-
->Cree destinos de proceso para canalizaciones de aprendizaje automático, como se muestra en este artículo, pero utilice estos procesos en los pasos de la canalización en lugar de los métodos que se enumeran aquí.  Además, solo algunos pasos de la canalización utilizan la configuración de ejecución descrita en este artículo.  Para más información sobre el uso de destinos de proceso en una canalización, consulte [Crear y ejecutar una canalización de aprendizaje automático](how-to-create-your-first-pipeline.md).
 
 ## <a name="whats-a-run-configuration"></a>¿En qué consiste una configuración de ejecución?
 
@@ -159,7 +155,7 @@ Puede usar un entorno de Conda integrado en el sistema, un entorno de Python exi
 
 Utilice Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure preferida para este escenario. Esta máquina virtual es un entorno de desarrollo de IA y de ciencia de datos preconfigurados de Azure. La máquina virtual ofrece una selección de herramientas y plataformas mantenidas para el desarrollo del aprendizaje automático a lo largo de todo el ciclo de vida. Para obtener más información sobre cómo usar la DSVM con Azure Machine Learning, consulte [Configuración del entorno de desarrollo](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Crear**: Cree una instancia de DSVM antes de usarla para entrenar el modelo. Para crear este recurso, consulte [Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Crear**: Cree una instancia de DSVM antes de usarla para entrenar el modelo. Para crear este recurso, consulte [Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning solo admite máquinas virtuales que ejecuten Ubuntu. Al crear una máquina virtual o elegir una máquina virtual existente, debe seleccionar una máquina virtual que use Ubuntu.
@@ -384,5 +380,5 @@ Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos 
 
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md) utiliza un destino de proceso administrado para entrenar un modelo.
 * Cuando tenga un modelo entrenado, aprenda [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
-* Consulte la referencia del SDK de la [clase RunConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
+* Consulte la referencia del SDK de la [clase RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)

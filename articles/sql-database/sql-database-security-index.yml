@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 708e5d2bdb3dd3ca259b6d7927b6ec24fc27dfea
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455225"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820715"
 documentType: LandingData
 title: 'Azure SQL Database: seguridad avanzada'
 metadata:
@@ -14,6 +14,7 @@ metadata:
   services: sql-database
   author: jovanpop-msft
   manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: 
@@ -76,9 +77,9 @@ sections:
       - href: 
     - title: Configuración de reglas de firewall del servidor de base de datos en una base de datos única
       values:
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-powershell
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-the-azure-portal
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-cli
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-powershell
     - title: Administración de las reglas de evaluación de vulnerabilidad
       values:
       - href: 
@@ -94,6 +95,6 @@ sections:
     - html: La protección contra amenazas en las <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">Instancias administradas</a> y <a href="/azure/sql-database/sql-database-threat-detection">bases de datos</a> detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataques a las bases de datos.
     - html: La auditoría para <a href="/azure/sql-database/sql-database-managed-instance-auditing">Instancias administradas</a> y <a href="/azure/sql-database/sql-database-auditing">bases de datos</a> realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría de la cuenta de Azure Storage, área de trabajo OMS o Event Hubs.
     - html: <a href="/azure/sql-database/sql-database-firewall-configure">Las reglas de firewall del servidor de base de datos</a> en bases de datos únicas le permiten controlar qué direcciones IP pueden tener acceso a la base de datos.
-    - html: La <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">integración de redes virtuales</a> en Instancias administradas permite colocar las bases de datos en su propio espacio de direcciones privadas.
+    - html: La <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">integración de redes virtuales</a> en la instancia administrada permite colocar las bases de datos en su propio espacio de direcciones privadas.
     - html: <a href="/azure/sql-database/sql-database-always-encrypted">Always encrypted</a> ayuda a proteger los datos confidenciales en reposo en el servidor durante el movimiento entre cliente y servidor y cuando los datos están en uso, lo que garantiza que los datos confidenciales nunca van a aparecer como texto no cifrado dentro del sistema de base de datos.
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">El enmascaramiento de datos dinámicos</a> ayuda a impedir el acceso no autorizado a datos confidenciales al permitir que los usuarios designen la cantidad de datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación.

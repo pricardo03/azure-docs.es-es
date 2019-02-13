@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437799"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814911"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
 En este artículo se proporciona los pasos para probar la aplicación en Azure con DevTest Labs. En primer lugar, configurará un recurso compartido de archivos en un laboratorio y lo montará como una unidad en la máquina de desarrollo local y en una máquina virtual de un laboratorio. A continuación, usará Visual Studio 2017 para implementar la aplicación en el recurso compartido de archivos de forma que pueda ejecutar la aplicación en la máquina virtual del laboratorio.  
@@ -57,7 +57,7 @@ En este artículo se proporciona los pasos para probar la aplicación en Azure c
     ![Seleccionar la máquina virtual de laboratorio](media/test-app-in-azure/select-lab-vm.png)
 2. Seleccione **Conectar** en la barra de herramientas para conectarse a la máquina virtual. 
 3. [Instale Azure PowerShell](https://azure.microsoft.com/downloads/) mediante el vínculo de **instalación de Windows** de la sección **Herramientas de línea de comandos**. Para conocer otras formas de instalar Azure PowerShell, consulte [este artículo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
-4. Siga las instrucciones de la sección [Montaje del recurso compartido de archivos](#mount-the-file-share). 
+4. Siga las instrucciones de la sección Montaje del recurso compartido de archivos. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publicación de la aplicación desde Visual Studio
 En esta sección, publicará la aplicación desde Visual Studio en una máquina virtual de prueba en la nube.

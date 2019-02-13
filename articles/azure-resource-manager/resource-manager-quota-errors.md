@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260233"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488619"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
 En este artículo se describen errores de cuota que pueden producirse al implementar recursos.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Síntoma
 
@@ -76,10 +78,10 @@ Que devuelve:
 
 ### <a name="powershell"></a>PowerShell
 
-Para PowerShell, use el comando **Get AzureRmVMUsage** para encontrar las cuotas de máquina virtual.
+Para PowerShell, use el comando **Get-AzVMUsage** para encontrar las cuotas de máquina virtual.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 Que devuelve:

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435522"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821225"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configuración de directivas de Apache Hive en HDInsight con Enterprise Security Package
 Aprenda a configurar las directivas de Apache Ranger para Apache Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
@@ -45,7 +45,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 
 **Para crear directivas de Ranger**
 
-1. Abra la interfaz de usuario administrador de Ranger. Consulte el artículo sobre la [conexión a la interfaz de usuario administrador de Apache Ranger](#connect-to-apache-ranager-admin-ui).
+1. Abra la interfaz de usuario administrador de Ranger. Consulte el artículo sobre la conexión a la interfaz de usuario administrador de Apache Ranger.
 2. Haga clic en **&lt;nombreDeClúster>_hive**, en **Hive**. Deben aparecer dos directivas preconfiguradas.
 3. Haga clic en **Agregar nueva directiva**, y escriba los siguientes valores:
 

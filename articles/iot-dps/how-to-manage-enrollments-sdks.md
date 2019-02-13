@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629854"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732362"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cómo administrar inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning
 La *inscripción de un dispositivo* crea un registro de un único dispositivo o de grupo de ellos que, en algún momento, pueden registrarse en el servicio Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Los SDK están disponibles en GitHub en el mismo repositorio que los SDK de Azure IoT.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Obtenga la cadena de conexión de la instancia del servicio Device Provisioning.
 * Obtenga los artefactos de seguridad del dispositivo del [mecanismo de atestación](concepts-security.md#attestation-mechanism) correspondiente:
     * [**Módulo de plataforma segura (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
-        * Inscripción individual: identificador de registro y clave de aprobación de TPM desde el dispositivo físico o el simulador de TPM.
+        * Inscripción individual: identificador de registro y clave de aprobación de TPM desde un dispositivo físico o el simulador de TPM.
         * El grupo de inscripción no se aplica a la atestación de TPM.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * Inscripción individual: el [certificado de hoja](/azure/iot-dps/concepts-security#leaf-certificate) del dispositivo físico o el emulador de [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del SDK.
-        * Grupo de inscripción: el [certificado raíz/de entidad de certificación](/azure/iot-dps/concepts-security#root-certificate) o el [certificado intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), que se usan para generar el certificado de dispositivo en un dispositivo físico.  También puede generarse desde el emulador de DICE del SDK.
+        * Inscripción individual: el [certificado de hoja](/azure/iot-dps/concepts-security) del dispositivo físico o del emulador de [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del SDK.
+        * Grupo de inscripción: el [certificado raíz/de entidad de certificación](/azure/iot-dps/concepts-security#root-certificate) o el [certificado intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), que se use para generar el certificado de dispositivo en un dispositivo físico.  También puede generarse desde el emulador de DICE del SDK.
 * Las llamadas API exactas pueden ser diferentes debido a diferencias del lenguaje. Revise los ejemplos que se proporcionan en GitHub para más información:
    * [Ejemplos de cliente del servicio de aprovisionamiento de Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Ejemplos de cliente del servicio de aprovisionamiento de Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)

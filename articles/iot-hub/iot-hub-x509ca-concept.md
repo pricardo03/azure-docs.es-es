@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 1f7a02f66a8d87f33d7bac9068628dbd29e5bd7c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3d6464f3e69868b4903d999e52a37b0520018c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635702"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659463"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT
 
@@ -108,7 +108,7 @@ En el ejemplo, tanto Factory-Y como Technician-Z interactúan con Smart-X-Widget
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-Se trata de un buen punto para revisar el valor del método de entidad de certificación X.509.  En lugar de generar previamente y traspasar los certificados de cada Smart-X-Widget a la cadena de suministro, Company-X solo tiene que firmar a Factory-Y una vez.  En lugar de tener que realizar un seguimiento de cada dispositivo durante su ciclo de vida, Company-X no puede controlar y administrar dispositivos a través de grupos que surgen de forma natural del proceso de la cadena de suministro, como por ejemplo los dispositivos instalados por Technician-Z después de julio de cualquier año.
+Se trata de un buen punto para revisar el valor del método de entidad de certificación X.509.  En lugar de generar previamente y traspasar los certificados de cada Smart-X-Widget a la cadena de suministro, Company-X solo tiene que firmar Factory-Y una vez.  En lugar de tener que realizar un seguimiento de cada dispositivo durante su ciclo de vida, Company-X no puede controlar y administrar dispositivos a través de grupos que surgen de forma natural del proceso de la cadena de suministro, como por ejemplo los dispositivos instalados por Technician-Z después de julio de cualquier año.
 
 Por último, pero no por ello menos importante, el método de autenticación mediante entidad de certificación introduce un control seguro en la cadena de suministro de la fabricación de dispositivos. Debido al proceso de la cadena de certificados, las acciones de cada miembro de la cadena se registran de forma criptográfica y se pueden verificar.
 

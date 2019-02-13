@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239084"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817298"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Actualización del proveedor de recursos de MySQL 
 
@@ -30,7 +30,7 @@ Cuando las compilaciones de Azure Stack se actualicen, podría lanzarse un nuevo
 
 A partir de la versión 1.1.33.0 del proveedor de recursos de MySQL, las actualizaciones son acumulativas y no es necesario instalarlas en el orden en el que se publicaron; siempre y cuando empiece desde la versión 1.1.24.0 o posterior. Por ejemplo, si está ejecutando la versión 1.1.24.0 del proveedor de recursos de MySQL, puede actualizar a la versión 1.1.33.0 o posterior sin necesidad de instalar primero la versión 1.1.30.0. Para revisar las versiones del proveedor de recursos disponibles y la versión de Azure Stack compatible, consulte la lista de versiones en [Requisitos previos para implementar el proveedor de recursos](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Para actualizar el proveedor de recursos, use el script **UpdateMySQLProvider.ps1**. El proceso es similar al usado para instalar un proveedor de recursos, como se describe en la sección [Implementar el proveedor de recursos](#deploy-the-resource-provider) de este artículo. El script se incluye con la descarga del proveedor de recursos. 
+Para actualizar el proveedor de recursos, use el script **UpdateMySQLProvider.ps1**. El procedimiento es similar al usado para instalar un proveedor de recursos, como se describe en la sección Implementar el proveedor de recursos de este artículo. El script se incluye con la descarga del proveedor de recursos. 
 
  > [!IMPORTANT]
  > Antes de actualizar el proveedor de recursos, revise las notas de la versión para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a la implementación.

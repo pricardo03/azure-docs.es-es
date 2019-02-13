@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1cf2f25ab96fde342244c99029db6a96c72a5681
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473110"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564347"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
@@ -52,6 +52,7 @@ En este artículo obtendrá información acerca de las versiones del servicio Az
     - Diagrama de caja
     - Gráfico de dispersión
     - Gráfico de burbujas
++ Ahora el portal genera dinámicamente los informes para los experimentos. Cuando un usuario envía una ejecución para un experimento, se generará automáticamente un informe con las métricas registradas y los grafos a fin de permitir la comparación entre distintas ejecuciones. 
 
 ## <a name="2019-01-14"></a>14-01-2019
 

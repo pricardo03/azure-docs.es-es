@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813048"
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
 
@@ -35,9 +35,9 @@ No se almacenan en caché los recursos dinámicos que cambian con frecuencia o s
 
 El almacenamiento en caché puede producirse en varios niveles entre el servidor de origen y el usuario final:
 
-- Servidor web: utiliza una memoria caché compartida (para varios usuarios).
-- Content Delivery Network: utiliza una memoria caché compartida (para varios usuarios).
-- Proveedor de servicios de Internet: utiliza una memoria caché compartida (para varios usuarios).
+- Servidor web: utiliza una caché compartida (para varios usuarios).
+- Red de entrega de contenido: utiliza una caché compartida (para varios usuarios).
+- Proveedor de servicios de Internet (ISP): utiliza una caché compartida (para varios usuarios).
 - Explorador web: utiliza una memoria caché privada (para un usuario).
 
 Cada almacenamiento en caché normalmente administra su propia actualización de recursos y realiza la validación cuando un archivo está obsoleto. Este comportamiento se define en la especificación de almacenamiento en caché de HTTP, [RFC 7234](https://tools.ietf.org/html/rfc7234).
@@ -76,8 +76,8 @@ Azure CDN admite los siguientes encabezados de directiva de caché HTTP, que def
 - Cuando se usa en una respuesta HTTP del cliente al servidor POP de CDN:
      - **Azure CDN Estándar/Premium de Verizon** y **Azure CDN Estándar Microsoft** admiten todas las directivas `Cache-Control`.
      - **Azure CDN Estándar de Akamai** solo admite las siguientes directivas `Cache-Control`; todas las demás se omiten:
-         - `max-age`: una memoria caché puede almacenar el contenido durante el número de segundos especificado. Por ejemplo, `Cache-Control: max-age=5`. Esta directiva especifica la cantidad máxima de tiempo que el contenido se considera actualizado.
-         - `no-cache`: almacena en caché el contenido, pero este se debe validar cada vez antes de entregarlo desde la memoria caché. Equivalente a `Cache-Control: max-age=0`.
+         - `max-age`: una caché puede almacenar el contenido durante el número de segundos especificado. Por ejemplo, `Cache-Control: max-age=5`. Esta directiva especifica la cantidad máxima de tiempo que el contenido se considera actualizado.
+         - `no-cache`: almacena el contenido en la caché, pero valida dicho contenido cada vez que se entrega desde dicha caché. Equivalente a `Cache-Control: max-age=0`.
          - `no-store`: nunca se almacena en caché el contenido. Se elimina el contenido si se ha almacenado anteriormente.
 
 **Expira:**
@@ -116,7 +116,7 @@ No todos los recursos se pueden almacenar en caché. La siguiente tabla muestra 
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | Códigos de estado HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | Métodos HTTP      | GET, HEAD                         | GET                    | GET                          |
-| Límites de tamaño de archivo  | < 300 GB                            | < 300 GB                 | - Optimización de entrega de web general: 1,8 GB<br />- Optimizaciones de streaming multimedia: 1,8 GB<br />- Optimización de archivos grandes: 150 GB |
+| Límites de tamaño de archivo  | < 300 GB                            | < 300 GB                 | - Optimización de la entrega web general: 1,8 GB<br />- Optimizaciones de streaming multimedia: 1,8 GB<br />- Optimización de archivos grandes: 150 GB |
 
 Para que el almacenamiento en caché de **Azure CDN Estándar de Microsoft** funcione en un recurso, el servidor de origen debe admitir cualquier solicitud HTTP HEAD y GET y los valores de longitud de contenido deben ser los mismos para cualquier respuesta HTTP HEAD y GET en el recurso. En una solicitud HEAD, el servidor de origen debe admitir la solicitud HEAD y debe responder con los mismos encabezados que si hubiera recibido una solicitud GET.
 
@@ -124,14 +124,14 @@ Para que el almacenamiento en caché de **Azure CDN Estándar de Microsoft** fun
 
 En la tabla siguiente se describe el valor predeterminado del comportamiento del almacenamiento en caché para los productos de Azure CDN y sus optimizaciones.
 
-|    | Microsoft: entrega web general | Verizon: entrega web general | Verizon: DSA | Akamai: entrega web general | Akamai: DSA | Akamai: descarga de archivos de gran tamaño | Akamai: streaming multimedia general o de vídeo bajo demanda |
+|    | Microsoft: Entrega web general | Verizon: Entrega web general | Verizon: DSA | Akamai: Entrega web general | Akamai: DSA | Akamai: Descarga de archivos de gran tamaño | Akamai: streaming multimedia general o de vídeo bajo demanda |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Respetar origen**       | SÍ    | SÍ   | Sin    | Sí    | Sin    | SÍ   | SÍ    |
+| **Respetar origen**       | Sí    | Sí   | Sin    | Sí    | Sin    | Sí   | Sí    |
 | **Duración de la caché de la red CDN** | 2 días |7 días | None | 7 días | None | 1 día | 1 año |
 
-**Respetar origen**: especifica si se deben respetar los [encabezados de la directiva de caché admitidos](#http-cache-directive-headers) si existen en la respuesta HTTP del servidor de origen.
+**Respetar origen**: especifica si se respetan los encabezados de la directiva de caché admitidos, en caso de que existan en la respuesta HTTP del servidor de origen.
 
-**Duración de la caché de la red CDN**: especifica la cantidad de tiempo que se almacena en caché un recurso en Azure CDN. Sin embargo, si **Respetar origen** es "Sí" y la respuesta HTTP del servidor de origen incluye el encabezado de la directiva de caché `Expires` o `Cache-Control: max-age`, Azure CDN usa el valor de duración especificado por el encabezado en su lugar. 
+**Duración de la caché de la red CDN**: especifica el periodo durante el que se almacena en caché un recurso en Azure CDN. Sin embargo, si **Respetar origen** es "Sí" y la respuesta HTTP del servidor de origen incluye el encabezado de la directiva de caché `Expires` o `Cache-Control: max-age`, Azure CDN usa el valor de duración especificado por el encabezado en su lugar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

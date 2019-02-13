@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: bf3302f4f7323307163ec540accb4cc652512463
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2bd47c7955625eb43de40e61515bf7814a8c8355
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178807"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integración de Azure Active Directory con HubSpot
 
@@ -87,7 +87,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con HubSpot, es
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de HubSpot](#creating-a-hubspot-saml-test-user)**: para tener un homólogo de Britta Simon en HubSpot que esté vinculado a la representación de Azure AD de usuario.
+3. **Creación de un usuario de prueba de HubSpot**, para tener un homólogo de Britta Simon en HubSpot que esté vinculado a la representación de Azure AD de usuario.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 

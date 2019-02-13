@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821871"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -181,7 +181,7 @@ Después de crear la regla, el puerto 80 está permitido de entrada desde Intern
 
 Cuando Azure procesa el tráfico entrante, procesa las reglas del grupo de seguridad de red asociado a la subred (si hay alguno) y, después, procesa las reglas del grupo de seguridad de red asociado a la interfaz de red. Si hay un grupo de seguridad de red asociado tanto a la interfaz de red como la subred, el puerto debe estar abierto en ambos grupos de seguridad de red para que el tráfico llegue a la máquina virtual. Para solucionar los problemas de administración y la comunicación, se recomienda asociar un grupo de seguridad de red a una subred, en lugar de a interfaces de red individuales. Si las máquinas virtuales de una subred necesitan reglas de seguridad diferentes, puede hacer que los miembros de las interfaces de red de un grupo de seguridad de aplicaciones (ASG) y especifique un ASG como origen y destino de una regla de seguridad. Más información acerca de los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups).
 
-Si sigue teniendo problemas de comunicación, consulte las secciones [Diagnóstico adicional](#considerations) y [Consideraciones](#additional-dignosis).
+Si sigue teniendo problemas de comunicación, consulte las secciones [Consideraciones](#considerations) y Diagnóstico adicional.
 
 ## <a name="considerations"></a>Consideraciones
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469199"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821375"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -73,7 +73,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 
 * [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern)
 * [Patrón de clave compuesta](#compound-key-pattern)
-* [Transacciones de grupos de entidades](#entity-group-transactions)
+* Transacciones de grupo de entidad
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>Patrón de índice secundario entre particiones
@@ -128,7 +128,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 * [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern)  
 * [Patrón de clave compuesta](#compound-key-pattern)  
-* [Transacciones de grupos de entidades](#entity-group-transactions)  
+* Transacciones de grupo de entidad  
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>Patrón final coherente de transacciones
@@ -172,7 +172,7 @@ Utilice este patrón cuando desee garantizar la coherencia eventual entre las en
 ### <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
-* [Transacciones de grupos de entidades](#entity-group-transactions)  
+* Transacciones de grupo de entidad  
 * [Combinar o reemplazar](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ La propiedad **EmployeeIDs** contiene una lista de identificadores de empleado p
 Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con Id. 000152 y el apellido Jones en el departamento de ventas:  
 
 1. Recupere la entidad de índice con el valor **PartitionKey** "Sales" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.  
-2. Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad de empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions).  
+2. Cree una transacción de grupo de entidad (es decir, una operación por lotes) que inserte la nueva entidad de empleado (valor **PartitionKey** "Sales" y valor **RowKey** "000152") y actualice la entidad de índice (valor **PartitionKey** "Sales" y valor **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista del campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección Transacciones de grupo de entidad (EGT).  
 3. Si la transacción de grupo de entidad falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.  
 
 Puede usar un enfoque similar a la eliminación de un empleado si utiliza la segunda opción. Cambiar el apellido de un empleado es ligeramente más complejo porque necesitará ejecutar una transacción de grupo de entidad que actualice tres entidades: la entidad employee, la entidad de índice para el apellido antiguo y la entidad de índice para el nombre nuevo. Debe recuperar cada entidad antes de realizar cambios para recuperar los valores de ETag que puede utilizar para realizar las actualizaciones mediante la simultaneidad optimista.  
@@ -251,7 +251,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 
 * [Patrón de clave compuesta](#compound-key-pattern)  
 * [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
-* [Transacciones de grupos de entidades](#entity-group-transactions)  
+* Transacciones de grupo de entidad  
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>Patrón de desnormalización
@@ -282,7 +282,7 @@ Utilice este patrón cuando necesite buscar información relacionada con frecuen
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
 * [Patrón de clave compuesta](#compound-key-pattern)  
-* [Transacciones de grupos de entidades](#entity-group-transactions)  
+* Transacciones de grupo de entidad  
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Patrón de clave compuesta
@@ -325,7 +325,7 @@ Utilice este patrón cuando necesite almacenar una o más entidades relacionadas
 ### <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
-* [Transacciones de grupos de entidades](#entity-group-transactions)  
+* Transacciones de grupo de entidad  
 * [Trabajar con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types)  
 * [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ Utilice este patrón cuando tenga un gran volumen de entidades que deba eliminar
 ### <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
-* [Transacciones de grupos de entidades](#entity-group-transactions)
+* Transacciones de grupo de entidad
 * [Modificación de entidades](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>Patrón de serie de datos
@@ -454,7 +454,7 @@ Utilice este patrón cuando necesite almacenar entidades cuyo tamaño o número 
 ### <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
-* [Transacciones de grupos de entidades](#entity-group-transactions)
+* Transacciones de grupo de entidad
 * [Combinar o reemplazar](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>Patrón de entidades de gran tamaño
@@ -556,7 +556,7 @@ Tenga en cuenta los siguientes puntos cuando decida cómo almacenar los datos de
 En esta sección se describen algunas de las consideraciones a tener en cuenta al implementar los modelos descritos en las secciones anteriores. En la mayor parte de esta sección se utilizan ejemplos escritos en C# que utilizan la biblioteca de clientes de Storage (versión 4.3.0 en el momento de escribir).  
 
 ## <a name="retrieving-entities"></a>Recuperación de entidades
-Como se describe en la sección [Diseño para consultas](#design-for-querying), la consulta más eficaz es una puntual. Sin embargo, en algunos casos puede que necesite recuperar varias entidades. En esta sección se describen algunos enfoques comunes para recuperar entidades mediante la biblioteca de clientes de Storage.  
+Como se describe en la sección Diseño para consultas, la consulta más eficaz es una puntual. Sin embargo, en algunos casos puede que necesite recuperar varias entidades. En esta sección se describen algunos enfoques comunes para recuperar entidades mediante la biblioteca de clientes de Storage.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Ejecutar una consulta de punto mediante la biblioteca de clientes de Storage 
 La manera más sencilla de ejecutar una consulta puntual es usar la operación de tabla **Retrieve**, como se muestra en el siguiente fragmento de código de C# que recupera una entidad con el valor **PartitionKey** "Sales" y el valor **RowKey** "212":  

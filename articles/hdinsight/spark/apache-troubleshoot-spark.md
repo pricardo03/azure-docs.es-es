@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635160"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821973"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solución de problemas de Apache Spark mediante Azure HDInsight
 
@@ -23,7 +23,7 @@ Conozca los principales problemas y sus soluciones al trabajar con cargas útile
 
 ### <a name="resolution-steps"></a>Pasos de la solución
 
-Los valores de configuración de este procedimiento se establecieron anteriormente en HDInsight. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte [¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?](#what-causes-a-spark-application-outofmemoryerror-exception). 
+Los valores de configuración de este procedimiento se establecieron anteriormente en HDInsight. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte ¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?. 
 
 1. En la lista de clústeres, seleccione **Spark2**.
 
@@ -92,7 +92,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="resolution-steps"></a>Pasos de la solución
 
-1. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte [¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte ¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?.
 
 2. En la primera celda del cuaderno de Jupyter, después de la directiva **%%configure**, especifique las configuraciones de Spark en formato JSON válido. Cambie los valores reales según sea necesario:
 
@@ -107,7 +107,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="resolution-steps"></a>Pasos de la solución
 
-1. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte [¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte ¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?. 
 
 2. Envíe la aplicación Spark a Livy mediante un cliente REST como cURL. Use un comando similar al siguiente. Cambie los valores reales según sea necesario:
 
@@ -124,7 +124,7 @@ Estos cambios son para todo el clúster, pero se pueden invalidar al enviar el t
 
 ### <a name="resolution-steps"></a>Pasos de la solución
 
-1. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte [¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Para determinar qué configuraciones de Spark deben establecerse y en qué valores, consulte ¿Qué produce una excepción OutOfMemoryError en una aplicación de Apache Spark?.
 
 2. Inicie spark-shell mediante un comando similar al siguiente. Cambie el valor real de las configuraciones según sea necesario: 
 

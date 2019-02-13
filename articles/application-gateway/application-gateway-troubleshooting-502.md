@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819457"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
@@ -28,11 +28,11 @@ Aprenda a solucionar problemas de errores de puerta de enlace incorrecta (502) r
 
 ## <a name="overview"></a>Información general
 
-Después de configurar una instancia de Azure Application Gateway, uno de los errores que se pueden encontrar los usuarios es "Error de servidor 502: el servidor web recibió una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Este error puede ocurrir debido a los siguientes motivos principales:
+Después de configurar una puerta de enlace de aplicaciones, uno de los errores que pueden encontrar los usuarios es "Error del servidor: 502 - Web server received an invalid response while acting as a gateway or proxy server". (502: el servidor web ha recibido una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Este error puede ocurrir debido a los siguientes motivos principales:
 
 * Un grupo de seguridad de red, una ruta definida por el usuario o un DNS personalizado están bloqueando el acceso a los miembros del grupo de back-end.
-* Las máquinas virtuales de back-end o instancias del conjunto de escalado de máquina virtual [no responden a la sonda de estado predeterminada](#problems-with-default-health-probe.md).
-* [La configuración de las sondas de estado personalizadas](#problems-with-custom-health-probe.md) no es válida o adecuada.
+* Las máquinas virtuales de back-end o instancias del conjunto de escalado de máquina virtual no responden al sondeo de estado predeterminada.
+* La configuración de las sondas de estado personalizadas no es válida o adecuada.
 * [El grupo back-end de la instancia de Azure Application Gateway no está configurado o está vacío](#empty-backendaddresspool).
 * Ninguna de las máquinas virtuales o instancias del [conjunto de escalado de máquina virtual está en buen estado](#unhealthy-instances-in-backendaddresspool).
 * [El tiempo de espera de solicitud se superó o hay problemas de conectividad](#request-time-out) con las solicitudes de usuario.

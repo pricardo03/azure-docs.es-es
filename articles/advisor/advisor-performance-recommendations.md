@@ -1,26 +1,21 @@
 ---
-title: Recomendaciones sobre rendimiento de Azure Advisor | Microsoft Docs
+title: Mejora del rendimiento de aplicaciones de Azure con Azure Advisor | Microsoft Docs
 description: Utilice Advisor para optimizar el rendimiento de las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266752"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491593"
 ---
-# <a name="advisor-performance-recommendations"></a>Recomendaciones sobre rendimiento de Advisor
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
 Las recomendaciones sobre rendimiento de Azure Advisor ayudan a mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas. Puede obtener las recomendaciones sobre rendimiento de Advisor en la pestaña **Rendimiento** del panel de Advisor.
 
@@ -49,7 +44,7 @@ Para obtener más información acerca de las recomendaciones de App Services, co
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Uso de Managed Disks para evitar limitaciones de E/S del disco
 
-Advisor identifica las máquinas virtuales que pertenecen a una cuenta de almacenamiento que está llegando a su objetivo de escalabilidad. Esto las hace susceptibles de limitaciones de E/S. Advisor le recomendará que estas máquinas virtuales usen Managed Disks para evitar la degradación del rendimiento.
+Advisor identifica las máquinas virtuales que pertenecen a una cuenta de almacenamiento que está llegando a su objetivo de escalabilidad. Esta condición hace que las máquinas virtuales sean susceptibles a las limitaciones de E/S. Advisor recomendará que estas máquinas virtuales utilicen Managed Disks para evitar la degradación del rendimiento.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Mejora del rendimiento y la confiabilidad de los discos de máquina virtual mediante Premium Storage
 
@@ -63,11 +58,11 @@ La asimetría de datos puede provocar movimientos de datos innecesarios o cuello
 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Creación o actualización de las estadísticas de tabla obsoletas en la tabla del almacenamiento de datos SQL para aumentar el rendimiento de las consultas
 
-Advisor identifica las tablas que no tienen [estadísticas de tabla](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) actualizadas y recomienda crear o actualizar las estadísticas de tabla. El optimizador de consultas del almacenamiento de datos SQL usa estadísticas actualizadas para estimar la cardinalidad o el número de filas en el resultado de la consulta, lo que permite que el optimizador de consultas cree un plan de consultas de alta calidad para un rendimiento más rápido.
+Advisor identifica las tablas que no tienen [estadísticas de tabla](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) actualizadas y recomienda crear o actualizar las estadísticas de tabla. El optimizador de consultas de SQL Data Warehouse usa estadísticas actualizadas para estimar la cardinalidad o el número de filas del resultado de la consulta, lo que permite que el optimizador de consultas pueda crear un plan de consultas de alta calidad para proporcionar un rendimiento más rápido.
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de SQL Data Warehouse para mejorar el rendimiento de las consultas
 
-Azure Advisor detecta si SQL Data Warehouse tiene un elevado porcentaje de memoria caché utilizada y un reducido porcentaje de aciertos. Esto indica una elevada expulsión de memoria caché que puede afectar al rendimiento de SQL Data Warehouse. Advisor le sugiere que escale verticalmente SQL Data Warehouse para asegurarse de que asigna suficiente capacidad de memoria caché a la carga de trabajo.
+Azure Advisor detecta si SQL Data Warehouse tiene un elevado porcentaje de memoria caché utilizada y un reducido porcentaje de aciertos. Esta condición indica una elevada expulsión de la memoria caché, lo que puede afectar al rendimiento de SQL Data Warehouse. Advisor le sugiere que escale verticalmente SQL Data Warehouse para asegurarse de que asigna suficiente capacidad de memoria caché a la carga de trabajo.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Conversión de tablas de SQL Data Warehouse en tablas replicadas para aumentar el rendimiento de las consultas
 
@@ -75,10 +70,10 @@ Advisor identifica las tablas que no son tablas replicadas pero se beneficiaría
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migración de la cuenta de almacenamiento a Azure Resource Manager para obtener todas las características recientes de Azure
 
-Migre su modelo de implementación de la cuenta de almacenamiento a Azure Resource Manager (ARM) para sacar provecho de las implementaciones de plantillas, de más opciones de seguridad y de la posibilidad de actualizar a una cuenta de GPv2 para usar las características más recientes de Azure Storage. Advisor identifica las cuentas de almacenamiento independientes que utilizan el modelo de implementación clásico y recomienda migrar al modelo de implementación de ARM.
+Migre el modelo de implementación de la cuenta de almacenamiento a Azure Resource Manager (Resource Manager) para sacar provecho de las implementaciones de plantillas, de otras opciones de seguridad y de la posibilidad de actualizar a una cuenta de GPv2 para usar las características más recientes de Azure Storage. Advisor identificará las cuentas de almacenamiento independientes que utilizan el modelo de implementación clásico y recomendará migrar al modelo de implementación de Resource Manager.
 
 > [!NOTE]
-> Se ha anunciado que las alertas clásicas de Azure Monitor se retirarán en junio de 2019; se recomienda actualizar la cuenta de almacenamiento clásica a ARM para conservar la funcionalidad de alertas con la nueva plataforma. Para más información, consulte la [retirada de alertas clásicas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Está previsto que las alertas clásicas de Azure Monitor se retiren en junio de 2019. Le recomendamos que actualice la cuenta de almacenamiento clásica y empiece a utilizar Resource Manager para conservar la funcionalidad de alertas con la nueva plataforma. Para más información, consulte la [retirada de alertas clásicas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre rendimiento en Advisor
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d45e4cc8781f4c235c641c4c99f1720871d57fb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359007"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816176"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copia de datos desde o hacia la API de Azure Cosmos DB para MongoDB mediante Azure Data Factory
 
@@ -34,7 +34,7 @@ Puede usar el conector de la API de Azure Cosmos DB para MongoDB para:
 
 - Copiar datos desde y hacia la [API de Azure Cosmos DB para MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
 - Escriba en Azure Cosmos DB como **insert** o **upsert**.
-- Importe y exporte documentos JSON tal cual, o copie datos desde o hacia un conjunto de datos tabular. Entre los ejemplos se incluyen una base de datos SQL y un archivo CSV. Para copiar datos tal cual desde o hacia archivos JSON u otra colección de Cosmos DB, consulte [Importación o exportación de documentos JSON](#importexport-json-documents).
+- Importe y exporte documentos JSON tal cual, o copie datos desde o hacia un conjunto de datos tabular. Entre los ejemplos se incluyen una base de datos SQL y un archivo CSV. Para copiar datos tal cual desde o hacia archivos JSON u otra colección de Azure Cosmos DB, consulte Importación o exportación de documentos JSON.
 
 ## <a name="get-started"></a>Introducción
 
@@ -48,9 +48,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de la API d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** tiene que establecerse en **CosmosDbMongoDbApi**. | SÍ |
-| connectionString |Especifique la cadena de conexión para la API de Azure Cosmos DB para MongoDB. La encontrará en Azure Portal -> su hoja de Cosmos DB -> cadena de conexión principal o secundaria, con el patrón de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
-| Base de datos | Nombre de la base de datos a la que desea acceder. | SÍ |
+| Tipo | La propiedad **type** tiene que establecerse en **CosmosDbMongoDbApi**. | Sí |
+| connectionString |Especifique la cadena de conexión para la API de Azure Cosmos DB para MongoDB. La encontrará en Azure Portal -> su hoja de Cosmos DB -> cadena de conexión principal o secundaria, con el patrón de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Base de datos | Nombre de la base de datos a la que desea acceder. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |Sin  |
 
 **Ejemplo**
@@ -81,8 +81,8 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos tiene que establecerse en **CosmosDbMongoDbApiCollection**. |SÍ |
-| collectionName |Nombre de la colección de Azure Cosmos DB. |SÍ |
+| Tipo | La propiedad **type** del conjunto de datos tiene que establecerse en **CosmosDbMongoDbApiCollection**. |Sí |
+| collectionName |Nombre de la colección de Azure Cosmos DB. |Sí |
 
 **Ejemplo**
 
@@ -114,7 +114,7 @@ La sección **source** de la actividad de copia admite las siguientes propiedade
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia tiene que establecerse en **CosmosDbMongoDbApiSource**. |SÍ |
+| Tipo | La propiedad **type** del origen de la actividad de copia tiene que establecerse en **CosmosDbMongoDbApiSource**. |Sí |
 | filter | Especifica el filtro de selección mediante operadores de consulta. Para que se devuelvan todos los documentos de una colección, omita este parámetro o pase un documento vacío ({}). | Sin  |
 | cursorMethods.project | Especifica los campos a devolver en los documentos para la proyección. Para devolver todos los campos en los documentos coincidentes, omita este parámetro. | Sin  |
 | cursorMethods.sort | Especifica el orden en que la consulta devuelve los documentos coincidentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Sin  |
@@ -169,7 +169,7 @@ La sección **sink** de la actividad de copia admite las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del receptor “Copy Activity” (Actividad de copia) tiene que establecerse en **CosmosDbMongoDbApiSink**. |SÍ |
+| Tipo | La propiedad **type** del receptor “Copy Activity” (Actividad de copia) tiene que establecerse en **CosmosDbMongoDbApiSink**. |Sí |
 | writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo identificador; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un identificador para un documento si no se especifica un identificador en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |Sin <br />(el valor predeterminado es **insert**) |
 | writeBatchSize | La propiedad **writeBatchSize** controla el tamaño de los documentos que se escribirán en cada lote. Puede intentar aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande. |Sin <br />(el valor predeterminado es **10 000**) |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera. El valor permitido es un intervalo de tiempo. | Sin <br/>(El valor predeterminado es **00:30:00** [30 minutos]). |

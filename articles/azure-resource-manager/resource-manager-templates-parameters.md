@@ -4,21 +4,19 @@ description: Describe la sección de parámetros de plantillas de Azure Resource
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722149"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695682"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sección de parámetros de plantillas de Azure Resource Manager
 En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Estos valores de parámetros permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto (por ejemplo, desarrollo, prueba y producción). No tiene que especificar parámetros en la plantilla, pero sin parámetros la plantilla implementaría siempre los mismos recursos con los mismos nombres, ubicaciones y propiedades.
@@ -85,15 +83,15 @@ El ejemplo anterior mostraba solo algunas de las propiedades que puede utilizar 
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| parameterName |SÍ |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
-| Tipo |SÍ |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
+| parameterName |Sí |Nombre del parámetro. Debe ser un identificador válido de JavaScript. |
+| Tipo |Sí |Tipo del valor del parámetro. Los tipos y valores permitidos son **string**, **secureString**, **int**, **bool**, **objet**, **secureObject** y **array**. |
 | defaultValue |Sin  |Valor predeterminado del parámetro, si no se proporciona ningún valor. |
 | allowedValues |Sin  |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin  |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
 | maxValue |Sin  |El valor máximo de parámetros de tipo int, este valor es inclusivo. |
 | minLength |Sin  |Longitud mínima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
 | maxLength |Sin  |Longitud máxima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
-| description |Sin  |Descripción del parámetro que se muestra a los usuarios a través del portal. |
+| description |Sin  |Descripción del parámetro que se muestra a los usuarios a través del portal. Para más información, consulte [Comentarios en plantillas](resource-group-authoring-templates.md#comments). |
 
 ## <a name="template-functions-with-parameters"></a>Funciones de plantilla con parámetros
 

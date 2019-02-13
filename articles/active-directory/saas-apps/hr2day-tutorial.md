@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149262"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integración de Azure Active Directory con HR2day by Merces
 
@@ -88,11 +88,11 @@ Para establecer la relación de vínculo, en HR2day by Merces, asigne el valor d
 
 Para configurar y probar el inicio de sesión único de Azure AD con HR2day by Merces, es preciso completar los siguientes bloques de creación:
 
-1. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on): Permita que los usuarios usen esta característica.
-1. [Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user): Pruebe el inicio de sesión único de Azure AD con la usuaria Britta Simon.
-1. [Creación de un usuario de prueba de HR2day by Merces](#creating-an-hr2day-by-merces-test-user): Cree una homóloga de Britta Simon en HR2day by Merces que esté vinculada a la representación del usuario en Azure AD.
-1. [Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user): Permita que Britta Simon use un inicio de sesión único de Azure AD.
-1. [Prueba de inicio de sesión único](#testing-single-sign-on): Verifique que la configuración funciona.
+1. Configuración del inicio de sesión único de Azure AD: Permita que los usuarios usen esta característica.
+1. Creación de un usuario de prueba de Azure AD: Pruebe el inicio de sesión único de Azure AD con la usuaria Britta Simon.
+1. Creación de un usuario de prueba de HR2day by Merces: Cree una homóloga de Britta Simon en HR2day by Merces que esté vinculada a la representación del usuario en Azure AD.
+1. Asignación del usuario de prueba de Azure AD: Permita que Britta Simon use un inicio de sesión único de Azure AD.
+1. Prueba de inicio de sesión único: Verifique que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 

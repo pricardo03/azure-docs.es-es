@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380691"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819117"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ En este artículo se presentan los conceptos básicos para ayudarle a escalar ap
 - [Escalado manual](#manually-scale-pods-or-nodes)
 - [Horizontal Pod Autoscaler (HPA)](#horizontal-pod-autoscaler)
 - [Cluster Autoscaler](#cluster-autoscaler)
-- [Integración de Azure Container Instances (ACI) con AKS](#burst-to-azure-container-instance)
+- Integración de Azure Container Instances (ACI) con AKS
 
 ## <a name="manually-scale-pods-or-nodes"></a>Escalado manual de pods o nodos
 
@@ -65,7 +65,7 @@ Si un nodo no tiene suficientes recursos de proceso para ejecutar un pod solicit
 
 Si Cluster Autoscaler detecta pods que no se pueden programar debido a restricciones de recursos del grupo de nodos, el número de nodos del grupo de nodos aumenta para proporcionar los recursos de proceso adicionales. Cuando esos nodos adicionales están correctamente implementados y disponibles para su uso en el grupo de nodos, los pods se programan para ejecutarse en estos.
 
-Si su aplicación necesita escalar rápidamente, algunos de los pods pueden permanecer en un estado de espera de programación hasta que los nodos adicionales implementados por Cluster Autoscaler puedan aceptar los pods programados. Para las aplicaciones que tienen una alta demanda de ráfaga, puede [realizar el escalado con nodos virtuales y Azure Container Instances](#burst-to-azure-container-instance).
+Si su aplicación necesita escalar rápidamente, algunos de los pods pueden permanecer en un estado de espera de programación hasta que los nodos adicionales implementados por Cluster Autoscaler puedan aceptar los pods programados. Para las aplicaciones que tienen una alta demanda de ráfaga, puede realizar el escalado con nodos virtuales y Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Reducción vertical de eventos
 

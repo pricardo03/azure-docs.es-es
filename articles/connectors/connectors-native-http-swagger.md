@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123179"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817758"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
 
@@ -40,7 +40,7 @@ A continuación se muestra un ejemplo de cómo utilizar la operación HTTP + Swa
 4. Escriba la dirección URL de un documento Swagger:
    
    * Para poder utilizarse en el diseñador de aplicaciones lógicas, la dirección URL debe ser un punto de conexión HTTPS y debe tener habilitado CORS.
-   * Si el documento Swagger no cumple este requisito, puede usar el [Azure Storage con CORS habilitado](#hosting-swagger-from-storage) para almacenar el documento.
+   * Si el documento Swagger no cumple este requisito, puede usar Azure Storage con CORS habilitado para almacenar el documento.
 5. Haga clic en **Siguiente** para realizar operaciones de lectura y procesamiento en el documento Swagger.
 6. Agregue cualquier parámetro necesario para la llamada HTTP.
    
@@ -72,14 +72,14 @@ Estos son los pasos necesarios para crear, configurar y almacenar documentos Swa
 A continuación se muestran los detalles de los desencadenadores y las acciones que admite el conector HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Desencadenadores HTTP + Swagger
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores.](connectors-overview.md) El conector HTTP + Swagger tiene un desencadenador.
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores.](connectors-overview.md)  El conector HTTP + Swagger tiene un desencadenador.
 
 | Desencadenador | DESCRIPCIÓN |
 | --- | --- |
 | HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
 
 ## <a name="http--swagger-actions"></a>Acciones HTTP + Swagger
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md) El conector HTTP + Swagger tiene una acción posible.
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md)  El conector HTTP + Swagger tiene una acción posible.
 
 | . | DESCRIPCIÓN |
 | --- | --- |
@@ -98,7 +98,7 @@ Un asterisco (*) significa un campo obligatorio.
 | URI* |uri |Identificador URI de la solicitud HTTP |
 | encabezados |encabezados |Objeto JSON de los encabezados HTTP que se va a incluir |
 | Cuerpo |Cuerpo |Cuerpo de la solicitud HTTP |
-| Autenticación |Autenticación |Autenticación que se utiliza para la solicitud. Para más información, consulte el artículo [Conector HTTP](connectors-native-http.md#authentication). |
+| Authentication |Autenticación |Autenticación que se utiliza para la solicitud. Para más información, consulte el artículo [Conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalles de salida**
 

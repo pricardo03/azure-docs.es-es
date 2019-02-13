@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 4a0e2cd7e0c768512e1aafc042fe55338fdc206e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084981"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818625"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Cómo usar Azure Event Hubs desde una aplicación de Python
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información, consulte [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -29,7 +29,7 @@ Este artículo contiene vínculos a artículos que muestran cómo realizar las t
 
 - [Envío de eventos a un centro de eventos](#send-events-to-event-hubs)
 - [Recepción de eventos desde un centro de eventos](#receive-events-from-event-hubs)
-- [Lectura de datos de eventos capturados desde Azure Storage](#capture-event-hubs-data). 
+- Lectura de datos de eventos capturados desde Azure Storage. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Cree un centro de eventos siguiendo uno de estos inicios rápidos: [Azure Portal](event-hubs-create.md), [CLI de Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [plantilla de Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md). 

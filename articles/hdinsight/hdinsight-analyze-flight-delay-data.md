@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632898"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817672"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Apache Hive en HDInsight
 [Apache Hive](https://hive.apache.org/) ofrece un modo de ejecutar trabajos de [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) mediante un lenguaje de scripting de tipo SQL, denominado *[HiveQL][hadoop-hiveql]*, que se puede usar para resumir, consultar y analizar grandes volúmenes de datos.
@@ -240,7 +240,7 @@ Para obtener más información sobre la creación de un clúster de HDInsight y 
 La carga del archivo de datos y los archivos de script de [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) (consulte el [Apéndice B](#appendix-b)) requiere planificación. La idea es almacenar los archivos de datos y el archivo HiveQL antes de crear un clúster de HDInsight y ejecutar el trabajo de Hive. Tiene dos opciones:
 
 * **Use la misma cuenta de Azure Storage que usará el clúster de HDInsight como sistema de archivos predeterminado.** Como el clúster de HDInsight tendrá la clave de acceso de la cuenta de Almacenamiento, no es necesario realizar cambios adicionales.
-* **Use una cuenta de Azure Storage diferente desde el sistema de archivos predeterminado del clúster de HDInsight.** Si este es el caso, debe modificar la parte de creación del script de PowerShell que se encuentra en [Creación de clústeres de HDInsight y ejecución de trabajos de Apache Hive/Sqoop](#runjob) para vincular la cuenta de Almacenamiento como una cuenta de Almacenamiento adicional. Para instrucciones, vea [Creación de clústeres de Apache Hadoop en HDInsight][hdinsight-provision]. De esta manera, el clúster de HDInsight conoce la clave de acceso de la cuenta de Almacenamiento.
+* **Use una cuenta de Azure Storage diferente desde el sistema de archivos predeterminado del clúster de HDInsight.** Si este es el caso, debe modificar la parte de creación del script de PowerShell que se encuentra en Creación de clústeres de HDInsight y ejecución de trabajos de Apache Hive/Sqoop para vincular la cuenta de Almacenamiento como una cuenta de Almacenamiento adicional. Para instrucciones, vea [Creación de clústeres de Apache Hadoop en HDInsight][hdinsight-provision]. De esta manera, el clúster de HDInsight conoce la clave de acceso de la cuenta de Almacenamiento.
 
 > [!NOTE]  
 > La ruta de acceso al almacenamiento de blobs para el archivo de datos está codificada de forma rígida en el archivo de script de HiveQL. Debe actualizarse en consecuencia.

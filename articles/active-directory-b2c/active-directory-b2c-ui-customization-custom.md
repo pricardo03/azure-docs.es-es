@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188498"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818879"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Para crear un contenedor público en Blob Storage, haga lo siguiente:
 5. Haga clic en **$root** para abrir el contenedor nuevo.
 6. Haga clic en **Cargar**.
 7. Haga clic en el icono de carpeta junto a **Seleccione un archivo**.
-8. Vaya al blob **customize-ui.html** que creó en la sección [Personalización de la interfaz de usuario de la página](#the-page-ui-customization-feature).
+8. Vaya al blob **customize-ui.html** que creó en la sección Personalización de la interfaz de usuario de la página.
 9. Haga clic en **Cargar**.
 10. Seleccione el blob customize-ui.html que cargara.
 11. Junto a **URL**, haga clic en **Copiar**.
@@ -175,7 +175,7 @@ La carpeta sample_templates/wingtip contiene los siguientes archivos HTML:
 | *unified.html* | Use este archivo como plantilla para una página de inicio de sesión o registro unificada. |
 | *updateprofile.html* | Use este archivo como plantilla para una página de actualización de perfil. |
 
-En la sección [Modificación de la directiva de inicio de sesión o de registro](#modify-your-sign-up-or-sign-in-custom-policy) configuró la definición del contenido de `api.idpselections`. Todos los identificadores de definición de contenido que se reconocen en el marco de la experiencia de identidad de Azure AD B2C y sus descripciones aparecen en la tabla siguiente:
+En la sección Modificación de la directiva de inicio de sesión o de registro configuró la definición del contenido de `api.idpselections`. Todos los identificadores de definición de contenido que se reconocen en el marco de la experiencia de identidad de Azure AD B2C y sus descripciones aparecen en la tabla siguiente:
 
 | Id. de definición de contenido | DESCRIPCIÓN | 
 |-----------------------|-------------|

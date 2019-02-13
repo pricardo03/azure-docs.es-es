@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477512"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756475"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ En este caso, *sdc* es el disco que queremos.
 ### <a name="partition-a-new-disk"></a>Partición de un disco nuevo
 Si usa un disco existente que contiene datos, omita el paso de montaje de disco. Si está conectando un disco nuevo, deberá crear particiones en el disco.
 
-Use `fdisk` para particionar el disco, convertirlo en un disco principal en la partición 1 y aceptar los demás valores predeterminados. En el ejemplo siguiente se inicia el proceso `fdisk` en */dev/sdc*:
+Cree una partición del disco con `parted`. Si el tamaño del disco es de 2 tebibytes (TiB) u otro mayor, deberá usar la creación de particiones de GPT. Si es menor, podrá usar la de MBR o la de GPT. Conviértalo en un disco principal en la partición 1 y acepte los demás valores predeterminados. En el ejemplo siguiente se inicia el proceso `parted` en */dev/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Use el comando `n` para agregar una nueva partición. En este ejemplo, también elegimos `p` para una partición principal y aceptamos el resto de los valores predeterminados. El resultado será similar al ejemplo siguiente:

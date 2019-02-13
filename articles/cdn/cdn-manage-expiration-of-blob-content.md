@@ -1,6 +1,6 @@
 ---
 title: Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network | Microsoft Docs
-description: Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de CDN de Azure.
+description: Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de Azure CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814323"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en Azure CDN
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.locfileid: "33765643"
 > 
 > 
 
-El [servicio Blob Storage](../storage/common/storage-introduction.md#blob-storage) de Azure Storage es uno de los distintos orígenes basados en Azure que están integrados en Azure Content Delivery Network (CDN). Cualquier contenido de blob accesible públicamente se puede almacenar en caché en la red CDN de Azure hasta que transcurra su tiempo de vida (TTL). El período de vida viene determinado por el encabezado `Cache-Control` en la respuesta HTTP del servidor de origen. En este artículo se describen las distintas maneras en que se puede establecer el encabezado `Cache-Control` de un blob en Azure Storage.
+El [servicio Blob Storage](../storage/common/storage-introduction.md#blob-storage) de Azure Storage es uno de los distintos orígenes basados en Azure que están integrados en Azure Content Delivery Network (CDN). Cualquier contenido de blob accesible públicamente se puede almacenar en caché en Azure CDN hasta que transcurra su tiempo de vida (TTL). El período de vida viene determinado por el encabezado `Cache-Control` en la respuesta HTTP del servidor de origen. En este artículo se describen las distintas maneras en que se puede establecer el encabezado `Cache-Control` de un blob en Azure Storage.
 
-También puede controlar la configuración de caché desde Azure Portal estableciendo [reglas de almacenamiento en caché de la red CDN](#setting-cache-control-headers-by-using-caching-rules). Si crea una regla de almacenamiento en caché y establece el comportamiento de dicho almacenamiento en **Invalidar** u **Omitir caché**, se omite la configuración de almacenamiento en caché proporcionada por el origen que se trata en este artículo. Para información sobre conceptos generales de almacenamiento en caché, consulte [Funcionamiento del almacenamiento en caché](cdn-how-caching-works.md).
+También puede controlar la configuración de caché desde Azure Portal mediante el establecimiento de reglas de almacenamiento en caché de la red CDN. Si crea una regla de almacenamiento en caché y establece el comportamiento de dicho almacenamiento en **Invalidar** u **Omitir caché**, se omite la configuración de almacenamiento en caché proporcionada por el origen que se trata en este artículo. Para información sobre conceptos generales de almacenamiento en caché, consulte [Funcionamiento del almacenamiento en caché](cdn-how-caching-works.md).
 
 > [!TIP]
 > Puede optar por no configurar ningún TTL en un blob. En este caso, Azure CDN aplica automáticamente un TTL predeterminado de siete días, a menos que haya configurado reglas de almacenamiento en caché en Azure Portal. Este TTL predeterminado solo se aplica a las optimizaciones de entrega web general. Para las optimizaciones de archivos de gran tamaño, el TTL predeterminado es un día, y para las optimizaciones de streaming multimedia, el TTL predeterminado es un año.
@@ -177,6 +177,6 @@ Puede usar la [API de REST de servicios de Azure Storage](https://msdn.microsoft
 La configuración de TTL de los blobs se puede comprobar con facilidad. Con las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el blob incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](http://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Obtenga información sobre cómo administrar la expiración del contenido de Servicio en la nube en la red CDN de Azure](cdn-manage-expiration-of-cloud-service-content.md)
+* [Aprenda a administrar la expiración del contenido del Servicio en la nube en Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 * [Obtenga información sobre conceptos del almacenamiento en caché](cdn-how-caching-works.md)
 

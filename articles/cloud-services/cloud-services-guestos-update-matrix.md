@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/25/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075472"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751521"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -43,6 +43,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
 
+###### <a name="february-5-2019"></a>**5 de febrero de 2019**
+Se ha publicado el SO invitado de enero.
+
 ###### <a name="january-24-2019"></a>**24 de enero de 2019**
 Se ha publicado familia 6 del sistema operativo invitado (Windows Server 2019).
 
@@ -64,9 +67,6 @@ Se ha publicado el SO invitado de agosto.
 ###### <a name="august-3-2018"></a>**3 de agosto de 2018**
 Se ha publicado el SO invitado de julio.
 
-###### <a name="july-3-2018"></a>**3 de julio de 2018**
-Se ha publicado el SO invitado de junio.
-
 ## <a name="releases"></a>Lanzamientos
 
 ## <a name="family-6-releases"></a>Lanzamientos de la familia 6
@@ -80,8 +80,9 @@ Versión de .NET Framework instalada: 3.5, 4.7.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-6.3_201901-01 |5 de febrero de 2019 |Post 6.5 |
 | WA-GUEST-OS-6.2_201812-01 |24 de enero de 2019 |Post 6.4 |
-| WA-GUEST-OS-6.1_201811-01 |24 de enero de 2019 |Post 6.3 |
+|~~WA-GUEST-OS-6.1_201811-01~~ |24 de enero de 2019 |5 de febrero de 2019 |
 
 ## <a name="family-5-releases"></a>Lanzamientos de la familia 5
 **Windows Server 2016**
@@ -94,13 +95,13 @@ Versión de .NET Framework instalada: 3.5, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-5.27_201901-01 |5 de febrero de 2019 |Post 5.29 |
 | WA-GUEST-OS-5.26_201812-01 |7 de enero de 2019 |Post 5.28 |
-| WA-GUEST-OS-5.25_201811-01 |14 de diciembre de 2018 |Publicación 5.27 |
+|~~WA-GUEST-OS-5.25_201811-01~~ |14 de diciembre de 2018 |5 de febrero de 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 de noviembre de 2018 |7 de enero de 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 de octubre de 2018 |14 de diciembre de 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
-|~~WA-GUEST-OS-5.20_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 
 ## <a name="family-4-releases"></a>Lanzamientos de la familia 4
 **Windows Server 2012 R2**
@@ -109,13 +110,13 @@ Versión de .NET Framework instalada: 3.5, 4.5.1
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-4.62_201901-01 |5 de febrero de 2019 |Post 4.64 |
 | WA-GUEST-OS-4.61_201812-01 |7 de enero de 2019 |Post 4.63 |
-| WA-GUEST-OS-4.60_201811-01 |14 de diciembre de 2018 |Post 4.62 |
+|~~WA-GUEST-OS-4.60_201811-01~~ |14 de diciembre de 2018 |5 de febrero de 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 de noviembre de 2018 |7 de enero de 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 de octubre de 2018 |14 de diciembre de 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
-|~~WA-GUEST-OS-4.55_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 
 ## <a name="family-3-releases"></a>Lanzamientos de la familia 3
 **Windows Server 2012**
@@ -124,13 +125,13 @@ Versión de .NET Framework instalada: 3.5, 4.5
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-3.69_201901-01 |5 de febrero de 2019 |Post 3.71 |
 | WA-GUEST-OS-3.68_201812-01 |7 de enero de 2019 |Post 3.70 |
-| WA-GUEST-OS-3.67_201811-01 |14 de diciembre de 2018 |Post 3.69 |
+|~~WA-GUEST-OS-3.67_201811-01~~ |14 de diciembre de 2018 |5 de febrero de 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 de noviembre de 2018 |7 de enero de 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 de octubre de 2018 |14 de diciembre de 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
-|~~WA-GUEST-OS-3.62_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |
 
 ## <a name="family-2-releases"></a>Lanzamientos de la familia 2
 **Windows Server 2008 R2 SP1**
@@ -139,10 +140,11 @@ Versión de .NET Framework instalada: 3.5 (incluye 2.0 y 3.0)
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación |
 | --- | --- | --- |
+| WA-GUEST-OS-2.82_201901-01 |5 de febrero de 2019 |Post 2.84 |
 | WA-GUEST-OS-2.81_201812-01 |7 de enero de 2019 |Post 2.83 |
-| WA-GUEST-OS-2.80_201811-01 |14 de diciembre de 2018 |Post 2.82 |
+|~~WA-GUEST-OS-2.80_201811-01~~ |14 de diciembre de 2018 |5 de febrero de 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 de noviembre de 2018 |7 de enero de 2019 |
-|~~WA-GUEST-OS-2.78_201809-01~~|12 de octubre de 2018 |14 de diciembre de 2018 |
+|~~WA-GUEST-OS-2.78_201809-01~~ |12 de octubre de 2018 |14 de diciembre de 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 de septiembre de 2018 |8 de noviembre de 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de octubre de 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 de julio de 2018 |12 de septiembre de 2018 |

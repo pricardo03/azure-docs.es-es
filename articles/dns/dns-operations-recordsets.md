@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990185"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818828"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante Azure PowerShell
 
@@ -50,7 +50,7 @@ Si el nuevo registro tiene el mismo nombre y tipo que un registro existente, deb
 
 Los conjuntos de registros se crean mediante el cmdlet `New-AzureRmDnsRecordSet`. Al crear un conjunto de registros, deberá especificar el nombre del conjunto de registros, la zona, el período de vida (TTL), el tipo de registro y los registros que se crearán.
 
-Los parámetros para agregar registros a un conjunto de registros varían según el tipo de conjunto de registros. Por ejemplo, cuando se usa un conjunto de registros de tipo "A", deberá especificar la dirección IP mediante el parámetro `-IPv4Address`. Para otros tipos de registros se usan otros parámetros. Para más información, consulte [Ejemplos de tipos de registros adicionales](#additional-record-type-examples).
+Los parámetros para agregar registros a un conjunto de registros varían según el tipo de conjunto de registros. Por ejemplo, cuando se usa un conjunto de registros de tipo "A", deberá especificar la dirección IP mediante el parámetro `-IPv4Address`. Para otros tipos de registros se usan otros parámetros. Para más información, consulte Ejemplos de tipos de registros adicionales.
 
 En el ejemplo siguiente se crea un conjunto de registros con el nombre relativo "www" en la zona DNS "contoso.com". El nombre completo del conjunto de registros es www.contoso.com. El tipo de registro es "D" y el valor de TTL es de 3600 segundos. El conjunto de registros contiene un único registro con la dirección IP "1.2.3.4".
 
@@ -236,7 +236,7 @@ Esta secuencia de operaciones también se puede *canalizar*, es decir, pasar el 
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Los ejemplos anteriores muestran cómo agregar un registro "A" a un conjunto de registros existente de tipo "A". Se usa una secuencia parecida de operaciones para agregar registros a conjunto de registros de otros tipos, sustituyendo el parámetro `-Ipv4Address` de `Add-AzureRmDnsRecordConfig` por otros parámetros específicos de cada tipo de registro. Los parámetros de cada tipo de registro son los mismos que para el cmdlet `New-AzureRmDnsRecordConfig`, como se muestra en [Ejemplos de tipos de registros adicionales](#additional-record-type-examples) anteriormente.
+Los ejemplos anteriores muestran cómo agregar un registro "A" a un conjunto de registros existente de tipo "A". Se usa una secuencia parecida de operaciones para agregar registros a conjunto de registros de otros tipos, sustituyendo el parámetro `-Ipv4Address` de `Add-AzureRmDnsRecordConfig` por otros parámetros específicos de cada tipo de registro. Los parámetros de cada tipo de registro son los mismos que para el cmdlet `New-AzureRmDnsRecordConfig`, como se muestra en Ejemplos de tipos de registros adicionales anteriormente.
 
 Los conjuntos de registros de tipo "CNAME" o "SOA" no pueden contener más de un registro. Esta restricción surge de los estándares de DNS. No es una limitación de Azure DNS.
 
@@ -270,7 +270,7 @@ Lo mismo que para agregar registros a un conjunto de registros, la secuencia de 
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Se admiten diferentes tipos de registros pasando los parámetros adecuados específicos del tipo a `Remove-AzureRmDnsRecordSet`. Los parámetros de cada tipo de registro son los mismos que para el cmdlet `New-AzureRmDnsRecordConfig`, como se muestra en [Ejemplos de tipos de registros adicionales](#additional-record-type-examples) anteriormente.
+Se admiten diferentes tipos de registros pasando los parámetros adecuados específicos del tipo a `Remove-AzureRmDnsRecordSet`. Los parámetros de cada tipo de registro son los mismos que para el cmdlet `New-AzureRmDnsRecordConfig`, como se muestra en Ejemplos de tipos de registros adicionales anteriormente.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modificación de un conjunto de registros existente

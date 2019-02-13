@@ -11,23 +11,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 49f1b953784aca0776357cc4071efbbff6064660
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fb451ab3a28ecca42fc05edad14cd513c4fe1f68
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155347"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820494"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
 
 Antes de empezar a instalarlo, debe [descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se indican en [Azure AD Connect: Hardware y requisitos previos](how-to-connect-install-prerequisites.md). Asegúrese también de que posee las cuentas necesarias que se describen en [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md).
 
-Si la configuración personalizada no coincide con la topología, por ejemplo, para actualizar DirSync, consulte la [documentación relacionada](#related-documentation) sobre otros escenarios.
+Si la configuración personalizada no coincide con la topología, por ejemplo, para actualizar DirSync, consulte la documentación relacionada sobre otros escenarios.
 
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Instalación de Azure AD Connect con Configuración personalizada
 ### <a name="express-settings"></a>Configuración rápida

@@ -1,8 +1,21 @@
 ---
-título: Formulación de una pregunta que pueda responderse con datos titleSuffix: Azure Machine Learning Studio description: Aprenda a formular una buena pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
+title: Formulación de preguntas que pueden responderse con datos
+titleSuffix: Azure Machine Learning Studio
+description: Aprenda a formular una buena pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/03/2018
+ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498155"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciencia de datos para principiantes

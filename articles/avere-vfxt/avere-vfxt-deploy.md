@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296382"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745442"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementación del clúster de vFXT
 
@@ -39,11 +39,11 @@ Para más información sobre los pasos de planeación e implementación del clú
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Creación del clúster de Avere vFXT for Azure
 
-Acceda a la plantilla de creación en Azure Portal; para ello, busque Avere y seleccione “Implementación de Avere vFXT for Azure”. <!-- xxx update if that name changes xxx --> 
+Acceda a la plantilla de creación en Azure Portal; para ello, busque Avere y seleccione "Avere vFXT ARM Deployment". 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Ventana del explorador que muestra Azure Portal con la ruta "Nuevo > Marketplace > Todo". En la página Todo, el campo de búsqueda tiene el término "avere" y el segundo resultado, "Avere vFXT ARM Deployment", está subrayado en rojo para resaltarlo.](media/avere-vfxt-template-choose.png)
 
-Haga clic en **Crear** para comenzar. 
+Después de leer los detalles de la página de Avere vFXT ARM Deployment, haga clic en **Crear** para comenzar. 
 
 ![Azure Marketplace con la visualización de la primera página de la plantilla de implementación](media/avere-vfxt-deploy-first.png)
 
@@ -80,7 +80,7 @@ Rellene la información siguiente:
 
 * **Suscripción**: seleccione la suscripción para Avere vFXT. 
 
-* **Grupo de recursos**: seleccione el grupo de recursos para el clúster de Avere vFXT o haga clic en “Crear” y escriba un nombre para el nuevo grupo de recursos. 
+* **Grupo de recursos**: seleccione un grupo de recursos vacío existente para el clúster de Avere vFXT o haga clic en "Crear" y escriba un nombre para el nuevo grupo de recursos. 
 
 * **Ubicación**: seleccione la ubicación de Azure para el clúster y los recursos.
 
@@ -123,9 +123,11 @@ La segunda página de la plantilla de implementación permite establecer el tama
 
 * **Subred**: elija una subred de la red virtual existente o cree una. 
 
-* **Uso de Blob Storage**: elija si desea crear un contenedor de blobs de Azure y configurarlo como almacenamiento back-end para el nuevo clúster de Avere vFXT. Si decide crear un contenedor, debe proporcionar la cuenta de almacenamiento para dicho contenedor. Si decide no crear un contenedor de blobs, debe adjuntar almacenamiento después de crear el clúster (lea [Configurar el almacenamiento](avere-vfxt-add-storage.md) para obtener instrucciones). Establezca este campo en **false** si no desea crear un contenedor.
+* **Uso de Blob Storage**: elija **true** para crear un contenedor de blobs de Azure y configurarlo como almacenamiento back-end para el nuevo clúster de Avere vFXT. Esta opción también crea una cuenta de almacenamiento dentro del mismo grupo de recursos que el clúster. 
 
-* **Cuenta de almacenamiento**: si crea un contenedor de blobs de Azure, escriba el nombre de la cuenta de almacenamiento. La cuenta de almacenamiento debe ser una cuenta de V2 de uso general estándar configurada con almacenamiento con redundancia local y el nivel de acceso frecuente. En el artículo [Configurar el almacenamiento](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) se ofrece más información sobre los requisitos de la cuenta de almacenamiento.
+  Establezca este campo en **false** si no desea crear un contenedor. En este caso, debe asociar y configurar el almacenamiento después de crear el clúster. Puede encontrar las instrucciones en [Configurar el almacenamiento](avere-vfxt-add-storage.md). 
+
+* **Cuenta de almacenamiento**: si crea un contenedor de blobs de Azure, escriba el nombre de la nueva cuenta de almacenamiento. 
 
 ## <a name="validation-and-purchase"></a>Compra y validación
 
@@ -161,7 +163,7 @@ Para encontrar esta información, siga este procedimiento:
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Creación de un punto de conexión de almacenamiento (si usa Azure Blob)
 
-Si utiliza almacenamiento de Azure Blob para el almacenamiento de datos de back-end, debe crear un punto de conexión de servicio de almacenamiento en la red virtual. Este [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene el tráfico de Azure Blob de manera local, en lugar de enrutarlo a través de internet.
+Si utiliza almacenamiento de Azure Blob para el almacenamiento de datos de back-end, debe crear un punto de conexión de servicio de almacenamiento en la red virtual. Este [punto de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene el tráfico de Azure Blob de manera local, en lugar de enrutarlo fuera de la red virtual.
 
 1. En el portal, haga clic en **Redes virtuales** a la izquierda.
 1. Seleccione la red virtual para el controlador. 

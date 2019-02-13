@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191549"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697119"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
 En este artículo se enumeran las operaciones que están disponibles para cada proveedor de recursos de Azure Resource Manager. Dichas operaciones se pueden usar en [roles personalizados](custom-roles.md) para proporcionar un [control de acceso basado en rol (RBAC)](overview.md) pormenorizado a los recursos en Azure. Las cadenas de las operaciones tienen el siguiente formato: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-Las operaciones del proveedor de recursos están en constante evolución. Para obtener las operaciones más recientes, use [Get AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+Las operaciones del proveedor de recursos están en constante evolución. Para obtener las operaciones más recientes, use [Get AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

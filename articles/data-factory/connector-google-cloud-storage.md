@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 03a1ebdb606cfba20d7567b111d8359fab98b0b1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 815ee569f0919f32b38b7b7cdf848be184b7aea8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076063"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661860"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage con Azure Data Factory
 
@@ -49,10 +49,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Google C
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AmazonS3**. | SÍ |
-| accessKeyId | Id. de la clave de acceso secreta. Para encontrar la clave de acceso y el secreto, vaya a **Google Cloud Storage** > **Configuración** > **Interoperabilidad**. |SÍ |
-| secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
-| serviceUrl | Especifique el punto de conexión personalizado de S3 como **`https://storage.googleapis.com`**. | SÍ |
+| Tipo | La propiedad type debe establecerse en: **AmazonS3**. | Sí |
+| accessKeyId | Id. de la clave de acceso secreta. Para encontrar la clave de acceso y el secreto, vaya a **Google Cloud Storage** > **Configuración** > **Interoperabilidad**. |Sí |
+| secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| serviceUrl | Especifique el punto de conexión personalizado de S3 como **`https://storage.googleapis.com`**. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 Este es un ejemplo:
@@ -86,9 +86,9 @@ Para copiar datos de Google Cloud Storage, establezca la propiedad type del conj
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AmazonS3Object** |SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AmazonS3Object** |Sí |
 | bucketName | Nombre del depósito de S3. No se admiten filtros con caracteres comodín. |Sí, para la actividad de copia y búsqueda; No, para la actividad GetMetadata |
-| key | El **filtro de nombre o de comodín** de la clave del objeto S3 del cubo especificado. Solo se aplica cuando no se especifica la propiedad "prefix". <br/><br/>El filtro de comodín se admite tanto para el elemento de carpeta como para el elemento de nombre de archivo. Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Ejemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape. |Sin  |
+| key | El **filtro de nombre o de comodín** de la clave del objeto S3 del cubo especificado. Solo se aplica cuando no se especifica la propiedad "prefix". <br/><br/>El filtro de comodín se admite tanto para el elemento de carpeta como para el elemento de nombre de archivo. Los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Ejemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). Use `^` como escape si el nombre real del archivo o la carpeta contiene un carácter comodín o este carácter de escape. |Sin  |
 | prefix | Prefijo de la clave del objeto S3. Se seleccionan objetos cuyas claves comienzan por este prefijo. Solo se aplica cuando no se especifica la propiedad "key". |Sin  |
 | version | La versión del objeto S3 si está habilitado el control de versiones de S3. |Sin  |
 | modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
@@ -139,7 +139,7 @@ Para copiar datos de Google Cloud Storage, establezca el tipo de origen de la ac
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
 
 **Ejemplo:**

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 565b4c66c98d62fdcbd23f6446f522b810db1430
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999466"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821990"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -38,6 +38,9 @@ Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Micr
 Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) de GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="encoding"></a>Encoding
+Las funciones esperan una cadena codificada en *base64*. Cualquier ajuste al tipo de codificación (para preparar los datos como una cadena codificada en *base64*) debe implementarse en el servicio de llamada.
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -496,7 +499,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
 
-Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte [Desencadenador: atributos](#trigger---attribute).
+Puede usar el atributo `StorageAccount` para especificar la cuenta de almacenamiento en el nivel de clase, método o parámetro. Para obtener más información, consulte Desencadenador: atributos.
 
 ## <a name="output---configuration"></a>Salida: configuración
 

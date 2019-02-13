@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913103"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821376"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage
 
@@ -30,7 +30,7 @@ En este tutorial usará [Jupyter Notebook](https://jupyter.org/), disponible con
 ## <a name="prepare-the-data"></a>Preparación de los datos
 
 > [!NOTE]  
-> No hay que realizar este paso si ha creado el clúster de HDInsight con Data Lake Storage como almacenamiento predeterminado. El proceso de creación del clúster agrega algunos datos de ejemplo a la cuenta de Data Lake Storage que especifique durante la creación del clúster. Avance a la sección [Uso de un clúster de HDInsight Spark con Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> No hay que realizar este paso si ha creado el clúster de HDInsight con Data Lake Storage como almacenamiento predeterminado. El proceso de creación del clúster agrega algunos datos de ejemplo a la cuenta de Data Lake Storage que especifique durante la creación del clúster. Avance a la sección Uso de un clúster de HDInsight Spark con Data Lake Storage.
 
 Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento adicional y Azure Storage Blob como almacenamiento predeterminado, primero debe copiar algunos datos de ejemplo en la cuenta de Data Lake Storage. Puede usar los datos de ejemplo de la instancia de Azure Storage Blob asociada al clúster de HDInsight. Puede usar la [herramienta ADLCopy](https://aka.ms/downloadadlcopy) para hacerlo. Descargue e instale la herramienta desde el vínculo.
 

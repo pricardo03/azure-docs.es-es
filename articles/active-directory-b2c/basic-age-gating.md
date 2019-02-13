@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153273"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562443"
 ---
-# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar la restricción de acceso por edad en Azure Active Directory B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
 
 >[!IMPORTANT]
 >Esta característica está en versión preliminar pública. No use la característica para aplicaciones de producción. 
@@ -103,7 +103,7 @@ Una vez que el inquilino esté configurado para usar la restricción de acceso p
 1. Cree un flujo de usuario con la restricción de acceso por edad habilitada.
 2. Después de crear el flujo de usuario, seleccione **Propiedades** en el menú.
 3. En la sección **Restricción de acceso por edad**, seleccione **Habilitado**.
-4. A continuación, elija cómo quiere administrar los usuarios que se identifican como menores. En **Registrarse o Iniciar sesión**, seleccione `Allow minors to access your application` o `Block minors from accessing your application`. Si el bloqueo menores está seleccionado, elija `Send a JSON bcak to the application` o `Show an error message`. 
+4. A continuación, elija cómo quiere administrar los usuarios que se identifican como menores. En **Registrarse o Iniciar sesión**, seleccione `Allow minors to access your application` o `Block minors from accessing your application`. Si el bloqueo menores está seleccionado, elija `Send a JSON back to the application` o `Show an error message`. 
 
 
 

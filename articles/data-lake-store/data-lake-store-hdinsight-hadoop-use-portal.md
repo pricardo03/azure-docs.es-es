@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955837"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817043"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Crear clústeres de HDInsight con Data Lake Storage Gen1 mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -55,10 +55,10 @@ En esta sección creará un clúster de HDInsight con cuentas de Data Lake Stora
 
     ![Incorporación de una entidad de servicio a un clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Incorporación de una entidad de servicio a un clúster de HDInsight")
 
-    - **Seleccione la cuenta de Data Lake Store**: seleccione una cuenta existente de Data Lake Storage Gen1. Se necesita una cuenta existente de Data Lake Storage Gen1.  Consulte [Requisitos previos](#prerequisites).
+    - **Selección de una cuenta de Azure Data Lake Store**: seleccione una cuenta existente de Data Lake Storage Gen1. Se necesita una cuenta existente de Data Lake Storage Gen1.  Consulte [Requisitos previos](#prerequisites).
     - **Ruta de acceso raíz**: escriba una ruta de acceso en la que se almacenarán los archivos específicos del clúster. En la captura de pantalla, es __/clusters/myhdiadlcluster/__, donde la carpeta __/clusters__ debe existir y el portal crea la carpeta *myhdicluster*.  *myhdicluster* es el nombre del clúster.
-    - **Acceso a Data Lake Store**: configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte [Configure Data Lake Storage Gen1 access](#configure-data-lake-store-access) (Configuración del acceso a Data Lake Storage Gen1).
-    - **Cuentas de almacenamiento adicionales**: agregue cuentas de Azure Storage como cuentas de almacenamiento adicionales para el clúster. Para agregar más cuentas de Data Lake Storage Gen1, asigne al clúster permisos de datos en más cuentas de Data Lake Storage Gen1 al configurar una cuenta de Data Lake Storage Gen1 como tipo de almacenamiento principal. Consulte [Configuración del acceso a Data Lake Storage Gen1](#configure-data-lake-store-access).
+    - **Acceso a Data Lake Store**: configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte Configuración del acceso a Data Lake Storage Gen1.
+    - **Cuentas de almacenamiento adicionales**: agregue cuentas de Azure Storage como cuentas de almacenamiento adicionales para el clúster. Para agregar más cuentas de Data Lake Storage Gen1, asigne al clúster permisos de datos en más cuentas de Data Lake Storage Gen1 al configurar una cuenta de Data Lake Storage Gen1 como tipo de almacenamiento principal. Consulte Configuración del acceso a Data Lake Storage Gen1.
 
 4. En **Acceso a Data Lake Store**, haga clic en **Seleccionar** y continúe con la creación del clúster, tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -207,7 +207,7 @@ La cuenta de Data Lake Storage Gen1 se puede usar para escribir datos de una top
 
 ## <a name="see-also"></a>Otras referencias
 * [Usar Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [PowerShell: Create an HDInsight cluster to use Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md) (PowerShell: crear un clúster de HDInsight para usar Data Lake Storage Gen1)
+* [PowerShell: Creación de un clúster de HDInsight para usar Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

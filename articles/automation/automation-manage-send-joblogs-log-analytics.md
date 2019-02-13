@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432972"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756638"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Reenvío del estado de un trabajo y de transmisiones de trabajos de Automation a Log Analytics (OMS)
 
@@ -64,11 +64,12 @@ Si necesita encontrar el *nombre* de la cuenta de Automation, en Azure Portal se
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Después de ejecutar este script, verá los registros de Log Analytics a los 10 minutos de escribir los nuevos JobLogs o JobStreams.
+Después de ejecutar este script, puede que tarde una hora antes de empezar a ver los registros de Log Analytics de los nuevos JobLogs o JobStreams que se están escribiendo.
 
 Para ver los registros, ejecute la siguiente consulta en la búsqueda de registros de Log Analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Comprobación de la configuración
+
 Para confirmar que la cuenta de Automation está enviando registros a su área de trabajo de Log Analytics, compruebe que los diagnósticos están configurados correctamente en la cuenta de Automation con el código PowerShell siguiente:
 
 ```powershell-interactive
@@ -76,14 +77,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 En la salida asegúrese de que:
-+ En *Registros*, el valor de *Habilitado* es *True*.
-+ El valor de *WorkspaceId* se establece en el valor de ResourceId de su área de trabajo de Log Analytics.
+
+* En *Registros*, el valor de *Habilitado* es *True*.
+* El valor de *WorkspaceId* se establece en el valor de ResourceId de su área de trabajo de Log Analytics.
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 
 Diagnósticos de Azure Automation crea dos tipos de registros en Log Analytics y se etiquetan como **AzureDiagnostics**. Las consultas siguientes utilizan el lenguaje de consulta actualizado en Log Analytics. Para más información acerca de las consultas comunes entre lenguaje de consulta heredado y el nuevo lenguaje de consulta de Azure Log Analytics, visite [Legacy to new Azure Log Analytics Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language) (Hoja de referencia de lenguaje de consulta heredado a lenguaje de consulta nuevo de Azure Log Analytics).
 
 ### <a name="job-logs"></a>Registros de trabajo
+
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecuta el trabajo de Runbook. |
@@ -128,6 +131,7 @@ Diagnósticos de Azure Automation crea dos tipos de registros en Log Analytics y
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Visualización de registros de Automation en Log Analytics
+
 Ahora que ha iniciado el envío de los registros de los trabajos de Automation a Log Analytics, veamos lo que puede hacer con dichos registros en Log Analytics.
 
 Para ver los registros, ejecute la consulta siguiente: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
@@ -141,7 +145,7 @@ Para crear una regla de alertas, lo primero es crear una búsqueda de registros 
 2. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  También puede agrupar por RunbookName, para lo que debe usar: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Si configura registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation. El nombre de la cuenta de Automation puede encontrarse en el campo Recurso en la búsqueda de JobLogs.
-1. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para más información sobre las opciones para configurar la alerta, consulte [Alertas de registro en Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para más información sobre las opciones para configurar la alerta, consulte [Alertas de registro en Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Búsqueda de todos los trabajos que se han completado con errores
 Además de las alertas al producirse errores, puede saber cuando un trabajo de runbook tiene un error de no terminación. En estos casos, PowerShell genera un flujo de errores, pero los errores de no terminación no causan la suspensión ni producirán un error en el trabajo.    

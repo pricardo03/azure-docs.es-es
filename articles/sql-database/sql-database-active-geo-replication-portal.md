@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468910"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657780"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
@@ -32,7 +32,7 @@ Para configurar la replicación geográfica activa mediante Azure Portal, necesi
 * Una instancia de Azure SQL Database: la base de datos principal que quiere replicar en una región geográfica diferente.
 
 > [!Note]
-La replicación geográfica activa debe producirse entre bases de datos de la misma suscripción.
+Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si la base de datos secundaria debe estar en una suscripción diferente, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creación de la API REST de base de datos) o [ALTER DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Agregar una base de datos secundaria
 

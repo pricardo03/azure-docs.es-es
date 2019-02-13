@@ -10,19 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/31/2019
 ms.author: lagayhar
-ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7ad8b96efeef2a5bb5543ee08150376862abb27f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260064"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699336"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Úselo para [detectar y diagnosticar problemas de rendimiento y excepciones](../../azure-monitor/app/detect-triage-diagnose.md), y [escribir código][api] para realizar un seguimiento de lo que los usuarios hacen con su aplicación.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Úselo para [instrumentar automáticamente solicitudes, controlar dependencias y recopilar contadores de rendimiento](auto-collect-dependencies.md#java), [diagnosticar problemas de rendimiento y excepciones](../../azure-monitor/app/detect-triage-diagnose.md) y [escribir código][api] para realizar un seguimiento de lo que hacen los usuarios con la aplicación. 
 
 ![Captura de pantalla de información general con datos de ejemplo](./media/java-get-started/overview-graphs.png)
 

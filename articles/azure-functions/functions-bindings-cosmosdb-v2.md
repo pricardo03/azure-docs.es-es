@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972046"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818131"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -57,7 +57,7 @@ Vea el ejemplo específico del lenguaje:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
+Ejemplos de omisión de desencadenador
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
+Ejemplos de omisión de desencadenador
 
 ### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
 
@@ -131,7 +131,7 @@ Este es el código de script de C#:
     }
 ```
 
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
+Ejemplos de omisión de desencadenador
 
 ### <a name="trigger---javascript-example"></a>Desencadenador: ejemplo de JavaScript
 
@@ -199,7 +199,7 @@ Este es el código de Java:
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@CosmosDBTrigger` en los parámetros cuyo valor provendría de Cosmos DB.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>.
 
 
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
+Ejemplos de omisión de desencadenador
 
 ### <a name="trigger---python-example"></a>Ejemplo de desencadenador de Python
 
@@ -1727,7 +1727,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 En las funciones de C# y F#, cuando se sale de la función correctamente, los cambios realizados en el documento de entrada mediante parámetros de entrada con nombre se guardan automáticamente.
 
-En las funciones de JavaScript, las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el [ejemplo de JavaScript](#input---javascript-example).
+En las funciones de JavaScript, las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el ejemplo de JavaScript.
 
 ## <a name="output"></a>Salida
 

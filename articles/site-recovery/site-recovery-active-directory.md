@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821395"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
 
@@ -31,10 +31,10 @@ En este artículo se explica cómo crear una solución de recuperación ante des
 
 ## <a name="replicate-the-domain-controller"></a>Replicación del controlador de dominio
 
-- Debe configurar la [replicación de Site Recovery](#enable-protection-using-site-recovery) como mínimo en una máquina virtual que hospede el controlador de dominio o DNS.
-- Si tiene [varios controladores de dominio](#environment-with-multiple-domain-controllers) en su entorno, también debe configurar un [controlador de dominio adicional](#protect-active-directory-with-active-directory-replication) en el sitio de destino. El controlador de dominio adicional puede estar en Azure o en un centro de datos local secundario.
+- Debe configurar la replicación de Site Recovery como mínimo en una máquina virtual que hospede el controlador de dominio o DNS.
+- Si tiene varios controladores de dominio en su entorno, también debe configurar un controlador de dominio adicional en el sitio de destino. El controlador de dominio adicional puede estar en Azure o en un centro de datos local secundario.
 - Si tiene solo algunas aplicaciones y un controlador de dominio, puede querer conmutar por error el sitio completo. En este caso, se recomienda usar Site Recovery para replicar el controlador de dominio en el sitio de destino (ya sea en Azure o en un centro de datos local secundario). Se puede usar la misma máquina virtual del controlador de dominio o DNS replicada para la [conmutación por error de prueba](#test-failover-considerations).
-- - Si tiene muchas aplicaciones y hay más de un controlador de dominio en el entorno, o si planea conmutar por error pocas aplicaciones a la vez, además de replicar la máquina virtual del controlador de dominio con Site Recovery, es recomendable que configure un [controlador de dominio adicional](#protect-active-directory-with-active-directory-replication) en el sitio de destino (en Azure o un centro de datos secundario local). Para la [conmutación por error de prueba](#test-failover-considerations), puede usar el controlador de dominio que replicó Site Recovery. Para la conmutación por error, puede usar el controlador de dominio adicional en el sitio de destino.
+- - Si tiene muchas aplicaciones y hay más de un controlador de dominio en el entorno, o si planea conmutar por error pocas aplicaciones a la vez, además de replicar la máquina virtual del controlador de dominio con Site Recovery, es recomendable que configure un controlador de dominio adicional en el sitio de destino (en Azure o un centro de datos secundario local). Para la [conmutación por error de prueba](#test-failover-considerations), puede usar el controlador de dominio que replicó Site Recovery. Para la conmutación por error, puede usar el controlador de dominio adicional en el sitio de destino.
 
 ## <a name="enable-protection-with-site-recovery"></a>Habilitación de la protección con Site Recovery
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251612"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766629"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
@@ -119,7 +119,7 @@ El script de ejecución recibe los datos enviados a una imagen implementada y lo
 
 #### <a name="working-with-json-data"></a>Trabajo con datos JSON
 
-El siguiente es un script de ejemplo que acepta y devuelve datos JSON. La función `run` transforma los datos de JSON a un formato que el modelo espere y, a continuación, transforma la respuesta a JSON antes de devolverla:
+El siguiente script de ejemplo acepta y devuelve datos JSON. La función `run` transforma los datos de JSON a un formato que el modelo espere y, a continuación, transforma la respuesta a JSON antes de devolverla:
 
 ```python
 # import things required by this script
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>Trabajo con datos binarios
 
-Si el modelo acepta __datos binarios__, utilice `AMLRequest`, `AMLResponse` y `rawhttp`. El siguiente es un ejemplo de un script que acepta datos binarios y devuelve los bytes invertidos para las solicitudes POST. Para las solicitudes GET, devuelve la dirección URL completa en el cuerpo de la respuesta:
+Si el modelo acepta __datos binarios__, utilice `AMLRequest`, `AMLResponse` y `rawhttp`. El siguiente script de ejemplo acepta datos binarios y devuelve los bytes invertidos para las solicitudes POST. Para las solicitudes GET, devuelve la dirección URL completa en el cuerpo de la respuesta:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Para realizar la implementación en Azure Container Instances, siga estos pasos:
 
     **Tiempo estimado**: aproximadamente 3 minutos.
 
-    > [!TIP]
-    > Si hay errores durante la implementación, use `service.get_logs()` para ver los registros de servicio. La información registrada puede indicar la causa del error.
-
 Para más información, consulte la documentación de referencia de las clases [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) y [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 ### <a id="aks"></a> Implementación en Azure Kubernetes Service
@@ -334,9 +331,6 @@ print(service.state)
 
 **Tiempo estimado**: aproximadamente 3 minutos.
 
-> [!TIP]
-> Si hay errores durante la implementación, use `service.get_logs()` para ver los registros de servicio. La información registrada puede indicar la causa del error.
-
 Para más información, consulte la documentación de referencia de las clases [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) y [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
 
 ### <a id="fpga"></a> Implementación en matrices de puertas programables (FPGA)
@@ -371,7 +365,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Guarde la cadena de conexión resultante después de "cs":"{copy this string}".
 
-Inicialice el dispositivo mediante la descarga de [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) en un nodo perimetral de IoT UbuntuX64 o DSVM para ejecutar los comandos siguientes:
+Inicialice el dispositivo mediante la descarga de [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) en un nodo de IoT Edge UbuntuX64 o DSVM para ejecutar los comandos siguientes:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -382,7 +376,7 @@ sudo ./installIoTEdge
 
 El nodo IoT Edge está listo para recibir la cadena de conexión de IoT Hub. Busque la línea ```device_connection_string:``` y pegue la cadena de conexión anterior entre las comillas.
 
-También puede aprender a registrar el dispositivo e instalar el runtime de IoT paso a paso. Para ello, siga las instrucciones del documento [Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64](../../iot-edge/quickstart-linux.md).
+También puede aprender a registrar el dispositivo e instalar el entorno de ejecución de IoT. Para ello, siga las instrucciones del documento [Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64](../../iot-edge/quickstart-linux.md).
 
 
 #### <a name="get-the-container-registry-credentials"></a>Obtención de las credenciales del registro de contenedor
@@ -469,7 +463,7 @@ El servicio web es una API REST, por lo que puede crear aplicaciones cliente en 
 
 ## <a id="update"></a> Actualización del servicio web
 
-Para actualizar el servicio web, utilice el método `update`. El código siguiente muestra cómo actualizar el servicio web para usar una nueva imagen:
+Cuando cree una nueva imagen, debe actualizar manualmente cada servicio que quiera que use la nueva imagen. Para actualizar el servicio web, utilice el método `update`. El código siguiente muestra cómo actualizar el servicio web para usar una nueva imagen:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> Cuando se actualiza una imagen, el servicio web no se actualiza automáticamente. Debe actualizar manualmente cada servicio que quiera que use la nueva imagen.
-
 Para obtener más información, consulte la documentación de referencia de la clase [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 ## <a name="clean-up"></a>Limpieza
@@ -502,6 +493,19 @@ Para eliminar un modelo registrado, use `model.delete()`.
 
 Para obtener más información, consulte la documentación de referencia de los métodos [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) y [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
+## <a name="troubleshooting"></a>solución de problemas
+
+* __Si hay errores durante la implementación__, use `service.get_logs()` para ver los registros de servicio. La información registrada puede indicar la causa del error.
+
+* Los registros pueden contener un error que le insta a __establecer el nivel de registro en DEBUG__. Para establecer el nivel de registro, agregue las líneas siguientes al script de puntuación, cree la imagen y, a continuación, cree un servicio mediante la imagen:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    Este cambio habilita el registro adicional y puede devolver más información sobre por qué se está produciendo el error.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
@@ -511,3 +515,5 @@ Para obtener más información, consulte la documentación de referencia de los 
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)
 * [SDK de Azure Machine Learning Service](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Procedimientos recomendados para compilar sistemas de recomendaciones](https://github.com/Microsoft/Recommenders)
+* [Compilación de una API de recomendaciones en tiempo real en Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

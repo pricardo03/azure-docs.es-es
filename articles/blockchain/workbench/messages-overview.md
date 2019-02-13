@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2018
+ms.date: 02/01/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: mmercuri
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 34731bb96a83a901b3fc1a59ce1846083d69bfd7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 48e7de2798d9c34942df281febcc1d4ec443010d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103390"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662235"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
@@ -116,6 +116,7 @@ La solicitud requiere los siguientes campos:
 | requestId            | GUID del cliente proporcionado |
 | userChainIdentifier  | Dirección del usuario que se ha creado en la red de la cadena de bloques. En Ethereum, es la dirección del usuario **en la cadena**. |
 | applicationName      | Nombre de la aplicación |
+| version              | Versión del tipo de aplicación. Requerido si tiene varias versiones de la aplicación habilitada. En caso contrario, la versión es opcional. Para obtener más información sobre las versiones de las aplicaciones, consulte [Control de versiones de una aplicación de Azure Blockchain Workbench](version-app.md). |
 | workflowName         | Nombre del flujo de trabajo |
 | parameters           | Entrada de parámetros para la creación de contratos |
 | connectionId         | Identificador único de la conexión de cadena de bloques |
@@ -128,7 +129,8 @@ Ejemplo:
 { 
     "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
-    "applicationName": "AssetTransfer", 
+    "applicationName": "AssetTransfer",
+    "version": "1.0",
     "workflowName": "AssetTransfer", 
     "parameters": [ 
         { 
@@ -218,6 +220,7 @@ La solicitud requiere los siguientes campos:
 | requestId                | GUID del cliente proporcionado |
 | userChainIdentifier      | Dirección del usuario que se ha creado en la red de la cadena de bloques. En Ethereum, es la dirección del usuario **en la cadena**. |
 | contractLedgerIdentifier | Dirección del contrato en el libro de contabilidad |
+| version                  | Versión del tipo de aplicación. Requerido si tiene varias versiones de la aplicación habilitada. En caso contrario, la versión es opcional. Para obtener más información sobre las versiones de las aplicaciones, consulte [Control de versiones de una aplicación de Azure Blockchain Workbench](version-app.md). |
 | workflowFunctionName     | Nombre de la función de flujo de trabajo |
 | parameters               | Entrada de parámetros para la creación de contratos |
 | connectionId             | Identificador único de la conexión de cadena de bloques |
@@ -231,6 +234,7 @@ Ejemplo:
     "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
     "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "version": "1.0",
     "workflowFunctionName": "modify",
     "parameters": [
         {

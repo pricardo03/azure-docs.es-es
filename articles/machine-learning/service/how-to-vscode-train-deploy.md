@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240121"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753119"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Usar Visual Studio Code para entrenar e implementar modelos de aprendizaje automático
 
@@ -108,9 +108,9 @@ Para usar un destino de proceso remoto durante el entrenamiento, deberá crear u
 
 #### <a name="the-conda-dependencies-file"></a>Archivo de dependencia de Conda
 
-De forma predeterminada, se crea un nuevo entorno de Conda y se administran las dependencias de la instalación. Sin embargo, debe especificar las dependencias en el archivo `aml_config/conda_dependencies.yml`.
+De forma predeterminada, se crea un nuevo entorno de Conda y se administran las dependencias de la instalación. Sin embargo, debe especificar las dependencias y sus versiones en el archivo `aml_config/conda_dependencies.yml`. 
 
-Se trata de un fragmento de código del archivo "aml_config/conda_dependencies.yml" predeterminado.
+Se trata de un fragmento de código del archivo "aml_config/conda_dependencies.yml" predeterminado. Por ejemplo, puede especificar "tensorflow = 1.12.0" tal y como se muestra a continuación. Si no especifica la versión de la dependencia, se usará la versión más reciente.  
 Puede agregar dependencias adicionales en el archivo de configuración.
 
 ```yaml
@@ -123,7 +123,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

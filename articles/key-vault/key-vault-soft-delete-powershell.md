@@ -1,21 +1,18 @@
 ---
-ms.assetid: ''
 title: 'Azure Key Vault: Uso de la eliminación temporal con PowerShell'
 description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de PowerShell
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364377"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657508"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 
@@ -80,7 +77,7 @@ Para comprobar que un almacén de claves tiene habilitada la eliminación tempor
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Eliminación de un almacén de claves protegido por eliminación temporal
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Eliminación de un almacén de claves protegido por eliminación temporal
 
 El comando para eliminar un almacén de claves cambia de comportamiento, según si está habilitada la eliminación temporal.
 
@@ -97,7 +94,7 @@ Con la eliminación temporal habilitada:
 
 - El almacén de claves eliminado se quita de su grupo de recursos y se coloca en un espacio de nombres reservado, asociado con la ubicación donde se creó. 
 - Los objetos eliminados, como las claves, los secretos y los certificados, son inaccesibles mientras el almacén de claves que los contenga esté en estado eliminado. 
-- El nombre DNS de un almacén de claves eliminado es reservado, así se impide que se cree un almacén de claves con el mismo nombre.  
+- El nombre DNS de un almacén de claves eliminado es reservado, así se impide que se cree un almacén de claves con el mismo nombre.  
 
 Puede ver los almacenes de claves en estado eliminado asociados a su suscripción con el comando siguiente:
 
@@ -119,7 +116,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 Cuando se recupera un almacén de claves, se crea un recurso con el identificador de recurso original del almacén de claves. Si se quita el grupo de recursos original, se debe crear uno con el mismo nombre antes de intentar la recuperación.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Objetos de Key Vault y eliminación temporal
+## <a name="deleting-and-purging-key-vault-objects"></a>Eliminación y purga de objetos del almacén de claves
 
 El siguiente comando elimina la clave "ContosoFirstKey", en un almacén de claves denominado "ContosoVault", que tiene habilitada la eliminación temporal:
 
@@ -143,7 +140,7 @@ Cuando se elimina una clave de un almacén de claves con eliminación temporal h
 
 Al igual que con los almacenes de claves, una clave, secreto o certificado eliminados permanecerán en ese estado durante 90 días a menos que los recupere o los purgue. 
 
-#### <a name="keys"></a>simétricas
+#### <a name="keys"></a>Claves
 
 Para recuperar una clave eliminada temporalmente:
 
@@ -201,17 +198,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>Purga y almacenes de claves
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Purga de un almacén de claves protegido por eliminación temporal
 
-### <a name="key-vault-objects"></a>Objetos de almacén de claves
+> [!IMPORTANT]
+> Si purga un almacén de claves o uno de los objetos que contiene, se eliminará definitivamente, lo que significa que no se podrá recuperar.
 
-Al purgar una clave, un secreto o un certificado, se eliminan definitivamente y no se pueden volver a recuperar. No obstante, el almacén de claves que contenía el objeto eliminado permanecerá intacto al igual que el resto de objetos del almacén. 
+La función de purga se usa para eliminar permanentemente un objeto del almacén de claves o un almacén de claves completo que anteriormente se habían eliminado temporalmente. Como se muestra en la sección anterior, los objetos almacenados en un almacén de claves con la característica de eliminación temporal habilitada pueden pasar por varios estados:
 
-### <a name="key-vaults-as-containers"></a>Almacenes de claves como contenedores
-Cuando se purga un almacén de claves, todo su contenido, incluidas las claves, los secretos y los certificados, se eliminan definitivamente. Para purgar un almacén de claves, use el comando `Remove-AzureRmKeyVault` con la opción `-InRemovedState` especificando la ubicación del almacén de claves eliminado con el argumento `-Location location`. Puede encontrar la ubicación de un almacén eliminado mediante el comando `Get-AzureRmKeyVault -InRemovedState`.
+- **Activo**: antes de la eliminación.
+- **Eliminado temporalmente**: después de la eliminación, puede mostrarse y recuperarse para volver al estado activo.
+- **Eliminado permanentemente**: después de la purga, no se puede recuperar.
 
->[!IMPORTANT]
->Si purga un almacén de claves se eliminará definitivamente, lo que significa que no se podrá recuperar de nuevo.
+Lo mismo ocurre con el almacén de claves. Con el fin de eliminar permanentemente un almacén de claves eliminado temporalmente y su contenido, debe purgar el propio almacén de claves.
+
+### <a name="purging-a-key-vault"></a>Purga de un almacén de claves
+
+Cuando se purga un almacén de claves, todo su contenido, incluidas las claves, los secretos y los certificados, se eliminan definitivamente. Para purgar un almacén de claves eliminado de forma temporal, use el comando `Remove-AzureRmKeyVault` con la opción `-InRemovedState` y especifique la ubicación del almacén de claves eliminado con el argumento `-Location location`. Puede encontrar la ubicación de un almacén eliminado mediante el comando `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247680"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487360"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividad de dispositivos en Azure IoT Central
 
@@ -56,7 +56,7 @@ El modo de conectar un solo dispositivo a IoT Central mediante SAS es fácil y s
 
     *   **Lenguaje C**: si está usando C, siga [este cliente de dispositivo de ejemplo de C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) para conectar un dispositivo de muestra. Utilice la siguiente configuración en la muestra.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ Si está usando el dispositivo **MxChip**, siga las [instrucciones paso a paso q
 A continuación se muestran las referencias de otros idiomas que puede utilizar.
 
    *   **Lenguaje C**: si está usando C, siga [este cliente de dispositivo de ejemplo de C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) para conectar un dispositivo de muestra. Utilice la siguiente configuración en la muestra.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -163,7 +163,7 @@ Para conectar dispositivos a IoT Central mediante certificados X509, hay tres pa
 
     Programe el dispositivo con información del servicio de aprovisionamiento, para que pueda obtener los detalles de la conexión y la asignación de la aplicación IoT Central cuando está encendido.    
 
-    **Más información** 
+    **Referencia adicional** 
     *   Implementación de muestra para [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Cliente de dispositivo de muestra en C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
@@ -211,12 +211,12 @@ Siga los pasos según su elección del esquema de autenticación de dispositivos
 
 1. **Conecte el dispositivo a IoT Central**: una vez encendidos, los dispositivos se conectan a DPS o IoT Central para registrarse.
 
-1. **Asocie el dispositivo a una plantilla**: el dispositivo conectado se mostrará en la opción **UnAssociated Devices** (Dispositivos no asociados) en **Device Explorer**. El estado de aprovisionamiento del dispositivos es **Registrado**. **Asocie** el dispositivo a la plantilla de dispositivos adecuada y apruebe que el dispositivo se conecte a la aplicación IoT Central. El dispositivo obtiene los detalles de conexión para la aplicación IoT Central, se conecta y comienza a enviar datos. El aprovisionamiento del dispositivo ahora está completo y el *estado de aprovisionamiento* pasa a **Aprovisionado**.
+1. **Asocie el dispositivo a una plantilla**: el dispositivo conectado se mostrará en la opción **UnAssociated Devices** (Dispositivos no asociados) en **Device Explorer**. El estado de aprovisionamiento del dispositivos es **Registrado**. **Asocie** el dispositivo a la plantilla de dispositivos adecuada y apruebe que el dispositivo se conecte a la aplicación IoT Central. El dispositivo obtiene los detalles de conexión para la aplicación IoT Central, se conecta y comienza a enviar datos. El aprovisionamiento de dispositivos ahora está completo y el *estado de aprovisionamiento* pasa a **Aprovisionado**.
 
 ## <a name="device-provisioning-status"></a>Estado de aprovisionamiento de dispositivos
 Hay una serie de pasos que es necesario dar cuando un dispositivo real está conectado a Azure IoT Central. 
 1. **Registrado**: el dispositivo se **registra** primero, lo que significa que se creó en IoT Central y que tiene el id. de dispositivo que le corresponde.
-Un dispositivo se registra cuando:  
+El dispositivo está registrado cuando  
     *   Se agrega un nuevo dispositivo real en **Explorer**.
     *   Se agrega un conjunto de dispositivos mediante la opción **Importar** en **Explorer**.
     *   Un dispositivo que no se haya registrado pero que se conecte con credenciales válidas y esté visible en los dispositivos **no asociados**. 

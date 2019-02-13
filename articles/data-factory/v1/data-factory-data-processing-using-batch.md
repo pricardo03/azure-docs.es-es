@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021584"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822755"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021584"
 
 En este artículo se describe la arquitectura de una solución de ejemplo en la que se mueven y se procesan conjuntos de datos a gran escala de forma automática y programada. También se incluye un tutorial de un extremo a otro para implementar la solución con Data Factory y Azure Batch.
 
-Este artículo es más largo de lo habitual, ya que contiene un tutorial de una solución de ejemplo completa. Si no tiene experiencia con Batch y Data Factory, puede informarse sobre estos servicios y cómo interactúan. Si sabe algo sobre los servicios y va a diseñar una solución, puede centrarse en la [sección de diseño](#architecture-of-sample-solution) del artículo. Si va a desarrollar un prototipo o una solución, pruebe con las instrucciones detalladas del [tutorial](#implementation-of-sample-solution). No dude en hacernos llegar cualquier comentario que tenga sobre el contenido y su uso.
+Este artículo es más largo de lo habitual, ya que contiene un tutorial de una solución de ejemplo completa. Si no tiene experiencia con Batch y Data Factory, puede informarse sobre estos servicios y cómo interactúan. Si sabe algo sobre los servicios y va a diseñar una solución, puede centrarse en la sección de diseño del artículo. Si va a desarrollar un prototipo o una solución, pruebe con las instrucciones detalladas del tutorial. No dude en hacernos llegar cualquier comentario que tenga sobre el contenido y su uso.
 
 En primer lugar, vamos a ver cómo los servicios Data Factory y Batch pueden ayudar a procesar grandes conjuntos de datos en la nube.     
 

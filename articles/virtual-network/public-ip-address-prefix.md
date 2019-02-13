@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966833"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700747"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -31,7 +31,7 @@ Las direcciones IP públicas se asignan desde un grupo de direcciones en cada re
 Especifique un nombre y cuántas direcciones desea que incluya el prefijo para crear un prefijo de dirección IP pública en una región de Azure y una suscripción. Por ejemplo, si crea un prefijo de dirección IP pública /28, Azure asigna 16 direcciones de uno de los intervalos. No se sabe qué intervalo asignará Azure hasta que se crea el intervalo, pero las direcciones son contiguas. Los prefijos de direcciones IP públicas tienen una cuota. Para más información, consulte [Precios de direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 > [!IMPORTANT]
-> El prefijo de dirección IP pública está en versión preliminar pública en regiones limitadas. Puede [obtener información sobre qué significa estar en versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El prefijo de dirección IP pública está actualmente disponible en: Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental y Sudeste Asiático. Para obtener una lista actualizada de regiones, consulte [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> El prefijo de dirección IP pública está en versión preliminar pública en regiones limitadas. Puede [obtener información sobre qué significa estar en versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El prefijo de una dirección IP pública está actualmente disponible en: Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental y Sudeste Asiático. Para obtener una lista actualizada de regiones, consulte [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>¿Por qué crear un prefijo de dirección IP pública?
 

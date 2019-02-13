@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187218"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818760"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integración de Mapa de servicio con System Center Operations Manager
-  > [!NOTE]
-  > Esta característica está en versión preliminar pública.
-  > 
-  
+
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Mapa de servicio permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos. Mapa de servicio muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente. Para más detalles, consulte la [documentación de Mapa de servicio]( service-map.md).
 
 Con esta integración entre Mapa de servicio y System Center Operations Manager, puede crear automáticamente diagramas de aplicaciones distribuidas en Operations Manager basados en mapas de dependencia dinámica de Mapa de servicio.
@@ -43,7 +40,7 @@ La integración entre Operations Manager y Mapa de servicio se habilita al impor
 * Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>Configuración de la integración de Mapa de servicio
-Después de instalar el módulo de administración de **Mapa de servicio**, habrá un nuevo nodo, Mapa de servicio, en **Operations Management Suite**, en el panel de **Administración**. 
+Después de instalar el módulo de administración de **Mapa de servicio**, habrá un nuevo nodo, Mapa de servicio, en **Operations Management Suite**, en el panel de **Administración**.
 
 >[!NOTE]
 >[Operations Management Suite era una colección de servicios](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) que incluía Log Analytics, que ahora forma parte de [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -54,7 +51,7 @@ Para configurar la integración de Mapa de servicio, haga lo siguiente:
 
     ![Panel de información general de Mapa de servicio](media/service-map-scom/scom-configuration.png)
 
-2. En la ventana **Configuración de la conexión**, escriba el identificador o el nombre del inquilino, el identificador de la aplicación (también conocido como nombre de usuario o identificador de cliente) y la contraseña de la entidad de servicio; a continuación, haga clic en **Siguiente**. Para más información, vaya a [Create a service principal](#creating-a-service-principal) (Creación de una entidad de servicio).
+2. En la ventana **Configuración de la conexión**, escriba el identificador o el nombre del inquilino, el identificador de la aplicación (también conocido como nombre de usuario o identificador de cliente) y la contraseña de la entidad de servicio; a continuación, haga clic en **Siguiente**. Para más información, vaya a Creación de una entidad de servicio.
 
     ![Ventana de configuración de la conexión](media/service-map-scom/scom-config-spn.png)
 
@@ -63,11 +60,11 @@ Para configurar la integración de Mapa de servicio, haga lo siguiente:
     ![Área de trabajo de configuración de Operations Manager](media/service-map-scom/scom-config-workspace.png)
 
 4. En la ventana **Selección de Grupo de máquinas**, elija los grupos de máquinas de Service Map que desea sincronizar con Operations Manager. Haga clic en **Agregar o quitar Grupos de máquinas**, seleccione los grupos de la lista de **Grupos de máquinas disponibles** y haga clic en **Agregar**.  Cuando haya terminado la selección de grupos, haga clic en **Aceptar** para finalizar.
-    
+
     ![Configuración de grupos de máquinas de Operations Manager](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. En la ventana **Selección de servidor**, se puede configurar el grupo de servidores de Mapa de servicio con los servidores que desea sincronizar entre Operations Manager y Mapa de servicio. Haga clic en **Agregar o quitar servidores**.   
-    
+
     Para que la integración genere un diagrama de aplicación distribuida para un servidor, el servidor debe cumplir lo siguiente:
 
     * Administrado por Operations Manager
@@ -91,7 +88,7 @@ Después de conectar el área de trabajo de Log Analytics, una nueva carpeta (Se
 ![Panel de supervisión de Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 La carpeta de Service Map tiene cuatro nodos:
-* **Alertas activas**: muestra todas las alertas activas sobre la comunicación entre Operations Manager y Service Map.  Observe que estas alertas no son alertas de Log Analytics sincronizadas con Operations Manager. 
+* **Alertas activas**: muestra todas las alertas activas sobre la comunicación entre Operations Manager y Service Map.  Observe que estas alertas no son alertas de Log Analytics sincronizadas con Operations Manager.
 
 * **Servidores**: muestra los servidores supervisados que se han configurado para la sincronización con Service Map.
 
@@ -120,9 +117,9 @@ Se crea una regla, _Microsoft.SystemCenter.ServiceMapImport.Rule_, para capturar
 
 ![Ventana de propiedades de invalidaciones de Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: sirve para habilitar o deshabilitar las actualizaciones automáticas. 
+* **Enabled**: sirve para habilitar o deshabilitar las actualizaciones automáticas.
 * **IntervalMinutes**: restablece el tiempo entre actualizaciones. El intervalo predeterminado es de una hora. Si desea sincronizar asignaciones de servidor con más frecuencia, puede cambiar el valor.
-* **TimeoutSeconds**: se restablece el período de tiempo antes de que se agote el tiempo de espera de la solicitud. 
+* **TimeoutSeconds**: se restablece el período de tiempo antes de que se agote el tiempo de espera de la solicitud.
 * **TimeWindowMinutes**: restablece el período de tiempo para consultar datos. El valor predeterminado es de 60 minutos. El valor máximo permitido por Mapa de servicio es de 60 minutos.
 
 ## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones

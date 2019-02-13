@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: 903f8284327d3d5b9ef386305a436ce44a8a11b2
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cd382c0daff79b487f4ecae01ad852f6e57f3a25
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378109"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734256"
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
@@ -42,7 +42,7 @@ De forma predeterminada, la cuadrícula de **filtro IP** del portal para un cent
 
 Al agregar una regla de filtro IP, le pediremos los siguientes valores:
 
-* Un **nombre de regla de filtro IP** que debe ser una cadena única, que distinta mayúsculas de minúsculas y alfanumérica de hasta 128 caracteres. Solo se aceptan los caracteres alfanuméricos de 7 bits ASCII más `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Un **nombre de regla de filtro IP** que debe ser una cadena única, que distinta mayúsculas de minúsculas y alfanumérica de hasta 128 caracteres. Solo se aceptan los caracteres alfanuméricos de 7 bits ASCII más `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Seleccione un **Rechazar** o **Aceptar** como **acción** para la regla de filtro IP.
 
@@ -69,6 +69,84 @@ Puede editar una regla existente al hacer doble clic en la fila que la contiene.
 Para eliminar una regla de filtro IP, seleccione una o varias reglas en la cuadrícula y haga clic en **Eliminar**.
 
 ![Eliminación de una regla de filtro IP de IoT Hub](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
+
+## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperación y actualización de los filtros IP mediante la CLI de Azure
+
+Los filtros IP de IoT Hub se pueden recuperar y actualizar con la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). 
+
+Para recuperar los filtros IP actuales de IoT Hub, ejecute:
+
+```azurecli-interactive
+az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs
+```
+
+Esto devolverá un objeto JSON, donde se enumeran los filtros IP existentes bajo la clave `properties.ipFilterRules`:
+
+```json
+{
+...
+    "properties": {
+        "ipFilterRules": [
+        {
+            "action": "Reject",
+            "filterName": "MaliciousIP",
+            "ipMask": "6.6.6.6/6"
+        },
+        {
+            "action": "Allow",
+            "filterName": "GoodIP",
+            "ipMask": "131.107.160.200"
+        },
+        ...
+        ],
+    },
+...
+}
+```
+
+Para agregar un nuevo filtro IP de IoT Hub, ejecute:
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules "{\"action\":\"Reject\",\"filterName\":\"MaliciousIP\",\"ipMask\":\"6.6.6.6/6\"}"
+```
+
+Para quitar un filtro IP existente en IoT Hub, ejecute:
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
+```
+
+Tenga en cuenta que `<ipFilterIndexToRemove>` tiene que corresponder al orden de filtros IP de `properties.ipFilterRules` de su instancia de IoT Hub.
+
+
+## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Recuperación y actualización de los filtros IP mediante Azure PowerShell
+
+Los filtros IP de IoT Hub se pueden recuperar y establecer con la [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0). 
+
+```powershell
+# Get your IoT Hub resource using its name and its resource group name
+$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+
+# Access existing IP filter rules
+$iothubResource.Properties.ipFilterRules |% { Write-host $_ }
+
+# Construct a new IP filter
+$filter = @{'filterName'='MaliciousIP'; 'action'='Reject'; 'ipMask'='6.6.6.6/6'}
+
+# Add your new IP filter rule
+$iothubResource.Properties.ipFilterRules += $filter
+
+# Remove an existing IP filter rule using its name, e.g., 'GoodIP'
+$iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
+
+# Update your IoT Hub resource with your updated IP filters
+$iothubResource | Set-AzureRmResource -Force
+```
+
+## <a name="update-ip-filter-rules-using-rest"></a>Actualización de las reglas de filtro IP con REST
+
+También puede recuperar y modificar el filtro IP de IoT Hub mediante el punto de conexión REST del proveedor de recursos de Azure. Consulte `properties.ipFilterRules` en [método createorupdate](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate).
+
 
 ## <a name="ip-filter-rule-evaluation"></a>Evaluación de las reglas de filtro IP
 

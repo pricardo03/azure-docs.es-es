@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157335"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816788"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ La siguiente sección describe cómo buscar y recuperar registros y modificar lo
 * [Buscar un registro por identificador](#lookingup)
 * [Trabajar con consultas sin tipo](#untypedqueries)
 * [Insertar datos](#inserting)
-* [Actualizar datos](#updating)
+* Actualizar datos
 * [Eliminar datos](#deleting)
 * [Resolución de conflictos y simultaneidad optimista](#optimisticconcurrency)
 * [Enlace a una interfaz de usuario de Windows](#binding)
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 Si va a insertar en WNS, DEBE [obtener un SID del paquete de Microsoft Store](#package-sid).  Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, vea [Agregar notificaciones push a la aplicación].
 
 Tenga en cuenta que no se admite la solicitud de etiquetas del cliente.  Las solicitudes de etiquetas se quitan del registro en modo silencioso.
-Si desea registrar el dispositivo con etiquetas, crear una API personalizada que use la API de Notification Hubs para realizar el registro en su nombre.  [Llame a la API personalizada](#customapi), en lugar de al método `RegisterNativeAsync()`.
+Si desea registrar el dispositivo con etiquetas, crear una API personalizada que use la API de Notification Hubs para realizar el registro en su nombre.  Llame a la API personalizada, en lugar de al método `RegisterNativeAsync()`.
 
 ### <a name="package-sid"></a>Instrucciones: Obtención del SID de un paquete de Microsoft Store
 Se necesita un SID del paquete para habilitar las notificaciones de inserción en aplicaciones de Microsoft Store.  Para recibir un SID del paquete, registre la aplicación en Microsoft Store.

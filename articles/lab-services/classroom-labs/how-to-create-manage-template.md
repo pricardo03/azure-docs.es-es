@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2f34b6c71c448f7273ba7477f18f5abb8f89cdec
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391198"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815258"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creación y administración de plantillas educativas en Azure Lab Services
 En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Luego, publique la plantilla si desea que las instancias de la plantilla de máquina virtual estén disponibles para los usuarios del laboratorio. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
@@ -72,7 +72,7 @@ En primer lugar, puede configurar y publicar una plantilla al crear un laborator
 
         > [!WARNING]
         > Una vez que publique, no se puede cancelar la publicación. 
-    2. Para publicar más adelante, seleccione **Guardar para más adelante**. Puede publicar la plantilla de máquina virtual una vez finalizado el asistente. Para más información sobre cómo configurar y publicar una vez finalizado el asistente, consulte la sección [Publicación de la plantilla](#publish-the-template) del artículo [Administración de laboratorios educativos](how-to-manage-classroom-labs.md).
+    2. Para publicar más adelante, seleccione **Guardar para más adelante**. Puede publicar la plantilla de máquina virtual una vez finalizado el asistente. Para más información sobre cómo configurar y publicar una vez finalizado el asistente, consulte la sección Publicación de la plantilla del artículo [Administración de laboratorios educativos](how-to-manage-classroom-labs.md).
 
         ![Publicar plantilla](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Puede ver el **progreso de la publicación** de la plantilla. Este proceso puede tardar hasta una hora. 

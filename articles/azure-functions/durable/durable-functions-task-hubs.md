@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336907"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753477"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
 Una *central de tareas* en [Durable Functions](durable-functions-overview.md) es un contenedor lógico para los recursos de Azure Storage que se usan para las orquestaciones. Las funciones de orquestador y actividad solo pueden interactuar entre sí si pertenecen a la misma central de tareas.
 
-Cada aplicación de función tiene una central de tareas independiente. Si varias aplicaciones de función comparten una cuenta de almacenamiento, esta contendrá varias centrales de tareas. El siguiente diagrama muestra una central de tareas por cada aplicación de función en las cuentas de almacenamiento compartidas y dedicadas.
+Si varias aplicaciones de función comparten una cuenta de almacenamiento, se *debe* configurar cada una de ellas con un nombre de central de tareas independiente. Una cuenta de almacenamiento puede contener varias centrales de tareas. El siguiente diagrama muestra una central de tareas por cada aplicación de función en las cuentas de almacenamiento compartidas y dedicadas.
 
 ![Diagrama de almacenamiento que muestra las cuentas de almacenamiento compartidas y dedicadas.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ Las centrales de tareas se identifican mediante un nombre que se declara en el a
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ Las centrales de tareas se identifican mediante un nombre que se declara en el a
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ Las centrales de tareas también se pueden configurar mediante la configuración
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ Las centrales de tareas también se pueden configurar mediante la configuración
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ Y la siguiente es la configuración necesaria para JavaScript. La propiedad de l
 Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado es **DurableFunctionsHub**.
 
 > [!NOTE]
-> El nombre es lo que diferencia una central de tareas de otra cuando hay varias de ellas en una cuenta de almacenamiento compartido. Si tiene varias aplicaciones de función que comparten una cuenta de almacenamiento, tendrá que configurar nombres diferentes para cada central de tareas en el archivo *host.json*.
+> El nombre es lo que diferencia una central de tareas de otra cuando hay varias de ellas en una cuenta de almacenamiento compartido. Si tiene varias aplicaciones de función que comparten una cuenta de almacenamiento, deberá configurar explícitamente nombres diferentes para cada central de tareas en el archivo *host.json*. En caso contrario, las diversas aplicaciones de función competirán entre sí por los mensajes, lo cual podría provocar un comportamiento indefinido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

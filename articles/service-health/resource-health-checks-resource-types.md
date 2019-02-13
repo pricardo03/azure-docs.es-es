@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
-ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d88eb0ee5e8ec4c14efeb47a144ec7080ac6eee3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163045"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508800"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -115,6 +115,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Se pueden realizar operaciones de diagnóstico en el clúster?</li></ul>|
+
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Los clientes experimentan errores de Service Bus generados por el usuario?</li><li>¿Los usuarios están experimentando un aumento de los errores transitorios debido a una actualización del espacio de nombres de Service Bus?</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |Comprobaciones ejecutadas|

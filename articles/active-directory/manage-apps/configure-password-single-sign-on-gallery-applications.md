@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815411"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD
 
-Cuando se agrega una aplicación desde la [galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), tiene la opción de elegir cómo desea que los usuarios inicien sesión en esa aplicación. Puede configurar esta opción en cualquier momento seleccionando el elemento de navegación **Inicio de sesión único** en una aplicación de empresa en [Azure Portal](https://portal.azure.com/).
+Cuando se agrega una aplicación desde la [galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), tiene la opción de elegir cómo desea que los usuarios inicien sesión en esa aplicación. Puede configurar esta opción en cualquier momento seleccionando el elemento de navegación **Inicio de sesión único** en una aplicación de empresa en [Azure Portal](https://portal.azure.com/).
 
-Uno de los métodos de inicio de sesión único que tiene a su disposición es la opción de [inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Representa una excelente manera de empezar a integrar aplicaciones en Azure AD rápidamente, y le permite lo siguiente:
+Uno de los métodos de inicio de sesión único que tiene a su disposición es la opción de [inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Representa una excelente manera de empezar a integrar aplicaciones en Azure AD rápidamente, y le permite lo siguiente:
 
 -   Habilitar el **inicio de sesión único para los usuarios** almacenando y reproduciendo de forma segura los nombres de usuario y contraseñas para la aplicación que ha integrado con Azure AD
 
@@ -41,7 +41,7 @@ Uno de los métodos de inicio de sesión único que tiene a su disposición es l
 
 -   Permitir que un **administrador** especifique el nombre de usuario o la contraseña compartidos que utilizan un grupo de personas mediante la característica Actualizar credenciales al [asignar un grupo a una aplicación](#assign-an-application-to-a-group-directly).
 
-En la siguiente sección se describe cómo habilitar el [inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) en una aplicación que ya está en la [galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+En la siguiente sección se describe cómo habilitar el [inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) en una aplicación que ya está en la [galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Introducción a los pasos necesarios
 Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
@@ -50,7 +50,7 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 -   [Configuración de la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 
--   [Asignar la aplicación a un usuario o un grupo](#assign-the-application-to-a-user-or-a-group)
+-   Asignación de la aplicación a un usuario o un grupo
 
     -   [Asignar un usuario a una aplicación directamente](#assign-a-user-to-an-application-directly)
 

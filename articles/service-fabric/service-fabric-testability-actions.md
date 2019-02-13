@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757628"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815889"
 ---
 # <a name="testability-actions"></a>Acciones de Testability
 Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, puede escribir escenarios de prueba completos para los servicios.
@@ -111,7 +111,7 @@ Explicación de parámetros:
 
 En lugar de especificar directamente el nodo por su nombre, se puede especificar a través de una clave de partición y el tipo de réplica.
 
-Para obtener más información, consulte [PartitionSelector y ReplicaSelector](#partition_replica_selector).
+Para más información, consulte PartitionSelector y ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

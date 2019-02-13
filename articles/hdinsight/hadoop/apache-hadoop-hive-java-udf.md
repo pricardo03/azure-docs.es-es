@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814153"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight
 
@@ -36,7 +36,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 * Un editor de texto o IDE de Java
 
     > [!IMPORTANT]
-    > Si crea los archivos de Python en un cliente Windows, debe usar un editor que emplee LF como final de línea. Si no está seguro de si el editor usa LF o CRLF, vea la sección [Solución de problemas](#troubleshooting) para conocer los pasos a seguir para quitar el carácter CR.
+    > Si crea los archivos de Python en un cliente Windows, debe usar un editor que emplee LF como final de línea. Si no está seguro de si el editor usa LF o CRLF, vea la sección Solución de problemas para conocer los pasos a seguir para quitar el carácter CR.
 
 ## <a name="create-an-example-java-udf"></a>Crear una función de Java definida por el usuario de ejemplo 
 

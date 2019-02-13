@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056274"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565226"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Aprenda a aprovisionar y registrar nuevos inquilinos en el catálogo
 
@@ -155,7 +155,7 @@ El script implementa un lote de inquilinos adicionales Este script usa una [plan
 
 Otros patrones de aprovisionamiento que no se incluyen en este tutorial:
 
-**Aprovisionamiento previo de bases de datos**: el patrón de aprovisionamiento previo aprovecha del hecho de que las bases de datos en un grupo elástico no suponen costos adicionales. La facturación es para el grupo elástico, no para las bases de datos. Las bases de datos inactivas no consumen recursos. Al aprovisionar previamente bases de datos en un grupo y asignarlas posteriormente cuando sea necesario, puede reducirse el tiempo de agregar inquilinos. El número de bases de datos previamente aprovisionadas puede ajustarse según sea necesario para mantener un búfer adecuado para la velocidad de aprovisionamiento prevista.
+**Aprovisionamiento previo de bases de datos.**: El patrón del aprovisionamiento previo aprovecha el hecho de que las bases de datos de un grupo elástico no suponen costos adicionales. La facturación es para el grupo elástico, no para las bases de datos. Las bases de datos inactivas no consumen recursos. Al aprovisionar previamente bases de datos en un grupo y asignarlas posteriormente cuando sea necesario, puede reducirse el tiempo de agregar inquilinos. El número de bases de datos previamente aprovisionadas puede ajustarse según sea necesario para mantener un búfer adecuado para la velocidad de aprovisionamiento prevista.
 
 **Aprovisionamiento automático**: en este patrón se usa un servicio de aprovisionamiento dedicado para aprovisionar servidores, grupos y bases de datos automáticamente según sea necesario. Si lo desea, puede incluir bases de datos de aprovisionamiento previo en grupos elásticos. Si se retiran y eliminan bases de datos, los huecos que dejan en los grupos elásticos pueden ocuparse aprovisionando el servicio. Este servicio puede ser simple o complejo, como controlar el aprovisionamiento en varias regiones geográficas y configurarse automáticamente la replicación geográfica para la recuperación ante desastres. 
 

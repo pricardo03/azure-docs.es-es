@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054646"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819814"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ En la plantilla, se definen los recursos que son necesarios para la aplicación.
 
 Puede encontrar plantillas de HDInsight de ejemplo en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Utilice [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) multiplataforma con la [extensión de Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) o un editor de texto para guardar la plantilla en un archivo en su estación de trabajo. 
 
-Para más información sobre la plantilla de Resource Manager, consulte los artículos siguientes:
+Para más información sobre la plantilla de Resource Manager, consulte los artículos y ejemplos siguientes:
 
-* [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Implementación de una aplicación con las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
-* Referencia de plantilla de [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
+* Referencia de plantilla de [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions)
+* [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>Generación de plantillas
 
@@ -51,7 +52,6 @@ Resource Manager permite exportar una plantilla de Resource Manager a partir de 
 - Azure Portal: Consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Consulte [Exportación de plantillas de Azure Resource Manager con Azure PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
 - CLI de Azure clásica: Consulte [Exportación de plantillas de Azure Resource Manager con CLI de Azure clásica](../azure-resource-manager/resource-manager-export-template-cli.md).
-
 
 ## <a name="deploy-using-the-portal"></a>Implementación mediante Azure Portal
 

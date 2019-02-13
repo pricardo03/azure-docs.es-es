@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 26b4e2b1bf2dc9e59bc41e1d9f0628a1f476d402
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031496"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820851"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de enrutamiento de Front Door
 
@@ -24,10 +24,10 @@ Azure Front Door Service admite varios métodos de enrutamiento de tráfico para
 
 Hay cuatro conceptos básicos para el enrutamiento del tráfico disponible a Front Door:
 
-* **[Latencia](#latency):** el enrutamiento basado en la latencia garantiza que las solicitudes se envíarán a los back-ends con menor latencia aceptables dentro de un intervalo de confidencialidad. Básicamente, las solicitudes de usuario se envían al conjunto de servidores back-end "más cercanos" con respecto a la latencia de red.
-* **[Prioridad](#priority)**: puede asignar prioridades a los diferentes back-end cuando quiera usar un back-end del servicio principal para todo el tráfico y proporcionar copias de seguridad en caso de que el back-end principal o de copia de seguridad no estén disponibles.
-* **[Peso](#weighted)**: puede asignar pesos a sus diferentes back-end cuando desee distribuir el tráfico entre un conjunto de back-end, ya sea de manera uniforme o según los coeficientes de peso.
-* **[Afinidad de sesión](#sessionaffinity)**: puede configurar la afinidad de sesión para los hosts de front-end o dominios cuando desee que las solicitudes posteriores de un usuario se envíen al mismo back-end siempre y cuando la sesión del usuario esté todavía activa y la instancia de back-end aparezca como correcta en los sondeos de estado de mantenimiento. 
+* **[Latencia](#latency):** el enrutamiento basado en la latencia garantiza que las solicitudes se envían a los back-ends con menor latencia aceptables dentro de un intervalo de confidencialidad. Básicamente, las solicitudes de usuario se envían al conjunto de servidores back-end "más cercanos" con respecto a la latencia de red.
+* **[Prioridad](#priority):** puede asignar prioridades a los diferentes back-end cuando quiera usar un back-end del servicio principal para todo el tráfico y proporcionar copias de seguridad en caso de que el back-end principal o de copia de seguridad no estén disponibles.
+* **[Ponderado](#weighted):** puede asignar pesos a sus diferentes back-end cuando desee distribuir el tráfico entre un conjunto de back-end, ya sea de manera uniforme o según los coeficientes de peso.
+* **Afinidad de sesión:** puede configurar la afinidad de sesión para los hosts de front-end o dominios cuando desee que las solicitudes posteriores de un usuario se envíen al mismo back-end siempre y cuando la sesión del usuario esté todavía activa y la instancia de back-end aparezca como correcta en los sondeos de estado de mantenimiento. 
 
 Todas las configuraciones de Front Door incluyen la supervisión del estado de mantenimiento de los servidores back-end y la conmutación por error global instantánea automatizada. Para más información, consulte [Front Door Backend Monitoring](front-door-health-probes.md) (Supervisión de servidores back-end en Front Door). Front Door se puede configurar para trabajar en función de un método de enrutamiento único y, dependiendo de las necesidades de su aplicación, puede usar varios o todos estos métodos de enrutamientos combinados para crear una topología de enrutamiento óptima.
 
@@ -86,5 +86,5 @@ La duración de la cookie es la misma que la sesión del usuario, porque Front D
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [crear una instancia de Front Door](quickstart-create-front-door.md).
-- Obtenga información sobre [cómo funciona Front Door](front-door-routing-architecture.md).
+- Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
+- Más información acerca de cómo [funciona Front Door](front-door-routing-architecture.md).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382447"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816618"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -21,11 +21,11 @@ A medida que administra los clústeres en Azure Kubernetes Service (AKS), el tie
 El artículo de procedimientos recomendados se centra en las consideraciones que facilitan el planeamiento de continuidad empresarial y recuperación ante desastres en AKS. Aprenderá a:
 
 > [!div class="checklist"]
-* [Planear clústeres de AKS en varias regiones](#region-planning)
-* [Enrutar el tráfico entre varios clústeres con Azure Traffic Manager](#ingress-traffic)
-* [Usar la replicación geográfica para los registros de imágenes de contenedor](#container-registry)
-* [Planear el estado de la aplicación entre varios clústeres](#managing-application-state)
-* [Replicar el almacenamiento en varias regiones](#storage)
+* Planear clústeres de AKS en varias regiones
+* Enrutar el tráfico entre varios clústeres con Azure Traffic Manager
+* Usar la replicación geográfica para los registros de imágenes de contenedor
+* Planear el estado de la aplicación entre varios clústeres
+* Replicar el almacenamiento en varias regiones
 
 ## <a name="plan-for-multi-region-deployment"></a>Planeamiento de la implementación en varias regiones
 

@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352247"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822041"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Cosmos DB es el servicio de base de datos de varios modelos de distribución glo
 
 ## <a name="create-a-cosmos-account"></a>Crear una cuenta de Cosmos
 
-Cree una cuenta de Cosmos. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la aplicación de Node.js](#SetupNode). Si usa el emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la aplicación de Node.js](#SetupNode).
+Cree una cuenta de Cosmos. Si ya tiene una cuenta que desea usar, puede ir directamente a Configuración de la aplicación de Node.js. Si usa el emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a Configuración de la aplicación de Node.js.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 

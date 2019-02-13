@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301448"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487241"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -111,7 +111,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 La recursividad le permite especificar caracteres comodín para simplificar el seguimiento entre directorios y variables de entorno para que pueda realizar el seguimiento de los archivos en entornos con nombres de unidad múltiples o dinámicos. En la lista siguiente se muestra información común que debe conocer al configurar la recursividad:
 
 * Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
-* Si usa caracteres comodín, solo se pueden usar en el último segmento de una ruta de acceso. (por ejemplo, C:\folder\\**archivo** o /etc/*.conf)
+* Si usa caracteres comodín, solo se pueden usar en el último segmento de una ruta de acceso. (como `c:\folder\*file*` o `/etc/*.conf`)
 * Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta pero se producirá un error en dicha ruta cuando se ejecute el inventario.
 * Al establecer la ruta de acceso, evite las generales como `c:\*.*`, ya que daría lugar a que se recorrieran demasiadas carpetas.
 
@@ -132,9 +132,9 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración.        |
-|Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
-|Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
-|Clave del registro de Windows   | La ruta de acceso para buscar el archivo. Por ejemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nombre del elemento     | Nombre descriptivo de la clave del Registro cuyo seguimiento se va a realizar.        |
+|Grupo     | Un nombre de grupo para agrupar lógicamente las claves del Registro.        |
+|Clave del registro de Windows   | La ruta de acceso para buscar la clave del Registro. Por ejemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -278,7 +278,7 @@ En el ejemplo siguiente, la captura de pantalla muestra que el archivo `C:\windo
 
 ![Un gráfico en el que se muestra el cambio del archivo de hosts](./media/automation-change-tracking/changes.png)
 
-Para analizar aún más este cambio, haga clic en **Log Analytics** para acceder a la búsqueda de registros. En la búsqueda de registros, busque los cambios de contenido del archivo de hosts con la consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta busca los cambios que incluyen un cambio del contenido en los archivos cuya ruta de acceso absoluta contiene la palabra “hosts”. También puede solicitar un archivo específico si cambia la parte de la ruta de acceso a su forma absoluta (como `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Para analizar aún más este cambio, haga clic en **Log Analytics** para acceder a la búsqueda de registros. En la búsqueda de registros, busque los cambios de contenido del archivo de hosts con la consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta busca los cambios que incluyen un cambio del contenido en los archivos cuya ruta de acceso absoluta contiene la palabra “hosts”. También puede solicitar un archivo específico si cambia la parte de la ruta de acceso a su forma absoluta (como `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Una vez que la consulta devuelve los resultados deseados, haga clic en el botón **Nueva regla de alertas** en la experiencia de búsqueda de registros para abrir la página de creación de alertas. También puede acceder a esta experiencia mediante **Azure Monitor** en Azure Portal. En la experiencia de creación de la alerta, vuelva a consultar nuestra consulta y modifique la lógica de alerta. En este caso, desea que la alerta se desencadene incluso aunque se detecte un solo cambio en todas las máquinas del entorno.
 

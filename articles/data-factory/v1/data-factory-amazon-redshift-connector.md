@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022026"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817349"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022026"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Conector Amazon Redshift en V2](../connector-amazon-redshift.md).
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de Amazon Redshift. El artículo se basa en la información general sobre el movimiento de datos con la actividad de copia que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md). 
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de Amazon Redshift. El artículo se basa en la información general sobre el movimiento de datos con la actividad de copia que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 Data Factory, actualmente, solo permite mover datos de Amazon Redshift a un [almacén de datos de receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se admite el movimiento de datos de otros almacenes de datos a Amazon Redshift.
 
@@ -44,15 +44,15 @@ Puede crear una canalización con una actividad de copia para mover los datos de
 
 La manera más fácil de crear una canalización es usar el Asistente para copia de Azure Data Factory. Para un tutorial rápido sobre cómo crear una canalización con el Asistente para copia, consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-También puede crear una canalización mediante Azure Portal, Visual Studio, Azure PowerShell u otras herramientas. También puede utilizar plantillas de Azure Resource Manager, la API de .NET o la API de REST para crear la canalización. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+También puede crear una canalización mediante Azure Portal, Visual Studio, Azure PowerShell u otras herramientas. También puede utilizar plantillas de Azure Resource Manager, la API de .NET o la API de REST para crear la canalización. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
 1. Cree servicios vinculados para vincular almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree conjuntos de datos con el fin de representar los datos de entrada y salida para la operación de copia. 
-3. Cree una canalización con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
+2. Cree conjuntos de datos con el fin de representar los datos de entrada y salida para la operación de copia.
+3. Cree una canalización con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para estas entidades de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. En el [Ejemplo de JSON: Copiar datos de Amazon Redshift a Azure Blob Storage](#json-example-copy-data-from-amazon-redshift-to-azure-blob) se muestran las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos de Amazon Redshift.
+Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para estas entidades de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. En el Ejemplo de JSON: Copiar datos de Amazon Redshift a Azure Blob Storage se muestran las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos de Amazon Redshift.
 
 En las secciones siguientes se describen las propiedades JSON que se usan para definir las entidades de Data Factory para Amazon Redshift.
 
@@ -62,12 +62,12 @@ En la tabla siguiente se proporcionan descripciones de los elementos JSON espec�
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| **type** |Esta propiedad debe establecerse en **AmazonRedshift**. |SÍ |
-| **server** |La dirección IP o nombre de host del servidor de Amazon Redshift. |SÍ |
+| **type** |Esta propiedad debe establecerse en **AmazonRedshift**. |Sí |
+| **server** |La dirección IP o nombre de host del servidor de Amazon Redshift. |Sí |
 | **port** |El número del puerto TCP que el servidor de Amazon Redshift utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 5439) |
-| **database** |El nombre de la base de datos de Amazon Redshift. |SÍ |
-| **username** |El nombre del usuario que tiene acceso a la base de datos. |SÍ |
-| **password** |Contraseña para la cuenta de usuario. |SÍ |
+| **database** |El nombre de la base de datos de Amazon Redshift. |Sí |
+| **username** |El nombre del usuario que tiene acceso a la base de datos. |Sí |
+| **password** |Contraseña para la cuenta de usuario. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
@@ -139,7 +139,7 @@ En este ejemplo de caso de uso, la actividad de copia descarga primero los datos
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Ejemplo JSON: Copia de datos de Amazon Redshift a Azure Blob Storage
-En este ejemplo, se muestra cómo copiar datos de una base de datos de Amazon Redshift a Azure Blob Storage. Los datos se pueden copiar directamente a cualquier [receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia.  
+En este ejemplo, se muestra cómo copiar datos de una base de datos de Amazon Redshift a Azure Blob Storage. Los datos se pueden copiar directamente a cualquier [receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia.
 
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
@@ -162,7 +162,7 @@ El ejemplo copia cada hora los datos de un resultado de consulta de Amazon Redsh
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -333,14 +333,14 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |DECIMAL |
+| DECIMAL |Decimal |
 | REAL |Single |
-| DOUBLE PRECISION |Doble |
+| DOUBLE PRECISION |Double |
 | BOOLEAN |string |
 | CHAR |string |
 | VARCHAR |string |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | TEXT |string |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
@@ -350,7 +350,7 @@ Para información sobre cómo asignar columnas en el conjunto de datos de origen
 Cuando se copian datos desde un almacén de datos relacionales, se debe tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la **directiva** de reintentos para un conjunto de datos a fin de que se vuelva a ejecutar un segmento cuando se produce un error. Asegúrese de que se lean los mismos datos, sin importar cuántas veces se vuelva a ejecutar el segmento. Asegúrese también de que se lean los mismos datos, independientemente de cómo se vuelva a ejecutar el segmento. Para más información, consulte [Lecturas repetibles desde orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
-Obtenga información sobre los factores clave que afectan el rendimiento de la actividad de copia y las formas de optimizar el rendimiento en la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md). 
+Obtenga información sobre los factores clave que afectan el rendimiento de la actividad de copia y las formas de optimizar el rendimiento en la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver instrucciones paso a paso sobre cómo crear una canalización con la actividad de copia.

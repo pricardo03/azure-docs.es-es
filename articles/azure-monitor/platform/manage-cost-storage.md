@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3372d399c339133fc0ee3dbfd031ec3c4c03cc3b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901172"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821480"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Administración del uso y los costos para Log Analytics
 
@@ -112,7 +112,7 @@ Si el área de trabajo de Log Analytics tiene acceso a los planes de tarifa here
 3. En **Plan de tarifa**, seleccione un plan y haga clic en **Seleccionar**.  
     ![Plan de precios seleccionado](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el modelo de precios de su suscripción en Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model). Esta acción cambiará el plan de tarifa de todas las áreas de trabajo en esa suscripción.
+Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el modelo de precios de su suscripción en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model). Esta acción cambiará el plan de tarifa de todas las áreas de trabajo en esa suscripción.
 
 > [!NOTE]
 > Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
@@ -128,7 +128,7 @@ Cuando se detiene la recopilación de datos, OperationStatus es Advertencia. Cua
 |Motivo por el que se detiene la recopilación| Solución| 
 |-----------------------|---------|
 |Se alcanzó el límite diario del plan de tarifa Gratis heredado |Espere hasta el día siguiente para que la recopilación se reinicie automáticamente, o cambie a un plan de tarifa de pago.|
-|Se alcanzó el límite diario del área de trabajo|Espere para que se reinicie automáticamente la recopilación o aumente el límite diario de volumen de datos que se describe en [Administración del volumen de datos diario máximo](#manage-the-maximum-daily-volume) El tiempo de restablecimiento de límite diario se muestra en la página **Administración del volumen de datos**. |
+|Se alcanzó el límite diario del área de trabajo|Espere para que se reinicie automáticamente la recopilación o aumente el límite diario de volumen de datos que se describe en Administración del volumen de datos diario máximo El tiempo de restablecimiento de límite diario se muestra en la página **Administración del volumen de datos**. |
 |La suscripción de Azure está en estado suspendido debido a:<br> Prueba gratuita finalizada<br> Pase para Azure expirado<br> Se ha alcanzado el límite de gasto mensual (por ejemplo, en una suscripción de MSDN o Visual Studio)|Cambie a una suscripción de pago<br> Quite el límite o espere a que se restablezca|
 
 Para recibir una notificación cuando la recopilación de datos se detenga, siga los pasos descritos para *Crear una alerta para el límite de datos diario* para recibir una notificación cuando se detenga la recopilación de datos, y siga los pasos descritos en la incorporación de acciones a las reglas de alerta con la configuración de una acción de correo electrónico, webhook o runbook para la regla de alerta. 
@@ -231,7 +231,7 @@ Algunas sugerencias para reducir el volumen de registros recopilados incluyen:
 
 | Origen del mayor volumen de datos | Cómo reducir el volumen de datos |
 | -------------------------- | ------------------------- |
-| Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection#data-collection-tier). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar sistema de archivos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditar almacenamiento extraíble |
+| Eventos de seguridad            | Seleccione los [eventos de seguridad común o mínima](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier). <br> Cambie la directiva de auditoría de seguridad para recopilar únicamente los eventos necesarios. En particular, revise la necesidad de recopilar eventos para <br> - [auditar plataforma de filtrado](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar registro](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar sistema de archivos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar manipulación de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditar almacenamiento extraíble |
 | contadores de rendimiento       | Cambie la [configuración de los contadores de rendimiento](data-sources-performance-counters.md) para: <br> - Reducir la frecuencia de la colección <br> - Reducir el número de contadores de rendimiento |
 | Registros de eventos                 | Cambie la [configuración del registro de eventos](data-sources-windows-events.md) para: <br> - Reducir el número de registros de eventos recopilados <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información*. |
 | syslog                     | Cambie la [configuración de syslog](data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |

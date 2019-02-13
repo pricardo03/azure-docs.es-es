@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191258"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817553"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
 
@@ -42,7 +42,7 @@ La pestaña Conectores se usa para administrar todos los sistemas a los que est�
 | Importar conector |No usar. |
 | Actualizar conector |No usar. |
 | Actualizar esquema |Actualiza el esquema en caché. Es preferible usar la opción en el Asistente para la instalación, ya que también actualizará las reglas de sincronización. |
-| [Espacio del conector de búsqueda](#search-connector-space) |Se usa para buscar objetos y realizar un [seguimiento de un objeto y sus datos a través del sistema](#follow-an-object-and-its-data-through-the-system). |
+| [Espacio del conector de búsqueda](#search-connector-space) |Se usa para buscar objetos y realizar un seguimiento de un objeto y sus datos por el sistema. |
 
 ### <a name="delete"></a>Eliminar
 La acción de eliminación se usa para dos objetivos diferentes.  

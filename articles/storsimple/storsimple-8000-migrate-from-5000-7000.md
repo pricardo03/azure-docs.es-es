@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234415"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495860"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000
 
@@ -26,7 +26,7 @@ ms.locfileid: "51234415"
 > - El 31 de julio de 2019, finalizará el estado de compatibilidad de la serie StorSimple 5000/7000. Se recomienda que los clientes de la serie StorSimple 5000/7000 migren a una de las alternativas descritas en el documento.
 > - La migración es actualmente una operación asistida. Si tiene la intención de migrar datos de su dispositivo StorSimple de la serie 5000-7000 a un dispositivo de la serie 8000, necesita programar la migración con Soporte técnico de Microsoft. Soporte técnico de Microsoft habilitará entonces la suscripción para la migración. Para más información, consulte cómo [abrir una incidencia de soporte técnico](storsimple-8000-contact-microsoft-support.md).
 > - Después de archivar la solicitud de servicio, puede tardar un par de semanas en ejecutar el plan de migración e iniciar la migración.
-> - Antes de ponerse en contacto con Soporte técnico de Microsoft, asegúrese de revisar y completar los [requisitos previos de migración](#migration-prerequisites) indicados en el artículo.
+> - Antes de ponerse en contacto con el servicio de Soporte técnico de Microsoft, no olvide revisar y completar los [requisitos previos de migración](#migration-prerequisites) que se indican en el artículo.
 
 ## <a name="overview"></a>Información general
 
@@ -125,7 +125,7 @@ Realice los pasos siguientes para instalar la herramienta de migración de StorS
 
     Abra el archivo de configuración de la herramienta _StorSimple8000SeriesMigrationTool.exe.config_ en la carpeta. Este es el fragmento de código del archivo.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

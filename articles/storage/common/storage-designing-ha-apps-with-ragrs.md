@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454950"
+ms.locfileid: "55512251"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
@@ -43,9 +43,7 @@ Cuando diseñe su aplicación para RA-GRS debe tener en cuenta estos puntos clav
 
 * Puede usar la biblioteca del cliente de almacenamiento para interactuar con los datos en la región principal o la secundaria. También puede redirigir solicitudes de lectura automáticamente a la región secundaria si se agota el tiempo de espera de una solicitud de lectura a la región principal.
 
-* Si un problema grave afecta a la accesibilidad de los datos en la región principal, es posible que el equipo de Azure desencadene una conmutación por error geográfica, momento en el cual se cambiarán las entradas DNS que apunten a la región principal de forma que apunten a la secundaria.
-
-* Si se produce una conmutación por error geográfica, Azure seleccionará una nueva ubicación secundaria, replicará los datos en dicha ubicación y hará que las entradas DNS secundarias apunten a ella. El punto de conexión secundario no estará disponible hasta que termine de replicarse la cuenta de almacenamiento. Para más información, consulte [Qué hacer si se produce una interrupción del servicio Azure Storage](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Si la región primaria deja de estar disponible, puede iniciar una conmutación por error de la cuenta. Si la conmutación por error tiene como destino la región secundaria, las entradas DNS que apunten a la región primaria se modificarán para que apunten a la región secundaria. Una vez completada la conmutación por error, se restaurará el acceso de escritura en las cuentas GRS y RA-GRS. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Consideraciones sobre el diseño de aplicaciones cuando se usa RA-GRS
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388301"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490454"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configuración de los valores y directivas de uso
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -71,6 +71,9 @@ Puede establecer cuotas por usuario mediante los pasos siguientes:
 5. Ahora verá el número de horas en la barra de herramientas: **Cuota por usuario: &lt;número de horas&gt;**. 
 
     ![Quota per user (Cuota por usuario)](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> El [tiempo de ejecución programado de las máquinas virtuales](how-to-create-schedules.md) no cuentan en la cuota asignada a un usuario. La cuota es el tiempo fuera del horario programado que un alumno pasa en las máquinas virtuales. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adición de usuarios mediante la carga de un archivo CSV
 También puede agregar usuarios cargando un archivo CSV con direcciones de correo electrónico de los usuarios.

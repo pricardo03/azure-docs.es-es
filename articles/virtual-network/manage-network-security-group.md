@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438922"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822449"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -66,7 +66,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 2. En la lista, seleccione el grupo de seguridad de red cuyos detalles quiere ver. En **CONFIGURACIÓN** puede ver las **reglas de seguridad de entrada** y las **reglas de seguridad de salida**, las **interfaces de red** y las **subredes** a las que está asociado el grupo de seguridad de red. También puede habilitar o deshabilitar los **registros de diagnóstico** y ver las **reglas de seguridad efectivas**. Para más información, consulte los temas sobre [registros de diagnóstico](virtual-network-nsg-manage-log.md) y [Visualización de reglas de seguridad efectivas](diagnose-network-traffic-filter-problem.md).
 3. Para más información sobre la configuración común de Azure que se muestra, consulte los artículos siguientes:
     *   [Registro de actividad](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Control de acceso (IAM)](../role-based-access-control/overview.md)
     *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -92,7 +92,7 @@ Para asociar un grupo de seguridad de red a una interfaz de red o desasociarlo d
 
 ### <a name="delete-a-network-security-group"></a>Eliminar un grupo de seguridad de red
 
-Si un grupo de seguridad de red está asociado a subredes o interfaces de red cualesquiera, no se puede eliminar. [Desasocie](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) un grupo de seguridad de red de todas las subredes e interfaces de red antes de intentar eliminarlo.
+Si un grupo de seguridad de red está asociado a subredes o interfaces de red cualesquiera, no se puede eliminar. Desasocie un grupo de seguridad de red de todas las subredes e interfaces de red antes de intentar eliminarlo.
 
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *grupos de seguridad de red*. Cuando aparezca **grupos de seguridad de red** en los resultados de la búsqueda, selecciónelo.
 2. Seleccione el grupo de seguridad de red que quiere eliminar de la lista.

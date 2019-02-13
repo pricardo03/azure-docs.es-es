@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851681"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817094"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -39,7 +39,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 
 ## <a name="create-a-peering"></a>Creación de un emparejamiento
 
-Antes de crear un emparejamiento, familiarícese con los [requisitos y las restricciones](#requirements-and-contstraints), así como los [permisos necesarios](#permissions).
+Antes de crear un emparejamiento, familiarícese con los requisitos y las restricciones, así como los [permisos necesarios](#permissions).
 
 1. En el cuadro de búsqueda de la parte superior de Azure Portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela. No seleccione **Redes virtuales (clásico)** si aparece en la lista, ya que no se puede crear un emparejamiento de una red virtual implementada mediante el modelo de implementación clásica.
 2. Seleccione en la lista la red virtual que quiera emparejar.
@@ -70,12 +70,12 @@ Para obtener instrucciones paso a paso para implementar el emparejamiento entre 
 
 ### <a name="commands"></a>Comandos:
 
-- **CLI de Azure**: [az network vnet peering create](/cli/azure/network/vnet/peering#create)
+- **CLI de Azure**: [az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Visualización o cambio de la configuración de emparejamiento
 
-Antes de cambiar un emparejamiento, familiarícese con los [requisitos y las restricciones](#requirements-and-contstraints), así como con los [permisos necesarios](#permissions).
+Antes de cambiar un emparejamiento, familiarícese con los requisitos y las restricciones, así como con los [permisos necesarios](#permissions).
 
 1. En el cuadro de búsqueda de la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela. No seleccione **Redes virtuales (clásico)** si aparece en la lista, ya que no se puede crear un emparejamiento de una red virtual implementada mediante el modelo de implementación clásica.
 2. Seleccione en la lista la red virtual a la que quiera cambiar la configuración de emparejamiento.
@@ -87,7 +87,7 @@ Antes de cambiar un emparejamiento, familiarícese con los [requisitos y las res
 
 **Comandos**
 
-- **CLI de Azure**: [az network vnet peering list](/cli/azure/network/vnet/peering) para mostrar los emparejamientos de una red virtual, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar la configuración de un emparejamiento específico y [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para cambiar la configuración de emparejamiento.|
+- **CLI de Azure**: [az network vnet peering list](/cli/azure/network/vnet/peering) para mostrar los emparejamientos de una red virtual, [az network vnet peering show](/cli/azure/network/vnet/peering) para mostrar la configuración de un emparejamiento específico y [az network vnet peering update](/cli/azure/network/vnet/peering) para cambiar la configuración de emparejamiento.|
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) para recuperar y ver la configuración de emparejamiento y [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) para cambiar la configuración.
 
 ## <a name="delete-a-peering"></a>Eliminación de un emparejamiento
@@ -96,7 +96,7 @@ Antes de eliminar un emparejamiento, asegúrese de que la cuenta tiene los [perm
 
 Cuando se elimina un emparejamiento, el tráfico procedente de una red virtual ya no fluye a la red virtual emparejada. Cuando se emparejan redes virtuales implementadas mediante el Administrador de recursos, cada red virtual tiene un emparejamiento con la otra red virtual. Aunque el hecho de eliminar el emparejamiento de una red virtual deshabilita la comunicación entre las redes virtuales, no elimina el emparejamiento de la otra red virtual. El estado del emparejamiento que existe en la otra red virtual es **Desconectado**. Para volver a crear el emparejamiento, primero tendrá que volver a crear el emparejamiento en la primera red virtual y el estado de emparejamiento de ambas redes virtuales deberá haber cambiado a *Conectado*. 
 
-Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, en lugar de eliminar un emparejamiento, puede establecer el valor **Permitir acceso a red virtual** en **Deshabilitado**. Para obtener información sobre cómo hacerlo, vea el paso 6 de la sección [Crear un emparejamiento](#create-peering) de este artículo. Probablemente le resulte más fácil deshabilitar y habilitar el acceso a la red que eliminar y volver a crear emparejamientos.
+Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, en lugar de eliminar un emparejamiento, puede establecer el valor **Permitir acceso a red virtual** en **Deshabilitado**. Para obtener información sobre cómo hacerlo, vea el paso 6 de la sección [Crear un emparejamiento](#create-a-peering) de este artículo. Probablemente le resulte más fácil deshabilitar y habilitar el acceso a la red que eliminar y volver a crear emparejamientos.
 
 1. En el cuadro de búsqueda de la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela. No seleccione **Redes virtuales (clásico)** si aparece en la lista, ya que no se puede crear un emparejamiento de una red virtual implementada mediante el modelo de implementación clásica.
 2. Seleccione en la lista la red virtual de la cual quiera eliminar el emparejamiento.
@@ -113,10 +113,10 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones 
 
 - <a name="cross-region"></a>Puede emparejar redes virtuales de la misma región o de regiones diferentes. El emparejamiento de redes virtuales de diferentes regiones se conoce también como *emparejamiento global*. 
-- Al crear un emparejamiento global, las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure, pero no en nubes nacionales de Azure. Solo se pueden emparejar redes virtuales de la misma región que existan en nubes nacionales.
+- Al crear un emparejamiento global, las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure, pero no en las regiones de la nube de Government. Solo se pueden emparejar redes virtuales de la misma región que existan en regiones de la nube de Azure Government.
 - Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure en la red virtual emparejada globalmente. El equilibrador de carga y los recursos que se comunican con él deben estar en una red virtual de la misma región. Sin embargo, si las redes virtuales emparejadas están en la misma región, los recursos de cualquiera de ellas pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure de cualquiera de las redes virtuales del emparejamiento.
 - No puede usar puertas de enlace remotas ni permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente. Para poder hacerlo, las redes virtuales emparejadas deben estar en la misma región.
-- Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas. Cuando empareja redes virtuales en distintas suscripciones, ambas suscripciones pueden estar asociadas al mismo inquilino de Azure Active Directory o a uno diferente. Si todavía no tiene un inquilino de AD, puede [crear uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rápidamente. El soporte técnico para realizar emparejamientos entre redes virtuales de las suscripciones asociadas a diferentes inquilinos de Azure Active Directory no está disponible en el portal. Puede usar la CLI, PowerShell o plantillas.
+- Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas. Cuando empareja redes virtuales en distintas suscripciones, ambas suscripciones pueden estar asociadas al mismo inquilino de Azure Active Directory o a uno diferente. Si todavía no tiene un inquilino de AD, puede [crear uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant) rápidamente. El soporte técnico para realizar emparejamientos entre redes virtuales de las suscripciones asociadas a diferentes inquilinos de Azure Active Directory no está disponible en el portal. Puede usar la CLI, PowerShell o plantillas.
 - Las redes virtuales que empareje deben tener espacios de direcciones IP que no se solapen.
 - Una vez que una red virtual se ha emparejado con otra red virtual, no se pueden agregar rangos de direcciones al espacio de direcciones de una red virtual ni pueden eliminarse de este. Para agregar o quitar rangos de direcciones, elimine el emparejamiento, agregue o quite los rangos de direcciones y, a continuación, vuelva a crear el emparejamiento. Para agregar rangos de direcciones a las redes virtuales o quitarlos, consulte [Manage virtual networks](manage-virtual-network.md) (Administrar redes virtuales).
 - Es posible emparejar dos redes virtuales implementadas mediante el Administrador de recursos, o bien una red virtual implementada mediante el Administrador de recursos con una red virtual implementada mediante el modelo de implementación clásica. No se pueden emparejar dos redes virtuales creadas mediante el modelo de implementación clásica. Si no está familiarizado con los modelos de implementación de Azure, vea el artículo de [descripción de los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede usar [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar dos redes virtuales creadas mediante el modelo de implementación clásica.

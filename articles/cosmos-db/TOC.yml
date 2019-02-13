@@ -463,8 +463,12 @@ items:
     href: how-to-manage-database-account.md
   - name: Distribución global
     items:
+    - name: Configuración multimaestra
+      href: how-to-multi-master.md
     - name: Administración de los niveles de coherencia
       href: how-to-manage-consistency.md
+    - name: Implementación de la sincronización personalizada
+      href: how-to-custom-synchronization.md
     - name: Aprenda a configurar directivas de resolución de conflictos.
       href: how-to-manage-conflicts.md
   - name: Rendimiento aprovisionado
@@ -595,10 +599,10 @@ items:
     items:
     - name: Acerca de la biblioteca BulkExecutor para .NET
       href: bulk-executor-overview.md
-- name: Guías de solución de problemas
-  items:
-  - name: Solución de problemas del SDK de Java asincrónico
-    href: troubleshoot-java-async-sdk.md
+  - name: Solución de problemas
+    items:
+    - name: Solución de problemas del SDK de Java asincrónico
+      href: troubleshoot-java-async-sdk.md
 - name: Recursos
   items:
   - name: Desarrollo de aptitudes con Microsoft Learn
@@ -627,9 +631,9 @@ items:
       href: use-cases.md
     - name: Aplicaciones de redes sociales
       href: social-media-apps.md
-ms.openlocfilehash: da87cea310f5bda952cfa014d7b45e23e555efcf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 72a6dced29f09379453d0e33131f78e875b2c9f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746190"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163503"

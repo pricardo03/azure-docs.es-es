@@ -1,9 +1,22 @@
 ---
-título: Implementación de un área de trabajo de Studio con Azure Resource Manager titleSuffix: Azure Machine Learning Studio description: Cómo implementar un área de trabajo para Azure Machine Learning usando una plantilla de Azure Resource Manager services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 05/02/2018
+title: Implementación de un área de trabajo de Studio con Azure Resource Manager
+titleSuffix: Azure Machine Learning Studio
+description: Cómo implementar un área de trabajo de Machine Learning de Azure mediante la plantilla de Azure Resource Manager
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/05/2018
+ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487803"
 ---
-
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Azure Machine Learning Studio mediante Azure Resource Manager
 
 El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Azure Machine Learning, por ejemplo, debe configurar primero una cuenta de Almacenamiento de Azure y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Azure Machine Learning y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para ver una introducción excelente sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).

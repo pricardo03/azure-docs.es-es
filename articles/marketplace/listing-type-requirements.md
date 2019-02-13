@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264689"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818539"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de publicación  
 Los requisitos de contenido de marketing y técnicos varían en función del escaparate, el tipo de oferta y el tipo de anuncio. Revise las siguientes especificaciones para verificar el cumplimiento.  
@@ -64,10 +64,10 @@ El tipo de publicación de anuncio incluye los siguientes tipos de oferta en los
 
 | Tipo de oferta | Escaparate | Detalles |  
 |:---        |:---        |:---     |  
-| Servicios de consultoría | AppSource | [Requisitos: AppSource: Lista: Servicios de consultoría](#requirements-appsource-list-consulting-services) |  
-| Servicios de consultoría | Azure Marketplace | [Requisitos: Azure Marketplace: Lista: Servicios de consultoría](#requirements-azure-marketplace-list-consulting-services) |  
+| Servicios de consultoría | AppSource | Requisitos: AppSource: Lista: Servicios de consultoría |  
+| Servicios de consultoría | Azure Marketplace | Requisitos: Azure Marketplace: Lista: Servicios de consultoría |  
 | Ponerse en contacto conmigo | AppSource | [](#) |  
-| Ponerse en contacto conmigo | Azure Marketplace | [Requisitos: AppSource: Lista: Ponerse en contacto conmigo](#requirements-azure-marketplace-list-contact-me) |  
+| Ponerse en contacto conmigo | Azure Marketplace | Requisitos: AppSource: Lista: Ponerse en contacto conmigo |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requisitos: AppSource: Lista: Servicios de consultoría  
 
@@ -91,11 +91,11 @@ El tipo de publicación de anuncio incluye los siguientes tipos de oferta en los
 
 | Tipo de oferta | Escaparate | Detalles |  
 |:---        |:---        |:---     |  
-| Versión de evaluación gratuita/SaaS | AppSource | [Requisitos por tipo de aplicación: versión de evaluación](#listing-type-requirements-trial) |  
-| Versión de evaluación gratuita/SaaS | Azure Marketplace | [Requisitos: Azure Marketplace: versión de evaluación: versión de evaluación gratuita/SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Demostración interactiva | AppSource | [Requisitos por tipo de aplicación: versión de evaluación](#listing-type-requirements-trial) |  
+| Versión de evaluación gratuita/SaaS | AppSource | Requisitos por tipo de publicación: Versión de prueba |  
+| Versión de evaluación gratuita/SaaS | Azure Marketplace | Requisitos: Azure Marketplace: versión de evaluación: Versión de evaluación gratuita/SaaS |  
+| Demostración interactiva | AppSource | Requisitos por tipo de publicación: Versión de prueba |  
 | Demostración interactiva | Azure Marketplace | [Requisitos: Azure Marketplace: versión de evaluación: Demostración interactiva](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Versión de prueba | AppSource | [Requisitos por tipo de aplicación: versión de evaluación](#listing-type-requirements-trial) |  
+| Versión de prueba | AppSource | Requisitos por tipo de publicación: Versión de prueba |  
 | Versión de prueba | Azure Marketplace | [Requisitos: Azure Marketplace: versión de evaluación: Versión de prueba](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requisitos: Azure Marketplace: Versión de prueba  
@@ -133,8 +133,8 @@ El tipo de publicación de anuncio incluye los siguientes tipos de oferta en los
 
 | Tipo de oferta | Escaparate | Detalles |   
 |:---        |:---        | :--- |  
-| Aplicaciones de Azure: Aplicación administrada | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: Aplicación administrada](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Aplicaciones de Azure: Plantilla de solución | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: Plantilla de solución](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Aplicaciones de Azure: Aplicación administrada | Azure Marketplace | Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: aplicación administrada |  
+| Aplicaciones de Azure: Plantilla de solución | Azure Marketplace | Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: Plantilla de solución |  
 | Contenedores | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Contenedor](#requirements-azure-marketplace-transact-container) |  
 | Aplicación SaaS  | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Aplicación SaaS](#requirements-azure-marketplace-transact-saas-app) |  
 | Máquina virtual | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Máquina virtual](#requirements-azure-marketplace-transact-virtual-machine) |  

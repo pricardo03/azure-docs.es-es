@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444545"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766323"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
@@ -218,7 +218,7 @@ Los pasos descritos en esta sección muestran cómo configurar un trabajo de Jen
 1. En la pestaña **Source Code Management** (Administración del código fuente) seleccione **Git**. Especifique la dirección URL del repositorio que hospeda la aplicación de Java para Service Fabric que desea integrar con el flujo de CI/CD de Jenkins (por ejemplo, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). También puede especificar la rama que debe compilar (por ejemplo, `/master`).
 1. Configure el repositorio de *GitHub* para que se comunique con Jenkins:
 
-   a. En la página del repositorio de GitHub, vaya a **Settings** >  (Configuración) **Integrations and Services** (Integraciones y servicios).
+    a. En la página del repositorio de GitHub, vaya a **Settings** >  (Configuración) **Integrations and Services** (Integraciones y servicios).
 
    b. Seleccione **Add Service** (Agregar servicio), escriba **Jenkins** y seleccione el **complemento Jenkins-GitHub**.
 
@@ -252,7 +252,7 @@ Los pasos descritos en esta sección muestran cómo configurar un trabajo de Jen
       echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
       ```
    
-   * **Si Jenkins se ejecuta fuera de su clúster:** siga estos pasos para copiar el certificado del clúster en el contenedor:
+   * **Si Jenkins se ejecuta fuera del clúster:** siga estos pasos para copiar el certificado del clúster en el contenedor:
       1. El certificado debe estar en formato PEM. Si no tiene un archivo PEM, puede crear uno a partir del archivo PFX de certificado. Si su archivo PFX no está protegido con contraseña, ejecute el siguiente comando desde el host:
 
          ```sh
@@ -298,10 +298,10 @@ En entornos de desarrollo y pruebas, puede configurar las credenciales de Azure 
 
 1. Para crear una entidad de servicio de Azure Active Directory y asignarle permisos en las suscripciones de Azure, siga los pasos que se describen en [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atención a lo siguiente:
 
-   * Mientras sigue los pasos descritos en el tema, asegúrese de copiar y guardar los valores siguientes: *Id. de aplicación*, *Clave de aplicación*, *Id. de directorio (id. de inquilino)* e *Id. de suscripción*. Los necesita para configurar las credenciales de Azure en Jenkins.
+   * Cuando siga los pasos descritos en el tema, asegúrese de copiar y guardar los valores siguientes: *Identificador de aplicación*, *clave de aplicación*, *identificador de directorio (identificador de inquilino)* e *identificador de suscripción*. Los necesita para configurar las credenciales de Azure en Jenkins.
    * Si no tiene los [permisos necesarios](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) sobre el directorio, deberá pedir al administrador que se los conceda o que le cree la entidad de servicio; o deberá configurar el punto de conexión de administración de su clúster en **Post-Build Actions** (Acciones posteriores a la compilación) para su trabajo en Jenkins.
    * En la sección [Crear una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application), puede escribir cualquier dirección URL con formato correcto como **dirección URL de inicio de sesión**.
-   * En la sección [Asignación de aplicación a un rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role), puede asignar a la aplicación el rol *Lector* en el grupo de recursos del clúster.
+   * En la sección [Asignación de aplicación a un rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal), puede asignar a la aplicación el rol *Lector* en el grupo de recursos del clúster.
 
 1. De nuevo en el trabajo de Jenkins, haga clic en la pestaña **Post-build Actions** (Acciones posteriores a la compilación).
 1. En la lista desplegable **Post-Build Actions** (Acciones posteriores a la compilación), seleccione **Deploy Service Fabric Project** (Implementar proyecto de Service Fabric). 
@@ -309,10 +309,10 @@ En entornos de desarrollo y pruebas, puede configurar las credenciales de Azure 
 1. En el proveedor de identidades de Jenkins, seleccione **Microsoft Azure Service Principal** (Entidad de servicio de Microsoft Azure) en la lista desplegable **Kind** (Variante).
 1. Use los valores que guardó al configurar la entidad de servicio en el paso 1 para configurar los campos siguientes:
 
-   * **Client ID** (Id. de cliente): *Id. de aplicación*
-   * **Client Secret** (Secreto de cliente): *Clave de aplicación*
-   * **Tenant ID** (Id. de inquilino): *Id. de directorio*
-   * **Subscription ID** (Id. de suscripción): *Id. de suscripción*
+   * **Identificador de cliente**: *Identificador de aplicación*
+   * **Secreto de cliente**: *Clave de aplicación*
+   * **Id. de inquilino**: *Identificador de directorio*
+   * **Id. de suscripción**: *Subscription ID*
 1. Escriba un **identificador** descriptivo que use para seleccionar la credencial de Jenkins y una breve **descripción**. A continuación, haga clic en **Verify Service Principal** (Comprobar entidad de servicio). Si la comprobación es correcta, haga clic en **Add** (Agregar).
 
    ![Jenkins en Service Fabric: especificación de credenciales de Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)

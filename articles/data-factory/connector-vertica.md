@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d48c046fbbb363e0c8409e43ebd0ac0b1480d87b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 857cae886dec2872c083771e4b1fd57a27d2991b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019416"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663764"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copia de datos de Vertica con Azure Data Factory 
 
@@ -41,8 +41,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Vertica:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Vertica** | SÍ |
-| connectionString | Cadena de conexión de ODBC para conectarse a Vertica. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| Tipo | La propiedad type debe establecerse en: **Vertica** | Sí |
+| connectionString | Cadena de conexión de ODBC para conectarse a Vertica.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración `pwd` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -66,6 +66,35 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Vertica:
 }
 ```
 
+**Ejemplo: Almacenamiento de la contraseña en Azure Key Vault**
+
+```json
+{
+    "name": "VerticaLinkedService",
+    "properties": {
+        "type": "Vertica",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Vertica.
@@ -74,7 +103,7 @@ Para copiar datos desde Vertica, establezca la propiedad type del conjunto de da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **VerticaTable** | SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **VerticaTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -103,7 +132,7 @@ Para copiar datos desde Vertica, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **VerticaSource** | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **VerticaSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

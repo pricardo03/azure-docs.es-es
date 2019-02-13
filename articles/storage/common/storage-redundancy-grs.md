@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467074"
+ms.locfileid: "55512115"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -28,20 +28,18 @@ Tenga en cuenta lo siguiente cuando use RA-GRS:
 * La aplicación tiene que administrar el punto de conexión con el que interactúa al usar RA-GRS.
 * Como la replicación asincrónica implica un retraso, los cambios que todavía no se hayan replicado a la región secundaria pueden perderse si los datos no se pueden recuperar desde la región principal.
 * Puede comprobar la hora de última sincronización de la cuenta de almacenamiento. La hora de la última sincronización es un valor de fecha y hora GMT. Todas las escrituras primarias anteriores a la hora de la última sincronización se han escrito correctamente en la ubicación secundaria, lo que significa que están disponibles para leerse desde la ubicación secundaria. Las escrituras primarias posteriores a la hora de última sincronización pueden o no estar disponibles para lecturas todavía. Puede consultar este valor utilizando [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md) o una de las bibliotecas cliente de Azure Storage.
-* Si Microsoft inicia la conmutación por error en la región secundaria, tendrá acceso de lectura y escritura a esos datos una vez completada la conmutación por error. Para más información, vea la [Guía de recuperación ante desastres](storage-disaster-recovery-guidance.md).
-* Para información sobre cómo cambiar a la región secundaria, consulte [Qué hacer si se produce una interrupción del servicio Azure Storage](storage-disaster-recovery-guidance.md).
+* Si inicia una conmutación por error (versión preliminar) de una cuenta GRS o RA-GRS que tenga como destino la región secundaria, el acceso de escritura a esa cuenta se restaurará una vez que se complete la conmutación por error. Para más información, consulte [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar)](storage-disaster-recovery-guidance.md).
 * RA-GRS está pensado para fines de alta disponibilidad. Para obtener instrucciones sobre escalabilidad, revise la [lista de comprobación de rendimiento](storage-performance-checklist.md).
 * Para sugerencias sobre cómo diseñar la alta disponibilidad con RA-GRS, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>¿Qué es el RPO y el RTO en GRS?
-**Objetivo de punto de recuperación (RPO):** En GRS y RA-GRS, el servicio de almacenamiento realiza un replicación geográfica asincrónica de los datos, desde la ubicación primaria a la secundaria. Si se produce un desastre regional de gran magnitud en la región principal, Microsoft realiza una conmutación por error en la región secundaria. Si se produce una conmutación por error, se pueden perder los cambios recientes que aún no se hayan replicado geográficamente. El número de minutos de posibles pérdidas de datos se conoce como el objetivo de punto de recuperación (RPO). El RPO indica el punto en el tiempo al que se pueden recuperar los datos. Normalmente, Azure Storage tiene un RPO inferior a 15 minutos, aunque actualmente no hay ningún contrato de nivel de servicio sobre cuánto tiempo tarda la replicación geográfica.
+
+**Objetivo de punto de recuperación (RPO):** En GRS y RA-GRS, el servicio de almacenamiento realiza un replicación geográfica asincrónica de los datos, desde la ubicación primaria a la secundaria. Si la región primaria deja de estar disponible, puede ejecutar una conmutación por error (versión preliminar) en la cuenta que tenga como destino la región secundaria. Al iniciar una conmutación por error, podrían perderse los cambios recientes que aún no se hayan replicado geográficamente. El número de minutos de posibles pérdidas de datos se conoce como el objetivo de punto de recuperación (RPO). El RPO indica el punto en el tiempo al que se pueden recuperar los datos. Normalmente, Azure Storage tiene un RPO inferior a 15 minutos, aunque actualmente no hay ningún contrato de nivel de servicio sobre cuánto tiempo tarda la replicación geográfica.
 
 **Objetivo de tiempo de recuperación (RTO):** Se trata de una medida que indica cuánto tiempo tarda en realizarse la conmutación por error y tener la cuenta de almacenamiento de nuevo en línea. El tiempo para realizar la conmutación por error incluye lo siguiente:
 
-   * El tiempo que Microsoft necesita para determinar si se pueden recuperar los datos en la ubicación principal, o si es necesario realizar una conmutación por error.
-   * El tiempo necesario para realizar la conmutación por error de la cuenta de almacenamiento mediante el cambio de las entradas DNS principales hacia la ubicación secundaria.
-
-Microsoft tiene la responsabilidad de conservar los datos. Si hay alguna posibilidad de recuperar los datos en la región primaria, Microsoft retrasa la conmutación por error y se centra en la recuperación de los datos. 
+   * El tiempo que transcurre hasta que el cliente inicia la conmutación por error de la cuenta de almacenamiento desde la región primaria a la región secundaria.
+   * El tiempo necesario para que Azure pueda realizar la conmutación por error y cambiar las entradas DNS principales para que apunten a la ubicación secundaria.
 
 ## <a name="paired-regions"></a>Regiones emparejadas 
 Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La región secundaria emparejada se determina según la región primaria y no es posible cambiarla. Para información actualizada sobre las regiones que admite Azure, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md).

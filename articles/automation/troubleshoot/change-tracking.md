@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421343"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507341"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Solución de problemas de Change Tracking e Inventario
 
 ## <a name="windows"></a> Windows
 
-### <a name="records-not-showing-windows"></a>Escenario: los registros de Change Tracking no aparecen en Azure Portal
+### <a name="records-not-showing-windows"></a>Escenario: no se muestran los registros de Seguimiento de cambios sobre las máquinas de Windows
 
 #### <a name="issue"></a>Problema
 
-No ve los resultados de las máquinas de Inventario o Change Tracking que se han incorporado en Change Tracking.
+No aparecen los resultados de Inventariar ni de Seguimiento de cambios sobre las máquinas Windows que se han incorporado para hacer un seguimiento de los cambios.
 
 #### <a name="cause"></a>Causa
 
@@ -38,12 +38,13 @@ Este error puede deberse a las siguientes razones:
 #### <a name="resolution"></a>Resolución
 
 1. Compruebe que **Microsoft Monitoring Agent** (HealthService.exe) esté ejecutándose en la máquina.
-2. Consulte el [planeamiento de la red](../automation-hybrid-runbook-worker.md#network-planning) para saber qué direcciones y puertos deben estar permitidos para que Change Tracking funcione.
-3. Compruebe que los siguientes módulos de administración de Change Tracking e Inventario existen en el entorno local:
+1. Consulte el **Visor de eventos** de la máquina y busque cualquier evento que contenga la palabra `changetracking`.
+1. Consulte el [planeamiento de la red](../automation-hybrid-runbook-worker.md#network-planning) para saber qué direcciones y puertos deben estar permitidos para que Change Tracking funcione.
+1. Compruebe que los siguientes módulos de administración de Change Tracking e Inventario existen en el entorno local:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. Si utiliza una imagen clonada, primero prepare con sysprep la imagen e instale después Microsoft Monitoring Agent.
+1. Si utiliza una imagen clonada, primero prepare con sysprep la imagen e instale después Microsoft Monitoring Agent.
 
 Si estas soluciones no resuelven el problema y desea ponerse en contacto con el servicio de soporte técnico, puede ejecutar los siguientes comandos para recopilar el diagnóstico del agente
 

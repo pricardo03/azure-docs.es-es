@@ -1,24 +1,24 @@
 ---
-title: Procedimientos recomendados para proteger el acceso administrativo en Azure AD | Microsoft Docs
+title: Procedimientos recomendados para el acceso administrativo seguro en Azure Active Directory | Microsoft Docs
 description: Asegúrese de que el acceso administrativo y las cuentas de administrador de la organización son seguras. Para arquitectos de sistemas y profesionales de TI que configuran Azure AD, Azure y Microsoft Online Services.
 services: active-directory
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
-ms.date: 06/25/2018
+ms.date: 01/31/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.custom: it-pro
-ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ba7baf41a1753625ee3e97acde1d954e914545bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: martincoetzer; MarkMorow
+ms.openlocfilehash: 327ea929b5825abb448cb13b1bd0cbfa5681521c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190775"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512506"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 

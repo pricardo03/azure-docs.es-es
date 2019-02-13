@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814478"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader, que es probablemente lo primero que verá al arrancar una máquina virtual. Al mostrarse antes de que se haya iniciado el sistema operativo, no se puede acceder a él mediante SSH. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.
@@ -44,7 +44,7 @@ El reinicio de la máquina virtual también se puede realizar con un comando Sys
 ![Reinicio de la consola serie Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Acceso en modo de usuario único general
-El acceso manual al modo de usuario único puede ser necesario en situaciones en las que no se ha configurado una cuenta con la autenticación de contraseña. Deberá modificar la configuración de GRUB para entrar manualmente al modo de usuario único. Después de hacerlo, consulte [Uso del modo de usuario único para restablecer o agregar una contraseña](#-Use-Single-User-Mode-to-reset-or-add-a-password) para instrucciones adicionales.
+El acceso manual al modo de usuario único puede ser necesario en situaciones en las que no se ha configurado una cuenta con la autenticación de contraseña. Deberá modificar la configuración de GRUB para entrar manualmente al modo de usuario único. Después de hacerlo, consulte Uso del modo de usuario único para restablecer o agregar una contraseña para instrucciones adicionales.
 
 Si la máquina virtual no puede arrancar, algunas distribuciones le pondrán automáticamente en modo de usuario único o modo de emergencia. Pero en otras se requiere configuración adicional antes de ponerle en modo de usuario único o de emergencia de forma automática (por ejemplo la configuración de una contraseña raíz).
 

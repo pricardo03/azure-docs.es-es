@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240351"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816465"
 ---
 # <a name="asdk-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack 
  
@@ -60,7 +60,7 @@ Esta compilación incluye las siguientes correcciones y mejoras para Azure Stack
 - Se ha corregido un problema que impedía aplicar las directivas RBAC a un grupo de usuarios cuando se usa ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Se ha corregido un problema en el que las copias de seguridad de infraestructura contenían errores debido a que no se podía acceder al servidor de archivos desde la red VIP pública. Esta corrección traslada el servicio de copia de seguridad de infraestructura de nuevo a la red de infraestructura pública. Si ha aplicado la [revisión más reciente de Azure Stack para 1809](#azure-stack-hotfixes) que soluciona este problema, la actualización 1811 no realizará ninguna modificación adicional. 
+- Se ha corregido un problema en el que las copias de seguridad de infraestructura contenían errores debido a que no se podía acceder al servidor de archivos desde la red VIP pública. Esta corrección traslada el servicio de copia de seguridad de infraestructura de nuevo a la red de infraestructura pública. Si ha aplicado la revisión más reciente de Azure Stack para 1809 que soluciona este problema, la actualización 1811 no realizará ninguna modificación adicional. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Se ha corregido un problema en el que la cuenta que se usa para iniciar sesión en el portal de administrador o usuario de Azure Stack se mostraba como **Usuario no identificado**. Este mensaje se mostraba cuando en la cuenta no se había especificado un *nombre* o un *apellido*.   

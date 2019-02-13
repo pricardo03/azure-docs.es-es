@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331816"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493599"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 - No se recomienda usar certificados del nombre alternativo del firmante, ya que solo se utilizará el último elemento de SAN, mientras que los restantes se ignorarán debido a las limitaciones actuales. Por ejemplo, si tiene un certificado de SAN cuyos nombres alternativos del firmante son **node1.domain.contoso.com** y **node2.domain.contoso.com**, puede usarlo en el equipo cuyo FQDN es **node2.domain.contoso.com**.
 - El certificado admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
 - No se admiten certificados que utilicen claves CNG.  
+
+> [!NOTE]
+> Este certificado se usa para cifrar los puertos del nodo de IR autohospedado, en la **comunicación entre nodos** (para la sincronización de estados) y cuando **se utiliza el cmdlet de PowerShell para configurar las credenciales del servicio vinculado** desde una red local. Es conveniente usar este certificado si el entorno de la red privada no es seguro o si desea proteger la comunicación entre nodos también en la red privada. El movimiento de los datos en tránsito desde el IR autohospedado y otros almacenes de datos siempre tiene lugar en un canal privado, con independencia de si este certificado está configurado o no. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Uso compartido del entorno de ejecución de integración autohospedado con varias factorías de datos
 

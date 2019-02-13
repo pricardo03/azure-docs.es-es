@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913604"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820970"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: Diseño de tablas escalables y eficaces
 
@@ -207,7 +207,7 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 | **Edad** |Entero |
 | **EmailAddress** |string |
 
-En la sección [Descripción general de Table service](#overview) se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. La sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+En la sección anterior Descripción general de Table service se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. La sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Una ***consulta de punto*** es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores **PartitionKey** y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')  
 * La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
@@ -1294,7 +1294,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 
 La primera opción, anteponer el tipo de entidad a **RowKey**, resulta útil si existe la posibilidad de que dos entidades de tipos diferentes tengan el mismo valor de clave. También agrupa las entidades del mismo tipo juntas en la partición.  
 
-Las técnicas que se describen en esta sección son especialmente relevantes en el tema [Relaciones de herencia](#inheritance-relationships), que ya ha aparecido en esta guía, en la sección [Relaciones de modelos](#modelling-relationships).  
+Las técnicas que se describen en esta sección son especialmente apropiadas para el tema [Relaciones de herencia](#inheritance-relationships), que ya ha aparecido en esta guía, en la sección Relaciones de modelos.  
 
 > [!NOTE]
 > Considere la posibilidad de incluir un número de versión en el valor de tipo de entidad para permitir a las aplicaciones de cliente evolucionar objetos POCO y trabajar con distintas versiones.  

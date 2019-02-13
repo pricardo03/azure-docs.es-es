@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110113"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496805"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonación a partir de una copia de seguridad de StorSimple Virtual Array
 
@@ -38,7 +38,7 @@ En este artículo se describe paso a paso cómo clonar un conjunto de copias de 
    ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare1.png)
 2. En la hoja **Clonar**, haga clic en **Copia de seguridad > Seleccionar** y, después, realice las siguientes acciones: 
    
-   a.    Filtrar una copia de seguridad por este dispositivo basándose en el intervalo de tiempo. Puede elegir entre **Últimos 7 días**, **Últimos 30 días** y **Último año**.
+    a.    Filtrar una copia de seguridad por este dispositivo basándose en el intervalo de tiempo. Puede elegir entre **Últimos 7 días**, **Últimos 30 días** y **Último año**.
    
    b.    En la lista de copias de seguridad filtradas que se muestra, seleccione la copia de seguridad de la que se va a realizar la clonación.
    
@@ -47,7 +47,7 @@ En este artículo se describe paso a paso cómo clonar un conjunto de copias de 
    ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. En la hoja **Clonar**, haga clic en **Configuración de destino** y realice las siguientes acciones:
    
-   a.    Proporcione un nombre de recurso compartido. El nombre del recurso compartido debe contener entre 3 y 127 caracteres.
+    a.    Proporcione un nombre de recurso compartido. El nombre del recurso compartido debe contener entre 3 y 127 caracteres.
    
    b.    Opcionalmente, proporcione la descripción del recurso compartido clonado.
    
@@ -57,7 +57,7 @@ En este artículo se describe paso a paso cómo clonar un conjunto de copias de 
    
    e.    Asigne los administradores de este recurso compartido. Las propiedades del recurso compartido se pueden modificar a través del Explorador de archivos una vez finalizada la clonación.
    
-   f.    Haga clic en **Aceptar**.
+   f.    Haga clic en **OK**.
    
    ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
@@ -73,12 +73,12 @@ Para realizar la clonación de una copia de seguridad, en Azure Portal, tendrá 
 
 #### <a name="to-clone-a-volume"></a>Para clonar un volumen
 
-1. Vaya a la hoja **Dispositivos**. Seleccione el dispositivo, haga clic en él y, después, en **Volúmenes**. Seleccione el volumen que desea clonar y haga clic con el botón derecho en él para invocar el menú contextual. Seleccione **Clonar**.
+1. Vaya a la hoja **Dispositivos**. Seleccione el dispositivo, haga clic en él y, después, en **Volúmenes**. Seleccione el volumen que desee clonar y haga clic con el botón derecho en él para abrir el menú contextual. Seleccione **Clonar**.
    
    ![Clonar un volumen](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. En la hoja **Clonar**, haga clic en **Copia de seguridad** y, después, realice las siguientes acciones: 
    
-   a.    Filtrar una copia de seguridad por este dispositivo basándose en el intervalo de tiempo. Puede elegir entre **Últimos 7 días**, **Últimos 30 días** y **Último año**. 
+    a.    Filtrar una copia de seguridad por este dispositivo basándose en el intervalo de tiempo. Puede elegir entre **Últimos 7 días**, **Últimos 30 días** y **Último año**. 
    
    b.    En la lista de copias de seguridad filtradas que se muestra, seleccione la copia de seguridad de la que se va a realizar la clonación.
    
@@ -87,7 +87,7 @@ Para realizar la clonación de una copia de seguridad, en Azure Portal, tendrá 
    ![Clonar una copia de seguridad](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. En la hoja **Clonar**, haga clic en **Configuración de volumen de destino** y realice las siguientes acciones:
    
-   a. El nombre del dispositivo se rellena automáticamente.
+    a. El nombre del dispositivo se rellena automáticamente.
    
    b. Especifique un nombre de volumen para el **volumen clonado**. El nombre del volumen debe contener de 3 a 127 caracteres.
    

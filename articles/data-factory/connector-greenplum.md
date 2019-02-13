@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: fe9153958fa46f4be6aaa346713c002905316902
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cdd1810ec1120e9918974e0978880aa894ff62e0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024695"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660342"
 ---
-# <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar datos de Greenplum con Azure Data Factory 
+# <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar datos de Greenplum con Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Greenplum. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -41,8 +41,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Greenplu
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Greenplum** | SÍ |
-| connectionString | Cadena de conexión de ODBC para conectarse a Greenplum. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| Tipo | La propiedad type debe establecerse en: **Greenplum** | Sí |
+| connectionString | Cadena de conexión de ODBC para conectarse a Greenplum. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `pwd` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -54,8 +54,37 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Greenplu
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la contraseña en Azure Key Vault**
+
+```json
+{
+    "name": "GreenplumLinkedService",
+    "properties": {
+        "type": "Greenplum",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
+                 "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -74,7 +103,7 @@ Para copiar datos de Greenplum, establezca la propiedad type del conjunto de dat
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **GreenplumTable** | SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **GreenplumTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -103,7 +132,7 @@ Para copiar datos de Greenplum, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **GreenplumSource** | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **GreenplumSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

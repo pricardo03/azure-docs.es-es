@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815346"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Sustitución de claves de firma de Azure Active Directory
 En este artículo se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
@@ -44,7 +44,7 @@ La forma que tiene la aplicación de controlar la sustitución de claves depende
 * [Aplicaciones y API web que protegen recursos mediante el módulo Node.js passport-azure-ad](#passport)
 * [Aplicaciones y API web de protección de recursos y creadas con Visual Studio 2015 o Visual Studio 2017](#vs2015)
 * [Aplicaciones Web de protección de recursos y creadas con Visual Studio 2013](#vs2013)
-* [API web de protección de recursos y creadas con Visual Studio 2013](#vs2013_webapi)
+* API web de protección de recursos y creadas con Visual Studio 2013
 * [Aplicaciones web de protección de recursos y creadas con Visual Studio 2012](#vs2012)
 * [Aplicaciones web de protección de recursos y creadas con Visual Studio 2010, 2008 o mediante Windows Identity Foundation](#vs2010)
 * [Aplicaciones y API web de protección de recursos que usan cualquier otra biblioteca o que implementan manualmente cualquiera de los protocolos admitidos](#other)

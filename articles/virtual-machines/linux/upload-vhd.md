@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638128"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821565"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Creación de una VM Linux desde un disco personalizado con la CLI de Azure
 
@@ -31,8 +31,8 @@ En este artículo se muestra cómo cargar un disco duro virtual (VHD) personaliz
 Para crear varias VM desde el disco personalizado, cree primero una imagen de la VM o el VHD. Para más información, vea [Creación de una imagen personalizada de una máquina virtual de Azure con la CLI](tutorial-custom-images.md).
 
 Tiene dos opciones para crear un disco personalizado:
-* [Carga de un disco duro virtual](#option-1-upload-a-specialized-vhd)
-* [Copia de una máquina virtual de Azure existente](#option-2-copy-an-existing-azure-vm)
+* Carga de un disco duro virtual
+* Copia de una máquina virtual de Azure existente
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -82,7 +82,7 @@ Vea también las [notas de instalación de Linux](create-upload-generic.md#gener
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Opción 1: Cargar un disco duro virtual
+## <a name="option-1-upload-a-vhd"></a>Opción 1: Carga de un disco duro virtual
 
 Puede cargar un VHD personalizado que se esté ejecutando en un equipo local o que se haya exportado desde otra nube. Para usar un VHD para crear una nueva VM de Azure, debe cargarlo en una cuenta de almacenamiento y crear un disco administrado a partir del VHD. Para obtener más información, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Información general sobre Azure Managed Disks).
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento para el disco personalizado y las máquinas virtuales con [az storage account create](/cli/azure/storage/account#az-storageaccount-create). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada *mystorageaccount* en el grupo de recursos creado anteriormente:
+Cree una cuenta de almacenamiento para el disco personalizado y las máquinas virtuales con [az storage account create](/cli/azure/storage/account). En el ejemplo siguiente se crea una cuenta de almacenamiento denominada *mystorageaccount* en el grupo de recursos creado anteriormente:
 
 ```azurecli
 az storage account create \

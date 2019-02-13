@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: a9c37258d7c9631c6e5fe13007b78c4205a1c249
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 69ca9474c613752b98efa6bb236919508a2fe430
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473891"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753697"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de archivos de Azure para su uso en producción dentro de la organización.
@@ -34,7 +34,7 @@ ms.locfileid: "55473891"
 * **Formato de dirección URL**: en las solicitudes a un recurso compartido de archivos de Azure realizadas con el protocolo de REST de archivo, los archivos son direccionables mediante el formato de dirección URL siguiente:
 
     ```
-    https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
+    https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
     ```
 
 ## <a name="data-access-method"></a>Método de acceso a datos
@@ -95,6 +95,9 @@ Azure Files admite tres opciones de redundancia de datos: almacenamiento con red
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Almacenamiento con redundancia geográfica
+> [!Warning]  
+> Si usa el recurso compartido de archivos de Azure como punto de conexión en la nube en una cuenta de almacenamiento GRS, no debe iniciar la conmutación por error de la cuenta de almacenamiento. Si lo hace, la sincronización dejará de funcionar y también podría provocar una pérdida inesperada de datos en el caso de archivos recién organizados en capas. En caso de pérdida de una región de Azure, Microsoft activará la conmutación por error de la cuenta de almacenamiento de forma que sea compatible con Azure File Sync.
+
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos

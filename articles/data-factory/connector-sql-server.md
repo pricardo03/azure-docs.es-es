@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 10ec490a6fe2044e1845efca94762b4ae1a42752
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885139"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657372"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,8 +55,8 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SqlServer** | SÍ |
-| connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. Consulte el ejemplo siguiente. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| Tipo | La propiedad type debe establecerse en: **SqlServer** | Sí |
+| connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. Consulte los ejemplos siguientes.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y, en el caso de autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí |
 | userName |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\nombreDeUsuario**. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
@@ -85,7 +85,36 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 }
 ```
 
-**Ejemplo 2: con autenticación de Windows**
+**Ejemplo 2: Uso de la autenticación de SQL con contraseña en Azure Key Vault**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo 3: Uso de autenticación de Windows**
 
 ```json
 {
@@ -119,7 +148,7 @@ Para copiar datos con la base de datos SQL Server como origen o destino, estable
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SqlServerTable** | SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SqlServerTable** | Sí |
 | tableName |Nombre de la tabla en la instancia de base de datos SQL Server a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 **Ejemplo:**
@@ -151,7 +180,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource** | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource** | Sí |
 | SqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |Sin  |
 | sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |Sin  |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin  |
@@ -254,7 +283,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink** | SÍ |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink** | Sí |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado: 10000) |
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin  |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en SQL Server. Solo se invocará una vez por cada copia que se ejecute. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin  |

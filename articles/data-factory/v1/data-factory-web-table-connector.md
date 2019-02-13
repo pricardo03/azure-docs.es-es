@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022060"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814357"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,9 +73,9 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **Web** |SÍ |
-| URL |Dirección URL para el origen de Web |SÍ |
-| authenticationType |Anonymous. |SÍ |
+| Tipo |La propiedad type debe establecerse en: **Web** |Sí |
+| URL |Dirección URL para el origen de Web |Sí |
+| authenticationType |Anonymous. |Sí |
 
 ### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
 
@@ -101,9 +101,9 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |Tipo del conjunto de datos. Debe establecerse en **WebTable** |SÍ |
+| Tipo |Tipo del conjunto de datos. Debe establecerse en **WebTable** |Sí |
 | path |Dirección URL relativa al recurso que contiene la tabla. | No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
-| index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |SÍ |
+| index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
 
 **Ejemplo:**
 
@@ -236,7 +236,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición del JSON de la canalización, el tipo **source** se establece en **WebSource** y el tipo **sink**, en **BlobSink**.
 
-Consulte [Propiedades de tipo WebSource](#copy-activity-type-properties) para obtener la lista de propiedades que admite WebSource.
+Consulte Propiedades de tipo WebSource para obtener la lista de propiedades que admite WebSource.
 
 ```json
 {  

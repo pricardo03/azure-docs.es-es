@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300275"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815666"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 ## <a name="overview"></a>Información general
@@ -1191,7 +1191,7 @@ Si solo tiene dos servidores SQL Server y desea migrarlos a un nuevo servicio en
 
 Una vez que haya arrancado el elemento secundario migrado y haya agregado el nuevo recurso de dirección IP para el nuevo servicio en la nube antes de conmutar por error al elemento principal existente, debe seguir estos pasos en el Administrador de clústeres de conmutación por error:
 
-Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+Para agregar la dirección IP, consulte el paso 14 del Anexo.
 
 1. Para el recurso de dirección IP actual, cambie el posible propietario a "Servidor principal existente de SQL Server", en el ejemplo, "dansqlams4":
 

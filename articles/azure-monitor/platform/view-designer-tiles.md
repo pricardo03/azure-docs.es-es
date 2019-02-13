@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186810"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817401"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guía de referencia de los iconos del Diseñador de vistas en Log Analytics
 Mediante el Diseñador de vistas de Azure Log Analytics, puede crear vistas personalizadas en Azure Portal que presenten diversas visualizaciones de datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
@@ -36,7 +36,7 @@ En la tabla siguiente se describen los iconos disponibles del Diseñador de vist
 | [Number](#number-tile) |Número de registros de una consulta. |
 | [Dos números](#two-numbers-tile) |Número de registros de dos consultas diferentes. |
 | [Anillo](#donut-tile) | Gráfico basado en una consulta con un valor de resumen en el centro. |
-| [Line chart and callout](#line-chart-amp-callout-tile) (Gráfico de líneas y llamada) | Gráfico de líneas basado en una consulta y una llamada con un valor de resumen. |
+| Gráfico de líneas y llamada | Gráfico de líneas basado en una consulta y una llamada con un valor de resumen. |
 | [Gráfico de líneas](#line-chart-tile) |Gráfico de líneas basado en una consulta. |
 | [Dos escalas de tiempo](#two-timelines-tile) | Gráfico de columnas con dos series, cada una de ellas basada en una consulta independiente. |
 

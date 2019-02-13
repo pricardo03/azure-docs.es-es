@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299143"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816822"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Soluciones de administración en Azure Monitor
 Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.
@@ -101,7 +101,7 @@ Puede comprobar el vínculo entre un área de trabajo de Log Analytics y una cue
 1. Si el **Área de trabajo** está habilitada, esta cuenta se vincula a un área de trabajo de Log Analytics. Puede hacer clic en **Área de trabajo** para ver sus detalles.
 
 ## <a name="remove-a-management-solution"></a>Eliminación de una solución de administración
-Para eliminar una solución instalada, busque en la [lista de soluciones instaladas](#list-installed-monitoring-solutions). Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar**.
+Para quitar una solución instalada, busque en la lista de soluciones instaladas. Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar**.
 
 
 

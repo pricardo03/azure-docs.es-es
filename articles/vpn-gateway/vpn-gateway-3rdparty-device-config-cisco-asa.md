@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467232"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817247"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Ejemplo de configuración: dispositivo Cisco ASA (IKEv2/no BGP)
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuración de ejemplo: Dispositivo Cisco ASA (IKEv2/sin BGP)
 En este artículo se proporciona un ejemplo de configuración para conectar dispositivos Cisco Adaptive Security Appliance (ASA) a puertas de enlace de VPN de Azure. El ejemplo se aplica a dispositivos Cisco ASA que ejecutan IKEv2 sin Border Gateway Protocol (BGP). 
 
 ## <a name="device-at-a-glance"></a>Detalles del dispositivo
@@ -44,7 +44,7 @@ Las puertas de enlace de VPN de Azure usan los conjuntos de protocolos IPsec o I
 > También puede especificar una combinación exacta de algoritmos criptográficos y niveles de clave para una conexión específica, como se describe en [Acerca de los requisitos criptográficos](vpn-gateway-about-compliance-crypto.md). Si especifica una combinación específica de algoritmos y niveles de clave, asegúrese de que usa las especificaciones correspondientes en los dispositivos VPN.
 
 ## <a name="single-vpn-tunnel"></a>Un solo túnel VPN
-Esta configuración consta de un solo túnel VPN S2S entre una puerta de enlace de VPN de Azure y el dispositivo VPN local. Opcionalmente puede configurar [BGP a través del túnel VPN](#bgp).
+Esta configuración consta de un solo túnel VPN S2S entre una puerta de enlace de VPN de Azure y el dispositivo VPN local. Opcionalmente puede configurar BGP a través del túnel VPN.
 
 ![Túnel VPN S2S único](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

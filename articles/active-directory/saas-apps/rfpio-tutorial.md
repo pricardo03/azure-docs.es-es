@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197354"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integración de Azure Active Directory con RFPIO
 
@@ -88,11 +88,11 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 
 Para configurar y probar el inicio de sesión único de Azure AD con RFPIO, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**: el objetivo es permitir que los usuarios usen esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: el objetivo es probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de RFPIO](#creating-a-rfpio-test-user)**: el objetivo es tener un homólogo de Britta Simon en RFPIO que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: el objetivo es permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: el objetivo es comprobar que la configuración funciona.
+1. **Configuración del inicio de sesión único de Azure AD**, para permitir que los usuarios utilicen esta característica.
+1. **Creación de un usuario de prueba de Azure AD**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **Creación de un usuario de prueba de RFPIO**, para tener un homólogo de Britta Simon en RFPIO que esté vinculado a la representación del usuario en Azure AD.
+1. **Asignación del usuario de prueba de Azure AD**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **Prueba del inicio de sesión único**, para comprobar que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 

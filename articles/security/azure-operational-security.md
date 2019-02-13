@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aafa1acdf6cca58ea0cfbc968f73ce13eb65bf91
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256228"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700509"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -137,11 +137,11 @@ Security Center recopila datos de las máquinas virtuales (VM) para evaluar su e
 
 -   Servicios de Azure: utiliza la información acerca de la configuración de los servicios de Azure que se hayan implementado mediante la comunicación con el proveedor de recursos de cada uno de dichos servicios.
 
-- Tráfico de red: usa metadatos muestreados del tráfico de red de la infraestructura de Microsoft, como el IP o el puerto de origen o destino, el tamaño de paquete y el protocolo de red.
+- Tráfico de red: usa metadatos muestreados del tráfico de red de la infraestructura de Microsoft, como la IP o el puerto de origen o destino, el tamaño de paquete y el protocolo de red.
 
 -   Soluciones de asociados: usa alertas de seguridad de las soluciones de asociados integradas, como firewalls y soluciones antimalware.
 
--   Sus Virtual Machines: usa información de configuración e información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, registros IIS, mensajes de Syslog y archivos de volcado de memoria de sus máquinas virtuales.
+-   Sus máquinas virtuales: usa la información de configuración y la información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, registros IIS, mensajes de Syslog y archivos de volcado de memoria de las máquinas virtuales.
 
 ### <a name="data-protection"></a>Protección de datos
 
@@ -159,7 +159,7 @@ Azure Security Center recopila copias efímeras de los archivos de volcado de me
 
 -   **Sus cuentas de almacenamiento**: se especifica una cuenta de almacenamiento para cada región en la que se ejecutan máquinas virtuales. Esto permite almacenar los datos en la misma región en que se encuentra la máquina virtual de la que se recopilan.
 
--   **Azure Storage Security Center**: Además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
+-   **Azure Storage Security Center**: además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -218,7 +218,7 @@ Es la funcionalidad de Azure que habilita la recopilación de datos de diagnóst
 
 La auditoría de la seguridad de la red es fundamental para detectar vulnerabilidades de red y asegurar el cumplimiento de la seguridad de TI y el modelo de gobierno reglamentario. Con la vista Grupo de seguridad, puede recuperar las reglas de seguridad y de grupo de seguridad de red configuradas, así como las reglas de seguridad efectivas. Con la lista de reglas que se aplican, puede determinar los puertos que están abiertos y evaluar la vulnerabilidad de la red.
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de red en Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de red en Azure. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
 
 ![Azure Network Watcher](./media/azure-operational-security/azure-operational-security-fig8.png)
 
@@ -308,7 +308,7 @@ Para los clientes interesados en almacenar [eventos de auditoría](https://docs.
 
 ## <a name="summary"></a>Resumen
 
-Este artículo resume la protección de la privacidad y los datos, así como el software y los servicios que le ayudan a administrar la infraestructura de TI de su organización. Microsoft reconoce que, cuando confía sus datos a otras personas, esa confianza requiere una seguridad rigurosa. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.  La seguridad y la protección de los datos son prioritarias en Microsoft.
+Este artículo resume la protección de la privacidad y los datos, así como el software y los servicios que le ayudan a administrar la infraestructura de TI de su organización. Microsoft reconoce que, cuando confía sus datos a otras personas, esa confianza requiere una seguridad rigurosa. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.   La seguridad y la protección de los datos son prioritarias en Microsoft.
 
 Este artículo explica cómo
 

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4aa1b170b0c0c515faa67118772ad14d34c7276b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278260"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496539"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT ExpressRoute
 Para conectarse a los Servicios en la nube de Microsoft mediante ExpressRoute, necesitará configurar y administrar NAT. Algunos proveedores de conectividad ofrecen la configuración y administración de NAT como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece tal servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación. 
@@ -21,7 +21,7 @@ Para conectarse a los Servicios en la nube de Microsoft mediante ExpressRoute, n
 Revise la página [Circuitos y dominios de enrutamiento ExpressRoute](expressroute-circuit-peerings.md) para obtener información general de los distintos dominios de enrutamiento. Para satisfacer los requisitos de dirección IP pública para emparejamiento de Microsoft y público de Azure, se recomienda configurar NAT entre la red y Microsoft. Esta sección proporciona una descripción detallada de la infraestructura NAT que necesita para configurar.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos NAT para el emparejamiento de Microsoft
-El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Se debe aplicar SNAT al tráfico destinado a su red desde Servicios en la nube de Microsoft en el perímetro de Internet para evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). La ilustración siguiente proporciona una imagen de alto nivel de cómo NAT se debe configurar para el emparejamiento de Microsoft.
+El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Se debe aplicar SNAT al tráfico destinado a su red desde Servicios en la nube de Microsoft en el perímetro de Internet para evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). En la ilustración siguiente, se muestra un esquema general acerca de cómo debería configurarse NAT para el emparejamiento de Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -41,6 +41,11 @@ El emparejamiento de Microsoft le permite conectarse a los servicios en la nube 
 ![Enrutamiento asimétrico con ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisitos de NAT para el emparejamiento público de Azure
+
+> [!NOTE]
+> El emparejamiento público de Azure no está disponible para los circuitos nuevos.
+> 
+
 La ruta de acceso de emparejamiento público de Azure le permite conectarse a todos los servicios hospedados en Azure a través de sus direcciones IP públicas. Puede tratarse tanto de los servicios que se enumeran en [P+F de ExpressRoute](expressroute-faqs.md) como de los que hospedan los ISV en Microsoft Azure. 
 
 > [!IMPORTANT]

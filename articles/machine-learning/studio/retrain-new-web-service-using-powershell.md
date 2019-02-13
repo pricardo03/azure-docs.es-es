@@ -1,8 +1,21 @@
 ---
-título: Volver a entrenar un nuevo servicio web de Machine Learning Studio con PowerShell titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 28/03/2017
+title: Repetición del entrenamiento de un nuevo servicio web de Machine Learning Studio con PowerShell
+titleSuffix: Azure Machine Learning Studio
+description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/28/2017
+ms.openlocfilehash: cad38d47b1fe154da9c3967e1e34ed87b9bc8988
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507797"
 ---
 # <a name="retrain-a-new-resource-manager-based-studio-web-service-using-powershell"></a>Repetición del entrenamiento de un nuevo servicio web de Studio basado en Resource Manager mediante Powershell
 Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.

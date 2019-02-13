@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629686"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820836"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio
 
@@ -250,11 +250,11 @@ La vista de ejecución de tareas de Hive en trabajos de Tez se puede usar para o
 ![Captura de pantalla de la ventana Vista de ejecución de tareas de Data Lake Tools para Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Vista de ejecución de tareas")
 
 ## <a name="run-hive-batch-jobs"></a>Ejecución de trabajos por lotes de Hive
-Se puede tardar mucho en probar un script de Hive en un clúster de HDInsight (a excepción del clúster Interactive Query). Este proceso puede tardar varios minutos. Data Lake Tools para Visual Studio puede validar el script de Hive localmente sin conectarse a un clúster activo. Para más información sobre la ejecución de consultas interactivas, consulte [Ejecución de consultas de Hive interactivas](#run-interactive-hive-queries).
+Se puede tardar mucho en probar un script de Hive en un clúster de HDInsight (a excepción del clúster Interactive Query). Este proceso puede tardar varios minutos. Data Lake Tools para Visual Studio puede validar el script de Hive localmente sin conectarse a un clúster activo. Para más información sobre la ejecución de consultas interactivas, consulte Ejecución de consultas de Hive interactivas.
 
 Data Lake Tools para Visual Studio puede usarse para ver el contenido del trabajo de Hive, para lo que recopila y expone los registros Yarn de determinados trabajos de Hive.
 
-Para más información sobre cómo ejecutar trabajos por lotes de Hive, consulte [Ejecución de consultas de Hive interactivas](#run-interactive-hive-queries). La información de esa sección se aplica a la ejecución de trabajos por lotes de Hive que tardan más en ejecutarse.
+Para más información sobre cómo ejecutar trabajos por lotes de Hive, consulte Ejecución de consultas de Hive interactivas. La información de esa sección se aplica a la ejecución de trabajos por lotes de Hive que tardan más en ejecutarse.
 
 ## <a name="run-apache-pig-scripts"></a>Ejecución de scripts de Apache Pig
 Data Lake Tools para Visual Studio se puede usar para crear y enviar scripts de Pig a clústeres de HDInsight. En primer lugar, cree un proyecto de Pig desde una plantilla. Luego, envíe el script a los clústeres de HDInsight.

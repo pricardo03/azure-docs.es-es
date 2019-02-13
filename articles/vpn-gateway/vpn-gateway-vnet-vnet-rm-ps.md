@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686966"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695531"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
@@ -68,11 +68,11 @@ La principal diferencia entre ambos conjuntos es que debe utilizar sesiones de P
 
 Para este ejercicio, puede combinar las configuraciones, o bien elegir con la que desea trabajar. Todas las configuraciones utilizan el tipo de conexión entre redes virtuales. Flujos de tráfico de red entre las redes virtuales que están directamente conectados entre sí. En este ejercicio, el tráfico de TestVNet4 no se enruta a TestVNet5.
 
-* [Redes virtuales que residen en la misma suscripción:](#samesub) los pasos de esta configuración utilizan TestVNet1 y TestVNet4.
+* [Redes virtuales que residen en la misma suscripción](#samesub): En los pasos para esta configuración se utilizan TestVNet1 y TestVNet4.
 
   ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [Redes virtuales que residen en distintas suscripciones:](#difsub) los pasos de esta configuración utilizan TestVNet1 y TestVNet5.
+* [Redes virtuales que residen en distintas suscripciones](#difsub): En los pasos para esta configuración se utilizan TestVNet1 y TestVNet5.
 
   ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -90,31 +90,31 @@ En los ejemplos usamos los siguientes valores:
 
 **Valores para TestVNet1:**
 
-* Nombre de red virtual: TestVNet1
+* Nombre de la red virtual: TestVNet1
 * Grupo de recursos: TestRG1
-* Ubicación: Este de EE. UU.
+* Ubicación: Este de EE. UU
 * TestVNet1: 10.11.0.0/16 y 10.12.0.0/16
-* FrontEnd: 10.11.0.0/24
-* Backend: 10.12.0.0/24
+* front-end: 10.11.0.0/24
+* BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* Dirección IP pública: VNet1GWIP
+* Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5 (para las redes virtuales en distintas suscripciones)
+* Connection(1to5): VNet1toVNet5 (para redes virtuales de suscripciones distintas)
 * ConnectionType: VNet2VNet
 
 **Valores para TestVNet4:**
 
-* Nombre de red virtual: TestVNet4
+* Nombre de la red virtual: TestVNet4
 * TestVNet2: 10.41.0.0/16 y 10.42.0.0/16
-* FrontEnd: 10.41.0.0/24
-* Backend: 10.42.0.0/24
+* front-end: 10.41.0.0/24
+* BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Grupo de recursos: TestRG4
 * Ubicación: Oeste de EE. UU.
 * GatewayName: VNet4GW
-* Dirección IP pública: VNet4GWIP
+* Public IP: VNet4GWIP
 * VPNType: RouteBased
 * Conexión: VNet4toVNet1
 * ConnectionType: VNet2VNet
@@ -303,15 +303,15 @@ Es importante asegurarse de que el espacio de direcciones IP de la red virtual n
 
 **Valores para TestVNet5:**
 
-* Nombre de red virtual: TestVNet5
+* Nombre de la red virtual: TestVNet5
 * Grupo de recursos: TestRG5
-* Ubicación: Japón Oriental
+* Ubicación: Este de Japón
 * TestVNet5: 10.51.0.0/16 y 10.52.0.0/16
-* FrontEnd: 10.51.0.0/24
-* Backend: 10.52.0.0/24
+* front-end: 10.51.0.0/24
+* BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* Dirección IP pública: VNet5GWIP
+* Public IP: VNet5GWIP
 * VPNType: RouteBased
 * Conexión: VNet5toVNet1
 * ConnectionType: VNet2VNet
@@ -476,5 +476,5 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.
+* Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/) para más información.
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).

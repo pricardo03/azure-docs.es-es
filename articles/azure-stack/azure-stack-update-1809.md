@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 81501c79f00c2c0f8ef81532f3b8e7f61fc9eba0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250621"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694387"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -50,7 +50,7 @@ Esta actualización incluye las siguientes correcciones para Azure Stack:
 
 - Ahora puede [mover el recurso de registro](azure-stack-registration.md#move-a-registration-resource) en Azure entre grupos de recursos sin tener que volver a realizar el registro. Los proveedores de soluciones en la nube (CSP) también pueden mover el recurso de registro entre suscripciones, siempre y cuando se asignen las suscripciones nuevas y antiguas en el mismo identificador de asociado de CSP. Esto no afecta a las asignaciones de inquilinos de cliente existentes. 
 
-- Se ha agregado compatibilidad con la asignación de varias direcciones IP por interfaz de red.  Para obtener más detalles, consulte [Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Se ha agregado compatibilidad con la asignación de varias direcciones IP por interfaz de red.  Para obtener más detalles, consulte [Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Problemas corregidos
 
@@ -243,7 +243,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
    - NOMBRE: error de comunicación interna del servicio Storage  
    - GRAVEDAD: Crítico  
-   - COMPONENTE: Storage  
+   - COMPONENTE: Almacenamiento  
    - DESCRIPCIÓN: se produjo un error de comunicación interna del servicio Storage al enviar solicitudes a los nodos siguientes.  
 
     La alerta puede omitirse sin riesgos, pero deberá cerrarla manualmente.

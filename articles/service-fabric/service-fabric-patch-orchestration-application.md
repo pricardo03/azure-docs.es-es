@@ -3,7 +3,7 @@ title: Aplicación de orquestación de revisiones de Azure Service Fabric | Micr
 description: Aplicación para automatizar la aplicación de revisiones de sistema operativo en un clúster de Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155313"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732318"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -131,7 +131,7 @@ Para habilitar el servicio de administrador de reparaciones:
     ],
     ```
 
-3. Actualice el manifiesto de clúster con estos cambios, con el manifiesto de clúster actualizado [crear un nuevo clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [actualizar la configuración del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Una vez que el clúster se ejecute con el manifiesto del clúster actualizado, podrá ver el servicio de sistema de administrador de reparaciones en ejecución en el clúster, denominado `fabric:/System/RepairManagerService`, en la sección de servicios del sistema en Service Fabric Explorer.
+3. Actualice el manifiesto de clúster con estos cambios, con el manifiesto de clúster actualizado [crear un nuevo clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [actualizar la configuración del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Una vez que el clúster se ejecute con el manifiesto del clúster actualizado, podrá ver el servicio de sistema de administrador de reparaciones en ejecución en el clúster, denominado `fabric:/System/RepairManagerService`, en la sección de servicios del sistema en Service Fabric Explorer.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Deshabilitar las actualizaciones automáticas de Windows en todos los nodos
 
@@ -154,9 +154,9 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 |LogsDiskQuotaInMB   |long  <br> (Valor predeterminado: 1024)               |Tamaño máximo de los registros de la aplicación de orquestación de revisiones en MB que se pueden almacenar de forma persistente y local en un nodo.
 | WUQuery               | string<br>(Valor predeterminado: "IsInstalled=0")                | Consulta para obtener las actualizaciones de Windows. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | boolean <br> (valor predeterminado: false)                 | Use esta marca para controlar qué actualizaciones deben descargarse e instalarse. Se permiten los siguientes valores <br>True: instala solo actualizaciones del sistema operativo Windows.<br>False: instala todas las actualizaciones disponibles en la máquina.          |
-| WUOperationTimeOutInMinutes | int <br>(Valor predeterminado: 90)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
-| WURescheduleCount     | int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows en caso de error de la operación de forma persistente.          |
-| WURescheduleTimeInMinutes | int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización de Windows en caso de que el error persista. |
+| WUOperationTimeOutInMinutes | Int <br>(Valor predeterminado: 90)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
+| WURescheduleCount     | Int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows en caso de error de la operación de forma persistente.          |
+| WURescheduleTimeInMinutes | Int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización de Windows en caso de que el error persista. |
 | WUFrequency           | Cadena separada por comas (valor predeterminado: "Weekly, Wednesday, 7:00:00")     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5,12:22:32.<br>Los valores permitidos para el campo DD (day) son números comprendidos entre 1 y 28, y "last". <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> -  None indica que no debe realizarse Windows Update.  <br><br> Tenga en cuenta que las horas están en formato UTC.|
 | AcceptWindowsUpdateEula | boolean <br>(Valor predeterminado: true) | Al establecer esta marca, la aplicación acepta el contrato de licencia del usuario final para Windows Update en nombre del propietario del equipo.              |
 
@@ -413,3 +413,6 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 - Corrección de una regresión en la que POA 1.3.0 no funcionará en Windows Server 2012 R2 o versión anterior debido a un error al deshabilitar las actualizaciones automáticas. 
 - Corrección de un error donde la configuración InstallWindowsOSOnlyUpdates siempre se elige como True.
 - Cambio del valor predeterminado de InstallWindowsOSOnlyUpdates a False.
+
+### <a name="version-132"></a>Versión 1.3.2
+- Corregir un problema que afecta al ciclo de vida de aplicación de revisiones en un nodo en caso de que haya nodos con nombre que sea subconjunto del nombre de nodo actual. Para esos nodos, es posible, que falte la aplicación de revisiones o que el reinicio esté pendiente. 

@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182241"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820749"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referencia de Bing Local Business Search API v7
 
@@ -53,7 +53,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 |Encabezado|DESCRIPCIÓN|  
 |------------|-----------------|  
 |Accept|Encabezado de solicitud opcional.<br /><br /> El tipo de soporte predeterminado es application/json. Para especificar que la respuesta use [JSON-LD](http://json-ld.org/), establezca el encabezado Accept como application/ld + json.|  
-|<a name="acceptlanguage" />Accept-Language|Encabezado de solicitud opcional.<br /><br /> Lista delimitada por comas de los idiomas que se usarán en las cadenas de la interfaz de usuario. La lista se muestra en orden de preferencia decreciente. Para más información, incluido el formato esperado, consulte [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este encabezado y el parámetro de consulta [setLang](#setlang) son mutuamente excluyentes, no especifique ambos.<br /><br /> Si establece este encabezado, debe especificar también el parámetro de consulta [cc](#cc). Para determinar el mercado para el que hay que devolver resultados, Bing usa el primer idioma compatible que encuentra en la lista y lo combina con el valor del parámetro `cc`. Si la lista no incluye ningún idioma compatible, Bing busca el idioma y el mercado más cercanos que admiten la solicitud, o bien usa un mercado agregado o predeterminado para los resultados. Para determinar el mercado que usó Bing, consulte el encabezado BingAPIs-Market.<br /><br /> Use este encabezado y el parámetro de consulta `cc` solo si especifica varios idiomas. En caso contrario, use los parámetros de consulta [mkt](#mkt) y [setLang](#setlang).<br /><br /> Una cadena de interfaz de usuario es aquella que se usa como etiqueta en una interfaz de usuario. Hay pocas cadenas de interfaz de usuario en los objetos de respuesta JSON. Todos los vínculos a las propiedades de Bing.com en los objetos de respuesta aplican el idioma especificado.|  
+|<a name="acceptlanguage" />Accept-Language|Encabezado de solicitud opcional.<br /><br /> Lista delimitada por comas de los idiomas que se usarán en las cadenas de la interfaz de usuario. La lista se muestra en orden de preferencia decreciente. Para más información, incluido el formato esperado, consulte [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este encabezado y el parámetro de consulta [setLang](#setlang) son mutuamente excluyentes, no especifique ambos.<br /><br /> Si establece este encabezado, debe especificar también el parámetro de consulta cc. Para determinar el mercado para el que hay que devolver resultados, Bing usa el primer idioma compatible que encuentra en la lista y lo combina con el valor del parámetro `cc`. Si la lista no incluye ningún idioma compatible, Bing busca el idioma y el mercado más cercanos que admiten la solicitud, o bien usa un mercado agregado o predeterminado para los resultados. Para determinar el mercado que usó Bing, consulte el encabezado BingAPIs-Market.<br /><br /> Use este encabezado y el parámetro de consulta `cc` solo si especifica varios idiomas. En caso contrario, use los parámetros de consulta [mkt](#mkt) y [setLang](#setlang).<br /><br /> Una cadena de interfaz de usuario es aquella que se usa como etiqueta en una interfaz de usuario. Hay pocas cadenas de interfaz de usuario en los objetos de respuesta JSON. Todos los vínculos a las propiedades de Bing.com en los objetos de respuesta aplican el idioma especificado.|  
 |<a name="market" />BingAPIs-Market|Encabezado de respuesta.<br /><br /> Mercado que usa la solicitud. El formato es \<CódigoIdioma\>-\<CódigoPaís\>. Por ejemplo, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Encabezado de respuesta.<br /><br /> Identificador de la entrada de registro que contiene los detalles de la solicitud. Si se produce un error, capture este identificador. Si no puede determinar y resolver el problema, incluya este identificador junto con el resto de información que proporcione al equipo de soporte técnico.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Encabezado de solicitud obligatorio.<br /><br /> Clave de suscripción que recibió al suscribirse a este servicio en [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -75,7 +75,7 @@ La solicitud puede incluir los siguientes parámetros de consulta. Consulte la c
 |----------|-----------|----------|--------------|
 |<a name="count" />count|El número de resultados a devolver, empezando por el índice especificado por el parámetro `offset`.|string|Sin |   
 |<a name="localCategories" />localCategories|Lista de las opciones que definen la búsqueda por categoría de empresa.  Consulte la [Búsqueda de categorías de empresas locales](local-categories.md)|string|Sin |  
-|<a name="mkt" />mkt|Mercado de donde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte [Códigos de mercado](#market-codes).<br /><br /> **NOTA:** Local Business Search API solo admite actualmente el mercado estadounidense y el idioma inglés.<br /><br />|string|SÍ|
+|<a name="mkt" />mkt|Mercado de dónde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte Códigos de mercado.<br /><br /> **NOTA:** Local Business Search API solo admite actualmente el mercado estadounidense y el idioma inglés.<br /><br />|string|Sí|
 |<a name="offset"/>offset|El índice de inicio de resultados especificados por el parámetro `count`.|Entero|Sin |  
 |<a name="query" />q|Término de búsqueda del usuario.|string|Sin |  
 |<a name="responseformat" />responseFormat|Tipo de medio que se usará para la respuesta. A continuación se indican los valores posibles que no distinguen entre mayúsculas y minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> El valor predeterminado es JSON. Para obtener información acerca de los objetos JSON que contiene la respuesta, consulte [Objetos de respuesta](#response-objects).<br /><br />  Si especifica JsonLd, el cuerpo de respuesta incluye objetos JSON-LD que contienen los resultados de la búsqueda. Para obtener información acerca de JSON-LD, consulte [JSON-LD](http://json-ld.org/).|string|Sin |  
@@ -154,8 +154,8 @@ Define la información acerca de un negocio local como un restaurante o un hotel
 |NOMBRE|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo, que puede establecerse en uno de los siguientes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|string|  
-|address|La dirección postal del lugar en el que se encuentra la entidad.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Información adicional acerca de la entidad, como sugerencias que puede usar para determinar el tipo de entidad. Por ejemplo, si es un restaurante o un hotel. El campo `entityScenario` se establece en ListItem.|[EntityPresentationInfo](#entitypresentationinfo)|  
+|address|La dirección postal del lugar en el que se encuentra la entidad.|PostalAddress|  
+|entityPresentationInfo|Información adicional acerca de la entidad, como sugerencias que puede usar para determinar el tipo de entidad. Por ejemplo, si es un restaurante o un hotel. El campo `entityScenario` se establece en ListItem.|EntityPresentationInfo|  
 |Nombre|El nombre de la entidad.|string|  
 |telephone|El número de teléfono de la entidad.|string|  
 |URL|La dirección URL del sitio web de la entidad.<br /><br /> Use esta dirección URL junto con el nombre de la entidad para crear un hipervínculo en el que hacer clic lleva al usuario al sitio web de la entidad.|string|  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f0290a5f04a396c1d66e2dd1873eb313dcb3f66d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811979"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818403"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
 ## <a name="overview"></a>Información general
@@ -44,12 +44,12 @@ Se tratan los siguientes temas:
   * [Incorporación de una pista de audio independiente](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [Incorporación del archivo SMIL ".ISM"](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Codificación de MXF en archivos MP4 de varias velocidades de bits: plano mejorado](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Información general del flujo de trabajo a mejorar](#workflow-overview-to-enhance)
+  * Información general del flujo de trabajo a mejorar
   * [Convenciones de nomenclatura de los archivos](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [Publicación de propiedades de componente en la raíz del flujo de trabajo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Se han generado nombres de archivo de salida que se basan en los valores de propiedad publicados](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Incorporación de miniaturas a la salida MP4 de varias velocidades de bits](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Información general del flujo de trabajo al que agregar miniaturas](#workflow-overview-to-add-thumbnails-to)
+  * Información general del flujo de trabajo al que agregar miniaturas
   * [Incorporación de codificación JPG](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Relación con la conversión de espacio de colores](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Escritura de las miniaturas](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)

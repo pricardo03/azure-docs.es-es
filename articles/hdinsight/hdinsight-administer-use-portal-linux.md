@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794488"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816448"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -124,7 +124,7 @@ Después de crear el clúster, puede agregar más cuentas de Azure Storage y cue
 La característica de escalado de clústeres permite cambiar el número de nodos de trabajo que usa un clúster de Azure HDInsight sin necesidad de volver a crear el clúster.
 
 > [!NOTE]  
-> Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
+> Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Consulte Enumeración y visualización de clústeres.
 
 En la [página principal del clúster](#homePage):
 
@@ -283,7 +283,7 @@ Consulte [Administración de clústeres de HDInsight con la interfaz de usuario 
 
 
 ## <a name="monitor-cluster-usage"></a>Supervisión del uso de los clústeres
-La sección **Uso** de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+La sección **Uso** de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Consulte Enumeración y visualización de clústeres.
 
 > [!IMPORTANT]  
 > Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Apache Ambari](hdinsight-hadoop-manage-ambari.md).

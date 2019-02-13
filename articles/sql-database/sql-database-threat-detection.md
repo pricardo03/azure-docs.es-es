@@ -1,6 +1,6 @@
 ---
-title: Detección de amenazas de Azure SQL Database| Microsoft Docs
-description: Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad para la base de datos en una sola base de datos o grupo elástico.
+title: 'Detección de amenazas: Azure SQL Database| Microsoft Docs'
+description: La detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad para la base de datos en una sola base de datos o grupo elástico.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,21 +11,21 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 032146742c1a49fc8cdbda24d5c732add3cc5ea7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 64302a04050196b4299be45d910f7136f3ecaaa6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465357"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734273"
 ---
-# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-database"></a>Detección de amenazas de Azure SQL Database para una base de datos independiente o agrupada
+# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-databases"></a>Detección de amenazas de Azure SQL Database para bases de datos independientes o agrupadas
 
-La [detección de amenazas](sql-database-threat-detection-overview.md) de Azure SQL para bases de datos independientes o agrupadas detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. La detección de amenazas puede identificar **posible inyección SQL**, **acceso desde un centro de datos o una ubicación inusuales**, **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta**; vea más detalles en [Alertas de detección de amenazas](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
+La [detección de amenazas](sql-database-threat-detection-overview.md) para bases de datos independientes o agrupadas detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. La detección de amenazas puede identificar **posible inyección SQL**, **acceso desde un centro de datos o una ubicación inusuales**, **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta**; vea más detalles en [alertas de detección de amenazas](sql-database-threat-detection-overview.md#threat-detection-alerts).
 
 Puede recibir notificaciones sobre las amenazas detectadas mediante [notificaciones por correo electrónico](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o en [Azure Portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [Advanced Data Security ](sql-advanced-threat-protection.md) (ADS) de SQL, que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de ADS de SQL. El paquete de Advanced Data Security se cobra a 15 USD al mes por servidor lógico, siendo los primeros 30 días gratis.
+La [detección de amenazas](sql-database-threat-detection-overview.md) forma parte de la oferta de [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la detección de amenazas y administrarla a través del portal central de SQL ADS. El paquete de Advanced Data Security se cobra a 15 USD al mes por servidor lógico, siendo los primeros 30 días gratis.
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configuración de la detección de amenazas en Azure Portal
 
@@ -44,9 +44,9 @@ Para ver un script de ejemplo, consulte [Configuración de la auditoría y detec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Detección de amenazas](sql-database-threat-detection-overview.md)
-- Más información sobre la [detección de amenazas en instancia administrada](sql-database-managed-instance-threat-detection.md).  
-- Más información sobre [Advanced Data Security de SQL](sql-advanced-threat-protection.md).
-- Más información acerca de la [auditoría de Azure SQL Database](sql-database-auditing.md)
-- Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Más información sobre la [detección de amenazas](sql-database-threat-detection-overview.md).
+- Más información sobre la [detección de amenazas en instancias administradas](sql-database-managed-instance-threat-detection.md).  
+- Más información sobre [Advanced Data Security](sql-database-advanced-data-security.md).
+- Más información sobre las [auditorías](sql-database-auditing.md)
+- Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Para más información sobre los precios, consulte la [página Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

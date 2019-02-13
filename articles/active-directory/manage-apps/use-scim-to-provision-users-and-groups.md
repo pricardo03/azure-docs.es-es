@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161773"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732590"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -120,7 +120,7 @@ Para facilitar este proceso, se proporcionan [ejemplos de código](https://githu
 ### <a name="getting-started"></a>Introducción
 Es la manera más fácil de implementar un punto de conexión SCIM que puede aceptar las solicitudes de aprovisionamiento de Azure AD para compilar e implementar el ejemplo de código que genera los usuarios aprovisionados en un archivo de valores separados por comas (CSV).
 
-**Para crear un punto de conexión SCIM de ejemplo:**
+#### <a name="to-create-a-sample-scim-endpoint"></a>Para crear un punto de conexión SCIM de ejemplo
 
 1. Descargue el paquete de ejemplo de código en [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Descomprima el paquete y colóquelo en un equipo con Windows, en una ubicación como C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -142,7 +142,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
 8. En Windows, en **Configuración de Windows > Configuración de Internet y red**, seleccione **Firewall de Windows > Configuración avanzada** y cree una **regla de entrada** que permita el acceso de entrada al puerto 9000.
 9. Si el equipo Windows está detrás de un enrutador, este debe configurarse para realizar la traducción de acceso de red entre su puerto 9000 que está expuesto a Internet y el puerto 9000 en el equipo Windows. Esta configuración es necesaria para que Azure AD tenga acceso a este punto de conexión en la nube.
 
-**Para registrar el punto de conexión SCIM de ejemplo en Azure AD:**
+#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Para registrar el punto de conexión SCIM de ejemplo en Azure AD
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. Vaya a **Azure Active Directory > Aplicaciones empresariales** y seleccione **Nueva aplicación > Todas > Aplicación situada fuera de la galería**.

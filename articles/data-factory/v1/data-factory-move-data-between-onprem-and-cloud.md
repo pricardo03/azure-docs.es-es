@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015838"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822432"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -172,7 +172,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
       4. En el cuadro de diálogo **Establecer credenciales**, escriba el tipo de autenticación, el nombre de usuario y la contraseña, y haga clic en **Aceptar**. Si la conexión es correcta, se almacenan las credenciales cifradas en el código JSON y se cierra el cuadro de diálogo.
       5. Si no se cierra automáticamente, cierre la pestaña de explorador vacía que inició el cuadro de diálogo y regrese a la pestaña de Azure Portal.
 
-         En la máquina de la puerta de enlace, las credenciales se **cifrarán** mediante un certificado que es propiedad del servicio Data Factory. Si prefiere usar el certificado asociado a la puerta de enlace de administración de datos, consulte [Configuración de credenciales y seguridad](#set-credentials-and-security).    
+         En la máquina de la puerta de enlace, las credenciales se **cifrarán** mediante un certificado que es propiedad del servicio Data Factory. Si prefiere usar el certificado asociado a la puerta de enlace de administración de datos, consulte Configuración de credenciales y seguridad.    
    3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado de SQL Server. Verá el servicio vinculado en la vista de árbol.
 
       ![Servicio vinculado a SQL Server en la vista de árbol](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

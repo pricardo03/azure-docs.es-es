@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473816"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822143"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
@@ -105,7 +105,7 @@ La razón más común para que los datos de evento no aparezcan en absoluto, es 
 
 Solución: corrija la configuración de Diagnostics y vuelva a instalar esta extensión.
 
-Si la cuenta de almacenamiento está configurada correctamente, conéctese a la máquina mediante Escritorio remoto y asegúrese de que DiagnosticsPlugin.exe y MonAgentCore.exe se están ejecutando. Si no se están ejecutando, siga las instrucciones de la sección [Azure Diagnostics no se inicia](#azure-diagnostics-is-not-starting).
+Si la cuenta de almacenamiento está configurada correctamente, conéctese a la máquina mediante Escritorio remoto y asegúrese de que DiagnosticsPlugin.exe y MonAgentCore.exe se están ejecutando. Si no se están ejecutando, siga las instrucciones de la sección Azure Diagnostics no se inicia.
 
 Si los procesos están en ejecución, vaya a [¿Se capturan los datos localmente?](#is-data-getting-captured-locally) y siga las instrucciones que se detallan allí.
 
@@ -119,7 +119,7 @@ La configuración de diagnóstico contiene instrucciones que indican que se debe
 - **Contadores de rendimiento**: abra el monitor de rendimiento y compruebe el contador.
 
 - **Registros de seguimiento**:  conéctese a la máquina virtual mediante Escritorio remoto y agregue TextWriterTraceListener al archivo de configuración de la aplicación.  Consulte https://msdn.microsoft.com/library/sk36c28t.aspx para configurar el agente de escucha de texto.  Asegúrese de que el elemento `<trace>` tenga `<trace autoflush="true">`.<br />
-Si no ve que se generen registros de seguimiento, consulte [Más información sobre los registros de seguimiento que faltan](#more-about-trace-logs-missing).
+Si no ve que se generen registros de seguimiento, consulte Más información sobre los registros de seguimiento que faltan.
 
 - **Seguimientos de ETW**: conéctese a la máquina virtual mediante Escritorio remoto e instale PerfView.  En PerfView, ejecute **Archivo** > **Comando de usuario** > **Escuchar etwprovder1** > **etwprovider2** etc. Tenga en cuenta que el comando de **escucha** distingue mayúsculas de minúsculas y que no puede haber espacios entre la lista de proveedores de ETW separados por comas. Si no se puede ejecutar el comando, puede hacer clic en el botón **Registrar** en la esquina inferior derecha de la herramienta Perfview para ver lo que se intentó ejecutar y cuál fue el resultado.  Suponiendo que la entrada es correcta, aparece una nueva ventana. En unos segundos, empezará a ver los seguimientos de ETW.
 
@@ -127,13 +127,13 @@ Si no ve que se generen registros de seguimiento, consulte [Más información so
 
 #### <a name="is-data-getting-captured-locally"></a>¿Se capturan los datos localmente?
 A continuación, asegúrese de que los datos se capturen localmente.
-Los datos se almacenan localmente en archivos `*.tsf` en [el almacén local de datos de diagnóstico](#log-artifacts-path). Diferentes tipos de registros se recopilan en diferentes archivos `.tsf`. Los nombres son similares a los nombres de tablas de Azure Storage.
+Los datos se almacenan localmente en archivos `*.tsf` en el almacén local de datos de diagnóstico. Diferentes tipos de registros se recopilan en diferentes archivos `.tsf`. Los nombres son similares a los nombres de tablas de Azure Storage.
 
 Por ejemplo, los `Performance Counters` se obtienen en `PerformanceCountersTable.tsf`. Los registros de eventos se obtienen en `WindowsEventLogsTable.tsf`. Siga las instrucciones de la sección [Extracción de registros locales](#local-log-extraction) para abrir los archivos de recopilación locales y asegúrese de que se recopilan en el disco.
 
 Si no ve que los registros se recopilen localmente y ya ha comprobado que el host genera datos, es probable que tenga un problema de configuración. Revise las opciones de configuración.
 
-Igualmente, revise la configuración que se generó para MonitoringAgent [MaConfig.xml](#log-artifacts-path). Compruebe que haya una sección que describa el origen de los registros correspondientes. A continuación, que no se pierdan en la conversión entre la configuración de Diagnostics y la del agente de supervisión.
+Igualmente, revise la configuración que se generó para MonitoringAgent MaConfig.xml. Compruebe que haya una sección que describa el origen de los registros correspondientes. A continuación, que no se pierdan en la conversión entre la configuración de Diagnostics y la del agente de supervisión.
 
 #### <a name="is-data-getting-transferred"></a>¿Se transfieren los datos?
 Si ha comprobado que los datos se capturan localmente, pero sigue sin verlos en su cuenta de almacenamiento, siga estos pasos:
@@ -142,10 +142,10 @@ Si ha comprobado que los datos se capturan localmente, pero sigue sin verlos en 
 
 - Compruebe que la cuenta de almacenamiento proporcionada es correcta. Asegúrese de que no tenga restricciones de red que no permitan que los componentes alcancen los puntos de conexión de almacenamiento público. Una forma de hacerlo consiste en conectarse a la máquina mediante Escritorio remoto e intentar escribir algo en la misma cuenta de almacenamiento.
 
-- Por último, intente ver qué errores notifica el agente de supervisión. El agente de supervisión escribe sus registros en `maeventtable.tsf`, que se encuentra en [el almacén local de datos de diagnóstico](#log-artifacts-path). Siga las instrucciones de la sección [Extracción de registros locales](#local-log-extraction) para abrir este archivo. A continuación, intente determinar si hay `errors` que indiquen la imposibilidad de leer archivos locales o de escribir en el almacenamiento.
+- Por último, intente ver qué errores notifica el agente de supervisión. El agente de supervisión escribe sus registros en `maeventtable.tsf`, que se encuentra en el almacén local de datos de diagnóstico. Siga las instrucciones de la sección [Extracción de registros locales](#local-log-extraction) para abrir este archivo. A continuación, intente determinar si hay `errors` que indiquen la imposibilidad de leer archivos locales o de escribir en el almacenamiento.
 
 ### <a name="capturing-and-archiving-logs"></a>Captura y archivo de registros
-Si va a ponerse en contacto con el servicio técnico, lo primero que podrían pedirle es que recopilara registros de su máquina. Para ahorrar tiempo, hágalo usted mismo. Ejecute la utilidad `CollectGuestLogs.exe` en [Ruta de acceso a la utilidad de recopilación de registros](#log-artifacts-path). Se creará un archivo .zip que contiene todos los registros relevantes de Azure en la misma carpeta.
+Si va a ponerse en contacto con el servicio técnico, lo primero que podrían pedirle es que recopilara registros de su máquina. Para ahorrar tiempo, hágalo usted mismo. Ejecute la utilidad `CollectGuestLogs.exe` en Ruta de acceso a la utilidad de recopilación de registros. Se creará un archivo .zip que contiene todos los registros relevantes de Azure en la misma carpeta.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tablas de datos de diagnóstico no encontradas
 Las tablas de Azure Storage que contienen eventos de ETW se nombran mediante el código siguiente:
@@ -213,7 +213,7 @@ Este código genera cuatro tablas:
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Cómo comprobar la configuración de la extensión de Diagnostics
 La manera más sencilla de comprobar la configuración de su extensión es ir a [Azure Resource Explorer](http://resources.azure.com) y desplazarse a la máquina virtual o al servicio en la nube en los que se encuentra la extensión de Azure Diagnostics (IaaSDiagnostics/PaaDiagnostics) en cuestión.
 
-Como alternativa, puede conectarse a la máquina mediante Escritorio remoto y examinar el archivo de configuración de Azure Diagnostics que se describe en la sección [Rutas de acceso de registro y artefacto](#log-artifacts-path).
+Como alternativa, puede conectarse a la máquina mediante Escritorio remoto y examinar el archivo de configuración de Azure Diagnostics que se describe en la sección Rutas de acceso de registro y artefacto.
 
 En cualquier caso, busque **Microsoft.Azure.Diagnostics** y, a continuación, el campo **xmlCfg** o **WadCfg**.
 

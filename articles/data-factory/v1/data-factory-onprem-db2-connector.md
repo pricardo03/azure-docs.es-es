@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015141"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816737"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree conjuntos de datos con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una canalización con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para las entidades de canalizaciones, los conjuntos de datos y los servicios vinculados de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. En el [Ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage](#json-example-copy-data-from-db2-to-azure-blob) se muestran las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos DB2 local.
+Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para las entidades de canalizaciones, los conjuntos de datos y los servicios vinculados de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. En el Ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage se muestran las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos DB2 local.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de DB2.
 
@@ -81,14 +81,14 @@ En la tabla siguiente se enumeran las propiedades JSON que son específicas de u
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |SÍ |
-| **server** |Nombre del servidor DB2. |SÍ |
-| **database** |Nombre de la base de datos DB2. |SÍ |
+| **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |Sí |
+| **server** |Nombre del servidor DB2. |Sí |
+| **database** |Nombre de la base de datos DB2. |Sí |
 | **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |Sin  |
-| **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |SÍ |
+| **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |Sin  |
 | **password** |Contraseña para la cuenta de usuario. |Sin  |
-| **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |SÍ |
+| **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [creación de conjuntos de datos](data-factory-create-datasets.md) . Las secciones como **structure**, **availability** y **policy** del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (Azure SQL, Azure Blob Storage, Azure Table Storage, etc.).
@@ -312,13 +312,13 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Entero |Int32 |
 | BigInt |Int64 |
 | Real |Single |
-| Doble |Doble |
-| Float |Doble |
-| DECIMAL |DECIMAL |
-| DecimalFloat |DECIMAL |
-| Numeric |DECIMAL |
-| Date |Datetime |
-| Hora |timespan |
+| Double |Double |
+| Float |Double |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Numeric |Decimal |
+| Date |DateTime |
+| Hora |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |string |
@@ -338,13 +338,13 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | Entero |Int32 |
 | BigInt |Int64 |
 | Real |Single |
-| Doble |Doble |
-| Float |Doble |
-| DECIMAL |DECIMAL |
-| DecimalFloat |DECIMAL |
-| Numeric |DECIMAL |
-| Date |Datetime |
-| Hora |timespan |
+| Double |Double |
+| Float |Double |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Numeric |Decimal |
+| Date |DateTime |
+| Hora |TimeSpan |
 | Timestamp |Datetime |
 | xml |Byte[] |
 | Char |string |

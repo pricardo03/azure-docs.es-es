@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353046"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822619"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Conectar equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics
+
+>[!NOTE]
+>Como parte de la transición continuada de Microsoft Operations Management Suite (OMS) a Azure Monitor, la puerta de enlace de OMS se conocerá como la puerta de enlace de Log Analytics. 
+>
+
 En este documento, se describe cómo configurar la comunicación con Azure Automation y Log Analytics mediante la puerta de enlace de Log Analytics cuando los equipos conectados directamente o supervisados por Operations Manager no tengan acceso a Internet.  La puerta de enlace de Log Analytics, que es un proxy de reenvío HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos a Azure Automation y Log Analytics en su nombre.  
 
 La puerta de enlace de Log Analytics admite lo siguiente:
@@ -29,7 +34,7 @@ La puerta de enlace de Log Analytics admite lo siguiente:
 * Hybrid Runbook Workers de Azure Automation  
 * Equipos Windows con Microsoft Monitoring Agent directamente conectado a un área de trabajo de Log Analytics
 * Equipos con Linux con el agente de Log Analytics para Linux conectado directamente a un área de trabajo de Log Analytics  
-* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3, Operations Manager 2016 y el grupo de administración de Operations Manager versión 1801 integrado en Log Analytics.  
+* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3, el grupo de administración de Operations Manager 2016 o posterior integrado con Log Analytics.  
 
 Si las directivas de seguridad de TI no permiten a los equipos de la red conectarse a Internet (como dispositivos de punto de venta [PDV] o servidores que admiten servicios de TI), pero necesita conectarlos a Azure Automation o Log Analytics para administrarlos y supervisarlos, se pueden configurar de forma que se comuniquen directamente con la puerta de enlace de Log Analytics para recibir la configuración y reenviar los datos en su nombre.  Si estos equipos están configurados con el agente de Log Analytics para conectarse directamente a un área de trabajo de Log Analytics, todos los equipos se comunicarán en su lugar con la puerta de enlace de Log Analytics.  La puerta de enlace transfiere los datos de los agentes al servicio directamente, sin analizar ninguno de los datos en tránsito.
 

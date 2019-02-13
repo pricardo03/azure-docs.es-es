@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167094"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814238"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -238,7 +238,7 @@ Vuelva a habilitar el programador de sincronización integrado:
 ## <a name="step-8-verify-the-result"></a>Paso 8: Comprobar el resultado
 Ahora es el momento de comprobar la configuración y habilitarla para los usuarios.
 
-1. Agregue la zona geográfica al atributo seleccionado en un usuario. La lista de geoáreas disponibles se puede encontrar en [esta tabla](#enable-synchronization-of-preferreddatalocation).  
+1. Agregue la zona geográfica al atributo seleccionado en un usuario. La lista de geoáreas disponibles se puede encontrar en esta tabla.  
 ![Captura de pantalla del atributo de AD agregado a un usuario](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Espere a que el atributo se sincronice con Azure AD.
 3. Con Exchange Online PowerShell, compruebe que la región del buzón de correo se ha configurado correctamente.  

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196283"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813252"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -36,6 +36,9 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](reference-connect-accounts-permissions.md#upgrade).
 
 Descarga | [Descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>No todas las versiones de Azure AD Connect estarán disponibles para la actualización automática. El estado de lanzamiento indicará si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, dicho servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática. Tenga en cuenta que no todas las configuraciones de Azure AD Connect son aptas para la actualización automática. Siga este vínculo para más información acerca de la [actualización automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="12700"></a>1.2.70.0
 

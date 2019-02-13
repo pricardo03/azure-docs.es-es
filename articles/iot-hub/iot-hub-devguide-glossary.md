@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320097"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817394"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -82,7 +82,7 @@ Las cadenas de conexión se usan en el código de aplicación a fin de encapsula
 Puede crear [puntos de conexión](iot-hub-devguide-endpoints.md) personalizados en una instancia de IoT Hub para enviar mensajes que distribuye una [regla de enrutamiento](#routing-rules). Los puntos de conexión personalizados se conectan directamente con una instancia de Event Hubs, una cola de Service Bus o un tema de Service Bus.
 
 ## <a name="custom-gateway"></a>Puerta de enlace personalizada
-Una puerta de enlace habilita la conectividad para dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub). Puede usar [Azure IoT Edge](#azure-iot-edge) con el fin de crear puertas de enlace personalizadas que implementan lógica personalizada para controlar mensajes, conversiones de protocolo personalizadas y otros procesos del nodo perimetral.
+Una puerta de enlace habilita la conectividad para dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub). Puede usar Azure IoT Edge con el fin de crear puertas de enlace personalizadas que implementan lógica personalizada para controlar mensajes, conversiones de protocolo personalizadas y otros procesos del nodo perimetral.
 
 ## <a name="data-point-message"></a>Mensaje de punto de datos
 Un mensaje de punto de datos es un mensaje [del dispositivo a la nube](#device-to-cloud) que contiene datos de [telemetría](#telemetry), como la velocidad del viento o la temperatura.
@@ -224,7 +224,7 @@ Una directiva de reintentos se utiliza para controlar los [errores transitorios]
 Configure [reglas de enrutamiento](iot-hub-devguide-messages-read-custom.md) en su instancia de IoT Hub para enrutar mensajes del dispositivo a la nube a un [punto de conexión integrado](#built-in-endpoints) o a [puntos de conexión personalizados](#custom-endpoints) para que los procese el back-end de su solución.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
-SASL PLAIN es un protocolo que el protocolo [AMQP](#advanced-message-queue-protocol) utiliza para transferir tokens de seguridad.
+SASL PLAIN es un protocolo que el protocolo AMQP utiliza para transferir tokens de seguridad.
 
 ## <a name="service-rest-api"></a>API de REST de servicio
 Puede usar la [API REST de servicio](https://docs.microsoft.com/rest/api/iothub/service) en el back-end de la solución para administrar sus dispositivos. La API le permite recuperar y actualizar las propiedades del [dispositivo gemelo](#device-twin), invocar [métodos directos](#direct-method) y programar [trabajos](#job). Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
@@ -251,7 +251,7 @@ En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las
 En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las etiquetas son metadatos de dispositivos almacenados y recuperados por el back-end de solución en forma de documento JSON. Las etiquetas no son visibles para las aplicaciones en un dispositivo.
 
 ## <a name="telemetry"></a>Telemetría
-Los dispositivos recopilan datos de telemetría, como la velocidad del viento o la temperatura, y usan [mensajes de punto de datos](#data-point-messages) para enviar la telemetría a un centro de IoT.
+Los dispositivos recopilan datos de telemetría, como la velocidad del viento o la temperatura, y usan mensajes de punto de datos para enviar la telemetría a un centro de IoT.
 
 ## <a name="token-service"></a>Servicio de token
 Se puede utilizar un servicio de token a fin de implementar un mecanismo de autenticación para los dispositivos. Usa una [directiva de acceso compartido](#shared-access-policy) de IoT Hub con permisos **DeviceConnect** para crear *tokens centrados en el dispositivo*. Estos tokens permiten que un dispositivo se conecte al centro de IoT. Un dispositivo utiliza un mecanismo de autenticación personalizado para autenticarse con el servicio de token. Si el dispositivo se autentica correctamente, el servicio de token emite un token de SAS para que el dispositivo pueda tener acceso al centro de IoT.

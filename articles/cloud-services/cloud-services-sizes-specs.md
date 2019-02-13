@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095576"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818709"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -195,7 +195,7 @@ Además de una potencia de CPU notable, la serie H ofrece varias opciones para l
 ## <a name="configure-sizes-for-cloud-services"></a>Configuración de tamaños para Cloud Services
 Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
 
-Este es un ejemplo de cómo establecer el tamaño del rol como [Standard_D2](#general-purpose-d) para una instancia de rol web:
+Este es un ejemplo de cómo establecer el tamaño del rol como Standard_D2 para una instancia de rol web:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

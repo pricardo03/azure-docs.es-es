@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320802"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751980"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
 
@@ -142,11 +142,11 @@ La siguiente parte del conjunto de aptitudes es una matriz de aptitudes. Cada ap
 
 ## <a name="add-predefined-skills"></a>Incorporación de aptitudes predefinidas
 
-Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de entidades con nombre](cognitive-search-skill-named-entity-recognition.md) predefinida:
+Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) predefinida:
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Echemos un vistazo a la primera aptitud, que es la [aptitud de reconocimiento de
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Recupere la estructura del enriquecedor de Entity Search de Bing personalizado:
     }
 ```
 
-Esta definición es una aptitud personalizada que llama a una API web como parte del proceso de enriquecimiento. Para cada organización identificada por el reconocimiento de entidades con nombre, esta aptitud llama a una API web para encontrar la descripción de dicha organización. La orquestación de cuándo llamar a la API web y cómo pasar la información recibida se controla internamente mediante el motor de enriquecimiento. Sin embargo, se debe proporcionar la inicialización necesaria para llamar a esta API personalizada en JSON (por ejemplo, el identificador uri, httpHeaders y las entradas esperadas). Para obtener instrucciones para crear una API web personalizada para la canalización de enriquecimiento, consulte [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz personalizada).
+Esta definición es una [aptitud personalizada](cognitive-search-custom-skill-web-api.md) que llama a una API web como parte del proceso de enriquecimiento. Para cada organización identificada por el reconocimiento de entidades con nombre, esta aptitud llama a una API web para encontrar la descripción de dicha organización. La orquestación de cuándo llamar a la API web y cómo pasar la información recibida se controla internamente mediante el motor de enriquecimiento. Sin embargo, se debe proporcionar la inicialización necesaria para llamar a esta API personalizada en JSON (por ejemplo, el identificador uri, httpHeaders y las entradas esperadas). Para obtener instrucciones para crear una API web personalizada para la canalización de enriquecimiento, consulte [How to define a custom interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz personalizada).
 
 Tenga en cuenta que el campo "context" está establecido en ```"/document/organizations/*"``` con un asterisco, lo que significa que se llama al paso de enriquecimiento *para cada* organización bajo ```"/document/organizations"```. 
 

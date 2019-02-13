@@ -1,25 +1,24 @@
 ---
-title: Permisos de roles de administrador en Azure Active Directory | Microsoft Docs
+title: Descripciones y permisos del rol de administrador en Azure Active Directory | Microsoft Docs
 description: Un rol de administrador puede agregar usuarios, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario o administrar dominios.
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
+search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 16f238114b56bd4e13358de34dfb33d93dbb1890
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6fc85bd96294650eb2bbf9495642851ade7c7868
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301295"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731519"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -40,6 +39,20 @@ Los roles de administrador disponibles son los siguientes:
   <b>Importante</b>: Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a Azure Active Directory, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles en Azure AD. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones, se le concede la capacidad de suplantar la identidad de la aplicación.
 
 * **[Desarrollador de aplicaciones](#application-developer)**: los usuarios con este rol pueden crear registros de aplicaciones cuando la opción "Los usuarios pueden registrar aplicaciones" está establecida en No. Esta función también permite a los miembros dar su consentimiento en su propio nombre cuando la opción "Los usuarios pueden permitir que las aplicaciones accedan a los datos de la compañía en su nombre" está establecida en No. Los miembros de este rol se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
+
+* **[Administrador de autenticación](#authentication-administrator)**: Los usuarios con este rol pueden ver la información de método de autenticación actual y establecer o restablecer las credenciales que no sean contraseñas. Los administradores de autenticación pueden forzar que los usuarios vuelvan a registrase con una credencial existente distinta de contraseña (p. ej., MFA, FIDO) y revocar "recordar MFA en el dispositivo", por lo que se solicitará la MFA en el siguiente inicio de sesión de todos los usuarios que no sean administradores o miembros de los siguientes roles:
+  * Administrador de autenticación
+  * Lectores de directorios
+  * Invitador de usuarios
+  * Lector del Centro de mensajes
+  * Lector de informes
+  
+  <b>Importante</b>: Los usuarios con este rol pueden cambiar las credenciales de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar las credenciales de un usuario puede significar la capacidad de asumir la identidad y los permisos de ese usuario. Por ejemplo: 
+  * Propietarios de registro de la aplicación y la aplicación de empresa, que pueden administrar las credenciales de las aplicaciones que poseen. Esas aplicaciones pueden tener permisos con privilegios en Azure AD y en otra parte que no se hayan concedido a los administradores de autenticación. Mediante esta ruta de acceso, un administrador de autenticación puede ser capaz de asumir la identidad del propietario de la aplicación y después asumir la identidad de una aplicación con privilegios mediante la actualización de las credenciales de la aplicación.
+  * Propietarios de suscripción de Azure, que pueden tener acceso a información confidencial o privada o configuración crítica en Azure.
+  * Propietarios del grupo de seguridad y el grupo de Office 365, que pueden administrar la pertenencia a grupos. Dichos grupos pueden conceder acceso a información confidencial o privada o a configuración crítica en Azure AD y en cualquier otra parte.
+  * Los administradores de otros servicios fuera de Azure AD, como Exchange Online, Office Security y Compliance Center y sistemas de recursos humanos.
+  * Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
 
 * **[Administrador de facturación](#billing-administrator)**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
 
@@ -275,6 +288,19 @@ Puede crear registros de aplicación independientemente de la opción de configu
 | microsoft.aad.directory/appRoleAssignments/createAsOwner | Crea el elemento AppRoleAssignments en Azure Active Directory. El creador se agrega como primer propietario y el objeto creado cuenta en la cuota de 250 objetos que crea. |
 | microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | Crea el elemento oAuth2PermissionGrants en Azure Active Directory. El creador se agrega como primer propietario y el objeto creado cuenta en la cuota de 250 objetos que crea. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Crea elementos sevicePrincipals en Azure Active Directory. El creador se agrega como primer propietario y el objeto creado cuenta en la cuota de 250 objetos que crea. |
+
+### <a name="authentication-administrator"></a>Administrador de autenticación
+Puede ver, configurar y restablecer la información de los métodos de autenticación de cualquier usuario que no sea administrador.
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalida todos los tokens de actualización de usuario en Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | Actualizar las propiedades de autenticación sólida, como la información de las credenciales de MFA. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 
 ### <a name="billing-administrator"></a>Administrador de facturación
 Puede realizar tareas comunes relacionadas con la facturación como actualizar la información de pago.

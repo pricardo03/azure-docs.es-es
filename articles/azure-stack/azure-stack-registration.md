@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247398"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817264"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -142,7 +142,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando [descargó las herramientas de Azure Stack](#bkmk_tools). Importe el módulo **RegisterWithAzure.psm1** mediante PowerShell:
+5. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando descargó las herramientas de Azure Stack. Importe el módulo **RegisterWithAzure.psm1** mediante PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -206,7 +206,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando [descargó las herramientas de Azure Stack](#bkmk_tools). Importe el módulo **RegisterWithAzure.psm1** mediante PowerShell:
+5. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando descargó las herramientas de Azure Stack. Importe el módulo **RegisterWithAzure.psm1** mediante PowerShell:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registro desconectado con la facturación por capacidad
 
-Si va a registrar Azure Stack en un entorno desconectado (sin conexión a Internet), tendrá que obtener un token de registro del entorno de Azure Stack y, después, utilizarlo en un equipo que puede conectarse a Azure y que tenga [PowerShell para Azure Stack instalado](#bkmk_powershell).  
+Si va a registrar Azure Stack en un entorno desconectado (sin conexión a Internet), tendrá que obtener un token de registro del entorno de Azure Stack y, después, utilizarlo en un equipo que puede conectarse a Azure y que tenga PowerShell para Azure Stack instalado.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obtención de un token de registro del entorno de Azure Stack
 
-1. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando [descargó las herramientas de Azure Stack](#bkmk_tools). Importe el módulo **RegisterWithAzure.psm1**:  
+1. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando descargó las herramientas de Azure Stack. Importe el módulo **RegisterWithAzure.psm1**:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1

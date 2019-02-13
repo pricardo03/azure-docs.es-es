@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538609"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564211"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migración de una base de datos de PostgreSQL mediante volcado y restauración
 Puede usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extraer una base de datos de PostgreSQL a un archivo de volcado y [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar la base de datos de PostgreSQL desde un archivo de almacenamiento creado por pg_dump.
@@ -69,7 +69,9 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
 
 ### <a name="for-the-restore"></a>Para la restauración
 - Se sugiere mover el archivo de copia de seguridad a una máquina virtual de Azure de la misma región que el servidor de Azure Database for PostgreSQL al que se está migrando y ejecutar pg_restore desde esa máquina virtual para reducir la latencia de red. También se recomienda crear la máquina virtual con [redes aceleradas](../virtual-network/create-vm-accelerated-networking-powershell.md) habilitadas.
+
 - Ya debería estar así de forma predeterminada, pero abra el archivo de volcado para comprobar que las instrucciones de creación de índice están después de la inserción de los datos. Si no es así, mueva las instrucciones de creación de índice una vez insertados los datos.
+
 - Restaure con los modificadores -Fc y -j *#* a fin de ejecutar la restauración en paralelo. *#* es el número de núcleos en el servidor de destino. También puede probar con *#* establecido en dos veces el número de núcleos del servidor de destino para ver el impacto. Por ejemplo: 
 
     ```
@@ -77,6 +79,13 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
     ```
 
 - También puede editar el archivo de volcado si agrega el comando *set synchronous_commit = off;* al principio y el comando *set synchronous_commit = on;* al final. No activarlo al final, antes de que las aplicaciones cambien los datos, podría provocar la consiguiente pérdida de datos.
+
+- En el servidor Azure Database for PostgreSQL de destino, considere la posibilidad de hacer lo siguiente antes de la restauración:
+    - Desactive el seguimiento del rendimiento de las consultas, ya que estas estadísticas no son necesarios durante la migración. Para ello, puede establecer pg_stat_statements.track pg_qs.query_capture_mode y pgms_wait_sampling.query_capture_mode en NONE.
+
+    - Use una sku de memoria alta y proceso elevado, como 32 núcleos virtuales con optimización para memoria, para acelerar la migración. Puede escalar fácilmente su sku preferida una vez completada la restauración. Cuanto mayor sea la sku, mayor paralelismo puede lograr mediante el aumento del parámetro `-j` correspondiente en el comando pg_restore. 
+
+    - Si se aumenta la cantidad de IOPS en el servidor de destino, podría mejorar el rendimiento de la restauración. Puede aprovisionar más IOPS si aumenta el tamaño de almacenamiento del servidor. Esta configuración no es reversible, pero tenga en cuenta si una IOPS mayor beneficiaría la carga de trabajo real en el futuro.
 
 No olvide probar y validar estos comandos en un entorno de prueba antes de usarlos en producción.
 

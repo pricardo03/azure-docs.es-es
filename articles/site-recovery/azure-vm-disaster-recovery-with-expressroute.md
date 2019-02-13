@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228294"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821956"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -190,7 +190,7 @@ En el caso de una topología sencilla que use un único circuito ExpressRoute, c
 ### <a name="example-steps"></a>Pasos de ejemplo
 Para automatizar la recuperación en este ejemplo, debe hacer lo siguiente:
 
-1. Siga los pasos para [configurar la replicación](#azure-vm-replication-steps).
+1. Siga los pasos para configurar la replicación.
 2. [Conmute por error las máquinas virtuales de Azure](azure-to-azure-tutorial-failover-failback.md) con estos pasos adicionales durante o después de la conmutación por error.
 
      a. Cree la puerta de enlace de Azure ExpressRoute en la red virtual de concentrador de la región de destino. Esto es necesario para conectar la red virtual de concentrador de destino al circuito ExpressRoute.

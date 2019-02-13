@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492862"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822551"
 ---
 # <a name="disaster-recovery-principles"></a>Principios de la recuperación ante desastres
 
@@ -48,7 +48,7 @@ En casos donde se use la replicación del sistema de HANA como característica d
 
 
 >[!NOTE]
->La funcionalidad de replicación del almacenamiento de HANA (instancias grandes) crea reflejos y réplicas de las instantáneas de almacenamiento. Si no realiza instantáneas de almacenamiento como se indicó en la sección [Copia de seguridad y restauración](#backup-and-restore) de este artículo, no puede haber ninguna replicación en el sitio de recuperación ante desastres. La ejecución de la instantánea de almacenamiento es un requisito previo para la replicación del almacenamiento en el sitio de recuperación ante desastres.
+>La funcionalidad de replicación del almacenamiento de HANA (instancias grandes) crea reflejos y réplicas de las instantáneas de almacenamiento. Si no realiza instantáneas de almacenamiento como se indicó en la sección Copia de seguridad y restauración de este artículo, no puede haber ninguna replicación en el sitio de recuperación ante desastres. La ejecución de la instantánea de almacenamiento es un requisito previo para la replicación del almacenamiento en el sitio de recuperación ante desastres.
 
 
 
@@ -81,7 +81,7 @@ A continuación, configure o ajuste la programación de copia de seguridad de in
 - En cuanto al volumen de la copia de seguridad del registro de transacciones (tipo de instantánea **logs**), establezca que se replique cada 3 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
 
 Para minimizar el objetivo de punto de recuperación, configure lo siguiente:
-- Realice una instantánea de almacenamiento de tipo **hana** (consulte el "Paso 7: Realizar instantáneas") entre cada treinta minutos y una hora.
+- Realice una instantánea de almacenamiento de tipo **hana** (consulte "Paso 7: Realizar instantáneas") cada 30 minutos a 1 hora.
 - Realice copias de seguridad del registro de transacciones de SAP HANA cada 5 minutos.
 - Realice una instantánea de almacenamiento de tipo **logs** entre cada cinco o quince minutos. Con este período, se logra un RPO de entre 15 y 25 minutos.
 

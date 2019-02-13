@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 10/23/2018
+ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945933"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566302"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
 
 Tanto Azure [SQL Database](sql-database-technical-overview.md) como [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten puntos de conexión de servicio virtual.
 
@@ -31,7 +31,7 @@ En este artículo se proporciona y se describe un script de PowerShell que reali
 1. Crea un *punto de conexión de servicio virtual* de Microsoft Azure en la subred.
 2. Agrega el punto de conexión al firewall de su servidor de Azure SQL Database para crear una *regla de red virtual*.
 
-Sus motivaciones para crear una regla se explican en: [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r] (Puntos de conexión del servicio vitual para Azure SQL Database).
+Sus motivaciones para crear una regla se explican en: [Disponibilidad general de los puntos de conexión de servicio de red virtual para Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Si todo lo que necesita es evaluar o agregar el punto de conexión del servicio virtual *nombre de tipo* para SQL Database a la subred, puede ir directamente a nuestro [script de PowerShell más directo](#a-verify-subnet-is-endpoint-ps-100).
@@ -44,9 +44,9 @@ En la lista siguiente se muestra la secuencia de otros cmdlets *principales* que
 
 1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): crea un objeto de subred.
 2. [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): crea su red virtual y le proporciona la subred.
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): asigna un punto de conexión de servicio virtual a la subred.
-4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): conserva las actualizaciones realizadas en su red virtual.
-5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): una vez que su subred sea un punto de conexión, agrega la subred como una regla de red virtual en la ACL de su servidor de Azure SQL Database.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): asigna un punto de conexión de servicio de red virtual a la subred.
+4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): conserva las actualizaciones realizadas en la red virtual.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): una vez que la subred sea un punto de conexión, agrega la subred como una regla de red virtual en la ACL de su servidor de Azure SQL Database.
    - Este cmdlet ofrece el parámetro **-IgnoreMissingVnetServiceEndpoint**, a partir del módulo de Azure RM PowerShell versión 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Requisitos previos para ejecutar PowerShell
@@ -112,7 +112,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>Script 2: requisitos previos
+### <a name="script-2-prerequisites"></a>Script 2: Requisitos previos
 
 Este script se prepara para el siguiente script, donde se encuentra la acción del punto de conexión. Este script crea automáticamente los siguientes elementos de lista, pero solo si aún no existen. Puede omitir el script 2 si está seguro de que estos elementos ya existen:
 
@@ -203,7 +203,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: crear un punto de conexión y una regla
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Creación de un punto de conexión y una regla
 
 Este script crea una red virtual con una subred. A continuación, el script asigna el tipo de punto de conexión **Microsoft.Sql** a la subred. Por último, el script agrega su subred a la lista de control de acceso (ACL) de su servidor SQL Database, de modo que crea una regla.
 
@@ -289,7 +289,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>Script 4: limpieza
+## <a name="script-4-clean-up"></a>Script 4: Limpieza
 
 Este script final elimina los recursos que crearon los scripts anteriores para la demostración. Sin embargo, el script pide confirmación antes de eliminar lo siguiente:
 

@@ -11,36 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/22/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4c1b1b376493c77ae0f197d800ee0d00434b19c6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828458"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752116"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
-
->[!NOTE]
->El sistema operativo invitado de enero se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de enero. Esta lista está sujeta a cambios.
 
 ## <a name="january-2019-guest-os"></a>SO invitado de enero de 2019
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
+| Versión 19-01 | [4480116] | Seguridad de Windows 10 | 6.3 | 8 de enero de 2019 |
 | Versión 19-01 | [4480961] | Seguridad de Windows 10 | 5.27 | 8 de enero de 2019 |
 | Versión 19-01 | [4480964] | Seguridad de Windows | 4.62 | 8 de enero de 2019 |
 | Versión 19-01 | [4480972] | Seguridad de Windows | 3.69 | 8 de enero de 2019 |
 | Versión 19-01 | [4480960] | Seguridad de Windows | 2.82 | 8 de enero de 2019 |
+| Versión 19-01 | [4480056] | Seguridad de .NET | 6.3 | 8 de enero de 2019 |
 | Versión 19-01 | [4480074] | Seguridad de .NET 4.x | 4.62 | 8 de enero de 2019 |
 | Versión 19-01 | [4480075] | Seguridad de .NET 4.x | 3.69 | 8 de enero de 2019 |
 | Versión 19-01 | [4480076] | Seguridad de .NET 4.x | 2.82 | 8 de enero de 2019 |
 | Versión 19-01 | [4480086] | Seguridad de .NET 3.x | 4.62 | 8 de enero de 2019 |
 | Versión 19-01 | [4480083] | Seguridad de .NET 3.x | 3.69 | 8 de enero de 2019 |
 | Versión 19-01 | [4480085] | Seguridad de .NET 3.x | 2.82 | 8 de enero de 2019 |
-| Versión 19-01 | [4480979] | Intermitente | 3.69, 4.62, 5.27 | 8 de enero de 2019 |
+| Versión 19-01 | [4480979] | Intermitente | 3.69, 4.62, 5.27, 6.3 | 8 de enero de 2019 |
 | Versión 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de enero de 2019 |
 | N/D | [4471318] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre | 2.82 | 11 de diciembre de 2018 |
 | N/D | [4470641] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre para .NET 3.x | 2.82 | 11 de diciembre de 2018 |
@@ -52,10 +51,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4470630] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre para .NET 3.x | 4.62 | 11 de diciembre de 2018 |
 | N/D | [4470622] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de diciembre para .NET 4.x | 4.62 | 11 de diciembre de 2018 |
 
+[4480116]: http://support.microsoft.com/kb/4480116
 [4480961]: http://support.microsoft.com/kb/4480961
 [4480964]: http://support.microsoft.com/kb/4480964
 [4480972]: http://support.microsoft.com/kb/4480972
 [4480960]: http://support.microsoft.com/kb/4480960
+[4480056]: http://support.microsoft.com/kb/4480056
 [4480074]: http://support.microsoft.com/kb/4480074
 [4480075]: http://support.microsoft.com/kb/4480075
 [4480076]: http://support.microsoft.com/kb/4480076

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241651"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816108"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
@@ -38,6 +38,9 @@ Cada solución de Azure Stack se suministra con un host de ciclo de vida de hard
 En el siguiente diagrama se muestra el flujo de tráfico entre un sistema integrado de Azure Stack, el host de ciclo de vida de hardware, una solución de supervisión externa y un sistema externo de recopilación de datos y vales.
 
 ![Diagrama que muestra el tráfico entre Azure Stack y las soluciones de vales y de supervisión.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> No se permite la integración de supervisión externa directamente con servidores físicos y dispositivos de red y la bloquean activamente las listas de control de acceso (ACL). 
 
 En este artículo se explica cómo integrar Azure Stack con soluciones de supervisión externas, como System Center Operations Manager y Nagios. También se incluye cómo trabajar con alertas mediante programación con PowerShell o a través de llamadas a la API de REST.
 

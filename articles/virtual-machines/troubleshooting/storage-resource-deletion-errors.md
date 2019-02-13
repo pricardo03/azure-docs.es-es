@@ -11,29 +11,29 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748041"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816193"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento
 
 En ciertos escenarios, puede encontrarse alguno de los errores siguientes al intentar eliminar una cuenta de almacenamiento, un contenedor o un blob de Azure en una implementación de Azure Resource Manager:
 
->**No se pudo eliminar la cuenta de almacenamiento 'nombreCuentaDeAlmacenamiento'. Error: La cuenta de almacenamiento no se puede eliminar porque sus artefactos están en uso.**
+>**No se pudo eliminar la cuenta de almacenamiento 'nombreCuentaDeAlmacenamiento'. Error: La cuenta de almacenamiento no se puede eliminar ya que sus artefactos están en uso.**
 
->**No se pudo eliminar # de # contenedores:<br>vhds: Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud.**
+>**No se pudieron eliminar # de # contenedores:<br>vhds: Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud.**
 
->**No se pudo eliminar # de # blobs:<br>BlobName.vhd: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
+>**No se pudieron eliminar # de # blobs:<br>BlobName.vhd: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
 
 Los discos duros virtuales usados en las máquinas virtuales de Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para más información acerca de los discos de Azure, consulte el artículo de información [acerca del almacenamiento de discos administrados y no administrados para las máquinas virtuales Microsoft Linux de Azure](../linux/about-disks-and-vhds.md). 
 
 Azure impide la eliminación de un disco que esté asociado a una máquina virtual para evitar daños. También impide la eliminación de contenedores y cuentas de almacenamiento que tengan un blob en páginas que esté asociado a una máquina virtual. 
 
 El proceso para eliminar una cuenta de almacenamiento, un contenedor o un blob cuando se recibe uno de estos errores es el siguiente: 
-1. [Identificar los blobs asociados a una máquina virtual](#step-1-identify-blobs-attached-to-a-vm)
+1. Identificar los blobs asociados a una máquina virtual
 2. [Eliminar las máquinas virtuales con el **disco del sistema operativo**](#step-2-delete-vm-to-detach-os-disk) asociado
 3. [Desasociar todos los **discos de datos** del resto de máquinas virtuales](#step-3-detach-data-disk-from-the-vm)
 
@@ -53,7 +53,7 @@ Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob u
 
      ![Captura de pantalla del portal, con el panel "Metadatos de blob" de almacenamiento abierto](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
-6. Si el tipo de disco de blob es **OSDisk**, siga el [Paso 2: Eliminación de una máquina virtual para desasociar el disco del sistema operativo](#step-2-delete-vm-to-detach-os-disk). En caso contrario, si el tipo de disco de blob es **DataDisk**, siga los pasos del [Paso 3: Desasociación del disco de datos de la máquina virtual](#step-3-detach-data-disk-from-the-vm). 
+6. Si el tipo de disco de blob es **OSDisk**, siga el [Paso 2: Eliminación de la máquina virtual para desasociar el disco del sistema operativo](#step-2-delete-vm-to-detach-os-disk). En caso contrario, si el tipo de disco de blob es **DataDisk**, siga los pasos del [Paso 3: Desasociación del disco de datos de la máquina virtual](#step-3-detach-data-disk-from-the-vm). 
 
 > [!IMPORTANT]
 > Si **MicrosoftAzureCompute_VMName** y **MicrosoftAzureCompute_DiskType** no aparecen en los metadatos de blob, indica que el blob se ha concedido explícitamente y no está asociado a una máquina virtual. Los blobs concedidos no se pueden eliminar sin romper primero la concesión. Para interrumpir la concesión, haga clic con el botón derecho en el blob y seleccione **Interrumpir concesión**. Los blobs concedidos que no están asociados a una máquina virtual impiden la eliminación del blob pero no impiden la eliminación del contenedor o de la cuenta de almacenamiento.
@@ -61,7 +61,7 @@ Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob u
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Escenario 2: Eliminación de un contenedor: identificación de todos los blobs de un contenedor que están asociados a máquinas virtuales
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento, en **Blob service** seleccione **Contenedores** y busque el contenedor que se va a eliminar.
-3. Haga clic para abrir el contenedor y se mostrará la lista de blobs que contiene. Identifique todos los blobs con Tipo de blob = **Blob en páginas** y Estado de concesión = **Concedido** de esta lista. Siga el [Escenario 1](#step-1-identify-blobs-attached-to-a-vm) para identificar la máquina virtual asociada a cada uno de estos blobs.
+3. Haga clic para abrir el contenedor y se mostrará la lista de blobs que contiene. Identifique todos los blobs con Tipo de blob = **Blob en páginas** y Estado de concesión = **Concedido** de esta lista. Siga el Escenario 1 para identificar la máquina virtual asociada a cada uno de estos blobs.
 
     ![Captura de pantalla del portal, con los blobs de la cuenta de almacenamiento y "Estado de concesión" con "Concedido" resaltado](./media/troubleshoot-vhds/utd-disks-sm.png)
 

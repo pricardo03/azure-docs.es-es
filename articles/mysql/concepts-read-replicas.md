@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903764"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493055"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -86,6 +86,7 @@ Los usuarios del servidor principal se replican en las réplicas de lectura. Sol
 - No permite crear réplicas de réplicas.
 - Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MySQL. Puede obtener más información en la [documentación de referencia de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
 - El hecho de ajustar el parámetro [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) en un servidor maestro después de crear un servidor de réplica puede provocar que la réplica deje de sincronizarse. El servidor de réplica no tiene presente los espacios de tablas diferentes.
+- Asegúrese de que las tablas del servidor maestro tienen claves principales. La falta de claves principales puede generar una latencia de replicación entre la tabla principal y la réplica.
 - Consulte la lista completa de las limitaciones de la replicación de MySQL en la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186130"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819865"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -55,7 +55,7 @@ Utilice la siguiente información para instalar y configurar la solución.
 
  Para configurar la evaluación a través de la consola del operador de Operations Manager, realice los pasos siguientes por orden:
 1. [Establecimiento de la cuenta de ejecución de System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Configuración de la regla de System Center Operations Manager Health Check](#configure-the-assessment-rule)
+2. Configuración de la regla de System Center Operations Manager Health Check
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Información detallada sobre la recopilación de datos de Evaluación de System Center Operations Manager
 

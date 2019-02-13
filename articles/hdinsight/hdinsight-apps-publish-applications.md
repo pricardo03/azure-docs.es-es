@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653924"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814213"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
 Puede instalar una aplicación de Azure HDInsight en un clúster de HDInsight basado en Linux. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace. Para obtener información general sobre cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -75,9 +75,9 @@ El script de instalación debe tener las siguientes características:
 * Si el script inicia servicios en los nodos, los servicios se supervisan y configuran para iniciarse automáticamente si se produce el reinicio de un nodo.
 
 ## <a name="package-the-application"></a>Empaquetado de la aplicación
-Cree un archivo .zip que contenga todos los archivos que son necesarios para instalar su aplicación de HDInsight. Usará el archivo .zip para [publicar la aplicación](#publish-application). Este archivo incluye los siguientes archivos:
+Cree un archivo .zip que contenga todos los archivos que son necesarios para instalar su aplicación de HDInsight. Usará el archivo .zip para publicar la aplicación. Este archivo incluye los siguientes archivos:
 
-* [createUiDefinition.json](#define-application)
+* createUiDefinition.json
 * mainTemplate.json (para ver un ejemplo, consulte [Instalación de aplicaciones personalizadas de HDInsight](hdinsight-apps-install-custom-applications.md)).
 * Todos los scripts requeridos
 
@@ -94,7 +94,7 @@ Para publicar una aplicación de HDInsight:
 5. Seleccione **Define some Topologies to get Started** ///(Definir algunas topologías para comenzar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
 6. Escriba un nombre de topología y luego seleccione **+**.
 7. Escriba una nueva versión y luego seleccione  **+**.
-8. Cargue el archivo .zip que creó cuando [empaquetó la aplicación](#package-application).  
+8. Cargue el archivo .zip que creó cuando empaquetó la aplicación.  
 9. Seleccione **Request Certification** ///(Solicitar certificación). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568825"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496489"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
@@ -71,7 +71,7 @@ En Update 4, los cmdlets de Windows PowerShell se puede utilizar para consultar 
 
 Para obtener más información sobre los cmdlets de rehidratación, vaya al artículo de [referencia de cmdlet de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-Normalmente, con la rehidratación automática, se espera que el rendimiento de lectura transitorio sea superior. La magnitud real de mejoras depende de varios factores, como el patrón de acceso, la renovación de datos y el tipo de datos. 
+Normalmente, con la rehidratación automática, se espera que el rendimiento de lectura transitorio sea superior. La magnitud real de las mejoras depende de varios factores, como el patrón de acceso, la renovación de datos y el tipo de datos. 
 
 Para cancelar un trabajo de rehidratación, puede usar el cmdlet de PowerShell. Si desea desactivar permanentemente los trabajos de rehidratación para todas las restauraciones futuras, póngase en contacto con el [equipo de soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
 

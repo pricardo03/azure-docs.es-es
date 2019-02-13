@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077089"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766867"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la acción para asegurarse de que la máquina virtual cambió el tamaño correctamente
 
 ## <a name="prerequisites"></a>Requisitos previos
-Las recomendaciones están disponibles para todos los clientes con [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
+Las recomendaciones están disponibles para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
 
 - Subscription
 - Grupos de recursos
@@ -53,7 +53,7 @@ La categoría **Impacto**, junto con el **Ahorro potencial anual**, está diseñ
 
 Azure Advisor supervisa el uso de las máquinas virtuales durante 14 días e identifica aquellas infrautilizadas. Se considera que una máquina virtual tiene una utilización escasa si su uso de la CPU es del 5 % o menos y el de la red es de 7 MB o menos durante cuatro o más días.
 
-La configuración de uso de la CPU del 5 % o menos es el valor predeterminado, pero se puede ajustar. Para obtener más información sobre cómo ajustar la configuración, consulte el artículo [Recomendación de la configuración de la regla de uso promedio de CPU ](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation)[para una máquina virtual con poco uso](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation).
+La configuración de uso de la CPU del 5 % o menos es el valor predeterminado, pero se puede ajustar. Para más información sobre cómo ajustar la configuración, consulte [Recomendación de la configuración de la regla de uso promedio de CPU para una máquina virtual con poco uso](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
 Si bien determinados escenarios pueden dar lugar a un uso escaso debido al diseño, a menudo puede ahorrar dinero al cambiar el tamaño de las máquinas virtuales a otros menos costosos. Los ahorros reales pueden variar si elige una acción de cambio de tamaño. Veamos un ejemplo de cambio de tamaño de una máquina virtual.
 

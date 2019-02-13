@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11/30/2018
-ms.openlocfilehash: 1da2278eee6fcea5c013e9c2f5f4ad3e3013b590
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 01/18/2019
+ms.openlocfilehash: c7ca8100fc91fe45789d81298cb889b1794e8474
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906345"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757628"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
@@ -18,7 +18,7 @@ Pague las máquinas virtuales por adelantado y ahorre dinero con Azure Reserved 
 Puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://portal.azure.com). Para comprar una instancia:
 
 - Debe tener un rol de propietario al menos en suscripción Enterprise o de Pago por uso.
-- Para las suscripciones Enterprise, las compras de reserva deben habilitarse en el [portal de EA](https://ea.azure.com).
+- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 - En el caso del programa Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden adquirir reservas.
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinación del tamaño adecuado de una máquina virtual antes de su adquisición
@@ -31,11 +31,10 @@ Los campos Subcategoría del medidor y Producto de los datos de uso no distingue
 Las instancias reservadas de máquinas virtuales están disponibles para la mayoría de los tamaños de máquina virtual, a excepción de los siguientes:
 
 - El descuento de la reserva no se aplica en las siguientes máquinas virtuales:
-  - Servicios en la nube y máquinas virtuales clásicas
   - Series de máquina virtual: series A, Av2 o G
   - Máquinas virtuales en versión preliminar: cualquier serie o tamaño de máquina virtual que esté en versión preliminar.
 - Nubes: las reservas no están disponibles para la compra en las regiones de Alemania o China.
-- Cuota insuficiente: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una reserva para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una reserva para 10 instancias standard_D1 en esta suscripción. 
+- Cuota insuficiente: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una reserva para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una reserva para 10 instancias standard_D1 en esta suscripción.
 - Restricciones de capacidad: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas para un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Compra de una instancia reservada de máquina virtual
@@ -48,8 +47,8 @@ Las instancias reservadas de máquinas virtuales están disponibles para la mayo
     | Campo      | DESCRIPCIÓN|
     |:------------|:--------------|
     |NOMBRE        |Nombre de esta reserva.| 
-    |Subscription|Suscripción que se usa para pagar la reserva. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser un Contrato Enterprise (número de la oferta: MS-AZR-0017P) o de pago por uso (número de la oferta: MS-AZR-0003P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
-    |Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento de la reserva se aplica a las máquinas virtuales de esta suscripción. </li><li>Compartido: el descuento de la reserva se aplica a las máquinas virtuales en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes de Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones (excepto las suscripciones de desarrollo y pruebas) dentro de la inscripción. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
+    |Subscription|Suscripción que se usa para pagar la reserva. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
+    |Ámbito       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento de la reserva se aplica a las máquinas virtuales de esta suscripción. </li><li>Compartido: el descuento de la reserva se aplica a las máquinas virtuales en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
     |Region    |Región de Azure que está cubierta por la reserva.|    
     |Tamaño de VM     |Tamaño de las instancias de máquina virtual.|
     |Optimizar para     |La opción de flexibilidad del tamaño de instancia de máquina virtual aplicará el descuento por la reserva a otras máquinas virtuales del mismo [grupo](https://aka.ms/RIVMGroups). La prioridad de capacidad da preferencia a la capacidad del centro de datos para las implementaciones. Esto ofrece una mayor confianza en su capacidad para iniciar instancias de máquinas virtuales cuando las necesite. La prioridad de capacidad solo está disponible si el ámbito de la reserva es de suscripción única. |
@@ -68,7 +67,7 @@ Las instancias reservadas de máquinas virtuales están disponibles para la mayo
 
 Si necesita cancelar la reserva, podría aplicarse una tasa de terminación anticipada del 12 %. Los reembolsos se calculan conforme al precio de compra o el precio actual de la reserva, el que sea más bajo. Los reembolsos están limitados a 50 000 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para solicitar una cancelación, vaya a la hoja Reserva de Azure Portal y seleccione **Reembolso** para crear una solicitud de soporte técnico.
 
-Si necesita cambiar la reserva de las instancias de máquinas virtuales reservadas a otra región, otro grupo de tamaños de máquina virtual u otro plazo, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del plazo de la nueva reserva no se traslada desde la reserva cambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
+Si necesita cambiar la reserva de las instancias de máquinas virtuales reservadas a otra región, otro grupo de tamaños de máquina virtual u otro plazo, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
