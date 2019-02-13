@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 7f70ab407e38797aae24530ea8fa5193e4fffda1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260914"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567305"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Cómo incorporar Azure Monitor para contenedores  
 En este artículo se describe cómo configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -79,7 +79,7 @@ Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pu
 Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado bien con la CLI de Azure, desde Azure Portal o con la plantilla de Azure Resource Manager proporcionada mediante el cmdlet `New-AzureRmResourceGroupDeployment` de PowerShell. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Habilitación de la supervisión mediante la CLI de Azure
-El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El área de trabajo predeterminada creada es similar al formato de *DefaultWorkspace-<GUID>-<Region>*.  
+El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El formato del área de trabajo predeterminada creada es similar al de *DefaultWorkspace-\<GUID>-\<Region>*.  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  

@@ -6,18 +6,18 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: d8c0afa159bb8f932c42077868d5134e6486e8c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412966"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510483"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure
 
@@ -25,7 +25,7 @@ Cuando se crea una máquina virtual (VM), se reinician las detenidas (desasignad
 
 **Código de error**: AllocationFailed o ZonalAllocationFailed
 
-**Mensaje de error**: "Allocation failed. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance" (Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance")
+**Mensaje de error**: "Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance" (Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance")
 
 En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones.
 
@@ -47,7 +47,7 @@ La solicitud para cambiar el tamaño de una VM o agregarla a un conjunto de disp
 Si la VM puede formar parte de un conjunto de disponibilidad diferente, cree una VM en otro conjunto de disponibilidad (en la misma región). Esta nueva VM se puede agregar luego a la misma red virtual.
 
 Detenga (desasigne) todas las máquinas virtuales que estén en el mismo conjunto de disponibilidad y, luego, reinícielas.
-Para detenerlas: haga clic en Grupos de recursos > [su grupo de recursos] > Recursos > [su conjunto de disponibilidad] > Virtual Machines > [su máquina virtual] > Detener.
+Para detenerlas: haga clic en Grupos de recursos > [grupo de recursos] > Recursos > [conjunto de disponibilidad] > Máquinas virtuales > [máquina virtual] > Detener.
 Una vez detenidas todas las máquinas virtuales, seleccione la primera y, a continuación, haga clic en Iniciar.
 De esta forma se garantiza que hay un nuevo intento de asignación en marcha y que se puede seleccionar un nuevo clúster que tenga capacidad suficiente.
 
@@ -60,7 +60,7 @@ La desasignación parcial indica que se detuvieron (desasignaron) una o varias V
 ### <a name="workaround"></a>Solución alternativa
 
 Detenga (desasigne) todas las máquinas virtuales que estén en el mismo conjunto de disponibilidad y, luego, reinícielas.
-Para detenerlas: haga clic en Grupos de recursos > [su grupo de recursos] > Recursos > [su conjunto de disponibilidad] > Virtual Machines > [su máquina virtual] > Detener.
+Para detenerlas: haga clic en Grupos de recursos > [grupo de recursos] > Recursos > [conjunto de disponibilidad] > Máquinas virtuales > [máquina virtual] > Detener.
 Una vez detenidas todas las máquinas virtuales, seleccione la primera y, a continuación, haga clic en Iniciar.
 De esta forma se garantizará que hay un nuevo intento de asignación en marcha y que se puede seleccionar un nuevo clúster que tenga capacidad disponible.
 
@@ -81,7 +81,7 @@ Si su solicitud de asignación es grande (más de 500 núcleos), consulta las in
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errores de asignación para tamaños de VM anteriores (Av1, Dv1, DSv1, D15v2, DS15v2, etc.).
 
-A medida que ampliamos la infraestructura de Azure, implementamos hardware de nueva generación diseñado para admitir los tipos de máquina virtual más recientes. Algunas de las máquinas virtuales de serie anteriores no se ejecutan en nuestra infraestructura de última generación. Por este motivo, en ocasiones, los clientes pueden experimentar errores de asignación para estas SKU heredadas. Para evitar este problema, animamos a los clientes que usan máquinas virtuales de serie heredadas a que consideren la posibilidad de trasladarse a las máquinas virtuales más recientes equivalentes por las siguientes recomendaciones: estas máquinas virtuales están optimizadas para el hardware más reciente y le permitirán aprovechar mejores precios y rendimiento. 
+A medida que ampliamos la infraestructura de Azure, implementamos hardware de nueva generación diseñado para admitir los tipos de máquina virtual más recientes. Algunas de las máquinas virtuales de serie anteriores no se ejecutan en nuestra infraestructura de última generación. Por este motivo, en ocasiones, los clientes pueden experimentar errores de asignación para estas SKU heredadas. Para evitar este problema, animamos a los clientes que utilizan máquinas virtuales de serie heredadas a que consideren la posibilidad de migrar a las máquinas virtuales equivalentes que sean más recientes atendiendo a las recomendaciones que se indican a continuación. Estas máquinas están optimizadas para el hardware más reciente y permiten beneficiarse de una mejor relación precio/rendimiento. 
 
 |Tamaño o serie de VM heredados|Tamaño o serie de VM más recientes recomendados|Más información|
 |----------------------|----------------------------|--------------------|

@@ -11,35 +11,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 31fa2b670b6492b7496c147ef72688c3c0121fa5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429725"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700682"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Administración de acceso mediante RBAC y Azure PowerShell
 
 El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos y aplicaciones mediante el uso de RBAC y Azure PowerShell.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para gestionar el acceso, necesita una de las siguientes opciones:
 
 * [PowerShell en Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-roles"></a>Lista de roles
 
 ### <a name="list-all-available-roles"></a>Lista de todos los roles disponibles
 
-Para enumerar los roles de RBAC disponibles para asignación y para inspeccionar las operaciones a las que conceden acceso, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Para enumerar los roles de RBAC disponibles para asignación y para inspeccionar las operaciones a las que conceden acceso, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition | FT Name, Description
+Get-AzRoleDefinition | FT Name, Description
 ```
 
 ```Example
@@ -58,14 +60,14 @@ Automation Operator                               Automation Operators are able 
 
 ### <a name="list-a-specific-role"></a>Enumeración de un rol específico
 
-Para mostrar un rol específico, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Para mostrar un rol específico, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition <role name>
+Get-AzRoleDefinition <role name>
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Contributor"
+PS C:\> Get-AzRoleDefinition "Contributor"
 
 Name             : Contributor
 Id               : b24988ac-6180-42a0-ab88-20f7382dd24c
@@ -74,61 +76,68 @@ Description      : Lets you manage everything except access to resources.
 Actions          : {*}
 NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
                    Microsoft.Authorization/elevateAccess/Action}
+DataActions      : {}
+NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
 ### <a name="list-a-specific-role-in-json-format"></a>Enumeración de un rol específico en formato JSON
 
-Para mostrar un rol específico en formato JSON, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Para mostrar un rol específico en formato JSON, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role name> | ConvertTo-Json
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Contributor" | ConvertTo-Json
+PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 
 {
-    "Name":  "Contributor",
-    "Id":  "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "IsCustom":  false,
-    "Description":  "Lets you manage everything except access to resources.",
-    "Actions":  [
-                    "*"
-                ],
-    "NotActions":  [
-                       "Microsoft.Authorization/*/Delete",
-                       "Microsoft.Authorization/*/Write",
-                       "Microsoft.Authorization/elevateAccess/Action"
-                   ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Contributor",
+  "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "IsCustom": false,
+  "Description": "Lets you manage everything except access to resources.",
+  "Actions": [
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
 ### <a name="list-actions-of-a-role"></a>Lista de las acciones de un rol
 
-Para enumerar las acciones de un rol específico, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+Para enumerar las acciones de un rol específico, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzureRmRoleDefinition <role name> | FL Actions, NotActions
+Get-AzRoleDefinition <role name> | FL Actions, NotActions
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleDefinition "Contributor" | FL Actions, NotActions
+PS C:\> Get-AzRoleDefinition "Contributor" | FL Actions, NotActions
 
 Actions    : {*}
 NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-             Microsoft.Authorization/elevateAccess/Action}
+             Microsoft.Authorization/elevateAccess/Action,
+             Microsoft.Blueprint/blueprintAssignments/write...}
 ```
 
 ```azurepowershell
-(Get-AzureRmRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role name>).Actions
 ```
 
 ```Example
-PS C:\> (Get-AzureRmRoleDefinition "Virtual Machine Contributor").Actions
+PS C:\> (Get-AzRoleDefinition "Virtual Machine Contributor").Actions
 
 Microsoft.Authorization/*/read
 Microsoft.Compute/availabilitySets/*
@@ -148,14 +157,14 @@ En RBAC, para enumerar el acceso se enumeran las asignaciones de roles.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Lista de asignaciones de roles en un ámbito específico
 
-Puede ver todas las asignaciones de roles de una suscripción, un grupo de recursos o un recurso determinados. Por ejemplo, para ver todas las asignaciones activas de un grupo de recursos, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Puede ver todas las asignaciones de roles de una suscripción, un grupo de recursos o un recurso determinados. Por ejemplo, para ver todas las asignaciones activas de un grupo de recursos, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
+Get-AzRoleAssignment -ResourceGroupName <resource group name>
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleAssignment -ResourceGroupName pharma-sales-projectforecast | FL DisplayName, RoleDefinitionName, Scope
+PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales-projectforecast | FL DisplayName, RoleDefinitionName, Scope
 
 DisplayName        : Alain Charon
 RoleDefinitionName : Backup Operator
@@ -172,36 +181,36 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 
 ### <a name="list-role-assignments-for-a-user"></a>Lista de las asignaciones de rol de un usuario
 
-Para enumerar todos los roles que están asignados a un usuario específico, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Para enumerar todos los roles que están asignados a un usuario específico, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <email, userprincipalname>
+Get-AzRoleAssignment -SignInName <email, userprincipalname>
 ```
 
 ```Example
-PS C:\> Get-AzureRmRoleAssignment -SignInName isabella@example.com | FL DisplayName, RoleDefinitionName, Scope
+PS C:\> Get-AzRoleAssignment -SignInName isabella@example.com | FL DisplayName, RoleDefinitionName, Scope
 
 DisplayName        : Isabella Simonsen
 RoleDefinitionName : BizTalk Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-Para enumerar todos los roles asignados a un usuario especificado y los roles que se asignan a los grupos a los que pertenece el usuario, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Para enumerar todos los roles asignados a un usuario especificado y los roles que se asignan a los grupos a los que pertenece el usuario, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
+Get-AzRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
 ```
 
 ```Example
-Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
+Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
 ### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Enumeración de asignaciones de roles para el administrador y los coadministradores del servicio clásico
 
-Para enumerar las asignaciones de roles para el administrador y los coadministradores de una suscripción clásica, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+Para enumerar las asignaciones de roles para el administrador y los coadministradores de una suscripción clásica, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -IncludeClassicAdministrators
+Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>Conceder acceso
@@ -212,30 +221,30 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles.
 
 Para asignar un rol, debe identificar el objeto (usuario, grupo o aplicación) y el ámbito.
 
-Si no conoce el identificador de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal o bien puede utilizar [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Si no conoce el identificador de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal o bien puede utilizar [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
-Para obtener el identificador del objeto de un grupo de Azure AD, use [Get-AzureRmADGroup](/powershell/module/azurerm.resources/get-azurermadgroup):
+Para obtener el identificador del objeto de un grupo de Azure AD, use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 
 ```azurepowershell
-Get-AzureRmADGroup -SearchString <group name in quotes>
+Get-AzADGroup -SearchString <group name in quotes>
 ```
 
-Para obtener el identificador de objeto de una aplicación o entidad de servicio de Azure AD, use [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
+Para obtener el identificador de objeto de una aplicación o entidad de servicio de Azure AD, use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
 ```azurepowershell
-Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
+Get-AzADServicePrincipal -SearchString <service name in quotes>
 ```
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Creación de una asignación de roles para una aplicación en el ámbito de una suscripción
 
-Para conceder acceso a una aplicación en el ámbito de la suscripción, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Para conceder acceso a una aplicación en el ámbito de la suscripción, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
+New-AzRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
 ```
 
 ```Example
-PS C:\> New-AzureRmRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
@@ -250,14 +259,14 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Creación de una asignación de roles para un usuario en el ámbito de un grupo de recursos
 
-Para conceder acceso a un usuario en el ámbito del grupo de recursos, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Para conceder acceso a un usuario en el ámbito del grupo de recursos, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+New-AzRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 ```
 
 ```Example
-PS C:\> New-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
 
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast/pr
@@ -274,20 +283,20 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Creación de una asignación de roles para un grupo en el ámbito de un recurso
 
-Para conceder acceso a un grupo en el ámbito del recurso, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
+Para conceder acceso a un grupo en el ámbito del recurso, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
+New-AzRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 ```
 
 ```Example
-PS C:\> Get-AzureRmADGroup -SearchString "Pharma"
+PS C:\> Get-AzADGroup -SearchString "Pharma"
 
 SecurityEnabled DisplayName         Id                                   Type
 --------------- -----------         --                                   ----
            True Pharma Sales Admins aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa Group
 
-PS C:\> New-AzureRmRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName RobertVirtualNetworkResourceGroup
+PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName RobertVirtualNetworkResourceGroup
 
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
                      /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork/providers/Microsoft.Authorizat
@@ -305,14 +314,14 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Quitar acceso
 
-En RBAC, para quitar el acceso, es preciso quitar una asignación de roles mediante [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+En RBAC, para quitar el acceso, es preciso quitar una asignación de roles mediante [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 ```azurepowershell
-Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
+Remove-AzRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 ```
 
 ```Example
-PS C:\> Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

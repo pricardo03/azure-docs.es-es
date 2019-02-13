@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 2/5/2018
 ms.custom: seodec18
-ms.openlocfilehash: 608cc7a9e7c3b09c4b033397cbae6ac68e0a503a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9ce8484151d59eef50efe1ad0598f736752eb03e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478447"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746694"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Linux 
 
@@ -55,7 +55,7 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encrypti
      ```
 
     >[!NOTE]
-    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> </br>
+    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
 La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 - **Comprobar que los discos están cifrados:** para comprobar el estado de cifrado de una máquina virtual IaaS, use el comando [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). 
@@ -98,7 +98,6 @@ Use el cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
-
      ```
 
     >[!NOTE]
@@ -130,7 +129,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | vmName | Nombre de la máquina virtual para ejecutar la operación de cifrado. |
-| keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` o el comando de la CLI de Azure "az keyvault list --resource-group "MySecureGroup". |ConvertFrom-JSON`|
+| keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`.|
 | keyVaultResourceGroup | Nombre del grupo de recursos que contiene el almacén de claves|
 |  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_. |
 | volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
@@ -170,8 +169,11 @@ Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-en
 -  **Cifrado de un conjunto de escalado de máquinas virtuales en ejecución con KEK para ajustar la clave**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
-
      ```
+
+    >[!NOTE]
+    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
 - **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show).
 
     ```azurecli-interactive
@@ -222,10 +224,14 @@ Use el cmdlet [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurer
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
-- **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** use el cmdlet [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption).
+    >[!NOTE]
+    > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
+- **Obtener el estado de cifrado para un conjunto de máquinas virtuales**: use el cmdlet [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption).
     
     ```powershell
     get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"

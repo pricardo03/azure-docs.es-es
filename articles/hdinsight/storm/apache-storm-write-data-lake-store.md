@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819168"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Escritura en HDFS de Apache Hadoop desde Apache Storm en HDInsight
 
@@ -45,7 +45,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Cómo usar HdfsBolt con HDInsight
 
 > [!IMPORTANT]  
-> Antes de usar HdfsBolt con Storm en HDInsight, debe usar una acción de script para copiar los archivos .jar necesarios en `extpath` para Storm. Para obtener más información, consulte la sección [Configuración del clúster](#configure).
+> Antes de usar HdfsBolt con Storm en HDInsight, debe usar una acción de script para copiar los archivos .jar necesarios en `extpath` para Storm. Para obtener más información, consulte la sección Configuración del clúster.
 
 HdfsBolt usa el esquema de archivo que usted proporcione para comprender cómo escribir datos en HDFS. Con HDInsight, use uno de los siguientes esquemas:
 

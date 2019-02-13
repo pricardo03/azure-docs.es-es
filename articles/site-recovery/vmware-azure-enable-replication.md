@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226340"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822789"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -56,7 +56,7 @@ Al replicar máquinas virtuales de VMware:
     >   * Puede seleccionar una cuenta de almacenamiento Estándar o Premium. Si selecciona una cuenta Premium, debe especificar una cuenta de almacenamiento Estándar adicional para los registros de replicación en curso. Las cuentas deben estar en la misma región que el almacén de Recovery Services.
     >   * Si desea utilizar una cuenta de almacenamiento diferente de las que tiene, puede [crear una](../storage/common/storage-create-storage-account.md). Para crear una cuenta de almacenamiento mediante Resource Manager, haga clic en **Crear nueva**. 
 
-8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe [crear una](#set-up-an-azure-network). Para crear una red mediante Resource Manager, haga clic en **Crear nueva**. Seleccione una subred si es posible y después haga clic en **Aceptar**.
+8. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se pongan en marcha después de la conmutación por error. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina. Si no dispone de una red, debe crear una. Para crear una red mediante Resource Manager, haga clic en **Crear nueva**. Seleccione una subred si es posible y después haga clic en **Aceptar**.
 
     ![Habilitar replicación - Configuración de destino](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, seleccione cada máquina que desea replicar. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. A continuación, haga clic en **Aceptar**. Si no puede ver o seleccionar cualquier máquina virtual en concreto, haga clic en [aquí](https://aka.ms/doc-plugin-VM-not-showing) para resolver el problema.

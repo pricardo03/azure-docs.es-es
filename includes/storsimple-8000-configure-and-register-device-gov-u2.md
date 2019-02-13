@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166432"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736192"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50166432"
 11. Por motivos de seguridad, la contraseña del administrador del dispositivo expira después de la primera sesión y deberá cambiarla ahora. Cuando se le solicite, proporcione una contraseña de administrador del dispositivo. Una contraseña de administrador del dispositivo válida debe tener entre 8 y 15 caracteres. La contraseña debe contener tres de los siguientes elementos: minúsculas, mayúsculas, números y caracteres especiales.
     
     <br/>![Registrar el dispositivo 5 de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. El último paso del Asistente para instalación registra el dispositivo en el servicio StorSimple Device Manager. Para ello, necesitará la clave de registro del servicio que obtuvo en [Paso 2: Obtener la clave de registro del servicio](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Después de proporcionar la clave de registro, puede que tenga que esperar entre 2 y 3 minutos hasta que el dispositivo se registre.
+12. El último paso del Asistente para instalación registra el dispositivo en el servicio StorSimple Device Manager. Para ello, necesitará la clave de registro del servicio que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Después de proporcionar la clave de registro, puede que tenga que esperar entre 2 y 3 minutos hasta que el dispositivo se registre.
     
     > [!NOTE]
     > También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Si ha especificado toda la configuración de red (dirección IP para Data 0, máscara de subred y puerta de enlace), se conservarán las entradas.
@@ -81,7 +81,7 @@ ms.locfileid: "50166432"
 15. Vuelva al Portal de Azure Government y siga estos pasos:
     
     1. Vaya al servicio StorSimple Device Manager.
-    2. Haga clic en **Dispositivos**. En la lista de dispositivos, identifique el dispositivo que está implementando. Compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**.
+    2. Haga clic en **Dispositivos**. En la lista de dispositivos, identifique el dispositivo que va a implementar. Compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**.
             
         Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
        

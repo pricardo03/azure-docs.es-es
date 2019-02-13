@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a74b3ba4fe9f12ce9d205b3865435edfb99566a8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458540"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693707"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -98,7 +98,7 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
   * `detectedLanguage`: objeto que describe el idioma detectado mediante las siguientes propiedades:
 
-     * `language`: código del idioma detectado.
+     * `language`: Código del idioma detectado.
 
      * `score`: valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
      
@@ -165,6 +165,8 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
     <td>Servidor no disponible temporalmente. Vuelva a intentarlo. Si el error continúa, notifíquelo con: fecha y hora del error, identificador de la solicitud del encabezado de respuesta `X-RequestId` e identificador de cliente del encabezado de solicitud `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+Si se produce un error, la solicitud también devolverá una respuesta de error JSON. El código de error es un número de 6 dígitos que combina el código de estado HTTP de 3 dígitos y otro número de 3 dígitos que ayuda a categorizar aún más el error. Códigos de error comunes que pueden encontrarse en la [página de referencia de Translator Text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Ejemplos
 

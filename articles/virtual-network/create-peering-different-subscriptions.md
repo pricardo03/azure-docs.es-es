@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b929c3f85bab4319fe2fef1b5c0575f0d1d972a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014977"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511683"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes
 
@@ -72,7 +72,7 @@ Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está us
     - **Ubicación**: *Este de EE. UU.*
 
 13. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetB*. Seleccione **myVnetB** cuando aparezca en los resultados de la búsqueda.
-14. En **myVnetB**, seleccione **Propiedades** en la lista de opciones vertical que aparece a la izquierda. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El identificador de recurso es similar al ejemplo siguiente: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. En **myVnetB**, seleccione **Propiedades** en la lista de opciones vertical que aparece a la izquierda. Copie el **ID. DE RECURSO**, ya que se usará en un paso posterior. El identificador del recurso es parecido al del ejemplo siguiente: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
 15. Seleccione **Control de acceso (IAM)** en **myVnetB** y complete los pasos del 5 al 10 para myVnetB (en el paso 8, escriba **UserA**).
 16. Cierre sesión en el portal como UserB e inicie sesión como UserA.
 17. En el cuadro **Buscar recursos** en la parte superior del portal, escriba *myVnetA*. Seleccione **myVnetA** cuando aparezca en los resultados de la búsqueda.

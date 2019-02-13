@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298932"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744663"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -37,6 +37,9 @@ Siga estas instrucciones cuando planifique la infraestructura de red de su siste
 * Busque sus sistemas de procesamiento de clientes cerca del clúster de vFXT. El almacenamiento de back-end puede ser aún más remoto.  
 
 * Para simplificar, ubique el clúster de vFXT y la máquina virtual del controlador de clúster en la misma red virtual (vnet) y en el mismo grupo de recursos. Recuerde que también deben usar la misma cuenta de almacenamiento. (El controlador del clúster crea el clúster y también se puede usar para administrar el clúster de línea de comandos).  
+
+  > [!NOTE] 
+  > La plantilla de creación del clúster puede crear un nuevo grupo de recursos y una nueva cuenta de almacenamiento para el clúster. Puede especificar un grupo de recursos existente, pero debe estar vacío.
 
 * El clúster debe estar ubicado en su propia subred para evitar conflictos de direcciones IP con los clientes o con los recursos del proceso. 
 
@@ -83,7 +86,7 @@ Asegúrese de que su suscripción tenga la capacidad de ejecutar el clúster de 
 
 ## <a name="back-end-data-storage"></a>Almacenamiento de datos de back-end
 
-¿Dónde debe almacenar el clúster de Avere vFXT los datos cuando no está en la memoria caché? Decida si el espacio de trabajo se almacenará a largo plazo en un contenedor de blobs nuevo o en una nube o sistema de almacenamiento de hardware ya existentes. 
+¿Dónde debe almacenar el clúster de Avere vFXT los datos cuando no está en la memoria caché? Decida si el espacio de trabajo se almacenará a largo plazo en un nuevo contenedor de blobs o en una nube o sistema de almacenamiento de hardware ya existentes. 
 
 Si quiere usar Azure Blob Storage para el back-end, debe crear un nuevo contenedor como parte de la creación del clúster de vFXT. Esta opción crea y configura el nuevo contenedor de modo que esté listo para su uso tan pronto como el clúster esté listo. 
 
@@ -117,7 +120,7 @@ Para más información sobre estas opciones, vea la [documentación de Azure Vir
 
 Si configura una dirección IP pública en un controlador del clúster, puede usarla como un host de salto para conectarse al clúster de Avere vFXT desde fuera de la subred privada. Sin embargo, dado que el controlador tiene privilegios de acceso para modificar nodos del clúster, plantea un pequeño riesgo de seguridad.  
 
-Para mejorar la seguridad con una dirección IP pública, use un grupo de seguridad de red para permitir el acceso de entrada solo a través del puerto 22.
+Para mejorar la seguridad con una dirección IP pública, use un grupo de seguridad de red para permitir el acceso de entrada solo a través del puerto 22. Opcionalmente, puede proteger aún más el sistema si bloquea el acceso al intervalo de direcciones IP de origen, es decir, solo permite las conexiones desde las máquinas que vaya a usar para el acceso al clúster.
 
 Al crear el clúster, puede elegir si desea crear o no una dirección IP pública en el controlador del clúster. 
 

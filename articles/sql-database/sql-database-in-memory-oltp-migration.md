@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228052"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565928"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Use OLTP en memoria para mejorar el rendimiento de las aplicaciones en SQL Database
+
 [OLTP en memoria](sql-database-in-memory.md) puede utilizarse para mejorar el rendimiento del procesamiento de transacciones, la ingesta de datos y los escenarios de datos transitorios, en bases de datos [de los planes Premium y Crítico para la empresa](sql-database-service-tiers-vcore.md) sin aumentar el plan de tarifa. 
 
 > [!NOTE] 
@@ -28,7 +29,8 @@ ms.locfileid: "51228052"
 
 Siga estos pasos para adoptar In-Memory OLTP en la base de datos existente.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Paso 1: Asegúrese de que está utilizando una base de datos de nivel Premium o Crítico para la empresa
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Paso 1: Asegúrese de que está utilizando una base de datos de nivel Prémium o Crítico para la empresa
+
 OLTP en memoria solo se admite en bases de datos de nivel Premium o Crítico para la empresa. Se admite In-Memory si el resultado devuelto es 1 (no 0):
 
 ```
@@ -39,7 +41,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Paso 2: identificar objetos para migrar a In-Memory OLTP
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Paso 2: Identifique los objetos para migrar a OLTP en memoria
 SSMS incluye un informe de **información general del análisis de rendimiento de transacciones** que se pueden ejecutar en una base de datos con una carga de trabajo activo. El informe identifica las tablas y los procedimientos almacenados que son candidatos para la migración a In-Memory OLTP.
 
 En SSMS, para generar el informe:
@@ -49,7 +51,7 @@ En SSMS, para generar el informe:
 
 Para obtener más información, consulte [Determinar si una tabla o un procedimiento almacenado se debe pasar a In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx).
 
-## <a name="step-3-create-a-comparable-test-database"></a>Paso 3: Crear una base de datos de prueba comparables
+## <a name="step-3-create-a-comparable-test-database"></a>Paso 3: Cree una base de datos de prueba comparable
 Supongamos que el informe indica que la base de datos tiene una tabla que se beneficiaría de convertirse en una tabla optimizada para memoria. Se recomienda que la pruebe primero para confirmar la indicación.
 
 Necesitará una copia de prueba de la base de datos de producción. La base de datos de prueba debe estar en el mismo nivel de servicio que la base de datos de producción.
@@ -65,7 +67,7 @@ Para facilitar las pruebas, ajuste la base de datos de prueba de la forma siguie
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>Paso 4: Migrar tablas
+## <a name="step-4-migrate-tables"></a>Paso 4: Migre las tablas
 Debe crear y rellenar una copia optimizada para memoria de la tabla que desea probar. Se puede crear mediante:
 
 * El práctico Asistente para optimización de memoria en SSMS.
@@ -105,7 +107,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>Paso 5 (opcional): Migrar los procedimientos almacenados
+## <a name="step-5-optional-migrate-stored-procedures"></a>Paso 5 (opcional): Migre los procedimientos almacenados
 La característica In-Memory también puede modificar un procedimiento almacenado para mejorar el rendimiento.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Consideraciones con procedimientos almacenados compilados de forma nativa
@@ -149,7 +151,7 @@ Los pasos de migración son los siguientes:
 4. Cambie el nombre del procedimiento almacenado anterior por SP_RENAME. O bien, simplemente quítelo con la instrucción DROP.
 5. Ejecute el script CREATE PROCEDURE T-SQL editado.
 
-## <a name="step-6-run-your-workload-in-test"></a>Paso 6: Ejecutar la carga de trabajo en la prueba
+## <a name="step-6-run-your-workload-in-test"></a>Paso 6: Ejecute la carga de trabajo en la prueba
 Ejecutar una carga de trabajo en la base de datos de prueba es similar a la carga de trabajo que se ejecuta en la base de datos de producción. Esto debería mostrar la mejora del rendimiento conseguida mediante el uso de la característica In-Memory para tablas y procedimientos almacenados.
 
 Los atributos principales de la carga de trabajo son los siguientes:
@@ -161,7 +163,7 @@ Para personalizar y ejecutar la carga de trabajo de prueba, considere el uso de 
 
 Para minimizar la latencia de red, ejecute la prueba en la misma región geográfica de Azure donde existe la base de datos.
 
-## <a name="step-7-post-implementation-monitoring"></a>Paso 7: Supervisión postimplementación
+## <a name="step-7-post-implementation-monitoring"></a>Paso 7: Supervise después de la implementación
 Considere la posibilidad de supervisar los efectos de rendimiento de las implementaciones In-Memory en producción:
 
 * [Supervisión del almacenamiento In-Memory](sql-database-in-memory-oltp-monitoring.md).

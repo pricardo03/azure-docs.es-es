@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461447"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743657"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)
 
@@ -34,7 +34,7 @@ Application Gateway y Firewall de aplicaciones web (WAF) ahora están disponible
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La SKU de escalabilidad automática está disponible en las siguientes regiones: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus (BL), centralus (DM), japanwest (OS).
+La SKU de autoescala está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón.
 
 ## <a name="pricing"></a>Precios
 

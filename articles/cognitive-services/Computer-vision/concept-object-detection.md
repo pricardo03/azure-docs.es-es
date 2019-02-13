@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167570"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567169"
 ---
 # <a name="object-detection"></a>Detección de objetos
 
@@ -87,6 +87,15 @@ En la siguiente respuesta JSON, se ilustra qué devuelve Computer Vision cuando 
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="limitations"></a>Limitaciones
 
-Conozca los conceptos de [categorización de imágenes](concept-categorizing-images.md) y de [descripción de imágenes](concept-describing-images.md).
+Es importante tener en cuenta las limitaciones de la característica de detección de objetos para que pueda evitar o mitigar los efectos de los falsos negativos (objetos que faltan) y los detalles limitados.
+* Por lo general, los objetos no se detectan si son muy pequeños (menores del 5 % de la imagen).
+* Los objetos no se suelen detectar si están muy cerca (en una pila de platos, por ejemplo).
+* Los objetos no se diferencian por la marca ni los nombres de productos (tipos diferentes de los refrescos en una estantería de un almacén, por ejemplo). Sin embargo, puede obtener información de la marca de una imagen mediante la característica [de detección de la marca](concept-brand-detection.md).
+
+## <a name="use-the-api"></a>Uso de la API
+La característica de detección de objetos forma parte de la API [de análisis de imágenes](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"objects"`.
+
+* [Inicio rápido: Análisis de imágenes (SDK .NET)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816652"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -325,7 +325,7 @@ Cuando las series temporales son fijas y fáciles de predecir, ambos enfoques al
 ### <a name="time-dependent-split"></a>División dependiente del tiempo
 En esta sección se describen los procedimientos recomendados para implementar una división dependiente del tiempo. A continuación, se describe una división bidireccional dependiente del tiempo entre los conjuntos de aprendizaje y prueba.
 
-Supongamos que tenemos una secuencia de eventos con marca de fecha y hora, tales como medidas de diferentes sensores. Defina las características y las etiquetas de los ejemplos de aprendizaje y prueba en períodos de tiempo que contienen varios eventos. Por ejemplo, para la clasificación binaria, cree características en función de los eventos pasados y cree etiquetas en función de los eventos futuros con "X" unidades de tiempo en el futuro (consulte las secciones sobre [ingeniería de características](#Feature-engineering) y [técnicas de modelado](#Modeling-techniques-applied-to-PdM-use-cases)). Por lo tanto, el período de tiempo del etiquetado de un ejemplo es posterior al período de tiempo de sus características.
+Supongamos que tenemos una secuencia de eventos con marca de fecha y hora, tales como medidas de diferentes sensores. Defina las características y las etiquetas de los ejemplos de aprendizaje y prueba en períodos de tiempo que contienen varios eventos. Por ejemplo, para la clasificación binaria, cree características en función de los eventos pasados y cree etiquetas en función de los eventos futuros con "X" unidades de tiempo en el futuro (consulte las secciones sobre [ingeniería de características](#Feature-engineering) y técnicas de modelado). Por lo tanto, el período de tiempo del etiquetado de un ejemplo es posterior al período de tiempo de sus características.
 
 Para la división dependiente del tiempo, seleccione un _tiempo límite de aprendizaje T<sub>c</sub>_ en el que se entrenará un modelo, con hiperparámetros optimizados mediante el uso de datos históricos hasta T<sub>c</sub>. Para evitar que etiquetas futuras que están mas allá de T<sub>c</sub> se fuguen a los datos de aprendizaje, elija el período de tiempo más reciente para etiquetar los ejemplos de aprendizaje en X unidades antes de T<sub>c</sub>. En el ejemplo que se muestra en la ilustración 7, cada cuadrado representa un registro del conjunto de datos donde las características y las etiquetas se calculan como se describió anteriormente. La ilustración muestra los registros que deben ir en los conjuntos de aprendizaje y de prueba para X=2 y W=3:
 

@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 1b22d465df12d313e05d3fd93437b461ef939ee7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b7a12494585cedd8f75fd9061f8eb29a0b5dc319
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242491"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747431"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegación de ofertas en Azure Stack
 
@@ -76,6 +76,9 @@ Para usar este tutorial, necesita dos cuentas de Azure AD además de su cuenta d
 | --- | --- |
 | Proveedor delegado |Usuario |
 | Usuario |Usuario |
+
+ > [!NOTE]
+   > En el caso de un revendedor de CSP, para crear este proveedor delegado, se requerirán estos usuarios en el directorio del inquilino (el usuario de AAD). El operador de Azure Stack deberá [incorporar primero](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-enable-multitenancy) la instancia de AAD de ese inquilino y, luego, configurar el uso y la facturación mediante [estos pasos](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-csp-howto-register-tenants).
 
 ### <a name="identify-the-delegated-provider"></a>Identificación de los proveedores delegados
 

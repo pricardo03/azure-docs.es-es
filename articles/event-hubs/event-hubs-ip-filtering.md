@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507542"
 ---
 # <a name="use-firewall-rules"></a>Usar las reglas de firewall
 
@@ -24,7 +24,7 @@ En los escenarios en los que solo se puede acceder a Azure Event Hubs desde siti
 
 ## <a name="when-to-use"></a>Cuándo se deben usar
 
-Si quiere configurar el espacio de nombres de Event Hubs de modo que reciba tráfico de un solo intervalo específico de direcciones IP y que rechace todo lo demás, puede aprovechar una *regla de firewall* para bloquear los puntos de conexión de Event Hub desde otras direcciones IP. Por ejemplo, si está usando Event Hubs con [Azure ExpressRoute][express-route] para crear conexiones privadas en su infraestructura local.
+Si desea configurar el espacio de nombres Event Hubs de forma que solamente reciba tráfico de un determinado intervalo de direcciones IP y rechace todo lo demás, puede utilizar una *regla de firewall* para bloquear los puntos de conexión de Event Hubs de otras direcciones IP. Por ejemplo, si utiliza Event Hubs con [Azure Express Route][express-route], puede crear una *regla de firewall* para restringir el tráfico procedente de las direcciones IP de la infraestructura local.
 
 ## <a name="how-filter-rules-are-applied"></a>Cómo se aplican las reglas de filtro
 
@@ -53,7 +53,7 @@ Las reglas de filtro IP se aplican en orden y la primera regla que coincida con 
 > - Azure IoT Device Explorer
 > - Explorador de datos de Azure
 >
-> Los siguientes servicios de Microsoft deben estar en una red virtual.
+> Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure Web Apps
 > - Azure Functions
 
@@ -69,8 +69,8 @@ Parámetros de plantilla:
 - **ipMask** es una única dirección IPv4 o un bloque de direcciones IP en la notación CIDR. Por ejemplo, en notación CIDR 70.37.104.0/24 representa las 256 direcciones IPv4 de 70.37.104.0 a 70.37.104.255, donde 24 indica el número de bits de prefijo significativos para el intervalo.
 
 > [!NOTE]
-> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"**, lo que no restringe las conexiones.
-> Cuando se realizan las reglas de Virtual Network o de firewall, debemos cambiar el valor ***"defaultAction"***.
+> Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"**, que no restringe las conexiones.
+> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
 > De
 > ```json

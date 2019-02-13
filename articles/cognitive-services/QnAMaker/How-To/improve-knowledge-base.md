@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463742"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755771"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Uso del aprendizaje activo para mejorar la base de conocimiento
 
@@ -58,7 +58,7 @@ El algoritmo para determinar la proximidad no es un cálculo sencillo. Los inter
 
 El aprendizaje activo está desactivado de forma predeterminada. Actívelo para ver preguntas sugeridas. 
 
-1. Para activar el aprendizaje activo, vaya a **Configuración del servicio** en el portal de QnA Maker, en la esquina superior derecha.  
+1. Para activar el aprendizaje activo, haga clic en su **Nombre** y vaya a [**Configuración del servicio**](https://www.qnamaker.ai/UserSettings) en el portal de QnA Maker, en la esquina superior derecha.  
 
     ![En la página de configuración del servicio, active Aprendizaje activo](../media/improve-knowledge-base/Endpoint-Keys.png)
 

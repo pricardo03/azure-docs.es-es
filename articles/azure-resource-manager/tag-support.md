@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884952"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509922"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md).
@@ -19,7 +19,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| DomainServices | SÍ | 
+| DomainServices | Sí | 
 | DomainServices/oucontainer | Sin  | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -68,13 +68,13 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| servers | SÍ | 
+| servers | Sí | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | reportFeedback | Sin  | 
-| service | SÍ | 
+| service | Sí | 
 | validateServiceName | Sin  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -100,10 +100,10 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| automationAccounts | SÍ | 
-| automationAccounts/configurations | SÍ | 
+| automationAccounts | Sí | 
+| automationAccounts/configurations | Sí | 
 | automationAccounts/jobs | Sin  | 
-| automationAccounts/runbooks | SÍ | 
+| automationAccounts/runbooks | Sí | 
 | automationAccounts/softwareUpdateConfigurations | Sin  | 
 | automationAccounts/webhooks | Sin  | 
 
@@ -118,19 +118,19 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| b2cDirectories | SÍ | 
+| b2cDirectories | Sí | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| registrations | SÍ | 
+| registrations | Sí | 
 | registrations/customerSubscriptions | Sin  | 
 | registrations/products | Sin  | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| batchAccounts | SÍ | 
+| batchAccounts | Sí | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | Tipo de recurso | Compatible con las etiquetas |
@@ -189,13 +189,13 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| mapApis | SÍ | 
+| mapApis | Sí | 
 | updateCommunicationPreference | Sin  | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| BizTalk | SÍ | 
+| BizTalk | Sí | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Tipo de recurso | Compatible con las etiquetas |
@@ -211,14 +211,14 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| botServices | SÍ | 
+| botServices | Sí | 
 | botServices/channels | Sin  | 
 | botServices/connections | Sin  | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| Redis | SÍ | 
+| Redis | Sí | 
 | RedisConfigDefinition | Sin  | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -244,8 +244,8 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | edgenodes | Sin  | 
-| perfiles | SÍ | 
-| profiles/endpoints | SÍ | 
+| perfiles | Sí | 
+| profiles/endpoints | Sí | 
 | profiles/endpoints/customdomains | Sin  | 
 | profiles/endpoints/origins | Sin  | 
 | validateProbe | Sin  | 
@@ -253,7 +253,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| certificateOrders | SÍ | 
+| certificateOrders | Sí | 
 | certificateOrders/certificates | Sin  | 
 | validateCertificateRegistrationInformation | Sin  | 
 
@@ -314,7 +314,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Tipo de recurso | Compatible con las etiquetas |
@@ -325,18 +325,18 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| availabilitySets | SÍ | 
-| disks | SÍ | 
-| images | SÍ | 
-| restorePointCollections | SÍ | 
+| availabilitySets | Sí | 
+| disks | Sí | 
+| images | Sí | 
+| restorePointCollections | Sí | 
 | restorePointCollections/restorePoints | Sin  | 
-| sharedVMImages | SÍ | 
-| sharedVMImages/versions | SÍ | 
-| snapshots | SÍ | 
-| virtualMachines | SÍ | 
+| sharedVMImages | Sí | 
+| sharedVMImages/versions | Sí | 
+| snapshots | Sí | 
+| virtualMachines | Sí | 
 | virtualMachines/diagnosticSettings | Sin  | 
-| virtualMachines/extensions | SÍ | 
-| virtualMachineScaleSets | SÍ | 
+| virtualMachines/extensions | Sí | 
+| virtualMachineScaleSets | Sí | 
 | virtualMachineScaleSets/extensions | Sin  | 
 | virtualMachineScaleSets/networkInterfaces | Sin  | 
 | virtualMachineScaleSets/publicIPAddresses | Sin  | 
@@ -369,17 +369,17 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| containerGroups | SÍ | 
+| containerGroups | Sí | 
 | serviceAssociationLinks | Sin  | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| registries | SÍ | 
+| registries | Sí | 
 | registries/builds | Sin  | 
 | registries/builds/cancel | Sin  | 
 | registries/builds/getLogLink | Sin  | 
-| registries/buildTasks | SÍ | 
+| registries/buildTasks | Sí | 
 | registries/buildTasks/steps | Sin  | 
 | registries/eventGridFilters | Sin  | 
 | registries/getBuildSourceUploadUrl | Sin  | 
@@ -388,39 +388,39 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | registries/queueBuild | Sin  | 
 | registries/regenerateCredential | Sin  | 
 | registries/regenerateCredentials | Sin  | 
-| registries/replications | SÍ | 
+| registries/replications | Sí | 
 | registries/runs | Sin  | 
 | registries/runs/cancel | Sin  | 
 | registries/scheduleRun | Sin  | 
-| registries/tasks | SÍ | 
+| registries/tasks | Sí | 
 | registries/updatePolicies | Sin  | 
-| registries/webhooks | SÍ | 
+| registries/webhooks | Sí | 
 | registries/webhooks/getCallbackConfig | Sin  | 
 | registries/webhooks/ping | Sin  | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| containerServices | SÍ | 
-| managedClusters | SÍ | 
+| containerServices | Sí | 
+| managedClusters | Sí | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| applications | SÍ | 
+| applications | Sí | 
 | updateCommunicationPreference | Sin  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | Alertas | Sin  | 
 | BillingAccounts | Sin  | 
-| Conectores | SÍ | 
+| Conectores | Sí | 
 | Departments | Sin  | 
 | Dimensiones | Sin  | 
 | EnrollmentAccounts | Sin  | 
@@ -432,7 +432,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| hubs | SÍ | 
+| hubs | Sí | 
 | hubs/authorizationPolicies | Sin  | 
 | hubs/connectors | Sin  | 
 | hubs/connectors/mappings | Sin  | 
@@ -449,42 +449,42 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| jobs | SÍ | 
+| jobs | Sí | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | SÍ | 
+| DataBoxEdgeDevices | Sí | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| workspaces | SÍ | 
+| workspaces | Sí | 
 | workspaces/virtualNetworkPeerings | Sin  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| catalogs | SÍ | 
+| catalogs | Sí | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| connectionManagers | SÍ | 
+| connectionManagers | Sí | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| dataFactories | SÍ | 
+| dataFactories | Sí | 
 | dataFactories/diagnosticSettings | Sin  | 
 | dataFactorySchema | Sin  | 
-| factories | SÍ | 
+| factories | Sí | 
 | factories/integrationRuntimes | Sin  | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 | accounts/dataLakeStoreAccounts | Sin  | 
 | accounts/storageAccounts | Sin  | 
 | accounts/storageAccounts/containers | Sin  | 
@@ -492,34 +492,34 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 | accounts/eventGridFilters | Sin  | 
 | accounts/firewallRules | Sin  | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| services | SÍ | 
-| services/projects | SÍ | 
+| services | Sí | 
+| services/projects | Sí | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| servers | SÍ | 
+| servers | Sí | 
 | servers/recoverableServers | Sin  | 
 | servers/virtualNetworkRules | Sin  | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| servers | SÍ | 
+| servers | Sí | 
 | servers/recoverableServers | Sin  | 
 | servers/virtualNetworkRules | Sin  | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| servers | SÍ | 
+| servers | Sí | 
 | servers/advisors | Sin  | 
 | servers/queryTexts | Sin  | 
 | servers/recoverableServers | Sin  | 
@@ -530,34 +530,34 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| IotHubs | SÍ | 
+| IotHubs | Sí | 
 | IotHubs/eventGridFilters | Sin  | 
-| ProvisioningServices | SÍ | 
+| ProvisioningServices | Sí | 
 | usages | Sin  | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| controllers | SÍ | 
+| controllers | Sí | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| labs | SÍ | 
-| labs/serviceRunners | SÍ | 
-| labs/virtualMachines | SÍ | 
-| schedules | SÍ | 
+| labs | Sí | 
+| labs/serviceRunners | Sí | 
+| labs/virtualMachines | Sí | 
+| schedules | Sí | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | databaseAccountNames | Sin  | 
-| databaseAccounts | SÍ | 
+| databaseAccounts | Sí | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| domains | SÍ | 
+| domains | Sí | 
 | domains/domainOwnershipIdentifiers | Sin  | 
 | generateSsoRequest | Sin  | 
 | topLevelDomains | Sin  | 
@@ -573,18 +573,18 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| domains | SÍ | 
+| domains | Sí | 
 | domains/topics | Sin  | 
 | eventSubscriptions | Sin  | 
 | extensionTopics | Sin  | 
-| topics | SÍ | 
+| topics | Sí | 
 | topicTypes | Sin  | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| clusters | SÍ | 
-| namespaces | SÍ | 
+| clusters | Sí | 
+| namespaces | Sí | 
 | namespaces/authorizationrules | Sin  | 
 | namespaces/disasterrecoveryconfigs | Sin  | 
 | namespaces/eventhubs | Sin  | 
@@ -622,18 +622,18 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| hanaInstances | SÍ | 
+| hanaInstances | Sí | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| clusters | SÍ | 
+| clusters | Sí | 
 | clusters/applications | Sin  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| jobs | SÍ | 
+| jobs | Sí | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Tipo de recurso | Compatible con las etiquetas |
@@ -647,14 +647,14 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| actiongroups | SÍ | 
-| activityLogAlerts | SÍ | 
-| alertrules | SÍ | 
+| actiongroups | Sí | 
+| activityLogAlerts | Sí | 
+| alertrules | Sí | 
 | automatedExportSettings | Sin  | 
-| autoscalesettings | SÍ | 
+| autoscalesettings | Sí | 
 | baseline | Sin  | 
 | calculatebaseline | Sin  | 
-| components | SÍ | 
+| components | Sí | 
 | components/events | Sin  | 
 | components/pricingPlans | Sin  | 
 | components/query | Sin  | 
@@ -666,14 +666,15 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | logDefinitions | Sin  | 
 | logprofiles | Sin  | 
 | logs | Sin  | 
+| metricAlerts | Sí |
 | migrateToNewPricingModel | Sin  | 
 | myWorkbooks | Sin  | 
 | Consultas | Sin  | 
 | rollbackToLegacyPricingModel | Sin  | 
-| scheduledqueryrules | SÍ | 
+| scheduledqueryrules | Sí | 
 | vmInsightsOnboardingStatuses | Sin  | 
-| webtests | SÍ | 
-| workbooks | SÍ | 
+| webtests | Sí | 
+| workbooks | Sí | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Tipo de recurso | Compatible con las etiquetas |
@@ -684,25 +685,25 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| IoTApps | SÍ | 
+| IoTApps | Sí | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| Grafo | SÍ | 
+| Grafo | Sí | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | deletedVaults | Sin  | 
-| vaults | SÍ | 
+| vaults | Sí | 
 | vaults/accessPolicies | Sin  | 
 | vaults/secrets | Sin  | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| clusters | SÍ | 
+| clusters | Sí | 
 | clusters/databases | Sin  | 
 | clusters/databases/dataconnections | Sin  | 
 | clusters/databases/eventhubconnections | Sin  | 
@@ -710,18 +711,18 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| labaccounts | SÍ | 
+| labaccounts | Sí | 
 | users | Sin  | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo de recurso | Compatible con las etiquetas |
@@ -731,42 +732,42 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| integrationAccounts | SÍ | 
-| workflows | SÍ | 
+| integrationAccounts | Sí | 
+| workflows | Sí | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| commitmentPlans | SÍ | 
-| webServices | SÍ | 
-| Áreas de trabajo | SÍ | 
+| commitmentPlans | Sí | 
+| webServices | Sí | 
+| Áreas de trabajo | Sí | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
-| accounts/workspaces | SÍ | 
-| accounts/workspaces/projects | SÍ | 
-| teamAccounts | SÍ | 
-| teamAccounts/workspaces | SÍ | 
-| teamAccounts/workspaces/projects | SÍ | 
+| accounts | Sí | 
+| accounts/workspaces | Sí | 
+| accounts/workspaces/projects | Sí | 
+| teamAccounts | Sí | 
+| teamAccounts/workspaces | Sí | 
+| teamAccounts/workspaces/projects | Sí | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| workspaces | SÍ | 
+| workspaces | Sí | 
 | workspaces/computes | Sin  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | Identities | Sin  | 
-| userAssignedIdentities | SÍ | 
+| userAssignedIdentities | Sí | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | Tipo de recurso | Compatible con las etiquetas |
@@ -780,7 +781,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 | accounts/eventGridFilters | Sin  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -800,7 +801,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| classicDevServices | SÍ | 
+| classicDevServices | Sí | 
 | updateCommunicationPreference | Sin  | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -812,18 +813,18 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| mediaservices | SÍ | 
+| mediaservices | Sí | 
 | mediaservices/accountFilters | Sin  | 
 | mediaservices/assets | Sin  | 
 | mediaservices/assets/assetFilters | Sin  | 
 | mediaservices/contentKeyPolicies | Sin  | 
 | mediaservices/eventGridFilters | Sin  | 
 | mediaservices/liveEventOperations | Sin  | 
-| mediaservices/liveEvents | SÍ | 
+| mediaservices/liveEvents | Sí | 
 | mediaservices/liveEvents/liveOutputs | Sin  | 
 | mediaservices/liveOutputOperations | Sin  | 
 | mediaservices/streamingEndpointOperations | Sin  | 
-| mediaservices/streamingEndpoints | SÍ | 
+| mediaservices/streamingEndpoints | Sí | 
 | mediaservices/streamingLocators | Sin  | 
 | mediaservices/streamingPolicies | Sin  | 
 | mediaservices/transforms | Sin  | 
@@ -832,21 +833,21 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| projects | SÍ | 
+| projects | Sí | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| applicationGateways | SÍ | 
-| applicationSecurityGroups | SÍ | 
+| applicationGateways | Sí | 
+| applicationSecurityGroups | Sí | 
 | azureFirewallFqdnTags | Sin  | 
-| azureFirewalls | SÍ | 
+| azureFirewalls | Sí | 
 | bgpServiceCommunities | Sin  | 
-| connections | SÍ | 
-| ddosCustomPolicies | SÍ | 
-| ddosProtectionPlans | SÍ | 
+| connections | Sí | 
+| ddosCustomPolicies | Sí | 
+| ddosProtectionPlans | Sí | 
 | dnsOperationStatuses | Sin  | 
-| dnszones | SÍ | 
+| dnszones | Sí | 
 | dnszones/A | Sin  | 
 | dnszones/AAAA | Sin  | 
 | dnszones/all | Sin  | 
@@ -859,47 +860,47 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | dnszones/SOA | Sin  | 
 | dnszones/SRV | Sin  | 
 | dnszones/TXT | Sin  | 
-| expressRouteCircuits | SÍ | 
+| expressRouteCircuits | Sí | 
 | expressRouteServiceProviders | Sin  | 
-| frontdoors | SÍ | 
-| frontdoorWebApplicationFirewallPolicies | SÍ | 
+| frontdoors | Sí | 
+| frontdoorWebApplicationFirewallPolicies | Sí | 
 | getDnsResourceReference | Sin  | 
-| interfaceEndpoints | SÍ | 
+| interfaceEndpoints | Sí | 
 | internalNotify | Sin  | 
-| loadBalancers | SÍ | 
-| localNetworkGateways | SÍ | 
-| natGateways | SÍ | 
-| networkIntentPolicies | SÍ | 
-| networkInterfaces | SÍ | 
-| networkProfiles | SÍ | 
-| networkSecurityGroups | SÍ | 
-| networkWatchers | SÍ | 
-| networkWatchers/connectionMonitors | SÍ | 
-| networkWatchers/lenses | SÍ | 
-| networkWatchers/pingMeshes | SÍ | 
-| privateLinkServices | SÍ | 
-| publicIPAddresses | SÍ | 
-| publicIPPrefixes | SÍ | 
-| routeFilters | SÍ | 
-| routeTables | SÍ | 
-| serviceEndpointPolicies | SÍ | 
+| loadBalancers | Sí | 
+| localNetworkGateways | Sí | 
+| natGateways | Sí | 
+| networkIntentPolicies | Sí | 
+| networkInterfaces | Sí | 
+| networkProfiles | Sí | 
+| networkSecurityGroups | Sí | 
+| networkWatchers | Sí | 
+| networkWatchers/connectionMonitors | Sí | 
+| networkWatchers/lenses | Sí | 
+| networkWatchers/pingMeshes | Sí | 
+| privateLinkServices | Sí | 
+| publicIPAddresses | Sí | 
+| publicIPPrefixes | Sí | 
+| routeFilters | Sí | 
+| routeTables | Sí | 
+| serviceEndpointPolicies | Sí | 
 | trafficManagerGeographicHierarchies | Sin  | 
-| trafficmanagerprofiles | SÍ | 
+| trafficmanagerprofiles | Sí | 
 | trafficmanagerprofiles/heatMaps | Sin  | 
-| virtualHubs | SÍ | 
-| virtualNetworkGateways | SÍ | 
-| virtualNetworks | SÍ | 
-| virtualNetworkTaps | SÍ | 
-| virtualWans | SÍ | 
-| vpnGateways | SÍ | 
-| vpnSites | SÍ | 
-| webApplicationFirewallPolicies | SÍ | 
+| virtualHubs | Sí | 
+| virtualNetworkGateways | Sí | 
+| virtualNetworks | Sí | 
+| virtualNetworkTaps | Sí | 
+| virtualWans | Sí | 
+| vpnGateways | Sí | 
+| vpnSites | Sí | 
+| webApplicationFirewallPolicies | Sí | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| namespaces | SÍ | 
-| namespaces/notificationHubs | SÍ | 
+| namespaces | Sí | 
+| namespaces/notificationHubs | Sí | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Compatible con las etiquetas |
@@ -907,7 +908,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | devices | Sin  | 
 | linkTargets | Sin  | 
 | storageInsightConfigs | Sin  | 
-| workspaces | SÍ | 
+| workspaces | Sí | 
 | workspaces/dataSources | Sin  | 
 | workspaces/linkedServices | Sin  | 
 | workspaces/query | Sin  | 
@@ -916,9 +917,9 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | managementassociations | Sin  | 
-| managementconfigurations | SÍ | 
-| solutions | SÍ | 
-| views | SÍ | 
+| managementconfigurations | Sí | 
+| solutions | Sí | 
+| views | Sí | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo de recurso | Compatible con las etiquetas |
@@ -932,34 +933,34 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | consoles | Sin  | 
-| dashboards | SÍ | 
+| dashboards | Sí | 
 | userSettings | Sin  | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| workspaceCollections | SÍ | 
+| workspaceCollections | Sí | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| capacities | SÍ | 
+| capacities | Sí | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| accounts | SÍ | 
+| accounts | Sí | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | backupProtectedItems | Sin  | 
-| vaults | SÍ | 
+| vaults | Sí | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| namespaces | SÍ | 
+| namespaces | Sí | 
 | namespaces/authorizationrules | Sin  | 
 | namespaces/hybridconnections | Sin  | 
 | namespaces/hybridconnections/authorizationrules | Sin  | 
@@ -1004,20 +1005,20 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| applications | SÍ | 
+| applications | Sí | 
 | saasresources | Sin  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| flows | SÍ | 
-| jobcollections | SÍ | 
+| flows | Sí | 
+| jobcollections | Sí | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
 | resourceHealthMetadata | Sin  | 
-| searchServices | SÍ | 
+| searchServices | Sí | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo de recurso | Compatible con las etiquetas |
@@ -1063,7 +1064,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| namespaces | SÍ | 
+| namespaces | Sí | 
 | namespaces/authorizationrules | Sin  | 
 | namespaces/disasterrecoveryconfigs | Sin  | 
 | namespaces/eventgridfilters | Sin  | 
@@ -1078,37 +1079,37 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| clusters | SÍ | 
+| clusters | Sí | 
 | clusters/applications | Sin  | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| applications | SÍ | 
-| gateways | SÍ | 
-| networks | SÍ | 
-| secrets | SÍ | 
-| volumes | SÍ | 
+| applications | Sí | 
+| gateways | Sí | 
+| networks | Sí | 
+| secrets | Sí | 
+| volumes | Sí | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| SignalR | SÍ | 
+| SignalR | Sí | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| applianceDefinitions | SÍ | 
-| appliances | SÍ | 
-| applicationDefinitions | SÍ | 
-| applications | SÍ | 
-| jitRequests | SÍ | 
+| applianceDefinitions | Sí | 
+| appliances | Sí | 
+| applicationDefinitions | Sí | 
+| applications | Sí | 
+| jitRequests | Sí | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| managedInstances | SÍ |
-| managedInstances/databases | SÍ |
+| managedInstances | Sí |
+| managedInstances/databases | Sí (vea la nota siguiente) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Sin  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Sin  |
 | managedInstances/databases/vulnerabilityAssessments | Sin  |
@@ -1117,27 +1118,31 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | managedInstances/keys | Sin  |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Sin  |
 | managedInstances/vulnerabilityAssessments | Sin  |
-| servers | SÍ | 
+| servers | Sí | 
 | servers/administrators | Sin  | 
 | servers/communicationLinks | Sin  | 
-| servers/databases | SÍ | 
+| servers/databases | Sí (vea la nota siguiente) | 
 | servers/encryptionProtector | Sin  | 
 | servers/keys | Sin  | 
 | servers/restorableDroppedDatabases | Sin  | 
 | servers/serviceobjectives | Sin  | 
 | servers/tdeCertificates | Sin  | 
 
+> [!NOTE]
+> La base de datos maestra no admite etiquetas, pero otras bases de datos sí lo hacen.
+
+
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | SÍ | 
+| SqlVirtualMachineGroups | Sí | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Sin  | 
-| SqlVirtualMachines | SÍ | 
+| SqlVirtualMachines | Sí | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| storageAccounts | SÍ | 
+| storageAccounts | Sí | 
 | storageAccounts/blobServices | Sin  | 
 | storageAccounts/fileServices | Sin  | 
 | storageAccounts/queueServices | Sin  | 
@@ -1148,7 +1153,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| storageSyncServices | SÍ | 
+| storageSyncServices | Sí | 
 | storageSyncServices/registeredServers | Sin  | 
 | storageSyncServices/syncGroups | Sin  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Sin  | 
@@ -1158,13 +1163,16 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| managers | SÍ | 
+| managers | Sí | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| streamingjobs | SÍ | 
+| streamingjobs | Sí (vea la nota siguiente) | 
 | streamingjobs/diagnosticSettings | Sin  | 
+
+> [!NOTE]
+> No se pueden agregar etiquetas cuando hay instancias de streamingjobs en ejecución. Detenga el recurso si desea agregar una etiqueta.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Tipo de recurso | Compatible con las etiquetas |
@@ -1181,23 +1189,23 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| providerRegistrations | SÍ | 
-| resources | SÍ | 
+| providerRegistrations | Sí | 
+| resources | Sí | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| environments | SÍ | 
+| environments | Sí | 
 | environments/accessPolicies | Sin  | 
-| environments/eventsources | SÍ | 
-| environments/referenceDataSets | SÍ | 
+| environments/eventsources | Sí | 
+| environments/referenceDataSets | Sí | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| account | SÍ | 
-| account/extension | SÍ | 
-| account/project | SÍ | 
+| account | Sí | 
+| account/extension | Sí | 
+| account/project | Sí | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Compatible con las etiquetas |
@@ -1213,13 +1221,13 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | apiManagementAccounts/connectionAcls | Sin  | 
 | apiManagementAccounts/connections | Sin  | 
 | billingMeters | Sin  | 
-| certificates | SÍ | 
-| connectionGateways | SÍ | 
-| connections | SÍ | 
-| customApis | SÍ | 
+| certificates | Sí | 
+| connectionGateways | Sí | 
+| connections | Sí | 
+| customApis | Sí | 
 | deletedSites | Sin  | 
 | functions | Sin  | 
-| hostingEnvironments | SÍ | 
+| hostingEnvironments | Sí | 
 | hostingEnvironments/multiRolePools | Sin  | 
 | hostingEnvironments/multiRolePools/instances | Sin  | 
 | hostingEnvironments/workerPools | Sin  | 
@@ -1228,17 +1236,17 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | de películas | Sin  | 
 | resourceHealthMetadata | Sin  | 
 | runtimes | Sin  | 
-| serverFarms | SÍ | 
+| serverFarms | Sí | 
 | serverFarms/workers | Sin  | 
-| sites | SÍ | 
+| sites | Sí | 
 | sites/domainOwnershipIdentifiers | Sin  | 
 | sites/hostNameBindings | Sin  | 
 | sites/instances | Sin  | 
 | sites/instances/extensions | Sin  | 
-| sites/premieraddons | SÍ | 
+| sites/premieraddons | Sí | 
 | sites/recommendations | Sin  | 
 | sites/resourceHealthMetadata | Sin  | 
-| sites/slots | SÍ | 
+| sites/slots | Sí | 
 | sites/slots/hostNameBindings | Sin  | 
 | sites/slots/instances | Sin  | 
 | sites/slots/instances/extensions | Sin  | 
@@ -1255,7 +1263,7 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Compatible con las etiquetas |
 | ------------- | ----------- |
-| DeviceServices | SÍ | 
+| DeviceServices | Sí | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | Tipo de recurso | Compatible con las etiquetas |

@@ -3,28 +3,27 @@ title: Ejemplos de PowerShell para administrar grupos en Azure Active Directory 
 description: En esta página se proporcionan ejemplos de PowerShell para ayudarlo a administrar grupos de Azure Active Directory.
 keywords: Azure AD, Azure Active Directory, PowerShell, grupos, administración de grupos
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9cb496ad1ad679fd3a4e6f55f15f658f084e308a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 99facedec04eeb2f1626d502b89f3e8c60d07424
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512047"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
+
 > [!div class="op_single_selector"]
-> * [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md)
+> * [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > * [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -267,5 +266,5 @@ Cuando se crea un grupo, algunos de los puntos de conexión permiten al usuario 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-* [Administración del acceso a los recursos con grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Integración de las identidades locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
+* [Administración del acceso a los recursos con grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Integración de las identidades locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911360"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694625"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicación de revisión del SO para HDInsight 
 
 > [!IMPORTANT]
-> Las imágenes de Ubuntu estarán disponibles para la creación del nuevo clúster de HDInsight tres meses después de publicarse. A partir de enero de 2019, la ejecución de clústeres **no** se revisa automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución.
+> Las imágenes de Ubuntu estarán disponibles para la creación del nuevo clúster de HDInsight tres meses después de publicarse. A partir de enero de 2019, la ejecución de clústeres **no** se revisa automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución. Los clústeres creados recientemente siempre tendrán las últimas actualizaciones disponibles, incluidas las revisiones de seguridad más recientes.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux
-Las máquinas virtuales de un clúster de HDInsight se deben reiniciar de forma ocasional para poder instalar las revisiones de seguridad importantes. A partir del 1 de agosto de 2016, los nuevos clústeres de HDInsight basado en Linux (versión 3.4 o superior) se reinician según la programación siguiente:
-
-1. Una máquina virtual en el clúster solo se puede reiniciar para las revisiones, como máximo, una vez en un período de 30 días.
-2. El reinicio se realiza a las 12:00 a.m., hora UTC.
-3. El reinicio es un proceso escalonado entre las distintas máquinas virtuales del clúster, por lo que el clúster sigue disponible durante el proceso de reinicio.
-4. El primer reinicio de un clúster recién creado no se realizará hasta que hayan transcurrido 30 días después de la fecha de creación del clúster.
+Las máquinas virtuales de un clúster de HDInsight se deben reiniciar de forma ocasional para poder instalar las revisiones de seguridad importantes. 
 
 Con la acción de script que se describe en este artículo, puede modificar la programación de aplicación de revisión del SO de la siguiente manera:
 1. Habilite o deshabilite los reinicios automáticos.

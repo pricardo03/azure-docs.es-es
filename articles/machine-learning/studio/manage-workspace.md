@@ -1,7 +1,21 @@
 ---
-título: Administración de un área de trabajo de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Administre el acceso a áreas de trabajo de Azure Machine Learning, e implemente y administre los servicios web de la API de ML services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 27/02/2017
+title: Administración de un área de trabajo de Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Administrar el acceso a las áreas de trabajo de Azure Machine Learning, e implementar y administrar servicios web de la API de Machine Learning
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 02/27/2017
+ms.openlocfilehash: f1904552b6c43cadd611659ed544b9f4bafcb465
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487289"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Administración de un área de trabajo de Azure Machine Learning Studio
 

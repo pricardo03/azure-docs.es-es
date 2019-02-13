@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248735"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747601"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como destino de copia de seguridad con Backup Exec
 
@@ -79,7 +79,7 @@ StorSimple ofrece las siguientes ventajas:
 
 Aunque StorSimple presenta dos escenarios de implementación principales (destino de copia de seguridad principal y secundario), es fundamentalmente un dispositivo de almacenamiento de bloques sin formato. StorSimple realiza toda la compresión y desduplicación. Envía y recupera datos perfectamente entre la nube y el sistema de archivos y de la aplicación.
 
-Para obtener más información sobre StorSimple, consulte [Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida](storsimple-overview.md). También puede consultar las [especificaciones técnicas para Serie StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
+Para más información sobre StorSimple, consulte [Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida](storsimple-overview.md). También puede consultar las [especificaciones técnicas para Serie StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > El uso del dispositivo StorSimple como destino de copia de seguridad es compatible solo con StorSimple 8000 Update 3 y versiones posteriores.
@@ -376,7 +376,7 @@ En la tabla siguiente se muestra cómo configurar copias de seguridad para que s
 \* La capacidad total incluye 17 TiB de discos de StorSimple y 1 TiB de volumen RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Ejemplo de programación GFS: programación semanal, mensual y anual de rotación de GFS
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Programación de ejemplo de GFS: Programación semanal, mensual y anual de rotación de GFS
 
 | Semana | Completo | Incremental día 1 | Incremental día 2 | Incremental día 3 | Incremental día 4 | Incremental día 5 |
 |---|---|---|---|---|---|---|
@@ -430,7 +430,7 @@ En la sección siguiente se describe cómo crear un script breve para iniciar y 
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Inicio y eliminación de instantáneas en la nube con un script
 
 > [!NOTE]
-> Evalúe cuidadosamente las repercusiones tanto en lo relativo al cumplimiento como a la retención de datos antes de eliminar una instantánea de StorSimple. Para obtener más información sobre cómo ejecutar un script posterior a la copia de seguridad, consulte la [documentación de Backup Exec](https://www.veritas.com/support/en_US/15047.html).
+> Evalúe cuidadosamente las repercusiones tanto en lo relativo al cumplimiento como a la retención de datos antes de eliminar una instantánea de StorSimple. Para obtener más información sobre cómo ejecutar un script posterior a la copia de seguridad, consulte la [documentación de Backup Exec](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### <a name="backup-lifecycle"></a>Ciclo de vida de copia de seguridad
 
@@ -480,7 +480,7 @@ Un desastre puede deberse a una serie de factores. En la tabla siguiente encontr
 En este artículo se ha hecho referencia a los siguientes documentos:
 
 - [Configurar E/S de múltiples rutas para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Escenarios de almacenamiento: el aprovisionamiento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Escenarios de almacenamiento: aprovisionamiento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD) (Uso de unidades de GPT)
 - [Habilitar y configurar las instantáneas de carpetas compartidas](https://technet.microsoft.com/library/cc771893.aspx)
 

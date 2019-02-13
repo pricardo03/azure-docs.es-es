@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: b1f4ad523f84616391d4121dbf7eaabb2dfde060
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 32fc3f1c93261f6fb19c084f51dea4942310ac47
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018626"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664155"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-azure-table-connector.md)
 > * [Versión actual](connector-azure-table-storage.md)
 
@@ -46,8 +46,8 @@ Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **AzureTableStorage**. |SÍ |
-| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| Tipo | La propiedad type debe establecerse en **AzureTableStorage**. |Sí |
+| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la clave de cuenta en Azure Key Vault y extraer la configuración `accountKey` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
@@ -57,13 +57,42 @@ Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. 
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureTableStorageLinkedService",
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+
+```json
+{
+    "name": "AzureTableStorageLinkedService",
+    "properties": {
+        "type": "AzureTableStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -92,8 +121,8 @@ Para usar la autenticación con firma de acceso compartido, se admiten las sigui
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **AzureTableStorage**. |SÍ |
-| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob, contenedor o tabla. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| Tipo | La propiedad type debe establecerse en **AzureTableStorage**. |Sí |
+| sasUri | Especifique el URI de SAS del URI de firma de acceso compartido a la tabla. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar el token de SAS en Azure Key Vault para aprovechar la rotación automática y quitar la parte del token. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
@@ -103,13 +132,42 @@ Para usar la autenticación con firma de acceso compartido, se admiten las sigui
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureTableStorageLinkedService",
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<account>.table.core.windows.net/<table>?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+
+```json
+{
+    "name": "AzureTableStorageLinkedService",
+    "properties": {
+        "type": "AzureTableStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<account>.table.core.windows.net/<table>>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -134,8 +192,8 @@ Para copiar datos con Azure Table como origen o destino, establezca la propiedad
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en **AzureTable**. |SÍ |
-| tableName |Nombre de la tabla en la instancia de base de datos de Table Storage a la que hace referencia el servicio vinculado. |SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en **AzureTable**. |Sí |
+| tableName |Nombre de la tabla en la instancia de base de datos de Table Storage a la que hace referencia el servicio vinculado. |Sí |
 
 **Ejemplo:**
 
@@ -175,7 +233,7 @@ Si va a copiar datos desde Azure Table Storage, establezca el tipo de origen de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **AzureTableSource**. |SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **AzureTableSource**. |Sí |
 | AzureTableSourceQuery |Utilice la consulta personalizada de Table Storage para leer los datos. Vea los ejemplos en la sección siguiente. |Sin  |
 | azureTableSourceIgnoreTableNotFound |Indica si se debe permitir la excepción de la tabla no existir.<br/>Los valores válidos son **True** y **False** (valor predeterminado). |Sin  |
 
@@ -201,7 +259,7 @@ Para copiar datos a la Tabla de Azure, establezca el tipo de receptor de la acti
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **AzureTableSink**. |SÍ |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **AzureTableSink**. |Sí |
 | azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Sin  |
 | azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza "AzureTableDefaultPartitionKeyValue" como clave de la partición. |Sin  |
 | azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Sin  |
@@ -274,7 +332,7 @@ Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones defin
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Matriz de bytes de hasta 64 KB. |
 | Edm.Boolean |booleano |Valor booleano. |
-| Edm.DateTime |Datetime |Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a la medianoche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
+| Edm.DateTime |DateTime |Valor de 64 bits expresado como hora universal coordinada (UTC). El intervalo admitido de DateTime comienza a la medianoche del 1 de enero de 1601 D.C. (E.C.), UTC. El intervalo finaliza el 31 de diciembre de 9999. |
 | Edm.Double |double |Valor de punto flotante de 64 bits. |
 | Edm.Guid |Guid |Identificador único global de 128 bits. |
 | Edm.Int32 |Int32 |Entero de 32 bits. |

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579335"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816584"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -93,7 +93,7 @@ Utilice el siguiente procedimiento:
 
     La nueva regla de alertas del registro de actividad se crea y aparece un mensaje de confirmación en la parte superior derecha de la ventana.
 
-    Puede habilitar, deshabilitar, editar o eliminar una regla. [Obtenga más información](#view-and-manage-activity-log-alert-rules-in-azure-portal) acerca de cómo administrar las reglas del registro de actividad.
+    Puede habilitar, deshabilitar, editar o eliminar una regla. Obtenga más información sobre cómo administrar las reglas del registro de actividad.
 
 
 Alternativamente, una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**; a continuación, siga del paso 4 en adelante, tal como se indica en el tutorial anterior.
@@ -203,14 +203,14 @@ El formato JSON del ejemplo anterior se puede guardar como (digamos) sampleActiv
 [Azure Monitor - Activity Log Alerts API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) es una API REST que es totalmente compatible con la API REST de Azure Resource Manager. Por lo tanto, se puede utilizar a través de Powershell con el cmdlet de Resource Manager y con la CLI de Azure.
 
 ## <a name="powershell"></a>PowerShell
-Seguidamente se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleActivityLogAlert.json), mediante el cmdlet de PowerShell de Azure Resource Manager en la [sección Plantilla de recursos](#manage-alert-rules-for-activity-log-using-azure-resource-template):
+Seguidamente se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleActivityLogAlert.json), mediante el cmdlet de PowerShell de Azure Resource Manager en la sección Plantilla de recursos:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Tenga en cuenta que sampleActivityLogAlert.parameters.json tiene los valores proporcionados para los parámetros que se necesitan para crear las reglas de alertas.
 
 ## <a name="cli"></a>CLI
-A continuación se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleActivityLogAlert.json), mediante el comando de Azure Resource Manager en la CLI de Azure en la [sección Plantilla de recursos](#manage-alert-rules-for-activity-log-using-azure-resource-template):
+A continuación se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleActivityLogAlert.json), mediante el comando de Azure Resource Manager en la CLI de Azure en la sección Plantilla de recursos:
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json

@@ -9,99 +9,66 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742531"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746751"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 
-En Azure Media Services v3, las directivas de streaming permiten definir los protocolos de streaming y las opciones de cifrado de StreamingLocators. Puede especificar el nombre de la directiva de streaming que creó o use una de las directivas de streaming predefinidas. Las directivas de streaming predefinidas que están disponibles actualmente son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".
+En Azure Media Services v3, las [directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Puede usar una de las directivas de streaming predefinidas o crear una directiva personalizada. Las directivas de streaming predefinidas que están disponibles actualmente son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".
 
 > [!IMPORTANT]
-> Al utilizar el objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de Streaming Policy. No debe crear un nuevo objeto Streaming Policy para cada objeto Streaming Locator.
+> * Las propiedades de **directivas de streaming** que son del tipo Datetime siempre están en formato UTC.
+> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con sus localizadores de streaming siempre que se necesiten las mismas opciones. 
 
-## <a name="streamingpolicy-definition"></a>Definición de StreamingPolicy
+## <a name="examples"></a>Ejemplos
 
-En la tabla siguiente se muestran las propiedades de StreamingPolicy y se proporcionan sus definiciones.
+### <a name="not-encrypted"></a>No cifrado
 
-|NOMBRE|Descripción|
-|---|---|
-|id|Identificador de recurso completo del recurso.|
-|Nombre|Nombre del recurso.|
-|properties.commonEncryptionCbcs|Configuración de CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|Configuración de CommonEncryptionCenc|
-|properties.created |Hora de creación de la directiva de streaming|
-|properties.defaultContentKeyPolicyName |ContentKey predeterminada que utiliza la directiva de streaming actual|
-|properties.envelopeEncryption  |Configuración de EnvelopeEncryption|
-|properties.noEncryption|Configuraciones de NoEncryption|
-|Tipo|Tipo de recurso.|
+Si quiere transmitir el archivo sin cifrar, establezca la directiva de streaming sin cifrar predefinida en "Predefined_ClearStreamingOnly" (en. NET, puede usar PredefinedStreamingPolicy.ClearStreamingOnly).
 
-Para conocer la definición completa, consulte [Directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### <a name="encrypted"></a>Cifrados 
+
+Si necesita cifrar el contenido con cifrado de sobre y cifrado común, establezca la directiva en "Predefined_MultiDrmCencStreaming". Esta directiva indica que desea que se generen y establezcan dos claves de contenido (sobre y CENC) en el localizador. De esta forma, se aplican los cifrados de sobre, PlayReady y Widevine (la clave se entrega al cliente de reproducción en función de las licencias DRM configuradas).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+Si también quiere cifrar su transmisión con CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
 
 ## <a name="filtering-ordering-paging"></a>Filtrado, ordenación, paginación
 
-Media Services admite las siguientes opciones de consulta de OData para las directivas de streaming: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Descripción del operador:
-
-* Eq = es igual que
-* Ne = no es igual que
-* Ge = es mayor o igual que
-* Le = es menor o igual que
-* Gt = es mayor que
-* Lt = es menor que
-
-### <a name="filteringordering"></a>Filtrado y ordenación
-
-En la tabla siguiente se muestra cómo pueden aplicarse estas opciones a las propiedades de StreamingPolicy: 
-
-|NOMBRE|Filtrar|Orden|
-|---|---|---|
-|id|||
-|Nombre|Eq, ne, ge, le, gt, lt|Ascendente y descendente|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|properties.created |Eq, ne, ge, le, gt, lt|Ascendente y descendente|
-|properties.defaultContentKeyPolicyName |||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|Tipo|||
-
-### <a name="pagination"></a>Paginación
-
-La paginación se admite para cada uno de los cuatro criterios de ordenación habilitados. En este momento, el tamaño de página es 10.
-
-> [!TIP]
-> Siempre debe usar el vínculo siguiente para enumerar la colección y así no tener que depender de un tamaño de página determinado.
-
-Si una respuesta de consulta contiene muchos elementos, el servicio devuelve una propiedad "\@odata.nextLink" para obtener la siguiente página de resultados. Esto se puede utilizar para pasar de página en el conjunto de resultados completo. No puede configurar el tamaño de página. 
-
-Si se crean o eliminan los elementos StreamingPolicy durante la paginación a través de la colección, los cambios se ven reflejados en los resultados que se devuelven (si esos cambios se encuentran en la parte de la colección que no se ha descargado). 
-
-En el ejemplo de C# siguiente se muestra cómo enumerar todos los elementos StreamingPolicies de la cuenta.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-Para obtener ejemplos de REST, consulte [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list) (Lista de directivas de streaming).
+Consulte [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Streaming de un archivo](stream-files-dotnet-quickstart.md)
+* [Streaming de un archivo](stream-files-dotnet-quickstart.md)
+* [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](protect-with-aes128.md)
+* [Uso del cifrado dinámico de DRM y el servicio de entrega de licencias](protect-with-drm.md)

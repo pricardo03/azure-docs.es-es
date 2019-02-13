@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b2f8a299dfc52bcc1f2eaa17e658b841d27bf62c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54154936"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747329"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos del sistema de Azure Data Box Disk
 
@@ -49,6 +49,10 @@ Para el cliente Linux, el Conjunto de herramientas de Data Box Disk instala el s
 
 - dislocker
 - OpenSSL
+
+## <a name="supported-connection"></a>Conexión admitida
+
+El equipo cliente que contiene los datos debe tener un puerto USB 3.0 o de una versión posterior. Los discos se conectan a este cliente mediante el cable proporcionado. 
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498392"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734477"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 
@@ -49,7 +49,7 @@ Puede cambiar la versión del runtime que la aplicación de función usa. Debido
 >[!NOTE]
 >Dado que otros valores de configuración pueden verse afectados por la versión del entorno de ejecución, debe cambiar la versión en el portal. El portal realiza automáticamente las demás actualizaciones necesarias, como la versión de Node.js y la pila del entorno de ejecución, al cambiar las versiones del entorno de ejecución.  
 
-Mediante la CLI de Azure, puede ver la versión actual del entorno de ejecución con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Mediante la CLI de Azure, puede ver la versión actual del entorno de ejecución con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ Puede ver el elemento `FUNCTIONS_EXTENSION_VERSION` en la salida siguiente, que 
 ]
 ```
 
-Puede actualizar el valor de `FUNCTIONS_EXTENSION_VERSION` en la aplicación de función con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+Puede actualizar el valor de `FUNCTIONS_EXTENSION_VERSION` en la aplicación de función con el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

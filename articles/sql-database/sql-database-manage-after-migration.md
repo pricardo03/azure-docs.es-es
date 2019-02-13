@@ -3,7 +3,7 @@ title: 'Administración después de la migración: Azure SQL Database | Microsof
 description: Obtenga información acerca de cómo administrar la base de datos tras la migración a Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478481"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751946"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de la base de datos en Azure SQL Database
 
@@ -108,7 +108,7 @@ Existen varias técnicas a su disposición que podría utilizar para alcanzar la
 
 Un firewall impide el acceso al servidor desde una entidad externa al permitir que solo entidades específicas obtengan acceso al servidor de SQL Database. De forma predeterminada, todas las conexiones y bases de datos del servidor de SQL Database están prohibidas, excepto las conexiones que proceden de otros servicios de Azure. Con una regla de firewall puede abrir el acceso al servidor únicamente a las entidades (por ejemplo, una máquina de desarrollador) que apruebe al permitir la dirección IP de ese equipo a través del firewall. También permite especificar un intervalo de direcciones IP al que quiere permitir el acceso al servidor de SQL Database. Por ejemplo, las direcciones IP de una máquina de desarrollador de su organización pueden agregarse a la vez mediante la especificación de un intervalo en la página Configuración del firewall.
 
-Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de nivel de servidor pueden crearse mediante Azure Portal o con SSMS. Para obtener más información acerca de cómo configurar una regla de firewall de nivel de servidor y de base de datos, consulte el tema sobre la [creación de reglas de firewall en SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de IP en el nivel de servidor pueden crearse mediante Azure Portal o con SSMS. Para más información acerca de cómo configurar una regla de firewall en el nivel de servidor y en el de base de datos, consulte el tema sobre la [creación de reglas de firewall de IP en SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Puntos de conexión de servicio
 
@@ -134,7 +134,7 @@ Con SQL Database, puede activar la auditoría para realizar el seguimiento de lo
 
 #### <a name="threat-detection"></a>Detección de amenazas
 
-Con la [detección de amenazas](sql-database-threat-detection.md), obtendrá la capacidad de actuar fácilmente sobre las infracciones de seguridad o directivas que la auditoría detecte. No es necesario ser un experto en seguridad para resolver posibles amenazas o infracciones en el sistema. La detección de amenazas también tiene algunas capacidades integradas, como la detección de SQL Injection. SQL Injection es un intento de modificar o poner en peligro los datos y una manera bastante común de atacar una aplicación de base de datos en general. Detección de amenazas de SQL Database ejecuta varios conjuntos de algoritmos que detectan posibles vulnerabilidades y ataques de inyección de SQL, así como patrones de acceso de base de datos anómalos (por ejemplo, el acceso desde una ubicación inusual o una entidad de seguridad desconocida). Los responsables de seguridad u otros administradores designados reciben una notificación por correo electrónico si se detecta una amenaza en la base de datos. Cada notificación proporciona detalles de la actividad sospechosa y recomendaciones acerca de cómo investigar más y mitigar la amenaza. Para obtener información sobre cómo activar la detección de amenazas, consulte: [Habilitación de la detección de amenazas de SQL Database](sql-database-security-tutorial.md#enable-security-features).
+Con la [detección de amenazas](sql-database-threat-detection.md), obtendrá la capacidad de actuar fácilmente sobre las infracciones de seguridad o directivas que la auditoría detecte. No es necesario ser un experto en seguridad para resolver posibles amenazas o infracciones en el sistema. La detección de amenazas también tiene algunas capacidades integradas, como la detección de SQL Injection. SQL Injection es un intento de modificar o poner en peligro los datos y una manera bastante común de atacar una aplicación de base de datos en general. La detección de amenazas ejecuta varios conjuntos de algoritmos que detectan posibles vulnerabilidades y ataques de inyección de SQL, así como patrones de acceso de base de datos anómalos (por ejemplo, el acceso desde una ubicación inusual o una entidad de seguridad desconocida). Los responsables de seguridad u otros administradores designados reciben una notificación por correo electrónico si se detecta una amenaza en la base de datos. Cada notificación proporciona detalles de la actividad sospechosa y recomendaciones acerca de cómo investigar más y mitigar la amenaza. Para obtener información sobre cómo activar la detección de amenazas, consulte: [Habilitar la detección de amenazas](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Cómo puedo proteger mis datos en general en SQL Database
 
@@ -220,7 +220,7 @@ con la información de rendimiento de consultas, puede obtener recomendaciones a
 
 ### <a name="security-optimization"></a>Optimización de la seguridad
 
-SQL Database proporciona recomendaciones de seguridad accionables para ayudarle a proteger sus datos, así como detección de amenazas para identificar e investigar actividades sospechosas de la base de datos que puedan suponer una amenaza para la base de datos. [Evaluación de vulnerabilidades de SQL](sql-vulnerability-assessment.md) es un servicio de examen e informes de la base de datos que le permite supervisar el estado de seguridad de las bases de datos a escala e identificar los riesgos de seguridad y desfase respecto a una línea de base de seguridad definida por el usuario. Después de cada examen, se proporciona una lista personalizada de pasos procesables y scripts de corrección, así como un informe de evaluación que puede usarse para ayudar a cumplir con los requisitos de cumplimiento.
+SQL Database proporciona recomendaciones de seguridad accionables para ayudarle a proteger sus datos, así como detección de amenazas para identificar e investigar actividades sospechosas de la base de datos que puedan suponer una amenaza para la base de datos. [Evaluación de vulnerabilidades](sql-vulnerability-assessment.md) es un servicio de examen e informes de la base de datos que le permite supervisar el estado de seguridad de las bases de datos a escala e identificar los riesgos de seguridad y desfase respecto a una línea de base de seguridad definida por el usuario. Después de cada examen, se proporciona una lista personalizada de pasos procesables y scripts de corrección, así como un informe de evaluación que puede usarse para ayudar a cumplir con los requisitos de cumplimiento.
 
 Con Azure Security Center, debe identificar las recomendaciones de seguridad en todos los ámbitos y aplicarlas con un solo clic.
 

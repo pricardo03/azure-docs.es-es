@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: 8085f3855d58bc1ddb7b4529ac4799b8292cea53
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 796e104dd0b3b2cfdef2ee3515625cba0a9fdc1e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401782"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497146"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -135,7 +135,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --f
 Para acceder a los recursos de Azure Files con las credenciales de Azure AD, una identidad (usuario, grupo o entidad de servicio) debe tener los permisos necesarios en los recursos compartidos. Las instrucciones de esta sección muestran cómo asignar permisos de lectura, escritura o eliminación para un recurso compartido de archivos a una identidad.
 
 > [!IMPORTANT]
-> El control administrativo total de un recurso compartido de archivos, incluida la capacidad para asignar un rol a una identidad, requiere usar la clave de la cuenta de almacenamiento. No se admite el control administrativo con credenciales de Azure AD. 
+> El control administrativo total de un recurso compartido de archivos, incluida la capacidad para asignar un rol a una identidad, requiere usar la clave de la cuenta de almacenamiento. El control administrativo no puede realizarse con credenciales de Azure AD. 
 
 ### <a name="define-a-custom-role"></a>Definir un rol personalizado
 

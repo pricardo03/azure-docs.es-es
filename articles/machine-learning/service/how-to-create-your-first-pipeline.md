@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3d1e0f591e5ce9f56e79ffecf72599ed1d894dc9
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251663"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746207"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -104,6 +104,9 @@ output_data1 = PipelineData(
 
 En Azure Machine Learning, el término __proceso__ (o __destino de proceso__) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático.   Consulte los [destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md) para obtener una lista completa de destinos de proceso y cómo crearlos y adjuntarlos a su área de trabajo.  El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
 
+> [!IMPORTANT]
+> No se admite la realización de operaciones de administración en destinos de proceso desde dentro de trabajos remotos. Puesto que las canalizaciones de aprendizaje automático se envían como un trabajo remoto, no use operaciones de administración en destinos de proceso desde dentro de la canalización.
+
 A continuación se muestran ejemplos de creación y asociación de los destinos de proceso para:
 
 * Proceso de Azure Machine Learning
@@ -114,27 +117,27 @@ A continuación se muestran ejemplos de creación y asociación de los destinos 
 
 Puede crear un proceso de Azure Machine Learning para ejecutar sus pasos.
 
-    ```python
-    compute_name = "aml-compute"
-     if compute_name in ws.compute_targets:
-        compute_target = ws.compute_targets[compute_name]
-        if compute_target and type(compute_target) is AmlCompute:
-            print('Found compute target: ' + compute_name)
-    else:
-        print('Creating a new compute target...')
-        provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                    min_nodes = 1, 
-                                                                    max_nodes = 4)
-         # create the compute target
-        compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-        
-        # Can poll for a minimum number of nodes and for a specific timeout. 
-        # If no min node count is provided it will use the scale settings for the cluster
-        compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-        
-         # For a more detailed view of current cluster status, use the 'status' property    
-        print(compute_target.status.serialize())
-    ```
+```python
+compute_name = "aml-compute"
+ if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('Found compute target: ' + compute_name)
+else:
+    print('Creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                min_nodes = 1, 
+                                                                max_nodes = 4)
+     # create the compute target
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # Can poll for a minimum number of nodes and for a specific timeout. 
+    # If no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current cluster status, use the 'status' property    
+    print(compute_target.status.serialize())
+```
 
 ### <a id="databricks"></a>Azure Databricks
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8be5e94886237129824204ea166a2663e2f3110e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192844"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integración de Azure Active Directory con Zscaler Private Access (ZPA)
 
@@ -95,7 +95,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Zscaler Pri
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Zscaler Private Access (ZPA)](#creating-a-zscaler-private-access-(zpa)-test-user)**: para tener un homólogo de Britta Simon en Zscaler Private Access (ZPA) que esté vinculado a la representación de ella en Azure AD.
+1. **Creación de un usuario de prueba de Zscaler Private Access (ZPA)**: para tener un homólogo de Britta Simon en Zscaler Private Access (ZPA) que esté vinculado a la representación de ella en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 

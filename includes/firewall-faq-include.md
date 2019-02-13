@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 2/4/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 3d76f25fc4382c8f03fac682fa7286a4a329a1db
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8fd8cd93015fdb5cdcf657ecbcbb9a7cc870525a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54300652"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747754"
 ---
 ### <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -34,6 +34,8 @@ Azure Firewall es un servicio de seguridad de red administrado y basado en la nu
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>¿Cuál es el modelo de implementación típico para Azure Firewall?
 
 Puede implementar Azure Firewall en cualquier red virtual, pero los clientes habitualmente lo implementan en una red virtual central y lo emparejan con otras redes virtuales en un modelo de concentrador y radio. A continuación, puede establecer la ruta predeterminada desde las redes virtuales emparejadas para que apunte a esta red virtual de firewall central.
+
+La ventaja de este modelo es la posibilidad de ejercer control centralizado sobre varias redes virtuales de radio en distintas suscripciones. También hay un ahorro en los costos, ya que no es necesario implementar un firewall en cada red virtual por separado. Este ahorro se debe medir frente al costo de emparejamiento asociado basado en los patrones de tráfico del cliente.
 
 ### <a name="how-can-i-install-the-azure-firewall"></a>¿Cómo puedo instalar Azure Firewall?
 
@@ -120,7 +122,7 @@ Sí, puede usar Azure Firewall en la red virtual de un concentrador para enrutar
 
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>¿Azure Firewall puede reenviar y filtrar el tráfico de red entre subredes de la misma red virtual o redes virtuales emparejadas?
 
-El tráfico entre subredes de la misma red virtual o de una red virtual emparejada directamente se enruta de forma directa, incluso si la UDR apunta a la instancia de Azure Firewall como puerta de enlace predeterminada. El método recomendado para la segmentación de redes internas es utilizar grupos de seguridad de red. Para enviar tráfico de subred a subred al firewall en este escenario, el UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.
+Sí. Sin embargo, es necesario prestar una atención especial al configurar las UDR para redirigir el tráfico entre subredes de la misma red virtual. Aunque basta con usar el intervalo de direcciones de red virtual como prefijo de destino para la UDR, también se enruta todo el tráfico de una máquina a otra de la misma subred mediante la instancia de Azure Firewall. Para evitar este problema, incluya una ruta para la subred en la UDR con un tipo de próximo salto **VNET**. La administración de estas rutas podría ser problemática y estar sujeta a errores. El método recomendado para la segmentación de redes internas es usar grupos de seguridad de red, que no necesitan UDR.
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
 

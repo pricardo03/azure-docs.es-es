@@ -3,7 +3,7 @@ title: Protección de las aplicaciones y las máquinas en Azure Security Center 
 description: En este documento se describen las recomendaciones de Security Center que le ayudan a proteger las máquinas virtuales, equipos, aplicaciones web y los entornos de App Service.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181476"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487750"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -42,7 +42,7 @@ En **Compute & apps** (Procesos y aplicaciones), existen las siguientes pestaña
 - **Información general**: supervisión y recomendaciones identificadas por Security Center.
 - **VM y equipos**: muestra el estado de seguridad actual de todas las máquinas virtuales y equipos.
 - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
-- **App Services (versión preliminar)**: muestra la lista actual de los entornos de App Service y el estado de seguridad actual de cada uno.
+- **App Services**: muestra la lista actual de los entornos de App Service y el estado de seguridad actual de cada uno.
 - **Contenedores (versión preliminar)**: lista de los contenedores hospedados en equipos IaaS Linux y evaluaciones de seguridad de sus configuraciones de Docker.
 - **Recursos de proceso (versión preliminar)**: enumera las recomendaciones para los recursos de proceso, como clústeres de Service Fabric y centros de eventos.
 
@@ -124,12 +124,11 @@ Para ver una explicación más preceptiva con respecto a esta recomendación, ha
 
 ![Actualizar versión del sistema operativo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>App Services (versión preliminar)
+### <a name="app-services"></a>App Services
+Debe habilitar App Service en su suscripción con el fin de ver la información de App Service. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Protección de App Service con Azure Security Center](security-center-app-services.md).
+[!NOTE]
+> La supervisión de App Service se encuentra en versión preliminar y solo está disponible en el nivel estándar de Security Center.
 
-> [!NOTE]
-> La supervisión de App Service se encuentra en versión preliminar y solo está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
->
->
 
 En **App Services**, encontrará una lista de los entornos de App Service y el resumen de su estado según la evaluación que realizó Security Center.
 
@@ -171,19 +170,9 @@ Hay tres tipos de iconos representados en esta lista:
 |App Service|10|Recomendación de desactivación de la depuración remota para aplicaciones web|Desactive la depuración para aplicaciones web si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Function App.|
 |App Service|10|Recomendación de desactivación de la depuración remota para Function App|Desactive la depuración para Function App si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Function App.|
 |App Service|10|Configuración de las restricciones de IP de las aplicaciones web|Defina una lista de direcciones IP que tienen permiso para acceder a su aplicación. El uso de restricciones de IP protege una aplicación web frente a ataques comunes.|
-|App Service|10|Configuración de las restricciones de IP para Function App| Defina una lista de direcciones IP que tienen permiso para acceder a su aplicación. El uso de restricciones de IP protege una aplicación de función frente a ataques comunes.|
 |App Service|10|No permita que todos los recursos ("*") tengan acceso a la aplicación| No permita la configuración del parámetro WEBSITE_LOAD_CERTIFICATES en "". Si establece el parámetro en ", todos los certificados se cargan en el almacén de certificados personales de su aplicación web. Esto puede dar lugar a un abuso del principio de privilegio mínimo, ya que es poco probable que el sitio necesite tener acceso a todos los certificados en tiempo de ejecución.|
-|App Service|5|Recomendación de desactivación de Web Sockets para aplicaciones web|Revise el uso de Web Sockets en las aplicaciones web. El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad.|
-|App Service|5|Recomendación de desactivación de Web Sockets para Function App|Revise el uso de Web Sockets en las instancias de Function App. El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad.|
-|App Service|5|Uso de dominios personalizados para su aplicación web|Use dominios personalizados para proteger una aplicación web frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con DNS.|
-|App Service|5|Uso de dominios personalizados para Function App|Use dominios personalizados para proteger una aplicación de función frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con DNS.|
 |App Service|20|Recomendación de que CORS no permita que todos los recursos accedan a las aplicaciones web|Permita solo que los dominios requeridos interactúen con la aplicación web. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación web.|
 |App Service|20|CORS no debe permitir que todos los recursos accedan a Function App| Permita solo que los dominios requeridos interactúen con la aplicación de función. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación de función.|
-|App Service|10|Uso de la última versión compatible de .NET Framework para aplicaciones web|Utilice la versión más reciente de .NET Framework para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
-|App Service|10|Uso de la última versión compatible de Java para aplicaciones web|Utilice la versión más reciente de Java para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
-|App Service|10|Uso de la última versión compatible de Java para aplicaciones web|Utilice la versión más reciente de PHP para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
-|App Service|10|Uso de la última versión compatible de Node.js para aplicaciones web|Utilice la versión más reciente de Node.js para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
-|App Service|10|Usar la última versión compatible de Python para aplicaciones web|Utilice la versión más reciente de Python para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
 |Recursos de proceso (Batch)|1|Configurar las reglas de alerta de métrica en la cuenta de Batch|Configure las reglas de alerta métrica en la cuenta de Batch y habilite las métricas de Eliminar grupo de eventos completos y Eliminar grupo de eventos de inicio.|
 |Recursos de proceso (Service Fabric)|10|Usar Azure Active Directory para la autenticación de clientes en Service Fabric|Realice la autenticación de clientes solo mediante Azure Active Directory en Service Fabric.|
 |Recursos de proceso (cuenta de Automation)|5| Habilitar el cifrado de la cuenta de Automation|Habilite el cifrado de recursos de variables de cuentas de Automation al almacenar datos confidenciales.|

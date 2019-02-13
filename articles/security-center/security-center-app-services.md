@@ -3,7 +3,7 @@ title: Protección de App Services en Azure Security Center | Microsoft Docs
 description: Este artículo le ayuda a comenzar a proteger las instancias de App Services en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343877"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491950"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protección de App Service con Azure Security Center
 Este artículo le ayuda a usar Azure Security Center para supervisar y proteger las aplicaciones que se ejecutan en App Service.
@@ -65,6 +65,7 @@ En este artículo, aprendió a usar las funcionalidades de supervisión en Azure
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): Aprenda a configurar opciones de seguridad en Azure Security Center.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): Aprenda a administrar y responder a las alertas de seguridad.
+* [App Services](security-center-virtual-machine-protection.md#app-services):  consulte una lista de los entornos de aplicaciones con resúmenes de estado.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): Aprenda cómo supervisar el estado de mantenimiento de las soluciones de sus asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): Preguntas más frecuentes acerca del uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053673"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697528"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -32,7 +32,7 @@ En la tabla siguiente se proporciona una lista de los entornos de proceso compat
 | ---------------------------------------- | ---------------------------------------- |
 | [Clúster de Azure HDInsight a petición](#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Actividades de Machine Learning: ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) |
 
@@ -51,7 +51,7 @@ Microsoft actualiza la lista de versiones compatibles de HDInsight con las corre
 Después del 15 de diciembre de 2017:
 
 - Ya no puede crear clústeres de la versión 3.3 (o versiones anteriores) de HDInsight basado en Linux mediante un servicio vinculado de HDInsight a petición en Data Factory versión 1. 
-- Si no se especifican las propiedades [**osType** y **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) en la definición de JSON para un servicio existente vinculado a HDInsight a petición de Data Factory versión 1, el valor predeterminado cambia de **Version=3.1, osType=Windows** a **Version=\<última versión predeterminada de HDI\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType=Linux**.
+- Si no se especifican las propiedades [**osType** y **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) en la definición de JSON para un servicio existente vinculado a HDInsight a petición de Data Factory versión 1, el valor predeterminado cambia de **Version=3.1, osType=Windows** a **Version=\<última versión predeterminada de HDI\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
 
 Después del 31 de julio de 2018:
 
@@ -126,7 +126,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 | Tipo                         | Establezca la propiedad type en **HDInsightOnDemand**. | Sí      |
 | clusterSize                  | El número de nodos de trabajo y de datos en el clúster. El clúster de HDInsight se crea con dos nodos principales además del número de nodos de trabajo que especifica para esta propiedad. El tamaño de los nodos es Standard_D3, que tiene 4 núcleos. Un clúster de 4 nodos de trabajo necesita 24 núcleos, (4\*4 = 16 núcleos para nodos de trabajo, más 2\*4 = 8 núcleos para nodos principales). Para detalles sobre el nivel Standard_D3, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sí      |
 | timeToLive                   | El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición cuando finaliza una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br /><br />Por ejemplo, si una ejecución de actividad tarda 6 minutos y **timeToLive** está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se ejecuta otra actividad en un margen de 6 minutos, la procesa el mismo clúster.<br /><br />Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un tiempo). Use esta configuración según sea necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br /><br />Si establece el valor **timeToLive** en **0**, el clúster se elimina en cuenta se finaliza la ejecución de actividad. Sin embargo,si establece un valor alto, el clúster puede permanecer inactivo, lo que genera costos elevados innecesariamente. Es importante establecer el valor adecuado en función de sus necesidades.<br /><br />Varias canalizaciones pueden compartir la instancia del clúster de HDInsight a petición si el valor de la propiedad **timeToLive** está correctamente establecido. | Sí      |
-| version                      | La versión del clúster de HDInsight. Para una lista de las versiones de HDInsight permitidas, consulte [Versiones compatibles de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Si no se especifica este valor, se usa la [versión predeterminada de HDI más reciente](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Sin        |
+| version                      | La versión del clúster de HDInsight. Para una lista de las versiones de HDInsight permitidas, consulte [Versiones compatibles de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Si no se especifica este valor, se usa la [versión predeterminada de HDI más reciente](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning). | Sin        |
 | linkedServiceName            | El servicio vinculado de Azure Storage que el clúster a petición usará para almacenar y procesar datos. El clúster de HDInsight se crea en la misma región que esta cuenta de almacenamiento.<p>Actualmente, no puede crear un clúster de HDInsight a petición que use Azure Data Lake Store como el almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en Data Lake Store, use la actividad de copia para copiar los datos desde Blob Storage a Data Lake Store. </p> | Sí      |
 | additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight. Data Factory registra las cuentas de almacenamiento en su nombre. Estas cuentas de almacenamiento deben estar en la misma región que el clúster de HDInsight. El clúster de HDInsight se crea en la misma región que la cuenta de almacenamiento que se especifica en la propiedad **linkedServiceName**. | Sin        |
 | osType                       | El tipo de sistema operativo. Los valores permitidos son **Linux** y **Windows**. Si no se especifica este valor, se usa **Linux**.  <br /><br />Se recomienda usar los clústeres de HDInsight basado en Linux. La fecha de retirada de HDInsight en Windows es el 31 de julio de 2018. | Sin        |
@@ -155,7 +155,7 @@ Para la configuración granular del clúster de HDInsight a petición, puede esp
 | stormConfiguration     | Especifica los parámetros de configuración Storm (storm-site.xml) para el clúster de HDInsight. | Sin        |
 | yarnConfiguration      | Especifica los parámetros de configuración YARN (yarn-site.xml) para el clúster de HDInsight. | Sin        |
 
-#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Ejemplo: configuración del clúster de HDInsight a petición con propiedades avanzadas
+#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Ejemplo: Configuración del clúster de HDInsight a petición con propiedades avanzadas
 
 ```json
 {
@@ -215,7 +215,7 @@ Si quiere crear nodos de trabajo y principales de tamaño D4, especifique **Stan
 
 Si establece un valor incorrecto para estas propiedades, podría ver el mensaje siguiente:
 
-  Error al crear el clúster. Excepción: No se puede completar la operación de creación del clúster. Error en la operación con el código '400'. El clúster generó el estado: 'Error'. Mensaje: 'PreClusterCreationValidationFailure'. 
+  Error al crear el clúster. Excepción: No se puede completar la operación de creación del clúster. Error en la operación con el código '400'. El clúster generó el estado: “Error”. Mensaje: “PreClusterCreationValidationFailure”. 
   
 Si ve este mensaje, asegúrese de que usa los nombres de las API y los cmdlets de la tabla que aparece en el artículo sobre los [tamaños de máquina virtual](../../virtual-machines/linux/sizes.md).  
 
@@ -334,7 +334,7 @@ Puede crear un servicio vinculado de Machine Learning para registrar un punto de
 ### <a name="properties"></a>Properties (Propiedades)
 | Propiedad   | DESCRIPCIÓN                              | Obligatorio |
 | ---------- | ---------------------------------------- | -------- |
-| Escriba       | Establezca la propiedad type en **AzureML**. | Sí      |
+| Type       | Establezca la propiedad type en **AzureML**. | Sí      |
 | mlEndpoint | La dirección URL de puntuación por lotes.                   | Sí      |
 | apiKey     | La API del modelo de área de trabajo publicado.     | Sí      |
 
@@ -368,7 +368,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 | servicePrincipalKey | La clave de la aplicación.           | Sí      |
 | tenant              | La información del inquilino (nombre de dominio o identificador de inquilino) en el que se ubica la aplicación. Para obtener esta información, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí      |
 
-**Ejemplo: autenticación de la entidad de servicio**
+**Ejemplo: Autenticación de entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -395,7 +395,7 @@ Para la autenticación de credenciales de usuario de Data Lake Analytics, especi
 | authorization | En el Editor de Data Factory, seleccione el botón **Autorizar**. Escriba la credencial que asigna la dirección URL de autorización generada automáticamente a esta propiedad. | Sí      |
 | sessionId     | El identificador de sesión de OAuth de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Esta configuración se genera automáticamente al usar el Editor de Data Factory. | Sí      |
 
-**Ejemplo: autenticación de credenciales de usuario**
+**Ejemplo: Autenticación de credenciales de usuario**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -418,7 +418,7 @@ El código de autorización que genera al seleccionar el botón **Autorizar** ex
 
 Puede ver el mensaje de error siguiente cuando expira el token de autenticación: 
 
-  Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
+  Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Identificador de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Identificador de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
 
 En la tabla siguiente se muestran las expiraciones por tipo de cuenta de usuario: 
 

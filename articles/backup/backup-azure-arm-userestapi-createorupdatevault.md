@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289462"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734341"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creación del almacén de Azure Recovery Services mediante API REST
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Creación de una solicitud
 
-Para crear la solicitud *PUT*, se necesita el parámetro `{subscription-id}`. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Definirá los elementos `{resourceGroupName}` y `{vaultName}` para sus recursos, junto con el parámetro `api-version`. En este artículo se usa `api-version=2016-06-01`.
+Para crear la solicitud *PUT*, se necesita el parámetro `{subscription-id}`. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Definirá los elementos `{resourceGroupName}` y `{vaultName}` para sus recursos, junto con el parámetro `api-version`. En este artículo se usa `api-version=2016-06-01`.
 
 Los siguientes encabezados son obligatorios:
 
@@ -44,7 +44,7 @@ Para más información sobre cómo crear la solicitud, consulte [ Componentes de
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-|NOMBRE  |Obligatorio  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Obligatorio  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|---------|
 |eTag     |         |   string      |  eTag opcional       |
 |location     |  true       |string         |   Ubicación del recurso      |
@@ -72,7 +72,7 @@ El cuerpo de ejemplo siguiente se usa para crear un almacén en "West US". Espec
 
 Hay dos respuestas correctas a la operación para crear o actualizar un almacén de Recovery Services:
 
-|NOMBRE  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |   [Almacén](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Creado     | [Almacén](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Creado      |

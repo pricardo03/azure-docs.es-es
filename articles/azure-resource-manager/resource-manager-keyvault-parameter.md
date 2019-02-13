@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6e9ad6f74970b6c72b96ae142f02bee6b07fb558
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd45384bfd548cb73c10306dfee942cbcf7c8ca1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455480"
+ms.locfileid: "55491916"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
 En lugar de pasar un valor seguro (por ejemplo, una contraseña) directamente en el archivo del parámetro, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. Key Vault puede existir en una suscripción diferente en la que está implementando el grupo de recursos.
 
-Para realizar un tutorial, consulte [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implementación de almacenes de claves y secretos
 

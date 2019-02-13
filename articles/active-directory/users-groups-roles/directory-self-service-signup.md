@@ -1,5 +1,5 @@
 ---
-title: Registro de autoservicio o de evaluación en Azure Active Directory | Microsoft Docs
+title: Incorporación de usuarios mediante el registro de autoservicio o de prueba en Azure Active Directory | Microsoft Docs
 description: Uso del registro de autoservicio en un inquilino de Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195824"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506777"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
+
 En este artículo se explica el registro de autoservicio y como admitirlo en Azure Active Directory (Azure AD). Si desea asumir un nombre de dominio de un inquilino de Azure AD no administrado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Toma de control de un directorio no administrado como administrador).
 
 ## <a name="why-use-self-service-signup"></a>Razones para usar la suscripción de autoservicio

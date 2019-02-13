@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158948"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657746"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
@@ -39,6 +39,8 @@ A partir de esta plantilla de dispositivo, un operador puede crear y conectar di
 
 > [!NOTE]
 > Solo los generadores y administradores pueden crear, editar y eliminar plantillas de dispositivo. Cualquier usuario puede crear dispositivos en la página **Device Explorer** a partir de las plantillas de dispositivo existentes.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Creación de una plantilla de dispositivo
 
@@ -84,7 +86,7 @@ Después de seleccionar **Listo**, aparece la medida **Temperatura** en la lista
 ### <a name="create-an-event-measurement"></a>Creación de una medida de tipo Evento
 Para agregar una nueva medida de evento, seleccione **Editar plantilla** y haga clic en el botón **+ New Measurement** (Nueva medida). Seleccione **Event** (Evento) como tipo de medida y escriba los detalles en el formulario **Create Event** (Crear evento).
 
-Rellene los siguientes campos con los datos del evento: **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y **Severity** (Gravedad). Puede elegir entre los tres niveles disponibles de gravedad: **Error**, **Warning** (Advertencia) e **Information** (Información).  
+Rellene los siguientes campos con los datos del evento: **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y **Severity** (Gravedad). Puede elegir entre los tres niveles disponibles de gravedad: **Error**, **Advertencia** e **Informativo**.  
 
 Por ejemplo, puede agregar un nuevo evento denominado **Fan Motor Error**.
 
@@ -136,7 +138,7 @@ La configuración puede tener uno de estos tres estados. El dispositivo notifica
 
 - **Synced** (Sincronizado): el dispositivo ha cambiado para reflejar el valor de la configuración.
 
-- **Pending** (Pendiente): el dispositivo está actualmente cambiando al valor de la configuración.
+- **Pending**: (Pendiente): el dispositivo está actualmente cambiando al valor de la configuración.
 
 - **Error**: el dispositivo ha devuelto un error.
 
@@ -234,7 +236,7 @@ Los comandos se usan para administrar un dispositivo de forma remota. Permiten a
 
 ¿En qué se diferencia un comando de un valor? 
 
-* **Valor**: un valor es una configuración que desea aplicar a un dispositivo y desea que el dispositivo conserve dicha configuración hasta que la cambie. Por ejemplo, desea establecer la temperatura del congelador y desea dicho valor aun cuando se reinicie el congelador. 
+* **Configuración**: un valor (o ajuste) es una configuración que desea aplicar a un dispositivo y que el dispositivo conserve hasta que la cambie. Por ejemplo, desea establecer la temperatura del congelador y desea dicho valor aun cuando se reinicie el congelador. 
 
 * **Comando**: los comandos se usan para ejecutar al instante un comando en el dispositivo de forma remota desde IoT Central. Si un dispositivo no está conectado, se agota el tiempo de espera del comando y se produce un error. Por ejemplo, desea reiniciar un dispositivo.  
 

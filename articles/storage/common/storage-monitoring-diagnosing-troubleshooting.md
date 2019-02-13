@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474010"
+ms.locfileid: "55490274"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ El código de la aplicación cliente elimina y vuelve a crear inmediatamente un 
 La aplicación cliente debe usar nombres de contenedor únicos siempre que cree nuevos contenedores si el patrón eliminar / volver a crear es común.
 
 ### <a name="metrics-show-low-percent-success"></a>Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors
-La métrica **PercentSuccess** captura el porcentaje de operaciones que se realizaron correctamente de acuerdo con su código de estado HTTP. Las operaciones con códigos de estado 2XX se cuentan como correctas, mientras que las operaciones con códigos de estado en los intervalos 3XX, 4XX y 5XX se cuentan como incorrectas y disminuyen el valor de la métrica **PercentSucess** . En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**.
+La métrica **PercentSuccess** captura el porcentaje de operaciones que se realizaron correctamente de acuerdo con su código de estado HTTP. Las operaciones con códigos de estado 2XX se cuentan como correctas, mientras que las operaciones con códigos de estado en los intervalos 3XX, 4XX y 5XX se cuentan como incorrectas y disminuyen el valor de la métrica **PercentSuccess** . En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**.
 
 Es importante señalar que estas operaciones se completaron correctamente y, por lo tanto, no afectan a otras métricas como las de disponibilidad. Algunos ejemplos de operaciones que se ejecutan correctamente, pero que pueden provocar códigos de estado HTTP incorrectos:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de flujos de usuario de Azure Active Directory B2C | Microsoft Docs'
+title: 'Tutorial: Creación de flujos de usuario en Azure Active Directory B2C | Microsoft Docs'
 description: Obtenga información acerca de cómo crear flujos de usuario para las aplicaciones en Azure Active Directory B2C con Azure Portal.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845611"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750297"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -39,29 +39,30 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Este flujo de usuario de registro y de inicio de sesión controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los usuarios se les lleva por el proceso correcto según el contexto.
 
-1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 
     ![Cambiar al directorio de suscripción](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-3. En el menú de la izquierda, seleccione **Flujos de usuario** y, a continuación, seleccione **Nuevo flujo de usuario**.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+4. En el menú de la izquierda, seleccione **Flujos de usuario** y, a continuación, seleccione **Nuevo flujo de usuario**.
 
     ![Selección del nuevo flujo de usuario](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Seleccione el flujo de usuario **Sign up and sign in** (Registro e inicio de sesión) en la pestaña Recomendado.
+5. Seleccione el flujo de usuario **Sign up and sign in** (Registro e inicio de sesión) en la pestaña Recomendado.
 
     ![Selección de un flujo de usuario de registro e inicio de sesión](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
-6. En **Proveedores de identidades**, seleccione **Registro por correo electrónico**.
+6. Escriba un **nombre** para el flujo de usuario. Por ejemplo, *signupsignin1*.
+7. En **Proveedores de identidades**, seleccione **Registro por correo electrónico**.
 
     ![Establecimiento de las propiedades de flujo](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. En **Atributos y notificaciones de usuario**, elija los atributos y las notificaciones que desea recopilar y enviar al usuario durante el registro. Por ejemplo, seleccione **Mostrar más** y elija **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
+8. En **Atributos y notificaciones de usuario**, elija los atributos y las notificaciones que desea recopilar y enviar al usuario durante el registro. Por ejemplo, seleccione **Mostrar más** y elija **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
 
     ![Selección de atributos y notificaciones](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Haga clic en **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
+9. Haga clic en **Crear** para agregar el flujo de usuario. El prefijo *B2C_1* se anexa automáticamente al nombre.
 
 ### <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
@@ -123,4 +124,4 @@ En este artículo, ha aprendido cómo:
 > * Creación de un flujo de usuario de restablecimiento de contraseña
 
 > [!div class="nextstepaction"]
-> [Personalización de la interfaz de usuario de las aplicaciones en Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Adición de proveedores de identidades a las aplicaciones en Azure Active Directory B2C](tutorial-add-identity-providers.md)

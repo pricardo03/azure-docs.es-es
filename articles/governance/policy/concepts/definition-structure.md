@@ -4,17 +4,17 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296671"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698299"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -46,7 +46,8 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Los parámetros ayudan a simplificar la administración de directivas mediante l
 Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusión de parámetros en una definición de directiva, puede volver a usar esa directiva en distintos escenarios con valores diferentes.
 
 > [!NOTE]
-> La definición de parámetros para una directiva o la definición de la iniciativa solo se pueden configurar durante la creación inicial de la directiva o iniciativa. La definición de parámetros no se puede cambiar más adelante.
-> Así se evita que las asignaciones existentes de la directiva o la iniciativa realizadas indirectamente no sean válidas.
+> Pueden añadirse parámetros a una definición existente y asignada. El nuevo parámetro debe incluir la propiedad **defaultValue**. Así se evita que las asignaciones existentes de la directiva o la iniciativa realizadas indirectamente no sean válidas.
 
 Por ejemplo, podría definir una directiva para limitar las ubicaciones en las que se pueden implementar los recursos.
 Podría declarar los parámetros siguientes en el momento de crear la directiva:
@@ -101,7 +101,8 @@ Podría declarar los parámetros siguientes en el momento de crear la directiva:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```

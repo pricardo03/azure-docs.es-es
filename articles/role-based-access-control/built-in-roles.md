@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081235"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699272"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
 
-Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descripciones de rol integrado
 En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol.
@@ -149,8 +149,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | * | Crear y administrar recursos de todos los tipos |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles. |
-> | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles. |
+> | Microsoft.Authorization/*/Delete | Elimina roles y asignaciones de roles |
+> | Microsoft.Authorization/*/Write | Crea roles y asignaciones de roles |
 > | Microsoft.Authorization/elevateAccess/Action | Concede al llamador acceso de administrador de acceso de usuario en el ámbito de inquilinos |
 > | Microsoft.Blueprint/blueprintAssignments/write | Crea o actualiza los artefactos de plano técnico |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Elimina los artefactos de plano técnico |
@@ -1600,15 +1600,15 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | No puede editar la configuración de auditoría |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Edita directivas de auditoría |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Edita la configuración de auditoría |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Recupera los registros de auditoría de blobs de bases de datos |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | No puede editar las directivas de enmascaramiento |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Edita directivas de conexión |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Edita directivas de enmascaramiento |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | No puede editar las directivas de alerta de seguridad |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | No puede editar las métricas de seguridad |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Edita las directivas de alerta de seguridad |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Edita las métricas de seguridad |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | No puede editar las directivas de auditoría de SQL Server |
-> | Microsoft.Sql/servers/auditingSettings/* | No puede editar la configuración de auditoría de SQL Server |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría de bases de datos de SQL Server |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | No puede editar la configuración de auditoría de bases de datos de SQL Server |
-> | Microsoft.Sql/servers/databases/auditRecords/read | No puede leer los registros de auditoría. |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | No puede editar las directivas de conexión de bases de datos de SQL Server |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | No puede editar las directivas de enmascaramiento de datos de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/auditingPolicies/* | Edita las directivas de auditoría de SQL Server |
+> | Microsoft.Sql/servers/auditingSettings/* | Edita la configuración de auditoría de SQL Server |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Edita las directivas de auditoría de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Edita la configuración de auditoría de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Leer registros de auditoría |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Edita las directivas de conexión de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Edita las directivas de enmascaramiento de datos de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | No puede editar las directivas de alerta de seguridad de bases de datos de SQL Server |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | No puede editar las métricas de seguridad de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Edita las directivas de alerta de seguridad de bases de datos de SQL Server |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Edita las métricas de seguridad de bases de datos de SQL Server |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | No puede editar las directivas de alerta de seguridad de SQL Server |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Edita las directivas de alerta de seguridad de SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Colaborador de la cuenta de almacenamiento

@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469403"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814119"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos independientes, agrupadas y de instancia en Azure SQL Database
 
-La replicación transaccional es una característica de Azure SQL Database, Instancia administrada y SQL Server que permite replicar datos de una tabla de Azure SQL Database o SQL Server en tablas de bases de datos remotas. Esta característica permite sincronizar varias tablas en bases de datos diferentes.
+La replicación transaccional es una característica de Azure SQL Database y SQL Server que permite replicar datos de una tabla de Azure SQL Database o SQL Server en tablas de bases de datos remotas. Esta característica permite sincronizar varias tablas en bases de datos diferentes.
 
 ## <a name="when-to-use-transactional-replication"></a>Cuándo se usa la replicación transaccional
 
@@ -40,13 +40,13 @@ Los componentes clave de la replicación transaccional se muestran en la siguien
 
 El **publicador** es una instancia o un servidor que publica los cambios realizados en algunas tablas (artículos) mediante el envío de las actualizaciones al distribuidor. La publicación en instancias de Azure SQL Database por parte de servidores de SQL Server locales se admite en las siguientes versiones de SQL Server:
 
-    - SQL Server 2019 (versión preliminar)
-    - SQL Server 2016 a SQL 2017
-    - SQL Server 2014 SP1 CU3 o superior (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 o superior (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Para otras versiones de SQL Server que no admiten la publicación en los objetos de Azure e puede utilizar el método de [volver a publicar datos](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover datos a versiones más recientes de SQL Server. 
+   - SQL Server 2019 (versión preliminar)
+   - SQL Server 2016 a SQL 2017
+   - SQL Server 2014 SP1 CU3 o superior (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 o superior (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Para otras versiones de SQL Server que no admiten la publicación en los objetos de Azure e puede utilizar el método de [volver a publicar datos](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover datos a versiones más recientes de SQL Server. 
 
 El **distribuidor** es una instancia o un servidor que recopila los cambios en los artículos de un publicador y los distribuye a los suscriptores. El distribuidor puede ser la Instancia administrada de Azure SQL Database o SQL Server (cualquier versión, siempre que sea igual o superior que la versión del publicador). 
 
@@ -54,10 +54,10 @@ El **suscriptor** es una instancia o un servidor que recibe los cambios realizad
 
 | Rol | Bases de datos independiente y agrupadas | Bases de datos de instancia |
 | :----| :------------- | :--------------- |
-| **Publicador** | Sin  | SÍ | 
-| **Distribuidor** | Sin  | SÍ|
-| **Suscriptor de extracción** | Sin  | SÍ|
-| **Suscriptor de inserción**| SÍ | SÍ|
+| **Publicador** | Sin  | Sí | 
+| **Distribuidor** | Sin  | Sí|
+| **Suscriptor de extracción** | Sin  | Sí|
+| **Suscriptor de inserción**| Sí | Sí|
 | &nbsp; | &nbsp; | &nbsp; |
 
 Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
@@ -65,12 +65,12 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
 
 | Replicación | Bases de datos independiente y agrupadas | Bases de datos de instancia|
 | :----| :------------- | :--------------- |
-| [**Transaccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sí (solo como suscriptor) | SÍ | 
-| [**Instantánea**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sí (solo como suscriptor) | SÍ|
+| [**Transaccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sí (solo como suscriptor) | Sí | 
+| [**Instantánea**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sí (solo como suscriptor) | Sí|
 | [**Replicación de mezcla**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Sin  | Sin |
 | [**Punto a punto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Sin  | Sin |
-| **Unidireccional** | SÍ | SÍ|
-| [**Bidireccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Sin  | SÍ|
+| **Unidireccional** | Sí | Sí|
+| [**Bidireccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Sin  | Sí|
 | [**Suscripciones actualizables**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Sin  | Sin |
 | &nbsp; | &nbsp; | &nbsp; |
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817841"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566167"
 ---
 # <a name="registration-management"></a>Administración de registros
 
@@ -33,7 +33,7 @@ El registro de dispositivos en un Centro de notificaciones se logra mediante un 
 
 ### <a name="registrations"></a>Registros
 
-Un registro asocia el identificador del Servicio de notificación de plataforma (PNS) de un dispositivo con etiquetas y, posiblemente, una plantilla. El identificador del PNS puede ser un ChannelURI, un token de dispositivo o un identificador de registro de GCM. Las etiquetas se usan para enrutar las notificaciones al conjunto correcto de identificadores de dispositivos. Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](notification-hubs-tags-segment-push-message.md). Se utilizan plantillas para implementar la transformación por registro. Para obtener más información, consulte [Plantillas](notification-hubs-templates-cross-platform-push-messages.md).
+Un registro asocia el identificador del Servicio de notificación de plataforma (PNS) de un dispositivo con etiquetas y, posiblemente, una plantilla. El identificador del PNS puede ser un identificador de registro de FCM, ChannelURI o un token de dispositivo. Las etiquetas se usan para enrutar las notificaciones al conjunto correcto de identificadores de dispositivos. Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](notification-hubs-tags-segment-push-message.md). Se utilizan plantillas para implementar la transformación por registro. Para obtener más información, consulte [Plantillas](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Azure Notification Hubs admite un máximo de 60 etiquetas por registro.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

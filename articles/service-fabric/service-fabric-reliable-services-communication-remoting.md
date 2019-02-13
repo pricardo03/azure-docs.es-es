@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620530"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820681"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicación remota del servicio en C# con Reliable Services
 
@@ -239,7 +239,7 @@ Este paso garantiza que el servicio escucha solo en el agente de escucha V2.
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Uso de la pila de comunicación remota V2 (compatible con interfaz)
 
- La pila de comunicación remota V2 (compatible con interfaz, conocida como V2_1) tiene todas las características de la pila de comunicación remota V2. Su pila de interfaz es compatible con la pila de comunicación remota V1, pero no es compatible con V2 y V1. Para actualizar de V1 a V2_1 sin que la disponibilidad del servicio se vea afectada, siga los pasos descritos en el artículo [Actualización de V1 a V2 (compatible con interfaz)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ La pila de comunicación remota V2 (compatible con interfaz, conocida como V2_1) tiene todas las características de la pila de comunicación remota V2. Su pila de interfaz es compatible con la pila de comunicación remota V1, pero no es compatible con V2 y V1. Para actualizar de V1 a V2_1 sin que la disponibilidad del servicio se vea afectada, siga los pasos descritos en el artículo Actualización de V1 a V2 (compatible con interfaz).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Uso de un atributo de ensamblado para utilizar la pila de comunicación remota V2 (compatible con interfaz)

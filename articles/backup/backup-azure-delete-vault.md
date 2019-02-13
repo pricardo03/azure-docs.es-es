@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873111"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492290"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
-En este artículo se explica cómo quitar todos los elementos de un almacén de Recovery Services y, a continuación, eliminarlo. Puede eliminar un almacén de Recovery Services si está registrado en un servidor y retiene datos de copia de seguridad. Si intenta eliminar un almacén, pero no puede, el almacén todavía está configurado para recibir datos de copia de seguridad.
+En este artículo, se explica cómo se quitan todos los elementos de un almacén de Recovery Services para después eliminarlo. Puede eliminar un almacén de Recovery Services si está registrado en un servidor y retiene datos de copia de seguridad. Si intenta eliminar un almacén, pero no puede, el almacén todavía está configurado para recibir datos de copia de seguridad.
 
 Para obtener información sobre cómo eliminar un almacén, consulte la sección [Delete a vault from Azure Portal](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal) (Eliminación de un almacén de Azure Portal). Si no quiere conservar datos en el almacén de Recovery Services y quiere eliminar el almacén, consulte la sección [Delete the vault by force](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force) (Eliminación de un almacén a la fuerza). Si no está seguro de lo que hay en el almacén y tiene que asegurarse de que puede eliminarlo, consulte la sección [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) (Quitar las dependencias del almacén y eliminarlo).
 

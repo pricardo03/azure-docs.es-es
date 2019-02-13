@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: e78b1f94338f177601b1e93fcc7974a228be062b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240002"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506132"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
@@ -322,4 +322,4 @@ Se puede sacar provecho de la eliminación temporal independientemente de la ver
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API de REST de Blob service)
 * [Replicación de Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Qué hacer si se produce una interrupción del servicio Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

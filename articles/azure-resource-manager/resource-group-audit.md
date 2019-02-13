@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 70f6f8a7837b9e87b2720a866f14983356d23691
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855397"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487683"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualización de registros de actividad para auditar las acciones sobre los recursos
 
@@ -35,7 +35,10 @@ Los registros de actividad se conservan 90 días. Puede consultar cualquier inte
 
 Puede recuperar información de los registros de actividad mediante el portal, PowerShell, la CLI de Azure, la API de REST de Insights o la [biblioteca .NET de Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="portal"></a>Portal
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="the-azure-portal"></a>El Portal de Azure
 
 1. Para ver los registros de actividad mediante el portal, seleccione **Monitor**.
 
@@ -71,52 +74,52 @@ Puede recuperar información de los registros de actividad mediante el portal, P
 
 ## <a name="powershell"></a>PowerShell
 
-* Para recuperar las entradas de registro, ejecute el comando **Get-AzureRmLog** . Ofrezca parámetros adicionales para filtrar la lista de entradas. Si no especifica una hora de inicio y de finalización, se devuelven las entradas de los últimos siete días.
+* Para recuperar las entradas de registro, ejecute el comando **Get-AzLog**. Ofrezca parámetros adicionales para filtrar la lista de entradas. Si no especifica una hora de inicio y de finalización, se devuelven las entradas de los últimos siete días.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup
+  Get-AzLog -ResourceGroup ExampleGroup
   ```
 
     En el ejemplo siguiente se muestra cómo usar el registro de actividad para investigar operaciones llevadas a cabo durante un tiempo especificado. Las fechas inicial y final se especifican en un formato de fecha.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     También puede usar funciones de fecha para especificar el intervalo de fechas, como los últimos 14 días.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
 * Puede buscar las acciones realizadas por un usuario determinado, incluso para un grupo de recursos que ya no existe.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 * Puede filtrar por las operaciones con errores.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
+  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
 * Para centrarse en un error, examine el mensaje de estado para esa entidad.
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
+  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
 * Puede seleccionar valores específicos para limitar los datos que se devuelven.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
   ```
 
 * En función de la hora de inicio que especifique, los comandos anteriores pueden devolver una lista larga de operaciones para el grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, puede filtrar por el tipo de operación.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
   ```
 
 ## <a name="azure-cli"></a>Azure CLI

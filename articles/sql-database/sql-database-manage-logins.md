@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459247"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754025"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse
 
@@ -49,13 +49,13 @@ Las cuentas de **administrador del servidor** y de **administrador de Azure AD**
 - Acceden a las bases de datos de usuario como usuario `dbo` y tienen todos los permisos en las bases de datos de usuario. (El propietario de una base de datos de usuario también accede a la base de datos como usuario `dbo`). 
 - No acceden a la base de datos `master` como usuario `dbo` y tienen permisos limitados en la base de datos maestra. 
 - **No** son miembros del rol de servidor fijo `sysadmin` de SQL Server, que no está disponible en SQL Database.  
-- Pueden crear, modificar y quitar bases de datos, inicios de sesión, usuarios en la base de datos maestra y reglas de firewall de nivel de servidor.
+- Pueden crear, modificar y quitar bases de datos, inicios de sesión, usuarios en la base de datos maestra y reglas de firewall de IP en el nivel de servidor.
 - Pueden agregar y quitar miembros en los roles `dbmanager` y `loginmanager`.
 - Pueden ver la tabla del sistema `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configuración del firewall
 
-Cuando el firewall de nivel de servidor se configura para una dirección IP individual o un intervalo de ellas, tanto el **administrador del servidor SQL** como el **administrador de Azure Active Directory** pueden conectarse a la base de datos maestra y a todas las bases de datos de usuario. El firewall de nivel de servidor inicial se puede configurar a través de [Azure Portal](sql-database-get-started-portal.md) mediante [PowerShell](sql-database-powershell-samples.md) o mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Una vez que se establece una conexión, también se pueden configurar otras reglas de firewall de nivel de servidor mediante [Transact-SQL](sql-database-configure-firewall-settings.md).
+Cuando el firewall de nivel de servidor se configura para una dirección IP individual o un intervalo de ellas, tanto el **administrador del servidor SQL** como el **administrador de Azure Active Directory** pueden conectarse a la base de datos maestra y a todas las bases de datos de usuario. El firewall de nivel de servidor inicial se puede configurar a través de [Azure Portal](sql-database-single-database-get-started.md) mediante [PowerShell](sql-database-powershell-samples.md) o mediante la [API de REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Una vez que se establece una conexión, también se pueden configurar otras reglas de firewall de IP en el nivel de servidor mediante [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Ruta de acceso de administrador
 
@@ -67,7 +67,7 @@ Si se usa un puerto abierto en el firewall de nivel de servidor, los administrad
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conexión a una base de datos mediante SQL Server Management Studio
 
-Para ver un tutorial en el que se explica cómo crear un servidor, una base de datos, reglas de firewall de nivel de servidor y cómo usar SQL Server Management Studio para realizar consultas en una base de datos, consulte [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started-portal.md).
+Para ver un tutorial en el que se explica cómo crear un servidor, una base de datos, reglas de firewall de IP en el nivel de servidor y cómo usar SQL Server Management Studio para realizar consultas en una base de datos, consulte [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094111"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508715"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desarrollo de un módulo de IoT Edge en C# para mover archivos en Data Box Edge (versión preliminar)
 
@@ -266,6 +266,13 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a Fil
     ![Compilación e inserción de la solución de IoT Edge](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Cuando le indica a Visual Studio Code que compile la solución, se ejecutan dos comandos en el terminal integrado: docker build y docker push. Estos dos comandos compilan el código, empaquetan CSharpModule.dll en contenedores e insertan el código en el registro de contenedor que especificó cuando inicializó la solución.
+
+    Se le pedirá que elija la plataforma del módulo. Seleccione *amd64*, que corresponde a Linux.
+
+    ![Seleccionar plataforma](./media/data-box-edge-create-iot-edge-module/select-platform.png)
+
+    > [!IMPORTANT] 
+    > Solamente se admiten módulos de Linux.
 
     Verá la siguiente advertencia, que puede pasar por alto:
 

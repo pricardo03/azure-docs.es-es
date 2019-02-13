@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812597"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657763"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -61,7 +61,7 @@ Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de má
 
 **P.** Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
 
-**R.** No directamente, pero en el caso de la extensión customScript, el script puede esperar hasta que finalice otra extensión. Encontrará más instrucciones acerca de la secuenciación de extensiones en la siguiente entrada de blog: [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Secuenciación de extensiones en conjuntos de escalado de máquinas virtuales de Azure).
+**R.** Sí, puede usar el conjunto de escalado [secuenciación de extensión](virtual-machine-scale-sets-extension-sequencing.md).
 
 **P.** ¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 Revise la documentación de los almacenes de claves para las últimas operaciones de certificación admitidas por la API en Azure.
 
-Los certificados autofirmados no pueden utilizarse para la confianza distribuida proporcionada por una entidad de certificación y no deben utilizarse para ningún clúster de Service Fabric destinado a hospedar soluciones de producción empresarial; para obtener orientación adicional sobre la seguridad de Service Fabric, revise [Procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) y [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Los certificados autofirmados no pueden utilizarse para la confianza distribuida proporcionada por una entidad de certificación y no deben utilizarse para ningún clúster de Service Fabric destinado a hospedar soluciones de producción empresarial; para obtener orientación adicional sobre la seguridad de Service Fabric, revise [Procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) y [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>¿Puedo especificar un par de claves SSH para usar en la autenticación de SSH con un conjunto de escalado de máquinas virtuales Linux desde una plantilla de Resource Manager?
 
@@ -230,13 +230,14 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
             }
         ]
     }
+}
 ```
 
-Nombre del elemento de linuxConfiguration | Obligatorio | Escriba | DESCRIPCIÓN
+Nombre del elemento de linuxConfiguration | Obligatorio | Type | DESCRIPCIÓN
 --- | --- | --- | --- |  ---
 ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
-path | SÍ | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
-keyData | SÍ | string | Especifica una clave pública SSH codificada en base64
+path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
+keyData | Sí | string | Especifica una clave pública SSH codificada en base64
 
 Para ver un ejemplo, consulte [la plantilla de inicio rápido de GitHub 101-vm-sshkey ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -392,13 +393,13 @@ Hay dos formas principales de cambiar la contraseña de las máquinas virtuales 
 - Restablecer la contraseña mediante las extensiones de acceso de la máquina virtual.
 
     Utilice el siguiente ejemplo de PowerShell:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Dispone de cierta flexibilidad en la manera de controlar las alertas de umbrales
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 En este ejemplo, una alerta va a Pagerduty.com cuando se alcanza un umbral.

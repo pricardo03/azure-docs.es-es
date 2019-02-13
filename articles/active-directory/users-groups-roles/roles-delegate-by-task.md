@@ -1,5 +1,5 @@
 ---
-title: Delegación de roles con privilegios mínimos por tarea en Azure Active Directory | Microsoft Docs
+title: Delegación de roles con privilegios mínimos por tarea de administrador en Azure Active Directory | Microsoft Docs
 description: Roles a delegar para tareas de identidad en Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185228"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508222"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Roles de administrador por tarea de identidad en Azure Active Directory
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
 En este artículo, puede encontrar la información necesaria para restringir los permisos de administrador de un usuario mediante la asignación de roles con privilegios mínimos en Azure Active Directory (Azure AD). Encontrará las tareas de administrador organizadas por área de características y el rol con privilegios mínimos necesario para realizar cada tarea, junto con roles de administrador no global que pueden realizar la tarea.
 

@@ -1,6 +1,6 @@
 ---
 title: Consulta sobre el enrutamiento de mensajes de Azure IoT Hub | Microsoft Docs
-description: 'Guía del desarrollador: Sintaxis de consulta del enrutamiento de mensajes en Azure IoT Hub.'
+description: 'Guía del desarrollador: Sintaxis de consulta para el enrutamiento de mensajes en Azure IoT Hub'
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018543"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744851"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -25,7 +25,7 @@ El enrutamiento de mensajes le permite realizar consultas sobre las propiedades 
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de enrutamiento de mensajes basada en las propiedades del mensaje 
 
-La instancia de IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para todos los mensajes del dispositivo a la nube, lo que genera interoperabilidad entre protocolos. El mensaje de IoT Hub da por supuesto la siguiente representación JSON del mensaje. Las propiedades del sistema se agregan para todos los usuarios e identifican el contenido del mensaje. Los usuarios pueden agregar propiedades de aplicación al mensaje de forma selectiva. Se recomienda utilizar nombres de propiedades únicos, ya que la mensajería del dispositivo a la nube de IoT Hub no distingue mayúsculas de minúsculas. Por ejemplo, si tiene varias propiedades con el mismo nombre, IoT Hub solo enviará una de las propiedades.  
+IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para todos los mensajes del dispositivo a la nube a fin de generar interoperabilidad entre protocolos. El mensaje de IoT Hub da por supuesto la siguiente representación JSON del mensaje. Las propiedades del sistema se agregan para todos los usuarios e identifican el contenido del mensaje. Los usuarios pueden agregar propiedades de aplicación al mensaje de forma selectiva. Se recomienda utilizar nombres de propiedades únicos, ya que la mensajería del dispositivo a la nube de IoT Hub no distingue mayúsculas de minúsculas. Por ejemplo, si tiene varias propiedades con el mismo nombre, IoT Hub solo enviará una de las propiedades.  
 
 ```json
 { 
@@ -55,7 +55,7 @@ Las propiedades del sistema ayudan a identificar el contenido y el origen de los
 | -------- | ---- | ----------- |
 | contentType | string | El usuario especifica el tipo de contenido del mensaje. Para permitir la consulta en el cuerpo del mensaje, este valor debe establecerse en application/JSON. |
 | contentEncoding | string | El usuario especifica el tipo de codificación del mensaje. Los valores permitidos son UTF-8, UTF-16, UTF-32, si contentType se establece en application/JSON. |
-| connectionDeviceId | string | Este valor lo establece IoT Hub e identifica el origen de los mensajes. Pueden ser mensajes de telemetría de dispositivos, notificaciones de cambio de dispositivo gemelo o eventos del ciclo de vida del dispositivo. Esto no se puede consultar. |
+| iothub-connection-device-id | string | Este valor se establece mediante IoT Hub e identifica el identificador del dispositivo. Para realizar la consulta, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | Este valor lo establece IoT Hub y representa la hora real en UTC de espera en cola del mensaje. Para realizar la consulta, use `enqueuedTime`. |
 
 Como se describe en los [mensajes de IoT Hub](iot-hub-devguide-messages-construct.md), hay propiedades adicionales del sistema en un mensaje. Además de **contentType**, **contentEncoding** y **enqueuedTime**, también se pueden consultar **connectionDeviceId** y  **connectionModuleId**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: d6096967c33866f9498f413a4a73fc1d7eae9ede
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 61dd4930d7c34b30a4cedb34a4d815aa553d001e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231366"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697695"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
 La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
@@ -43,22 +43,23 @@ Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos y
 ### <a name="retrieving-schedules"></a>Recuperar programaciones
 Use el método Get para recuperar todas las programaciones de una búsqueda guardada.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
+    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
 
 Use el método Get con un identificador de programación para recuperar una programación concreta de una búsqueda guardada.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
+    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 La siguiente es una respuesta de ejemplo de una programación.
 
 ```json
 {
     "value": [{
-        "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
+        "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/sampleRG/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
         "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
         "properties": {
             "Interval": 15,
-            "QueryTimeSpan": 15
+            "QueryTimeSpan": 15,
+            "Enabled": true,
         }
     }]
 }
@@ -71,19 +72,19 @@ Use el método Put con un identificador de programación único para crear una p
 > El nombre de todas las búsquedas guardadas, programaciones y acciones creadas con Log Analytics API debe estar en minúsculas.
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Edición de una programación
-Utilice el método Put con un identificador de programación existente para modificar la programación de la misma búsqueda guardada.  El cuerpo de la solicitud debe incluir el valor etag de la programación.
+Utilice el método Put con un identificador de programación existente para modificar la programación de la misma búsqueda guardada. En el ejemplo siguiente, la programación está deshabilitada. El cuerpo de la solicitud debe incluir el valor *etag* de la programación.
 
-      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
-      armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
+      armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
 ### <a name="deleting-schedules"></a>Eliminar programaciones
 Para eliminar una programación, use el método Delete con un identificador de programación.
 
-    armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
+    armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
 ## <a name="actions"></a>Acciones
@@ -93,7 +94,7 @@ Todas las acciones tienen las propiedades de la siguiente tabla.  Los distintos 
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Escriba |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
+| Type |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
 | NOMBRE |Nombre para mostrar de la alerta. |
 | Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
@@ -104,11 +105,11 @@ Todas las acciones tienen las propiedades de la siguiente tabla.  Los distintos 
 
 Use el método Get para recuperar todas las acciones de una programación.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
+    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
 
 Use el método Get con el identificador de una acción para recuperar esa acción concreta para una programación.
 
-    armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
+    armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Crear o editar acciones
 Para crear una acción, use el método Put con un identificador de acción único de la programación.  Al crear una acción en la consola de Log Analytics, se crea un GUID para el identificador de acción.
@@ -127,7 +128,7 @@ El formato de solicitud para crear una acción varía según el tipo de acción.
 
 Use el método Delete con el identificador de acción para eliminar esa acción.
 
-    armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
+    armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="alert-actions"></a>Acciones de alerta
 Una programación debe tener una acción de alerta única y exclusivamente.  Las acciones de alerta tienen una o varias de las secciones de la siguiente tabla.  Cada una de ellas se describe con más detalle abajo.
@@ -174,12 +175,12 @@ La siguiente es una respuesta de ejemplo de una acción con un solo umbral.
 Use el método Put con un identificador de acción único para crear una acción de umbral para una programación.  
 
     $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 Use el método Put con un identificador de acción existente para modificar una acción de umbral para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
 
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 #### <a name="severity"></a>Gravedad
 Log Analytics permite clasificar las alertas en categorías, para permitir una administración y una evaluación de prioridades más sencillas. La gravedad de la alerta que se define es: informativa, advertencia y crítica. Estos valores se asignan a la escala de gravedad normalizada de Alertas de Azure como:
@@ -206,12 +207,12 @@ La siguiente es una respuesta de ejemplo de una acción con un solo umbral y gra
 Use el método Put con un identificador de acción único para crear una acción para una programación con gravedad.  
 
     $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
 Use el método Put con un identificador de acción existente para modificar una acción de gravedad para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
 #### <a name="suppress"></a>Suprimir
 Las alertas de consulta basadas en Log Analytics se activarán cada vez que se alcance o supere el umbral. Según la lógica implicada en la consulta, esto puede producir que la alerta se active en una serie de intervalos y, por tanto, también se envíen notificaciones constantemente. Para evitar estos escenarios, un usuario puede establecer la opción de suprimir para indicar a Log Analytics que debe esperar durante un período de tiempo estipulado antes de que la notificación se desencadene por segunda vez para la regla de alertas. Por lo tanto, si la supresión se establece en 30 minutos, la alerta se activará la primera vez y enviará las notificaciones configuradas. Pero, a continuación, espera 30 minutos antes de volver a utilizar la notificación para la regla de alertas. En el período transitorio, la regla de alertas se seguirá ejecutando: Log Analytics solo suprime la notificación durante el tiempo especificado, independientemente de cuántas veces se desencadena la regla de alertas durante este período.
@@ -237,12 +238,12 @@ La siguiente es una respuesta de ejemplo de una acción con un solo umbral, la g
 Use el método Put con un identificador de acción único para crear una acción para una programación con gravedad.  
 
     $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 Use el método Put con un identificador de acción existente para modificar una acción de gravedad para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
 
     $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Grupos de acciones
 Todas las alertas de Azure usan el grupo de acciones como el mecanismo predeterminado para controlar las acciones. Con el grupo de acciones, puede especificar las acciones una vez y, luego, asociar el grupo de acciones a varias alertas en todo Azure, sin la necesidad de declarar repetidamente una y otra vez las mismas acciones. Los grupos de acciones admiten varias acciones, incluido el correo electrónico, SMS, llamadas de voz, conexión ITSM, runbook de Automation, URI de webhook, etc. 
@@ -386,12 +387,12 @@ La siguiente es una respuesta de ejemplo de una acción de notificación de corr
 Use el método Put con un identificador de acción único para crear una acción de correo electrónico para una programación.  En el siguiente ejemplo se crea una notificación de correo electrónico con un umbral para que el correo se envíe cuando los resultados de la búsqueda guardada superen el umbral.
 
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 Use el método Put con un identificador de acción existente para modificar una acción de correo electrónico para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
 
     $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Acciones de corrección
 Las correcciones inician un Runbook en Azure Automation que intenta corregir el problema identificado por la alerta.  Debe crear un webhook para el Runbook usado en una acción de corrección y, luego, especificar el URI en la propiedad WebhookUri.  Cuando esta acción se crea con Azure Portal, se crea automáticamente un nuevo webhook para el runbook.
@@ -428,12 +429,12 @@ La siguiente es una respuesta de ejemplo de una acción de corrección con un um
 Use el método Put con un identificador de acción único para crear una acción de corrección para una programación.  En el siguiente ejemplo se crea una corrección con un umbral para que el Runbook se inicie cuando los resultados de la búsqueda guardada superen el umbral.
 
     $remediateJson = "{'properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
 
 Use el método Put con un identificador de acción existente para modificar una acción de corrección para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
 
     $remediateJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
 
 #### <a name="example"></a>Ejemplo
 El siguiente es un ejemplo completo que ilustra cómo crear una alerta de correo electrónico.  En él, se crea una programación junto con una acción que contiene un umbral y un correo electrónico.
@@ -467,7 +468,7 @@ La siguiente es una respuesta de ejemplo de una acción de webhook y una acción
         "__metadata": {},
         "value": [
             {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/72884702-acf9-4653-bb67-f42436b342b4",
+                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/72884702-acf9-4653-bb67-f42436b342b4",
                 "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"",
                 "properties": {
                     "Type": "Webhook",
@@ -478,7 +479,7 @@ La siguiente es una respuesta de ejemplo de una acción de webhook y una acción
                 }
             },
             {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/90a27cf8-71b7-4df2-b04f-54ed01f1e4b6",
+                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/90a27cf8-71b7-4df2-b04f-54ed01f1e4b6",
                 "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.565204Z'\"",
                 "properties": {
                     "Type": "Alert",
@@ -497,15 +498,15 @@ La siguiente es una respuesta de ejemplo de una acción de webhook y una acción
 Use el método Put con un identificador de acción único para crear una acción de webhook para una programación.  En el siguiente ejemplo se crea una acción de webhook y una acción de alerta con un umbral para que el webhook se active cuando los resultados de la búsqueda guardada superen el umbral.
 
     $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
 
     $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 Use el método Put con un identificador de acción existente para modificar una acción de webhook para una programación.  El cuerpo de la solicitud debe incluir el valor etag de la acción.
 
     $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 
 ## <a name="next-steps"></a>Pasos siguientes

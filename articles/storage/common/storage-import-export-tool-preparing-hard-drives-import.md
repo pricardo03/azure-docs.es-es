@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454409"
+ms.locfileid: "55510143"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparación de unidades de disco duro para un trabajo de importación
 
@@ -82,7 +82,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | DstBlobPathOrPrefix | **[Obligatorio]**<br/> La ruta de acceso al directorio virtual de destino en la cuenta de Windows Azure Storage. El directorio virtual puede existir ya o no. Si no existe, el servicio Import/Export creará uno.<br/><br/>Asegúrese de utilizar nombres de contenedor válidos al especificar los directorios virtuales de destino o blobs. Tenga en cuenta que los nombres de contenedor deben estar en minúsculas. Para más información sobre las reglas de nomenclatura de contenedores, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Si solo se especifica la raíz, la estructura de directorios del origen se replica en el contenedor de blob de destino. Si se desea una estructura de directorios diferente que la del origen, se necesitan varias filas de asignación en el archivo CSV.<br/><br/>Puede especificar un contenedor o un prefijo de blob como music/70s/. El directorio de destino debe comenzar con el nombre del contenedor, seguido por una barra diagonal "/" y puede incluir opcionalmente un directorio virtual de blobs que termina por "/".<br/><br/>Si el contenedor de destino es el contenedor raíz, debe especificar de forma explícita el contenedor raíz, incluida la barra diagonal, como $root/. Puesto que los blobs del contenedor raíz no pueden incluir "/" en sus nombres, los subdirectorios del directorio de origen no se copiarán si el directorio de destino es el contenedor raíz.<br/><br/>**Ejemplo**<br/>Si la ruta de acceso del blob de destino es https://mystorageaccount.blob.core.windows.net/video, el valor de este campo puede ser video/  |
 | BlobType | 
   **[Opcional]** block &#124; page<br/>Actualmente el servicio Import/Export admite 2 tipos de blobs. Blobs en páginas y blobs en bloques. De forma predeterminada, todos los archivos se importarán como blobs en bloque. Y \*.vhd y \*.vhdx se importarán como blobs en páginas. Hay un límite para el tamaño permitido de los blobs en bloque y los blobs en página. Consulte [Objetivos de escalabilidad de Storage](storage-scalability-targets.md) para más información.  |
-| Disposition | **[Opcional]**  rename | no-overwrite | overwrite <br/> Este campo especifica el comportamiento de copia solo durante la importación, es decir , cuando se están cargando datos en la cuenta de almacenamiento desde el disco. Las opciones disponibles son: rename&#124;overwite&#124;no-overwrite. El valor predeterminado es "rename" si no se especifica nada. <br/><br/>**Rename**: si hay un objeto con el mismo nombre, crea una copia en el destino.<br/>Overwrite: sobrescribe el archivo con el archivo más reciente. El archivo con la modificación más reciente gana.<br/>**No-overwrite**: omite la sobrescritura del archivo si ya está presente.|
+| Disposition | **[Opcional]**  rename | no-overwrite | overwrite <br/> Este campo especifica el comportamiento de copia solo durante la importación, es decir , cuando se están cargando datos en la cuenta de almacenamiento desde el disco. Las opciones disponibles son: rename&#124;overwite&#124;no-overwrite. Si no se especifica nada, el valor predeterminado es "rename". <br/><br/>**Rename**: si hay un objeto con el mismo nombre, crea una copia en el destino.<br/>Overwrite: sobrescribe el archivo con el archivo más reciente. El archivo con la modificación más reciente gana.<br/>**No-overwrite**: omite la sobrescritura del archivo si ya está presente.|
 | MetadataFile | **[Opcional]** <br/>El valor de este campo es el archivo de metadatos que se puede proporcionar si es necesario mantener los metadatos de los objetos o proporcionar metadatos personalizados. Ruta de acceso al archivo de metadatos para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](../storage-import-export-file-format-metadata-and-properties.md). |
 | PropertiesFile | **[Opcional]** <br/>Ruta de acceso al archivo de propiedades para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](../storage-import-export-file-format-metadata-and-properties.md). |
 
@@ -320,7 +320,7 @@ Sin embargo, no se puede utilizar la misma sesión de copia para importar datos 
 
 Si el nombre de la sesión de copia es el mismo a través de varias ejecuciones de la herramienta, también es previsible que el archivo de registro (/logdir) y la clave de la cuenta de almacenamiento (/sk) sean los mismos.
 
-SessionId puede estar formado por letras, números 0 a 9, guion bajo (\_), guion (-) o hash (#) y su longitud debe estar comprendida entre 3 y 30 caracteres.
+SessionId puede contener letras, números del 0 a 9, guiones bajos (\_), guiones (-) o almohadillas (#) y su longitud debe estar comprendida entre 3 y 30 caracteres.
 
 Por ejemplo, session-1 o session#1 o session\_1
 

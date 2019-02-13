@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723151"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663578"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)
 
@@ -37,7 +37,7 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
    > [!NOTE] 
    > Las referencias de Key Vault solo admiten actualmente identidades administradas asignadas por el sistema. No se pueden usar identidades asignadas por el usuario.
 
-1. Cree una [directiva de acceso en Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva.
+1. Cree una [directiva de acceso en Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `appliationId`, ya que no es compatible con una identidad administrada.
 
 ## <a name="reference-syntax"></a>Sintaxis de referencia
 

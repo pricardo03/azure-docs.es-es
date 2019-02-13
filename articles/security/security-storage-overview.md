@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973135"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694275"
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
 
@@ -47,7 +47,7 @@ Más información:
 
 ## <a name="delegated-access-to-storage-objects"></a>Acceso delegado a objetos de almacenamiento
 
-Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. 
+Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
 
 La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con SAS, el cliente solo tiene que proporcionar SAS al método o constructor adecuados.
 
@@ -73,7 +73,7 @@ Más información acerca del cifrado de cliente:
 
 Para muchas organizaciones, el [cifrado de los datos en reposo](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan el cifrado de datos que están en reposo:
 
-* [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest), que le permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
+* [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) siempre está habilitado y cifra automáticamente los datos del servicio de almacenamiento al escribirlos en Azure Storage.
 * [Cifrado de cliente](../storage/common/storage-security-guide.md#client-side-encryption), que también proporciona la característica de cifrado en reposo.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines), que le permite cifrar los discos de datos y del sistema operativo que usa una máquina virtual de IaaS.
 
@@ -114,9 +114,9 @@ Más información:
 
 ## <a name="advanced-threat-protection"></a>Protección contra amenazas avanzada
 
-Azure Storage proporciona Advanced Threat Protection para ofrecer un nivel adicional de inteligencia de seguridad que detecte intentos poco habituales y potencialmente peligrosos de acceder o vulnerar la cuenta de almacenamiento. Advanced Threat Protection supervisa los registros de diagnóstico de Azure Storage para detectar solicitudes sospechosas de lectura, escritura o eliminación en Blob Storage. 
+Azure Storage proporciona Advanced Threat Protection para ofrecer un nivel adicional de inteligencia de seguridad que detecte intentos poco habituales y potencialmente peligrosos de acceder o vulnerar la cuenta de almacenamiento. Advanced Threat Protection supervisa los registros de diagnóstico de Azure Storage para detectar solicitudes sospechosas de lectura, escritura o eliminación en Blob Storage.
 
-Las alertas de Advanced Threat Protection se pueden ver en [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center proporciona detalles sobre cualquier actividad sospechosa detectada y recomienda acciones para investigar y solucionar la amenaza potencial. 
+Las alertas de Advanced Threat Protection se pueden ver en [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center proporciona detalles sobre cualquier actividad sospechosa detectada y recomienda acciones para investigar y solucionar la amenaza potencial.
 
 Más información:
 

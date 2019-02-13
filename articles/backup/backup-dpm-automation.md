@@ -2,18 +2,18 @@
 title: 'Azure Backup: Uso de PowerShell para hacer copias de seguridad de cargas de trabajo DPM'
 description: Obtenga información acerca de cómo implementar y administrar Azure Backup para Data Protection Manager (DPM) mediante PowerShell
 services: backup
-author: NKolli1
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242932"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497917"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
 En este artículo se muestra cómo usar PowerShell para configurar Azure Backup en un servidor DPM y para administrar copias de seguridad y recuperaciones.
@@ -39,7 +39,7 @@ Sample DPM scripts: Get-DPMSampleScript
 ## <a name="setup-and-registration"></a>Instalación y registro
 Para empezar:
 
-1. [Descargue la última versión de PowerShell](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0).
+1. [Descargue la última versión de PowerShell](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0)
 2. Para empezar, habilite los commandlets de Azure Backup, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
 
 ```
@@ -318,7 +318,7 @@ Cuando efectúa una copia de seguridad de un origen de datos por primera vez, DP
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Cambiar el tamaño de la réplica de DPM y el volumen de puntos de recuperación
-También puede cambiar el tamaño del volumen de réplica de DPM, así como el volumen de instantánea mediante el cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , como en el ejemplo siguiente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb).
+También puede cambiar el tamaño del volumen de réplica de DPM y del volumen de instantáneas con el cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx), como en el ejemplo siguiente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Confirmar los cambios en el grupo de protección
 Por último, los cambios deben confirmarse antes de que DPM pueda realizar la copia de seguridad según la configuración del nuevo grupo de protección. Esto se realiza mediante el cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) .

@@ -6,23 +6,23 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5ad77b0c88c71860db939feecac5a1aecfc4ca40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191668"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756294"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
 Con la compilación 1.1.880.0 (publicada en agosto de 2018), se introdujo el módulo de PowerShell denominado [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) que incluye una colección de cmdlets que le ayudarán a configurar los permisos correctos de Active Directory para su implementación de Azure AD Connect. 
 
 ## <a name="overview"></a>Información general 
-Los siguientes cmdlets de PowerShell se pueden usar para configurar los permisos de Active Directory de la cuenta del conector de AD DS, para cada característica que pretenda habilitar en Azure AD Connect. Para evitar problemas, recuerde que debe preparar de antemano los permisos de Active Directory siempre que quiera instalar Azure AD Connect con una cuenta de dominio personalizada para conectarse a su bosque. Este módulo ADSyncConfig también se puede usar para configurar permisos después de implementar Azure AD Connect.
+Los siguientes cmdlets de PowerShell se pueden usar para configurar los permisos de Active Directory de la cuenta del conector de AD DS, para cada característica que elija habilitar en Azure AD Connect. Para evitar problemas, recuerde que debe preparar de antemano los permisos de Active Directory siempre que quiera instalar Azure AD Connect con una cuenta de dominio personalizada para conectarse a su bosque. Este módulo ADSyncConfig también se puede usar para configurar permisos después de implementar Azure AD Connect.
 
 ![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 

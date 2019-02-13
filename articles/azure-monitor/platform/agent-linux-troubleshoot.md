@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102591"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817621"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -60,7 +60,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 | NOT_DEFINED | Dado que las dependencias necesarias no están instaladas, no se instalará el complemento de auoms auditd | No se pudo instalar auoms, instale el paquete auditd. |
 | 2 | Opción no válida proporcionada a la agrupación de shell. Ejecute `sudo sh ./omsagent-*.universal*.sh --help` para el uso |
 | 3 | Ninguna opción proporcionada a la agrupación de shell. Ejecute `sudo sh ./omsagent-*.universal*.sh --help` para el uso. |
-| 4 | Tipo de paquete no válido o configuración de proxy no válida; los paquetes omsagent-*rpm*.sh solo pueden instalarse en sistemas basados en RPM, y los paquetes omsagent-*deb*.sh solo pueden instalarse en sistemas basados en Debian. Se recomienda usar el instalador universal de la [versión más reciente](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Además, [revise](#issue:-unable-to-connect-through-proxy-to-log-analytics) para comprobar la configuración de proxy. |
+| 4 | Tipo de paquete no válido o configuración de proxy no válida; los paquetes omsagent-*rpm*.sh solo pueden instalarse en sistemas basados en RPM, y los paquetes omsagent-*deb*.sh solo pueden instalarse en sistemas basados en Debian. Se recomienda usar el instalador universal de la [versión más reciente](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Además, revise para comprobar la configuración de proxy. |
 | 5 | La agrupación de shell se debe ejecutar como raíz, o bien se devolvió el error 403 durante la incorporación. Ejecute el comando con `sudo`. |
 | 6 | Arquitectura de paquete no válida, o bien se devolvió el error 200 durante la incorporación; los paquetes omsagent-*x64.sh solo pueden instalarse en sistemas de 64 bits, y los paquetes omsagent-* x86.sh solo pueden instalarse en sistemas de 32 bits. Descargue el paquete correcto para su arquitectura de la [versión más reciente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | No se pudo instalar el paquete de OMS. Examine el resultado del comando para conocer el error raíz. |

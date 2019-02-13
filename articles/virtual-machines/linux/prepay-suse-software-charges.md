@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/18/2019
 ms.author: yashar
-ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f70a34febcf0b39d051053a6ddd9abe5c9a6726
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582198"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745986"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Pago por adelantado para planes de software SUSE con Azure Reservations
 
@@ -27,7 +27,7 @@ Pague por adelantado su uso de SUSE y ahorre dinero en los costos de pago por us
 Puede comprar planes de software SUSE en Azure Portal. Para comprar un plan:
 
 - Debe tener un rol de propietario al menos en suscripción Enterprise o de Pago por uso.
-- Para las suscripciones Enterprise, las compras de reserva deben habilitarse en el [portal de EA](https://ea.azure.com).
+- En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 - En el caso del programa del Proveedor de soluciones en la nube (CSP), solo los agentes de administración o de ventas pueden comprar planes SUSE.
 
 ## <a name="buy-a-suse-software-plan"></a>Comprar un plan de software SUSE
@@ -39,8 +39,8 @@ Puede comprar planes de software SUSE en Azure Portal. Para comprar un plan:
     | Campo      | DESCRIPCIÓN|
     |:------------|:--------------|
     |NOMBRE        |Nombre de esta compra.|
-    |Subscription|Suscripción que se usa para pagar este plan. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser un contrato Enterprise (número de la oferta: MS-AZR-0017P) o de Pago por uso (número de la oferta: MS-AZR-0003P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|
-    |Ámbito       |El ámbito puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento del plan se aplica al uso de SUSE Linux en esta suscripción. </li><li>Compartido: el descuento del plan se aplica al uso de SUSE Linux en cualquier suscripción dentro del contexto de facturación. Para los clientes de Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones (excepto las suscripciones de desarrollo y pruebas) dentro de la inscripción. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
+    |Subscription|Suscripción que se usa para pagar este plan. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o Pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|
+    |Ámbito       |El ámbito puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento del plan se aplica al uso de SUSE Linux en esta suscripción. </li><li>Compartido: el descuento del plan se aplica al uso de SUSE Linux en cualquier suscripción dentro del contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
     |Plan de software     |Seleccione el plan SUSE Linux. Para obtener ayudar para identificar lo que debe comprar, consulte [Understand how the SUSE Linux Enterprise software reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md) (Información sobre cómo se aplica el descuento de reserva de software de SUSE Linux Enterprise).|
     |Tamaño de VM     |Los precios de SUSE Linux dependen del número de vCPU en la VM. Seleccione la opción que representa el número de vCPU de las VM SUSE Linux.|
     |Término        |Un año o tres años.|

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 01aacf8815ce4150eb1c243d4337f52c4e0b03e9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728370"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697074"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sección de recursos de plantillas de Azure Resource Manager
 
@@ -84,12 +84,12 @@ Defina recursos con la siguiente estructura:
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | condition | Sin  | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. |
-| apiVersion |SÍ |Versión de la API de REST que debe usar para crear el recurso. |
-| Tipo |SÍ |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
-| Nombre |SÍ |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. |
+| apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. |
+| Tipo |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). |
+| Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. |
 | location |Varía |Ubicaciones geográficas compatibles del recurso proporcionado. Puede seleccionar cualquiera de las ubicaciones disponibles, pero normalmente tiene sentido elegir aquella que esté más cerca de los usuarios. Normalmente, también tiene sentido colocar los recursos que interactúan entre sí en la misma región. La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan. |
 | etiquetas |Sin  |Etiquetas asociadas al recurso. Aplique etiquetas para organizar de forma lógica los recursos en su suscripción. |
-| comentarios |Sin  |Notas para documentar los recursos de la plantilla |
+| comentarios |Sin  |Notas para documentar los recursos de la plantilla. Para más información, consulte [Comentarios en plantillas](resource-group-authoring-templates.md#comments). |
 | copia |Sin  |Si se necesita más de una instancia, el número de recursos que se crearán. El modo predeterminado es paralelo. Si no desea que todos los recursos se implementen al mismo tiempo, especifique el modo serie. Para obtener más información, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Sin  |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre la configuración de dependencias, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md). |
 | propiedades |Sin  |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. |
@@ -184,48 +184,60 @@ En los tipos de recurso a los que tiene acceso mayoritariamente por medio de otr
 ```
 
 ## <a name="location"></a>Ubicación
-Al implementar una plantilla, debe proporcionar una ubicación para cada recurso. Se admiten diferentes tipos de recursos en diferentes ubicaciones. Para ver una lista de las ubicaciones que están disponibles con su suscripción para un tipo de recurso en particular, use Azure PowerShell o la CLI de Azure. 
+Al implementar una plantilla, debe proporcionar una ubicación para cada recurso. Se admiten diferentes tipos de recursos en diferentes ubicaciones. Para obtener las ubicaciones admitidas para un tipo de recurso, consulte [Tipos de recursos y proveedores de recursos de Azure](resource-manager-supported-services.md).
 
-En el ejemplo siguiente se usa PowerShell para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
+Use un parámetro para especificar la ubicación de recursos y establecer el valor predeterminado en `resourceGroup().location`.
 
-```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-```
-
-En el ejemplo siguiente se usa la CLI de Azure para obtener las ubicaciones para el tipo de recurso `Microsoft.Web\sites`:
-
-```azurecli
-az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
-```
-
-Después de determinar las ubicaciones admitidas de los recursos, debe establecer esa ubicación en la plantilla. La manera más fácil de establecer este valor consiste en crear un grupo de recursos en una ubicación que admita los tipos de recursos y establecer cada ubicación en `[resourceGroup().location]`. Puede volver a implementar la plantilla en grupos de recursos de diferentes ubicaciones y no cambie ningún valor en la plantilla ni en los parámetros. 
-
-En el ejemplo siguiente se muestra una cuenta de almacenamiento que está implementada en la misma ubicación que el grupo de recursos:
+En el ejemplo siguiente se muestra una cuenta de almacenamiento que está implementada en una ubicación especificada como parámetro:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
-      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
     },
-    "resources": [
-    {
-      "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "Dept": "Finance",
-        "Environment": "Production"
-      },
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": { }
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
-    ]
+  },
+  "variables": {
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
 }
 ```
 

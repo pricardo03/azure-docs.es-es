@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ac3e01756ad66dcb44869556bb103eb20bc2658c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221492"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699623"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Uso de la consola serie para llamadas SysRq y NMI
 
@@ -63,7 +63,7 @@ En la guía del administrador de SysRq anterior:
 |``h``  |   Mostrará ayuda (cualquier otra tecla aparte de las mostradas aquí también mostrará ayuda, pero ``h`` es fácil de recordar :-)
 |``i``  |    Enviar una señal SIGKILL a todos los procesos, excepto init.
 |``j``  |    Reanudar a la fuerza los sistemas de archivos bloqueados por el IOCTL FIFREEZE.
-|``k``  |    La clave de acceso seguro (SAK) termina todos los programas en la consola virtual actual. Nota: Vea comentarios importantes más abajo en la sección SAK.
+|``k``  |    La clave de acceso seguro (SAK) termina todos los programas en la consola virtual actual. NOTA:  Vea comentarios importantes más abajo en la sección SAK.
 |``l``  |    Muestra un seguimiento regresivo de pila para todas las CPU activas.
 |``m``  |    Volcará información actual de memoria a la consola.
 |``n``  |    Se usa para realizar tareas de RT compatibles con Nice.
@@ -111,7 +111,7 @@ En el caso de sistemas Linux que admiten sysctl para configurar parámetros del 
 1. Reiniciar o actualizar sysctl mediante la ejecución de <br>
     `sysctl -p`
 
-Para más información sobre las configuraciones del kernel de Linux, como `unknown_nmi_panic`, `panic_on_io_nmi` y `panic_on_unrecovered_nmi`, consulte la [documentación de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obtener documentación específica de la distribución sobre NMI y pasos para configurar Linux para crear un volcado de memoria cuando se recibe una NMI, consulte los siguientes vínculos:
+Para más información sobre las configuraciones del kernel de Linux, como `unknown_nmi_panic`, `panic_on_io_nmi` y `panic_on_unrecovered_nmi`, consulte: [Documentación de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obtener documentación específica de la distribución sobre NMI y pasos para configurar Linux para crear un volcado de memoria cuando se recibe una NMI, consulte los siguientes vínculos:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html) (Volcado de memoria del kernel)

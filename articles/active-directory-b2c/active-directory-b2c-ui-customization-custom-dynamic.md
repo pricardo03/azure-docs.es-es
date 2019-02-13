@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187086"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819254"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configuración de la interfaz de usuario con contenido dinámico usando directivas personalizadas
 
@@ -155,7 +155,7 @@ Ubique el elemento `<img>` que contiene el valor de `ID` *background_background_
     Se abre la ventana **Crear servicio de aplicaciones**. En ella puede empezar a crear todos los recursos de Azure necesarios para ejecutar la aplicación web ASP.NET en Azure.
 
     > [!NOTE]
-    > Para más información sobre la publicación, consulte [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Para más información sobre la publicación, consulte [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. En el cuadro **Nombre de la aplicación web**, escriba un nombre único de aplicación, los caracteres válidos son a-z, A-Z, 0-9 y el guión(-). La dirección URL de la aplicación web es `http://<app_name>.azurewebsites.NET`, donde `<app_name>` es el nombre de la aplicación web. Puede aceptar el nombre generado automáticamente, que es único.
 
@@ -247,16 +247,18 @@ Cambie el fondo en función del parámetro de la cadena de consulta _campaignId_
 Agregue el elemento `ContentDefinitionParameters` haciendo lo siguiente:
 1. Abra el archivo *SignUpOrSignin* de la directiva (por ejemplo, *SignUpOrSignin.xml*).
 
-2. Busque el nodo `<DefaultUserJourney>`. 
-
-3. En el nodo `<DefaultUserJourney>`, agregue el siguiente fragmento de código XML:  
+2. En el nodo `<DefaultUserJourney>`, agregue el nodo `UserJourneyBehaviors`:  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Paso 8.2: Cambio del código para aceptar parámetros de la cadena de consulta y reemplazo de la imagen de fondo

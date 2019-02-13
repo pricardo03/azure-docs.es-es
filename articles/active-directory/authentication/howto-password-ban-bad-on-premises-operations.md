@@ -1,30 +1,30 @@
 ---
 title: Operaciones de versión preliminar de la protección con contraseña de Azure AD e informes
-description: Operaciones de versión preliminar de la protección con contraseña posterior a la implementación de Azure AD e informes
+description: Operaciones de versión preliminar de la protección con contraseña posterior a la implementación de Azure AD e informes
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 8d7002a014fc6cfab1888a6bc97c0f864de1d99d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a77a6dd8b408fd8151cb12b7d0269b8890ef929b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080878"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662421"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Vista previa: Procedimientos operativos de protección con contraseña de Azure AD
+# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Vista previa: Procedimientos operativos de protección con contraseña de Azure AD
 
 |     |
 | --- |
 | La protección con contraseña de Azure AD es una característica en versión preliminar pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Después de haber completado la [instalación de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-deploy.md) local, hay algunos elementos que se deben configurar en Azure Portal.
+Después de haber completado la [instalación de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-deploy.md) en el entorno local, hay algunos elementos que se deben configurar en Azure Portal.
 
 ## <a name="configure-the-custom-banned-password-list"></a>Configuración de la lista personalizada de contraseñas prohibidas
 
@@ -33,7 +33,7 @@ Siga las instrucciones del artículo [Configuración de la lista personalizada d
 ## <a name="enable-password-protection"></a>Habilitación de la protección con contraseña
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory**, **Métodos de autenticación** y **Protección con contraseña (versión preliminar)**.
-1. Establezca **Enable password protection on Windows Server Active Directory** (Habilitar protección con contraseña en Windows Server Active Directory) en **Sí**.
+1. Establezca **Habilitar protección con contraseña en Windows Server Active Directory** en **Sí**.
 1. Como se mencionó en la [Guía de implementación](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), inicialmente se recomienda establecer el **Modo** en **Auditoría**
    * Cuando se sienta cómodo con la característica, puede cambiar el **Modo** a **Forzado**
 1. Haga clic en **Guardar**
@@ -63,47 +63,6 @@ Puede que los usuarios finales afectados tengan que trabajar con su personal de 
 
 Por lo general, este ajuste debe dejarse en su estado habilitado predeterminado (Sí). Si se deshabilita (No), todos los agentes de controlador de dominio de protección con contraseña de Azure AD entrarán en modo inactivo y todas las contraseñas se aceptarán tal cual. No se ejecutará ninguna actividad de validación (por ejemplo, ni siquiera se emitirán los eventos de auditoría).
 
-## <a name="usage-reporting"></a>Informes de uso
-
-Se puede usar el cmdlet `Get-AzureADPasswordProtectionSummaryReport` para generar una vista resumida de la actividad. A continuación se muestra un ejemplo de salida de este cmdlet:
-
-```PowerShell
-Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
-DomainController                : bplrootdc2
-PasswordChangesValidated        : 6677
-PasswordSetsValidated           : 9
-PasswordChangesRejected         : 10868
-PasswordSetsRejected            : 34
-PasswordChangeAuditOnlyFailures : 213
-PasswordSetAuditOnlyFailures    : 3
-PasswordChangeErrors            : 0
-PasswordSetErrors               : 1
-```
-
-El ámbito de los informes del cmdlet puede condicionarse con uno de los parámetros –Forest, -Domain o –DomainController. No especificar un parámetro implica –Forest.
-
-> [!NOTE]
-> Este cmdlet funciona al abrir una sesión de PowerShell en cada controlador de dominio. Para que la operación se realice correctamente, se debe habilitar la compatibilidad con la sesión remota de PowerShell en cada controlador de dominio y el cliente debe tener privilegios suficientes. Para más información sobre los requisitos de la sesión remota de Powershell, ejecute "Get-Help about_Remote_Troubleshooting" en una ventana de PowerShell.
-
-> [!NOTE]
-> Este cmdlet funciona consultando remotamente el registro de eventos de administración del cada servicio de agente de controlador de dominio. Si los registros de eventos contienen un gran número de eventos, el cmdlet puede tardar mucho tiempo en completarse. Además, las consultas de red masivas de grandes conjuntos de datos pueden afectar al rendimiento del controlador de dominio. Por lo tanto, este cmdlet debe usarse con cuidado en entornos de producción.
-
-## <a name="dc-agent-discovery"></a>Detección del agente de controlador de dominio
-
-Se puede usar el cmdlet `Get-AzureADPasswordProtectionDCAgent` para mostrar información básica sobre los diversos agentes de controlador de dominio que se están ejecutando en un dominio o bosque. Esta información se recupera de los objetos serviceConnectionPoint registrados por los servicios de agente de controlador de dominio en ejecución. A continuación se muestra un ejemplo de salida de este cmdlet:
-
-```PowerShell
-Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
-
-Cada servicio de agente de controlador de dominio actualiza las diversas propiedades una vez cada hora aproximadamente. Los datos siguen estando sujetos a la latencia de replicación de Active Directory.
-
-Se puede influenciar el ámbito de la consulta del cmdlet con los parámetros –Forest o –Domain.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Solución de problemas y supervisión para la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Supervisión de la protección de contraseñas de Azure AD](howto-password-ban-bad-on-premises-monitor.md)

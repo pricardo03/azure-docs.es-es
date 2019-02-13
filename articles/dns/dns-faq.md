@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352932"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511979"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
@@ -34,7 +34,7 @@ Para más información, vea la [página de precios de DNS de Azure](https://azur
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>¿Qué es el Acuerdo de Nivel de Servicio de DNS de Azure?
 
-Azure garantiza que las solicitudes de DNS válidas reciban respuesta de al menos un servidor de nombres de Azure DNS como mínimo un 99,99 % del tiempo.
+Azure garantiza que las solicitudes de DNS válidas reciben respuesta de al menos un servidor de nombres de Azure DNS el 100 % del tiempo.
 
 Para más información, vea la [página del SLA de DNS de Azure](https://azure.microsoft.com/support/legal/sla/dns).
 

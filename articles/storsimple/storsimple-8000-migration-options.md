@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456058"
+ms.locfileid: "55511945"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opciones para migrar datos desde la serie 5000-7000 de StorSimple 
 
@@ -29,23 +29,31 @@ La serie 5000-7000 de StorSimple alcanzará el [fin del soporte técnico](https:
 
 ## <a name="migration-options"></a>Opciones de migración
 
-Los clientes que usan la serie 5000-7000 de StorSimple tienen las opciones siguientes:
+Los clientes que usan la serie 5000-7000 de StorSimple pueden utilizar las opciones de Azure o de terceros.
 
-- **Opciones de Azure**:
+### <a name="azure-options"></a>Opciones de Azure
 
-    - **Actualización a la serie 8000 de StorSimple**: actualice a la serie 8000 de StorSimple y permanezca así en la plataforma StorSimple.  Esta ruta de actualización requiere que los clientes reemplacen los dispositivos de la serie 5000-7000 a una serie 8000. Los datos se migran desde el dispositivo de la serie 5000-7000 mediante la herramienta de migración. Una vez que la migración se haya completado correctamente, los dispositivos de la serie 8000 de StorSimple seguirán colocando datos en capas en Azure Blob Storage. 
+#### <a name="upgrade-to-storsimple-8000-series"></a>Actualización a la serie 8000 de StorSimple
 
-    Para obtener más información sobre cómo migrar datos mediante la serie 8000 de StorSimple, vaya a [Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000](storsimple-8000-migrate-from-5000-7000.md).
+No cambie de plataforma y actualice a la serie 8000 de StorSimple.  Esta ruta de actualización requiere que los clientes reemplacen los dispositivos de la serie 5000-7000 a una serie 8000. Los datos se migran desde el dispositivo de la serie 5000-7000 mediante la herramienta de migración. Una vez que la migración se haya completado correctamente, los dispositivos de la serie 8000 de StorSimple seguirán colocando datos en capas en Azure Blob Storage. 
 
-    - **Migración a Azure File Sync**: esta nueva opción de migración permite a los clientes almacenar los recursos compartidos de archivos de su organización en Azure Files. Estos recursos compartidos de archivos se pueden centralizar luego para acceder a ellos de forma local mediante Azure File Sync (AFS). AFS puede implementarse en un host de Windows Server. La migración de datos real se realiza entonces como una copia de host o mediante la herramienta de migración.
+Para obtener más información sobre cómo migrar datos mediante la serie 8000 de StorSimple, vaya a [Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000](storsimple-8000-migrate-from-5000-7000.md).
 
-    Para obtener más información sobre cómo migrar datos a Azure File Sync, vaya a [Migrate data from StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS) (Migración de datos desde la serie 5000-7000 de StorSimple a Azure File Sync).
+#### <a name="migrate-to-azure-file-sync"></a>Migración a Azure File Sync
 
-- **Opciones de terceros**:
+Esta nueva opción de migración permite a los clientes almacenar los recursos compartidos de archivos de su organización en Azure Files. Estos recursos compartidos de archivos se pueden centralizar luego para acceder a ellos de forma local mediante Azure File Sync (AFS). AFS puede implementarse en un host de Windows Server. La migración de datos real se realiza entonces como una copia de host o mediante la herramienta de migración.
 
-    - **Migrar a Panzura Freedom NAS**: los clientes de StorSimple 5000-7000 pueden elegir migrar a Panzura Freedom NAS para mantener sus datos en Azure. La solución Panzura Freedom proporciona una solución NAS que abarca centros de datos, oficinas, y nubes públicas y privadas. La solución permite flujos de trabajo de locales, híbridos y en la nube para clientes móviles, SMB y NFS. Esta migración es compatible con Panzura y los clientes pueden comenzar solicitando soporte técnico para la migración desde el [sitio web de Panzura](https://panzura.com/storsimple-migration/).
+Para obtener más información sobre cómo migrar datos a Azure File Sync, vaya a [Migrate data from StorSimple 5000-7000 series to Azure File Sync](https://aka.ms/StorSimpleMigrationAFS) (Migración de datos desde la serie 5000-7000 de StorSimple a Azure File Sync).
 
-    - **Migrar a Cohesity**: Cohesity le permite migrar datos desde las series actuales StorSimple 5000–7000 a la plataforma de datos de Cohesity en Azure. La plataforma de datos de Cohesity es una solución de escala de web definida por software que consolida los archivos, las copias de seguridad, los objetos y las VM en una única solución nativa en la nube. Tras la migración a la plataforma de datos, puede administrar, proteger y aprovisionar datos y aplicaciones de la nube al núcleo a través de un único panel de vidrio. Con Cohesity, inicie con tan solo tres nodos. Obtenga más información acerca de [Migration to the Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html) (Migración a la plataforma de datos de Cohesity).
+### <a name="third-party-options"></a>Opciones de terceros
+
+#### <a name="migrate-to-panzura-freedom-nas"></a>Migración a Panzura Freedom NAS
+
+Los clientes de StorSimple 5000-7000 pueden elegir Panzura Freedom NAS como opción de migración para mantener sus datos en Azure. La solución Panzura Freedom proporciona una solución NAS que abarca centros de datos, oficinas, y nubes públicas y privadas. La solución permite flujos de trabajo de locales, híbridos y en la nube para clientes móviles, SMB y NFS. Esta migración es compatible con Panzura y los clientes pueden comenzar solicitando soporte técnico para la migración desde el [sitio web de Panzura](https://panzura.com/storsimple-migration/).
+
+#### <a name="migrate-to-cohesity"></a>Migración a Cohesity
+
+Cohesity le permite migrar los datos desde las series 5000–7000 actuales de StorSimple a la plataforma de datos de Cohesity en Azure. La plataforma de datos de Cohesity es una solución de escala de web definida por software que consolida los archivos, las copias de seguridad, los objetos y las VM en una única solución nativa en la nube. Tras la migración a la plataforma de datos, puede administrar, proteger y aprovisionar datos y aplicaciones de la nube al núcleo a través de un único panel de vidrio. Con Cohesity, inicie con tan solo tres nodos. Obtenga más información acerca de [Migration to the Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html) (Migración a la plataforma de datos de Cohesity).
 
 ## <a name="migration---frequently-asked-questions"></a>Migración: preguntas frecuentes
 

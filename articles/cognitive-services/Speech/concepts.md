@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219777"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816220"
 ---
 # <a name="basic-concepts"></a>Conceptos básicos
 
@@ -80,10 +80,10 @@ El servicio de reconocimiento de voz de Microsoft ofrece dos métodos para que l
 
 | Casos de uso | [API de REST](GetStarted/GetStartedREST.md) | [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | SÍ | SÍ |
-| Convertir un audio largo (> 15 s) | Sin  | SÍ |
-| Audio de secuencia con resultados provisionales deseados | Sin  | SÍ |
-| Comprender el texto convertido desde audio mediante LUIS | Sin  | SÍ |
+| Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | Sí | Sí |
+| Convertir un audio largo (> 15 s) | Sin  | Sí |
+| Audio de secuencia con resultados provisionales deseados | Sin  | Sí |
+| Comprender el texto convertido desde audio mediante LUIS | Sin  | Sí |
 
  Si el lenguaje o plataforma no tiene todavía un SDK, puede crear su propia implementación en función de la [documentación del protocolo](API-Reference-REST/websocketprotocol.md).
 
@@ -92,7 +92,7 @@ El servicio de reconocimiento de voz de Microsoft ofrece dos métodos para que l
 Hay tres modos de reconocimiento: `interactive`, `conversation` y `dictation`. El modo de reconocimiento ajusta el reconocimiento de voz en función de cómo suelen hablar los usuarios. Elija el modo de reconocimiento apropiado para la aplicación.
 
 > [!NOTE]
-> Los modos de reconocimiento pueden tener comportamientos diferentes en el [protocolo REST](#rest-speech-recognition-api) del que tienen en el [protocolo WebSocket](#webSocket-speech-recognition-api). Por ejemplo, la API de REST no admite el reconocimiento continuado, incluso en el modo de conversación o dictado.
+> Los modos de reconocimiento pueden tener comportamientos diferentes en el protocolo REST del que tienen en el protocolo WebSocket. Por ejemplo, la API de REST no admite el reconocimiento continuado, incluso en el modo de conversación o dictado.
 > [!NOTE]
 > Estos modos son aplicables cuando se usa directamente el protocolo REST o WebSocket. Las [bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) usan parámetros diferentes para especificar el modo de reconocimiento. Para obtener más información, consulte la biblioteca cliente de su elección.
 

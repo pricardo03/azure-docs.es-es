@@ -2,18 +2,18 @@
 title: Actualización de un almacén de Backup a un almacén de Recovery Services de Azure Backup
 description: Actualización del almacén de Backup al almacén de Recovery Services para obtener nuevas características, como copia de seguridad de máquinas virtuales de Resource Manager, seguridad mejorada, copia de seguridad de máquinas virtuales de VMware y copia de seguridad de estado del sistema para servidores Windows
 services: backup
-author: trinadhk
-manager: vijayts
+author: raynew
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/10/2017
-ms.author: trinadhk
-ms.openlocfilehash: 01aacaecba8c5a4adf1dab5483a2f921df9314c0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: raynew
+ms.openlocfilehash: b7671271e569802311884861265a7825404c9c75
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252537"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490353"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Almacén de Backup actualizado al almacén de Recovery Services
 En este artículo se proporciona información general sobre Recovery Services, preguntas frecuentes sobre la actualización del almacén existente de Backup al almacén de Recovery Services y los pasos que se deben realizar con posterioridad a la actualización. Un almacén de Recovery Services es el equivalente de Azure Resource Manager de un almacén de Backup que aloja los datos de copia de seguridad. Normalmente, los datos son copias de datos o información de configuración de máquinas virtuales (VM), cargas de trabajo, servidores o estaciones de trabajo, tanto de Azure como locales.
@@ -24,7 +24,7 @@ Un almacén de Recovery Services es una entidad de almacenamiento en línea en A
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparación de almacenes de Recovery Services y de Backup
 Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manager, mientras que los almacenes de Backup se basan en el modelo de Azure Service Manager. Al actualizar un almacén de Backup a un almacén de Recovery Services, los datos de copia de seguridad permanecen intactos durante el proceso de actualización y después del mismo. Los almacenes de Recovery Services proporcionan características que no están disponibles para los almacenes de Backup, como:
 
-- **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad** : con los almacenes de Recovery Services, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura de las copias de seguridad en la nube, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
+- **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad**: con los almacenes de Recovery Services, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura de las copias de seguridad en la nube, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
 
 - **Supervisión central para el entorno de TI híbrido**: con los almacenes de Recovery Services, puede supervisar no solo sus [máquinas virtuales de IaaS de Azure](backup-azure-manage-vms.md), sino también sus [recursos locales](backup-azure-manage-windows-server.md#manage-backup-items) desde un portal central. [Más información](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
@@ -39,7 +39,7 @@ Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manag
 > 
 
 ## <a name="managing-your-recovery-services-vaults"></a>Administración de almacenes de Recovery Services
-En las pantallas siguientes se muestra un nuevo almacén de Recovery Services actualizado desde el almacén de Backup, en Azure Portal. El almacén actualizado estará presente en un grupo de recursos predeterminado denominado "Default-RecoveryServices-ResourceGroup-geo". Ejemplo: Si el almacén de Backup estaba situado en el Oeste de EE. UU., se colocará en un grupo de recursos diferente llamado Default-RecoveryServices-ResourceGroup-westus.
+En las pantallas siguientes se muestra un nuevo almacén de Recovery Services actualizado desde el almacén de Backup, en Azure Portal. El almacén actualizado estará presente en un grupo de recursos predeterminado denominado "Default-RecoveryServices-ResourceGroup-geo". Ejemplo: si el almacén de Backup estaba situado en el Oeste de EE. UU., se colocará en un grupo de recursos diferente llamado Default-RecoveryServices-ResourceGroup-westus.
 > [!NOTE]
 > En los clientes de CPS estándar, el grupo de recursos no cambia después de la actualización del almacén y permanece igual que estaba antes de la actualización.
 
@@ -62,16 +62,16 @@ Cuando haya actualizado a un almacén de Recovery Services, configure los inform
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **¿Afecta el plan de actualización a mis copias de seguridad en curso?**</br>
-No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
+ No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
 
 **¿Qué supone esta actualización para las herramientas existentes?**</br>
 Debe actualizar la automatización o las herramientas existentes para asegurarse de que el modelo de Resource Manager sigue funcionando después de la actualización. Consulte las guías de referencia de los cmdlets de PowerShell para más información sobre el [modelo de implementación de Resource Manager](backup-client-automation.md).
 
 **¿Puedo revertir la actualización?**</br>
-No. No se admite la reversión una vez actualizados correctamente los recursos.
+ No. No se admite la reversión una vez actualizados correctamente los recursos.
 
 **¿Puedo ver mi almacén clásico después de la actualización?**</br>
-No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
+ No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
 
 **¿Por qué no puedo ver los servidores protegidos por el agente de MARS en mi almacén actualizado?**</br>
 Para ver todos los servidores protegidos por el agente de MARS en su almacén, debe instalar el agente de MARS más reciente. Puede descargar la versión más reciente del agente [aquí]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).

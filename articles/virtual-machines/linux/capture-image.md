@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32cd3b9eb60a6d12c71be047740fa96ffdd56310
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094163"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731944"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -43,7 +43,7 @@ Necesitará los siguientes elementos antes de crear una imagen:
 Para una versión simplificada de este artículo, con fines de prueba, evaluación o aprendizaje sobre máquinas virtuales de Azure, consulte [Creación de una imagen personalizada de una máquina virtual de Azure mediante la CLI](tutorial-custom-images.md).
 
 
-## <a name="step-1-deprovision-the-vm"></a>Paso 1: Desaprovisionamiento de la máquina virtual
+## <a name="step-1-deprovision-the-vm"></a>Paso 1: Desaprovisionar la máquina virtual
 En primer lugar, desaprovisione la máquina virtual con el agente de máquinas virtuales de Azure para eliminar los archivos y datos específicos de la máquina. Use el comando `waagent` con el parámetro `-deprovision+user` en la máquina virtual Linux de origen. Consulte la [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md) para más información.
 
 1. Conéctese a la máquina virtual Linux con un cliente de SSH.
@@ -58,10 +58,10 @@ En primer lugar, desaprovisione la máquina virtual con el agente de máquinas v
 3. Escriba **s** para continuar. Puede agregar el parámetro `-force` para evitar este paso de confirmación.
 4. Una vez finalizado el comando, escriba **exit** para cerrar el cliente de SSH.
 
-## <a name="step-2-create-vm-image"></a>Paso 2: Crear la imagen de máquina virtual
+## <a name="step-2-create-vm-image"></a>Paso 2: Crear imagen de máquina virtual
 Use la CLI de Azure para marcar la máquina virtual como generalizada y capture la imagen. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
 
-1. Desasigne la VM que desaprovisionó con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
+1. Desasigne la VM que desaprovisionó con [az vm deallocate](/cli/azure/vm). En el ejemplo siguiente se desasigna la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
       --name myVM
     ```
 
-2. Marque la máquina virtual como generalizada con [az vm generalize](/cli/azure/vm#generalize). En el ejemplo siguiente se marca como generalizada la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
+2. Marque la máquina virtual como generalizada con [az vm generalize](/cli/azure/vm). En el ejemplo siguiente se marca como generalizada la máquina virtual llamada *myVM* en el grupo de recursos *myResourceGroup*.
    
     ```azurecli
     az vm generalize \
@@ -91,7 +91,7 @@ Use la CLI de Azure para marcar la máquina virtual como generalizada y capture 
    > Si desea almacenar la imagen en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `--zone-resilient true`.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Paso 3: Crear una máquina virtual a partir de la imagen capturada
-Cree una máquina virtual con la imagen que ha creado con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMDeployed* a partir de la imagen *myImage*.
+Cree una máquina virtual con la imagen que ha creado con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual llamada *myVMDeployed* a partir de la imagen *myImage*.
 
 ```azurecli
 az vm create \

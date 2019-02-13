@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128667"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732930"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creación, edición o extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
 
@@ -24,7 +24,8 @@ Al crear soluciones de integración empresarial con flujos de trabajo automatiza
 Para trabajar con definiciones de aplicaciones lógicas en JSON, abra el editor de la vista Código cuando trabaje en Azure Portal o en Visual Studio, o bien copie la definición en cualquier editor que desee. Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Algunas funcionalidades de Azure Logic Apps, como definir parámetros y varios desencadenadores en las definiciones de aplicaciones lógicas, solo están disponibles en JSON, no en el Diseñador de aplicaciones lógicas. Por tanto, para estas tareas, debe trabajar en la vista Código o en otro editor.
+> Algunas funcionalidades de Azure Logic Apps, como definir parámetros y varios desencadenadores en las definiciones de aplicaciones lógicas, solo están disponibles en JSON, no en el Diseñador de aplicaciones lógicas.
+> Por tanto, para estas tareas, debe trabajar en la vista Código o en otro editor.
 
 ## <a name="edit-json---azure-portal"></a>Edición de JSON: Azure Portal
 
@@ -38,7 +39,7 @@ Para trabajar con definiciones de aplicaciones lógicas en JSON, abra el editor 
 
 ## <a name="edit-json---visual-studio"></a>Edición de JSON: Visual Studio
 
-Para poder trabajar en la definición de aplicación lógica en Visual Studio, asegúrese de haber [instalado las herramientas necesarias](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Para crear una aplicación lógica con Visual Studio, consulte [Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) (Inicio rápido: automatización de tareas y procesos con Azure Logic Apps - Visual Studio).
+Para poder trabajar en la definición de aplicación lógica en Visual Studio, asegúrese de haber [instalado las herramientas necesarias](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Para crear una aplicación lógica con Visual Studio, revise [Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 En Visual Studio, puede abrir las aplicaciones lógicas creadas e implementadas directamente desde Azure Portal o como proyectos de Azure Resource Manager desde Visual Studio.
 
@@ -58,7 +59,7 @@ En Visual Studio, puede abrir las aplicaciones lógicas creadas e implementadas 
 
 ## <a name="parameters"></a>Parámetros
 
-Los parámetros le permite volver a usar los valores en toda la aplicación lógica y son adecuados para reemplazar los valores que podría cambiar con frecuencia. Por ejemplo, si tiene una dirección de correo electrónico que desea usar en varios lugares, debe definirla como un parámetro. 
+Los parámetros le permite volver a usar los valores en toda la aplicación lógica y son adecuados para reemplazar los valores que podría cambiar con frecuencia. Por ejemplo, si tiene una dirección de correo electrónico que desea usar en varios lugares, debe definirla como un parámetro.
 
 Los parámetros también resultan útiles cuando es necesario reemplazar los parámetros de varios entornos. Obtenga más información sobre los [parámetros para implementación](#deployment-parameters) y la [documentación de API de REST para Azure Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
@@ -70,13 +71,13 @@ En la [primera aplicación lógica de ejemplo](../logic-apps/quickstart-create-f
 1. En la vista de código, busque el objeto `parameters : {}` y agregue un objeto `currentFeedUrl`:
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. En la acción `When_a_feed-item_is_published`, busque la sección `queries` y reemplace el valor de la consulta por `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+2. En la acción `When_a_feed-item_is_published`, busque la sección `queries` y reemplace el valor de la consulta por `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
 
    **Antes**
    ``` json
@@ -84,7 +85,7 @@ En la [primera aplicación lógica de ejemplo](../logic-apps/quickstart-create-f
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **Después**
@@ -93,13 +94,13 @@ En la [primera aplicación lógica de ejemplo](../logic-apps/quickstart-create-f
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    Para combinar dos o más cadenas, también puede usar la función `concat`. 
    Por ejemplo, `"@concat('#',parameters('currentFeedUrl'))"` funciona igual que en el ejemplo anterior.
 
-3.  Cuando termine, seleccione **Guardar**. 
+3.  Cuando termine, seleccione **Guardar**.
 
 Ahora puede cambiar la fuente RSS del sitio web pasando una dirección URL diferente a través del objeto `currentFeedURL`.
 
@@ -107,9 +108,9 @@ Ahora puede cambiar la fuente RSS del sitio web pasando una dirección URL difer
 
 ## <a name="deployment-parameters-for-different-environments"></a>Parámetros de implementación para entornos diferentes
 
-Por lo general, un ciclo de vida de implementación tiene entornos de desarrollo, de ensayo y de producción. Por ejemplo, puede usar la misma definición de aplicación lógica en todos estos entornos, pero usar bases de datos distintas. Del mismo modo, es posible que desee usar la misma definición en muchas regiones diferentes para lograr una alta disponibilidad, pero que cada instancia de aplicación lógica use la base de datos de esa región. 
+Por lo general, un ciclo de vida de implementación tiene entornos de desarrollo, de ensayo y de producción. Por ejemplo, puede usar la misma definición de aplicación lógica en todos estos entornos, pero usar bases de datos distintas. Del mismo modo, es posible que desee usar la misma definición en muchas regiones diferentes para lograr una alta disponibilidad, pero que cada instancia de aplicación lógica use la base de datos de esa región.
 
-> [!NOTE] 
+> [!NOTE]
 > Este escenario no tiene nada que ver con tomar parámetros en *entorno de tiempo de ejecución* donde debería usar la función `trigger()` en su lugar.
 
 Esta es una definición básica:
@@ -157,13 +158,13 @@ En la solicitud `PUT` real para las aplicaciones lógicas, puede proporcionar el
     },
     "location": "westus"
 }
-``` 
+```
 
 Para más información, consulte la [documentación de API de REST para Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 
 ## <a name="process-strings-with-functions"></a>Procesamiento de cadenas con funciones
 
-Logic Apps tiene diversas funciones para trabajar con las cadenas. Por ejemplo, imagine que desea pasar el nombre de una empresa de un pedido a otro sistema. Sin embargo, no está seguro de cómo se debe controlar adecuadamente la codificación de caracteres. Podría llevar a cabo la codificación Base64 en esta cadena, pero para evitar que aparezcan caracteres de escape en la dirección URL, puede reemplazar varios caracteres. Además, solo necesita una subcadena para el nombre de la empresa, porque no se usan los cinco primeros caracteres. 
+Logic Apps tiene diversas funciones para trabajar con las cadenas. Por ejemplo, imagine que desea pasar el nombre de una empresa de un pedido a otro sistema. Sin embargo, no está seguro de cómo se debe controlar adecuadamente la codificación de caracteres. Podría llevar a cabo la codificación Base64 en esta cadena, pero para evitar que aparezcan caracteres de escape en la dirección URL, puede reemplazar varios caracteres. Además, solo necesita una subcadena para el nombre de la empresa, porque no se usan los cinco primeros caracteres.
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps tiene diversas funciones para trabajar con las cadenas. Por ejemplo, 
 
 En estos pasos se describe cómo este ejemplo procesa esta cadena, desde adentro hacia afuera:
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ En estos pasos se describe cómo este ejemplo procesa esta cadena, desde adentro
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Asignación de los elementos de lista a valores de propiedad para luego usar los mapas como parámetros
 
-Para obtener resultados distintos en función del valor de una propiedad, puede crear un mapa que coincida con cada valor de propiedad a un resultado y luego usar ese mapa como parámetro. 
+Para obtener resultados distintos en función del valor de una propiedad, puede crear un mapa que coincida con cada valor de propiedad a un resultado y luego usar ese mapa como parámetro.
 
 Por ejemplo, este flujo de trabajo define algunas categorías como parámetros y un mapa que coincide con dichas categorías con una dirección URL específica. En primer lugar, el flujo de trabajo obtiene una lista de artículos. Luego, el flujo de trabajo usa el mapa para encontrar la dirección URL que coincide con la categoría de cada artículo.
 
@@ -302,13 +303,13 @@ Para obtener datos de un origen de datos que no admite *desencadenadores* de man
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. En la acción `order`, extraiga el valor de `startTime`. 
+1. En la acción `order`, extraiga el valor de `startTime`.
 2. Obtenga la hora actual con `utcNow()`.
 3. Reste un segundo:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   Puede usar otras unidades de tiempo, como `minutes` o `hours`. 
+   Puede usar otras unidades de tiempo, como `minutes` o `hours`.
 
 3. Ahora puede comparar estos dos valores. 
 
@@ -365,7 +366,6 @@ Para dar formato a las fechas, puede usar formateadores de cadena. Por ejemplo, 
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

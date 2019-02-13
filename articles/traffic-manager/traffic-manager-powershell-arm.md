@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816227"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso de PowerShell para administrar Traffic Manager
 
@@ -66,7 +66,7 @@ En la siguiente tabla se describen los parámetros:
 | MonitorPort |Especifica el puerto TCP usado para supervisar el estado de los puntos de conexión. |
 | MonitorPath |Especifica la ruta de acceso relativa al nombre de dominio de punto de conexión usado para sondear el estado del punto de conexión. |
 
-El cmdlet crea un perfil de Traffic Manager en Azure y devuelve un objeto de perfil correspondiente a PowerShell. El perfil aún no contiene puntos de conexión. Para más información sobre cómo agregar puntos de conexión a un perfil de Traffic Manager, consulte [Incorporación de puntos de conexión de Traffic Manager](#adding-traffic-manager-endpoints).
+El cmdlet crea un perfil de Traffic Manager en Azure y devuelve un objeto de perfil correspondiente a PowerShell. El perfil aún no contiene puntos de conexión. Para más información sobre cómo agregar puntos de conexión a un perfil de Traffic Manager, consulte Incorporación de puntos de conexión de Traffic Manager.
 
 ## <a name="get-a-traffic-manager-profile"></a>Obtención de un perfil del Administrador de tráfico
 

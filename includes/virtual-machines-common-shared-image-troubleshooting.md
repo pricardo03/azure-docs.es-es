@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047217"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736064"
 ---
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa al pasar el conmutador **-debug** con la CLI y el conmutador **-debug** con PowerShell. Una vez que haya encontrado el error, siga este documento para solucionar los errores.
 
@@ -67,7 +67,7 @@ Asegúrese de que el estado de aprovisionamiento de la imagen administrada de or
 Use la tabla siguiente para ver si se admite la región de origen deseada:
 <br>
 
-| Crear galería en o "región de origen"   | Replicar versión en o "región de destino" |
+| Crear galería en o "región de origen"   | Replicar versión en o “región de destino” |
 |----------------------------------------|-------------------------------------------|
 | Centro occidental de EE.UU.                        | Todas las regiones de nube pública de Azure            |
 | Centro-Sur de EE. UU                       |                                           |

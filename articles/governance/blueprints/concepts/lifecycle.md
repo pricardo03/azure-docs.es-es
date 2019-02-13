@@ -4,17 +4,17 @@ description: Conozca el ciclo de vida que recorre un plano técnico y detalles s
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309813"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563718"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
 
@@ -33,8 +33,7 @@ Para comprender totalmente un plano técnico y sus fases, se describirá un cicl
 
 ## <a name="creating-and-editing-a-blueprint"></a>Creación y edición de un plano técnico
 
-Al crear un plano técnico, agréguele artefactos, guárdelo en un grupo de administración y proporcione un nombre y una versión que sean únicos. En este momento, el plano técnico está en modo **borrador** y aún no se puede asignar.
-Sin embargo, mientras se encuentre en el modo **borrador** se puede seguir actualizando y modificando.
+Al crear un plano técnico, agréguele artefactos, guárdelo en un grupo de administración o una suscripción, y proporcione un nombre y una versión que sean únicos. En este momento, el plano técnico está en modo **borrador** y aún no se puede asignar. Sin embargo, mientras se encuentre en el modo **borrador** se puede seguir actualizando y modificando.
 
 Un plano técnico que no se haya publicado nunca en el modo **borrador** muestra un icono diferente en la página **Definiciones del plano técnico** del icono de aquellos que se hayan **publicado**. La **versión más reciente** también aparece como **borrador** para estos planos técnicos que no se han publicado nunca.
 

@@ -2,18 +2,18 @@
 title: Copia de seguridad de cargas de trabajo de SQL Server en Azure Stack
 description: Use Azure Backup Server para proteger cargas de trabajo de SQL Server en Azure Stack.
 services: backup
-author: pvrk
-manager: Shivamg
+author: adigan
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: adigan
+ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751804"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493526"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Copia de seguridad de SQL Server en Stack
 Use este artículo para configurar Microsoft Azure Backup Server (MABS) para proteger las bases de datos SQL Server en Azure Stack.
@@ -68,7 +68,7 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
 
     ![Método de replicación inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos SQL Server) desde el servidor de producción (máquina SQL Server) a Azure Backup Server. Estos datos pueden ser grandes y la transferencia de los datos a través de la red podría superar el ancho de banda. Por este motivo, puede elegir transferir la copia de seguridad inicial: **Manualmente** (mediante un soporte físico extraíble) para evitar la congestión del ancho de banda, o **Automáticamente a través de la red** (en un momento determinado).
+    La copia de seguridad inicial requiere la transferencia de todo el origen de datos (base de datos SQL Server) desde el servidor de producción (máquina SQL Server) a Azure Backup Server. Estos datos pueden ser grandes y la transferencia de los datos a través de la red podría superar el ancho de banda. Por este motivo, puede optar por transferir la copia de seguridad inicial: **Manualmente** (mediante un soporte físico extraíble) para evitar la congestión del ancho de banda, o **Automáticamente a través de la red** (en un momento determinado).
 
     Una vez completada la copia de seguridad inicial, el resto de las copias de seguridad son copias de seguridad incrementales sobre la copia de seguridad inicial. Las copias de seguridad incrementales tienden a ser pequeñas y se transfieren fácilmente a través de la red.
 
@@ -93,7 +93,7 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
     >
     >
 
-    **Procedimiento recomendado**: si programa que las copias de seguridad en Azure se inicien después de que se completen las copias de seguridad en disco local, las copias de seguridad en disco más recientes siempre se copiarán en Azure.
+    **Procedimiento recomendado**: si programa que las copias de seguridad en Azure se inicien después de que se completen las copias de seguridad del disco local, las copias de seguridad más recientes del disco se copiarán siempre en Azure.
 
 12. Seleccione la programación de la directiva de retención. Se proporcionan detalles sobre el funcionamiento de la directiva de retención en [Usar Azure Backup para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
 

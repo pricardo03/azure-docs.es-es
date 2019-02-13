@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978622"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498206"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gobierno de la infraestructura de Azure DevTest Labs: migración e integración de aplicaciones
 Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita pensar en las siguientes preguntas:
@@ -33,10 +33,10 @@ Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita 
 ### <a name="answer"></a>Respuesta
 Azure Marketplace se debe usar de forma predeterminada a menos que tenga requisitos organizativos o preocupaciones específicos. Algunos ejemplos frecuentes son:
 
-- Instalación compleja de software que requiere que una aplicación se incluya como parte de la imagen base.
+- Instalación compleja del software que requiere que una aplicación se incluya como parte de la imagen base.
 - La instalación y configuración de una aplicación podrían tardar muchas horas, lo que no constituye un uso eficaz del tiempo de proceso que se agregará a una imagen de Azure Marketplace.
 - Los desarrolladores y evaluadores necesitan tener acceso a una máquina virtual rápidamente y desean minimizar el tiempo de configuración de una nueva máquina virtual.
-- Existencia condiciones de cumplimiento o normativas (por ejemplo, las directivas de seguridad) para todas las máquinas.
+- Existencia de condiciones de cumplimiento o normativas (por ejemplo, las directivas de seguridad) para todas las máquinas.
 
 El uso de imágenes personalizadas no se debe considerar a la ligera. Generan una complejidad adicional, ya que ahora necesita administrar archivos de disco duro virtual para las imágenes base subyacentes. También debe revisar periódicamente esas imágenes base con las actualizaciones de software. Estas actualizaciones incluyen nuevas actualizaciones del sistema operativo (SO) y las actualizaciones o los cambios de configuración necesarios para el paquete de software.
 
@@ -46,7 +46,7 @@ El uso de imágenes personalizadas no se debe considerar a la ligera. Generan un
 ¿Cuándo debe usar una fórmula en lugar de una imagen personalizada?
 
 ### <a name="answer"></a>Respuesta
-Normalmente, el factor decisivo en este escenario son el costo y la reutilización.
+Normalmente, los factores decisivos en este escenario son el costo y la reutilización.
 
 Si tiene un escenario donde muchos usuarios o laboratorios requieren una imagen con una gran cantidad de software sobre la imagen base, podría reducir el costo mediante la creación de una imagen personalizada. Esto significa que la imagen se crea una vez. Reduce el tiempo de configuración de la máquina virtual y el costo en que se incurre por la ejecución de la máquina virtual durante la configuración.
 
@@ -75,9 +75,9 @@ Uso de DevTest Labs para crear una canalización de la imagen personalizada en A
 ### <a name="answer"></a>Respuesta
 Sí. Hay dos aspectos que se deben tener en cuenta: el tráfico entrante y saliente.
 
-**Tráfico entrante** : si la máquina virtual no tiene una dirección IP pública, no se puede acceder a ella a través de Internet. Un enfoque común consiste en asegurarse de que se establece una directiva de nivel de suscripción, para que ningún usuario sea capaz de crear una dirección IP pública.
+**Tráfico entrante**: si la máquina virtual no tiene una dirección IP pública, no se puede acceder a ella a través de Internet. Un enfoque común consiste en asegurarse de que se establece una directiva de nivel de suscripción, para que ningún usuario pueda crear una dirección IP pública.
 
-**Tráfico saliente** : si desea evitar que las máquinas virtuales sean accesibles directamente a través de la red pública de Internet y forzar el tráfico a través de un firewall corporativo, puede enrutar el tráfico local a través de ExpressRoute o VPN, mediante el uso del enrutamiento forzado.
+**Tráfico saliente**: si desea evitar que las máquinas virtuales sean accesibles directamente a través de la red pública de Internet y forzar el tráfico a través de un firewall corporativo, puede enrutar el tráfico local a través de ExpressRoute o VPN, mediante el uso del enrutamiento forzado.
 
 > [!NOTE]
 > Si tiene un servidor proxy que bloquea el tráfico sin configuración del proxy, no olvide agregar excepciones a la cuenta de almacenamiento de artefactos del laboratorio.
@@ -100,10 +100,10 @@ En caso contrario, cada entorno de DevTest Labs podría tener su propia red virt
 ¿Cuándo se debe usar una dirección IP compartida en lugar de una pública o privada?
 
 ### <a name="answer"></a>Respuesta
-Si usa una VPN de sitio a sitio o ExpressRoute, considere la posibilidad de usar direcciones IP privadas para poder acceder a las máquinas a través de la red interna y para que no se pueda acceder a ellas a través de Internet.
+Si usa una VPN de sitio a sitio o ExpressRoute, considere la posibilidad de usar direcciones IP privadas para que se pueda acceder a las máquinas a través de la red interna, pero no a través de Internet.
 
 > [!NOTE]
-> Los propietarios de laboratorio pueden cambiar esta directiva de subred para asegurarse de que nadie cree accidentalmente direcciones IP públicas para sus máquinas virtuales. El propietario de la suscripción debe crear una directiva de suscripción que impida la creación de direcciones IP públicas.
+> Los propietarios de laboratorios pueden cambiar esta directiva de subred para asegurarse de que nadie puede crear accidentalmente direcciones IP públicas para sus máquinas virtuales. El propietario de la suscripción debe crear una directiva de suscripción que impida la creación de direcciones IP públicas.
 
 Si se usan direcciones IP compartidas, las máquinas virtuales del laboratorio comparten una dirección IP pública. Este enfoque puede resultar útil si necesita impedir que se traspasen los límites de las direcciones IP públicas de una suscripción concreta.
 

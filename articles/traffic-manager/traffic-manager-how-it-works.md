@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229258"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567849"
 ---
 # <a name="how-traffic-manager-works"></a>Funcionamiento de Traffic Manager
 
@@ -47,7 +47,7 @@ Para lograr esta configuración, se han completado los pasos siguientes:
 ![Configuración de DNS de Traffic Manager][1]
 
 > [!NOTE]
-> Cuando se utiliza un dominio personal con Azure Traffic Manager, debe usar un registro CNAME para que el nombre de dominio personalizado apunte a su nombre de dominio de Traffic Manager. Los estándares DNS no permiten crear un registro CNAME en el "vértice" (o raíz) de un dominio. Por lo tanto no se puede crear un registro CNAME para "contoso.com" (lo que también se conoce como un dominio "desnudo"). Solo se puede crear un registro CNAME para un dominio bajo "contoso.com", como "www.contoso.com". Para solucionar esta limitación, se recomienda usar una sencilla redirección HTTP para dirigir las solicitudes de "contoso.com" a un nombre alternativo como "www.contoso.com".
+> Cuando se utiliza un dominio personal con Azure Traffic Manager, debe usar un registro CNAME para que el nombre de dominio personalizado apunte a su nombre de dominio de Traffic Manager. Los estándares DNS no permiten crear un registro CNAME en el "vértice" (o raíz) de un dominio. Por lo tanto no se puede crear un registro CNAME para "contoso.com" (lo que también se conoce como un dominio "desnudo"). Solo se puede crear un registro CNAME para un dominio bajo "contoso.com", como "www.contoso.com". Para solucionar esta limitación, se recomienda hospedar el dominio DNS en [Azure DNS](../dns/dns-overview.md) y el uso de [registros de Alias](../dns/tutorial-alias-tm.md) para apuntar a su perfil del administrador de tráfico. También puede usar una sencilla redirección HTTP para dirigir las solicitudes de "contoso.com" a un nombre alternativo como "www.contoso.com".
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Conexión de clientes mediante Traffic Manager
 

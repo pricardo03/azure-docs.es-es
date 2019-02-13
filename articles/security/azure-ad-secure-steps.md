@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165652"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750331"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -38,7 +38,7 @@ Las recomendaciones de este documento se basan en las especificaciones de la [pu
 
 ![Puntuación segura de identidad](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de comenzar: proteja sus cuentas con privilegios con MFA
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de empezar: proteja sus cuentas con privilegios con MFA
 
 Antes de comenzar a trabajar con esta lista de comprobación, asegúrese de que no se encontrará con problemas mientras lo hace. En primer lugar, necesita proteger sus cuentas con privilegios.
 
@@ -99,7 +99,7 @@ Las aplicaciones que usan sus propios métodos heredados para autenticarse con A
 
 1. Bloquee la [autenticación heredada si usa AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configure [SharePoint Online y Exchange Online para que usen una autenticación moderna](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Use [directivas de acceso condicional para bloquear la autenticación heredada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Use [directivas de acceso condicional para bloquear la autenticación heredada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear los puntos de entrada de autenticación no válidos
 

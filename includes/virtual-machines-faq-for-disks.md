@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841455"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648647"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -223,7 +223,7 @@ Sí. Actualmente, la protección de Azure a Azure de Azure Site Recovery para m�
 
 **¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
 
-SÍ
+Sí
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks y Storage Service Encryption
 
@@ -260,7 +260,7 @@ Sí. Todas las instantáneas e imágenes administradas creadas después del 9 de
 
 **¿Puedo convertir máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento o que se hayan cifrado previamente en discos administrados?**
 
-SÍ
+Sí
 
 **¿Se cifrará también un VHD exportado de un disco administrado o de una instantánea?**
 
@@ -347,7 +347,7 @@ Para lograr el rendimiento de disco de los tamaños de discos grandes SSD y HDD 
 
 **¿En qué regiones se admiten los tamaños de disco administrado mayores de 4 TiB?**
 
-En este momento en versión preliminar, los tamaños de disco administrado solo se admiten en la región Oeste de EE. UU.
+En este momento en la versión preliminar, se admiten los tamaños de disco administrado en Centro-oeste de EE. UU., Europa del Norte, Europa Occidental, Oeste de EE. UU. 2, Este de EE. UU. 2, Este de EE. UU.
 
 **¿Se admite la habilitación del almacenamiento en caché del host en los tamaños de disco más recientes?**
 

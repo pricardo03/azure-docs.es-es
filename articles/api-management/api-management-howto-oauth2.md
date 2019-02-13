@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967936"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746734"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 
@@ -51,9 +51,9 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     ![Nuevo servidor de OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. La sección siguiente del formulario contiene la configuración de los **Tipos de concesión de código de autorización**, la **URL del punto de conexión de autorización** y el **Método de solicitud de autorización**.
+4. La siguiente sección del formulario contiene la configuración de **Authorization grant types** (Tipos de concesión de autorización), **Authorization endpoint URL** (URL del punto de conexión de autorización) y **Authorization request method** (Método de solicitud de autorización).
 
-    Active las casillas de los **Tipos de concesión de código de autorización** que desee. **Código de autorización** se especifica de forma predeterminada.
+    Active las casillas de los **tipos de concesión de autorización** que desee. **Código de autorización** se especifica de forma predeterminada.
 
     Escriba la **URL del extremo de autorización**. En Azure Active Directory, esta URL será similar a la siguiente, donde se reemplaza `<client_id>` por el identificador de cliente que identifica la aplicación en el servidor OAuth 2.0.
 
@@ -75,7 +75,7 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     ![Nuevo servidor de OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Si **Tipos de concesión de código de autorización** se establece en **Contraseña de propietario de recursos**, las credenciales se especifican con la sección **Credenciales de contraseña de propietario de recursos**. De no ser así, puede dejarse en blanco.
+    Si **Authorization grant types**  (Tipos de concesión de autorización) se establece en **Resource owner password** (Contraseña de propietario de recursos), las credenciales se especifican con la sección **Resource owner password credentials** (Credenciales de contraseña de propietario de recursos). De no ser así, puede dejarse en blanco.
 
     Cuando complete el formulario, haga clic en **Crear** para guardar la configuración del servidor de autorización OAuth 2.0 de API Management. Cuando se guarda la configuración del servidor, pueden configurarse las API para que usen estos valores, conforme a la sección siguiente.
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ab637ef7dc39fcd2fd32cec2be52a18aaf6706a9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884238"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663034"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -54,8 +54,8 @@ Estas propiedades son compatibles con un servicio vinculado de Azure SQL Databas
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | SÍ |
-| connectionString | Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad **connectionString**. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | SÍ |
+| Tipo | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | Sí |
+| connectionString | Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
@@ -83,6 +83,35 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Contraseña en Azure Key Vault:** 
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -208,7 +237,7 @@ Para copiar datos con una instancia de Azure SQL Database como origen o destino,
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlTable**. | SÍ |
+| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlTable**. | Sí |
 | tableName | Nombre de la tabla o vista de la instancia de Azure SQL Database a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
@@ -240,7 +269,7 @@ Para copiar datos desde Azure SQL Database (o en dicho servicio), establezca la 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlSource**. | SÍ |
+| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí |
 | SqlReaderQuery | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | Sin  |
 | sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | Sin  |
 | storedProcedureParameters | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin  |
@@ -343,7 +372,7 @@ Para copiar los datos a Azure SQL Database, establezca la propiedad **type** del
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlSink**. | SÍ |
+| Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de **writeBatchSize**.<br/> El valor que se permite es un **entero** (número de filas). |  No. El valor predeterminado es 10 000. |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/> El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | Sin  |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Database. Solo se invoca una vez por cada copia que se ejecute. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin  |

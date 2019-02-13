@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b88f1ff84cc26e1db88027a55b506fd37476aae5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a3db99de2fffa19a98fa306477b30fdccf2290ec
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197694"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733168"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -299,8 +299,8 @@ subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2017-04-02
-publicKeys | Colección de claves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2017-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) es la imagen de Marketplace con que se creó la máquina virtual y contiene el nombre, el producto y el editor | 2018-04-02
+publicKeys | Colección de claves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] asignada a la máquina virtual y las rutas de acceso | 2018-04-02
 vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
 zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
@@ -496,7 +496,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal para la máquina virtual en la que no es posible obtener respuesta de metadatos después de reintentos prolongados 
 9. ¿Por qué se agotó el tiempo de espera de solicitud para mi llamada al servicio?
    * Se deben realizar llamadas de metadatos desde la dirección IP principal asignada a la tarjeta de red de la máquina virtual; además, en caso de que haya cambiado las rutas, debe tener una ruta para la dirección 169.254.0.0/16 desde su tarjeta de red.
-10. Se actualizaron las etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
+10. He actualizado mis etiquetas en el conjunto de escalado de máquinas virtuales, pero no aparecen en las instancias, a diferencia de las máquinas virtuales.
    * Actualmente, las etiquetas para ScaleSets solo se muestran a la máquina virtual durante un reinicio, restablecimiento de imagen o cambio de disco en la instancia. 
 
    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)

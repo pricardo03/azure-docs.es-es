@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430230"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495010"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
@@ -44,6 +44,8 @@ Con el aislamiento lógico, un único clúster de AKS puede utilizarse para vari
 
 Normalmente, una separación lógica de los clústeres proporciona una mayor densidad de pods que los clústeres aislados físicamente. Hay menos exceso de capacidad del proceso que se encuentra inactiva en el clúster. Cuando se combina con el escalador automático de clúster de Kubernetes, puede escalar vertical u horizontalmente el número de nodos para satisfacer las necesidades. Este enfoque de procedimiento recomendado para el escalado automático le permite ejecutar solo el número de nodos necesario y minimiza los costos.
 
+Los entornos de Kubernetes, tanto en AKS como en cualquier otro lugar, no están completamente seguros ante el uso de varios inquilinos hostiles. Utilizar otras características de seguridad adicionales, como la *directiva de seguridad de pod*, y controles de acceso basados en roles (RBAC) más específicos puede dificultar las vulnerabilidades de seguridad. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados.
+
 ## <a name="physically-isolate-clusters"></a>Aislamiento de clústeres de forma física
 
 **Guía de procedimientos recomendados**: minimiza el uso del aislamiento físico para cada equipo independiente o una implementación de la aplicación. En su lugar, use el aislamiento *lógico*, como se describe en la sección anterior.
@@ -60,7 +62,7 @@ Este artículo se centra en el aislamiento de clústeres. Para obtener más info
 
 * [Basic Kubernetes scheduler features][aks-best-practices-scheduler] (Características básicas de programadores de Kubernetes)
 * [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler] (Características avanzadas de programadores de Kubernetes)
-* [Autenticación y autorización][aks-best-practices-identity]
+* [Authentication and authorization][aks-best-practices-identity] (Autenticación y autorización)
 
 <!-- EXTERNAL LINKS -->
 

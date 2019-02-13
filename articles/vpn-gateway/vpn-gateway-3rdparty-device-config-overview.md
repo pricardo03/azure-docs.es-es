@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 901de2ac3d80b3ee529d89a22afae7e823437b9b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685215"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506879"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
 Este artículo proporciona información general sobre configuraciones de dispositivos VPN locales para conectarse a puertas de enlace de VPN de Azure. Se usará una red virtual de Azure de ejemplo y la configuración de la puerta de enlace de VPN para conectarse a distintos dispositivos VPN locales usando los mismos parámetros.
@@ -125,8 +125,8 @@ Si los dispositivos VPN no admiten selectores de tráfico universales, tales com
 
 
 El script de ejemplo siguiente crea una directiva de IPsec o IKE con los algoritmos y parámetros siguientes:
-* IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, vigencia de SA 7,200 segundos y 20.480.000 KB (20 GB)
+* IKEv2: AES256, SHA384 y DHGroup24
+* IPsec: AES256, SHA1, PFS24, 7200 segundos de vigencia de SA y 20 480 000 KB (20 GB)
 
 El script aplica la directiva IPsec/IKE y habilita la opción **UsePolicyBasedTrafficSelectors** en la conexión.
 

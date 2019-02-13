@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260030"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560896"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Puertos más allá de 1433 para ADO.NET 4.5
+
 En este tema se describe el comportamiento de conexión de Azure SQL Database para clientes que usan ADO.NET 4.5 o una versión posterior. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ En este tema se describe el comportamiento de conexión de Azure SQL Database pa
 >
 
 ## <a name="outside-vs-inside"></a>Fuera o dentro
+
 Para las conexiones a Azure SQL Database, debemos preguntar si el programa cliente se ejecuta *fuera* o *dentro* del límite de la nube de Azure. En las subsecciones se describen dos escenarios comunes.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fuera:* el cliente se ejecuta en el equipo de escritorio
+#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fuera:* el cliente se ejecuta en un equipo de escritorio.
+
 El puerto 1433 es el único puerto que debe estar abierto en su equipo de escritorio que hospeda su aplicación de cliente de la SQL Database.
 
-#### <a name="inside-client-runs-on-azure"></a>*Dentro:* el cliente se ejecuta en Azure
+#### <a name="inside-client-runs-on-azure"></a>*Dentro:* el cliente se ejecuta en Azure.
+
 Cuando el cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de SQL Database. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican ninguna instancia de Azure SQL Database Gateway.
 
 La secuencia es la siguiente:
@@ -76,6 +80,6 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 * [Lista de versiones del protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Información general de desarrollo de SQL Database](sql-database-develop-overview.md)
 * [Firewall de Azure SQL Database](sql-database-firewall-configure.md)
-* [Configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md)
+* [Uso de configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md)
 
 

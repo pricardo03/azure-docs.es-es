@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237858"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752303"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solución de problemas de implementación de Kubernetes en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!Note]  
-> Kubernetes en Azure Stack está en versión preliminar.
+> Kubernetes en Azure Stack está en versión preliminar. El escenario sin conexión de Azure Stack no es compatible actualmente con la versión preliminar.
 
 En el siguiente artículo se analiza la resolución de problemas del clúster de Kubernetes. Puede revisar la alerta y el estado de la implementación mediante los elementos necesarios para la implementación. Puede que deba recopilar los registros de implementación de Azure Stack o las máquinas virtuales Linux que hospedan Kubernetes. También, puede que deba trabajar con el administrador de Azure Stack para recuperar los registros de un punto de conexión administrativo.
 
@@ -75,7 +75,7 @@ En el siguiente diagrama se muestra el proceso general para implementar el clús
         3. Inicia el servicio de programador.
 6. Cree las máquinas virtuales de agente.
 
-7. Descargue y ejecute la extensión de script de cliente.
+7. Descargue y ejecute las extensiones de script de cliente.
 
 7. Ejecute el script de agente. El script personalizado de agente realiza las siguientes tareas:
     - Instala etcd.

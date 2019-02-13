@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468400"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694118"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -87,7 +87,8 @@ Cuando la conectividad está limitada por un firewall, la configuración del gru
 Parte de la configuración del grupo de seguridad de red que se aplica debe permitir todavía que el punto de conexión cumpla con los [requisitos previos](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) documentados de la configuración de red para el cifrado del disco.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault detrás de un firewall
-Cuando el cifrado se habilita con [credenciales de Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la VM de destino debe tener acceso a los puntos de conexión de autenticación de Azure AD, así como a los puntos de conexión de Key Vault.  Para más información sobre este proceso, consulte la guía sobre el acceso al almacén de claves desde detrás de un firewall que mantiene el equipo de [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md). 
+
+Cuando se está habilitando el cifrado con [credenciales de Azure AD](azure-security-disk-encryption-prerequisites-aad.md), la máquina virtual de destino debe permitir la conectividad a los puntos de conexión de Azure Active Directory y Key Vault. Los puntos de conexión de autenticación actuales de Azure Active Directory se mantienen en las secciones 56 y 59 de la documentación sobre los [intervalos de direcciones IP y direcciones URL de Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). En la documentación sobre cómo [acceder a Azure Key Vault detrás de un firewall](../key-vault/key-vault-access-behind-firewall.md) se proporcionan instrucciones de Key Vault.
 
 ### <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure 
 La máquina virtual debe poder acceder al punto de conexión de [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) que utiliza una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede acceder desde la máquina virtual.

@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185977"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765693"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Azure Log Analytics
 
-El agente de Azure Log Analytics (OMS), anteriormente conocido como Microsoft Monitoring Agent (MMA) o agente Linux de OMS, se desarrolló para lograr una administración completa en las máquinas locales, en los equipos que supervisaba [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) y en las máquinas virtuales de cualquier nube. Los agentes de Windows y Linux se asocian a un área de trabajo de Log Analytics para recopilar datos de orígenes diferentes así como cualquier registro o métrica únicos tal como se definen en una solución de supervisión. 
+El agente de Azure Log Analytics, anteriormente conocido como Microsoft Monitoring Agent (MMA) o agente Linux de OMS, se desarrolló para lograr una administración completa en las máquinas locales, en los equipos que supervisaba [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) y en las máquinas virtuales de cualquier nube. Los agentes de Windows y Linux se asocian a un área de trabajo de Log Analytics para recopilar datos de orígenes diferentes así como cualquier registro o métrica únicos tal como se definen en una solución de supervisión. 
 
 En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los diferentes métodos de implementación.   
 
@@ -41,7 +41,7 @@ El agente para Windows y Linux no es solo para conectarse a Log Analytics, sino 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
 Las siguientes versiones del sistema operativo Windows son compatibles oficialmente con el agente de Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) o versiones posteriores
+* Windows Server 2008 R2 o versiones posteriores
 * Windows 7 SP1 y versiones posteriores.
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles

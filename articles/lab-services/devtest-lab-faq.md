@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262036"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700061"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -58,14 +58,14 @@ DevTest Labs es un servicio gratuito. Crear laboratorios y configurar las direct
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>¿Cuáles son los diferentes niveles de seguridad en DevTest Labs?
 La seguridad del acceso viene determinada por el [Control de acceso basado en roles (RBAC)](../role-based-access-control/built-in-roles.md). Para aprender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
 
-* **Permiso**: es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
-* **Rol**: es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un usuario con el rol de propietario de la suscripción tiene acceso a todos los recursos dentro de una suscripción.
-* **Ámbito**: es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
+* **Permiso**: un permiso es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
+* **Rol**: un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un usuario con el rol de propietario de la suscripción tiene acceso a todos los recursos dentro de una suscripción.
+* **Ámbito**: un ámbito es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
 
 Dentro del ámbito de DevTest Labs, hay dos tipos de roles para definir los permisos de usuario:
 
 * **Propietario de laboratorio**: tiene acceso a todos los recursos del laboratorio. El propietario de un laboratorio puede modificar las directivas, leer y escribir en todas las máquinas virtuales, cambiar la red virtual, etc.
-* **Usuario de laboratorio**: puede ver todos los recursos de laboratorio, como las máquinas virtuales, las directivas y las redes virtuales. Sin embargo, un usuario de laboratorio no puede modificar las directivas ni ninguna máquina virtual creada por otros usuarios. 
+* **Usuario de laboratorio**: puede ver todos los recursos del laboratorio, como las máquinas virtuales, las directivas y las redes virtuales. Sin embargo, un usuario de laboratorio no puede modificar las directivas ni ninguna máquina virtual creada por otros usuarios. 
 
 También puede crear roles personalizados en DevTest Labs. Para aprender a crear roles personalizados en DevTest Labs, consulte [Concesión de permisos de usuario a directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -227,7 +227,7 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>¿Por qué aparece el error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
 Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si el recurso primario no existe, verá un mensaje **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
-Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
 Los errores de implementación de máquinas virtuales se capturan en los registros de actividad. Puede encontrar los registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que selecciona la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]).

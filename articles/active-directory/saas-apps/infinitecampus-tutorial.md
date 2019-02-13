@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 694999048d2f1df92e6b8631953f124c4009d46c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151811"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integración de Azure Active Directory con Infinite Campus
 
@@ -111,7 +111,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](common/editconfigure.png)
 
-5. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios** (pasar al paso **11.b**), lleve a cabo los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, si tiene un **archivo de metadatos del proveedor de servicios** lleve a cabo los pasos del 4.a al 4.d, y luego salte al 11.c. Si no tiene un archivo de metadatos del proveedor de servicio, vaya al paso 5.
 
      a. Haga clic en **Cargar el archivo de metadatos**.
 
@@ -127,10 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón (el dominio variará con el modelo de hospedaje): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-    > [!NOTE]
-    > Obtendrá el **archivo de metadatos del proveedor de servicios** en la página de configuración del proveedor de servicios de inicio de sesión único de Infinite Campus que se explica más adelante en el tutorial. Si está empezando a usar una nueva configuración de proveedor de servicios de SAML en Infinite Campus, vaya al **paso 11** para completar la exportación del archivo de metadatos del proveedor de servicios.
-
-6. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes (tenga en cuenta que el dominio variará en función del modelo de hospedaje):
+5. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes (tenga en cuenta que el dominio variará en función del modelo de hospedaje):
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`.
 

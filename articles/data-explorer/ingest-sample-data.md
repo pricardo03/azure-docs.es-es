@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394585"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733406"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingesta de datos de ejemplo en el Explorador de datos de Azure
 
 En este artículo, se muestra cómo ingerir (cargar) datos de ejemplo en una base de datos del Explorador de datos de Azure. Hay [varias maneras de ingerir datos](ingest-data-overview.md); este artículo se centra en un enfoque básico que es adecuado para realizar pruebas.
 
 > [!NOTE]
-> Si ha completado [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md) (Inicio rápido: ingerir datos mediante la biblioteca de Python del Explorador de datos de Azure), ya tiene estos datos.
+> Ya tiene estos datos si completó [Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -57,6 +57,11 @@ El conjunto de datos de ejemplo de **StormEvents** contiene datos relacionados c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Escritura de consultas](write-queries.md)
+> [!div class="nextstepaction"]
+> [Inicio rápido: Consulta de datos en Azure Data Explorer](web-query-data.md)
 
-[Azure Data Explorer data ingestion](ingest-data-overview.md) (Ingesta de datos del Explorador de datos de Azure)
+> [!div class="nextstepaction"]
+> [Escritura de consultas](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Azure Data Explorer data ingestion](ingest-data-overview.md) (Ingesta de datos del Explorador de datos de Azure)

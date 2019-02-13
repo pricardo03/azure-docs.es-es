@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382914"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730941"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -29,7 +29,7 @@ Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Gri
 
 Al igual que muchos otros servicios que admiten webhooks, EventGrid requiere que demuestre la propiedad de su punto de conexión de Webhook antes de que comience a entregar eventos a ese punto de conexión. Este requisito evita que un usuario malintencionado sature el punto de conexión con eventos. Cuando utiliza cualquiera de los tres servicios de Azure enumerados a continuación, la infraestructura de Azure controla automáticamente esta validación:
 
-* Azure Logic Apps con el [conector de Event Grid](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Logic Apps con el [conector de Event Grid](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Azure Automation a través de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure Functions con el [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md)
 
@@ -50,7 +50,7 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
 * El cuerpo del evento tiene el mismo esquema que otros eventos de Event Grid.
 * La propiedad eventType del evento es `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * La propiedad de datos del evento incluye una propiedad `validationCode` con una cadena generada aleatoriamente. Por ejemplo, "validationCode: acb13…".
-* Si utiliza la versión de API 2018-05-01-preview, los datos del evento también incluyen una propiedad `validationUrl` con una dirección URL para validar manualmente la suscripción.
+* Los datos del evento también incluyen una propiedad `validationUrl` con una dirección URL para validar manualmente la suscripción.
 * La matriz contiene solo el evento de validación. Otros eventos se envían en una solicitud aparte después de devolver el código de validación.
 * Los SDK de EventGrid DataPlane tienen clases que corresponden a los datos de evento de validación de suscripción y a la respuesta de validación de suscripción.
 

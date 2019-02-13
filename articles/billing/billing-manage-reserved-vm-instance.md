@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904011"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743640"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -36,11 +36,11 @@ Para cambiar el ámbito de una reserva:
 2. Seleccione **Todos los servicios** > **Reservations**.
 3. Seleccione la reserva.
 4. Seleccione **Configuración** > **Configuración**.
-5. Cambie el ámbito. 
+5. Cambie el ámbito.
 
 Si cambia el ámbito para que pase de ser compartido a único, solo podrá seleccionar suscripciones de las que sea el propietario. Únicamente se pueden seleccionar las suscripciones que pertenezcan al mismo contexto de facturación que la reserva.
 
-El ámbito solo se aplica a la oferta de pago por uso MS-AZR-0003P, la oferta Enterprise MS-AZR-0017P o a los tipos de suscripción de CSP. Las suscripciones de desarrollo y pruebas de contratos Enterprise no son aptas para obtener el descuento de reserva.
+El ámbito solo se aplica a la oferta Pago por uso MS-AZR-0003P o MS-AZR-0023P, la oferta Enterprise MS-AZR-0017P o MS-AZR-0148P o los tipos de suscripción CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Agregar o cambiar los usuarios que pueden administrar una reserva
 

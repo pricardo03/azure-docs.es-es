@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402054"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567288"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -102,6 +102,10 @@ Cualquiera que tenga el vínculo al contenido de vídeo o audio y su informació
 
 De conformidad con los [Términos de los servicios en línea de Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), el contenido es totalmente suyo y Microsoft solo puede acceder a él y a los metadatos e información que Video Indexer extrae de él de conformidad con los Términos de los servicios en línea y la declaración de privacidad de Microsoft.
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>¿Los modelos personalizados que creo en mi cuenta de Video Indexer están disponibles para otras cuentas?
+
+ No, los modelos personalizados que cree en su cuenta no están disponibles para ninguna otra cuenta. Video Indexer actualmente le permite crear modelos personalizados de [marcas](customize-brands-model-overview.md), [idioma](customize-language-model-overview.md) y [persona](customize-person-model-overview.md) en su cuenta. Estos modelos solo están disponibles en la cuenta en la que los ha creado.
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>¿Se mantiene el contenido indexado por Video Indexer dentro de la región de Azure donde estoy usando Video Indexer?
 
 Sí, el contenido y su información se mantienen dentro de la región de Azure a menos que tenga una configuración manual en su suscripción de Azure que use varias regiones de Azure. 

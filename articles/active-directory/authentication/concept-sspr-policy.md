@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 45cd9188b420f9c6db3f1adaa4244b30cce0ccc6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 735bc2569436b99d3366d1ce5ff01f40ab7f587a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510466"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -86,7 +86,7 @@ En la tabla siguiente se describe la configuración de directivas de contraseña
 | Expiración de las contraseñas |<ul><li>Valor predeterminado: **false** días (indica que la expiración de la contraseña está habilitada).</li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet `Set-MsolUser`.</li></ul> |
 | Historial de cambios de contraseña |La última contraseña *no* puede usarse de nuevo cuando el usuario cambia una contraseña. |
 | Historial de restablecimientos de contraseña | La última contraseña *puede* usarse de nuevo cuando el usuario restablece una contraseña olvidada. |
-| Bloqueo de cuenta |Después de 10 intentos de inicio de sesión incorrectos con una contraseña incorrecta, el usuario se bloquea durante un minuto. Más intentos de inicio de sesión incorrectos bloquean el usuario durante mayor cantidad de tiempo. |
+| Bloqueo de cuenta |Después de 10 intentos de inicio de sesión incorrectos con una contraseña incorrecta, el usuario se bloquea durante un minuto. Más intentos de inicio de sesión incorrectos bloquean el usuario durante mayor cantidad de tiempo. El [bloqueo inteligente](howto-password-smart-lockout.md) realiza un seguimiento de los últimos tres códigos hash de contraseña incorrecta para evitar que aumente el contador de bloqueo con la misma contraseña. Si alguien escribe la misma contraseña incorrecta varias veces, este comportamiento no hará que la cuenta se bloquee. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Establecer directivas de expiración de contraseñas en Azure AD
 

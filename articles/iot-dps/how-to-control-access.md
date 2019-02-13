@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818517"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496977"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Control de acceso al servicio Azure IoT Hub Device Provisioning
 
@@ -39,7 +39,7 @@ Puede conceder los [permisos](#device-provisioning-service-permissions) de las m
 > [!NOTE]
 > Para más detalles, vea [Permisos](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 El servicio Azure IoT Hub Device Provisioning concede acceso a los puntos de conexión mediante la verificación de un token con las directivas de acceso compartido. Las credenciales de seguridad, como las claves simétricas, nunca se envían en la conexión.
 
@@ -86,7 +86,7 @@ Estos son los valores esperados:
 
 El siguiente fragmento de Node.js muestra una función denominada **generateSasToken** que calcula el token de las entradas `resourceUri, signingKey, policyName, expiresInMins`. Las secciones siguientes detallan cómo inicializar las entradas diferentes para los distintos casos de uso de token.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Por ejemplo, un servicio generado con el uso de la directiva de acceso compartid
 
 ![Creación de una directiva de acceso compartido para la instancia de servicio de aprovisionamiento de dispositivos en el portal][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

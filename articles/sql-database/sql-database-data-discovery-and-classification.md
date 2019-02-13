@@ -11,31 +11,31 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466599"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731859"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Clasificación y detección de datos de Azure SQL Database
+# <a name="azure-sql-database-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database
 
-La opción Clasificación y detección de datos (actualmente en su versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
+La clasificación y detección de datos (actualmente en versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
 Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para:
 
 - Ayudar a cumplir los requisitos de cumplimiento de normas y los estándares relacionados con la privacidad de datos.
 - Varios escenarios de seguridad, como la supervisión (auditoría) y las alertas relacionadas con accesos anómalos a información confidencial.
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 
-Data Discovery & Classification forma parte de la oferta de [Advanced Data Security (ADS) de SQL](sql-advanced-threat-protection.md). Dicha oferta es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Se puede acceder y administrar Data Discovery & Classification a través del portal de ADS de SQL.
+La clasificación y detección de datos forma parte de la oferta de [Advanced Data Security (ADS)](sql-database-advanced-data-security.md). Dicha oferta es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Se puede acceder y administrar la clasificación y detección de datos desde el portal de ADS de SQL.
 
 > [!NOTE]
 > Este documento tiene relación solo con Azure SQL Database. Para SQL Server (local), consulte [Clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>Qué es la clasificación y detección de datos
+## <a id="subheading-1"></a>¿Qué es la clasificación y detección de datos?
 
-La función de clasificación y detección de datos incluye un conjunto de servicios avanzados y nuevas funcionalidades de SQL y forma un nuevo paradigma de Information Protection de SQL destinado a proteger los datos, no solo la base de datos:
+La clasificación y detección de datos incluye un conjunto de servicios avanzados y nuevas funcionalidades de SQL que forman un nuevo paradigma de Information Protection de SQL destinado a proteger los datos, no solo la base de datos:
 
 - **Detección y recomendaciones**
 
@@ -64,7 +64,7 @@ La clasificación incluye dos atributos de metadatos:
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definir y personalizar la taxonomía de clasificación
 
-La detección y clasificación de datos SQL incluye un conjunto integrado de etiquetas de confidencialidad y un conjunto integrado de tipos de información y lógica de detección. Ahora puede personalizar esta taxonomía y definir un conjunto y la categoría de construcciones de clasificación específicamente para su entorno.
+La detección y clasificación de datos de SQL incluye un conjunto integrado de etiquetas de confidencialidad y un conjunto integrado de tipos de información y lógica de detección. Ahora puede personalizar esta taxonomía y definir un conjunto y la categoría de construcciones de clasificación específicamente para su entorno.
 
 La definición y la personalización de la taxonomía de clasificación se realizan en una ubicación central para todo el inquilino de Azure. Esa ubicación se encuentra en [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz del inquilino puede realizar esta tarea.
 
@@ -77,7 +77,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de Azure SQL Database. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Data discovery & classification (preview)** (Data discovery & classification [versión preliminar]).
+2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de Azure SQL Database. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos (versión preliminar)**.
 
    ![Examen de una base de datos](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -147,11 +147,11 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 
 ## <a id="subheading-5"></a>Pasos siguientes
 
-- Obtenga más información sobre [Advanced Data Security de SQL](sql-advanced-threat-protection.md).
+- Más información sobre [Advanced Data Security](sql-database-advanced-data-security.md).
 - Considere la posibilidad de configurar la [auditoría de Azure SQL Database](sql-database-auditing.md) para supervisar y auditar el acceso a los datos confidenciales clasificados.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

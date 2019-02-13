@@ -1,7 +1,21 @@
 ---
-título: Módulos de PowerShell para Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Use PowerShell para crear y administrar áreas de trabajo de Azure Machine Learning Studio, experimentos, servicios web y mucho más. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 25/01/2019
+title: Módulos de PowerShell para Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Use PowerShell para crear y administrar áreas de trabajo de Azure Machine Learning Studio, experimentos, servicios web y mucho más.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.date: 01/25/2019
+ms.openlocfilehash: b6080e6e81b6cedce4d08cf20e082c87e5cecade
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489825"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Módulos de PowerShell para Azure Machine Learning Studio
 

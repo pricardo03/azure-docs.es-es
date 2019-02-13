@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187081"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745680"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conocidos con Azure Monitor para VM (versión preliminar)
 
@@ -27,6 +27,7 @@ En este articulo se tratan problemas conocidos de Azure Monitor para VM, una sol
 ## <a name="health"></a>Health 
 Los siguientes son problemas conocidos de la versión actual de la característica de Mantenimiento:
 
+- El panel de propiedades de la máquina virtual muestra el sistema operativo Windows Server 2019 como Windows Server 2016. Este error se corregirá en una próxima versión.
 - Si se quita o se elimina una máquina virtual de Azure, se muestra en la vista de lista de la máquina virtual durante un tiempo. Además, si hace clic en el estado de una máquina virtual que se ha eliminado, se abre la vista **Diagnóstico de mantenimiento** y, a continuación, pasa a un bucle de carga. Si selecciona el nombre de una máquina virtual eliminada, se abre un panel con un mensaje que indica que la máquina virtual se ha eliminado.
 - Los cambios de configuración, como la actualización de un umbral, tardan aproximadamente 30 minutos incluso aunque el portal o en la API Workload Monitor se actualicen inmediatamente. 
 - El Diagnóstico de mantenimiento experimenta las actualizaciones más rápido que cualquier otra vista. La información podría retrasarse al cambiar entre ellas. 

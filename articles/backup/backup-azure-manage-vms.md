@@ -2,18 +2,18 @@
 title: Administración de copias de seguridad de máquinas virtuales implementadas por Resource Manager
 description: Aprenda a administrar y supervisar las copias de seguridad de máquinas virtuales implementadas por Resource Manager.
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
-ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: sogup
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635772"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564143"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 
@@ -137,10 +137,12 @@ Para desencadenar la copia de seguridad a petición de una máquina virtual:
 ## <a name="stop-protecting-virtual-machines"></a>Detener la protección de máquinas virtuales
 Si opta por dejar de proteger una máquina virtual, se le pregunta si desea conservar los puntos de recuperación. Hay dos formas de dejar de proteger máquinas virtuales:
 
-* detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación, o
-* detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación 
+* Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación.
+* Detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación.
 
 Dejar los puntos de recuperación almacenados conlleva un costo. Sin embargo, la ventaja de dejarlos es que puede restaurar la máquina virtual más adelante, si lo desea. Para más información acerca del costo de dejar los puntos de recuperación, consulte la [información sobre precios](https://azure.microsoft.com/pricing/details/backup/). Si opta por eliminar todos los puntos de recuperación, no podrá restaurar la máquina virtual.
+
+Cada vez que detenga la copia de seguridad con datos de retención, los puntos de recuperación expirarán según la directiva de retención, pero Azure Backup siempre conservará el último punto de recuperación hasta que se eliminen explícitamente los datos de la copia de seguridad. De igual forma, si elimina un origen de datos sin realizar Detener copia de seguridad, las copias de seguridad nuevas comenzarán a generar errores y los puntos de recuperación antiguos expirarán debido a la directiva de retención, pero siempre se conservará un último punto de recuperación hasta que realice Detener copia de seguridad con eliminación de datos.
 
 Para detener la protección de una máquina virtual:
 

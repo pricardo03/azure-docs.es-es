@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231726"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754885"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: protección de datos confidenciales y almacenamiento de claves de cifrado en el almacén de certificados de Windows
 
@@ -47,7 +47,7 @@ Para este tutorial, necesitará:
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Haga clic en **Crear un recurso** > **Datos y almacenamiento** > **SQL Database**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Si desea obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL Database](sql-database-get-started-portal.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Si desea obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL Database](sql-database-single-database-get-started.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted/create-database.png)
 
@@ -98,7 +98,7 @@ SSMS proporciona un asistente para configurar Always Encrypted de forma fácil m
    
     ![Cifrar columnas](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-El asistente de Always Encrypted incluye las siguientes secciones: **Selección de columnas**, **Configuración de la clave maestra** (CMK), **Validación** y **Resumen**.
+El Asistente para Always Encrypted incluye las siguientes secciones: **Selección de columnas**, **Configuración de la clave maestra** (CMK), **Validación** y **Resumen**.
 
 ### <a name="column-selection"></a>Selección de columnas
 En la página **Introducción**, haga clic en **Siguiente** para abrir la página **Selección de columnas**. En esta página, seleccione las columnas que desea cifrar, [el tipo de cifrado y qué clave de cifrado de columna (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) desea usar.

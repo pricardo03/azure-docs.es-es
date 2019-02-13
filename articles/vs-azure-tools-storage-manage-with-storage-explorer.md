@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422735"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756825"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -87,9 +87,9 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 * [Conexión a una suscripción de Azure](#connect-to-an-azure-subscription): administre los recursos de almacenamiento que pertenecen a su suscripción de Azure.
 * [Trabajo con el almacenamiento de desarrollo local](#work-with-local-development-storage): administre el almacenamiento local mediante el Emulador de Azure Storage.
 * [Conexión a almacenamiento externo](#attach-or-detach-an-external-storage-account): administre los recursos de almacenamiento que pertenecen a otra suscripción de Azure o que se encuentran en nubes de Azure nacionales mediante el nombre, la clave y los puntos de conexión de la cuenta de almacenamiento.
-* [Asociación de una cuenta de almacenamiento mediante una SAS](#attach-storage-account-using-sas): administre recursos de almacenamiento que pertenecen a otra suscripción de Azure mediante una firma de acceso compartido (SAS).
-* [Asociación de un servicio mediante una SAS](#attach-service-using-sas): administre un servicio de almacenamiento específico (contenedor de blobs, cola o tabla) que pertenece a otra suscripción de Azure mediante una SAS.
-* [Conexión a una cuenta de Azure Cosmos DB mediante una cadena de conexión](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): administración de cuenta Cosmos DB mediante una cadena de conexión.
+* [Asociación de una cuenta de almacenamiento mediante una SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): administre recursos de almacenamiento que pertenecen a otra suscripción de Azure mediante una firma de acceso compartido (SAS).
+* [Asociación de un servicio mediante una SAS](#attach-a-service-by-using-a-shared-access-signature-sas): administre un servicio de almacenamiento específico (contenedor de blobs, cola o tabla) que pertenece a otra suscripción de Azure mediante una SAS.
+* [Conexión a una cuenta de Azure Cosmos DB mediante una cadena de conexión](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): administre una cuenta de Azure Cosmos DB mediante una cadena de conexión.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
 
@@ -295,7 +295,7 @@ Además de administrar cuentas de Azure Cosmos DB a través de una suscripción 
 
     ![Conexión a Azure Cosmos DB mediante una cadena de conexión][21]
 
-2. Elija la API de Azure Cosmos DB, pegue su **cadena de conexión** y, a continuación, haga clic en **Aceptar** para conectarse a la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, vea [Obtener la cadena de conexión](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Elija la API de Azure Cosmos DB, pegue su **cadena de conexión** y, a continuación, haga clic en **Aceptar** para conectarse a la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, vea [Obtener la cadena de conexión](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

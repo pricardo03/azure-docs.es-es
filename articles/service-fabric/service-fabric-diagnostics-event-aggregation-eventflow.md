@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9b851b2d75cf78a02dd223788085ac9a0963376e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 829d1ffd1ef75d18f0d87a127c43666703e8a756
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211361"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497373"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Recopilación y agregación de eventos con EventFlow
 
@@ -142,7 +142,7 @@ El nombre que se pasa como parámetro del método `CreatePipeline` de `ServiceFa
 
 ### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>Uso de los parámetros de la aplicación y de la configuración de Service Fabric en eventFlowConfig
 
-EventFlow permite usar los parámetros de la aplicación y la configuración de Service Fabric para configurar EventFlow. Puede hacer referencia a los parámetros de configuración de Service Fabric mediante la utilización de esta sintaxis especial para los valores:
+EventFlow permite usar los parámetros de la aplicación y las opciones de Service Fabric para su propia configuración. Puede hacer referencia a los parámetros de configuración de Service Fabric mediante la utilización de esta sintaxis especial para los valores:
 
 ```json
 servicefabric:/<section-name>/<setting-name>

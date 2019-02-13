@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064651"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727915"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064651"
 
 En cualquier escenario de producción, se debe proporcionar acceso a una instancia de Azure Container Registry mediante [entidades de servicio](../container-registry/container-registry-auth-service-principal.md). Las entidades de servicio permiten proporcionar [control de acceso basado en rol](../container-registry/container-registry-roles.md) a las imágenes de contenedor. Por ejemplo, puede configurar una entidad de servicio con acceso de solo extracción a un registro.
 
-En esta sección, cree un almacén de claves de Azure y una entidad de servicio y almacene las credenciales de la entidad de servicio en el almacén.
+En la siguiente sección, cree un almacén de claves de Azure y una entidad de servicio, y almacene las credenciales de la entidad de servicio en el almacén. 
 
 ### <a name="create-key-vault"></a>Creación del almacén de claves
 
@@ -134,9 +134,11 @@ Para más información acerca de cómo hacer referencia a secretos de Azure Key 
 
 ## <a name="deploy-with-azure-portal"></a>Implementación con Azure Portal
 
-Si se mantienen imágenes de contenedor en Azure Container Registry, se puede crear fácilmente un contenedor en Azure Container Instances a través de Azure Portal.
+Si se mantienen imágenes de contenedor en un registro de contenedor de Azure, se puede crear fácilmente un contenedor en Azure Container Instances a través de Azure Portal. Al usar el portal para implementar una instancia de contenedor desde un registro de contenedor, tiene que habilitar la [cuenta de administrador](../container-registry/container-registry-authentication.md#admin-account) del registro. La cuenta de administrador está diseñada para que un solo usuario acceda al registro, principalmente con fines de prueba. 
 
 1. En Azure Portal, vaya al registro de contenedor.
+
+1. Para confirmar que la cuenta de administrador está habilitada, seleccione **Claves de acceso**y en **Usuario administrador** seleccione **Habilitar**.
 
 1. Seleccione **Repositorios**, elija el repositorio desde el que va a implementar, haga clic con el botón derecho en la etiqueta de la imagen de contenedor que desea implementar y seleccione **Ejecutar instancia**.
 

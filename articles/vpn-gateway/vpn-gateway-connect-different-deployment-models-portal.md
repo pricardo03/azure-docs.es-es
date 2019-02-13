@@ -1,5 +1,5 @@
 ---
-title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: portal | Microsoft Docs'
+title: 'Conexión de redes virtuales clásicas a redes virtuales de Azure Resource Manager: Portal | Microsoft Docs'
 description: Pasos para conectar redes virtuales clásicas a redes virtuales de Resource Manager mediante VPN Gateway y el portal
 services: vpn-gateway
 author: cherylmc
@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405011"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508341"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -113,7 +113,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 2. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
 
   ![Abrir página de configuración de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Abrir página de configuración de puerta de enlace")
-3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El **nombre** ya está configurado con valor requerido: **GatewaySubnet**.
+3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El campo **Nombre** ya está establecido en el valor apropiado: **GatewaySubnet**.
 4. **Intervalo de direcciones** hace referencia al intervalo para la subred de puerta de enlace. Si bien puede crear una subred de puerta de enlace con un intervalo de direcciones de /29 (3 direcciones), se recomienda crear una subred de puerta de enlace que incluya más direcciones IP. Esto permitirá configuraciones futuras que puedan requerir más direcciones IP disponibles. Si es posible, utilice /27 o /28. Si usa estos pasos como ejercicio, puede hacer referencia a los [valores de ejemplo](#values). En este ejemplo se usa "10.0.0.32/28". Haga clic en **Aceptar** para crear la subred de puerta de enlace.
 5. En la página **Configuración de puerta de enlace**, la opción **Tamaño** hace referencia a la SKU de la puerta de enlace. Seleccione la SKU de puerta de enlace para la puerta de enlace VPN.
 6. Compruebe que el **Tipo de enrutamiento** sea **Dinámico** y haga clic en **Aceptar** para volver a la página **Nueva conexión de VPN**.
@@ -147,7 +147,7 @@ Si no tiene una red virtual de Resource Manager y va a ejecutar estos pasos como
 
 ### <a name="2-create-a-gateway-subnet"></a>2. Creación de una subred de puerta de enlace
 
-**Valor de ejemplo:** GatewaySubnet = 192.168.0.0/26
+**Valor de ejemplo:** Subred de la puerta de enlace = 192.168.0.0/26
 
 Antes de crear una puerta de enlace de red virtual, primero deberá crear una subred de puerta de enlace. Cree una subred de puerta de enlace con un recuento CIDR de /28 o mayor (/27, /26, etc.). Si crea esta configuración como parte de un ejercicio, puede usar los valores de ejemplo.
 
@@ -171,7 +171,7 @@ Antes de crear una puerta de enlace de red virtual, primero deberá crear una su
 
 ### <a name="createlng"></a>4. Creación de una puerta de enlace de red local
 
-**Valores de ejemplo:** Puerta de enlace de red local = ClassicVNetLocal
+**Valores de ejemplo:** Puerta de enlace de red local = LocalRedVClásica
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |Dirección IP pública de puerta de enlace|
 |:--- |:--- |:--- |:--- |:--- |
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Visualización de los valores de archivo de configuración de red
 
-Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en Azure Portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre podría ser similar al siguiente: "Group ClassicRG ClassicVNet". En estos pasos se descarga el archivo de configuración de red y se ven los valores.
+Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en Azure Portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre debería parecerse al siguiente: "Group ClassicRG ClassicVNet". En estos pasos se descarga el archivo de configuración de red y se ven los valores.
 
 Cree un directorio en el equipo y, a continuación, exporte el archivo de configuración de red al directorio. En este ejemplo, se exporta el archivo de configuración de red a C:\AzureNet.
 

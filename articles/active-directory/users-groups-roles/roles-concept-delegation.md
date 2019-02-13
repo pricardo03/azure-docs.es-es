@@ -1,5 +1,5 @@
 ---
-title: Delegación de roles de administrador en Azure Active Directory | Microsoft Docs
+title: Información sobre la delegación de roles de administración en Azure Active Directory | Microsoft Docs
 description: Modelos de delegación, ejemplos y seguridad de los roles en Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: cf26cd53340d00e057492b8625b1ff5d6dcde884
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4e904ee9b2ad96847b0ff22dd7350cc42c20db79
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195025"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507253"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegación de administración en Azure Active Directory
 

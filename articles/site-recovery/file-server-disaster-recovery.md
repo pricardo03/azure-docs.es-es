@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794097"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508375"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -65,10 +65,10 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 Dado que la replicación de Site Recovery no depende de la aplicación, se espera que estas recomendaciones sirvan también para los escenarios siguientes.
 | Origen    |En un sitio secundario    |En Azure
 |---------|---------|---------|
-|Azure| -|SÍ|
-|Hyper-V|   SÍ |SÍ
-|VMware |SÍ|   SÍ
-|Servidor físico|   SÍ |SÍ
+|Azure| -|Sí|
+|Hyper-V|   Sí |Sí
+|VMware |Sí|   Sí
+|Servidor físico|   Sí |Sí
  
 
 > [!IMPORTANT]
@@ -94,7 +94,7 @@ Azure Files puede utilizarse para reemplazar totalmente o complementar los servi
 
 Los pasos siguientes describen brevemente el uso de File Sync:
 
-1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Consulte las [estrategias de recuperación ante desastres de un recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para más información.
+1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información consulte [Recuperación ante desastres y conmutación por error forzada (versión preliminar) en Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Cree un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implementación de File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) en el servidor de archivos de Azure.
 4. Crear un grupo de sincronización. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure. Un grupo de sincronización también debe contener un punto de conexión de servidor, que representa una ruta de acceso en un servidor Windows.
@@ -143,7 +143,7 @@ Para integrar File Sync con Site Recovery:
 
 Siga estos pasos para utilizar File Sync:
 
-1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (recomendado) para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Consulte las [estrategias de recuperación ante desastres de un recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para más información.
+1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (recomendado) para las cuentas de almacenamiento, tendrá acceso de lectura a los datos desde la región secundaria en caso de desastre. Para más información consulte [Recuperación ante desastres y conmutación por error forzada (versión preliminar) en Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Cree un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implemente File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) en el servidor de archivos local.
 4. Crear un grupo de sincronización. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure. Un grupo de sincronización también debe contener un punto de conexión de servidor, que representa una ruta de acceso en el servidor Windows local.

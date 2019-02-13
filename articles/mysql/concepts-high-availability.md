@@ -5,13 +5,13 @@ author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548399"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691361"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceptos de alta disponibilidad en Azure Database for MySQL
 El servicio Azure Database for MySQL garantiza un alto nivel de disponibilidad. El Acuerdo de Nivel de Servicio con respaldo financiero tiene un 99,99 % de disponibilidad general. Al usar este servicio, las aplicaciones prácticamente no tienen tiempo de inactividad.
@@ -32,5 +32,5 @@ De forma similar al modelo de alta disponibilidad, cuando Azure Database for MyS
 Durante la operación de escalado, se produce una interrupción en las conexiones de la base de datos. Las aplicaciones cliente se desconectan y las transacciones abiertas no confirmadas se cancelan. Una vez que la aplicación cliente reintenta la conexión o crea una conexión nueva, la puerta de enlace dirige la conexión a la instancia cuyo tamaño se modificó. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para información general sobre el servicio, consulte  [Introducción a Azure Database for MySQL](overview.md).
-- Para información general de la lógica de reintentos, consulte [Control de errores de conectividad transitorios para Azure Database for MySQL](concepts-connectivity.md)
+- Más información sobre el [control de errores de conectividad transitorios](concepts-connectivity.md)
+- Más información sobre cómo [replicar los datos con réplicas de lectura](howto-read-replicas-portal.md)

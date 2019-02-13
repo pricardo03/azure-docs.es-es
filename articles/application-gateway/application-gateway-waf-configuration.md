@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353199"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492936"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web
 
@@ -45,7 +45,7 @@ Los siguientes atributos se pueden agregar a las listas de exclusión:
    * XML
    * JSON
 
-Puede especificar una coincidencia exacta de atributo de cadena de consulta, cookie, cuerpo o encabezado de solicitud u, opcionalmente, puede especificar coincidencias parciales.
+Puede especificar una coincidencia exacta con un atributo de cadena de consulta, una cookie, el cuerpo o el encabezado de una solicitud.  Si lo desea, también puede especificar coincidencias parciales. La exclusión siempre se aplica al campo del encabezado; nunca a su valor. Las reglas de exclusión tienen un ámbito global y se aplican a todas las páginas y todas las reglas.
 
 Estos son los operadores de criterios de coincidencia admitidos:
 

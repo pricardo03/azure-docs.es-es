@@ -4,17 +4,17 @@ description: La definición de Azure Policy tiene varios efectos que determinan 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912516"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562307"
 ---
 # <a name="understand-policy-effects"></a>Descripción de los efectos de Policy
 
@@ -50,7 +50,7 @@ Append se utiliza para agregar campos adicionales al recurso solicitado durante 
 
 ### <a name="append-evaluation"></a>Evaluación de append
 
-Append realiza la evaluación antes de que un proveedor de recursos procese la solicitud durante la creación o actualización de un recurso. Append agrega campos al recurso cuando se cumple la condición **if** de la regla de directiva. En caso de que el efecto append reemplace un valor de la solicitud original por otro, actúa como un efecto deny y rechaza la solicitud.
+Append realiza la evaluación antes de que un proveedor de recursos procese la solicitud durante la creación o actualización de un recurso. Append agrega campos al recurso cuando se cumple la condición **if** de la regla de directiva. En caso de que el efecto append reemplace un valor de la solicitud original por otro, actúa como un efecto deny y rechaza la solicitud. Para anexar un nuevo valor a una matriz existente, use la versión **[\*]** del alias.
 
 Cuando una definición de directiva que utiliza el efecto append se ejecuta como parte de un ciclo de evaluación, no realiza cambios en los recursos que ya existen. En su lugar, marca cualquier recurso que cumple la condición **if** como no conforme.
 
@@ -89,7 +89,8 @@ Ejemplo 2: varios pares **campo/valor** para anexar un conjunto de etiquetas.
 }
 ```
 
-Ejemplo 3: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) con una matriz **valor** para establecer reglas IP en una cuenta de almacenamiento.
+Ejemplo 3: un único par **campo/valor** que usa un 
+[alias](definition-structure.md#aliases) distinto de **[\*] ** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
@@ -100,6 +101,21 @@ Ejemplo 3: un único par **campo/valor** que usa un [alias](definition-structure
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Ejemplo 4: un único par **campo/valor** que usa un [alias](definition-structure.md#aliases) **[\*]** con un **valor** de matriz para establecer reglas IP en una cuenta de almacenamiento. Mediante el uso del alias **[\*]**, el efecto anexa el **valor** a una matriz que es posible que ya exista. Si la matriz no existe aún, se creará.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -259,7 +275,7 @@ La propiedad **details** de los efectos de DeployIfNotExists tiene todas las sub
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
 - **DeploymentScope** (opcional)
   - Los valores permitidos son _Subscription_ y _ResourceGroup_.
-  - Establece el tipo de implementación que debe realizarse. La _Suscripción_ indica una [implementación a nivel de suscripción](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una implementación en un grupo de recursos.
+  - Establece el tipo de implementación que se desencadena. La _Suscripción_ indica una [implementación a nivel de suscripción](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica una implementación en un grupo de recursos.
   - En la _Implementación_ debe especificarse una propiedad _location_ al usar las implementaciones de nivel de suscripción.
   - El valor predeterminado es _ResourceGroup_.
 - **Deployment** [obligatorio]

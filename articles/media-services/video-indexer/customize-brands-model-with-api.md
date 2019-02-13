@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827591"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734324"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalización de un modelo de las marcas con la API de Video Indexer
 
@@ -26,23 +26,23 @@ Puede utilizar las API de Video Indexer para crear, usar y editar modelos de mar
 
 ## <a name="create-a-brand"></a>Creación de una marca
 
-Puede crear una marca personalizada y agregarla al modelo de marcas personalizado de la cuenta especificada. 
+Puede crear una marca personalizada y agregarla al modelo de marcas personalizado de la cuenta especificada.
 
 ### <a name="request-url"></a>URL de la solicitud
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Parámetros de solicitud 
+### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -95,17 +95,17 @@ Puede quitar una marca del modelo de marcas personalizado de la cuenta especific
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|id|integer|SÍ|El identificador de la marca (generado cuando se creó la marca).|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|id|integer|Sí|El identificador de la marca (generado cuando se creó la marca).|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -117,24 +117,24 @@ No se devuelve ningún contenido cuando la marca se elimina correctamente.
 
 ## <a name="get-a-specific-brand"></a>Obtención de una hoja específica
 
-Puede buscar los detalles de una marca en el modelo de marcas personalizado de la cuenta especificada mediante el identificador de marca. 
+Puede buscar los detalles de una marca en el modelo de marcas personalizado de la cuenta especificada mediante el identificador de marca.
 
 ### <a name="request-url"></a>URL de la solicitud
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Parámetros de solicitud 
+### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|id|integer|SÍ|El identificador de la marca (generado cuando se creó la marca).|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|id|integer|Sí|El identificador de la marca (generado cuando se creó la marca).|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -167,28 +167,28 @@ La respuesta proporciona información sobre la marca que ha buscado (mediante el
 
 ## <a name="update-a-specific-brand"></a>Actualización de una marca específica
 
-Puede buscar los detalles de una marca en el modelo de marcas personalizado de la cuenta especificada mediante el identificador de marca. 
+Puede buscar los detalles de una marca en el modelo de marcas personalizado de la cuenta especificada mediante el identificador de marca.
 
 ### <a name="request-url"></a>URL de la solicitud
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|id|integer|SÍ|El identificador de la marca (generado cuando se creó la marca).|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|id|integer|Sí|El identificador de la marca (generado cuando se creó la marca).|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
-Además de estos parámetros, debe proporcionar un objeto JSON de cuerpo de solicitud que facilite información actualizada sobre la marca que quiere actualizar, siguiendo el formato del ejemplo siguiente.
+Además de estos parámetros, tiene que proporcionar un objeto JSON de cuerpo de solicitud que facilite información actualizada sobre la marca que quiere actualizar siguiendo el formato del ejemplo siguiente.
 
 ```json
 {
@@ -237,16 +237,16 @@ Puede devolver todas las marcas del modelo de marcas personalizado de la cuenta 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -270,7 +270,7 @@ La respuesta proporciona una lista de todas las marcas de su cuenta y cada uno d
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,16 +297,16 @@ Puede devolver la configuración del modelo de marcas de la cuenta especificada.
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -330,20 +330,20 @@ La respuesta muestra si las marcas de Bing están habilitadas, siguiendo el form
 
 Puede actualizar la configuración del modelo de marcas de la cuenta especificada. La configuración del modelo de marcas representa si la detección desde la base de datos de Bing está o no habilitada. Si las marcas de Bing no están habilitadas, Video Indexer solo detectará las marcas del modelo de marcas personalizado de la cuenta especificada.
 
-### <a name="request-url"></a>URL de la solicitud: 
+### <a name="request-url"></a>URL de la solicitud:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [Consulte los parámetros necesarios y haga la prueba mediante el portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Parámetros de solicitud 
+### <a name="request-parameters"></a>Parámetros de solicitud
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|SÍ|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
-|accountId|string|SÍ|Identificador único global de la cuenta.|
-|accessToken|string|SÍ|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
+|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|accountId|string|Sí|Identificador único global de la cuenta.|
+|accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 

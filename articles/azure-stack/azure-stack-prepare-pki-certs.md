@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247211"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656726"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparación de certificados PKI de Azure Stack para la implementación o rotación
+
 Los archivos de certificado [obtenidos de la entidad de certificación que eligió](azure-stack-get-pki-certs.md) deben importarse y exportarse con propiedades que coincidan con los requisitos de certificado de Azure Stack.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Preparación de los certificados para la implementación
+
 Siga estos pasos para preparar y validar los certificados PKI de Azure Stack que se usarán para implementar un nuevo entorno de Azure Stack o para rotar los secretos en un entorno existente de Azure Stack: 
 
 ### <a name="import-the-certificate"></a>Importación del certificado
@@ -83,7 +84,9 @@ Abra la consola MMC del administrador de certificados y conéctese al almacén d
     
     ![Asistente para exportar certificados con las opciones seleccionadas](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Seleccione **Contraseña** y proporcione una contraseña para los certificados. Recuerde esta contraseña, ya que se utiliza como un parámetro de implementación. Seleccione **Next** (Siguiente).
+1. Seleccione **Contraseña** y proporcione una contraseña para los certificados. Cree una contraseña que cumpla los siguientes requisitos de complejidad de las contraseñas. Una longitud mínima de ocho caracteres. La contraseña contiene al menos tres de los siguientes elementos: letras en mayúsculas, letras en minúsculas, números del 0 al 9, caracteres especiales, caracteres alfabéticos que no estén en mayúsculas ni en minúsculas. Anote esta contraseña. Se usará como parámetro de implementación.
+
+1. Seleccione **Next** (Siguiente).
 
 1. Elija un nombre de archivo y la ubicación del archivo PFX que se va a exportar. Seleccione **Next** (Siguiente).
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473211"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746319"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Para configurar el registro y las métricas de la cuenta de almacenamiento media
 
 Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](/powershell/azure/overview).
 
-1. Use el cmdlet [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
+1. Use el cmdlet [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. En la ventana de **inicio de sesión en Microsoft Azure** , escriba la dirección de correo electrónico y contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
@@ -110,7 +110,7 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Habilite el registro de almacenamiento para Blob service:

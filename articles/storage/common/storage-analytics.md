@@ -1,5 +1,5 @@
 ---
-title: Uso del análisis de Azure Storage para recopilar datos de registros y métricas | Microsoft Docs
+title: Uso del análisis de Azure Storage para recopilar datos de métricas y registros | Microsoft Docs
 description: Storage Analytics permite realizar un seguimiento de los datos de métricas para todos los servicios de almacenamiento y recopilar registros de Blob Storage, Queue Storage y Table Storage.
 services: storage
 author: roygara
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239781"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745663"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -43,7 +43,7 @@ Se registran los siguientes tipos de solicitudes autenticadas:
 * Solicitudes que utilizan una firma de acceso compartido (SAS), incluyendo las solicitudes correctas y las erróneas
 * Solicitudes de datos de análisis
 
-Las solicitudes realizadas por el propio Storage Analytics, como la creación o eliminación del registro, no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) y [Formato del registro de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx).
+Las solicitudes realizadas por el propio Storage Analytics, como la creación o eliminación del registro, no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="logging-anonymous-requests"></a>Registrar solicitudes anónimas
 Se registran los siguientes tipos de solicitudes anónimas:
@@ -53,7 +53,7 @@ Se registran los siguientes tipos de solicitudes anónimas:
 * Errores de tiempo de espera para el cliente y el servidor
 * Solicitudes GET erróneas con el código de error 304 (Sin modificar)
 
-El resto de solicitudes anónimas erróneas no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx) y [Formato del registro de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx).
+El resto de solicitudes anónimas erróneas no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="how-logs-are-stored"></a>Cómo se almacenan los registros
 Todos los registros se almacenan en blobs en bloques en un contenedor denominado $logs, que se crea automáticamente cuando se habilita Storage Analytics para una cuenta de almacenamiento. El contenedor $logs se encuentra en el espacio de nombres del blob de la cuenta de almacenamiento, por ejemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contenedor no se puede eliminar una vez habilitado Storage Analytics, aunque su contenido sí se puede eliminar.
@@ -61,8 +61,8 @@ Todos los registros se almacenan en blobs en bloques en un contenedor denominado
 > [!NOTE]
 > El contenedor $logs no se muestra cuando se realiza una operación de lista de contenedores, como el método [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) . Se debe tener acceso a él directamente. Por ejemplo, puede utilizar el método [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) para obtener acceso a los blobs en el contenedor `$logs`.
 > A medida que se registran las solicitudes, Storage Analytics cargará los resultados intermedios como bloques. Periódicamente, Storage Analytics confirmará estos bloques para que estén disponibles como blobs.
-> 
-> 
+>
+>
 
 Es posible que haya entradas duplicadas en los registros creados durante la misma hora. Puede determinar si un registro es un duplicado comprobando el número **RequestId** y **Operation**.
 
@@ -129,9 +129,9 @@ Las métricas de transacciones se registran para las solicitudes del usuario y p
 
 ### <a name="capacity-metrics"></a>Métricas de capacidad
 > [!NOTE]
-> Actualmente, las métricas de capacidad solo están disponibles para Blob service. Las métricas de capacidad para Table service y Queue service estarán disponibles en versiones futuras de Storage Analytics.
-> 
-> 
+> Actualmente, las métricas de capacidad solo están disponibles para Blob service.
+>
+>
 
 Los datos de capacidad se registran diariamente para la instancia de Blob service de una cuenta de almacenamiento, y se escriben dos entidades de tabla. Una entidad proporciona estadísticas para los datos de usuario y la otra proporciona estadísticas sobre el contenedor de blob `$logs` utilizado por Storage Analytics. La tabla `$MetricsCapacityBlob` incluye las estadísticas siguientes:
 
@@ -139,7 +139,7 @@ Los datos de capacidad se registran diariamente para la instancia de Blob servic
 * **ContainerCount**: el número de contenedores de blobs en la instancia de Blob service de la cuenta de almacenamiento.
 * **ObjectCount**: el número de blobs en bloque o en páginas confirmados y sin confirmar de la instancia de Blob service de la cuenta de almacenamiento.
 
-Para obtener más información acerca de las métricas de capacidad, vea el [Esquema de las tablas de métricas de Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
+Para obtener más información acerca de las métricas de capacidad, vea el [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Cómo se almacenan las métricas
 Todos los datos de métricas para cada uno de los servicios de almacenamiento se almacenan en tres tablas reservadas para ese servicio: una tabla para la información sobre transacciones, otra tabla para la información sobre las transacciones por minuto y una última tabla para la información sobre capacidad. La información sobre transacciones y transacciones por minuto consta de datos de solicitudes y respuestas, y la información sobre capacidad consta de datos de uso del almacenamiento. Se puede acceder a las métricas por hora y por minuto, y a la capacidad de la instancia de Blob service de una cuenta de almacenamiento, en tablas cuyos nombres se describen en la tabla siguiente.
@@ -163,7 +163,7 @@ Todos los datos de métricas los escriben los servicios de una cuenta de almacen
 
 Son facturables las acciones siguientes realizadas por Storage Analytics:
 
-* Solicitudes para crear blobs para el registro 
+* Solicitudes para crear blobs para el registro
 * Solicitudes para crear entidades de tabla para las métricas
 
 Si ha configurado una directiva de retención de datos, no se le cobrarán las transacciones de eliminación cuando Storage Analytics elimine los antiguos datos de métricas y de registro. Sin embargo, las transacciones de eliminación desde un cliente sí son facturables. Para obtener más información acerca de las directivas de retención, consulte [Establecer una directiva de retención de datos de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
@@ -171,20 +171,9 @@ Si ha configurado una directiva de retención de datos, no se le cobrarán las t
 ### <a name="understanding-billable-requests"></a>Descripción de las solicitudes facturables
 Las solicitudes realizadas al servicio de almacenamiento de una cuenta son facturables o no facturables. Storage Analytics registra cada solicitud realizada a un servicio, incluyendo un mensaje de estado que indica cómo se administró la solicitud. De igual forma, Storage Analytics guarda las métricas para un servicio y para las operaciones de la API de dicho servicio, incluidos los porcentajes y el recuento de algunos mensajes de estado. Todas estas características pueden ayudarle a analizar las solicitudes facturables, a llevar a cabo mejoras en la aplicación y a diagnosticar problemas en las solicitudes a los servicios. Para obtener más información sobre la facturación, consulte [Descripción de la facturación de Azure Storage: ancho de banda, transacciones y capacidad](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Al examinar los datos de Storage Analytics, puede usar las tablas del tema [Operaciones y mensajes de estado registrados por Storage Analytics](https://msdn.microsoft.com/library/azure/hh343260.aspx) para determinar qué solicitudes son facturables. De esta manera, podrá comparar los datos de métricas y de registro con los mensajes de estado para ver si se le cobró por una solicitud determinada. También puede usar las tablas del tema anterior para investigar la disponibilidad de un servicio de almacenamiento o de una operación de API determinada.
+Al examinar los datos de Storage Analytics, puede usar las tablas del tema [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar qué solicitudes son facturables. De esta manera, podrá comparar los datos de métricas y de registro con los mensajes de estado para ver si se le cobró por una solicitud determinada. También puede usar las tablas del tema anterior para investigar la disponibilidad de un servicio de almacenamiento o de una operación de API determinada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-### <a name="setting-up-storage-analytics"></a>Configuración de Storage Analytics
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
-* [Habilitar y configurar Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>Registro de Storage Analytics
-* [Acerca del registro de Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Formato del registro de Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx)
-* [Operaciones y mensajes de estado registrados por Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>Métricas de Storage Analytics
-* [Acerca de las métricas de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)
-* [Esquema de las tablas de métricas de Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
-* [Operaciones y mensajes de estado registrados por Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
-
+* [Registro de Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
+* [Métricas de Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357773"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819151"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure
 Azure proporciona resolución de nombres DNS de forma predeterminada para todas las máquinas virtuales de una única red virtual. Puede implementar su propia solución de resolución de nombre DNS si configura sus propios servicios DNS en las máquinas virtuales hospedadas de Azure. Los siguientes escenarios deberían ayudarle a elegir cuál funciona mejor para su situación.
@@ -33,7 +33,7 @@ En la siguiente tabla se muestran los escenarios y las soluciones de resolución
 
 | **Escenario** | **Solución** | **Sufijo** |
 | --- | --- | --- |
-| Resolución de nombres entre instancias de rol o máquinas virtuales de la misma red virtual |[Resolución de nombres que proporciona Azure](#azure-provided-name-resolution) |El nombre de host o el nombre de dominio completo (FQDN) |
+| Resolución de nombres entre instancias de rol o máquinas virtuales de la misma red virtual |Resolución de nombres que proporciona Azure |El nombre de host o el nombre de dominio completo (FQDN) |
 | Resolución de nombres entre instancias de rol o máquinas virtuales de redes virtuales diferentes |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server). |Solo FQDN |
 | Resolución de nombres de servicios y de equipos locales desde instancias de rol o máquinas virtuales en Azure |Servidores DNS administrados por el cliente (por ejemplo, controlador de dominio local, controlador de dominio de solo lectura local o un DNS secundario sincronizado mediante transferencias de zona). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server). |Solo FQDN |
 | Resolución de nombres de host de Azure desde equipos locales |Reenvío de consultas a un servidor proxy DNS administrado por el cliente en la red virtual correspondiente. El servidor proxy reenvía consultas a Azure para resolverlas. Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server). |Solo FQDN |

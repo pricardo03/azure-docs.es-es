@@ -1,29 +1,29 @@
 ---
-title: Replicación de datos en Azure Storage | Microsoft Docs
-description: Los datos de su cuenta de Microsoft Azure Storage se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
+title: Redundancia de datos en Azure Storage | Microsoft Docs
+description: Los datos de su cuenta de Microsoft Azure Storage se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de redundancia se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455514"
+ms.locfileid: "55506794"
 ---
-# <a name="azure-storage-replication"></a>Replicación de Azure Storage
+# <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
-Los datos de su cuenta de almacenamiento de Microsoft Azure se replican siempre para garantizar la durabilidad y la alta disponibilidad. La replicación de Azure Storage copia los datos para protegerlos de eventos previstos e imprevistos que van de errores transitorios de hardware, interrupciones del suministro eléctrico o de la red a desastres naturales masivos, entre otros. Puede optar por replicar los datos en el mismo centro de datos, en centros de datos zonales que estén en la misma región e incluso entre regiones.
+Los datos de su cuenta de almacenamiento de Microsoft Azure se replican siempre para garantizar la durabilidad y la alta disponibilidad. Azure Storage copia los datos para protegerlos de eventos previstos e imprevistos, como errores transitorios del hardware, interrupciones del suministro eléctrico o de la red y desastres naturales masivos. Puede optar por replicar los datos en el mismo centro de datos, en centros de datos zonales que estén en la misma región o en regiones geográficamente separadas.
 
 La replicación garantiza que la cuenta de almacenamiento cumpla el [contrato de nivel de servicio (SLA) para Storage](https://azure.microsoft.com/support/legal/sla/storage/), incluso en caso de errores. Consulte en el SLA información acerca de las garantías de durabilidad y disponibilidad de Azure Storage.
 
-## <a name="choosing-a-replication-option"></a>Elección de una opción de replicación
+## <a name="choosing-a-redundancy-option"></a>Selección de una opción de redundancia
 
-Cuando cree una cuenta de almacenamiento, puede seleccionar una de las siguientes opciones de replicación:
+Cuando crea una cuenta de almacenamiento, puede seleccionar una de las siguientes opciones de redundancia:
 
 * [Almacenamiento con redundancia local (LRS)](storage-redundancy-lrs.md)
 * [Almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md)
@@ -34,10 +34,10 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Falta de disponibilidad del nodo en un centro de datos                                                                 | SÍ                             | Sí                              | Sí                                  | SÍ                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | SÍ                              | Sí                                  | SÍ                                  |
-| Una interrupción en toda la región                                                                                     | Sin                               | No                               | SÍ                                  | SÍ                                  |
-| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | No                               | No                                   | SÍ                                  |
+| Falta de disponibilidad del nodo en un centro de datos                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | Sí                              | Sí                                  | Sí                                  |
+| Una interrupción en toda la región                                                                                     | Sin                               | No                               | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | No                               | No                                   | Sí                                  |
 | Diseñado para proporcionar una \_\_ durabilidad de objetos a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA de disponibilidad para las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,99 % (99,9 % para el nivel de acceso esporádico) |

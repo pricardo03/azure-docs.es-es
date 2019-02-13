@@ -1,6 +1,6 @@
 ---
 title: Bloqueo de la autenticación heredada a Azure Active Directory (Azure AD) con acceso condicional | Microsoft Docs
-description: Obtenga información sobre cómo configurar una directiva de acceso condicional en Azure Active Directory (Azure AD) para intentos de acceso de redes que no son de confianza.
+description: Obtenga información sobre cómo mejorar su seguridad mediante el bloqueo de la autenticación heredada con el acceso condicional de Azure AD.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076850"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562987"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Control de Bloqueo de autenticación heredada a Azure AD con acceso condicional   
 
 Para brindar a los usuarios un acceso sencillo a las aplicaciones en la nube, Azure Active Directory (Azure AD) admite una amplia variedad de protocolos de autenticación, incluida la autenticación heredada. Sin embargo, los protocolos heredados no admiten la autenticación multifactor (MFA). En muchos entornos, MFA es un requisito común para enfrentar el robo de identidad. 
+
 
 Si el entorno está listo para bloquear la autenticación heredada con el fin de mejorar la protección del inquilino, puede lograr este objetivo con el acceso condicional. En este artículo se explica cómo configurar las directivas de acceso condicional que bloquean la autenticación heredada para el inquilino.
 
@@ -119,8 +120,7 @@ La directiva puede tardar hasta 24 horas en surtir efecto.
 
 Puede seleccionar todos los controles de concesión disponibles para la condición de otros clientes, pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
 
-Puede configurar todas las demás condiciones junto con la condición de otros clientes.
-Por ejemplo, si solo desea bloquear la autenticación heredada para dispositivos móviles, establezca la condición **plataformas de dispositivo** seleccionando:
+Si bloquea la autenticación antigua con la condición de los otros clientes, también puede establecer la condición de la ubicación y la plataforma de los dispositivos. Por ejemplo, si solo desea bloquear la autenticación heredada para dispositivos móviles, establezca la condición **plataformas de dispositivo** seleccionando:
 
 - Android
 

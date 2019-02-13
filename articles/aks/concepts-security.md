@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380700"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818998"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ En este artículo se presentan los conceptos básicos para proteger sus aplicaci
 - [Seguridad de nodos](#node-security)
 - [Actualización de un clúster de Service Fabric](#cluster-upgrades)
 - [Seguridad de las redes](#network-security)
-- [Secretos de Kubernetes](#secrets)
+- Secretos de Kubernetes
 
 ## <a name="master-security"></a>Seguridad de componentes maestros
 
@@ -41,6 +41,8 @@ La plataforma Azure aplica automáticamente las revisiones de seguridad del sist
 Los nodos se implementan en una subred de una red privada virtual, sin ninguna dirección IP pública asignada. Para fines de administración y solución de problemas, SSH está habilitado de forma predeterminada. El acceso de SSH solo está disponible mediante la dirección IP interna. Las reglas del grupo de seguridad de red de Azure pueden usarse para restringir aún más el acceso del intervalo IP a los nodos de AKS. La eliminación de la regla SSH del grupo de seguridad de red predeterminada y la deshabilitación del servicio SSH en los nodos impiden que la plataforma Azure realice tareas de mantenimiento.
 
 Para proporcionar almacenamiento, los nodos usan Azure Managed Disks. Para la mayoría de los tamaños de nodo de máquina virtual, estos son los discos Premium respaldados por SSD de alto rendimiento. Los datos almacenados en discos administrados se cifran automáticamente en reposo dentro de la plataforma Azure. Para mejorar la redundancia, estos discos también se replican de forma segura en el centro de datos de Azure.
+
+Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completamente seguros en este momento ante la utilización de multiinquilinos hostiles. Utilizar otras características de seguridad adicionales, como las *directivas de seguridad de pod* o los controles de acceso basados en roles (RBAC) más específicos, puede dificultar las vulnerabilidades de seguridad. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados. Para más información sobre las formas de aislar las cargas de trabajo, consulte [Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)][cluster-isolation].
 
 ## <a name="cluster-upgrades"></a>Actualizaciones de clústeres
 
@@ -96,3 +98,4 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

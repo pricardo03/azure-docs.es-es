@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712065"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701019"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Creación de programaciones avanzadas y periodicidades para trabajos en Azure Scheduler
 
@@ -24,9 +24,9 @@ ms.locfileid: "51712065"
 
 En un trabajo de [Azure Scheduler](../scheduler/scheduler-intro.md), la programación es el núcleo que determina cuándo y cómo el servicio Scheduler ejecuta el trabajo. Con Scheduler puede configurar varias programaciones únicas o periódicas para un trabajo. Las programaciones únicas se ejecutan solo una vez en un momento determinado; básicamente son programaciones periódicas que se ejecutan solo una vez. Las programaciones periódicas se ejecutan con una frecuencia determinada. Gracias a esta flexibilidad, puede usar Scheduler en varios escenarios empresariales, como:
 
-* **Eliminación de datos con regularidad**: cree un trabajo diario que elimine todos los tweets de más de tres meses.
+* **Eliminación de datos con regularidad**: cree un trabajo diario que elimine todos los tweets que tengan más de tres meses.
 
-* **Archivado de datos**: cree un trabajo mensual que envíe el historial de facturación a un servicio de copia de seguridad.
+* **Archivo de datos**: cree un trabajo mensual que envíe el historial de facturación a un servicio de copia de seguridad.
 
 * **Solicitud de datos externos**: cree un trabajo que se ejecute cada 15 minutos y extraiga un nuevo informe meteorológico de NOAA.
 
@@ -53,9 +53,9 @@ Más adelante en este artículo se describen estos escenarios con mayor detalle.
 
 Para crear una programación básica con la [API REST de Azure Scheduler](/rest/api/scheduler), siga estos pasos:
 
-1. Registre su suscripción de Azure con un proveedor de recursos mediante la [operación de registro con la API REST de Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). El nombre del proveedor para el servicio Azure Scheduler es **Microsoft.Scheduler**. 
+1. Registre su suscripción de Azure con un proveedor de recursos mediante la [operación de registro con la API REST de Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). El nombre del proveedor para el servicio Azure Scheduler es **Microsoft.Scheduler**. 
 
-1. Cree una colección de trabajos mediante la [operación de creación o actualización para colecciones de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) de la API REST de Scheduler. 
+1. Cree una colección de trabajos mediante la [operación de creación o actualización para colecciones de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobcollections) de la API REST de Scheduler. 
 
 1. Cree un trabajo mediante la [operación de creación o actualización para trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
@@ -67,7 +67,7 @@ Esta tabla proporciona información general de alto nivel de los principales ele
 |---------|----------|-------------|
 | **startTime** | Sin  | Un valor de cadena de fecha y hora en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica cuándo el trabajo se inicia por primera vez en una programación básica. <p>Para las programaciones complejas, el trabajo no se inicia antes de **startTime**. | 
 | **recurrence** | Sin  | Las reglas de periodicidad de ejecución del trabajo. El objeto **recurrence** admite los siguientes elementos: **frequency**, **interval**, **schedule**, **count** y **endTime**. <p>Si usa el elemento **recurrence** elemento, también debe usar **frequency**, mientras que los demás elementos de **recurrence** son opcionales. |
-| **frequency** | Sí, cuando se usa **recurrence** | Unidad de tiempo de la periodicidad, se admiten estos valores: "Minute", "Hour", "Day", "Week", "Month" y "Year" | 
+| **frequency** | Sí, cuando se usa **recurrence** | Unidad de tiempo de la periodicidad, se admiten estos valores: "Minute", "Hour", "Day", "Week", "Month", "Year" | 
 | **interval** | Sin  | Entero positivo que determina el número de unidades de tiempo de la periodicidad según el valor de **frequency**. <p>Por ejemplo, si **interval** es 10 y **frequency** es "Week", el trabajo se repite cada diez semanas. <p>Estos son los intervalos máximos para cada frecuencia: <p>- 18 meses <br>- 78 semanas <br>- 548 días <br>- Para las horas y los minutos, el intervalo es 1 <= <*interval*>< = 1000. | 
 | **schedule** | Sin  | Define los cambios en la periodicidad según las marcas de minuto, de hora, de días de la semana y días del mes especificados | 
 | **count** | Sin  | Entero positivo que especifica el número de veces que debe ejecutarse el trabajo antes de finalizar. <p>Por ejemplo, cuando tiene un trabajo diario tiene **count** establecido en 7 y la fecha de inicio es el lunes, terminará de ejecutarse el domingo. Si la fecha de inicio ya ha pasado, se calcula la primera ejecución desde la hora de creación. <p>Sin valor para **endTime** o **count**, el trabajo se ejecuta indefinidamente. No se pueden usar **count** y **endTime** en el mismo trabajo, se cumplirá la regla del que finalice primero. | 
@@ -167,7 +167,7 @@ En la siguiente tabla se describen los elementos de schedule con detalle:
 | **monthlyOccurrences** |Determina los días del mes en los que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |Una matriz de objetos de **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** es el día de la semana en el que se ejecuta el trabajo. Por ejemplo, *{Sunday}* es todos los domingos del mes. Necesario.<br /><br />El valor de **occurrence** es la repetición del elemento day durante el mes. Por ejemplo, *{Sunday, -1}* es el último domingo del mes. Opcional. |
 | **monthDays** |Día del mes en el que se ejecuta el trabajo. Solo se puede especificar con una frecuencia mensual. |Una matriz de los valores siguientes:<br />- Cualquier valor <= -1 y >= -31<br />- Cualquier valor >= 1 y <= 31|
 
-## <a name="examples-recurrence-schedules"></a>Ejemplos: programaciones de periodicidad
+## <a name="examples-recurrence-schedules"></a>Ejemplos: Programaciones de periodicidad
 
 Los ejemplos siguientes muestran varias programaciones de periodicidad. Los ejemplos se centran en el objeto de programación y en sus subelementos.
 

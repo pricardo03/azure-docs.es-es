@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243154"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563748"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -109,7 +109,7 @@ Si usa una imagen de máquina virtual de RHEL anterior, por ejemplo, RHEL 7.4 (U
 sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
-Como alternativa, al ejecutar `sudo yum update` también se actualizará el paquete del certificado de cliente a pesar de los errores de "certificado SSL expirado" que verá para otros repositorios. Tras la actualización, se restaurará la conectividad normal a otros repositorios de RHUI, así que podrá ejecutar `sudo yum update` correctamente.
+Como alternativa, al ejecutar `sudo yum update` también se actualiza el paquete del certificado de cliente (según la versión de RHEL) a pesar de los errores de "certificado SSL expirado" que verá para otros repositorios. Si esta actualización es correcta, se debería restaurar la conectividad normal a otros repositorios de RHUI, de modo que podrá ejecutar `sudo yum update` correctamente.
 
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Solución de problemas de conexión a RHUI de Azure

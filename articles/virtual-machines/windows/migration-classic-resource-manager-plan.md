@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576211"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566244"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planear la trayectoria de migración para asegurarse de que el proceso se desarrolla con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración.
@@ -88,7 +88,7 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, docu
 
 A continuación se indican problemas detectados en muchas de las migraciones más grandes. No se trata de una lista exhaustiva, por lo que debe remitirse a [Configuraciones y características no admitidas](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) para más detalles.  Puede encontrarse o no con estos problemas técnicos, pero, de plantearse, podrá tener una experiencia más fluida si los soluciona antes de intentar realizar la migración.
 
-- **Realice un simulacro de validación, preparación y anulación**: se trata quizás del paso más importante para asegurarse de que la migración del modelo clásico a Azure Resource Manager se realiza correctamente. La API de migración consta de tres pasos principales: validación, preparación y confirmación. Con la validación se leerá el estado del entorno clásico y se devolverá un resultado de todos los problemas. Sin embargo, como algunos problemas pueden existir en la pila de Azure Resource Manager, la validación puede no detectarlo todo. En el paso siguiente del proceso de migración, la preparación ayudará a exponer los problemas detectados. Con la preparación, todos los metadatos se moverán del modelo clásico a Azure Resource Manager, pero no se confirmará la migración ni se eliminará ni modificará nada del modelo clásico. El simulacro conlleva preparar la migración y después anular (**no confirmar**) la preparación de la migración. El objetivo del simulacro de validación, preparación y anulación es que todos los metadatos se encuentren en la pila de Azure Resource Manager, para después examinarlos (*mediante programación o en el portal*) y verificar que todo se ha migrado correctamente, pero también con el propósito de abordar los problemas técnicos.  También le permitirá hacerse una idea de la duración de la migración, a fin de que pueda planear el tiempo de inactividad.  Un simulacro de validación, preparación y anulación no causa ningún tiempo de inactividad al usuario, por lo que no produce ninguna interrupción del uso de la aplicación.
+- **Realice un simulacro de validación, preparación y anulación**: se trata quizás del paso más importante para asegurarse de que la migración del modelo clásico a Azure Resource Manager se realiza correctamente. La API de migración se compone de tres pasos principales: validación, preparación y confirmación. Con la validación se leerá el estado del entorno clásico y se devolverá un resultado de todos los problemas. Sin embargo, como algunos problemas pueden existir en la pila de Azure Resource Manager, la validación puede no detectarlo todo. En el paso siguiente del proceso de migración, la preparación ayudará a exponer los problemas detectados. Con la preparación, todos los metadatos se moverán del modelo clásico a Azure Resource Manager, pero no se confirmará la migración ni se eliminará ni modificará nada del modelo clásico. El simulacro conlleva preparar la migración y después anular (**no confirmar**) la preparación de la migración. El objetivo del simulacro de validación, preparación y anulación es que todos los metadatos se encuentren en la pila de Azure Resource Manager, para después examinarlos (*mediante programación o en el portal*) y verificar que todo se ha migrado correctamente, pero también con el propósito de abordar los problemas técnicos.  También le permitirá hacerse una idea de la duración de la migración, a fin de que pueda planear el tiempo de inactividad.  Un simulacro de validación, preparación y anulación no causa ningún tiempo de inactividad al usuario, por lo que no produce ninguna interrupción del uso de la aplicación.
   - Será necesario solucionar los puntos siguientes antes del simulacro, aunque, en caso de omitirlos, la prueba de simulacro eliminará con seguridad estos pasos de preparación. Durante la migración empresarial, se ha observado que el simulacro es una forma segura e inestimable de garantizar la preparación de la migración.
   - Cuando la preparación se encuentra en ejecución, el plano de control (operaciones de administración de Azure) se bloquearán en toda la red virtual, por lo que no se puede realizar ninguna modificación en los metadatos de máquinas virtuales durante el proceso de validación, preparación y anulación.  No obstante, en caso contrario, ninguna función de la aplicación (Escritorio remoto, uso de máquina virtual, etc.) se verá afectada.  Los usuarios de las máquinas virtuales no sabrán que el simulacro está en ejecución.
 
@@ -201,7 +201,7 @@ Puntos que se deben tener en cuenta:
 
 Determine qué servicios desea habilitar en Azure Resource Manager.  Muchos clientes encuentran atractivos los siguientes para sus entornos de Azure:
 
-- [Control de acceso basado en rol](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Control de acceso basado en rol](../../role-based-access-control/overview.md).
 - [Plantillas de Azure Resource Manager para una implementación más sencilla y controlada](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md).
 - [Control de actividad](../../azure-resource-manager/resource-group-audit.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: cbd58c0873a4a46d175c6d7cbdf2d004da304c06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247245"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731554"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ En este artículo se incluyen problemas conocidos y limitaciones temporales con 
 
 Las API de Blob Storage y las API de Azure Data Lake Gen2 no son interoperables entre sí.
 
-Si necesita usar la misma herramienta para trabajar con todo el contenido que carga en su cuenta, no habilite espacios de nombres jerárquicos en su cuenta de Blob Storage hasta que estas API se vuelvan interoperables entre sí. Al usar una cuenta de almacenamiento sin el espacio de nombres jerárquico, carecerá de acceso a características específicas de Data Lake Storage Gen2, como listas de control de acceso al directorio y al sistema de archivos.
+Si tiene herramientas personalizadas, aplicaciones o scripts que usan las API de Blob y desea utilizarlas para trabajar con todo el contenido que cargue en su cuenta, no habilite espacios de nombres jerárquicos en su cuenta de Blob Storage hasta que las API de Blob sean interoperables con las API de Azure Data Lake Gen 2. Al usar una cuenta de almacenamiento sin el espacio de nombres jerárquico, carecerá de acceso a características específicas de Data Lake Storage Gen2, como listas de control de acceso al directorio y al sistema de archivos.
 
 ## <a name="blob-storage-apis"></a>API de Blob Storage
 
@@ -79,16 +79,14 @@ Todas las características de control de versiones, incluidas [instantáneas](ht
 
 ## <a name="object-level-storage-tiers"></a>Capas de almacenamiento de nivel de objeto
 
-Las capas de almacenamiento de nivel de objeto (de acceso frecuente, esporádico y de archivo) aún no están disponibles para las cuentas de Azure Data Lake Storage Gen2, pero están disponibles para las cuentas de Storage sin espacios jerárquicos habilitados.
+Las capas de almacenamiento de nivel de objeto (de acceso frecuente, esporádico y de archivo) aún no están disponibles para las cuentas de Azure Data Lake Storage Gen 2, pero están disponibles para las cuentas de Storage sin espacios de nombres jerárquicos habilitados.
 
 ## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Directivas de administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
 Las directivas de administración del ciclo de vida de Azure Blob Storage aún no están disponibles para las cuentas de Azure Data Lake Storage Gen2.
 
-Estas directivas están disponibles para las cuentas de Storage sin espacios jerárquicos habilitados.
+Estas directivas están disponibles para las cuentas de Storage sin espacios de nombres jerárquicos habilitados.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
 Los registros de diagnóstico no están disponibles para las cuentas de Azure Data Lake Storage Gen2.
-
-Para solicitar registros de diagnóstico, póngase en contacto con el servicio de soporte técnico de Azure. Proporcióneles su nombre de cuenta y el período de tiempo para el que requiere los registros.

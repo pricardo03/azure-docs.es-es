@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0051c7ca66d30730e6fc25b8b9d3edec91c43f07
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bfd90b3a8fc72bbb261f05e445ce543228d9fb83
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548653"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728169"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Windows
 
@@ -73,10 +73,10 @@ Use el cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Deshabilitar el cifrado de disco:** para deshabilitar el cifrado, use el cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
+- **Deshabilitar el cifrado de disco:** para deshabilitar el cifrado, use el cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite el cifrado en todos los discos con el parámetro "All" de - VolumeType para PowerShell, de lo contrario se producirá un error del comando disable.
 
      ```azurepowershell-interactive
-     Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Habilitación del cifrado en máquinas virtuales existentes o en ejecución con la CLI de Azure
@@ -103,10 +103,10 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encrypti
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Deshabilitar el cifrado:** para deshabilitar el cifrado, use el comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
+- **Deshabilitar el cifrado:** para deshabilitar el cifrado, use el comando [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite el cifrado en todos los discos con el parámetro "All" de - VolumeType para la CLI, de lo contrario se producirá un error del comando disable.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "ALL"
      ```
  
  > [!NOTE]
@@ -127,7 +127,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | vmName | Nombre de la máquina virtual para ejecutar la operación de cifrado. |
-| keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` o el comando de la CLI de Azure "az keyvault list --resource-group "MySecureGroup". |ConvertFrom-JSON`|
+| keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`|
 | keyVaultResourceGroup | Nombre del grupo de recursos que contiene el almacén de claves|
 |  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_. |
 | volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
@@ -180,8 +180,12 @@ Use el cmdlet [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurer
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
+
+   >[!NOTE]
+   > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 - **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** use el cmdlet [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption).
     
@@ -225,6 +229,10 @@ Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-en
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
+     
+   >[!NOTE]
+   > La sintaxis del valor del parámetro disk-encryption-keyvault es la cadena completa del identificador: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> La sintaxis del valor del parámetro key-encryption-key es el URI completo de KEK como en: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
 - **Obtener el estado de cifrado para un conjunto de escalado de máquinas virtuales:** use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show).
 
     ```azurecli-interactive
@@ -330,7 +338,7 @@ También puede [agregar un nuevo disco a una máquina virtual Windows con PowerS
 
 
 ## <a name="disable-encryption"></a>Deshabilitación del cifrado
-Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite del cifrado en todos los discos en su lugar.
+Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una plantilla de Resource Manager. La deshabilitación del cifrado de disco de datos en la VM de Windows cuando se han cifrado tanto los discos de datos como del SO no funciona según lo previsto. Deshabilite el cifrado en todos los discos con el parámetro "All" de - VolumeType para PowerShell o "All" de - VolumeType para la CLI, de lo contrario se producirá un error del comando disable. 
 
 - **Deshabilitar el cifrado de disco con Azure PowerShell:** para deshabilitar el cifrado, use el cmdlet [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). 
      ```azurepowershell-interactive

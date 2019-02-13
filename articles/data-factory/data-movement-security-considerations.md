@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015719"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498080"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+>
 > * [Versión 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Versión actual](data-movement-security-considerations.md)
 
@@ -32,13 +33,19 @@ Aunque Data Factory solo está disponible en algunas regiones, el servicio de mo
 
 Azure Data Factory en sí no almacena datos, excepto las credenciales de servicio vinculadas de los almacenes de datos en la nube, que se cifran mediante certificados. Con Data Factory, puede crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats) y organizar el procesamiento de los datos mediante [servicios de proceso](compute-linked-services.md) en otras regiones o en entornos locales. También puede supervisar y administrar flujos de trabajo mediante SDK y Azure Monitor.
 
-El movimiento de datos mediante Data Factory tiene la certificación:
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+Data Factory tiene certificación para:
+| **[Certificación CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
+| :----------------------------------------------------------- |
+| **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
+| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
+| **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
+| **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
+| **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
+| **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
+| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
+Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Para consultar la lista más reciente con todas las ofertas de cumplimiento normativo de Azure, visite http://aka.ms/AzureCompliance.
 
 En este artículo, revisamos las consideraciones de seguridad en los dos escenarios de movimiento de datos siguientes: 
 

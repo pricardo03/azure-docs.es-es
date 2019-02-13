@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464576"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816856"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Uso de la CLI de Azure con Azure Storage
 
@@ -38,7 +38,7 @@ En esta guía se supone que conoce los conceptos básicos de Azure Storage. Tamb
 Descargue e instale la CLI de Azure siguiendo las instrucciones indicadas en [Instalación de la CLI de Azure](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Si tiene problemas con la instalación, consulte la sección [Solución de problemas de instalación](/cli/azure/install-az-cli2#installation-troubleshooting) del artículo y la guía [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Solución de problemas de instalación) en GitHub.
+> Si tiene problemas con la instalación, consulte la sección [Solución de problemas de instalación](/cli/azure/install-az-cli2) del artículo y la guía [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) (Solución de problemas de instalación) en GitHub.
 >
 
 ## <a name="working-with-the-cli"></a>Trabajo con la CLI
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Administrar cuentas de almacenamiento
 
 ### <a name="create-a-new-storage-account"></a>Creación de una cuenta de almacenamiento nueva
-Para usar Azure Storage, necesita una cuenta de almacenamiento. Puede crear una nueva cuenta de Azure Storage después de configurar el equipo para que pueda [conectarse a su suscripción](#connect-to-your-azure-subscription).
+Para usar Azure Storage, necesita una cuenta de almacenamiento. Puede crear una nueva cuenta de Azure Storage después de configurar el equipo para que pueda conectarse a su suscripción.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Enumere los blobs de un contenedor con el comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Enumere los blobs de un contenedor con el comando [az storage blob list](/cli/azure/storage/blob).
 
 ```azurecli
 az storage blob list \

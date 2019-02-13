@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d5d47856bf29ec586ed414787542a5d3ff9a6334
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc7fdbe964269521a049fba8fcb8c37194d60f7c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080100"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664206"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,8 +63,8 @@ Para usar la autenticación de clave de cuenta de almacenamiento, se admiten las
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **AzureBlobStorage** (recomendable) o **AzureStorage** (consulte las notas siguientes). |SÍ |
-| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| Tipo | La propiedad type debe establecerse en **AzureBlobStorage** (recomendable) o **AzureStorage** (consulte las notas siguientes). |Sí |
+| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la clave de cuenta en Azure Key Vault y extraer la configuración `accountKey` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
@@ -91,6 +91,35 @@ Para usar la autenticación de clave de cuenta de almacenamiento, se admiten las
 }
 ```
 
+**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
+    }
+}
+```
+
 ### <a name="shared-access-signature-authentication"></a>Autenticación con firma de acceso compartido
 
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizar una firma de acceso compartido para conceder a un cliente permisos limitados a los objetos de su cuenta de almacenamiento durante un periodo de tiempo especificado. No tiene que compartir las claves de acceso de su cuenta. La firma de acceso compartido es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la firma de acceso compartido, el cliente solo tiene que pasar la firma de acceso compartido al método o constructor adecuados. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS): Comprender el modelo de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
@@ -108,8 +137,8 @@ Para usar la autenticación con firma de acceso compartido, se admiten las sigui
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **AzureBlobStorage** (recomendable) o **AzureStorage** (consulte las notas siguientes). |SÍ |
-| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob, contenedor o tabla. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| Tipo | La propiedad type debe establecerse en **AzureBlobStorage** (recomendable) o **AzureStorage** (consulte las notas siguientes). |Sí |
+| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob o contenedor. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar el token de SAS en Azure Key Vault para aprovechar la rotación automática y quitar la parte del token. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
@@ -125,7 +154,36 @@ Para usar la autenticación con firma de acceso compartido, se admiten las sigui
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<container>.blob.core.windows.net/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la clave de cuenta en Azure Key Vault**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<container>.blob.core.windows.net/>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -140,7 +198,7 @@ Cuando cree un URI de firma de acceso compartido, tenga en cuenta lo siguiente:
 
 - Establezca los permisos de lectura y escritura adecuados en los objetos, en función de cómo se utilizará el servicio vinculado (lectura, escritura, lectura y escritura) en la factoría de datos.
 - Establezca la **hora de expiración** adecuadamente. Asegúrese de que el acceso a los objetos de Storage no expirará durante el período activo de la canalización.
-- El URI debe crearse en el nivel correcto del contenedor/blob o la tabla, en función de la necesidad. Un URI de firma de acceso compartido a un blob permite a Data Factory tener acceso a ese blob determinado. Un URI de firma de acceso compartido a un contenedor de Blob Storage permite a Data Factory recorrer en iteración los blobs de ese contenedor. Para proporcionar acceso a más o menos objetos más adelante, o actualizar el URI de firma de acceso compartida, no olvide actualizar el servicio vinculado con el nuevo URI.
+- El URI debe crearse en el nivel correcto del contenedor o blob, en función de lo que se necesite. Un URI de firma de acceso compartido a un blob permite a Data Factory tener acceso a ese blob determinado. Un URI de firma de acceso compartido a un contenedor de Blob Storage permite a Data Factory recorrer en iteración los blobs de ese contenedor. Para proporcionar acceso a más o menos objetos más adelante, o actualizar el URI de firma de acceso compartida, no olvide actualizar el servicio vinculado con el nuevo URI.
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 
@@ -163,11 +221,11 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureBlobStorage**. |SÍ |
-| serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |SÍ |
-| servicePrincipalId | Especifique el id. de cliente de la aplicación. | SÍ |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | SÍ |
-| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ |
+| Tipo | La propiedad type debe establecerse en: **AzureBlobStorage**. |Sí |
+| serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |Sí |
+| servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
+| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!NOTE]
@@ -216,8 +274,8 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureBlobStorage**. |SÍ |
-| serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |SÍ |
+| Tipo | La propiedad type debe establecerse en: **AzureBlobStorage**. |Sí |
+| serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 > [!NOTE]
@@ -249,8 +307,8 @@ Para copiar datos con Blob Storage como origen o destino, establezca la propieda
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos tiene que establecerse en **AzureBlob**. |SÍ |
-| folderPath | Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. <br/><br/>El filtro de comodín es compatible con la ruta de acceso sin incluir el nombre del contenedor. Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real del archivo tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: myblobcontainer/myblobfolder/ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sí, para la actividad de copia y búsqueda; No, para la actividad GetMetadata |
+| Tipo | La propiedad type del conjunto de datos tiene que establecerse en **AzureBlob**. |Sí |
+| folderPath | Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. <br/><br/>El filtro de comodín es compatible con la ruta de acceso sin incluir el nombre del contenedor. Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: myblobcontainer/myblobfolder/ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sí, para la actividad de copia y búsqueda; No, para la actividad GetMetadata |
 | fileName | **Filtro de nombre o de comodín** para los blobs de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los blobs de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape.<br/><br/>Cuando fileName no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se determina en el receptor de la actividad, la actividad de copia generará automáticamente el nombre de blob con el siguiente patrón: "*Datos.[GUID del id. de ejecución de actividad].[GUID si FlattenHierarchy].[formato si está configurado].[Compresión si está configurada]*", p. ej. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; si realiza una copia desde el origen tabular utilizando el nombre de la tabla en lugar de la consulta, el patrón del nombre es "*[nombre de la tabla].[formato].[compresión si está configurada]*", p. ej. "MyTable.csv". |Sin  |
 | modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
 | modifiedDatetimeEnd | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
@@ -299,7 +357,7 @@ Para copiar datos desde Blob Storage, establezca el tipo de origen de la activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **BlobSource**. |SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **BlobSource**. |Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin  |
 
 **Ejemplo:**
@@ -340,7 +398,7 @@ Para copiar datos en Blob Storage, establezca el tipo de receptor de la activida
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **BlobSink**. |SÍ |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **BlobSink**. |Sí |
 | copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin  |
 
 **Ejemplo:**

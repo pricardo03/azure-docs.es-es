@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025997"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491661"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Uso del servicio StorSimple Device Manager para modificar la configuración del dispositivo StorSimple
 
@@ -65,7 +65,7 @@ El dispositivo debe sincronizar la hora para autenticarse con su proveedor de se
 
  Seleccione la zona horaria en la lista desplegable. Puede especificar hasta dos servidores de protocolo de tiempo de red (NTP):
 
- - **Servidor NTP principal**: es necesario y se especifica cuando se usa Windows PowerShell para StorSimple para configurar el dispositivo. Puede especificar el Windows Server predeterminado **time.windows.com** como el servidor NTP. Puede ver la configuración del servidor NTP principal a través de Azure Portal, pero debe usar la interfaz de Windows PowerShell para cambiarla. Use el cmdlet `Set-HcsNTPClientServerAddress` para modificar el servidor NTP principal del dispositivo. Para obtener más información, vaya a la sintaxis del cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+ - **Servidor NTP principal**: es necesario y se especifica cuando se usa Windows PowerShell para StorSimple para configurar el dispositivo. Puede especificar el Windows Server predeterminado **time.windows.com** como el servidor NTP. Puede ver la configuración del servidor NTP principal a través de Azure Portal, pero debe usar la interfaz de Windows PowerShell para cambiarla. Use el cmdlet `Set-HcsNTPClientServerAddress` para modificar el servidor NTP principal del dispositivo. Para más información, consulte la sintaxis del cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 - **Servidor NTP secundario**: la configuración es opcional. Puede usar el portal para configurar un servidor NTP secundario.
 
@@ -85,7 +85,7 @@ Cuando el dispositivo intenta comunicarse con el proveedor de servicios de almac
 
 Para lograr alta disponibilidad, se debe configurar el servidor DNS principal y el secundario durante la implementación inicial del dispositivo.
 
-**Servidor DNS principal**: use Windows PowerShell para StorSimple para especificar primero el servidor DNS principal durante la configuración inicial. Solo puede volver a configurar el servidor DNS principal mediante la interfaz de Windows PowerShell. Use el cmdlet `Set-HcsDNSClientServerAddress` para modificar el servidor DNS principal de su dispositivo. Para más información, vaya a la sintaxis del cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+**Servidor DNS principal**: use Windows PowerShell para StorSimple para especificar primero el servidor DNS principal durante la configuración inicial. Solo puede volver a configurar el servidor DNS principal mediante la interfaz de Windows PowerShell. Use el cmdlet `Set-HcsDNSClientServerAddress` para modificar el servidor DNS principal de su dispositivo. Para más información, consulte la sintaxis del cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 **Servidor DNS secundario**: para modificar el servidor DNS secundario, use el cmdlet `Set-HcsDNSClientServerAddress` de la interfaz de Windows PowerShell del dispositivo o la hoja **Configuración de red** del dispositivo StorSimple en Azure Portal.
 

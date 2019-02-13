@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479165"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754652"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,9 @@ Los dos escalados automáticos pueden funcionar juntos y a menudo se implementan
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Crear un clúster de AKS y habilitar el escalado automático de clústeres
 
 Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Especifique un valor en *--kubernetes-version* que coincida con el número de versión mínimo necesario o lo supere, tal como se describe en la sección anterior [Antes de comenzar](#before-you-begin). Para habilitar y configurar el escalado automático de clústeres, use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count*.
+
+> [!IMPORTANT]
+> El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos MC_?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
 
 En el ejemplo siguiente se crea un clúster de AKS con un conjunto de escalado de máquinas virtuales y el escalado automático de clústeres habilitado; asimismo, se usará un mínimo de *1* y un máximo de *3* nodos:
 

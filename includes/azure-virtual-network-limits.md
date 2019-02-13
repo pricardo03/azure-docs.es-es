@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597655"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513965"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Servidores DNS por red virtual |20 |
 | Direcciones IP privadas por red virtual |65536 |
 | Direcciones IP privadas por interfaz de red |256 |
+| Direcciones IP privadas por máquina virtual |256 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |
 | Interfaces de red (NIC) |65536 |
 | Grupos de seguridad de red (NSG) |5000 |
@@ -69,6 +70,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Direcciones IP públicas - dinámicas |(Básico) 1000 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Básico) 200 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Estándar) 200 |ponerse en contacto con el servicio de soporte técnico |
+| Tamaño de prefijo de IP pública (versión preliminar) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Límites de Load Balancer
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de los recursos actuales comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).

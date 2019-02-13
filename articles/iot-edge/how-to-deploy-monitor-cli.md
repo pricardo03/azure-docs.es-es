@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 64c4b82208b2f8a20f7fd00fb574d5e017030e81
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8cc253f751b209332ee890c0ebc9b6846d4feab5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094158"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749855"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -138,14 +138,14 @@ Implemente módulos en los dispositivos de destino; para ello, cree una implemen
 Use los comandos siguientes para crear una implementación:
 
    ```cli
-   az iot edge deployment create --deployment-id [deployment id] --labels [labels] --content [file path] --hub-name [hub name] --target-condition [target query] --priority [int]
+   az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
    ```
 
 * **--deployment-id**: el nombre de la implementación que se creará en IoT Hub. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
-* **--labels**: agregue etiquetas para realizar un seguimiento de las implementaciones. Las etiquetas son pares de Nombre y Valor que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
-* **--content** -ruta del archivo del manifiesto de implementación JSON. 
 * **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
-* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
+* **--content** -ruta del archivo del manifiesto de implementación JSON. 
+* **--labels**: agregue etiquetas para realizar un seguimiento de las implementaciones. Las etiquetas son pares de Nombre y Valor que describen la implementación. Las etiquetas adoptan el formato JSON en los nombres y valores. Por ejemplo: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority**: debe ser un entero positivo. En el caso de que dos o más implementaciones se destinen al mismo dispositivo, se aplicará la implementación con el valor numérico más alto para la prioridad.
 
 ## <a name="monitor-a-deployment"></a>Supervisión de una implementación

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728489"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488414"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -109,9 +109,9 @@ El [ciclo de vida de desarrollo de seguridad](https://www.microsoft.com/en-us/sd
 
 En esta tabla se enumeran las amenazas STRIDE y se incluyen algunos ejemplos de mitigación donde se usan características de Azure. Estas mitigaciones no funcionarán en todas las situaciones.
 
-| Threat | Propiedad de seguridad | Posible migración de la plataforma Azure |
+| Threat | Propiedad de seguridad | Posibles mitigaciones de la plataforma Azure |
 | --- | --- | --- |
-| Suplantación de identidad | Autenticación | Necesita conexiones HTTPS. |
+| Suplantación de identidad | Authentication | Necesita conexiones HTTPS. |
 | Alteración de datos | Integridad | Valida certificados SSL. |
 | Rechazo | No rechazo | Habilita opciones de [supervisión y diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) de Azure. |
 | Divulgación de información | Confidencialidad | Cifra datos confidenciales en reposo mediante [certificados de servicio](https://docs.microsoft.com/rest/api/appservice/certificates). |

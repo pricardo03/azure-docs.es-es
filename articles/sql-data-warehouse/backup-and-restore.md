@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462348"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747499"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Utilice instantáneas de almacenamiento de datos para recuperar o copiar el almacenamiento de datos en un punto de restauración en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica. 
@@ -62,7 +62,7 @@ Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantá
 > Si elimina una instancia de servidor de SQL lógica, todas las bases de datos que pertenecen a la instancia también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
 >
 
-## <a name="geo-backups"></a>Copias de seguridad geográficas
+## <a name="geo-backups-and-disaster-recovery"></a>Copias de seguridad geográficas y recuperación ante desastres
 SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad de replicación geográfica en un servidor de cualquier otra región donde se admita SQL Data Warehouse. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no tenga acceso a los puntos de restauración de su región primaria.
 
 Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos es Gen1, puede [optar por no participar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy), si lo desea. No se puede optar por no realizar las copias de seguridad de replicación geográfica para Gen2, ya que la protección de datos es una garantía integrada.

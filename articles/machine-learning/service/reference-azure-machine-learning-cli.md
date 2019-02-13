@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7baa4faf718852e5bddd89f99e4ffc1248a403c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65936348dcb40c6ceb71ebf735da8bb2120af654
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249738"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694523"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Uso de la extensión de la CLI para Azure Machine Learning Service
 
@@ -52,7 +52,7 @@ La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complem
 Para instalar la extensión de la CLI de Machine Learning, use el siguiente comando:
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.6-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.10-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 Cuando se le solicite, seleccione `y` para instalar la extensión.
@@ -90,20 +90,8 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     ```azurecli-interactive
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
-
-+ Cree un destino de proceso administrado para la formación distribuida:
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
-    ```
-
-* Actualice un destino de proceso administrado:
-
-    ```azurecli-interactive
-    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
-    ```
-
-* Adjunte un destino de proceso no administrado para entrenar o implementar:
+    
+* Asociación de un clúster de AKS
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

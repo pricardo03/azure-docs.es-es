@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827506"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700084"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Procedimientos recomendados para la protección y administración de cargas de trabajo migradas a Azure
 
@@ -400,8 +400,7 @@ Las máquinas virtuales de Azure se almacenan como blobs en páginas en Azure St
 - [Más información](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) sobre cómo crear una instantánea de blob.
 - [Consulte un escenario de ejemplo](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) para la copia de seguridad del almacenamiento de blobs.
 - [Más información](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sobre la eliminación temporal.
-- [Consulte](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ¿Qué hacer si se produce una interrupción del servicio Azure Storage?
-
+- [Recuperación ante desastres y conmutación por error forzada (versión preliminar) en Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>Copia de seguridad de terceros
 
@@ -517,7 +516,7 @@ Puede usar grupos de conmutación por error y replicación geográfica activa pa
 - [Consulte](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Recuperación ante desastres de Azure SQL Database 101.
 - [Introducción](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) a la replicación geográfica activa y los grupos de conmutación por error.
 - [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) sobre el diseño para la recuperación ante desastres.
-- [Procedimientos recomendados](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) para grupos de conmutación por error.
+- [Procedimientos recomendados](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para grupos de conmutación por error.
 - [Procedimientos recomendados](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) para la seguridad después de la restauración geográfica o la conmutación por error.
 - [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) sobre la redundancia de zona
 - [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) sobre cómo realizar una exploración de la recuperación ante desastres para SQL Database.

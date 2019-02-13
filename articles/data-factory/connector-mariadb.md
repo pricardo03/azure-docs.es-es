@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c62dd8d51d229f2270d244fea06700175c1f5e98
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f99a96f1b886f9f426c5dac64ac852368544475a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014886"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657899"
 ---
-# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar datos de MariaDB con Azure Data Factory 
+# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar datos de MariaDB con Azure Data Factory
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de MariaDB. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
@@ -43,8 +43,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MariaDB:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **MariaDB** | SÍ |
-| connectionString | Cadena de conexión de ODBC para conectarse a MariaDB. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| Tipo | La propiedad type debe establecerse en: **MariaDB** | Sí |
+| connectionString | Cadena de conexión de ODBC para conectarse a MariaDB. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `pwd` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -56,8 +56,37 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MariaDB:
         "type": "MariaDB",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Ejemplo: Almacenamiento de la contraseña en Azure Key Vault**
+
+```json
+{
+    "name": "MariaDBLinkedService",
+    "properties": {
+        "type": "MariaDB",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                 "value": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;"
+            },
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -100,7 +129,7 @@ Para copiar datos de MariaDBTable, establezca el tipo de origen de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MariaDBSource** | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MariaDBSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

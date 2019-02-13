@@ -1,8 +1,21 @@
 ---
-título: Reciclaje de un modelo de Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
+title: Repetición del entrenamiento de un modelo de Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509582"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Reciclaje de un modelo de Azure Machine Learning Studio
 Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predictivo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles. 

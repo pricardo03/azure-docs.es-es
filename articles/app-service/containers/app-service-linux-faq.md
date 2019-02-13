@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: cdda4b0951edd0d1471113c48a4082dfa7407211
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719089"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729326"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -77,7 +77,7 @@ Si se produce un error en la implementación de Git en la aplicación web de Lin
 
 - Característica de entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio GIT de Azure DevOps o en un repositorio GitHub para usar la entrega continua de Azure. Para más información, consulte la publicación [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Configuración de entrega continua para aplicaciones web de Linux).
 
-- [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) y vaya a la carpeta en la que desea implementar el código. Ejecute el código siguiente:
+- [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) y vaya a la carpeta en la que desea implementar el código. Ejecute el código siguiente:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -132,7 +132,7 @@ Actualmente no se admite exponer más de un puerto.
 
 **¿Puedo traer mi propio almacenamiento?**
 
-Actualmente no se admite traer su propio almacenamiento.
+Sí, la prestación [traiga su propio almacenamiento](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) está en versión preliminar.
 
 **¿Por qué no puedo examinar el sistema de archivos de mi contenedor personalizado o ejecutar procesos desde el sitio de SCM?**
 

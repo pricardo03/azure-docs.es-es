@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464796"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728850"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -40,7 +40,7 @@ Para crear un clúster de HDInsight, que usa Data Lake Storage Gen2 para almacen
 
     ![Captura de pantalla en la que se muestra la creación de una cuenta de almacenamiento en Azure Portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Asigne la identidad administrada al rol **Colaborador de dato de blobs de almacenamiento (versión preliminar)** de la cuenta de almacenamiento. Consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Asigne la identidad administrada al rol **Propietario de datos de blobs de almacenamiento (versión preliminar)** de la cuenta de almacenamiento. Consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
     1. Seleccione la cuenta de almacenamiento y, después, seleccione **Control de acceso (IAM)** para mostrar la configuración de control de acceso de la cuenta. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
@@ -48,9 +48,9 @@ Para crear un clúster de HDInsight, que usa Data Lake Storage Gen2 para almacen
         ![Captura de pantalla que muestra la configuración de control de acceso del almacenamiento](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Haga clic en el botón **Agregar asignación de roles** para agregar un rol nuevo.
-    1. En la ventana **Agregar asignación de roles**, seleccione el rol **Colaborador de datos de blobs de almacenamiento (versión preliminar)**. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y esta se mostrará en **Miembros seleccionados**.
+    1. En la ventana **Agregar asignación de roles**, seleccione el rol **Propietario de datos de blobs de almacenamiento (versión preliminar)**. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y esta se mostrará en **Miembros seleccionados**.
     
-        ![Captura de pantalla que muestra cómo asignar un rol de RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Captura de pantalla que muestra cómo asignar un rol de RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. Haga clic en **Save**(Guardar). La identidad asignada por el usuario que seleccionó ahora aparece en el rol **Colaborador**.
 

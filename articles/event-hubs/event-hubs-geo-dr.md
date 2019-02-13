@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091353"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562212"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -102,12 +102,12 @@ Tenga en cuenta y recuerde las siguientes consideraciones para esta versión:
 
 4. La sincronización de entidades puede tardar algún tiempo, aproximadamente 50-100 entidades por minuto.
 
-## <a name="availability-zones-preview"></a>Availability Zones (versión preliminar)
+## <a name="availability-zones"></a>Zonas de disponibilidad 
 
-La SKU de Event Hubs Standard es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure. 
+La SKU de Event Hubs estándar es compatible con [Availability Zones](../availability-zones/az-overview.md), lo que proporciona ubicaciones con aislamiento de errores dentro de una región de Azure. 
 
 > [!NOTE]
-> La versión preliminar de Availability Zones solo se admite en las regiones **Centro de EE. UU.**, **Este de EE. UU. 2** y **Centro de Francia**.
+> La compatibilidad de Availability Zones con Azure Event Hubs estándar solo está disponible en aquellas [regiones de Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) en las que hay zonas de disponibilidad.
 
 Solo puede habilitar Availability Zones en los espacios de nombres nuevos mediante Azure Portal. Event Hubs no admite la migración de espacios de nombres existentes. No se puede deshabilitar la redundancia de zona después de habilitarla en el espacio de nombres.
 

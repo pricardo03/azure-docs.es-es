@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: b5bd08219c6e48f07e93d7704216e813d75dcd72
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099924"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659524"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -68,7 +68,7 @@ Al crear un objeto LiveEvent, puede especificar las siguientes opciones:
 
 * El protocolo de streaming para el objeto LiveEvent (actualmente, se admiten los protocolos RTMP y Smooth Streaming).<br/>No se puede cambiar la opción de protocolo mientras estén en ejecución el objeto LiveEvent o sus objetos LiveOutput asociados. Si necesita diferentes protocolos, debe crear un objeto LiveEvent independiente para cada protocolo de streaming.  
 * Restricciones de IP en la ingesta y vista previa. Puede definir las direcciones IP a las que se permite ingerir un vídeo en este objeto LiveEvent. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.252.0).<br/>Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.<br/>Las direcciones IP deben estar en uno de los siguientes formatos: dirección IpV4 con 4 números, intervalo de direcciones CIDR.
-* Al crear el evento, puede especificar que se inicie automáticamente. <br/>Cuando el inicio automático está establecido en true, el evento en directo se inicia después de la creación. Es decir, la facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming. 
+* Al crear el evento, puede especificar que se inicie automáticamente. <br/>Cuando el inicio automático está establecido en true, el evento en directo se inicia después de la creación. La facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming. 
 
     Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
 

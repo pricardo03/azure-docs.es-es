@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078702"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663305"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Vista previa: protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -28,7 +28,7 @@ ms.locfileid: "55078702"
 
 **P: ¿Cuándo estará disponible de forma general la protección con contraseña de Azure AD?**
 
-Aún no hemos anunciado ninguna fecha de disponibilidad general.
+Disponibilidad general prevista para el primer trimestre de 2019 (antes de finales de marzo de 2019). Queremos agradecer a todos los usuarios que han enviado sus comentarios sobre esta característica hasta la fecha.
 
 **P: ¿La protección con contraseña de Azure AD local se admite en las nubes que no son públicas?**
 

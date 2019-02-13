@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239509"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765490"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adición de Kubernetes a Marketplace de Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!note]  
-> Kubernetes en Azure Stack está en versión preliminar.
+> Kubernetes en Azure Stack está en versión preliminar. El escenario sin conexión de Azure Stack no es compatible actualmente con la versión preliminar.
 
 Puede ofrecer Kubernetes como un elemento de Marketplace a los usuarios. A continuación, los usuarios pueden implementar Kubernetes en una sola operación coordinada.
 

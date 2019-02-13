@@ -6,28 +6,32 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312040"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751385"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure
 Como se indicó en [Conexión de Azure SQL Database a Azure Search con indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creación de indexadores en **SQL Server en VM de Azure** (o **VM de SQL Azure** para abreviar) es compatible con Azure Search, pero hay varios requisitos previos relacionados con la seguridad de los que hay que ocuparse en primer lugar. 
 
-**Duración de la tarea:** aproximadamente 30 minutos, siempre que ya se haya instalado un certificado en la máquina virtual.
+La conexión de Azure Search a SQL Server en una máquina virtual es una conexión pública de Internet. Todas las medidas de seguridad que seguiría normalmente para este tipo de conexiones son aplicables aquí también:
+
++ Obtenga un certificado de una [entidad de certificación](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para el nombre de dominio completo de la instancia de SQL Server de la máquina virtual de Azure.
++ Instale el certificado en la máquina virtual y, a continuación, habilite y configure las conexiones cifradas en la máquina virtual siguiendo las instrucciones de este artículo.
 
 ## <a name="enable-encrypted-connections"></a>Habilitación de conexiones cifradas
 Azure Search requiere un canal cifrado para todas las solicitudes del indexador a través una conexión pública a Internet. En esta sección se enumeran los pasos necesarios para realizar este trabajo.
 
 1. En las propiedades del certificado compruebe que el nombre de sujeto es el nombre de dominio completo (FQDN) de la máquina virtual de Azure. Para ver las propiedades, puede utilizar una herramienta como CertUtils o el complemento Certificados. El FQDN se puede obtener de la sección Essentials de la hoja del servicio VM, en el campo **Etiqueta de dirección IP pública/nombre de DNS** de [Azure Portal](https://portal.azure.com/).
    
-   * En el caso de las VM creadas mediante la plantilla de **Resource Manager** más reciente, el FQDN tiene el formato `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * En el caso de las VM anteriores creadas como una VM **clásica**, el FQDN tiene el formato `<your-cloud-service-name.cloudapp.net>`. 
+   * En el caso de las máquinas virtuales creadas mediante la plantilla de **Resource Manager** más reciente, el nombre de dominio completo tiene el formato `<your-VM-name>.<region>.cloudapp.azure.com`.
+   * En el caso de las VM anteriores creadas como una VM **clásica**, el FQDN tiene el formato `<your-cloud-service-name.cloudapp.net>`.
+
 2. Configure SQL Server para que use el certificado mediante el Editor del registro (regedit). 
    
     Aunque el Administrador de configuración de SQL Server se usa a menudo para esta tarea, no se puede utilizar para este escenario. No encontrará el certificado importado, ya que el FQDN de la VM de Azure no coincide con el FQDN que determina la VM (identifica el dominio como el equipo local o el dominio de red al que está conectado). Si los nombres no coinciden, utilice regedit para especificar el certificado.
@@ -38,9 +42,11 @@ Azure Search requiere un canal cifrado para todas las solicitudes del indexador 
    * Establezca el valor de la clave del **certificado** en la **huella digital** del certificado SSL que importó a la VM.
      
      Hay varias maneras de obtener la huella digital, y algunas de ellas son mejores que otras. Si la copia desde el complemento **Certificados** de MMC, es probable que elija un carácter inicial invisible [como se describe en este artículo](https://support.microsoft.com/kb/2023869/), lo que provoca un error al intentar establecer una conexión. Existen varias soluciones para corregir este problema. La más fácil es borrarlo y, luego, volver a escribir el primer carácter de la huella digital para quitar el carácter inicial del campo de valor de clave en regedit. Como alternativa, se puede utilizar otra herramienta para copiar la huella digital.
+
 3. Otorgue permisos a la cuenta de servicio. 
    
     Asegúrese de que a la cuenta de servicio de SQL Server se le concede el permiso adecuado en la clave privada del certificado SSL. Si pasa por alto este paso, SQL Server no se iniciará. Puede usar el complemento **Certificados** o **CertUtils** para esta tarea.
+    
 4. Reinicie el servicio de SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configuración de la conectividad de SQL Server en la máquina virtual

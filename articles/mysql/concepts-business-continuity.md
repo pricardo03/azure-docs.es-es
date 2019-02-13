@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554544"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692936"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Introducción a la continuidad empresarial con Azure Database for MySQL
 
@@ -50,6 +50,6 @@ La otra opción es usar la característica de replicación geográfica de Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de las copias de seguridad automatizadas, consulte [Copia de seguridad en Azure Database for MySQL](concepts-backup.md).
-- Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).
-- Para restaurar a un momento dado mediante la CLI de Azure, consulte cómo  [restaurar una base de datos a un momento dado con la CLI](howto-restore-server-cli.md).
+- Obtenga más información acerca de las [copias de seguridad automatizadas en Azure Database for MySQL](concepts-backup.md).
+- Obtenga información sobre cómo restaurar mediante [Azure Portal](howto-restore-server-portal.md) o la [CLI de Azure](howto-restore-server-cli.md).
+- Obtenga información sobre las [réplicas de lectura en Azure Database for MySQL](concepts-read-replicas.md).

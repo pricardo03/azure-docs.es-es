@@ -1,5 +1,5 @@
 ---
-title: 'Eliminación de una puerta de enlace de red virtual: Azure Portal y Azure Resource Manager | Microsoft Docs'
+title: 'Eliminación de una puerta de enlace de red virtual: Azure Portal: Resource Manager | Microsoft Docs'
 description: Elimine una puerta de enlace de red virtual mediante Azure Portal en el modelo de implementación de Resource Manager.
 services: vpn-gateway
 documentationcenter: na
@@ -7,12 +7,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984118"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816262"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminación de una puerta de enlace de red virtual mediante el portal
 
@@ -60,5 +60,5 @@ En este punto, se elimina la puerta de enlace de red virtual. Los pasos siguient
 Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al modelo de implementación de Resource Manager.
 
 1. En **Todos los recursos**, busque el grupo de recursos y haga clic para abrir la hoja.
-2. Hacer clic en **Eliminar**. En la hoja Eliminar, revise los recursos afectados. Asegúrese de que desea eliminar todos estos recursos. Si no es así, siga los pasos de [Eliminación de una puerta de enlace VPN](#deletegw) en la parte superior de este artículo.
+2. Hacer clic en **Eliminar**. En la hoja Eliminar, revise los recursos afectados. Asegúrese de que desea eliminar todos estos recursos. Si no es así, siga los pasos de Eliminación de una puerta de enlace VPN en la parte superior de este artículo.
 3. Para continuar, escriba el nombre del grupo de recursos que quiere eliminar y, después, haga clic en **Eliminar**.

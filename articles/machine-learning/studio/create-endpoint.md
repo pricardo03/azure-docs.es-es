@@ -1,8 +1,21 @@
 ---
-título: Creación de puntos de conexión de servicio web titleSuffix: Azure Machine Learning Studio description: Crear punto de conexión de servicio web en Azure Machine Learning. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/10/2016
+title: Creación de puntos de conexión de servicio Web
+titleSuffix: Azure Machine Learning Studio
+description: Crear punto de conexión de servicio web en Azure Machine Learning. Cada punto de conexión del servicio web se administra, limita y dirige de forma independiente.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 10/04/2016
+ms.openlocfilehash: fc3a92aaf13f13682cfc56333618436ffe3d65ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493378"
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Crear puntos de conexión para los servicios web de Azure Machine Learning Studio implementados
 > [!NOTE]

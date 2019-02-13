@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: a3e4821d9deb7ceee815d804f58d0b1ba14925b4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103571"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656347"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -47,8 +47,8 @@ Para conocer el flujo de trabajo de streaming en vivo de Media Services v3, tend
 
 Estos son los pasos para un flujo de trabajo de streaming en vivo:
 
-1. Vaya a la cuenta de Media Services y asegúrese de que el **punto de conexión de streaming** se ejecuta. 
-2. Cree un **evento en directo**. <br/>Al crear el evento, puede especificar que se inicie automáticamente. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming.<br/> Cuando el inicio automático está establecido en true, el evento en directo se iniciará después de la creación. Es decir, la facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
+1. En la cuenta de Media Services, asegúrese de que el **Punto de conexión de streaming** esté en ejecución. 
+2. Cree un [evento en directo](live-events-outputs-concept.md). <br/>Al crear el evento, puede especificar que se inicie automáticamente. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming.<br/> Cuando el inicio automático está establecido en true, el evento en directo se iniciará después de la creación. La facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
 3. Obtenga las direcciones URL de ingesta y configure el codificador local para usar la dirección URL para enviar la fuente de contribución.<br/>Consulte [Codificadores de streaming en vivo recomendados](recommended-on-premises-live-encoders.md).
 4. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
 5. Cree un nuevo objeto de **recurso**.

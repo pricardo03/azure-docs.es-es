@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: aa61b88bb0a944a048bc4b2db9c542efe3e30ddf
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344950"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564126"
 ---
-# <a name="resource-providers-and-types"></a>Tipos y proveedores de recursos
+# <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
 Al implementar los recursos, con frecuencia necesitará recuperar información sobre los tipos y proveedores de recursos. En este artículo, aprenderá a:
 
@@ -32,14 +32,58 @@ Al implementar los recursos, con frecuencia necesitará recuperar información s
 * Ver las ubicaciones válidas de un tipo de recurso
 * Ver las versiones de API válidas de un tipo de recurso
 
-También puede llevar a cabo estos pasos a través del portal, PowerShell o la CLI de Azure.
+Puede llevar a cabo estos pasos en Azure Portal, Azure PowerShell o la CLI de Azure.
 
-## <a name="powershell"></a>PowerShell
+## <a name="azure-portal"></a>Azure Portal
+
+Para ver todos los proveedores de recursos y el estado de registro de su suscripción:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Seleccione **Todos los servicios**.
+
+    ![selección de suscripciones](./media/resource-manager-supported-services/select-subscriptions.png)
+3. En el cuadro **Todos los servicios**, escriba **suscripción** y, a continuación, seleccione **Suscripciones**.
+4. Seleccione la suscripción en la lista de suscripción para verla.
+5. Seleccione **Proveedores de recursos** y consulte la lista de proveedores de recursos disponibles.
+
+    ![vista de los proveedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
+
+6. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar un proveedor de recursos, seleccione **Registro**. En la captura de pantalla anterior, el vínculo **Registrar** se resalta para **Microsoft.Blueprint**.
+
+    No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
+
+Para ver información de un proveedor de recursos concreto:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Seleccione **Todos los servicios**.
+
+    ![seleccione Todos los servicios](./media/resource-manager-supported-services/more-services.png)
+
+3. En el cuadro **Todos los servicios**, escriba **Explorador de recursos** y, a continuación, seleccione **Explorador de recursos**.
+4. Expanda **Proveedores**; para ello, seleccione la flecha derecha.
+
+    ![Selección de proveedores](./media/resource-manager-supported-services/select-providers.png)
+
+5. Expanda un proveedor de recursos y el tipo de recurso que desea ver.
+
+    ![Selección del tipo de recurso](./media/resource-manager-supported-services/select-resource-type.png)
+
+6. El Administrador de recursos se admite en todas las regiones, pero puede que los recursos que implementa no se admitan en todas las regiones. Además, puede haber limitaciones en su suscripción que le impidan utilizar algunas regiones que admiten el recurso. El explorador de recursos muestra las ubicaciones válidas para el tipo de recurso.
+
+    ![Vista de las ubicaciones](./media/resource-manager-supported-services/show-locations.png)
+
+7. La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST. El explorador de recursos muestra las versiones de API válidas para el tipo de recurso.
+
+    ![Vista de las versiones de API](./media/resource-manager-supported-services/show-api-versions.png)
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Que devuelve resultados similares a:
@@ -57,7 +101,7 @@ Microsoft.CognitiveServices      Registered
 Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Que devuelve resultados similares a:
@@ -74,7 +118,7 @@ No se puede anular el registro de un proveedor de recursos si todavía dispone d
 Para ver información de un proveedor de recursos concreto, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Que devuelve resultados similares a:
@@ -91,7 +135,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 Para ver los tipos de recursos de un proveedor, use:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Que devuelve:
@@ -108,7 +152,7 @@ La versión de API se corresponde a una versión de operaciones de API de REST q
 Para obtener las versiones de API de un tipo de recurso, use:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Que devuelve:
@@ -126,7 +170,7 @@ El Administrador de recursos se admite en todas las regiones, pero puede que los
 Para obtener las ubicaciones compatibles con un tipo de recurso, use:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Que devuelve:
@@ -245,52 +289,9 @@ West US
 ...
 ```
 
-## <a name="portal"></a>Portal
-
-Para ver todos los proveedores de recursos de Azure y el estado de registro de su suscripción, seleccione **Suscripciones**.
-
-![selección de suscripciones](./media/resource-manager-supported-services/select-subscriptions.png)
-
-Elija la suscripción que quiera ver.
-
-![especificación de la suscripción](./media/resource-manager-supported-services/subscription.png)
-
-Seleccione **Proveedores de recursos** y consulte la lista de proveedores de recursos disponibles.
-
-![vista de los proveedores de recursos](./media/resource-manager-supported-services/show-resource-providers.png)
-
-Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar un proveedor de recursos, seleccione **Registro**.
-
-![registro del proveedor de recursos](./media/resource-manager-supported-services/register-provider.png)
-
-No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de ese proveedor de recursos en la suscripción.
-
-Para ver información de un proveedor de recursos concreto, seleccione **Todos los servicios**.
-
-![seleccione Todos los servicios](./media/resource-manager-supported-services/more-services.png)
-
-Busque **Resource Explorer** y selecciónelo entre las opciones disponibles.
-
-![selección de resource explorer](./media/resource-manager-supported-services/select-resource-explorer.png)
-
-Seleccione **Proveedores**.
-
-![Selección de proveedores](./media/resource-manager-supported-services/select-providers.png)
-
-Seleccione el proveedor de recursos y el tipo de recurso que desea ver.
-
-![Selección del tipo de recurso](./media/resource-manager-supported-services/select-resource-type.png)
-
-El Administrador de recursos se admite en todas las regiones, pero puede que los recursos que implementa no se admitan en todas las regiones. Además, puede haber limitaciones en su suscripción que le impidan utilizar algunas regiones que admiten el recurso. El explorador de recursos muestra las ubicaciones válidas para el tipo de recurso.
-
-![Vista de las ubicaciones](./media/resource-manager-supported-services/show-locations.png)
-
-La versión de API se corresponde a una versión de operaciones de API de REST que se publican por el proveedor de recursos. Conforme un proveedor de recursos habilite nuevas características, publicará una nueva versión de la API de REST. El explorador de recursos muestra las versiones de API válidas para el tipo de recurso.
-
-![Vista de las versiones de API](./media/resource-manager-supported-services/show-api-versions.png)
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+* Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md). 
+* Para ver los esquemas de plantilla de proveedor de recursos, consulte [Referencia de plantilla](/azure/templates/).
 * Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).

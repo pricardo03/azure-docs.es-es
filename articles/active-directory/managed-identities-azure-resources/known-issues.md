@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189466"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662489"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -154,8 +154,8 @@ Como solución alternativa, una vez que se ha movido la suscripción, puede desh
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conocidos de las identidades asignadas por el usuario
 
-- No se admite la creación de una identidad administrada asignada por el usuario con caracteres especiales (por ejemplo, un guion bajo) en el nombre.
-- Los nombres de identidades asignadas por el usuario están restringidos a 24 caracteres. Si se supera este número, la identidad no se podrá asignar a un recurso (por ejemplo, Virtual Machine).
+- Los nombres de identidad asignados por el usuario están restringidos a un mínimo de 3 caracteres y un máximo de 128 caracteres. Si se supera este número, la identidad no se podrá asignar a un recurso (por ejemplo, Virtual Machine).
+- Los nombres de identidad asignados por el usuario pueden contener los caracteres siguientes: a-z, A-z, -, \_, 0-9. No se admite la creación de una identidad administrada asignada por el usuario con caracteres que no pertenezcan a este juego de caracteres (por ejemplo, un guion bajo) en el nombre.
 - Si se usa la extensión de máquina virtual de identidades administradas (que dejará de utilizarse en enero de 2019), el límite admitido es de 32 identidades administradas asignadas por el usuario. Sin la extensión de máquina virtual de identidades administradas, el límite admitido es de 512.  
 - Mover una identidad administrada asignada por el usuario a otro grupo de recursos hará que la identidad se interrumpa. Como resultado, no podrá solicitar tokens para esa identidad. 
 - La transferencia de una suscripción a otro directorio interrumpirá las identidades administradas asignadas por el usuario existentes. 

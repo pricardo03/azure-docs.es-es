@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 0501ccbf2b5d9124a82cb1758e09236e8ad8455a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197983"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564330"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cambiar el clúster para que use un nombre común en vez de la huella digital del certificado
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados. En este artículo se describe cómo actualizar un clúster activo de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -47,7 +47,7 @@ $SubscriptionId  =  "<subscription ID>"
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgropu"
+$KeyVaultResourceGroupName  = "mykeyvaultgroup"
 $VaultName = "mykeyvault"
 $certFilename = "C:\users\sfuser\myclustercert.pfx"
 $certname = "myclustercert"
@@ -126,7 +126,7 @@ A continuación, abra el archivo de plantilla en el editor de texto y realice tr
 
     Asimismo, quite el valor *certificateThumbprint*, puesto que ya no será necesario.
 
-2. En el recurso **Microsoft.Compute/virtualMachineScaleSets**, actualice la extensión de máquina virtual para usar el nombre común en la configuración del certificado en lugar de la huella digital.  En **virtualMachineProfile**->**extenstionProfile**->**extensiones**->**propiedades**->**configuración**->**certificado**, agregue `"commonNames": ["[parameters('certificateCommonName')]"],` y quite `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. En el recurso **Microsoft.Compute/virtualMachineScaleSets**, actualice la extensión de máquina virtual para usar el nombre común en la configuración del certificado en lugar de la huella digital.  En **virtualMachineProfile**->**extensionProfile**->**extensiones**->**propiedades**->**configuración**->**certificado**, agregue `"commonNames": ["[parameters('certificateCommonName')]"],` y quite `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

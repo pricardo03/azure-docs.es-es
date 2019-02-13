@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3b5c277f51b8ff1b2d3babf23329dcde829573a9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070437"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813966"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ En este tutorial, obtendrá información sobre cómo cargar un archivo y otras o
 > * Carga de un archivo a Blob Storage mediante la dirección URL de carga
 > * Creación de metadatos en el recurso para el archivo multimedia cargado
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 - [Cree una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
@@ -88,7 +88,7 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
     ```
 4. En la parte izquierda de la ventana **Postman**, haga clic en **1. Get AAD Auth token (Obtener token de autenticación de AAD)** -> **Get Azure AD Token for Service Principal (Obtener token de Azure AD para la entidad de servicio)**.
 
-    La parte de la dirección URL se rellena con la variable de entorno **AzureADSTSEndpoint** (anteriormente en el tutorial estableció los valores de las [variables de entorno](#configure-the-environment) para que admitieran la [colección](#configure-the-collection)).
+    La parte de la dirección URL se rellena con la variable de entorno **AzureADSTSEndpoint** (anteriormente en el tutorial estableció los valores de las variables de entorno para que admiten la colección).
 
     ![Cargar un archivo](./media/media-services-rest-upload-files/postment-get-token.png)
 
@@ -96,7 +96,7 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
 
     Puede ver la respuesta que contiene "access_token". El script "test" toma este valor y establece la variable de entorno **AccessToken** (tal y como se ha descrito anteriormente). Si examina las variables de entorno, verá que esta variable contiene ahora el valor del token de acceso (token de portador) que se usa en las demás operaciones. 
 
-    Si expira el token, vuelva a realizar el paso "Get Azure AD Token for Service Principal" (Obtener token de Azure AD para la entidad de servicio). 
+    Si expira el token, vuelva a realizar el paso "Get Azure AD Token for Service Principal" (Obtener token de Azure AD para la entidad de servicio). 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Creación de una directiva de acceso con permiso de escritura
 
@@ -122,9 +122,9 @@ Antes de cargar los archivos en el almacenamiento de blobs, establezca los derec
 
 Un [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) es un contenedor para varios tipos o conjuntos de objetos en Media Services, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Media Services y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
-Una de las propiedades que se pueden agregar al crear un recurso es **Opciones**. Puede especificar una de las siguientes opciones de cifrado: **None** (predeterminada, no se usa ningún cifrado), **StorageEncrypted** (para contenido que se cifró previamente con el cifrado de almacenamiento del lado cliente), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Cuando tenga un recurso cifrado, tiene que configurar una directiva de entrega. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+Una de las propiedades que se pueden agregar al crear un recurso es **Opciones**. Puede especificar una de las siguientes opciones de cifrado: **None** (predeterminada, no se usa ningún cifrado), **StorageEncrypted** (para el contenido que se ha cifrado previamente con el cifrado de almacenamiento en el cliente), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Cuando tenga un recurso cifrado, tiene que configurar una directiva de entrega. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
-Si el recurso está cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente artículo: [Creación de ContentKey](media-services-rest-create-contentkey.md). Después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE** . 
+Si el recurso está cifrado, debe crear un elemento **ContentKey** y vincularlo al recurso, como se describe en el siguiente artículo: [How to create a ContentKey](media-services-rest-create-contentkey.md) (Creación de un elemento ContentKey). Después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE** . 
 
 En este ejemplo, crearemos un recurso no cifrado. 
 
@@ -156,7 +156,7 @@ Una dirección URL de SAS tiene el formato siguiente:
 Se aplican algunas consideraciones:
 
 * No puede tener más de cinco localizadores únicos asociados a un recurso determinado a la vez. Para obtener más información, consulte Localizador.
-* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Media Services. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").    
+* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Media Services. Además, el valor de StartTime debe estar en el siguiente formato de fecha/hora: AAAA-MM-DDTHH (por ejemplo, "2014-05-23T17:53:50Z").    
 * Puede haber un retraso de 30 a 40 segundos desde el momento en que se crea un localizador hasta que este está disponible para su uso.
 
 ### <a name="create-a-sas-locator"></a>Creación de un localizador de SAS
@@ -188,7 +188,7 @@ Creación y configuración de una nueva solicitud:
 1. Presione **+** para crear una nueva pestaña de solicitud.
 2. Seleccione la operación **PUT** y pegue **{{UploadURL}}** en la dirección URL.
 2. Deje la pestaña **Autorización** tal cual (no la establezca en **Bearer Token [Token de portador]**).
-3. En la pestaña **Encabezados**, especifique lo siguiente: **Clave** "x-ms-blob-type" y **Valor** "BlockBlob".
+3. En la pestaña **Encabezados** especifique: **Clave**: "x-ms-blob-type" y **Valor**: "BlockBlob".
 2. En la pestaña **Cuerpo**, haga clic en **binario**.
 4. Elija el archivo con el nombre que especificó en la variable de entorno **MediaFileName**.
 5. Presione **Enviar**.

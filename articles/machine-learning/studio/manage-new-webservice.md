@@ -1,8 +1,21 @@
 ---
-título: Uso del portal de servicios web de Azure Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 28/02/2017
+title: Uso del portal de servicios web de Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 02/28/2017
+ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492494"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Administración de un servicio web mediante el portal de servicios web de Azure Machine Learning Studio
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.

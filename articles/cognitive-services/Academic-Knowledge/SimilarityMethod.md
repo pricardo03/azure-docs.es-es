@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183346"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490131"
 ---
 # <a name="similarity-method"></a>Método de similitud
 
@@ -30,8 +30,8 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Parámetros de solicitud
 Parámetro        |Tipo de datos      |Obligatorio | DESCRIPCIÓN
 ----------|----------|----------|------------
-**s1**        |string   |SÍ  |Cadena* que se va a comparar
-**s2**        |string   |SÍ  |Cadena* que se va a comparar
+**s1**        |string   |Sí  |Cadena* que se va a comparar
+**s2**        |string   |Sí  |Cadena* que se va a comparar
 <sub> *Las cadenas que se van a comparar tienen una longitud máxima de 1 MB. </sub>
 <br>
 ## <a name="response"></a>Response

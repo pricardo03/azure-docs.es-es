@@ -1,8 +1,21 @@
 ---
-título: Administración de iteraciones de experimentos en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Administración de iteraciones de experimentos en Azure Machine Learning Studio. Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
+title: Administrar iteraciones de experimentos en Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Administración de iteraciones de experimentos en Azure Machine Learning Studio. Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488453"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Administrar iteraciones de experimentos en Azure Machine Learning Studio
 El desarrollo de un modelo de análisis predictivo es un proceso iterativo: a medida que se modifican las diversas funciones y los parámetros de su experimento, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo. La clave de este proceso es realizar un seguimiento de las iteraciones de los parámetros de su experimento y sus configuraciones.

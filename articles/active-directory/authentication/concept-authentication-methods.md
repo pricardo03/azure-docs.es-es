@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077368"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510245"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -171,6 +171,8 @@ Una vez formateado correctamente como un archivo CSV, un administrador puede ini
 En función del tamaño del archivo CSV, puede tardar unos minutos en procesarse. Haga clic en el botón **Actualizar** para ver el estado actual. Si hay algún error en el archivo, tendrá la opción de descargar un archivo CSV con los errores para poder resolverlos.
 
 Una vez solucionados los errores, para activar las claves, el administrador puede hacer clic en la opción **Activar** del token que debe activarse y escribir la OTP que se muestra en el token.
+
+Los usuarios pueden tener una combinación de hasta cinco tokens de hardware de OATH o aplicaciones de autenticación, como la aplicación Microsoft Authenticator, configurada para utilizarse en cualquier momento.
 
 ## <a name="mobile-phone"></a>Teléfono móvil
 

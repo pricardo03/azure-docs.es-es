@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725820"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691038"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sección de salidas en plantillas de Azure Resource Manager
+
 En la sección de salidas, especifique valores que se devuelven de la implementación. Por ejemplo, podría devolver el URI para acceder a un recurso implementado.
 
 ## <a name="define-and-use-output-values"></a>Definición y uso de valores de salida
@@ -39,7 +40,7 @@ En el ejemplo siguiente se muestra cómo devolver el identificador de recurso pa
 Después de la implementación, puede recuperar el valor con el script. Para PowerShell, use:
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 Para la CLI de Azure, utilice:
@@ -77,10 +78,11 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| outputName |SÍ |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
-| Tipo |SÍ |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. |
-| value |SÍ |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
+| outputName |Sí |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
+| Tipo |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. |
+| value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
 
+Para obtener información acerca de cómo añadir comentarios, consulte [Comentarios en plantillas](resource-group-authoring-templates.md#comments).
 
 ## <a name="example-templates"></a>Plantillas de ejemplo
 

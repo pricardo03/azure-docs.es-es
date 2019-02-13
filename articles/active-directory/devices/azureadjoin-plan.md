@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102743"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697707"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Control de Planeación de la implementación de la unión a Azure AD
 
@@ -126,6 +126,8 @@ Unión a Azure AD:
 - Solo es aplicable a dispositivos Windows 10. 
 
 - No es aplicable a versiones anteriores de Windows ni a otros sistemas operativos. Si tiene dispositivos Windows 7/8.1, debe actualizar a Windows 10 para implementar Unión a Azure AD.
+
+- No es compatible con dispositivos con TPM en modo FIPS.
  
 **Recomendación:** Use siempre la versión más reciente de Windows 10 para aprovechar las características actualizadas.
 
@@ -234,8 +236,8 @@ A continuación se incluye una comparación de estos tres enfoques
  
 ||Configuración de autoservicio|Windows Autopilot|Inscripción masiva|
 |---|---|---|---|
-|Requiere la interacción del usuario para la configuración|SÍ|SÍ|Sin |
-|Requiere un esfuerzo de TI|Sin |SÍ|SÍ|
+|Requiere la interacción del usuario para la configuración|Sí|Sí|Sin |
+|Requiere un esfuerzo de TI|Sin |Sí|Sí|
 |Flujos aplicables|OOBE y Configuración|Solo OOBE|Solo OOBE|
 |Derechos de administrador local para el usuario principal|Sí, de forma predeterminada|Configurable|Sin |
 |Requerir soporte técnico del OEM del dispositivo|Sin |Sí|Sin |

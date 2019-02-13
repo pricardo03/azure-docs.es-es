@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157710"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664036"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). Este artículo describe los métodos del inicio de sesión único y le ayuda a elegir el más apropiado al configurar las aplicaciones.
@@ -49,9 +49,7 @@ En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los
 | [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect y OAuth
-Con OpenID Connect y OAuth, el inicio de sesión único simplifica el proceso de agregar una aplicación empresarial en Azure AD, ya que no es preciso que el administrador de aplicaciones configure el inicio de sesión único. En su lugar, Azure AD agrega la aplicación cuando el administrador [concede el consentimiento del usuario](configure-user-consent.md). 
-
-Los [SDK](../develop/reference-v2-libraries.md) de OpenID Connect y OAuth son fáciles de adoptar, y la aplicación estará lista para usar MS Graph. 
+Al desarrollar nuevas aplicaciones, use protocolos modernos como OpenID Connect y OAuth para lograr la mejor experiencia de inicio de sesión única para la aplicación en varias plataformas de dispositivo. OAuth permite a los usuarios o administradores [conceder consentimiento](configure-user-consent.md) para recursos protegidos como [MS Graph](/graph/overview). Se proporciona un [SDK](../develop/reference-v2-libraries.md) de fácil adopción para la aplicación y, además, la aplicación estará lista para usar [MS Graph](/graph/overview).
 
 Para más información, consulte:
 

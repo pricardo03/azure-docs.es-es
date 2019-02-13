@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238618"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746497"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -26,7 +26,8 @@ En este artículo obtendrá ayuda para buscar y corregir los errores que se prod
 
 **Mensaje de error: no se puede desinstalar 'PyYAML'**
 
-SDK de Azure Machine Learning para Python: PyYAML es un proyecto instalado de Distutils. Por lo tanto, no podemos determinar con precisión qué archivos le pertenecen en caso de una desinstalación parcial. Para continuar con la instalación del SDK sin tener en cuenta este error, use:
+SDK de Azure Machine Learning para Python: PyYAML es un proyecto instalado de Distutils. Por lo tanto, no se puede determinar con precisión qué archivos le pertenecen en caso de una desinstalación parcial. Para continuar con la instalación del SDK sin tener en cuenta este error, use:
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ Error de creación de imagen al implementar el servicio web. La solución altern
 
 ## <a name="deployment-failure"></a>Error de implementación
 
-Si observa 'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' finalizó con <Signals.SIGKILL: 9> - cambie la SKU para las máquinas virtuales que se usaron en la implementación por otra con mayor capacidad de memoria.
+Si observa `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria.
 
 ## <a name="fpgas"></a>FPGA
 No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aprobado para la cuota FPGA. Para solicitar acceso, rellene el formulario de solicitud de cuota: https://aka.ms/aml-real-time-ai
@@ -50,7 +51,7 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 
 Problemas de Databricks y Azure Machine Learning.
 
-1. Error de instalación del SDK de AML en Databricks cuando se instalan varios paquetes.
+1. Errores de instalación del SDK de Azure Machine Learning en Databricks cuando se instalan más paquetes.
 
    Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, inmovilice la versión lib para instalar paquetes. Este problema está relacionado con Databricks y no con el SDK de Azure Machine Learning Service, aunque también se puede encontrar en otras bibliotecas. Ejemplo:
    ```python
@@ -58,9 +59,9 @@ Problemas de Databricks y Azure Machine Learning.
    ```
    Como alternativa, puede usar scripts de init si sigue experimentando problemas de instalación con las bibliotecas de Python. Este no es un enfoque oficialmente compatible. Puede hacer referencia a [este documento](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. Mientras utiliza Automated Machine Learning en Databricks, si quiere cancelar una ejecución del experimento y comenzar una nueva, reinicie el clúster de Azure Databricks.
+2. Mientras usa Automated Machine Learning en Databricks, si quiere cancelar la ejecución de un experimento e iniciar una nueva, reinicie el clúster de Azure Databricks.
 
-3. En la configuración de Automated Machine Learning, cuando tenga más de diez iteraciones, establezca "show_output" como "False" al enviar la ejecución.
+3. En la configuración de Automated Machine Learning, si tiene más de 10 iteraciones, establezca `show_output` en `False` cuando envíe la ejecución.
 
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -73,6 +74,20 @@ Aquí es donde se encuentran los archivos de registro:
 ## <a name="resource-quotas"></a>Cuotas de recursos
 
 Obtenga información sobre la [cuotas de recursos](how-to-manage-quotas.md) que puede encontrar al trabajar con Azure Machine Learning.
+
+## <a name="authentication-errors"></a>Errores de autenticación
+
+Si realiza una operación de administración en un destino de proceso desde un trabajo remoto, recibirá uno de los siguientes errores:
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+Por ejemplo, si intenta crear o asociar un destino de proceso desde una canalización de aprendizaje automático que se envía para ejecución remota, recibirá un error.
 
 ## <a name="get-more-support"></a>Obtener más soporte técnico
 

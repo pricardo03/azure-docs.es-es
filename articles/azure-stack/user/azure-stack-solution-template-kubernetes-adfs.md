@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250442"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744970"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implementación de Kubernetes en Azure Stack con los Servicios de federación de Active Directory
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!Note]  
-> Kubernetes en Azure Stack está en versión preliminar.
+> Kubernetes en Azure Stack está en versión preliminar. El escenario sin conexión de Azure Stack no es compatible actualmente con la versión preliminar.
 
 Puede seguir los pasos descritos en este artículo para implementar y configurar los recursos de Kubernetes. Siga estos pasos cuando los Servicios de federación de Active Directory (AD FS) sean su servicio de administración de identidad.
 
@@ -94,7 +94,7 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
         New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
         
         # Note, Do not omit -EnabledForTemplateDeployment flag
-        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location local -EnabledForTemplateDeployment
+        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
         
         # Obtain the security identifier(SID) of the active directory user
         $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds

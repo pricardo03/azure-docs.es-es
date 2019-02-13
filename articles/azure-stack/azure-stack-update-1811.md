@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246541"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766102"
 ---
 # <a name="azure-stack-1811-update"></a>Actualización de Azure Stack 1811
 
@@ -153,6 +153,9 @@ Esta actualización incluye las siguientes nuevas características y correccione
 
 <!-- 3190553 - IS ASDK -->
 - Se ha corregido un problema que generaba alertas falsas que indicaban que una instancia de rol de infraestructura no estaba disponible o que el nodo de la unidad de escala estaba sin conexión.
+
+<!-- 2724961 - IS ASDK -->
+- Se ha corregido un problema por el cual la página de información general de una máquina virtual no mostraba correctamente el gráfico de métricas de la máquina virtual. 
 
 ## <a name="changes"></a>Cambios
 
@@ -297,11 +300,6 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 <!-- 1662991 IS ASDK --> 
 - No se admite el diagnóstico de máquinas virtuales Linux en Azure Stack. Si implementa una máquina virtual Linux con diagnósticos de máquina virtual habilitado, se producirá un error en la implementación. Tampoco se podrá realizar la implementación si habilita las métricas básicas de máquina virtual Linux a través de la configuración de diagnóstico.  
-
-<!-- 2724961- IS ASDK --> 
-- Al registrar el proveedor de recursos **Microsoft.Insight** en la configuración de la suscripción y crear una máquina virtual Windows con el diagnóstico del sistema operativo invitado habilitado, el gráfico de porcentaje de CPU de la página de información general de la máquina virtual no muestra los datos de métricas.
-
-   Para buscar datos de métricas, como el gráfico de porcentaje de CPU para la máquina virtual, vaya a la ventana **Métricas** y muestre todas las métricas de invitado de las máquinas virtuales Windows admitidas.
 
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks crea dos nuevos [tipos de cuota de proceso](azure-stack-quota-types.md#compute-quota-types) para limitar la capacidad máxima de los discos administrados que se pueden aprovisionar. De forma predeterminada, se asignan 2 048 GiB para cada tipo de cuota de discos administrados. Sin embargo, es posible que encuentre los siguientes problemas:

@@ -1,5 +1,5 @@
 ---
-title: 'Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Configuración de una directiva de IPsec o IKE para conexiones VPN S2S o conexiones entre redes virtuales: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Configurar una directiva de IPsec o IKE para conexiones de sitio a sitio o de red virtual a red virtual con instancias de Azure VPN Gateway mediante Azure Resource Manager y PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c07634e7c75e166b77ecb1defab02b2601af6bb0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "31601158"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510109"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -195,8 +195,8 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 El script de ejemplo siguiente crea una directiva de IPsec o IKE con los algoritmos y parámetros siguientes:
 
-* IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, sin PFS, vigencia de SA de 14 400 segundos y 102 400 000 KB
+* IKEv2: AES256, SHA384 y DHGroup24
+* IPsec: AES256, SHA256, sin PFS, 14 400 segundos de vigencia de SA y 102 400 000 KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -282,7 +282,7 @@ De forma similar a la conexión VPN de sitio a sitio, cree una directiva de IPse
 
 El script de ejemplo siguiente crea una directiva de IPsec o IKE diferente con los algoritmos y parámetros siguientes:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, vigencia de SA de 14 400 segundos y 102 400 000 KB
+* IPsec: GCMAES128, GCMAES128, PFS14, 14 400 segundos de vigencia de SA y 102 400 000 KB
 
 ```powershell
 $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000

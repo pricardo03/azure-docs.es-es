@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244256"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660126"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -49,7 +49,7 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - Los archivos PFX de certificado deben tener los valores "Server Authentication (1.3.6.1.5.5.7.3.1)" (Autenticación de servidor (1.3.6.1.5.5.7.3.1)) y "Client Authentication (1.3.6.1.5.5.7.3.2)" (Autenticación de cliente (1.3.6.1.5.5.7.3.2)) en el campo "Enhanced Key Usage" (Uso mejorado de clave).
 - El campo "Issued to:" (Emitido para:) del certificado no debe ser el mismo que su campo "Issued by:" (Emitido por:).
 - Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación.
-- La contraseña para el archivo pfx de certificado tiene que ser una contraseña compleja.
+- La contraseña para el archivo pfx de certificado tiene que ser una contraseña compleja. Cree una contraseña que cumpla los siguientes requisitos de complejidad de las contraseñas. Una longitud mínima de ocho caracteres. La contraseña contiene al menos tres de los siguientes elementos: letras en mayúsculas, letras en minúsculas, números del 0 al 9, caracteres especiales, caracteres alfabéticos que no estén en mayúsculas ni en minúsculas. Anote esta contraseña. Se usará como parámetro de implementación.
 - Asegúrese de que los nombres de los firmantes y los nombres alternativos de los firmantes de la extensión de nombre alternativo del firmante (x509v3_config) coinciden. El campo del nombre alternativo del firmante permite especificar nombres de host adicionales (sitios web, direcciones IP y nombres comunes) que estén protegidos por un certificado SSL individual.
 
 > [!NOTE]  
