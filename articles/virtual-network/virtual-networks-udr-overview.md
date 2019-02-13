@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: b2a262e6829aca75f03db41ff72ab0cc067c93be
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025800"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812793"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -91,7 +91,7 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
 
     Puede definir una ruta con 0.0.0.0/0 como prefijo de dirección y un tipo de próximo salto de la aplicación virtual, lo que permite a la aplicación inspeccionar el tráfico y determinar si el tráfico se debe reenviar o eliminar. Si tiene intención de crear una definida por el usuario que contenga el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0).
 
-- **Puerta de enlace de red virtual**: se especifica cuando se desea que el tráfico destinado a prefijos de dirección específicos se enrute a una puerta de enlace de red virtual. La puerta de enlace de red virtual debe crearse con el tipo **VPN**. No se puede especificar una puerta de enlace de red virtual creada como el tipo **ExpressRoute** en una ruta definida por el usuario porque con ExpressRoute se debe usar [BGP](#border-gateway-protocol-routes) para las rutas personalizadas. Puede definir una ruta que dirige el tráfico destinado al prefijo de dirección 0.0.0.0/0 a una puerta de enlace de red virtual [basada en ruta](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). En un entorno local, puede tener un dispositivo que compruebe el tráfico y determine si se reenvía o se elimina. Si tiene intención de crear una definida por el usuario para el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0). En lugar de configurar una ruta definida por el usuario para el prefijo de dirección 0.0.0.0/0, es posible anunciar una ruta con el prefijo 0.0.0.0/0 a través de BGP, si ha [habilitado BGP para una puerta de enlace de red virtual de VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Puerta de enlace de red virtual**: se especifica cuando se desea que el tráfico destinado a prefijos de dirección específicos se enrute a una puerta de enlace de red virtual. La puerta de enlace de red virtual debe crearse con el tipo **VPN**. No se puede especificar una puerta de enlace de red virtual creada como el tipo **ExpressRoute** en una ruta definida por el usuario, ya que con ExpressRoute es preciso usar BGP para las rutas personalizadas. Puede definir una ruta que dirige el tráfico destinado al prefijo de dirección 0.0.0.0/0 a una puerta de enlace de red virtual [basada en ruta](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). En un entorno local, puede tener un dispositivo que compruebe el tráfico y determine si se reenvía o se elimina. Si tiene intención de crear una definida por el usuario para el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0). En lugar de configurar una ruta definida por el usuario para el prefijo de dirección 0.0.0.0/0, es posible anunciar una ruta con el prefijo 0.0.0.0/0 a través de BGP, si ha [habilitado BGP para una puerta de enlace de red virtual de VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Ninguno**: se especifica cuando se desea colocar tráfico en un prefijo de dirección, en lugar de reenviar el tráfico a un destino. Si no ha configurado completamente una funcionalidad, Azure puede enumerar *No* para algunas de las rutas de opcional del sistema. Por ejemplo, si ve *No* en **Dirección IP del próximo salto** con un **Tipo de próximo salto** de *Puerta de enlace de red virtual* o *Aplicación virtual*, puede deberse a que el dispositivo no funciona o no está completamente configurado. Azure crea [rutas predeterminadas](#default) del sistema para los prefijos de direcciones reservados con **No** como tipo de próximo salto.
 - **Red virtual**: se especifica cuando se desea reemplazar el enrutamiento predeterminado en una red virtual. Consulte [Ejemplo de enrutamiento](#routing-example), para ver un ejemplo de por qué puede crear una ruta con el tipo de salto **Red virtual**.
 - **Internet**: se especifica cuando se desea enrutar explícitamente a Internet el tráfico destinado a un prefijo de dirección, o si se desea que el tráfico destinado a los servicios de Azure con direcciones IP públicas se conserve dentro de la red troncal de Azure.

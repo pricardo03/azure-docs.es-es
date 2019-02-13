@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de BGP en Azure VPN Gateway: Resource Manager: PowerShell | Microsoft Docs'
+title: 'Configuración de BGP en instancias de Azure VPN Gateway: Resource Manager: PowerShell | Microsoft Docs'
 description: Este artículo le guiará a la hora de configurar BGP con puertas de enlace de VPN de Azure por medio de Azure Resource Manager y PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b48382c8f429576a3d15c624c9c9028cffec3872
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632592"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813031"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configuración de BGP para Azure VPN Gateway con PowerShell
 Este artículo le guiará por los pasos para habilitar BGP en una conexión de VPN de sitio a sitio (S2S) entre locales y una conexión de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
@@ -35,7 +35,7 @@ Para obtener más información sobre las ventajas de BGP, así como entender los
 Este artículo lo guiará a través de los pasos necesarios para realizar las tareas siguientes:
 
 * [Parte 1: Habilitar BGP en la puerta de enlace de VPN de Azure](#enablebgp)
-* [Parte 2: Establecer una conexión entre locales con BGP](#crossprembgp)
+* Parte 2: Establecer una conexión entre locales con BGP
 * [Parte 3: Establecer una conexión de red virtual a red virtual con BGP](#v2vbgp)
 
 Cada parte de las instrucciones constituye un bloque de creación básico para habilitar BGP en la conectividad de red. Si completa las tres partes, podrá crear la topología tal como se muestra en el diagrama siguiente:
@@ -174,7 +174,7 @@ Antes de continuar, asegúrese de que sigue conectado a la suscripción 1.
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Cree las puertas de enlace de red local para Site5
 
-Asegúrese de crear el grupo de recursos si no está ya creado, antes de crear la puerta de enlace de red local. Observe los dos parámetros adicionales para la puerta de enlace de red local: Asn y BgpPeerAddress.
+Asegúrese de crear el grupo de recursos si no está ya creado, antes de crear la puerta de enlace de red local. Observe los dos parámetros adicionales de la puerta de enlace de red local: Asn y BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

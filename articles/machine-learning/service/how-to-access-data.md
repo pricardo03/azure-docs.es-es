@@ -1,7 +1,7 @@
 ---
-title: Acceso a datos en almacenes de datos para aprendizaje
+title: Acceso a datos en almacenes de datos o blobs durante el entrenamiento
 titleSuffix: Azure Machine Learning service
-description: Aprenda a usar los almacenes de datos para acceder al almacenamiento de datos con Azure Machine Learning Service
+description: Aprenda a usar los almacenes de datos para acceder al almacenamiento de datos de blobs con Azure Machine Learning Service
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252122"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769902"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Acceso a los datos durante el entrenamiento desde los almacenes de datos
 Uso de un almacén de datos para acceder e interactuar con los datos en los flujos de trabajo de Azure Machine Learning.
@@ -76,8 +76,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 También puede obtener todos los almacenes de datos de un área de trabajo:
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 

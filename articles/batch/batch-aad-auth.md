@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477611"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812857"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -91,7 +91,7 @@ El identificador de inquilino identifica al inquilino de Azure AD que proporcion
 
 Para autenticar mediante autenticación integrada, deberá conceder a la aplicación permisos para conectarse a la API del servicio de Batch. Este paso permite a la aplicación autenticar llamadas en la API del servicio de Batch con Azure AD.
 
-Una vez que haya [registrado la aplicación](#register-your-application-with-an-azure-ad-tenant), siga estos pasos en Azure Portal para concederle acceso al servicio de Batch:
+Una vez que haya registrado la aplicación, siga estos pasos en Azure Portal para concederle acceso al servicio Batch:
 
 1. En el panel de navegación izquierdo de Azure Portal, elija **Todos los servicios**. Haga clic en **Registros de aplicaciones**.
 2. Busque el nombre de la aplicación en la lista de registros de aplicación:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953881"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811110"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Máquinas virtuales de prioridad baja en conjuntos de escalado (versión preliminar)
 
@@ -43,13 +43,13 @@ Si quiere que las máquinas virtuales del conjunto de escalado de prioridad baja
 
 Para implementar máquinas virtuales de prioridad baja en conjuntos de escalado, puede establecer la nueva marca *Prioridad* en *Baja*. Todas las máquinas virtuales del conjunto de escalado se establecerán en prioridad baja. Para crear un conjunto de escalado con máquinas virtuales de prioridad baja, use uno de los métodos siguientes:
 - [Azure Portal](#use-the-azure-portal)
-- [CLI de Azure](#use-the-azure-cli-20)
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
-El proceso para crear un conjunto de escalado que use VM de prioridad baja es igual al que se detalla en el [artículo de introducción](quick-create-portal.md). Cuando va a implementar un conjunto de escalado, se puede establecer la marca de prioridad baja y la directiva de expulsión: ![Crear un conjunto de escalado con máquinas virtuales de prioridad baja](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+El proceso para crear un conjunto de escalado que use VM de prioridad baja es igual al que se detalla en el [artículo de introducción](quick-create-portal.md). Cuando vaya a implementar un conjunto de escalado, puede elegir establecer la marca de prioridad baja y la directiva de expulsión: ![Creación de un conjunto de escalado con máquinas virtuales de prioridad baja](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075173"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768688"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -169,7 +169,7 @@ Las unidades de procesamiento se adquieren previamente y se facturan por hora. C
 
 Puede adquirir más unidades de procesamiento en bloques de 20, hasta 100 unidades de rendimiento. Para ello, póngase en contacto con el soporte técnico de Azure. Por encima de ese límite, puede adquirir bloques de 100 unidades de procesamiento.
 
-Se recomienda que equilibre las particiones y las unidades de procesamiento para lograr una escalabilidad óptima. Una sola partición tiene una escala máxima de una unidad de procesamiento. El número de unidades de procesamiento debe ser menor o igual que el número de particiones de un centro de eventos.
+Se recomienda que equilibre las particiones y las unidades de procesamiento para lograr una escalabilidad óptima. Una sola partición tiene una escala mínima de una unidad de procesamiento. El número de unidades de procesamiento debe ser menor o igual que el número de particiones de un centro de eventos.
 
 Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

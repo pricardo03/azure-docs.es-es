@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669482"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809170"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montaje del clúster de Avere de vFXT  
 
 Siga estos pasos para conectar equipos cliente a su clúster de vFXT.
 
 1. Decida cómo equilibrar la carga del tráfico del cliente entre los nodos de su clúster. Lea la sección [Equilibrar la carga de cliente](#balance-client-load) que tiene a continuación para obtener más información. 
-1. Identifique la [dirección IP y la ruta de acceso de unión](#identify-ip-addresses-and-paths-to-mount) que se van a montar.
+1. Identifique la dirección IP y la ruta de acceso de unión que se van a montar.
 1. Ejecute el [comando de montaje](#mount-command-arguments) con los argumentos apropiados.
 
 ## <a name="balance-client-load"></a>Equilibrar la carga de cliente
@@ -28,7 +28,7 @@ Para equilibrar las solicitudes de cliente entre todos los nodos del clúster, d
 > [!TIP] 
 > Otros métodos para equilibrar la carga pueden ser apropiados para sistemas grandes o complicados; [abra una incidencia de soporte técnico](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para obtener ayuda.
 > 
-> Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Avere cluster DNS configuration](avere-vfxt-configure-dns.md) (Configuración de DNS del clúster de Avere).
+> Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Configuración de DNS del clúster de Avere](avere-vfxt-configure-dns.md).
 
 ### <a name="sample-balanced-client-mounting-script"></a>Script de ejemplo para el montaje de cliente equilibrado
 
@@ -68,7 +68,7 @@ Desde el cliente, el comando ``mount`` asigna el servidor virtual (vserver) en e
 
 Hay tres elementos para el comando de montaje: 
 
-* Ruta de acceso vFXT: es una combinación de la dirección IP y la ruta de acceso de la unión del espacio de nombres descrita [a continuación](#junction-and-ip-address).
+* Ruta de acceso de vFXT: es una combinación de la dirección IP y la ruta de acceso de la unión del espacio de nombres descrita a continuación.
 * Ruta de acceso local: es la ruta en el cliente. 
 * Opciones del comando de montaje: están enumeradas en los [argumentos del comando de montaje](#mount-command-arguments).
 

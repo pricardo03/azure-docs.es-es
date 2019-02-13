@@ -8,12 +8,12 @@ ms.topic: resource
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: d220fea64f860ebe5b660f7ebe5ad7db7aec4534
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3b8af6f3f91c54c78cc3b277068272c27055e4aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46370059"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816890"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -25,9 +25,9 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="advanced-routing"></a> **Enrutamiento avanzado**: colección de servicios que realizan operaciones avanzadas mediante datos de enrutamiento, como calcular intervalos accesibles (isócronos), matrices de distancia y solicitudes de enrutamiento por lotes.
 
-<a name="aerial-imagery"></a> **Imágenes aéreas**: vea [imágenes de satélite](#satellite-imagery). 
+<a name="aerial-imagery"></a> **Imágenes aéreas**: vea [Imágenes de satélite](#satellite-imagery). 
 
-<a name="along-a-route-search"></a> **Búsqueda en ruta**: consulta espacial que busca los datos que se encuentran dentro de un período o distancia de desvío especificados desde una ruta de enrutamiento.
+<a name="along-a-route-search"></a> **Búsqueda en ruta delimitada**: consulta espacial que busca los datos que se encuentran dentro de un período o distancia de desvío especificados desde una ruta de acceso de enrutamiento.
 
 <a name="altitude"></a> **Altitud**: altura o elevación vertical de un punto por encima de una superficie de referencia. Las medidas de altitud se basan en datos de referencia concretos; por ejemplo, el nivel medio del mar. Consulte también Elevación.
 
@@ -35,7 +35,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="annotation"></a> **Anotación**: texto o gráfico que se muestra en el mapa para proporcionar información al usuario. La anotación puede identificar o describir una entidad de asignación específica, proporcionar información general sobre un área en el mapa o proporcionar información acerca del propio mapa.
 
-<a name="antimeridian"></a> **Antimeridiano**: también conocido como el meridiano 180, es el punto donde se encuentran los grados de longitud -180 y 180. Es el opuesto al primer meridiano en el globo.
+<a name="antimeridian"></a> **Antimeridiano**: también conocido como el meridiano 180<sup></sup>, es el punto donde se encuentran los grados de longitud -180 y 180. Es el opuesto al primer meridiano en el globo.
 
 <a name="application-programming-interface-api"></a> **Interfaz de programación de aplicaciones (API)**: especificación que permite a los desarrolladores crear aplicaciones.
 
@@ -127,7 +127,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="elevation"></a> **Elevación**: distancia vertical de un punto o un objeto por encima o debajo de una superficie o datos (por lo general, el nivel medio del mar) de referencia. Normalmente, la elevación hace referencia a la altura vertical de la tierra.
 
-<a name="envelope"></a> **Envoltura**: vea [Rectángulo de selección](#bounding-box).
+<a name="envelope"></a> **Sobre**: vea [Rectángulo de selección](#bounding-box).
 
 <a name="extended-postal-code"></a> **Código postal ampliado**: código postal que puede incluir información adicional. Por ejemplo, en Estados Unidos, los códigos postales tienen cinco dígitos, pero los códigos postales ampliados, conocidos como zip + 4, tienen cuatro dígitos más. Estos dígitos adicionales se usan para identificar un segmento geográfico dentro del área de entrega de cinco dígitos, como una manzana en la ciudad, un grupo de apartamentos o un apartado de correos, lo que ayuda en la ordenación y entrega eficientes del correo.
 
@@ -175,7 +175,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="georss"></a> **GeoRSS**: extensión XML para agregar datos espaciales a fuentes RSS.
 
-<a name="gis"></a> **GIS**: acrónimo de "Sistema de información geográfica". Término común que se usa para describir el sector de los mapas.
+<a name="gis"></a> **GIS**: acrónimo en inglés de "Sistema de información geográfica". Término común que se usa para describir el sector de los mapas.
 
 <a name="gml"></a> **GML**: también conocido como lenguaje de marcado geográfico. Extensión de archivo XML para almacenar datos espaciales.
 
@@ -185,9 +185,9 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="great-circle-distance"></a> **Distancia ortodrómica**: distancia más corta entre dos puntos en la superficie de una esfera.
 
-<a name="greenwich-mean-time-gmt"></a> **Hora del meridiano de Greenwich (GMT)**: hora del primer meridiano, que pasa por el Real Observatorio de Greenwich, Inglaterra.
+<a name="greenwich-mean-time-gmt"></a> **Hora del meridiano de Greenwich (GMT)**: hora del primer meridiano, que pasa por el Real Observatorio de Greenwich (Inglaterra).
 
-<a name="guid"></a> **GUID**: identificador único global. Cadena utilizada para identificar de forma única una interfaz, clase, biblioteca de tipos, categoría de componente o registro.
+<a name="guid"></a> **GUID**: un identificador único global. Cadena utilizada para identificar de forma única una interfaz, clase, biblioteca de tipos, categoría de componente o registro.
 
 ## <a name="h"></a>H
 
@@ -197,7 +197,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="heading"></a> **Dirección**: dirección a la que se dirige algo. Vea también [Rumbo](#heading).
 
-<a name="heatmap"></a> **Mapa térmico**: visualización de datos en que una gama de colores representan la densidad de los puntos de un área determinada. Consulte también [Mapa temático](#thermatic-map).
+<a name="heatmap"></a> **Mapa térmico**: visualización de datos en que una gama de colores representan la densidad de los puntos de un área determinada. Vea también Mapa temático.
 
 <a name="hybrid-imagery"></a> **Imágenes híbridas**: imágenes de satélite o aéreas con datos de carretera y etiquetas superpuestos.
 
@@ -219,13 +219,13 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="latitude"></a> **Latitud**: distancia angular medida en grados desde el Ecuador hacia el norte o el sur.
 
-<a name="level-of-detail"></a> **Nivel de detalle**: vea [nivel de zoom](#zoom-level).
+<a name="level-of-detail"></a> **Nivel de detalle**: Vea Nivel de zoom.
 
 <a name="lidar"></a> **Lidar**: acrónimo para la detección y determinación del alcance de la luz. Técnica de detección remota que usa láseres para medir distancias a superficies reflectantes.
 
 <a name="linear-interpolation"></a> **Interpolación lineal**: estimación de un valor desconocido mediante la distancia lineal entre valores conocidos.
 
-<a name="linestring"></a> **Línea poligonal**: geometría usada para representar una línea. También se denomina polilínea. 
+<a name="linestring"></a> **LineString**: geometría usada para representar una línea. También se denomina polilínea. 
 
 <a name="localization"></a> **Localización**: compatibilidad para diferentes idiomas y referencias culturales.
 
@@ -273,7 +273,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="point"></a> **Punto**: geometría que representa una posición única en el mapa. 
 
-<a name="points-of-interest-poi"></a> **Puntos de interés (POI)**: una empresa, punto de referencia o un lugar de interés común.
+<a name="points-of-interest-poi"></a> **Puntos de interés (POI)**: una empresa, punto de referencia o lugar de interés común.
 
 <a name="polygon"></a> **Polígono**: geometría sólida que representa un área en un mapa. 
 
@@ -283,7 +283,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="post-code"></a> **C. P.**: vea [Código postal](#postal-code).
 
-<a name="postal-code"></a> **Código postal**: serie de letras o números, o ambos, en un formato específico, que usa el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo electrónico.
+<a name="postal-code"></a> **Código postal**: serie de letras o números, o ambos, en un formato específico, que usa el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo.
 
 <a name="prime-meridian"></a> **Primer meridiano**: línea de longitud que representa la longitud de 0 grados. Por lo general, los valores de longitud disminuyen al desplazarse hacia el oeste hasta los 180 grados y se reducen al desplazarse hacia el este hasta los -180 grados. 
 
@@ -321,7 +321,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="route"></a> **Ruta**: ruta entre dos o más ubicaciones, que también puede incluir información adicional, como instrucciones para puntos de referencia en la ruta.
 
-<a name="requests-per-second-rps"></a> **Solicitudes por segundo (RPS)**: vea [consultas por segundo (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Solicitudes por segundo (RPS)**: vea [Consultas por segundo (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: acrónimo de Really Simple Syndication, resumen de sitio de marco de descripción de recursos (RDF) o fuentes Rich Site Summary, dependiendo del origen. Un formato XML simple y estructurado para compartir contenido entre diferentes sitios web. Los documentos RSS incluyen elementos de metadatos clave, como autor, fecha, título, una breve descripción y un vínculo de hipertexto. Esta información ayuda a un usuario (o servicio del editor RSS) a decidir qué materiales merecen una investigación más minuciosa.
 
@@ -364,7 +364,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="transformation"></a> **Transformación**: proceso de conversión de datos entre distintos sistemas de coordenadas geográficas. Por ejemplo, podría tener algunos datos capturados en el Reino Unido y basados en el sistema de coordenadas geográficas OSGB 1936. Azure Maps usa la variante del sistema de referencia de coordenadas [EPSG:3857](https://epsg.io/3857) de WGS84. Para que muestren los datos correctamente, sus coordenadas se deben transformar de un sistema a otro.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Problema del vendedor ambulante (TSP)**: problema de camino hamiltoniano en el que un vendedor debe encontrar la manera más eficaz de hacer una serie de visitas y volver a la ubicación inicial.  
+<a name="traveling-salesmen-problem-tsp"></a> **Problema del vendedor ambulante (TSP)**:  problema de camino hamiltoniano en el que un vendedor debe encontrar la manera más eficaz de hacer una serie de visitas y volver a la ubicación inicial.  
 
 <a name="trilateration"></a> **Trilateración**: proceso de determinar la posición de un punto de la superficie terrestre con respecto a otros dos puntos, midiendo las distancias entre los tres puntos.
 

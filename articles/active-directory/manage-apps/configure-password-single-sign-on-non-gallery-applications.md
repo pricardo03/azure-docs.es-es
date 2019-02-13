@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184383"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812491"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
-Además de las opciones que se encuentran en la Galería de aplicaciones de Azure AD, también puede agregar una **aplicación ajena a la galería** cuando la aplicación que desea no aparece ahí. Con esta funcionalidad, puede agregar cualquier aplicación que ya exista en su organización, o bien cualquier aplicación de terceros que puedan usar desde un proveedor que aún no forme parte de la [Galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Además de las opciones que se encuentran en la Galería de aplicaciones de Azure AD, también puede agregar una **aplicación ajena a la galería** cuando la aplicación que desea no aparece ahí. Con esta funcionalidad, puede agregar cualquier aplicación que ya exista en su organización, o bien cualquier aplicación de terceros que puedan usar desde un proveedor que aún no forme parte de la [Galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 Una vez agregada una aplicación ajena a la galería, puede configurar el método de inicio de sesión único que usa esta aplicación seleccionando el elemento de navegación **Inicio de sesión único** en una aplicación de empresa en [Azure Portal](https://portal.azure.com/).
 
-Uno de los métodos de inicio de sesión único que tiene a su disposición es la opción [Inicio de sesión único basado en contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work). Con la experiencia de **agregar una aplicación ajena a la galería**, puede integrar cualquier aplicación que represente un nombre de usuario basado en HTML y el campo de contraseña de entrada, incluso si no está en nuestro conjunto de aplicaciones previamente integradas.
+Uno de los métodos de inicio de sesión único que tiene a su disposición es la opción [Inicio de sesión único basado en contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Con la experiencia de **agregar una aplicación ajena a la galería**, puede integrar cualquier aplicación que represente un nombre de usuario basado en HTML y el campo de contraseña de entrada, incluso si no está en nuestro conjunto de aplicaciones previamente integradas.
 
 El modo de funcionamiento es mediante una tecnología de barrido de páginas que forma parte de la extensión Access Panel que permiten la detección automática de los campos de entrada de nombre de usuario y contraseña, almacénelos de forma segura para la instancia de la aplicación específica. A continuación, reproduzca de forma segura los nombres de usuario y contraseñas en esos campos cuando un usuario navegue a esa aplicación en el panel de acceso de la aplicación.
 
@@ -43,11 +43,11 @@ Representa una excelente manera de empezar a integrar cualquier tipo de aplicaci
 
 -   Permitir que un **miembro del grupo de negocios** especifique los nombres de usuario y contraseñas que se asignan a un usuario mediante el uso de la característica [Acceso de autoservicio a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Permitir que un **administrador** especifique los nombres de usuario y contraseñas que se asignan a un usuario mediante la característica Actualizar credenciales al [asignar un usuario a una aplicación](#_How_to_configure_1)
+-   Permitir que un **administrador** especifique los nombres de usuario y contraseñas que se asignan a un usuario mediante la característica Actualizar credenciales al asignar un usuario a una aplicación
 
 -   Permitir que un **administrador** especifique el nombre de usuario o la contraseña compartidos que utilizan un grupo de personas mediante la característica Actualizar credenciales al [asignar un grupo a una aplicación](#assign-an-application-to-a-group-directly).
 
-En la siguiente sección se describe cómo habilitar el [inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) en una aplicación que agregue mediante la experiencia de **agregar una aplicación que no pertenece a la galería**.
+En la siguiente sección se describe cómo habilitar el [inicio de sesión único con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) en una aplicación que agregue mediante la experiencia de **agregar una aplicación que no pertenece a la galería**.
 
 ## <a name="overview-of-steps-required"></a>Introducción a los pasos necesarios
 
@@ -57,7 +57,7 @@ Para configurar una aplicación desde la galería de Azure AD, necesita seguir e
 
 -   [Configuración de la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 
--   [Asignar la aplicación a un usuario o un grupo](#assign-the-application-to-a-user-or-a-group)
+-   Asignación de la aplicación a un usuario o un grupo
 
     -   [Asignar un usuario a una aplicación directamente](#assign-a-user-to-an-application-directly)
 

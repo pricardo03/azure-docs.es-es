@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332615"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811093"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Un conjunto de datos de Data Factory se define con formato JSON de la manera sig
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -81,12 +81,12 @@ La tabla siguiente describe las propiedades del JSON anterior:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| Nombre |Nombre del conjunto de datos. Consulte [Azure Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |SÍ |N/D |
-| Tipo |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Tipo de conjunto de datos](#Type). |SÍ |N/D |
+| Nombre |Nombre del conjunto de datos. Consulte [Azure Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |Sí |N/D |
+| Tipo |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
 | structure |Esquema del conjunto de datos.<br/><br/>Para más información, consulte [Estructura del conjunto de datos](#Structure). |Sin  |N/D |
-| typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: blob de Azure, tabla de Azure SQL). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#Type). |SÍ |N/D |
+| typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: blob de Azure, tabla de Azure SQL). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
 | external | Marca booleana para especificar si un conjunto de datos es generado explícitamente por una canalización de la factoría de datos o no. Si la canalización actual no produce el conjunto de datos de entrada de una actividad, defina esta marca en true. Establezca esta marca en true para el conjunto de datos de entrada de la primera actividad de la canalización.  |Sin  |false |
-| availability | Define la ventana de procesamiento (por ejemplo, horas, días, etc.) o el modelo de segmentación para la producción del conjunto de datos. Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina segmento de datos. Si la disponibilidad de un conjunto de datos de salida se establece en diaria (frecuencia: día, intervalo: 1), se produce un segmento diariamente. <br/><br/>Para más información, consulte [Disponibilidad del conjunto de datos](#Availability). <br/><br/>Para más información sobre el modelo de segmentación del conjunto de datos, consulte el artículo [Programación y ejecución de Data Factory](data-factory-scheduling-and-execution.md). |SÍ |N/D |
+| availability | Define la ventana de procesamiento (por ejemplo, horas, días, etc.) o el modelo de segmentación para la producción del conjunto de datos. Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina segmento de datos. Si la disponibilidad de un conjunto de datos de salida se establece en diaria (frecuencia: día, intervalo: 1), se produce un segmento diariamente. <br/><br/>Para más información, consulte Disponibilidad del conjunto de datos. <br/><br/>Para más información sobre el modelo de segmentación del conjunto de datos, consulte el artículo [Programación y ejecución de Data Factory](data-factory-scheduling-and-execution.md). |Sí |N/D |
 | policy |Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Para más información, consulte la sección [Directiva del conjunto de datos](#Policy). |Sin  |N/D |
 
 ## <a name="dataset-example"></a>Ejemplo de conjunto de datos
@@ -193,7 +193,7 @@ Cada columna de la estructura contiene las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la columna. |SÍ |
+| Nombre |Nombre de la columna. |Sí |
 | Tipo |Tipo de datos de la columna.  |Sin  |
 | culture |Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. |Sin  |
 | formato |Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. |Sin  |
@@ -235,8 +235,8 @@ La tabla siguiente describe las propiedades que puede utilizar en la sección de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month |SÍ |N/D |
-| interval |Especifica un multiplicador para "frequency".<br/><br/>"Frequency x interval" determina la frecuencia con la que se produce el segmento. Por ejemplo, si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/>Observe que si especifica **frequency** como **Minute**, debe establecer el intervalo en un valor no inferior a 15. |SÍ |N/D |
+| frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month |Sí |N/D |
+| interval |Especifica un multiplicador para "frequency".<br/><br/>"Frequency x interval" determina la frecuencia con la que se produce el segmento. Por ejemplo, si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/>Observe que si especifica **frequency** como **Minute**, debe establecer el intervalo en un valor no inferior a 15. |Sí |N/D |
 | style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** se establece en **Month** y **style** se establece en **EndOfInterval**, el segmento se produce el último día del mes. Si **style** se establece en **StartOfInterval**, el segmento se produce el primer día del mes.<br/><br/>Si **frequency** se establece en **Day** y **style** se establece en **EndOfInterval**, el segmento se produce la última hora del día.<br/><br/>Si **frequency** se establece en **Hour** y **style** se establece en **EndOfInterval**, el segmento se produce al final de la hora. Por ejemplo, para un segmento en el período de 1 p.m. - 2 p.m., el segmento se producirá a las 2 p.m. |Sin  |EndOfInterval |
 | anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/>Tenga en cuenta que si esta propiedad tiene partes de fecha que son más específicas que la frecuencia indicada, las partes más específicas se ignoran. Por ejemplo, si el valor de **interval** es **hourly** (frecuencia: hora e intervalo: 1) y **anchorDateTime** contiene **minutes and seconds**, las partes de minutes and seconds de **anchorDateTime** no se tienen en cuenta. |Sin  |01/01/0001 |
 | Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/>Tenga en cuenta que si se especifican **anchorDateTime** y **offset**, el resultado es el desplazamiento combinado. |Sin  |N/D |

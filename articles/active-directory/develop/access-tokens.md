@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080572"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811569"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acceso de Azure Active Directory
 
@@ -239,6 +239,8 @@ Los tokens de actualización pueden ser invalidados o revocados en cualquier mom
 > Un inicio de sesión "no basado en contraseña" es aquel en el que el usuario no escribió una contraseña para obtenerlo. Por ejemplo, con la cara con Windows Hello, una clave de FIDO o un PIN. 
 >
 > Existe un problema conocido con el token de actualización principal de Windows. Si el PRT se obtiene a través de una contraseña y, luego, el usuario inicia sesión a través de Hello, no se cambia el origen del PRT y se revocará si el usuario cambia su contraseña.
+>
+> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 1/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: ef7b4377da541068cef7cdd2de5a98d33c3b80ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88ffa70f7ac21a2c28af994f1e2ed3b6939f6ad9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198771"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567424"
 ---
 # <a name="azure-marketplace-participation-policies"></a>Directivas de participación de Azure Marketplace
 
@@ -35,7 +35,7 @@ Estas directivas de participación de Microsoft Azure Marketplace se aplican a t
 
 1. Los anunciantes deben encontrarse en uno de los países de origen de venta admitidos por Azure Marketplace. Actualmente, Azure Marketplace admite los siguientes países de origen de venta:  Afganistán, Albania, Alemania, Angola, Antigua y Barbuda, Arabia Saudí, Argelia, Argentina, Armenia, Australia, Austria, Azerbaiyán, Bangladés, Baréin, Belarús, Bélgica, Benín, Bolivia, Bosnia y Herzegovina, Botsuana, Brasil, Bulgaria, Burkina Faso, Burundi, Camboya, Camerún, Canadá, Catar, Chad, Chile, Chipre, Colombia, Comoras, Congo (RDC), Congo (República del), Corea (del Sur), Costa Rica, Côte d’Ivoire, Croacia, Dinamarca, Dominica, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, Eritrea, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Etiopía, Filipinas, Finlandia, Francia, Georgia, Ghana, Grecia, Guatemala, Guinea, Haití, Honduras, Hungría, India, Indonesia, Irak, Irlanda, Islandia, Islas Fiyi, Israel, Italia, Jamaica, Japón, Jordania, Kazajistán, Kenia, Kuwait, Laos, Letonia, Líbano, Liberia, Liechtenstein, Lituania, Luxemburgo, Madagascar, Malasia, Malaui, Mali, Malta, Marruecos, Mauricio, México, Mónaco, Mongolia, Montenegro, Mozambique, Nepal, Nicaragua, Níger, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, RAE de Hong Kong, Reino Unido, República Centroafricana, República Checa, República Dominicana, Ruanda, Rumania, Rusia, Senegal, Serbia, Sierra Leona, Singapur, Somalia, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Tanzania, Tayikistán, Timor-Leste, Togo, Tonga, Trinidad y Tobago, Túnez, Turkmenistán, Turquía, Ucrania, Uganda, Uruguay, Uzbekistán, Venezuela, Vietnam, Zambia y Zimbabue.
 
-1. Los anunciantes deben poner a disposición cada oferta en al menos uno de los países de destino de venta admitidos por Azure Marketplace. Actualmente, Azure Marketplace admite los siguientes países de destino de venta:  Alemania, Arabia Saudí, Argelia, Argentina, Australia, Austria, Baréin, Belarús, Bélgica, Brasil, Bulgaria, Canadá, Chile, Chipre, Colombia, Corea del Sur, Costa Rica, Croacia, Dinamarca, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, ERY de Macedonia, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Filipinas, Finlandia, Francia, Grecia, Guatemala, Hong Kong, Hungría, India, Indonesia, Irlanda, Islandia, Israel, Italia, Japón, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Liechtenstein, Lituania, Luxemburgo, Malasia, Malta, Marruecos, México, Montenegro, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, Puerto Rico, Qatar, Reino Unido, República Checa, República Dominicana, Rumania, Rusia, Serbia, Singapur, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Taiwán, Trinidad y Tobago, Túnez, Turquía, Ucrania, Uruguay, Venezuela. 
+1. Los anunciantes deben poner a disposición cada oferta en al menos uno de los países de destino de venta admitidos por Azure Marketplace. Actualmente, Azure Marketplace admite los siguientes países de destino de venta: Alemania, Arabia Saudí, Argelia, Argentina, Australia, Austria, Baréin, Belarús, Bélgica, Brasil, Bulgaria, Canadá, Chile, Chipre, Colombia, Corea del Sur, Costa Rica, Croacia, Dinamarca, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, ERY de Macedonia, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Filipinas, Finlandia, Francia, Grecia, Guatemala, Hong Kong, Hungría, India, Indonesia, Irlanda, Islandia, Israel, Italia, Japón, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Liechtenstein, Lituania, Luxemburgo, Malasia, Malta, Marruecos, México, Montenegro, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, Puerto Rico, Qatar, Reino Unido, República Checa, República Dominicana, Rumania, Rusia, Serbia, Singapur, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Taiwán, Trinidad y Tobago, Túnez, Turquía, Ucrania, Uruguay, Venezuela.
 
 1. La situación financiera de los anunciantes debe ser óptima.
 
@@ -47,7 +47,7 @@ Estas directivas de participación de Microsoft Azure Marketplace se aplican a t
 
 1. Los anunciantes deben indicar la disponibilidad de su oferta en Azure Marketplace en su sitio web público e incluir hipervínculos a las páginas de descripción de la oferta en [https://azuremarketplace.microsoft.com/marketplace/](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Los anunciantes deben clasificar cada oferta en función de una o varias de las taxonomías de clasificación proporcionadas por Microsoft, incluidas las categorías descritas en la Sección 4 de este documento. Si Microsoft considera que la clasificación seleccionada por un anunciante es inexacta, se reserva el derecho de reclasificar cualquier oferta.
+1. Los anunciantes deben clasificar cada oferta en función de una o varias de las taxonomías de clasificación proporcionadas por Microsoft, incluidas las categorías descritas en la **Definiciones de clasificación de ofertas** de este documento. Si Microsoft considera que la clasificación seleccionada por un anunciante es inexacta, se reserva el derecho de reclasificar cualquier oferta.
 
 1. Si la oferta de un anunciante cuenta con la certificación Microsoft Azure Certified y no se ejecuta principalmente en Microsoft Azure, el anunciante deberá disponer de una versión de pago de la oferta en Marketplace en un plazo de 90 días a partir de la publicación de una versión gratuita o BYOL de dicha oferta.
 
@@ -122,7 +122,7 @@ Después de publicar una Oferta de servicio en Marketplace, los Anunciantes debe
     * La oferta recibe de manera sistemática muchas incidencias de soporte técnico; o
     * El anunciante no ha cumplido los términos y condiciones del Contrato del anunciante de Microsoft Marketplace, las Directrices de publicación de Marketplace o este documento.
 
-1. Puede decidir eliminar su oferta de Marketplace por varios motivos. La eliminación de ofertas garantiza que los clientes nuevos ya no puedan adquirir ni implementar la oferta, pero afecta a los clientes existentes. La finalización de la oferta es el proceso de terminación del servicio o contrato de licencia entre usted y los clientes existentes. Las directrices y las directivas relacionadas con la retirada y la terminación de la oferta se rigen en virtud del Contrato del anunciante de Microsoft Marketplace (consulte la Sección 7). Puede solicitar la retirada o la terminación mediante el registro de un vale de soporte.
+1. Puede decidir eliminar su oferta de Marketplace por varios motivos. La eliminación de ofertas garantiza que los clientes nuevos ya no puedan adquirir ni implementar la oferta, pero afecta a los clientes existentes. La finalización de la oferta es el proceso de terminación del servicio o contrato de licencia entre usted y los clientes existentes. Las directrices y las directivas relacionadas con la retirada y la terminación de la oferta se rigen en virtud del Contrato del anunciante de Microsoft Marketplace (vea la sección "Condiciones de Pago"). Puede solicitar la retirada o la terminación mediante el registro de un vale de soporte.
 
 ## <a name="payment-terms"></a>Términos de pago
 
@@ -138,19 +138,35 @@ Microsoft permite a los anunciantes incluir los siguientes productos de software
 
 ## <a name="taxes"></a>Impuestos
 
-1. **Países de remesa de Microsoft.**
+1. **Responsabilidad fiscal sobre las ventas a clientes finales**.
 
-    1. Los países siguientes son los países de remesa de Microsoft, como se define en el Contrato del anunciante de Microsoft Marketplace: Canadá, Corea del Sur, Estados Unidos, India, Irlanda, Liechtenstein, Mónaco, Noruega, Nueva Zelanda, Puerto Rico, Suiza, Unión Europea. Arabia Saudí, Australia, Emiratos Árabes Unidos y Taiwán son países de remesa de Microsoft solo para ventas directas a través de la Web.
+    1. En general, cada una de las responsabilidades fiscales de Microsoft y del anunciante sobre las ventas a clientes finales dependen del país y el escenario de compra en que se venden las ofertas.
 
-    1. En Irlanda, Microsoft aplica el IVA irlandés a todos los clientes de dicho país, a menos que estos presenten información sobre la disponibilidad de un certificado de IVA 56B válido. Si se trata de clientes empresariales de la Unión Europea y Noruega (ubicados fuera de Irlanda), Microsoft aplica un tipo de IVA cero si se le proporciona un número de IVA válido. En caso de no proporcionar dicho número, a los clientes se les aplica un tipo de IVA aplicable en la jurisdicción o en el país correspondiente.
+    1. En determinados países (**países administrados por Microsoft**), Microsoft asume la responsabilidad de administrar los impuestos sobre los clientes finales, que puede englobar la validación del estado comercial de los clientes mediante la obtención de los números de registros fiscales o los certificados de exención, relaciones con clientes sujetas a una administración más minuciosa y cómputo, recaudación o pago de impuestos.  En aquellos casos en los que las ventas se realizan mediante asociados, Microsoft asume que todos los asociados son empresas y, como tal, cumplen debidamente sus obligaciones fiscales.  Se puede encontrar información adicional en las [preguntas frecuentes](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Microsoft cobra el IVA vigente en Suiza a todos los clientes que se encuentren en Suiza o Liechtenstein.
+    1. Si se trata de países no categorizados como países administrados por Microsoft (**países administrados por ISV**), los anunciantes reconocen y aceptan tener la responsabilidad exclusiva de determinar y administrar los impuestos sobre clientes finales, a efectos, por ejemplo, de registro, cálculo, recaudación y pago de impuestos, validación del estado comercial de los clientes y presentación de las facturas de impuestos a los clientes, por todas las ofertas que dichos anunciantes comercialicen en los países administrados por ISV.  Los anunciantes reconocen que, si se trata de cualquier venta en un país administrado por ISV, puede que Microsoft no pueda satisfacerla actualmente.
 
-1. **Países de envío ISV.**
+    1. Los clientes finales podrán adquirir las ofertas directamente de Microsoft o de los asociados de Microsoft a quienes el anunciante haya concedido licencias para su producto.  Además, hay varios programas de licencias diferentes.  En algunos casos, los países administrados por Microsoft pueden pasar a ser países administrados por ISV, y viceversa (vea la sección **Países administrados por Microsoft** a continuación). Puede encontrar información sobre escenarios de compra de clientes en [Preguntas más frecuentes de Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. Los países de envío ISV son todos aquellos países a los que se puede vender establecidos en la sección 1, apartado 3, de esta directiva, que no sean países de remesa de Microsoft. Además, las ventas para Arabia Saudí, Australia, Emiratos Árabes Unidos y Taiwán a través del canal Enterprise se tratan como ventas de envío ISV. Sin embargo, lo que respecta a los anunciantes de Taiwán, Microsoft no puede confirmar que cualquiera de esos anunciantes taiwaneses cobren y remitan los impuestos aplicables.
+1. **Países administrados por Microsoft**.
 
-    1. Si los anunciantes optan por publicar ofertas en un País de envío ISV, tendrán la responsabilidad exclusiva de determinar su obligación fiscal en dicho país, en caso de que exista alguna.  Deben aceptar que es posible que Microsoft no pueda proporcionar actualmente los detalles de las transacciones que se requieren para que los anunciantes proporcionen facturas de impuestos a los clientes.
+    1. A continuación, se indican los países administrados de Microsoft para las ventas realizadas en todos los escenarios de compra de clientes: Arabia Saudí, Armenia, Belarús, Canadá, Corea del Sur, Emiratos Árabes Unidos, Estados Unidos, India, Irlanda, Liechtenstein, Mónaco, Noruega, Nueva Zelanda, Puerto Rico, Rusia, Serbia, Suiza, Taiwán, Turquía y Unión Europea. 
+
+    1. Australia es un país administrado por Microsoft para las ventas realizadas en todos los escenarios de compra de clientes, salvo para el escenario sujeto al Contrato Enterprise.
+
+    1. Microsoft administra los impuestos sobre clientes finales por los anunciantes para su comodidad y, en este sentido, ha adoptado los escenarios más comunes para determinar los países y las estrategias para administrar los impuestos sobre los clientes finales.
+
+    1. Microsoft no ofrece ninguna garantía de que las acciones de Microsoft cumplirán íntegramente las obligaciones de los anunciantes en los países administrados por Microsoft.  Para todos los países administrados por Microsoft, Microsoft recomienda encarecidamente a los anunciantes que recurran a sus propios asesores fiscales para asegurarse de que el pago fiscal administrado por Microsoft aborda de manera suficiente los requisitos de cumplimiento de los anunciantes.  Esto es particularmente importante para todos los países administrados por Microsoft desde los que los anunciantes venden sus productos.  Por ejemplo, un anunciante establecido en Arabia Saudí que venden ofertas en dicho países podrá determinar que puede no ser suficiente contar con la administración que Microsoft hace de los impuestos para poder satisfacer sus obligaciones de cumplimiento como anunciante.
+
+1. **Países administrados por ISV**.
+
+    1. Los países administrados por ISV comprenden Australia, para todas las ventas realizadas en el escenario de compra de clientes sujeto al Contrato Enterprise, y todos los países no mencionados en la sección **Países administrados por Microsoft**.
+
+1. **Casos especiales**.
+
+    1. *Brasil*.  Para las ventas en Brasil en todos los escenarios de compras de clientes, salvo CSP, Brasil es un país administrado por Microsoft, y Microsoft actúa como revendedor, en lugar de como agente de anunciantes.  En el caso de las ventas en Brasil en el escenario de compra de clientes CSP, Microsoft actúa como agente de los anunciantes y vende desde una entidad de Brasil a CSP brasileños que Microsoft asume que cumplen con sus correspondientes obligaciones fiscales. 
+
+    1. *México*.  Para las ventas en México en el escenario de compra de clientes sujeto al Contrato Enterprise, México es un país administrado por Microsoft, y Microsoft actúa como un revendedor, en lugar de como agente de anunciantes.  En el caso de las ventas realizadas en México en todos los escenarios de compra de clientes, salvo aquel sujeto al Contrato Enterprise, México es un país administrado por ISV y Microsoft actúa como agente de los anunciantes.
 
 ## <a name="security-events"></a>Eventos de seguridad
 

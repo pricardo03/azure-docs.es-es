@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467652"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811776"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -39,7 +39,7 @@ Para ver las métricas que admiten dimensiones, puede filtrar las métricas con 
 
 ### <a name="access-metrics-with-the-rest-api"></a>Acceso a métricas con la API de REST
 
-Azure Monitor proporciona [API de REST](/rest/api/monitor/) para leer la definición y los valores de las métricas. En esta sección se muestra cómo leer las métricas de almacenamiento. El identificador de recurso se usa en todas las API de REST. Para obtener más información, lea [Descripción de identificador de recurso para los servicios de Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor proporciona [API de REST](/rest/api/monitor/) para leer la definición y los valores de las métricas. En esta sección se muestra cómo leer las métricas de almacenamiento. El identificador de recurso se usa en todas las API de REST. Para más información, lea Descripción del identificador de recursos en los servicios de Storage.
 
 En el ejemplo siguiente se muestra cómo usar [ArmClient](https://github.com/projectkudu/ARMClient) en la línea de comandos para simplificar la realización de pruebas con la API de REST.
 
@@ -136,7 +136,7 @@ La respuesta siguiente contiene valores de métricas en formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Acceso a métricas con el SDK de .NET
 
-Azure Monitor proporciona [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento. El identificador de recurso se usa en el SDK de .NET. Para obtener más información, lea [Descripción de identificador de recurso para los servicios de Storage](#understanding-resource-id-for-services-in-storage).
+Azure Monitor proporciona [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para leer la definición y los valores de las métricas. El [código de ejemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) muestra cómo utilizar el SDK con parámetros diferentes. Debe usar `0.18.0-preview` o una versión posterior para las métricas de almacenamiento. El identificador de recurso se usa en el SDK de .NET. Para más información, lea Descripción del identificador de recursos en los servicios de Storage.
 
 En el ejemplo siguiente se muestra cómo utilizar el SDK de .NET de Azure Monitor para leer las métricas de almacenamiento.
 
@@ -391,8 +391,8 @@ Azure Storage admite los siguientes dimensiones para las métricas en Azure Moni
 | BlobType | Solo el tipo de blob de las métricas de Blob. Los valores que se admiten son **BlockBlob** y **PageBlob**. Anexar Blob se incluye en BlockBlob. |
 | ResponseType | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>ServerOtherError: todos los errores del servidor, excepto los descritos. </li> <li> ServerBusyError: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li> ServerTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li> AuthorizationError: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li> NetworkError: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>    ClientThrottlingError: error de limitación del lado cliente. </li> <li> ClientTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li> ClientOtherError: todos los errores del lado cliente, excepto los descritos. </li> <li> Correcto: solicitud correcta.|
 | GeoType | Transacción de clúster principal o secundario. Los valores disponibles incluyen Principal y Secundario. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
-| ApiName | El nombre de la operación. Por ejemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para ver los nombres de todas las operaciones, consulte este [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Autenticación | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>AccountKey: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>SAS: la transacción se autentica con firmas de acceso compartido.</li> <li>OAuth: la transacción se autentica con tokens de acceso de OAuth.</li> <li>Anonymous: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>AnonymousPreflight: la transacción es una solicitud preparatoria.</li> |
+| ApiName | El nombre de la operación. Por ejemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para ver los nombres de todas las operaciones, consulte este [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| Authentication | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>AccountKey: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>SAS: la transacción se autentica con firmas de acceso compartido.</li> <li>OAuth: la transacción se autentica con tokens de acceso de OAuth.</li> <li>Anonymous: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>AnonymousPreflight: la transacción es una solicitud preparatoria.</li> |
 
 En el caso de las dimensiones compatibles con métricas, es preciso especificar el valor de la dimensión para ver los valores correspondientes de las métricas. Por ejemplo, si observa el valor **Transactions** en las respuestas correctas, es preciso filtrar la dimensión **ResponseType** por **Success**. O bien si examina el valor **BlobCount** de Blob en bloques, es preciso filtrar la dimensión **BlobType** por **BlockBlob**.
 
@@ -401,6 +401,10 @@ En el caso de las dimensiones compatibles con métricas, es preciso especificar 
 Las métricas heredades están disponibles en paralelo con las métricas de Azure Monitor. La compatibilidad sigue siendo la misma hasta que Azure Storage finaliza el servicio en las métricas heredadas.
 
 ## <a name="faq"></a>Preguntas más frecuentes
+
+**¿Es compatible la nueva métrica con la cuenta de almacenamiento clásica?**
+
+No, la métrica nueva de Azure Monitor solo admite cuentas de almacenamiento de Azure Resource Manager. Si desea usar la métricas en cuentas de almacenamiento, es preciso que realice la migración a una cuenta de almacenamiento de Azure Resource Manager. Consulte [Migración a Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **¿Admite Azure Storage métricas de discos administrados o no administrados?**
 

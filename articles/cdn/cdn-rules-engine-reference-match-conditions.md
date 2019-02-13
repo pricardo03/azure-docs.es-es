@@ -1,5 +1,5 @@
 ---
-title: Condiciones de coincidencia del motor de reglas de la red CDN de Azure | Microsoft Docs
+title: Condiciones de coincidencia del motor de reglas de Azure CDN | Microsoft Docs
 description: Documentación de referencia sobre las condiciones de coincidencia del motor de reglas de Azure Content Delivery Network
 services: cdn
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30173328"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820563"
 ---
-# <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de la red CDN de Azure 
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
 
 La segunda parte de una regla es la condición de coincidencia. Una condición de coincidencia identifica tipos específicos de solicitudes para los que se ejecutará un conjunto de características.
@@ -107,7 +107,7 @@ NOMBRE | Propósito
 
 La condición de coincidencia Siempre aplica un conjunto predeterminado de características a todas las solicitudes.
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -116,8 +116,8 @@ La condición de coincidencia Siempre aplica un conjunto predeterminado de carac
 La red del número de sistema autónomo se define por el número de sistema autónomo (ASN). 
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Número de sistema autónomo (AS):
-- **Coincide**: requiere que el ASN de la red del cliente coincida con uno de los ASN especificados. 
-- **No coincide**: requiere que el ASN de la red del cliente no coincida con ninguno de los ASN especificados.
+- **Matches** (Coincide): requiere que el ASN de la red del cliente coincida con uno de los ASN especificados. 
+- **Does Not Match** (No coincide): requiere que el ASN de la red del cliente no coincida con ninguno de los ASN especificados.
 
 Información importante:
 - Especifique varios números de sistema autónomo mediante la delimitación de cada uno con un espacio. Por ejemplo, 64514 64515 coincide con las solicitudes que llegan desde 64514 o 64515.
@@ -130,7 +130,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -146,7 +146,7 @@ Información importante:
  - El punto de acceso al contenido identifica el servicio que debe atender el contenido solicitado.
  - No use una instrucción AND IF para combinar determinadas condiciones de coincidencia. Por ejemplo, la combinación de una condición de coincidencia Origen de red CDN con una Origen de cliente crearía un patrón de coincidencia que no se puede cumplir. Por esta razón, no se pueden combinar dos condiciones de coincidencia Origen de red CDN mediante una instrucción AND IF.
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -163,7 +163,7 @@ Información importante:
   - **Ejemplo IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 coincide con las solicitudes que llegan desde la dirección 1:2:3:4:5:6:7:8 o 10:20:30:40:50:60:70:80.
 - La sintaxis de un bloque de direcciones IP es la dirección IP de base seguida por una barra diagonal y el tamaño del prefijo. Por ejemplo: 
   - **Ejemplo IPv4**: 5.5.5.64/26 coincide con las solicitudes que llegan desde la dirección 5.5.5.64 hasta la 5.5.5.127.
-  - **Ejemplo de IPv6**: 1:2:3:/48 coincide con las solicitudes que llegan desde la dirección 1:2:3:0:0:0:0:0 hasta la 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Ejemplo IPv6**: 1:2:3:/48 coincide con las solicitudes que llegan desde la dirección 1:2:3:0:0:0:0:0 hasta la 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta condición de coincidencia es incompatible con las siguientes características:
   - Relleno de la memoria caché completa
   - Max-Age interna predeterminada
@@ -171,7 +171,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -200,7 +200,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -229,7 +229,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -261,12 +261,12 @@ Esta condición de coincidencia permite realizar un gran número de personalizac
     Anexe un asterisco al final de la ruta de acceso relativa para asegurarse de que el acceso a todos sus elementos secundarios se limitará mediante esta regla.
 
 - Coincidencia de país: establezca la condición de coincidencia de país en el conjunto deseado de países.
-   - Permitir: Establezca la condición de coincidencia de país en **Does Not Match** (No coincide) para permitir únicamente el acceso de los países especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de URL.
-   - Bloquear: Establezca la condición de coincidencia de país en **Matches** (Coincide) para bloquear el acceso de los países especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de URL.
+   - Permitir: establezca la condición de coincidencia de país en **Does Not Match** (No coincide) para permitir únicamente el acceso de los países especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de URL.
+   - Bloquear: establezca la condición de coincidencia de país en **Matches** (Coincide) para bloquear el acceso de los países especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de URL.
 
-- Característica de denegación de acceso (403): Habilite la [característica de denegación de acceso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar la parte permitidos o bloqueados de la característica de filtrado por país.
+- Característica de denegación de acceso (403): habilite la [característica de denegación de acceso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar la parte permitidos o bloqueados de la característica de filtrado por país.
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -280,7 +280,7 @@ Información importante:
   - Una configuración de CNAME perimetral
 - No use una instrucción AND IF para combinar determinadas condiciones de coincidencia. Por ejemplo, la combinación de una condición de coincidencia Origen de cliente con una Origen de red CDN crearía un patrón de coincidencia que no se puede cumplir. Por esta razón, no se pueden combinar dos condiciones de coincidencia Origen de cliente mediante una instrucción AND IF.
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -306,7 +306,7 @@ Información importante:
 #### <a name="string-type"></a>Tipo de cadena
 Normalmente, una funcionalidad WURFL acepta cualquier combinación de números, letras y símbolos. Debido a la naturaleza flexible de esta funcionalidad, debe elegir cómo se interpreta el valor asociado a esta condición de coincidencia. La tabla siguiente describe el conjunto de opciones disponibles:
 
-type     | DESCRIPCIÓN
+Type     | DESCRIPCIÓN
 ---------|------------
 Literal  | Seleccione esta opción para evitar que la mayoría de los caracteres tengan un significado especial mediante el uso de su [valor literal](cdn-rules-engine-reference.md#literal-values).
 Wildcard (Carácter comodín) | Seleccione esta opción para aprovechar las ventajas de todos los [caracteres comodín] ([valores de caracteres comodín](cdn-rules-engine-reference.md#wildcard-values).
@@ -343,7 +343,7 @@ Fecha de lanzamiento | %{wurfl_cap_release_date} | Una cadena que indica el año
 Altura de resolución | %{wurfl_cap_resolution_height} | Un entero que indica la altura del dispositivo en píxeles. | 768
 Anchura de resolución | %{wurfl_cap_resolution_width} | Un entero que indica la anchura del dispositivo en píxeles. | 1024
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -360,7 +360,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -384,14 +384,14 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
 ---  
 ### <a name="request-header-literal"></a>Literal de encabezado de solicitud
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Literal de encabezado de solicitud.
-- **Matches** (Coincide): requiere que la solicitud para contenga el encabezado especificado. Su valor debe coincidir con el que se define en esta condición de coincidencia.
+- **Matches** (Coincide): requiere que la solicitud contenga el encabezado especificado. Su valor debe coincidir con el que se define en esta condición de coincidencia.
 - **Does Not Match** (No coincide): requiere que la solicitud cumpla cualquiera de los siguientes criterios:
   - No contenga el encabezado especificado.
   - Contenga el encabezado especificado, pero que su valor no coincida con el que se define en esta condición de coincidencia.
@@ -405,14 +405,14 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
 ---  
 ### <a name="request-header-regex"></a>Regex de encabezado de solicitud
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Regex de encabezado de solicitud.
-- **Matches** (Coincide): requiere que la solicitud para contenga el encabezado especificado. Su valor debe coincidir con el patrón que se define en la [expresión regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
+- **Matches** (Coincide): requiere que la solicitud contenga el encabezado especificado. Su valor debe coincidir con el patrón que se define en la [expresión regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
 - **Does Not Match** (No coincide): requiere que la solicitud cumpla cualquiera de los siguientes criterios:
   - No contenga el encabezado especificado.
   - Contenga el encabezado especificado, pero que su valor no coincida con la expresión regular especificada.
@@ -432,14 +432,14 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna 
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
 ---
 ### <a name="request-header-wildcard"></a>Carácter comodín de encabezado de solicitud
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Caracteres comodín de encabezado de solicitud.
-- **Matches** (Coincide): requiere que la solicitud para contenga el encabezado especificado. Su valor debe coincidir con al menos uno de los valores que se definen en esta condición de coincidencia.
+- **Matches** (Coincide): requiere que la solicitud contenga el encabezado especificado. Su valor debe coincidir con al menos uno de los valores que se definen en esta condición de coincidencia.
 - **Does Not Match** (No coincide): requiere que la solicitud cumpla cualquiera de los siguientes criterios:
   - No contenga el encabezado especificado.
   - Contenga el encabezado especificado, pero que su valor no coincida con ninguno de los valores especificados.
@@ -460,7 +460,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -485,7 +485,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -503,7 +503,7 @@ Información importante:
   - Ignorar no almacenar en caché de origen
   - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -512,8 +512,8 @@ Información importante:
 Identifica una solicitud por su ruta de acceso relativa, que excluye el nombre de archivo del recurso solicitado.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Directorio de ruta de acceso URL.
-- **Coincide**: requiere que la solicitud contenga una ruta de acceso URL relativa, sin incluir el nombre de archivo, que coincida con el patrón de dirección URL especificado.
-- **No coincide**: requiere que la solicitud contenga una ruta de acceso URL relativa, sin incluir el nombre de archivo, que no coincida con el patrón de dirección URL especificado.
+- **Matches** (Coincide): requiere que la solicitud contenga una ruta de acceso URL relativa, sin incluir el nombre de archivo, que coincida con el patrón de dirección URL especificado.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una ruta de acceso URL relativa, sin incluir el nombre de archivo, que no coincida con el patrón de dirección URL especificado.
 
 Información importante:
 - Use la opción **Relative to** (Relativo a) para especificar si la comparación de la dirección URL debe comenzar antes o después del punto de acceso al contenido. El punto de acceso al contenido es la parte de la ruta de acceso que aparece entre el nombre de host de Verizon CDN y la ruta de acceso relativa al recurso solicitado (por ejemplo, /800001/CustomerOrigin). Identifica una ubicación por tipo de servidor (por ejemplo, red CDN u origen del cliente) y el número de cuenta de cliente.
@@ -523,7 +523,7 @@ Información importante:
 
      Por ejemplo: http:\//wpc.0001.&lt;dominio&gt;/**800001/myorigin/myfolder**/index.htm
 
-   - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de la red CDN de Azure deben utilizar el valor **Origin** (Origen). 
+   - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
 
      Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder**/index.htm 
 
@@ -557,7 +557,7 @@ Información importante:
 
 - Utilice la opción **Ignore Case** (No distinguir mayúsculas y minúsculas) para controlar si en la comparación se distinguirán mayúsculas y minúsculas.
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -566,11 +566,11 @@ Información importante:
 Identifica las solicitudes por la extensión de archivo del recurso solicitado.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Extensión de ruta de acceso URL.
-- **Coincide**: requiere que la dirección URL de la solicitud contenga una extensión de archivo que coincida exactamente con el patrón especificado.
+- **Matches** (Coincide): requiere que la dirección URL de la solicitud contenga una extensión de archivo que coincida exactamente con el patrón especificado.
 
    Por ejemplo, si especifica "htm", coinciden los recursos "htm" pero no los recursos "html".  
 
-- **No coincide**: requiere que la dirección URL de la solicitud contenga una extensión de archivo que no coincida con el patrón especificado.
+- **Does Not Match** (No coincide): requiere que la dirección URL de la solicitud contenga una extensión de archivo que no coincida con el patrón especificado.
 
 Información importante:
 - Debe especificar las extensiones de archivo para que coincidan con el cuadro **Valor**. No incluya un punto inicial; por ejemplo, utilice htm en lugar de .htm.
@@ -596,7 +596,7 @@ Esta condición de coincidencia se cumple cuando se encuentran direcciones URL q
 - .php
 - .html
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -605,8 +605,8 @@ Esta condición de coincidencia se cumple cuando se encuentran direcciones URL q
 Identifica las solicitudes por el nombre de archivo del recurso solicitado. A efectos de esta condición de coincidencia, un nombre de archivo consta del nombre del recurso solicitado, un punto y la extensión de archivo (por ejemplo, index.html).
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Nombre de archivo de ruta de acceso URL.
-- **Coincide**: requiere que la solicitud contenga un nombre de archivo en la ruta de acceso URL que coincida con el patrón especificado.
-- **No coincide**: requiere que la solicitud contenga un nombre de archivo en la ruta de acceso URL que no coincida con el patrón especificado.
+- **Matches** (Coincide): requiere que la solicitud contenga un nombre de archivo en la ruta de acceso URL que coincida con el patrón especificado.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga un nombre de archivo en la ruta de acceso URL que no coincida con el patrón especificado.
 
 Información importante:
 - Utilice la opción **Ignore Case** (No distinguir mayúsculas y minúsculas) para controlar si en la comparación se distinguirán mayúsculas y minúsculas.
@@ -623,7 +623,7 @@ Información importante:
 
     Por ejemplo, especificar "presentation.ppt" coincide con un recurso llamado "presentation.ppt", pero no uno con nombre "presentation.pptx."
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -632,8 +632,8 @@ Información importante:
 Compara la ruta de acceso URL de la solicitud, incluido el nombre de archivo, con el valor especificado.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Literal de ruta de acceso URL.
-- **Coincide**: requiere que la solicitud contenga una ruta de acceso URL que coincida con el patrón especificado.
-- **No coincide**: requiere que la solicitud contenga una ruta de acceso URL que no coincida con el patrón especificado.
+- **Matches** (Coincide): requiere que la solicitud contenga una ruta de acceso URL que coincida con el patrón especificado.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una ruta de acceso URL que no coincida con el patrón especificado.
 
 Información importante:
 - Use la opción **Relative to** (Relativo a) para especificar si la comparación de la dirección URL debe comenzar antes o después del punto de acceso al contenido. 
@@ -643,7 +643,7 @@ Información importante:
 
        Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de la red CDN de Azure deben utilizar el valor **Origin** (Origen). 
+     - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
 
        Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
 
@@ -667,7 +667,7 @@ Información importante:
 
 - Para hacer coincidir todas las solicitudes realizadas a un directorio determinado, utilice la condición de coincidencia [directorio de la ruta de acceso URL](#url-path-directory) o [carácter comodín de la ruta de acceso URL](#url-path-wildcard).
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -676,8 +676,8 @@ Información importante:
 Compara la ruta de acceso de una solicitud con la [expresión regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Regex de ruta de acceso URL.
-- **Coincide**: requiere que la solicitud contenga una ruta de acceso URL que coincida con la expresión regular especificada.
-- **No coincide**: requiere que la solicitud contenga una ruta de acceso URL que no coincida con la expresión regular especificada.
+- **Matches** (Coincide): requiere que la solicitud contenga una ruta de acceso URL que coincida con la expresión regular especificada.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una ruta de acceso URL que no coincida con la expresión regular especificada.
 
 Información importante:
 - Se vuelve a escribir una dirección URL de CNAME perimetral a una dirección URL de la red CDN antes de la comparación de la dirección URL. 
@@ -698,7 +698,7 @@ Información importante:
     
 - Los espacios en la ruta de acceso URL deben reemplazarse por "%20".
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -707,8 +707,8 @@ Información importante:
 Compara la ruta de acceso URL relativa de una solicitud con el patrón de caracteres comodín especificado.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Caracteres comodín de ruta de acceso URL.
-- **Coincide**: requiere que la solicitud contenga una ruta de acceso URL que coincida con el patrón de caracteres comodín especificado.
-- **No coincide**: requiere que la solicitud contenga una ruta de acceso URL que no coincida con el patrón de caracteres comodín especificado.
+- **Matches** (Coincide): requiere que la solicitud contenga una ruta de acceso URL que coincida con el patrón de caracteres comodín especificado.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una ruta de acceso URL que no coincida con el patrón de caracteres comodín especificado.
 
 Información importante:
 - **Relative to** (Relativo a): esta opción determina si la comparación de la dirección URL debe comenzar antes o después del punto de acceso al contenido.
@@ -718,7 +718,7 @@ Información importante:
 
        Por ejemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de la red CDN de Azure deben utilizar el valor **Origin** (Origen). 
+     - **Origin** (Origen): indica que el punto de comparación de la dirección URL comienza después del punto de acceso al contenido (por ejemplo, /000001 o /800001/myorigin). Dado que el CNAME \*. azureedge.net se crea en relación con el directorio de origen en el nombre de host de Verizon CDN de forma predeterminada, los usuarios de Azure CDN deben utilizar el valor **Origin** (Origen). 
 
        Por ejemplo: https:\//&lt;punto_de_conexión&gt;.azureedge.net/**myfolder/index.htm**
 
@@ -760,7 +760,7 @@ Valor                   | Relativo a    | Resultado
 *.jpg *.gif *.png       | Raíz u origen | Este patrón coincide con todas las direcciones URL de CNAME perimetral o de la red CDN que terminen con .jpg, .gif o .png. Una manera alternativa para especificar este patrón es con la [condición de coincidencia Extensión de ruta de acceso URL](#url-path-extension).
 /images/\* /media/\*      | Origen         | Este patrón coincide con las direcciones URL de CNAME perimetral o de la red CDN cuya ruta de acceso relativa comienza por una carpeta "images" o "media". <br />- Dirección URL de la red CDN: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- Dirección URL de CNAME perimetral de ejemplo: http:\//cdn.mydomain.com/images/sales/event1.png
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -769,8 +769,8 @@ Valor                   | Relativo a    | Resultado
 Compara la cadena de consulta de una solicitud con el valor especificado.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Literal de la consulta URL.
-- **Coincide**: requiere que la solicitud contenga una cadena de consulta URL que coincida con la cadena de consulta especificada.
-- **No coincide**: requiere que la solicitud contenga una cadena de consulta URL que no coincida con la cadena de consulta especificada.
+- **Matches** (Coincide): requiere que la solicitud contenga una cadena de consulta URL que coincida con la cadena de consulta especificada.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una cadena de consulta URL que no coincida con la cadena de consulta especificada.
 
 Información importante:
 
@@ -794,7 +794,7 @@ Información importante:
    - Ignorar no almacenar en caché de origen
    - Max-Stale interna
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -874,7 +874,7 @@ Usuario  | Joe   | Este patrón coincide cuando la cadena de consulta para una d
 Usuario  | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene el parámetro User.
 Email | Joe\* | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene un parámetro Email que comienza por "Joe".
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -883,8 +883,8 @@ Email | Joe\* | Este patrón coincide cuando la cadena de consulta para una dire
 Identifica las solicitudes que contienen el parámetro de cadena de consulta especificado. Este parámetro se establece en un valor que coincide con una [expresión regular](cdn-rules-engine-reference.md#regular-expressions) especificada.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Regex de consulta URL.
-- **Coincide**: requiere que la solicitud contenga una cadena de consulta URL que coincida con la expresión regular especificada.
-- **No coincide**: requiere que la solicitud contenga una cadena de consulta URL que no coincida con la expresión regular especificada.
+- **Matches** (Coincide): requiere que la solicitud contenga una cadena de consulta URL que coincida con la expresión regular especificada.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una cadena de consulta URL que no coincida con la expresión regular especificada.
 
 Información importante:
 - Solo las coincidencias exactas con la expresión regular especificada satisfacen esta condición de coincidencia.
@@ -919,7 +919,7 @@ Información importante:
    - Max-Stale interna
 
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 
@@ -928,8 +928,8 @@ Información importante:
 Compara los valores especificados con la cadena de consulta de una solicitud.
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Caracteres comodín de la consulta URL.
-- **Coincide**: requiere que la solicitud contenga una cadena de consulta URL que coincida con el valor del carácter comodín especificado.
-- **No coincide**: requiere que la solicitud contenga una cadena de consulta URL que no coincida con el valor del carácter comodín especificado.
+- **Matches** (Coincide): requiere que la solicitud contenga una cadena de consulta URL que coincida con el valor del carácter comodín especificado.
+- **Does Not Match** (No coincide): requiere que la solicitud contenga una cadena de consulta URL que no coincida con el valor del carácter comodín especificado.
 
 Información importante:
 - A los efectos de esta opción, una cadena de consulta comienza con el primer carácter después del delimitador de signo de interrogación (?) de la cadena de consulta.
@@ -944,7 +944,7 @@ Información importante:
 
 - Especifique varios valores de encabezado mediante la delimitación de cada uno con un espacio.
 
-   Por ejemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por ejemplo:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Solo las coincidencias exactas con al menos uno de los patrones de cadena de consulta especificados satisfacen esta condición de coincidencia.
     
@@ -965,7 +965,7 @@ En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones es
 user=joe              | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 \*user=\* \*optout=\* | Este patrón coincide cuando la consulta URL de la red CDN contiene el parámetro user o el parámetro optout.
 
-[Volver arriba](#match-conditions-for-the-azure-cdn-rules-engine)
+[Volver arriba](#main)
 
 </br>
 

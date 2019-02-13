@@ -3,7 +3,7 @@ title: Preguntas más frecuentes sobre el hiperescalado de Azure SQL Database | 
 description: Da respuesta a las preguntas más habituales que los clientes formulan sobre instancias de Azure SQL Database en el nivel de servicio Hiperescalado, normalmente conocidas como bases de datos de hiperescalado.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478345"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810072"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescalado de Azure SQL
 
@@ -198,7 +198,7 @@ Sin
 
 ### <a name="is-database-compression-supported"></a>¿Se admite la compresión de la base de datos?
 
-SÍ
+Sí
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Si tengo una tabla de gran tamaño, ¿se reparten los datos de la tabla entre varios archivos de datos?
 
@@ -222,7 +222,7 @@ Sí. Algunas de las características de Azure SQL Database no se admiten en Hipe
 
 Sí. Puede usar todas las tecnologías existentes de migración para migrar a Hiperescalado, incluidas BACPAC, replicación transaccional y carga de datos lógica. Consulte también [Azure Database Migration Service](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>¿Cuánto tiempo de inactividad experimentaré durante la migración de un entorno local o máquina virtual a Hiperescalado y cómo puedo minimizarlo?
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>¿Cuánto tiempo de inactividad experimentaré durante la migración de un entorno local o máquina virtual a la hiperescala y cómo puedo minimizarlo?
 
 El tiempo de inactividad es el mismo que el tiempo de inactividad que se produce cuando migra la base de datos a una base de datos única de Azure SQL Database. Puede usar la [replicación transaccional](replication-to-sql-database.md#data-migration-scenario
 ) para minimizar el tiempo de inactividad de la migración para bases de datos de pocos TB de tamaño. Para bases de datos de gran tamaño (más de 10 TB), puede considerar la opción de migrar datos con ADF, Spark u otras tecnologías de movimiento de datos.
@@ -257,7 +257,7 @@ Por lo general no se proporciona ningún Acuerdo de Nivel de Servicio durante la
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>¿Administra el servicio Azure SQL Database las copias de seguridad de las bases de datos en mi lugar?
 
-SÍ
+Sí
 
 ### <a name="how-often-are-the-database-backups-taken"></a>¿Con qué frecuencia se realizan las copias de seguridad de las bases de datos?
 
@@ -265,7 +265,7 @@ No hay copias de seguridad de registros tradicionales, completas y diferenciales
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>¿Admite Hiperescalado de SQL Database la restauración a un momento dado?
 
-SÍ
+Sí
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>¿Cuál es el objetivo de punto de recuperación (RPO) y el objetivo de tiempo de recuperación (RTO) con la copia de seguridad y restauración en Hiperescalado de SQL Database?
 

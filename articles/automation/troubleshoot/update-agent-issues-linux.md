@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437500"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813116"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Linux en Update Management
 
@@ -28,7 +28,7 @@ La siguiente lista enumera los tres estados de preparación en los que puede est
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Vea las [instrucciones sin conexión](#offline) para solucionar problemas de una máquina que no es de Azure.
+Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Vea las instrucciones sin conexión para solucionar los problemas de una máquina que no es de Azure.
 
 ![Página de Lista de VM](../media/update-agent-issues-linux/vm-list.png)
 
@@ -39,7 +39,7 @@ En la página **Solucionar problemas del Agente de actualización**, haga clic e
 
 ![Página de solución de problemas](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Una vez finalizada la operación, los resultados se devuelven en la ventana. En las [secciones de comprobación](#pre-requisistes-checks) se ofrece información sobre qué se busca en cada comprobación.
+Una vez finalizada la operación, los resultados se devuelven en la ventana. En las secciones de comprobación se proporciona información acerca de lo que se busca en cada comprobación.
 
 ![Página de comprobaciones del agente de actualización](../media/update-agent-issues-linux/update-agent-checks.png)
 

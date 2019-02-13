@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813432"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 
@@ -34,13 +34,13 @@ Los filtros son reglas del servidor que permitirán a los clientes a hacer cosas
 - Entregue únicamente las representaciones y pistas de idioma especificadas que admite el dispositivo que se usa para la reproducción del contenido ("filtrado de representaciones"). 
 - Ajuste la ventana de presentación (DVR) para ofrecer una longitud limitada de la ventana de DVR en el reproductor ("ventana de presentación de ajuste").
 
-En este tema se describen [conceptos](#concepts) y [muestra las definiciones de filtros](#definitions). También ofrece información sobre [escenarios comunes](#common-scenarios). Al final del artículo, encontrará vínculos que muestran cómo crear filtros mediante programación.  
+En este tema se describen los [conceptos](#concepts) y se muestran las definiciones de los filtros. También proporciona información acerca de los escenarios comunes. Al final del artículo, encontrará vínculos que muestran cómo crear filtros mediante programación.  
 
 ## <a name="concepts"></a>Conceptos
 
 ### <a name="dynamic-manifests"></a>Manifiestos dinámicos
 
-Media Services ofrece **manifiestos dinámicos** basados en [filtros](#filters)predefinidos. Cuando defina los filtros, los clientes podrían usarlos para transmitir una representación específica o clips secundarios del vídeo. Especificarían filtros en la URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable: formatos Apple HTTP Live Streaming (HLS), MPEG-DASH y Smooth Streaming 
+Media Services ofrece **manifiestos dinámicos** basados en filtros predefinidos. Cuando defina los filtros, los clientes podrían usarlos para transmitir una representación específica o clips secundarios del vídeo. Especificarían filtros en la URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable: formatos Apple HTTP Live Streaming (HLS), MPEG-DASH y Smooth Streaming 
 
 En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtros:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262887"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813133"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar Azure a las herramientas de ITSM mediante el Conector de Administración de servicios de TI
 
@@ -43,9 +43,9 @@ Con ITSMC, puede:
 
 Puede empezar a usar el conector de ITSM siguiendo estos pasos:
 
-1.  [Agregue la solución del conector de ITSM](#adding-the-it-service-management-connector-solution).
-2.  [Cree una conexión de ITSM](#creating-an-itsm-connection).
-3.  [Use la conexión](#using-the-solution).
+1.  [Agregue la solución del conector de ITSM](#adding-the-it-service-management-connector-solution)
+2.  Cree una conexión de ITSM
+3.  [Use la conexión](#using-the-solution)
 
 
 ##  <a name="adding-the-it-service-management-connector-solution"></a>Agregar la solución IT Service Management Connector
@@ -214,7 +214,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Origen
 - Asignado a
 - Título
-- Escriba
+- Type
 - Categoría
 - Estado
 - Escalado
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Cerrado por |
 | AssignedTo_s | Asignado a  |
 | Title_s|  Descripción breve |
-| Type_s|  Escriba |
+| Type_s|  Type |
 | Category_s|  Categoría |
 | CRState_s|  Estado|
 | Urgency_s|  Urgencia |

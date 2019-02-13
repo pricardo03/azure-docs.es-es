@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: acc8929dc3476e9590e8e4d9526b38b7c0719570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108203"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809068"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Conmutación por error del dispositivo físico StorSimple en el mismo dispositivo
 
@@ -50,7 +50,7 @@ Realice los pasos siguientes si necesita conmutar por error al mismo dispositivo
 4. Configure el dispositivo y vuelva a registrarlo con el servicio StorSimple Device Manager. El dispositivo recién registrado debe aparecer como **Listo para configurar**. El nombre del nuevo dispositivo es el mismo que el del dispositivo antiguo, pero se le ha anexado un número para indicar que el dispositivo se ha restablecido a sus valores predeterminados de fábrica y se ha registrado de nuevo.
 
     ![Dispositivo recién registrado y listo para configurar](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. Para el nuevo dispositivo, complete la configuración del mismo. Para más información, vaya a [Paso 4: Completar la instalación mínima del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). En la hoja **Dispositivos**, el estado del dispositivo cambia a **En línea**.
+5. Para el nuevo dispositivo, complete la configuración del mismo. Para más información, vaya a [Paso 4: Completar el programa de instalación mínima del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). En la hoja **Dispositivos**, el estado del dispositivo cambia a **En línea**.
 
    > [!IMPORTANT]
    > **Complete la configuración mínima primero, o se puede producir un error en la recuperación ante desastres**.
@@ -61,7 +61,7 @@ Realice los pasos siguientes si necesita conmutar por error al mismo dispositivo
 
     ![Resumen de la conmutación por error](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    Para obtener instrucciones detalladas, consulte [Conmutar por error a otro dispositivo físico](#fail-over-to-another-physical-device).
+    Para obtener instrucciones detalladas, consulte Conmutación por error a otro dispositivo físico.
 
 7. Se crea un trabajo de restauración de dispositivo que puede supervisar desde la hoja **Trabajos**.
 

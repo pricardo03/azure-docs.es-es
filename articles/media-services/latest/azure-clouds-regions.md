@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306989"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767459"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
 
@@ -33,9 +33,16 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 | [LiveEvents](live-streaming-overview.md) | Disponible | Disponible | Disponible | Disponible |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponible | Disponible | Disponible | Disponible |
 
-## <a name="regions"></a>Regiones 
+## <a name="regionsgeographieslocations"></a>Regiones, zonas geográficas y ubicaciones
 
-Cuando tenga que proporcionar el parámetro **location**, deberá proporcionar el nombre de código de región como el valor **location**. Para obtener el nombre en código de la región en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+* [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Producto por región](https://azure.microsoft.com/global-infrastructure/services/)
+* [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Nombre de código de región 
+
+Cuando tenga que proporcionar el parámetro **location**, deberá proporcionar el nombre de código de región como el valor **location**. Para obtener el nombre de código de la región en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```bash
 az account list-locations

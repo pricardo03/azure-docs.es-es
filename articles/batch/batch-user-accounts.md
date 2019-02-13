@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542839"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813915"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
@@ -66,7 +66,7 @@ El nivel de elevación de la cuenta de usuario indica si una tarea se ejecuta co
 
 De forma predeterminada, las tareas se ejecutan en Batch en una cuenta de usuario automático, como usuario estándar sin acceso con privilegios elevados y con el ámbito de la tarea. Cuando se configura la especificación de usuario automático para el ámbito de la tarea, el servicio Batch crea una cuenta de usuario automático solo para esa tarea.
 
-La alternativa al ámbito de la tarea es el ámbito de grupo. Cuando se configura la especificación de usuario automático de una tarea para el ámbito de grupo, la tarea se ejecuta en una cuenta de usuario automático que está disponible para cualquier tarea del grupo. Para más información acerca del ámbito de grupo, consulte la sección [Ejecución de una tarea como usuario automático con ámbito de grupo](#run-a-task-as-the-autouser-with-pool-scope).   
+La alternativa al ámbito de la tarea es el ámbito de grupo. Cuando se configura la especificación de usuario automático de una tarea para el ámbito de grupo, la tarea se ejecuta en una cuenta de usuario automático que está disponible para cualquier tarea del grupo. Para más información acerca del ámbito del grupo, consulte la sección Ejecución de una tarea como usuario automático con ámbito de grupo.   
 
 El ámbito predeterminado es diferente en los nodos de Windows y Linux:
 

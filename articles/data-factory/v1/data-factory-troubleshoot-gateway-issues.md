@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022545"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813847"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -138,7 +138,7 @@ Puede aparecer el siguiente mensaje de error.
 Este error se produce cuando la puerta de enlace se encuentra en un entorno que necesita un proxy HTTP para acceder a recursos de Internet, o bien cuando se cambia la contraseña de autenticación del proxy, pero no se actualiza en la puerta de enlace.
 
 #### <a name="resolution"></a>Resolución
-Siga las instrucciones de la sección [Consideraciones sobre el servidor proxy](#proxy-server-considerations) en este artículo y establezca la configuración del proxy con el administrador de configuración de la puerta de enlace de administración de datos.
+Siga las instrucciones de la sección Consideraciones sobre el servidor proxy en este artículo y establezca la configuración del proxy con el Administrador de configuración de Data Management Gateway.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>La puerta de enlace está en línea con funcionalidad limitada
 ### <a name="1-problem"></a>1. Problema
@@ -169,8 +169,8 @@ La puerta de enlace no se puede conectar al servicio en la nube mediante Service
 Siga estos pasos para poner en línea la puerta de enlace:
 
 1. Permita reglas de salida de direcciones IP en la máquina de la puerta de enlace y en el firewall corporativo. Puede buscar las direcciones IP desde el registro de eventos de Windows (Id. == 401): Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso XX.XX.XX.XX:9350.
-* Configure los valores de proxy en la puerta de enlace. Consulte la sección [Consideraciones sobre el servidor proxy](#proxy-server-considerations) para más información.
-* Habilite los puertos de salida 5671 y 9350-9354 en el Firewall de Windows de la máquina de la puerta de enlace y en el firewall corporativo. Consulte la sección [Puertos y firewall](#ports-and-firewall) para más información. Este paso es opcional, pero se recomienda por motivos de rendimiento.
+* Configure los valores de proxy en la puerta de enlace. Para más información, consulte la sección Consideraciones sobre el servidor proxy.
+* Habilite los puertos de salida 5671 y 9350-9354 en el Firewall de Windows de la máquina de la puerta de enlace y en el firewall corporativo. Para más información, consulte la sección Puertos y firewall. Este paso es opcional, pero se recomienda por motivos de rendimiento.
 
 ### <a name="3-problem"></a>3. Problema
 Verá este error.

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460512"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809306"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -37,8 +37,8 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 * Las siguientes API de Batch limitan la colección a **100 tareas**. El límite podría ser menor en función del tamaño de las tareas, por ejemplo, si tienen mayor número de archivos de recursos o variables de entorno.
 
     * [API DE REST](/rest/api/batchservice/task/addcollection)
-    * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [API de Node.js](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [API de Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   Al usar estas API, deberá proporcionar la lógica para dividir el número de tareas y que se cumpla el límite de la colección, y para controlar los errores y los reintentos en caso de error al incorporar tareas. Si la colección es demasiado grande para agregar tareas, la solicitud genera un error y será necesario intentarlo después de nuevo con menos tareas.
 
@@ -55,7 +55,7 @@ Agregar una gran colección de tareas a un trabajo puede tardar, por ejemplo, ag
 
 * **Tamaño de la tarea**: las tareas de gran envergadura tardan más en agregarse que las pequeñas. Para reducir el tamaño de las tareas de una colección puede simplificar la línea de comandos de la tarea, reducir el número de variables de entorno o administrar más eficazmente los requisitos de ejecución de la tarea. Por ejemplo, en lugar de usar un gran número de archivos de recursos, instale las dependencias de las tareas mediante una [Tarea de inicio](batch-api-basics.md#start-task) en el grupo, un [paquete de aplicación](batch-application-packages.md) o un [contenedor de Docker](batch-docker-container-workloads.md).
 
-* **Número de operaciones paralelas**: en función de la API de Batch, aumente el rendimiento al aumentar el máximo de operaciones simultáneas por cliente de Batch. Configure esta opción mediante la propiedad [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de la API de .NET o el parámetro `threads` de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection) de la extensión del SDK de Python de Batch. (Esta propiedad no está disponible en el SDK de Python de Batch nativo). De forma predeterminada, esta propiedad está establecida en 1, pero puede elegir un valor mayor para mejorar el rendimiento de las operaciones. El aumento de rendimiento se compensa al consumirse ancho de banda de red y rendimiento de la CPU. El rendimiento de la tarea aumenta hasta 100 veces `MaxDegreeOfParallelism` o `threads`. En la práctica, debe establecer el número de operaciones simultáneas por debajo de 100. 
+* **Número de operaciones paralelas**: en función de la API de Batch, aumente el rendimiento al aumentar el máximo de operaciones simultáneas por cliente de Batch. Configure esta opción mediante la propiedad [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de la API de .NET o el parámetro `threads` de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) de la extensión del SDK de Python de Batch. (Esta propiedad no está disponible en el SDK de Python de Batch nativo). De forma predeterminada, esta propiedad está establecida en 1, pero puede elegir un valor mayor para mejorar el rendimiento de las operaciones. El aumento de rendimiento se compensa al consumirse ancho de banda de red y rendimiento de la CPU. El rendimiento de la tarea aumenta hasta 100 veces `MaxDegreeOfParallelism` o `threads`. En la práctica, debe establecer el número de operaciones simultáneas por debajo de 100. 
  
   La extensión de la CLI de Azure Batch con plantillas de Batch aumenta el número de operaciones simultáneas automáticamente en función del número de núcleos disponibles, pero esta propiedad no se configura en la CLI. 
 
@@ -155,7 +155,7 @@ tasks=list()
 
 ```
 
-Agregue la colección de tareas mediante [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Establezca el parámetro `threads` para aumentar el número de operaciones simultáneas:
+Agregue la colección de tareas mediante [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Establezca el parámetro `threads` para aumentar el número de operaciones simultáneas:
 
 ```python
 try:
@@ -164,7 +164,7 @@ except Exception as e:
     raise e
 ```
 
-La extensión del SDK de Python de Batch también admite la incorporación de parámetros de tarea a un trabajo mediante una especificación de JSON para un generador de tareas. Por ejemplo, configure los parámetros del trabajo para un barrido paramétrico similar al del ejemplo de [plantilla de la CLI de Batch](#example-batch-cli-template) anterior:
+La extensión del SDK de Python de Batch también admite la incorporación de parámetros de tarea a un trabajo mediante una especificación de JSON para un generador de tareas. Por ejemplo, configure los parámetros del trabajo para un barrido paramétrico similar al del ejemplo de plantilla de la CLI de Batch anterior:
 
 ```python
 parameter_sweep = {

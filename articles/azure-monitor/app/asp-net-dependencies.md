@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119992"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812477"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: Seguimiento de dependencias
 Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mide cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia. Puede investigar llamadas específicas y relacionarlas a solicitudes y excepciones.
@@ -52,7 +52,7 @@ El [SDK de Application Insights](asp-net.md) recopila automáticamente informaci
 * [Asignación de aplicación](#application-map) visualiza las dependencias entre la aplicación y los componentes colindantes.
 * Las hojas [Rendimiento, Exploradores y Errores](#performance-and-blades) muestran datos de dependencia del servidor.
 * La hoja [Exploradores](#ajax-calls) muestra las llamadas AJAX de los exploradores de los usuarios.
-* [Haga clic en las solicitudes lentas o con errores](#diagnose-slow-requests) para comprobar sus llamadas de dependencia.
+* Haga clic en las solicitudes lentas o con errores para comprobar sus llamadas de dependencia.
 * [Análisis](#analytics) puede utilizarse para consultar los datos de dependencia.
 
 ## <a name="application-map"></a>Mapa de aplicación

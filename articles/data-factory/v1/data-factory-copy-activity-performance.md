@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331654"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812096"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -176,7 +176,7 @@ Puntos a tener en cuenta:
 >
 >
 
-Para un uso mejor de estas dos propiedades, y para mejorar el rendimiento del movimiento de datos, consulte los [casos de uso de ejemplo](#case-study-use-parallel-copy). No es necesario configurar **parallelCopies** para aprovechar el comportamiento predeterminado. Si configura **parallelCopies** y lo hace en un valor demasiado pequeño, es posible que varias DMU de nube no se utilicen completamente.
+Para usar mejor estas dos propiedades y mejorar el rendimiento del movimiento de datos, consulte los casos de uso de ejemplo. No es necesario configurar **parallelCopies** para aprovechar el comportamiento predeterminado. Si configura **parallelCopies** y lo hace en un valor demasiado pequeño, es posible que varias DMU de nube no se utilicen completamente.
 
 ### <a name="billing-impact"></a>Impacto en la facturación
 Es **importante** recordar que se cobra en función del tiempo total de la operación de copia. Si un trabajo de copia solía tardar una hora con una unidad de nube y ahora tarda 15 minutos con cuatro unidades de nube, la factura general será casi igual. Por ejemplo, va a utilizar cuatro unidades de nube. La primera gasta 10 minutos, la segunda 10 minutos, la tercera 5 minutos y la cuarta 5 minutos, todas ellas en una única ejecución de actividad de copia. Se le cobra por el tiempo total de copia (movimiento de datos), que es 10 + 10 + 5 + 5 = 30 minutos. El uso de **parallelCopies** no afecta a la facturación.
@@ -297,7 +297,7 @@ Si copia los datos de Blob Storage a SQL Data Warehouse, considere el uso de **P
 
 * **Patrón de datos**: El esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande le ofrece un mejor rendimiento que el tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
 * **Consulta o procedimiento almacenado**: optimice la lógica de la consulta o del procedimiento almacenado que se especifica en el origen de la actividad de copia para que capture los datos de forma más eficiente.
-* Además, para el escenario de **bases de datos relacionales locales**, como SQL Server y Oracle, que requieren el uso de **Data Management Gateway**, consulte la sección [Consideraciones sobre Data Management Gateway](#considerations-on-data-management-gateway).
+* En el caso de las **bases de datos relacionales locales**, como SQL Server y Oracle, que requieren el uso de la **puerta de enlace de administración de datos** , consulte la sección Consideraciones acerca de la puerta de enlace de administración de datos.
 
 ## <a name="considerations-for-the-sink"></a>Consideraciones sobre el receptor
 ### <a name="general"></a>General

@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813830"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -48,7 +48,7 @@ Aplique controles de directiva más completos antes de que se establezcan las co
 
 Con el [acceso condicional](../conditional-access/overview.md), es posible definir aún más las restricciones sobre el tráfico que se permite que tenga acceso a las aplicaciones de back-end. Puede crear directivas que restrinjan los inicios de sesión en función de la ubicación, el nivel de autenticación y el perfil de riesgo del usuario.
 
-También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Cloud App Security mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, mediante las directivas de [acceso](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad)y [sesión](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad).
+También puede usar el acceso condicional para configurar directivas de Multi-Factor Authentication, agregando otro nivel de seguridad para la autenticación de los usuarios. Además, las aplicaciones también pueden enrutarse a Microsoft Cloud App Security mediante el acceso condicional de Azure AD para proporcionar supervisión y controles en tiempo real, mediante las directivas de [acceso](https://docs.microsoft.com/cloud-app-security/access-policy-aad)y [sesión](https://docs.microsoft.com/cloud-app-security/session-policy-aad).
 
 ### <a name="traffic-termination"></a>Terminación del tráfico
 
@@ -128,11 +128,11 @@ Cada vez que el servicio de Proxy de aplicación actualiza los valores de config
 
 Cuando los usuarios tienen acceso a una aplicación publicada, los siguientes eventos tienen lugar entre el servicio Application Proxy y el conector del proxy de aplicación:
 
-1. [El servicio autentica al usuario de la aplicación](#the-service-checks-the-configuration-settings-for-the-app)
-2. [El servicio realiza una solicitud en la cola del conector](#The-service-places-a-request-in-the-connector-queue)
-3. [El conector procesa la solicitud de la cola](#the-connector-receives-the-request-from-the-queue)
-4. [El conector espera una respuesta](#the-connector-waits-for-a-response)
-5. [El servicio transmite por secuencias los datos al usuario](#the-service-streams-data-to-the-user)
+1. El servicio autentica al usuario de la aplicación
+2. El servicio realiza una solicitud en la cola del conector
+3. Un conector procesa la solicitud de la cola
+4. El conector espera una respuesta
+5. El servicio transmite en secuencias los datos al usuario
 
 Para más información sobre lo que ocurre en cada uno de estos pasos, continúe leyendo.
 

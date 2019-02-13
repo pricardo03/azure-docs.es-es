@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480961"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811212"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introducción a la matriz virtual de StorSimple
 
@@ -52,7 +52,7 @@ La tabla siguiente resume las características más importantes de la matriz vir
 | Movilidad de datos |Puede realizar la restauración en el mismo dispositivo o realizar la recuperación a nivel de elemento (servidor de archivos) |
 | Niveles de almacenamiento |Almacenamiento de hipervisor local y de nube |
 | Tamaño del recurso compartido |Organizado en niveles: hasta 20 TB. Anclado localmente: hasta 2 TB |
-| Tamaño del volumen |En capas: de 500 GB a 5 TB; anclado localmente: de 50 GB a 200 GB <br> La reserva local máxima para los volúmenes en capas es de 200 GB. |
+| Tamaño del volumen |En capas: 500 GB a 5 TB; anclado localmente: 50 GB a 200 GB <br> La reserva local máxima para los volúmenes en capas es de 200 GB. |
 | Instantáneas |Coherencia frente a bloqueos |
 | Recuperación a nivel de elemento |Sí; los usuarios pueden realizar restauraciones desde recursos compartidos |
 
@@ -76,8 +76,8 @@ A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 
 |Escenario     |Carga de trabajo     |Compatible      |Restricciones               |
 |-------------|-------------|---------------|---------------------------|
-|Oficina remota/sucursal (ROBO)  |Uso compartido de archivos     |SÍ      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
-|Archivado en la nube  |Uso compartido de archivos     |SÍ      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
+|Oficina remota/sucursal (ROBO)  |Uso compartido de archivos     |Sí      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
+|Archivado en la nube  |Uso compartido de archivos     |Sí      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
 
 StorSimple Virtual Array es ideal para los datos a los que se accede con poca frecuencia. Mientras que la matriz virtual tiene una memoria caché local para mejorar el rendimiento, los usuarios deben suponer que los archivos de los servicios de dispositivo están en el nivel más bajo de almacenamiento (la nube). Cada matriz virtual puede escribir y leer en Azure Storage a una velocidad aproximada de 100 Mbps. Ese vínculo se comparte entre todas las solicitudes que entran en el dispositivo y puede convertirse en un cuello de botella, tal como se muestra en el diagrama siguiente.
 
@@ -169,7 +169,7 @@ Además de la matriz virtual y otros componentes, la solución StorSimple usa la
 
 * [Organización automática del almacenamiento en niveles](#automatic-storage-tiering) 
 * [Volúmenes y recursos compartidos anclados localmente](#locally-pinned-shares-and-volumes)
-* [Desduplicación y compresión de datos organizados en niveles o que tienen una copia de seguridad en la nube](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Desduplicación y compresión de datos organizados en niveles o que tienen una copia de seguridad en la nube 
 * [Copias de seguridad a petición y programadas](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Organización automática del almacenamiento en niveles

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301601"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753102"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -58,9 +58,9 @@ China | Este de China, Norte de China, Norte de China 2 y Este de China 2
 >[!NOTE]
 >
 > - Para la región **Sur de Brasil**, puede replicar y conmutar por error en una de las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU. Debe tenerse en cuenta que Site Recovery solo ha habilitado el Sur de Brasil para su uso como región de origen desde donde se pueden proteger las VM. **No puede usarse como región de recuperación ante desastres de destino** en ninguna de las regiones de Azure, como Centro-sur de EE. UU. Se debe a que se recomienda que la latencia observada debido a la distancia geográfica seleccione una región americana que no sea el Sur de Brasil.
-> 
+>
 > - Si **no puede ver una región** donde quiere **crear un almacén**, asegúrese de que su suscripción tenga acceso para crear recursos en esa región. Por ejemplo:  Si no puede crear un almacén en el Sur de Francia, la suscripción no tiene acceso a la región Sur de Francia. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir suscripción a la lista de permitidos de la región de Azure XXX"
-> 
+>
 > - Si **no puede ver una región** dentro de un clúster geográfico **durante la habilitación de la replicación**, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Por ejemplo:  Si intenta proteger máquinas virtuales del Centro de Francia al Sur de Francia y no ve Sur de Francia en la lista desplegable de regiones, su suscripción no tiene acceso para implementar VM en esa región. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir suscripción a la lista de permitidos de la región de Azure XXX"
 > - No puede seleccionar las regiones en los clústeres geográficos mencionados anteriormente.
 
@@ -123,7 +123,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19,9.20,9.21,9.22 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 a 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.7-amd64 |
@@ -133,10 +133,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.21 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas: Sistema de archivos o almacenamiento de invitado de Linux
@@ -186,7 +186,7 @@ Disco de datos: cuenta de almacenamiento Estándar | Compatible |
 Disco de datos: cuenta de almacenamiento Premium | Compatible | Si una máquina virtual tiene discos repartidos entre cuentas de almacenamiento Estándar y Premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
 Disco administrado: estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |
 Disk administrado: premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |
-SSD estándar | No compatible |
+SSD estándar | Compatible |
 Redundancia | Se admiten LRS y GRS.<br/><br/> No se admite ZRS.
 Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los discos de máquina virtual no admiten el almacenamiento esporádico ni el frecuente
 Espacios de almacenamiento | Compatible |
@@ -195,8 +195,8 @@ Azure Disk Encryption (ADE) para sistemas operativos Windows | Se admiten las m�
 Azure Disk Encryption (ADE) para sistemas operativos Linux | No compatible |
 Agregar/quitar disco en caliente | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.
 Excluir el disco | No compatible|   El disco temporal se excluye de forma predeterminada.
-Espacios de almacenamiento directo  | No compatible|
-Servidor de archivos de escalado horizontal  | No compatible|
+Espacios de almacenamiento directo  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
+Servidor de archivos de escalado horizontal  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
 LRS | Compatible |
 GRS | Compatible |
 RA-GRS | Compatible |

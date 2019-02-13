@@ -2,19 +2,18 @@
 title: Copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Backup
 description: Este artículo trata sobre la experiencia de copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Disk Encryption.
 services: backup
-author: sogup
+author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
-ms.author: sogup
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: geetha
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217686"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810004"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup
 Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales (VM) mediante Azure Backup. También se proporcionan detalles sobre los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
@@ -25,8 +24,8 @@ Este artículo trata sobre los pasos para realizar la copia de seguridad y resta
 
    |  | BEK + máquinas virtuales con KEK | Máquinas virtuales solo con BEK |
    | --- | --- | --- |
-   | **Máquinas virtuales no administradas**  | SÍ | SÍ  |
-   | **Máquinas virtuales administradas**  | SÍ | SÍ  |
+   | **Máquinas virtuales no administradas**  | Sí | Sí  |
+   | **Máquinas virtuales administradas**  | Sí | Sí  |
 
    > [!NOTE]
    > Azure Backup admite máquinas virtuales cifradas con claves independientes. Actualmente no se admite ninguna clave que forme parte de un certificado usado para cifrar una máquina virtual.
@@ -37,7 +36,7 @@ Este artículo trata sobre los pasos para realizar la copia de seguridad y resta
 
 * Se ha creado un almacén de Recovery Services y la replicación del almacenamiento se ha establecido siguiendo los pasos que se indican en la [preparación del entorno para la copia de seguridad](backup-azure-arm-vms-prepare.md).
 
-* Se han otorgado a Azure Backup [permisos de acceso a un almacén de claves](#provide-permissions-to-backup) que contiene claves y secretos para las máquinas virtuales cifradas.
+* Se han otorgado a Azure Backup permisos de acceso a un almacén de claves que contiene las claves y secretos de las máquinas virtuales cifradas.
 
 ## <a name="backup-encrypted-vm"></a>Copia de seguridad de máquina virtual cifrada
 Utilice los pasos siguientes para establecer un objetivo de copia de seguridad, definir directivas, configurar elementos y desencadenar una copia de seguridad.
@@ -77,7 +76,7 @@ Si es un **usuario miembro**, el proceso Habilitar copia de seguridad no tendrá
 
    ![Mensaje de máquinas virtuales cifradas](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   En el caso de los **usuarios invitados**, es necesario conceder permisos al servicio Backup para que pueda acceder al almacén de claves y puedan realizarse copias de seguridad. Para proporcionar estos permisos, siga los [pasos que se indican en la siguiente sección](#provide-permissions-to-backup).
+   En el caso de los **usuarios invitados**, es necesario conceder permisos al servicio Backup para que pueda acceder al almacén de claves y puedan realizarse copias de seguridad. Para proporcionar estos permisos, siga los pasos que se indican en la siguiente sección
 
    ![Mensaje de máquinas virtuales cifradas](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

@@ -7,14 +7,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412398"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769506"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 
@@ -46,17 +46,17 @@ El ejemplo siguiente muestra cómo configurar alertas para cuando el trabajo ent
 
    ![Configuración de una alerta para un trabajo Azure Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. En **RECURSO**, **CONDICIÓN** y **GRUPOS DE ACCIONES** debería haber una entrada.
+7. En **RECURSO**, **CONDICIÓN** y **GRUPOS DE ACCIONES** debería haber una entrada. Tenga en cuenta que para que se activen las alertas, es preciso que se den las condiciones definidas. Por ejemplo, puede medir el valor promedio de una métrica en los últimos 15 minutos, cada 5 minutos.
 
    ![Creación de una regla de alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Agregue un **nombre de regla de alerta**, una **descripción**y su **grupo de recursos** en **DETALLES DE LA ALERTA** y haga clic en **Crear regla de alertas** para crear la regla para el trabajo de Stream Analytics.
 
    ![Creación de una regla de alerta de Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>Escenarios que supervisar
 
-Se recomiendan las siguientes alertas para supervisar el rendimiento del trabajo de Stream Analytics. Estas métricas deben evaluarse cada minuto durante los últimos 5 minutos. Si su trabajo experimenta problemas de rendimiento, puede usar la paralelización de consultas para optimizarlo y probar a aumentar el número de unidades de streaming.
+Se recomiendan las siguientes alertas para supervisar el rendimiento del trabajo de Stream Analytics. Estas métricas deben evaluarse cada minuto durante los últimos 5 minutos.
 
 |Métrica|Condición|Agregación de tiempo|Umbral|Acciones correctivas|
 |-|-|-|-|-|

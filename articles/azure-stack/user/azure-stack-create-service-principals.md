@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242219"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813167"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Otorgue a las aplicaciones acceso a los recursos de Azure Stack mediante la creación de entidades de servicio
 
@@ -73,7 +73,7 @@ Al iniciar sesión mediante programación, deberá usar el identificador de la a
 
 1. En **App registrations** (Registros de aplicaciones), en Active Directory, seleccione su aplicación.
 
-2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones en el [ejemplo de aplicaciones](#sample-applications) usan el **identificador de cliente** al hacer referencia al **Id. de la aplicación**.
+2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones del ejemplo usan el **id. de cliente** al hacer referencia al **identificador de la aplicación**.
 
      ![Identificador de la aplicación para la aplicación](./media/azure-stack-create-service-principal/image12.png)
 3. Para generar una clave de autenticación, seleccione **Claves**.

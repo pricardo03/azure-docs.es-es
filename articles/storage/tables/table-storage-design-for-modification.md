@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470542"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809530"
 ---
 # <a name="design-for-data-modification"></a>Diseño para la modificación de datos
-Este artículo se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección [Patrones de diseño de tabla](#table-design-patterns) se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
+Este artículo se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección Patrones de diseño de tablas se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Optimización del rendimiento de las operaciones de inserción, actualización y eliminación
 Para actualizar o eliminar una entidad, debe poder identificarla mediante el uso de los valores **PartitionKey** y **RowKey**. En este sentido, la elección de **PartitionKey** y **RowKey** para modificar entidades debería seguir criterios similares a su elección para admitir consultas de punto porque desea identificar las entidades de la forma más eficaz posible. No desea utilizar un examen ineficaz de partición o de tabla para buscar una entidad con el fin de detectar los valores **PartitionKey** y **RowKey** que necesita actualizar o eliminar.  
 
-Los patrones siguientes de la sección [Patrones de diseño de tablas](#table-design-patterns) abordan la optimización del rendimiento o las operaciones de inserción, actualización y eliminación:  
+Los patrones siguientes de la sección Patrones de diseño de tablas abordan la optimización del rendimiento o las operaciones de inserción, actualización y eliminación:  
 
 * [Patrón de eliminación de gran volumen](table-storage-design-patterns.md#high-volume-delete-pattern) : habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.  
 * [Patrón de serie de datos](table-storage-design-patterns.md#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  

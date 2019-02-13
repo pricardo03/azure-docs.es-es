@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343166"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811059"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -61,7 +61,7 @@ Este ejemplo se puede utilizar para supervisar la información del Wi-Fi de MXCh
 
 1. Haga clic en el menú desplegable **Tareas** de Visual Studio Code y seleccione **Ejecutar tarea...**  - **cloud-deploy**.
 
-2. Espere hasta que finalice el proceso de carga del código de la aplicación de función; se muestra el mensaje *implementación de aplicación de función: listo*.
+2. Espere hasta que finalice el proceso de carga del código de la aplicación de función; se muestra el mensaje *function app deploys: Done* (Se implementa la aplicación de función: listo).
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configuración de la cadena de conexión de un dispositivo IoT Hub
 
@@ -83,7 +83,7 @@ Con MXChip IoT DevKit conectado al equipo:
 
 ## <a name="monitor-devkit-state-in-browser"></a>Supervisión del estado de DevKit en un explorador
 
-1. En un explorador web, abra el `DevKitState\web\index.html`archivo que se creó en el paso [Lo que necesita](#whatyouneed).
+1. En un explorador web, abra el archivo `DevKitState\web\index.html` (que se creó en el paso Lo que necesita).
 
 2. Aparece la siguiente página web:![Especifique el nombre de la aplicación de función.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
@@ -106,7 +106,7 @@ Con MXChip IoT DevKit conectado al equipo:
 ![Procedimiento de prueba de ejemplo](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Puede ver los datos sin procesar del dispositivo gemelo en Azure Portal: Centro de IoT -\> Dispositivos de IoT -\> *\<su dispositivo\>* -\> Dispositivo gemelo.
+> Los datos sin procesar del dispositivo gemelo se pueden ver en Azure Portal: IoT Hub -\> Dispositivos IoT -\> *\<su dispositivo\>* -\> Device Twin.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: 5265b6f6ebf779c83792ab2569c1b613d11070da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 149f37d0231ecc0547e8dc7937d22a9cc38b7df3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051533"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810225"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo y versión de Ansible
 
@@ -21,111 +21,111 @@ ms.locfileid: "54051533"
 Ansible se suministra con una serie de módulos que se pueden ejecutar directamente en los hosts remotos o mediante guiones de procedimientos.
 En este artículo se enumeran los módulos de Ansible para Azure que pueden aprovisionar recursos en la nube de Azure, como máquinas virtuales, redes y servicios de contenedor. Puede obtener estos módulos desde la versión oficial de Ansible o desde los siguientes roles de guion de procedimientos publicados por Microsoft.
 
-| Módulo Ansible para Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Rol de Ansible](#introduction-to-azurepreviewmodule) | 
+| Módulo Ansible para Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Rol de Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
 | **Proceso**                    |           |                          |                          |                            |                                | 
-| azure_rm_availabilityset                    | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_availabilityset_facts              | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_deployment                         | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_resource                           | -            | -                           | SÍ          | Sí          | SÍ                                 | 
-| azure_rm_resource_facts                     | -            | -                           | SÍ          | Sí          | SÍ                                 | 
-| azure_rm_virtualmachine_scaleset_facts      | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_virtualmachineimage_facts          | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_resourcegroup                      | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_resourcegroup_facts                | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_virtualmachine                     | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_virtualmachine_facts               | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_virtualmachine_extension           | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_virtualmachine_scaleset            | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_image                              |              | SÍ                         | Sí          | Sí          | SÍ                                 | 
+| azure_rm_availabilityset                    | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_availabilityset_facts              | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_deployment                         | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_resource                           | -            | -                           | Sí          | Sí          | Sí                                 | 
+| azure_rm_resource_facts                     | -            | -                           | Sí          | Sí          | Sí                                 | 
+| azure_rm_virtualmachine_scaleset_facts      | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_virtualmachineimage_facts          | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_resourcegroup                      | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_resourcegroup_facts                | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_virtualmachine                     | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_virtualmachine_facts               | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_virtualmachine_extension           | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_virtualmachine_scaleset            | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_image                              |              | Sí                         | Sí          | Sí          | Sí                                 | 
 | **Redes**                    |           |                          |                          |                             |                               | 
-| azure_rm_virtualnetwork                     | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_virtualnetwork_facts               | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_subnet                             | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_networkinterface                   | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_networkinterface_facts             | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_publicipaddress                    | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_publicipaddress_facts              | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_dnsrecordset                       | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_dnsrecordset_facts                 | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_dnszone                            | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_dnszone_facts                      | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_loadbalancer                       | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_loadbalancer_facts                 | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_appgateway                         | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | SÍ                                 |
-| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | SÍ                                 |
-| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | SÍ                                 |
-| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_securitygroup                      | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 |
-| azure_rm_route                              | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_routetable                         | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_routetable_facts                   | -            | -                           | -            | SÍ          | SÍ                                 | 
+| azure_rm_virtualnetwork                     | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_virtualnetwork_facts               | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_subnet                             | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_networkinterface                   | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_networkinterface_facts             | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_publicipaddress                    | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_publicipaddress_facts              | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_dnsrecordset                       | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_dnsrecordset_facts                 | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_dnszone                            | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_dnszone_facts                      | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_loadbalancer                       | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_loadbalancer_facts                 | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_appgateway                         | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_appgwroute                         | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_appgwroute                         | -            | -                           | -            | -            | Sí                                 |
+| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | Sí                                 |
+| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | Sí                                 |
+| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_securitygroup                      | Sí          | Sí                         | Sí          | Sí          | Sí                                 |
+| azure_rm_route                              | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_routetable                         | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_routetable_facts                   | -            | -                           | -            | Sí          | Sí                                 | 
 | **Storage**                    |           |                          |                          |                             |                               | 
-| azure_rm_storageaccount                     | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_storageaccount_facts               | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_storageblob                        | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_managed_disk                       | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_managed_disk_facts                 | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
+| azure_rm_storageaccount                     | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_storageaccount_facts               | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_storageblob                        | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_managed_disk                       | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_managed_disk_facts                 | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
 | **Contenedores**                    |           |                          |                          |                            |                                | 
-| azure_rm_aks                                | -            | -                           | SÍ          | Sí          | SÍ                                 | 
-| azure_rm_aks_facts                          | -            | -                           | SÍ          | Sí          | SÍ                                 | 
-| azure_rm_acs                                | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_containerinstance                  | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_containerinstance_facts            | -            | -                           | -              | -            | SÍ                                 | 
-| azure_rm_containerregistry                  | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_containerregistry_facts            | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_containerregistryreplication       | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_containerregistryreplication_facts | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_containerregistrywebhook_facts     | -            | -                           | -            | -            | SÍ                                 | 
+| azure_rm_aks                                | -            | -                           | Sí          | Sí          | Sí                                 | 
+| azure_rm_aks_facts                          | -            | -                           | Sí          | Sí          | Sí                                 | 
+| azure_rm_acs                                | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_containerinstance                  | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_containerinstance_facts            | -            | -                           | -              | -            | Sí                                 | 
+| azure_rm_containerregistry                  | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_containerregistry_facts            | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_containerregistryreplication       | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_containerregistryreplication_facts | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_containerregistrywebhook_facts     | -            | -                           | -            | -            | Sí                                 | 
 | **Azure Functions**                    |           |                          |                          |                            |                                | 
-| azure_rm_functionapp                        | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_functionapp_facts                  | SÍ          | Sí                         | Sí          | Sí          | SÍ                                 | 
+| azure_rm_functionapp                        | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_functionapp_facts                  | Sí          | Sí                         | Sí          | Sí          | Sí                                 | 
 | **Bases de datos**                    |           |                          |                          |                             |                               | 
-| azure_rm_sqlserver                          | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_sqlserver_facts                    | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_sqldatabase                        | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_sqldatabase_facts                  | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_sqlelasticpool                     | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_sqlelasticpool_facts               | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_sqlfirewallrule                    | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_sqlfirewallrule_facts              | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_mysqlserver                        | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_mysqlserver_facts                  | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_mysqldatabase                      | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_mysqldatabase_facts                | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_mysqlfirewallrule                  | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_mysqlfirewallrule_facts            | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_mysqlconfiguration                 | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_mysqlconfiguration_facts           | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_postgresqlserver                   | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_postgresqlserver_facts             | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_postgresqldatabase                 | -            | SÍ                         | Sí          | Sí          | SÍ                                 | 
-| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | SÍ          | SÍ                                 | 
-| azure_rm_postgresqlfirewallrule             | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_postgresqlfirewallrule_facts       | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_postgresqlconfiguration            | -            | -                           | -            | -            | SÍ                                 | 
-| azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | -            | SÍ                                 | 
+| azure_rm_sqlserver                          | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_sqlserver_facts                    | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_sqldatabase                        | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_sqldatabase_facts                  | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_sqlelasticpool                     | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_sqlelasticpool_facts               | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_sqlfirewallrule                    | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_sqlfirewallrule_facts              | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_mysqlserver                        | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_mysqlserver_facts                  | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_mysqldatabase                      | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_mysqldatabase_facts                | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_mysqlfirewallrule                  | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_mysqlfirewallrule_facts            | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_mysqlconfiguration                 | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_mysqlconfiguration_facts           | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_postgresqlserver                   | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_postgresqlserver_facts             | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_postgresqldatabase                 | -            | Sí                         | Sí          | Sí          | Sí                                 | 
+| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | Sí          | Sí                                 | 
+| azure_rm_postgresqlfirewallrule             | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_postgresqlfirewallrule_facts       | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_postgresqlconfiguration            | -            | -                           | -            | -            | Sí                                 | 
+| azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | -            | Sí                                 | 
 | **Key Vault**                    |           |                          |                          |                             |                               | 
-| azure_rm_keyvault                           | -            | SÍ                         | Sí          | Sí          | SÍ                                 |
-| azure_rm_keyvault_facts                     | -            | -                           | -              | -              | SÍ                               |
-| azure_rm_keyvaultkey                        | -            | SÍ                         | Sí          | Sí          | SÍ                                 |
-| azure_rm_keyvaultsecret                     | -            | SÍ                         | Sí          | Sí          | SÍ                                 |
+| azure_rm_keyvault                           | -            | Sí                         | Sí          | Sí          | Sí                                 |
+| azure_rm_keyvault_facts                     | -            | -                           | -              | -              | Sí                               |
+| azure_rm_keyvaultkey                        | -            | Sí                         | Sí          | Sí          | Sí                                 |
+| azure_rm_keyvaultsecret                     | -            | Sí                         | Sí          | Sí          | Sí                                 |
 | **Aplicaciones web**                    |           |                          |                          |                             |                               | 
-| azure_rm_appserviceplan                          | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_appserviceplan_facts                    | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_webapp                                  | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_webapp_facts                            | -            | -                         | -          | SÍ          | SÍ                                 | 
+| azure_rm_appserviceplan                          | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_appserviceplan_facts                    | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_webapp                                  | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_webapp_facts                            | -            | -                         | -          | Sí          | Sí                                 | 
 | **Traffic Manager**                    |           |                          |                          |                             |                               | 
-| azure_rm_trafficmanagerendpoint                  | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_trafficmanagerendpoint_facts            | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_trafficmanagerprofile                   | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_trafficmanagerprofile_facts             | -            | -                         | -          | SÍ          | SÍ                                 | 
+| azure_rm_trafficmanagerendpoint                  | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_trafficmanagerendpoint_facts            | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_trafficmanagerprofile                   | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_trafficmanagerprofile_facts             | -            | -                         | -          | Sí          | Sí                                 | 
 | **Escalabilidad automática**                    |           |                          |                          |                             |                               | 
-| azure_rm_autoscale                  | -            | -                         | -          | SÍ          | SÍ                                 | 
-| azure_rm_autoscale_facts            | -            | -                         | -          | SÍ          | SÍ                                 | 
+| azure_rm_autoscale                  | -            | -                         | -          | Sí          | Sí                                 | 
+| azure_rm_autoscale_facts            | -            | -                         | -          | Sí          | Sí                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introducción al rol de cuaderno de estrategias de Azure
 El [rol de guion de procedimientos azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) es el rol más completo e incluye todos los módulos más recientes de Azure. Las actualizaciones y correcciones de errores se realizan de manera más oportuna que en la versión oficial de Ansible. Si usa Ansible para el aprovisionamiento de recursos de Azure, se recomienda instalar el rol de cuaderno de estrategias azure_preview_module.

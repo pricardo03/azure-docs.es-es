@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449561"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770493"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
 
 En este artículo se resumen las preguntas comunes al configurar la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante Azure Site Recovery. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
+## <a name="in-this-article"></a>En este artículo 
+1.  **[Preguntas generales acerca de la replicación de Azure en Azure](#general)** 
+1.  **[Replicación](#replication)** 
+1.  **[Directiva de replicación](#replication-policy)** 
+1.  **[Coherencia con múltiples máquinas virtuales](#multi-vm-consistency)** 
+1.  **[Plan de recuperación](#recovery-plan)** 
+1.  **[Reprotección y conmutación por recuperación](#reprotection-and-failback)** 
+1.  **[Seguridad](#security)** 
+
+
 ## <a name="general"></a>General
+
 ### <a name="how-is-site-recovery-priced"></a>¿Cómo se fija el precio de Site Recovery?
 Consulte los detalles de los [precios de Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 
@@ -198,7 +209,7 @@ Depende de la situación. Por ejemplo, si la máquina virtual de la región de o
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>¿Cuánto se tarda en conmutar por recuperación?
 Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria. 
 
-## <a name="security"></a>Seguridad
+## <a name="a-namesecuritysecurity"></a><a name="security">Seguridad
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>¿Se envían mis datos de replicación al servicio de Site Recovery?
 No, Site Recovery no intercepta los datos replicados ni tiene información sobre lo que se ejecuta en las máquinas virtuales. Únicamente se envían los metadatos necesarios para coordinar la replicación y la conmutación por error al servicio Site Recovery.  
 Site Recovery está certificado según la norma ISO 27001:2013, 27018, además de HIPAA y DPA, y está completando sus evaluaciones de SOC2 y FedRAMP JAB.

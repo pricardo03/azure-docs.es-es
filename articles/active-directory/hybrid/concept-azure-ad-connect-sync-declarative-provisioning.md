@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5e8d45a9bf9fdffc824994238add2b8541a878a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193818"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812726"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: Descripción del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.
@@ -37,7 +37,7 @@ La canalización consta de varios módulos diferentes. Cada uno de ellos es resp
 * Origen: el objeto de origen.
 * [Ámbito](#scope): busca todas las reglas de sincronización que están en ámbito.
 * [Unión](#join): determina la relación entre el espacio conector y el metaverso.
-* [Transformación](#transform): calcula cómo deben transformarse los atributos y el flujo.
+* Transformación: calcula cómo deben transformarse los atributos y el flujo.
 * [Prioridad](#precedence): resuelve las contribuciones de atributo en conflicto.
 * Destino: el objeto de destino.
 

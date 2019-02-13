@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458880"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813014"
 ---
 # <a name="modeling-relationships"></a>Modelado de relaciones
 En este artículo se explica el proceso de modelado para ayudarle a diseñar soluciones de almacenamiento en tablas de Azure.
@@ -101,7 +101,7 @@ Es posible que los modelos de dominio incluyan relaciones uno a uno entre las en
 También hay que considerar algunos aspectos sobre la implementación que podrían llevarle a implementar relaciones uno a uno en Table service:  
 
 * Administración de entidades de gran tamaño (para obtener más información, consulte [Patrón de entidades de gran tamaño](table-storage-design-patterns.md#large-entities-pattern)).  
-* Implementación de controles de acceso (para más información, consulte [Control de acceso con firmas de acceso compartido](#controlling-access-with-shared-access-signatures)).  
+* Implementación de controles de acceso (para más información, consulte Control de acceso con firmas de acceso compartido).  
 
 ## <a name="join-in-the-client"></a>Únase al cliente
 Aunque hay formas de modelar las relaciones en Table service, no debe olvidar que las dos razones principales para utilizar Table service son la escalabilidad y el rendimiento. Si observa que está modelando muchas relaciones que ponen en peligro el rendimiento y la escalabilidad de su solución, debe preguntarse si es necesario crear todas las relaciones de datos en el diseño de tabla. Es posible que pueda simplificar el diseño y mejorar la escalabilidad y el rendimiento de la solución si permite que la aplicación cliente realice las uniones necesarias.  
@@ -117,7 +117,7 @@ Puede conservar las instancias de las dos clases concretas en Table service util
 
 ![Tabla Person](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Para más información acerca de cómo trabajar con varios tipos de entidad en la misma tabla en el código de cliente, consulte la sección [Trabajo con tipos de entidad heterogéneos](#working-with-heterogeneous-entity-types) posteriormente en esta misma guía. Esto proporciona ejemplos de cómo reconocer el tipo de entidad en el código de cliente.  
+Para más información acerca de cómo trabajar con varios tipos de entidad en la misma tabla en el código de cliente, consulte la sección Trabajo con tipos de entidad heterogéneos en esta misma guía. Esto proporciona ejemplos de cómo reconocer el tipo de entidad en el código de cliente.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

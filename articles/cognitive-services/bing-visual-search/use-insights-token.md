@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6017fc957d511aa21f8e28cf011378e8012123cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151726"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813371"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Usar un token de información para obtener los detalles de una imagen
 
 Bing Visual Search API devuelve información sobre una imagen proporcionada. Puede proporcionar la imagen utilizando la dirección URL de la misma, un token de conclusiones, o simplemente cargando una imagen. Para obtener más información acerca de estas opciones, consulte [What is Bing Visual Search API?](overview.md) (¿Qué es Bing Visual Search API?). En este artículo se muestra cómo usar un token de información. Para ver ejemplos que demuestran la carga de una imagen para obtener información, consulte los inicios rápidos ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
 
-Si envía a Visual Search una dirección URL o un token de imagen, a continuación se muestran los datos de formulario que se deben incluir en el cuerpo de POST. Los datos del formulario deben incluir el encabezado Content-Disposition, y su parámetro `name` debe establecerse en "knowledgeRequest". Para obtener detalles sobre el objeto `imageInfo`, consulte la sección dedicada a [la solicitud](#the-request).
+Si envía a Visual Search una dirección URL o un token de imagen, a continuación se muestran los datos de formulario que se deben incluir en el cuerpo de POST. Los datos del formulario deben incluir el encabezado Content-Disposition, y su parámetro `name` debe establecerse en "knowledgeRequest". Para obtener detalles acerca el objeto `imageInfo`, consulte la sección dedicada a la solicitud.
 
 ```json
 {

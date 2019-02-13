@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813800"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows muestra el mensaje "Error crítico del servicio" en pantalla azul al arrancar una máquina virtual de Azure
 En este artículo se describe el error "Error crítico del servicio" que puede surgir al iniciar una máquina virtual Windows en Microsoft Azure. Proporciona pasos de solución de problemas para ayudar a resolver los problemas. 
 
 > [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que se recomienda para realizar la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
 
 ## <a name="symptom"></a>Síntoma 
 
 Una máquina virtual de Windows no se inicia. Al revisar las capturas de pantalla de inicio en [Diagnósticos de arranque](./boot-diagnostics.md), ve uno de los mensajes de error siguientes en una pantalla azul:
 
-- "Se produjo un problema con su equipo y se debe reiniciar. Puede reiniciar. Para más información sobre este problema y posibles soluciones, visite http://windows.com/stopcode. Si se llama a una persona de soporte técnico, proporciónele esta información: Código de detención: Error crítico del servicio" 
-- "Se produjo un problema con su equipo y se debe reiniciar. Solo vamos a recopilar alguna información de error y, a continuación, lo reiniciaremos automáticamente. Si desea obtener más información, después puede buscar en línea este error: CRITICAL_SERVICE_FAILED"
+- "Se produjo un problema con su equipo y se debe reiniciar. Puede reiniciar. Para más información sobre este problema y posibles soluciones, visite http://windows.com/stopcode. Si se llama al departamento de soporte técnico, aporte esta información: Código de detención: CRITICAL SERVICE FAILED (ERROR CRÍTICO DEL SERVICIO)" 
+- "Se produjo un problema con su equipo y se debe reiniciar. Solo vamos a recopilar alguna información de error y, a continuación, lo reiniciaremos automáticamente. Si desea más información, después puede buscar en línea este error: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa
 
@@ -93,7 +93,7 @@ Para habilitar los registros de volcado de memoria y la consola serie, ejecute e
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Desconecte el disco del sistema operativo y, a continuación, vuelva a conectarlo a la máquina virtual afectada](troubleshoot-recovery-disks-portal-windows.md). La máquina virtual arrancará en modo seguro. Si sigue experimentando el error, vaya al siguiente [paso opcional](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Desconecte el disco del sistema operativo y, a continuación, vuelva a conectarlo a la máquina virtual afectada](troubleshoot-recovery-disks-portal-windows.md). La máquina virtual arrancará en modo seguro. Si el error no desaparece, vaya al siguiente paso opcional.
 3. Abra el cuadro **Ejecutar** cuadro y ejecute el **Comprobador** para iniciar la herramienta Administrador del Comprobador de controladores.
 4. Seleccione **Seleccionar automáticamente controladores no firmados** y, a continuación, haga clic en **Siguiente**.
 5. Obtendrá la lista de los archivos de controlador sin firmar. Recuerde los nombres de archivo.
@@ -138,7 +138,7 @@ Para analizar los registros de volcado de memoria, siga estos pasos:
 9. [Desconecte el disco del sistema operativo y, a continuación, vuelva a conectarlo a la máquina virtual afectada](troubleshoot-recovery-disks-portal-windows.md).
 10. Arranque la máquina virtual para ver si muestra el análisis de volcado de memoria. Busque el archivo que no se puede cargar. Debe reemplazar este archivo con un archivo de la máquina virtual en funcionamiento. 
 
-    El siguiente es un ejemplo de análisis de volcado de memoria. Puede ver que el **error** se encuentra en filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    El siguiente es un ejemplo de análisis de volcado de memoria. Puede ver que el **ERROR** se encuentra en filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

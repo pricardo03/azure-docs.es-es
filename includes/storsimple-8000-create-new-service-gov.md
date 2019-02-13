@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 956a374a66c765168f0c872999611318e1b7bdac
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cbccab219e7b610c9ff51013a2d79764c2243e26
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165526"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736026"
 ---
 <!--author=SharS last changed: 9/17/15-->
 
@@ -22,7 +22,7 @@ ms.locfileid: "50165526"
    1. Proporcione un valor único en **Nombre de recurso** para el servicio. Este nombre es un nombre descriptivo que sirve para identificar el servicio. El nombre puede tener entre 2 y 50 caracteres que pueden ser letras, números y guiones. El nombre debe empezar y terminar con una letra o un número.
    2. Elija una **Suscripción** en la lista desplegable. La suscripción está vinculada a la cuenta de facturación. Este campo no está presente si tiene una sola suscripción.
    3. Como **Grupo de recursos**, elija la opción **Usar existente** o **Crear nuevo**. Para más información, consulte [Grupos de recursos en Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
-   4. Proporcione una **Ubicación** para el servicio. La ubicación hace referencia a la región geográfica donde desea implementar el dispositivo. Seleccione **USGov Iowa** o **USGov Virgina**.
+   4. Proporcione una **Ubicación** para el servicio. La ubicación hace referencia a la región geográfica donde desea implementar el dispositivo. Seleccione **USGov Iowa** o **USGov Virginia**.
    5. Seleccione **Crear una cuenta de almacenamiento nueva** para crear automáticamente una cuenta de almacenamiento con el servicio. Especifique un nombre para esta cuenta de almacenamiento. Si necesitas tener tus datos en una ubicación diferente, desactiva esta casilla.
    6. Active **Anclar al panel** si desea un vínculo rápido a este servicio en el panel.
    7. Haga clic en **Crear** para crear el Administrador de dispositivos de StorSimple. Se tarda unos minutos en crear el servicio. Después de que el servicio se crea correctamente, verá una notificación y se abrirá la hoja del nuevo servicio.
