@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6c6553ace250aa9cbc06dfdfea77fc5e1637cd41
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6810818e48329d883961c840fa83857d84b98fd4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384826"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112876"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>Tutorial: Transferencia de datos con Azure Data Box Edge (versión preliminar)
 
@@ -135,14 +135,14 @@ En el cliente Linux conectado al dispositivo de Data Box Edge, haga el procedimi
 
 1. Una vez instalado el cliente NFS, monte el recurso compartido de NFS que creó en el dispositivo de Data Box Edge mediante el comando siguiente:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
     > Antes de montar los recursos compartidos, asegúrese de que los directorios que actuarán como puntos de montaje en la máquina local ya se han creado. Estos directorios no deben contener ningún archivo ni subcarpeta.
 
     En el ejemplo siguiente se muestra cómo conectarse mediante NFS a un recurso compartido de Data Box Edge. La dirección IP del dispositivo es `10.10.10.60`. El recurso compartido `mylinuxshare2` está montado en la máquina ubuntuVM. El punto de montaje del recurso compartido es `/home/databoxubuntuhost/edge`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
 > Las siguientes advertencias son aplicables a la versión preliminar:

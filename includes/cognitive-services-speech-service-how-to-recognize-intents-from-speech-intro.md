@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716276"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247151"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ Microsoft Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-s
 Consulte los siguientes fragmentos de código para escenarios de reconocimiento de intenciones que utilizan Speech SDK. Reemplace los valores del ejemplo por su propia clave de suscripción a LUIS (clave de punto de conexión), la [región de la suscripción](~/articles/cognitive-services/speech-service/regions.md#intent-recognition) y el identificador **AppId** del modelo de intención.
 
 > [!NOTE]
-> A diferencia de otros servicios compatibles con Speech SDK, el reconocimiento de intenciones requiere una clave de suscripción específica (clave de punto de conexión de LUIS). Para más información acerca de la tecnología de reconocimiento de intenciones, consulte el [sitio web de LUIS](https://www.luis.ai). Para más información sobre cómo adquirir la **clave de punto de conexión**, consulte [Creación de una clave de punto de conexión de LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> A diferencia de otros servicios compatibles con Speech SDK, el reconocimiento de intenciones requiere una clave de suscripción específica (clave de punto de conexión de LUIS). Para más información acerca de la tecnología de reconocimiento de intenciones, consulte el [sitio web de LUIS](https://www.luis.ai). Para más información sobre cómo adquirir la **clave de punto de conexión**, consulte [Creación de una clave de punto de conexión de LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription).

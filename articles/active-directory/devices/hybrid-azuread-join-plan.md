@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100181"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746428"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -111,7 +111,7 @@ Si su organización requiere acceso a Internet a través de un servidor proxy sa
 
 La unión a Azure AD híbrido es un proceso para registrar automáticamente los dispositivos unidos al dominio en el entorno local con Azure AD. Hay casos en los que es mejor que no todos los dispositivos se registren automáticamente. Si esto es así, consulte [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md).
 
-Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, debe considerar la posibilidad de eliminar ese estado antes de habilitar Unión a Azure AD híbrido. El hecho de que un dispositivo tenga los dos estados, unido a Azure AD híbrido y registrado en Azure, no está admitido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual: 
+Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual: 
  - Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido. 
  - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del Registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
@@ -145,20 +145,20 @@ Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para conf
 - [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados](hybrid-azuread-join-managed-domains.md)
 
 
- Si no le es posible instalar la versión requerida de Azure AD Connect, consulte la información sobre [cómo configurar manualmente el registro de dispositivos](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ Si no le es posible instalar la versión requerida de Azure AD Connect, consulte la información sobre [cómo configurar manualmente el registro de dispositivos](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Compatibilidad con el identificador de inicio de sesión alternativo en la unión a Azure AD híbrido
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Compatibilidad del UPN de AD local en Unión a Azure AD híbrido
 
-La unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los [identificadores de inicio de sesión alternativos](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) dependiendo del tipo de identificador de inicio de sesión alternativo, [el método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de identificadores de inicio de sesión alternativos que pueden existir en su entorno:
+A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
 
- - Identificador de inicio de sesión alternativo enrutable: Un identificador de inicio de sesión alternativo enrutable tiene un dominio comprobado válido, que está registrado con un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, contoso.org y contoso.co.uk son dominios válidos que pertenezcan a Contoso y [están comprobados en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - Identificador de inicio de sesión alternativo no enrutable: Un identificador de inicio de sesión alternativo no enrutable no tiene un dominio comprobado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal, contoso.local no es un dominio comprobable en Internet, pero se utiliza dentro de la red de Contoso.
+ - UPN no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.
  
-En la tabla siguiente se proporcionan detalles sobre la compatibilidad con cualquiera de estos identificadores de inicio de sesión alternativo en la unión a Azure AD híbrido para Windows 10
+En la tabla siguiente se proporcionan detalles sobre la compatibilidad de estos UPN de AD local en Unión a Azure AD híbrido para Windows 10.
 
-|Tipo de identificador de inicio de sesión alternativo|Tipo de dominio|Versión de Windows 10|DESCRIPCIÓN|
+|Tipo de UPN de AD local|Tipo de dominio|Versión de Windows 10|DESCRIPCIÓN|
 |-----|-----|-----|-----|
 |Enrutable|Federado |A partir de la versión 1703|Disponibilidad general|
 |Enrutable|Administrado|A partir de la versión 1709|Actualmente en versión preliminar privada. No admite SSPR de Azure AD |

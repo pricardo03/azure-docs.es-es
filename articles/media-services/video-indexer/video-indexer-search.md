@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bbe26b19f9467034a4612ac1b40124122bee7f0c
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291953"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004560"
 ---
 # <a name="find-exact-moments-within-videos"></a>Búsqueda de momentos exactos dentro de vídeos
 
@@ -26,7 +26,6 @@ En este tema se muestran las opciones de búsqueda que le permiten encontrar mom
     En el ejemplo siguiente, hemos buscado todos los vídeos creados por Channel 9 con Scott Hanselman.
 
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
-    
 3. Busque la información resumida del vídeo.
 
     Después, puede buscar en un vídeo haciendo clic en **Reproducir** en el vídeo. A continuación, puede buscar en el vídeo seleccionando la pestaña **Buscar**. Por ejemplo, hemos buscado todos los lugares donde se utiliza el texto "identity protection". 
@@ -34,8 +33,6 @@ En este tema se muestran las opciones de búsqueda que le permiten encontrar mom
     ![Search](./media/video-indexer-search/video-indexer-search02.png)
 
     Si se hace clic en uno de los resultados, el reproductor le llevará a ese momento en el vídeo. Puede lograr la vista del reproductor o información detallada y la sincronización en la aplicación. Para más información, consulte [Inserción de widgets de Video Indexer en las aplicaciones](video-indexer-embed-widgets.md). 
-
-    
 4. Busque el desglose detallado del vídeo.
 
     Si desea crear su propio desglose basado en el vídeo que ha encontrado, presione el botón **Editar**. En esta página se muestra el desglose completo de un vídeo. Puede buscar dentro del desglose para mostrar solo las líneas en las que esté interesado. Para más información, consulte [Visualización y edición de la información detallada de Video Indexer](video-indexer-view-edit.md).

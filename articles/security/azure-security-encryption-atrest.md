@@ -4,7 +4,7 @@ description: Este artículo proporciona información general sobre el cifrado en
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994409"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117908"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -260,30 +260,30 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 |                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Cifrado del lado servidor mediante claves administradas por el cliente en Key Vault**             | **Lado cliente mediante claves administradas por el cliente**      |
 | **Almacenamiento y bases de datos**        |                    |                    |                    |                    |
 | Disco (IaaS)                      | -                  | Sí, RSA de 2048 bits  | -                  |
-| SQL Server (IaaS)                | SÍ                | Sí, RSA de 2048 bits  | SÍ                |
-| Azure SQL (Base de datos/Almacenamiento de datos) | SÍ                | Sí, RSA de 2048 bits  | SÍ                |
-| Azure SQL Database (instancia administrada) | SÍ                | Versión preliminar, RSA de 2048 bits  | SÍ                |
-| Azure Storage (blobs en bloques o en páginas) | SÍ                | Sí, RSA de 2048 bits  | SÍ                |
-| Azure Storage (archivos)            | SÍ                | Sí, RSA de 2048 bits  | -                  |
-| Azure Storage (tablas, colas)   | SÍ                | -                  | SÍ                |
-| Cosmos DB (documento DB)          | SÍ                | -                  | -                  |
-| StorSimple                       | SÍ                | -                  | SÍ                |
-| Copia de seguridad                           | -                  | -                  | SÍ                |
+| SQL Server (IaaS)                | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure SQL (Base de datos/Almacenamiento de datos) | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure SQL Database (instancia administrada) | Sí                | Versión preliminar, RSA de 2048 bits  | Sí                |
+| Azure Storage (blobs en bloques o en páginas) | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure Storage (archivos)            | Sí                | Sí, RSA de 2048 bits  | -                  |
+| Azure Storage (tablas, colas)   | Sí                | -                  | Sí                |
+| Cosmos DB (documento DB)          | Sí                | -                  | -                  |
+| StorSimple                       | Sí                | -                  | Sí                |
+| Copia de seguridad                           | -                  | -                  | Sí                |
 | **Inteligencia y análisis**   |                    |                    |                    |
-| Azure Data Factory               | SÍ                | -                  | -                  |
+| Azure Data Factory               | Sí                | -                  | -                  |
 | Azure Machine Learning           | -                  | Versión preliminar, RSA de 2048 bits | -                  |
-| Azure Stream Analytics           | SÍ                | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | SÍ                | -                  | -                  |
-| HDInsight (Data Lake Storage)    | SÍ                | -                  | -                  |
-| Apache Kafka para HDInsight       | SÍ                | Versión preliminar, todas las longitudes de RSA | -                  |
-| Azure Data Lake Store            | SÍ                | Sí, RSA de 2048 bits  | -                  |
-| Azure Data Catalog               | SÍ                | -                  | -                  |
-| Power BI                         | SÍ                | -                  | -                  |
+| Azure Stream Analytics           | Sí                | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | Sí                | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Sí                | -                  | -                  |
+| Apache Kafka para HDInsight       | Sí                | Versión preliminar, todas las longitudes de RSA | -                  |
+| Azure Data Lake Store            | Sí                | Sí, RSA de 2048 bits  | -                  |
+| Azure Data Catalog               | Sí                | -                  | -                  |
+| Power BI                         | Sí                | -                  | -                  |
 | **Servicios IoT**                 |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | SÍ                |
-| Azure Service Bus                      | SÍ                | -                  | SÍ                |
-| Event Hubs                       | SÍ                | -                  | -                  |
-| Event Grid                       | SÍ                | -                  | -                  |
+| IoT Hub                          | -                  | -                  | Sí                |
+| Azure Service Bus                      | Sí                | -                  | Sí                |
+| Event Hubs                       | Sí                | -                  | -                  |
+| Event Grid                       | Sí                | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusión

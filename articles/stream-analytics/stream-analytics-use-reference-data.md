@@ -8,30 +8,25 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/25/2018
-ms.openlocfilehash: 905ea05d2b3bc58428831ae815238de818912928
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/29/2019
+ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304438"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700046"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
-Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Azure Stream Analytics carga los datos de referencia en la memoria para lograr un procesamiento del flujo de baja latencia. Para usar los datos de referencia en un trabajo de Azure Stream Analytics, por lo general usará una [instrucción JOIN de los datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Stream Analytics usa Azure Blob Storage como capa de almacenamiento para los datos de referencia y con Azure Data Factory los datos de referencia se pueden transformar o copiar en Azure Blob Storage para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.
+Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Por ejemplo, en un escenario de IoT, podría almacenar los metadatos sobre sensores (que no cambian a menudo) en los datos de referencia y combinarlos con los flujos de datos de IoT en tiempo real. Azure Stream Analytics carga los datos de referencia en la memoria para lograr un procesamiento del flujo de baja latencia. Para usar los datos de referencia en el trabajo de Azure Stream Analytics, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. 
 
-Stream Analytics admite datos de referencia con **tamaño máximo de 300 MB**. El tamaño máximo de 300 MB de datos de referencia es factible solo con consultas sencillas. A medida que aumenta la complejidad de la consulta para incluir el procesamiento con estado, tal como los agregados por intervalos de tiempo, combinaciones temporales y funciones de análisis temporal, se espera que se reduzca el tamaño máximo admitido de datos de referencia. Si Azure Stream Analytics no puede cargar los datos de referencia y realizar operaciones complejas, el trabajo se quedará sin memoria y producirá un error. En estos casos, la métrica de porcentaje de uso de SU llegará a 100 %.    
+Stream Analytics admite Azure Blob Storage y Azure SQL Database como capa de almacenamiento de los datos de referencia. También puede transformar o copiar datos de referencia a Blob Storage desde Azure Data Factory para usar [cualquier número de almacenes de datos basados en la nube y locales](../data-factory/copy-activity-overview.md).
 
-|**Número de unidades de streaming**  |**Tamaño máximo aprox. admitido (en MB)**  |
-|---------|---------|
-|1   |50   |
-|3   |150   |
-|6 y más   |300   |
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Aumentar el número de unidades de streaming de un trabajo a más de 6 no aumenta el tamaño máximo admitido de datos de referencia.
+Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.
 
-La compatibilidad con la compresión no está disponible para los datos de referencia. 
+### <a name="configure-blob-reference-data"></a>Configuración de los datos de referencia de blob
 
-## <a name="configuring-reference-data"></a>Configuración de datos de referencia
 Para configurar los datos de referencia, tiene que crear primero una entrada que sea del tipo **Datos de referencia**. En la siguiente tabla se explica cada propiedad que necesitará proporcionar al crear la entrada de los datos de referencia con su descripción:
 
 |**Nombre de la propiedad**  |**Descripción**  |
@@ -46,10 +41,12 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 |Formato de serialización de eventos   | Para asegurarse de que las consultas funcionen como se espera, Stream Analytics debe saber cuál es el formato de serialización que usa para los flujos de datos entrantes. Para los datos de referencia, los formatos admitidos son CSV y JSON.  |
 |Encoding   | Por el momento, UTF-8 es el único formato de codificación compatible.  |
 
-## <a name="static-reference-data"></a>Datos de referencia estáticos
+### <a name="static-reference-data"></a>Datos de referencia estáticos
+
 Si no se espera que cambien los datos de referencia, especifique una ruta de acceso estática en la configuración de entrada para habilitar la compatibilidad con datos de referencia estáticos. Azure Stream Analytics selecciona el blob desde la ruta de acceso especificada. Los tokens de sustitución {date} y {time} no son necesarios. Los datos de referencia son inmutables en Stream Analytics. Por lo tanto, no se recomienda sobrescribir un blob de datos de referencia estáticos.
 
-## <a name="generating-reference-data-on-a-schedule"></a>Generación de datos de referencia en una programación
+### <a name="generate-reference-data-on-a-schedule"></a>Generación de datos de referencia en una programación
+
 Si los datos de referencia son un conjunto de datos que cambia con poca frecuencia, se pueden actualizar los datos de referencia especificando un patrón de ruta de acceso en la configuración de entrada con los tokens de sustitución de {date} y {time}. Stream Analytics selecciona las definiciones actualizadas de los datos de referencia según este patrón de ruta de acceso. Por ejemplo, un patrón de `sample/{date}/{time}/products.csv` con un formato de fecha de **"AAAA-MM-DD"** y un formato de hora de **"HH:mm"** indica a Stream Analytics que seleccione el blob actualizado `sample/2015-04-16/17-30/products.csv` a las 17:30 del 16 de abril de 2015 (zona horaria UTC).
 
 Azure Stream Analytics examina automáticamente los blobs de datos de referencia actualizados en un intervalo de un minuto.
@@ -62,12 +59,11 @@ Azure Stream Analytics examina automáticamente los blobs de datos de referencia
 > Del mismo modo, si `sample/2015-04-16/17-30/products.csv` solo se crea a las 22:03 del 16 de abril de 2015, pero en el contenedor no hay ningún blob con una fecha anterior, el trabajo usará este archivo a partir de las 22:03 del 16 de abril de 2015, además de los datos de referencia anteriores hasta ese momento.
 > 
 > Una excepción se produce cuando el trabajo debe volver a procesar datos anteriores en el tiempo o cuando se inicia por primera vez. En momento de iniciarse, el trabajo busca el blob más reciente generado antes de la hora de inicio del trabajo especificada. Esto se hace para garantizar que haya un conjunto de datos de referencia **no vacío** al iniciarse el trabajo. Si no se encuentra ninguno, el trabajo muestra el diagnóstico siguiente: `Initializing input without a valid reference data blob for UTC time <start time>`.
-> 
-> 
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para organizar la tarea de crear los blobs actualizados requeridos por Stream Analytics para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Stream Analytics que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
-## <a name="tips-on-refreshing-your-reference-data"></a>Sugerencias sobre cómo actualizar los datos de referencia
+### <a name="tips-on-refreshing-blob-reference-data"></a>Sugerencias sobre cómo actualizar los datos de referencia de blob
+
 1. No sobrescriba los blobs de datos de referencia, ya que son inmutables.
 2. El método recomendado para actualizar los datos de referencia es:
     * Usar {date}/{time} en el patrón de ruta de acceso
@@ -75,6 +71,45 @@ Azure Stream Analytics examina automáticamente los blobs de datos de referencia
     * Usar una fecha y hora **mayor** que la especificada en el último blob de la secuencia.
 3. Los blobs de datos de referencia **no** se ordenan por la hora de "Última modificación" del blob sino únicamente por la fecha y la hora que se especifiquen en el nombre del blob mediante las sustituciones de {date} y {time}.
 3. Para evitar tener que enumerar un gran número de blobs, considere la posibilidad de eliminar los blobs muy antiguos para los que ya no se va a realizar el procesamiento. Tenga en cuenta que ASA puede tener que reprocesar una pequeña cantidad en algunos escenarios como un reinicio.
+
+## <a name="azure-sql-database-preview"></a>Azure SQL Database (versión preliminar)
+
+Su trabajo de Stream Analytics recupera los datos de referencia de Azure SQL Database, que se almacenan como instantánea en la memoria para su procesamiento. La instantánea de los datos de referencia también se almacena en un contenedor en una cuenta de almacenamiento que especifique en las opciones de configuración. El contenedor se crea automáticamente cuando se inicia el trabajo, y se elimina automáticamente cuando se detiene el trabajo.
+
+Si los datos de referencia están un conjunto de datos de variación lenta, deberá actualizar periódicamente la instantánea que se usa en su trabajo. Stream Analytics le permite establecer una frecuencia de actualización al configurar la conexión de entrada de Azure SQL Database. El tiempo de ejecución de Stream Analytics consultará a Azure SQL Database al intervalo especificado por la frecuencia de actualización. La frecuencia de actualización más rápida que se admite es de una vez por minuto. Para cada actualización, Stream Analytics almacena una nueva instantánea en la cuenta de almacenamiento proporcionada.
+
+Stream Analytics proporciona dos opciones para hacer consultas en la instancia de Azure SQL Database. Una consulta de instantánea es obligatoria y debe incluirse en cada trabajo. Stream Analytics ejecuta la consulta de instantánea periódicamente según el intervalo de actualización, y usa el resultado de la consulta (la instantánea) como conjunto de datos de referencia. La consulta de instantánea debe ajustarse a la mayoría de los escenarios, pero si experimenta problemas de rendimiento con grandes conjuntos de datos y tasas de actualización rápidas, puede usar la opción de consulta delta.
+
+Con la opción de consulta delta, Stream Analytics ejecuta la consulta de instantánea inicialmente para obtener un conjunto de datos de referencia de línea base. Después, Stream Analytics ejecuta la consulta delta periódicamente según el intervalo de actualización para recuperar los cambios incrementales. Estos cambios incrementales se aplican de manera continua al conjunto de datos de referencia para mantenerlo actualizado. Usar una consulta delta puede ayudar a reducir los costos de almacenamiento y las operaciones de E/S de la red.
+
+### <a name="configure-sql-database-reference"></a>Configuración de la referencia SQL Database
+
+Para configurar los datos de referencia de SQL Database, tiene que crear primero una entrada **Datos de referencia**. En la siguiente tabla se explica cada propiedad que tendrá que proporcionar al crear la entrada de los datos de referencia, junto con su descripción. Para más información, consulte [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md) (Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics).
+
+|**Nombre de la propiedad**|**Descripción**  |
+|---------|---------|
+|Alias de entrada|Nombre descriptivo que se usará en la consulta de trabajo para hacer referencia a esta entrada.|
+|Subscription|Elija una suscripción|
+|Base de datos|La instancia de Azure SQL Database que contiene los datos de referencia.|
+|Nombre de usuario|El nombre de usuario asociado a la instancia de Azure SQL Database.|
+|Contraseña|La contraseña asociada a la instancia de Azure SQL Database.|
+|Actualizar periódicamente|Esta opción le permite elegir una frecuencia de actualización. Si elige "Activado", podrá especificar la frecuencia de actualización en DD:HH:MM.|
+|Consulta de instantánea|Esta es la opción de consulta predeterminada que recupera los datos de referencia de SQL Database.|
+|Consulta delta|Para escenarios avanzados con grandes conjuntos de datos y una breve frecuencia de actualización, elija agregar una consulta delta.|
+
+## <a name="size-limitation"></a>Limitación del tamaño
+
+Stream Analytics admite datos de referencia con **tamaño máximo de 300 MB**. El tamaño máximo de 300 MB de datos de referencia es factible solo con consultas sencillas. A medida que aumenta la complejidad de la consulta para incluir el procesamiento con estado, tal como los agregados por intervalos de tiempo, combinaciones temporales y funciones de análisis temporal, se espera que se reduzca el tamaño máximo admitido de datos de referencia. Si Azure Stream Analytics no puede cargar los datos de referencia y realizar operaciones complejas, el trabajo se quedará sin memoria y producirá un error. En estos casos, la métrica de porcentaje de uso de SU llegará a 100 %.    
+
+|**Número de unidades de streaming**  |**Tamaño máximo aprox. admitido (en MB)**  |
+|---------|---------|
+|1   |50   |
+|3   |150   |
+|6 y más   |300   |
+
+Aumentar el número de unidades de streaming de un trabajo a más de 6 no aumenta el tamaño máximo admitido de datos de referencia.
+
+La compatibilidad con la compresión no está disponible para los datos de referencia. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

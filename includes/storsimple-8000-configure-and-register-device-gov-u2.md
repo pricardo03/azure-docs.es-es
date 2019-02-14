@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736192"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889654"
 ---
-<!--author=SharS last changed: 06/22/2016-->
-
 ### <a name="to-configure-and-register-the-device"></a>Para configurar y registrar el dispositivo
 1. Acceder a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) para obtener instrucciones. **Siga el procedimiento exactamente como se indica o no podrá acceder a la consola.**
 2. En la sesión que se abre, presione **Entrar** una vez para obtener un símbolo del sistema.

@@ -4,7 +4,7 @@ description: Aprenda a acceder a Azure Key Vault desde una aplicación detrás d
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd5ecf60c76ec3db0bc0d867a8a807016eeea863
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073736"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108643"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 
@@ -36,7 +36,7 @@ En función de su configuración y entorno, hay algunas variaciones.
 
 Todo el tráfico a un almacén de claves de las tres funciones (autenticación, la administración y acceso al plano de datos) se realiza a través de HTTPS: puerto 443. Sin embargo, ocasionalmente habrá tráfico HTTP (puerto 80) para CRL. Los clientes que admiten OCSP no deberían poder acceder a CRL, pero a veces pueden hacerlo a [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 Será preciso que las aplicaciones cliente de Key Vault accedan a los puntos de conexión de Azure Active Directory para la autenticación. El punto de conexión que se utilice dependerá de la configuración del inquilino de Azure AD, del tipo de entidad de seguridad (entidad de seguridad de usuario o entidad de servicio) y del tipo de cuenta (por ejemplo, cuenta Microsoft o una cuenta profesional o educativa.  
 

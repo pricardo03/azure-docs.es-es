@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: La incorporación de charlas personales al bot lo hace más atractivo y conversacional al crear la base de conocimiento. QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la base de conocimiento.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 051c92ad6598934e13568e61c17840e136e9a57f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216326"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858049"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Obtenga información sobre cómo agregar plantillas de patrón en aplicaciones de Language Understanding (LUIS) para mejorar la precisión de las predicciones.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 46b7e7757c2bf1b01bebeff059f0028b9e9d189c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9d3352017723f5beac318d461a537820b6593bef
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220763"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881679"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Cómo agregar patrones para mejorar la precisión de las predicciones
 Después de que una aplicación de LUIS reciba expresiones de punto de conexión, use el [concepto](luis-concept-patterns.md) de patrones para mejorar la precisión de la predicción para las expresiones que revelan un patrón en el orden y la elección de las palabras. En los patrones se usan [entidades](luis-concept-entity-types.md) y sus roles para extraer datos mediante una sintaxis de patrón concreta. 

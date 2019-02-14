@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Aprenda a usar la clasificación para mostrar las respuestas que Bing Entity Search API devuelve.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 56215bfa17343576b6bebec3a5dc5076ac56073c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867841"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Uso de la clasificación para mostrar resultados de Entity Search  
 

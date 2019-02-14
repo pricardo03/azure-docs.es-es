@@ -4,7 +4,7 @@ description: Este tutorial le guía por los pasos para cargar archivos en una cu
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d2a1fc23f4ff725a08a1be433c7a5373c01a12a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aeeacdd5a83ff41eeb900b142e09030b5642f4f8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780592"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993833"
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carga de archivos en una cuenta de Media Services mediante el servicio Aspera Server On Demand en Azure
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carga de archivos en una cuenta de Media Services mediante el servicio Aspera Server On Demand en Azure 
 
 ## <a name="overview"></a>Información general
 
@@ -37,7 +37,7 @@ Puede encontrar un ejemplo que muestra cómo usar las funciones de Azure con Asp
 >Hay un límite para el tamaño máximo de archivo admitido para el procesamiento con los procesadores de multimedia (MP) de Azure Media Services. Consulte [este](media-services-quotas-and-limitations.md) artículo para obtener información más detallada acerca de la limitación de tamaño de archivo.
 >
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 Para completar este tutorial, necesita:
 

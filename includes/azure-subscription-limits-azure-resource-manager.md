@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458893"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247154"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "49458893"
 
 <sup>2</sup> Esto incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento.
 
-<sup>3</sup>Puede aplicar un número ilimitado de etiquetas por suscripción. El máximo de etiquetas por recurso o grupo de recursos es 15. Resource Manager solo devuelve una [lista de valores y nombres de etiqueta únicos](/rest/api/resources/tags#Tags_List) para la suscripción cuando el número de etiquetas es 10 000 o menos. Sin embargo, todavía puede encontrar un recurso por la etiqueta cuando el número sea mayor que 10 000.  
+<sup>3</sup>Puede aplicar un número ilimitado de etiquetas por suscripción. El máximo de etiquetas por recurso o grupo de recursos es 15. Resource Manager solo devuelve una [lista de valores y nombres de etiqueta únicos](/rest/api/resources/tags) para la suscripción cuando el número de etiquetas es 10 000 o menos. Sin embargo, todavía puede encontrar un recurso por la etiqueta cuando el número sea mayor que 10 000.  
 
 <sup>4</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y Azure Resource Manager.
 

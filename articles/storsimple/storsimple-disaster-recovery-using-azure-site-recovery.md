@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249275"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566047"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
 ## <a name="overview"></a>Información general
@@ -167,17 +167,17 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    
 1. En la cuenta de Automation, haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación que creará en el paso siguiente se denomina TestPlan, las variables deben ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName y así sucesivamente.
 
-   - **BaseUrl**: dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
-   - *RecoveryPlanName* **-ResourceGroupName**: el grupo de Resource Manager que tiene el recurso de StorSimple.
-   - *RecoveryPlanName* **-ManagerName**: el recurso de StorSimple que tiene el dispositivo StorSimple.
-   - *RecoveryPlanName* **-DeviceName**: el dispositivo StorSimple que debe conmutarse por error.
-   - *RecoveryPlanName* **-DeviceIpAddress**: la dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
-   - *RecoveryPlanName* **-VolumeContainers**: una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo, contDeVol1,contDeVol2,contDeVol3.
-   - *RecoveryPlanName* **-TargetDeviceName**: StorSimple Cloud Appliance en el que se deben conmutar por error los contenedores.
-   - *RecoveryPlanName* **-TargetDeviceIpAddress**: la dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt; **Configuración** pestaña &gt; **Red**).
-   - *RecoveryPlanName* **-StorageAccountName**: el nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la máquina virtual conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
-   - *RecoveryPlanName* **-StorageAccountKey**: la clave de acceso para la cuenta de almacenamiento anterior.
-   - *RecoveryPlanName* **-VMGUIDS**: al proteger una máquina virtual, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la máquina virtual conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
+   - **BaseUrl**: Dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
+   - *RecoveryPlanName***-ResourceGroupName**: El grupo de Resource Manager que tiene el recurso de StorSimple.
+   - *RecoveryPlanName***-ManagerName**: El recurso de StorSimple que tiene el dispositivo StorSimple.
+   - *RecoveryPlanName***-DeviceName**: El dispositivo StorSimple que debe conmutarse por error.
+   - *RecoveryPlanName***-DeviceIpAddress**: La dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
+   - *RecoveryPlanName***-VolumeContainers**: Una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName***-TargetDeviceName**: Dispositivo de nube StorSimple en el que se deben conmutar por error los contenedores.
+   - *RecoveryPlanName***-TargetDeviceIpAddress**: La dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt; **Configuración** pestaña &gt; **Red**).
+   - *RecoveryPlanName***-StorageAccountName**: El nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la VM conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
+   - *RecoveryPlanName***-StorageAccountKey**: La clave de acceso para la cuenta de almacenamiento anterior.
+   - *RecoveryPlanName***-VMGUIDS**: Al proteger una VM, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la VM conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
 
     Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables**, **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
 
@@ -208,7 +208,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
       
    1. Cree un módulo de Runbook de Azure Automation para la administración de dispositivos de StorSimple serie 8000. Use los siguientes comandos para crear un archivo zip del módulo de Automation.
          
-      ```
+      ```powershell
             # set path variables
             $downloadDir = "C:\scripts\StorSimpleSDKTools"
             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
@@ -252,14 +252,14 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    
    - Haga clic con el botón derecho en **Grupo 1: Iniciar** y haga clic en la opción **Agregar elementos protegidos**. Luego seleccione las VM que deban protegerse en el plan de recuperación y haga clic en el botón **Aceptar**. Opcional, si ya hay VM seleccionadas.
    
-   - Haga clic con el botón derecho en **Grupo 1: Iniciar** y haga clic en **Acción posterior** y, a continuación, agregue todos los scripts siguientes:  
+   - Haga clic con el botón derecho en **Grupo 1: Iniciar** y haga clic en **Acción posterior** y, luego, agregue todos los scripts siguientes:  
       
       - Runbook Start-StorSimple-Virtual-Appliance  
       - Runbook Fail over-StorSimple-volume-containers  
       - Runbook Mount-volumes-after-failover  
       - Runbook Uninstall-custom-script-extension  
         
-   - Agregue una acción manual después de los 4 scripts anteriores en la misma sección **Grupo 1: Pasos posteriores** . Esta acción es el punto en el que puede comprobar que todo funciona correctamente. Debe agregarse solo como parte de la conmutación por error de prueba (por tanto, seleccione solo la casilla **Probar conmutación por error**).
+   - Agregue una acción manual después de los 4 scripts anteriores en la misma sección **Grupo 1: Pasos posteriores**. Esta acción es el punto en el que puede comprobar que todo funciona correctamente. Debe agregarse solo como parte de la conmutación por error de prueba (por tanto, seleccione solo la casilla **Probar conmutación por error**).
     
    - Después de la acción manual, agregue el script de **limpieza** con el mismo procedimiento que usó para los otros runbooks. **Guarde** el plan de recuperación.
     
@@ -340,19 +340,19 @@ El planeamiento de capacidad se compone de al menos dos procesos importantes:
    - Si se produce un error en la conmutación por error planeada o no planeada y las máquinas virtuales se crean en Azure, no limpie las máquinas virtuales. En su lugar, realice una conmutación por recuperación. Si elimina las máquinas virtuales, no se podrán volver a activar las máquinas virtuales locales.
    - Después de una conmutación por error, si no se pueden ver los volúmenes, vaya a las máquinas virtuales, abra Administración de discos, vuelva a examinar los discos y póngalos en línea.
    - En algunos casos, las letras de unidad del sitio de recuperación ante desastres pueden ser diferentes de las letras locales. En tales casos, debe corregir manualmente el problema una vez finalizada la conmutación por error.
-   - Tiempo de espera del trabajo de conmutación por error: se agotará el tiempo de espera del script de StorSimple si la conmutación por error de los contenedores de volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
-   - Tiempo de espera del trabajo de copia de seguridad: se agotará el tiempo de espera del script de StorSimple si la copia de seguridad de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
+   - Tiempo de espera del trabajo de conmutación por error: Se agotará el tiempo de espera del script de StorSimple si la conmutación por error de los contenedores de volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
+   - Tiempo de espera del trabajo de copia de seguridad: Se agotará el tiempo de espera del script de StorSimple si la copia de seguridad de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
    
    > [!IMPORTANT]
    > Ejecute la copia de seguridad manualmente desde el portal de Azure y, después, ejecute de nuevo el plan de recuperación.
    
-   - Tiempo de espera del trabajo de clonación: se agotará el tiempo de espera del script de StorSimple si la clonación de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
-   - Error de sincronización de la hora: se produce un error en los scripts de StorSimple que afirma que las copias de seguridad no se realizaron correctamente, aunque se hayan llevado a cabo de forma correcta en el portal. Esto puede deberse a que la hora del aparato StorSimple no esté sincronizada con la hora actual de la zona horaria.
+   - Tiempo de espera del trabajo de clonación: Se agotará el tiempo de espera del script de StorSimple si la clonación de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
+   - Error de sincronización de la hora: Se produce un error en los scripts de StorSimple que afirma que las copias de seguridad no se realizaron correctamente, aunque se hayan llevado a cabo de forma correcta en el portal. Esto puede deberse a que la hora del aparato StorSimple no esté sincronizada con la hora actual de la zona horaria.
    
    > [!IMPORTANT]
    > Sincronice la hora del aparato con la hora actual de la zona horaria.
    
-   - Error de conmutación por error del aparato: el script de StorSimple puede presentar un error si se realiza una conmutación por error del aparato mientras se está ejecutando el plan de recuperación.
+   - Error de conmutación por error del dispositivo: El script de StorSimple puede presentar un error si se realiza una conmutación por error del dispositivo mientras se está ejecutando el plan de recuperación.
    
    > [!IMPORTANT]
    > Una vez completada la conmutación por error del aparato, vuelva a ejecutar el plan de recuperación.

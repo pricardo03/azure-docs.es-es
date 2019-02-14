@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402343"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237134"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -33,12 +33,12 @@ En la tabla siguiente se comparan niveles de servicio disponibles de Event Hubs.
 | Eventos de entrada | Pago por millones de eventos | Se incluye |
 | Unidad de rendimiento (entrada de 1 MB/seg., salida de 2 MB/seg.) | Pago por hora | Se incluye |
 | Tamaño de los mensajes | 1 MB | 1 MB |
-| Directivas de publicadores | SÍ | SÍ |   
+| Directivas de publicadores | Sí | Sí |   
 | Grupos de consumidores | 20 | 20 |
-| Redifusión de mensajes | SÍ | SÍ |
+| Redifusión de mensajes | Sí | Sí |
 | Unidades de rendimiento máximo | 20 (flexible a 100)   | 1 unidad de capacidad (CU) ≈ 50 |
 | Conexiones asincrónicas | 1000 incluidos | 100 000 incluidos |
-| Conexiones desacopladas adicionales | SÍ | SÍ |
+| Conexiones desacopladas adicionales | Sí | Sí |
 | Retención de mensajes | 1 día incluido | Hasta 7 días incluidos |
 | Capture | Pago por hora | Se incluye |
 

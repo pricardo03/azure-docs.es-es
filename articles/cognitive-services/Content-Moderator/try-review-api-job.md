@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Use las operaciones de trabajo de la API de revisión para iniciar trabajos de moderación de contenido de un extremo a otro para el contenido de imágenes o texto en Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ad504051980356737dbc9af9263bc8370421cdb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fac80ff152b0f7b9c36c182759d41245364fff9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228226"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862435"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Iniciar un trabajo de moderación en la consola de API
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 2235c281b5b25390838a8f201481cfbdc9e5c223
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478974"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891988"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Creación de un clúster de Kubernetes con el controlador de entrada de Application Gateway mediante Azure Kubernetes Service y Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) administra el entorno hospedado de Kubernetes. AKS facilita y acelera la implementación y administración de aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a realizar las tareas siguientes para crear un clú
 
 - **Configuración de Terraform**: siga las instrucciones del artículo [Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure](/azure/virtual-machines/linux/terraform-install-configure).
 
-- **Entidad de servicio de Azure**: siga las instrucciones de la sección **Creación de la entidad de servicio** del artículo [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Anote los valores de appId, displayName y contraseña.
+- **Entidad de servicio de Azure**: siga las instrucciones de la sección **Creación de la entidad de servicio** del artículo [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anote los valores de appId, displayName y contraseña.
     - Anote el identificador de objeto de la entidad de servicio mediante la ejecución del siguiente comando:
 
     ```bash
@@ -617,7 +617,7 @@ En esta sección, puede ver cómo usar el comando `terraform init` para crear lo
 
     ![Ejemplo de resultados de "terraform plan"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
-1. Ejecute el comando `terraform apply` para aplicar el plan para crear el clúster de Kubernetes. El proceso para crear un clúster de Kubernetes puede tardar varios minutos, dado como resultado el agotamiento del tiempo de espera de la sesión de Cloud Shell. Si la sesión de Cloud Shell agota su tiempo de espera, puede seguir los pasos de la sección ["Recuperación de un tiempo de espera de Cloud Shell"](#recover-from-a-dloud-shell-timeout) para poder completar el tutorial.
+1. Ejecute el comando `terraform apply` para aplicar el plan para crear el clúster de Kubernetes. El proceso para crear un clúster de Kubernetes puede tardar varios minutos, dado como resultado el agotamiento del tiempo de espera de la sesión de Cloud Shell. Si la sesión de Cloud Shell agota su tiempo de espera, puede seguir los pasos de la sección "Recuperación de un tiempo de espera de Cloud Shell" para poder completar el tutorial.
 
     ```bash
     terraform apply out.plan

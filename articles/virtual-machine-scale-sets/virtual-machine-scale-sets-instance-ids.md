@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 8f85ded20470ecc5a7868c094e88a149c88b7f39
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749574"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981662"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 En este artículo se describen los identificadores de instancia de los conjuntos de escalado y las distintas formas en que se muestran.
@@ -31,7 +31,7 @@ Cada máquina virtual de un conjunto de escala recibe un identificador de instan
 
 API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 
-Powershell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para más información, consulte la [documentación de Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
+Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para más información, consulte la [documentación de Powershell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 
 CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para más información, consulte la [documentación de la CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
 
@@ -39,7 +39,7 @@ Para obtener la lista de identificadores de instancia, enumere todas las instanc
 
 API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
 
-Powershell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para más información, consulte la [documentación de Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para más información, consulte la [documentación de Powershell](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
 
 CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para más información, consulte la [documentación de la CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783434"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995125"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos 
 
 ## <a name="overview"></a>Información general
 El procesador multimedia (MP) **Azure Media Content Moderator** le permite usar la moderación automatizada en sus vídeos. Por ejemplo, puede usarlo para detectar posible contenido para adultos en los vídeos y revisar el contenido que hayan indicado sus equipos de moderadores.
@@ -72,7 +72,7 @@ La salida JSON incluye los siguientes elementos:
 | adultScore | Puntuación de confianza del posible contenido para adultos, en una escala del 0,00 al 0,99. |
 | racyScore | Puntuación de confianza del posible contenido obsceno, en una escala del 0,00 al 0,99. |
 | index | Índice del marco en una escala que va desde el primer hasta el último índice de fotograma. |
-| timestamp | La ubicación del marco en "tics". |
+|  timestamp | La ubicación del marco en "tics". |
 | shotIndex | El índice de la captura principal. |
 
 

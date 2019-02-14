@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a7a34c703b9c6589679cf2035785c005f13f06cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190844"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822823"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -49,18 +49,18 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*trigger-name*> | string | El nombre del desencadenador | 
 | <*trigger-type*> | string | El tipo de desencadenador como, por ejemplo, "Http" o "ApiConnection" | 
 | <*trigger-inputs*> | Objeto JSON | Las entradas que definen el comportamiento del desencadenador | 
 | <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Matriz | Una matriz que contiene una o más [condiciones](#trigger-conditions) que determinan si ejecutar o no el flujo de trabajo. Disponible solo para desencadenadores. | 
 | <*runtime-config-options*> | Objeto JSON | Puede cambiar el comportamiento del entorno en tiempo de ejecución del desencadenador estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
@@ -129,35 +129,35 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | string | El nombre del desencadenador | 
 | <*connection-name*> | string | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
 | <*method-type*> | string | El método HTTP para comunicarse con la API administrada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*api-operation*> | string | La operación de API a la que llamar | 
 | <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API. Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
 | <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entero | Cuando la aplicación lógica está ejecutando el número máximo de instancias, número que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, cualquier nueva ejecución se pondrá en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*splitOn-expression*> | string | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
-| <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
+| <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). |
 ||||
 
 *Outputs*
  
-| Elemento | Escriba | DESCRIPCIÓN |
-|---------|------|-------------| 
-| encabezados | Objeto JSON | Encabezados de la respuesta | 
-| Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
-| Código de estado | Entero | El código de estado de la respuesta | 
+| Elemento | Type | DESCRIPCIÓN |
+|---------|------|-------------|
+| encabezados | Objeto JSON | Encabezados de la respuesta |
+| Cuerpo | Objeto JSON | Cuerpo de la respuesta |
+| Código de estado | Entero | El código de estado de la respuesta |
 |||| 
 
 *Ejemplo*
@@ -171,7 +171,7 @@ Esta definición del desencadenador busca correo electrónico a diario en la ban
       "host": {
          "connection": {
             "name": "@parameters('$connections')['office365']['connectionId']"
-         }     
+         }
       },
       "method": "get",
       "path": "/Mail/OnNewEmail",
@@ -223,7 +223,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*connection-name*> | string | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje para enviar como carga a la API administrada | 
@@ -231,7 +231,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
@@ -302,17 +302,17 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | string | El método HTTP que se usará para sondear el punto de conexión especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | string | La dirección URL HTTP o HTTPS que va a sondear el punto de conexión <p>Tamaño máximo de la cadena: 2 KB | 
 | <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Los encabezados que se envían con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo de una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | string | El contenido del mensaje que se va a enviar como carga con la solicitud | 
@@ -326,7 +326,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 *Outputs*
 
-| Elemento | Escriba | DESCRIPCIÓN |
+| Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
 | encabezados | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
@@ -339,7 +339,7 @@ Para que funcione bien con la aplicación lógica, el punto de conexión debe cu
   
 | Response | Obligatorio | DESCRIPCIÓN | 
 |----------|----------|-------------| 
-| Código de estado | SÍ | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
+| Código de estado | Sí | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
 | Encabezado Retry-after | Sin  | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
 | Encabezado Location | Sin  | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
@@ -399,7 +399,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | string | El método HTTP que se usará para la solicitud de suscripción: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-subscribe-URL*> | string | Dirección URL del punto de conexión a donde enviar la solicitud de suscripción | 
@@ -407,7 +407,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | string | El método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | string | Dirección URL del punto de conexión a donde enviar la solicitud de cancelación | 
@@ -421,7 +421,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Outputs* 
 
-| Elemento | Escriba | DESCRIPCIÓN |
+| Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
 | encabezados | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
@@ -493,15 +493,15 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | string | La fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico", o bien especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | string | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
@@ -602,7 +602,7 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*property-name*> | string | El nombre de una propiedad en el esquema JSON que describe la carga | 
 | <*property-type*> | string | El tipo de propiedad | 
@@ -610,7 +610,7 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | string | El método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | string | La ruta de acceso relativa del parámetro que la dirección URL del punto de conexión puede aceptar | 
@@ -775,7 +775,7 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------|
 | <*action-name*> | string | El nombre de la acción | 
 | <*action-type*> | string | El tipo de acción, por ejemplo, "Http" o "ApiConnection"| 
@@ -786,9 +786,9 @@ Las acciones tienen estos elementos de alto nivel, aunque algunos son opcionales
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------|
-| <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](#retry-policies). | 
+| <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para obtener más información, consulte Directivas de reintentos. | 
 | <*runtime-config-options*> | Objeto JSON | Para algunas acciones, puede cambiar el comportamiento de la acción en el tiempo de ejecución estableciendo propiedades `runtimeConfiguration`. Para más información, consulte [Opciones de configuración del entorno en tiempo de ejecución](#runtime-config-options). | 
 | <*operation-option*> | string | Para algunas acciones, puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
@@ -888,7 +888,7 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-name*> | string | El nombre de la acción proporcionada por el conector | 
 | <*api-name*> | string | El nombre de la API administrada por Microsoft que se usa para la conexión | 
@@ -898,7 +898,7 @@ Esta acción envía una solicitud HTTP a una [API administrada por Microsoft](..
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | Objeto JSON | Cualquier otra propiedad de entrada que sea aplicable a esta acción específica | 
 | <*retry-behavior*> | Objeto JSON | Personaliza el comportamiento de reintento para errores intermitentes, que tienen el código de estado 408, 429 y 5XX, y todas las excepciones de conectividad. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -968,7 +968,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-name*> | string | El nombre de la acción proporcionada por el conector | 
 | <*method-type*> | string | El método HTTP que se usará para suscribirse o cancelar la suscripción desde un punto de conexión: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
@@ -977,7 +977,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | string | El identificador URI que se utiliza para cancelar la suscripción desde la API | 
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar en la solicitud <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1008,7 +1008,7 @@ Posteriormente, puede usar la salida de la acción en otras acciones.
 
 *Obligatorio* 
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | Cualquiera | Las entradas para la creación de una única salida | 
 |||| 
@@ -1069,7 +1069,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | string | El identificador de recurso de la función de Azure que quiere llamar. Este es el formato de este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | string | El método HTTP que se usará para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
@@ -1077,7 +1077,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar con la llamada <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar en la solicitud | 
@@ -1140,7 +1140,7 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*method-type*> | string | El método que se usará para enviar la solicitud: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | string | El punto de conexión HTTP o HTTPS al que se llama. Tamaño máximo de la cadena: 2 KB | 
@@ -1148,7 +1148,7 @@ Esta acción envía una solicitud al punto de conexión especificado y comprueba
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Cualquier encabezado que se vaya a enviar con la solicitud <p>Por ejemplo, para establecer el idioma y el tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar en la solicitud | 
@@ -1191,7 +1191,7 @@ Esta acción crea una cadena con todos los elementos de una matriz y los separa 
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. | 
 | <*delimitador*> | Cadena de un único carácter | El carácter que separa cada elemento de la cadena | 
@@ -1235,7 +1235,7 @@ Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objeto JSON | El contenido JSON que desea analizar | 
 | <*JSON-schema*> | Objeto JSON | El esquema JSON que describe el contenido JSON subyacente, que la acción utiliza para analizar el contenido JSON de origen. <p>**Sugerencia**: En el diseñador de Logic Apps, puede proporcionar el esquema, o bien una carga de ejemplo para que la acción pueda generar el esquema. | 
@@ -1337,7 +1337,7 @@ Esta acción crea una matriz a partir de elementos de otra matriz basándose en 
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen. Si especifica una expresión, incluya esa expresión entre comillas dobles. |
 | <*condition-or-filter*> | string | La condición usada para filtrar elementos en la matriz de origen <p>**Nota**: Si ningún valor satisface la condición, la acción crea una matriz vacía. |
@@ -1378,14 +1378,14 @@ Esta acción crea la carga de la respuesta a una solicitud HTTP.
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*response-status-code*> | Entero | El código de estado HTTP que se envía a la solicitud entrante. El código predeterminado es "200 OK", pero el código puede ser cualquier código de estado válido que comience por 2xx, 4xx o 5xx, pero no por 3xxx. | 
 |||| 
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*response-headers*> | Objeto JSON | Uno o más encabezados que se incluyen con la respuesta | 
 | <*response-body*> | Varios | El cuerpo de respuesta, que puede ser una cadena, un objeto JSON o incluso contenido binario de una acción anterior | 
@@ -1453,7 +1453,7 @@ Esta acción crea una matriz con objetos JSON mediante la transformación de los
 
 *Obligatorio* 
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen. Asegúrese de que incluye una expresión entre comillas dobles. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una matriz vacía. | 
 | <*key-name*> | string | El nombre de la propiedad asignado al resultado de <*expression*> <p>Para agregar una nueva propiedad en todos los objetos de la matriz de salida, proporcione un <*nombre de clave*> para esa propiedad y una <*expresión*> para el valor de propiedad. <p>Para quitar una propiedad de todos los objetos de la matriz, omita el <*nombre de clave*> para esa propiedad. | 
@@ -1551,7 +1551,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 *Obligatorio* 
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <CSV *or* HTML>| string | El formato de la tabla que desea crear | 
 | <*array*> | Matriz | La matriz o expresión que proporciona los elementos de origen de la tabla. <p>**Nota**: Si la matriz de origen está vacía, la acción creará una tabla vacía. | 
@@ -1561,7 +1561,7 @@ Esta acción crea una tabla CSV o HTML a partir de una matriz. Para las matrices
 
 Para especificar o personalizar los encabezados y los valores de columna, use la matriz `columns`. Cuando los pares `header-value` tienen el mismo nombre de encabezado, sus valores se mostrarán en la misma columna bajo ese nombre de encabezado. En caso contrario, cada encabezado único define una columna única.
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*column-name*> | string | El nombre del encabezado de una columna | 
 | <*column-value*> | Cualquiera | El valor de esa columna | 
@@ -1664,7 +1664,7 @@ Esta acción detiene la ejecución de la instancia del flujo de trabajo de la ap
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*status*> | string | El estado que se devolverá para la ejecución: "Erróneo", "Cancelado" o "Correcto" |
 |||| 
@@ -1673,7 +1673,7 @@ Esta acción detiene la ejecución de la instancia del flujo de trabajo de la ap
 
 Las propiedades del objeto "runStatus" se aplican solo cuando se establece la propiedad "runStatus" en estado "Erróneo".
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | string | El código o nombre del error |
 | <*error-message*> | string | El mensaje o el texto que describe el error y las acciones que el usuario de la aplicación puede realizar | 
@@ -1734,7 +1734,7 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entero | Para la acción **Delay** es el número de unidades que debe esperar | 
 | <*intervalo*> | string | Para la acción de **retraso**, el intervalo que se esperará: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
@@ -1807,7 +1807,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | string | El nombre de la aplicación lógica a la que desea llamar | 
 | <*trigger-name*> | string | El nombre del desencadenador de la aplicación lógica anidada a la que desea llamar | 
@@ -1818,7 +1818,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos los encabezados que se vayan a enviar con la llamada | 
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar con la llamada | 
@@ -1884,7 +1884,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 *Obligatorio* 
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-1...n*> | string | Los nombres de las acciones que se ejecutan en cada elemento de la matriz | 
 | <*action-definition-1...n*> | Objeto JSON | Las definiciones de las acciones que se ejecutan | 
@@ -1893,7 +1893,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones en cad
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*recuento*> | Entero | De forma predeterminada, las iteraciones de bucles "for each" se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio de la simultaneidad del bucle "for each"](#change-for-each-concurrency). | 
 | <*operation-option*> | string | Para ejecutar un bucle "for each" secuencialmente, en lugar de en paralelo, establezca <*operation-option*> en `Sequential` o <*count*> en `1`, pero no ambas opciones a la vez. Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each). | 
@@ -1957,7 +1957,7 @@ Esta acción, que es una *instrucción condicional*, evalúa una expresión que 
 }
 ```
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*condition*> | Objeto JSON | La condición que se va a evaluar, que puede ser una expresión | 
 | <*action-1*> | Objeto JSON | La acción que se ejecutará si <*condition*> se evalúa como true | 
@@ -2047,7 +2047,7 @@ Esta acción agrupa lógicamente las acciones en *ámbitos*, que obtienen su pro
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | Objeto JSON | Una o varias acciones que se ejecutan dentro del ámbito |
 | <*action-inputs*> | Objeto JSON | Las entradas de cada acción |
@@ -2088,7 +2088,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varía | La expresión, objeto JSON o token que se va a evaluar | 
 | <*action-name*> | string | El nombre de la acción que se va a ejecutar para el caso coincidente | 
@@ -2098,7 +2098,7 @@ Esta acción, también conocida como *instrucción switch*, organiza otras accio
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*default-action-name*> | string | El nombre de la acción predeterminada que se va a ejecutar si no hay ningún caso coincidente | 
 | <*default-action-definition*> | Objeto JSON | La definición de la acción que se va a ejecutar si no hay ningún caso coincidente | 
@@ -2214,7 +2214,7 @@ Esta acción de bucle contiene acciones que se ejecutan hasta que la condición 
 }
 ```
 
-| Valor | Escriba | DESCRIPCIÓN | 
+| Valor | Type | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*action-name*> | string | El nombre de la acción que desea ejecutar dentro del bucle | 
 | <*action-type*> | string | El tipo de acción que desea ejecutar | 
@@ -2306,7 +2306,7 @@ Puede cambiar el comportamiento predeterminado del runtime para los desencadenad
 
 Puede cambiar el comportamiento predeterminado de los desencadenadores y acciones con la propiedad `operationOptions` de la definición de desencadenador o de acción.
 
-| Opción de operación | Escriba | DESCRIPCIÓN | Desencadenador o acción | 
+| Opción de operación | Type | DESCRIPCIÓN | Desencadenador o acción | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | string | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
 | `OptimizedForHighThroughput` | string | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
@@ -2557,7 +2557,7 @@ Para una única ejecución de aplicación lógica, el número de acciones que se
 
 <a name="connector-authentication"></a>
 
-## <a name="authenticate-triggers-or-actions"></a>Autenticación de desencadenadores o acciones
+## <a name="authenticate-http-triggers-and-actions"></a>Autenticación de acciones y desencadenadores HTTP
 
 Los puntos de conexión HTTP admiten diferentes tipos de autenticación. Puede configurar la autenticación para estas acciones y desencadenadores HTTP:
 
@@ -2571,22 +2571,25 @@ Estos son los tipos de autenticación que se pueden configurar:
 * [Autenticación de certificados de clientes](#client-certificate-authentication)
 * [Autenticación de OAuth de Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
+> [!IMPORTANT]
+> Asegúrese de proteger la información confidencial que gestiona su definición de flujo de trabajo de aplicación lógica. Use parámetros protegidos y codifique los datos según sea necesario. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+
 <a name="basic-authentication"></a>
 
 ### <a name="basic-authentication"></a>Autenticación básica
 
-Para este tipo de autenticación, la definición del desencadenador o acción puede incluir un objeto JSON `authentication` que tenga estas propiedades:
+Para utilizar la [autenticación básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) mediante Azure Active Directory, la definición del desencadenador o acción puede incluir un objeto JSON `authentication`, que tiene las propiedades especificadas en la siguiente tabla. Para acceder al valor de parámetro durante el tiempo de ejecución, puede usar la expresión `@parameters('parameterName')`, proporcionada por el [lenguaje de definición de flujo de trabajo](https://aka.ms/logicappsdocs). 
 
-| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
 |----------|----------|-------|-------------| 
-| **type** | SÍ | "Básica" | Tipo de autenticación que se debe usar, que en este caso es "Básica" | 
-| **username** | SÍ | "@parameters('userNameParam')" | Un parámetro que pasa el nombre de usuario para autenticar para el acceso al punto de conexión de servicio de destino |
-| **password** | SÍ | "@parameters('passwordParam')" | Un parámetro que pasa la contraseña para autenticar para el acceso al punto de conexión de servicio de destino |
+| **type** | Sí | "Básica" | Tipo de autenticación que se debe usar, que en este caso es "Básica" | 
+| **username** | Sí | "@parameters('userNameParam')" | Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
+| **password** | Sí | "@parameters('passwordParam')" | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||| 
 
-Por ejemplo, este es el formato para el objeto `authentication` en la definición del desencadenador o acción. Para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
+En este ejemplo de definición de la acción HTTP, se usa la sección `authentication` para especificar la autenticación `Basic`. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
@@ -2601,112 +2604,85 @@ Por ejemplo, este es el formato para el objeto `authentication` en la definició
   "runAfter": {}
 }
 ```
+
+> [!IMPORTANT]
+> Asegúrese de proteger la información confidencial que gestiona su definición de flujo de trabajo de aplicación lógica. Use parámetros protegidos y codifique los datos según sea necesario. Para obtener más información acerca de cómo proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="client-certificate-authentication"></a>
 
 ### <a name="client-certificate-authentication"></a>Autenticación de certificados de cliente
 
-Para este tipo de autenticación, la definición del desencadenador o acción puede incluir un objeto JSON `authentication` que tenga estas propiedades:
+Para utilizar la [autenticación basada en certificados](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) mediante Azure Active Directory, la definición del desencadenador o acción puede incluir un objeto JSON `authentication`, que tiene las propiedades especificadas en la siguiente tabla. Para acceder al valor de parámetro durante el tiempo de ejecución, puede usar la expresión `@parameters('parameterName')`, proporcionada por el [lenguaje de definición de flujo de trabajo](https://aka.ms/logicappsdocs). Para conocer los límites en el número de certificados de cliente que puede usar, consulte [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) (Límites y configuración de Azure Logic Apps).
 
-| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
-|----------|----------|-------|-------------| 
-| **type** | SÍ | "ClientCertificate" | El tipo de autenticación que se usará para los certificados de cliente de capa de sockets seguros (SSL) | 
-| **pfx** | SÍ | <*base64-encoded-pfx-file*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
-| **password** | SÍ | "@parameters('passwordParam')" | Un parámetro con la contraseña para acceder al archivo PFX |
+| Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+|----------|----------|-------|-------------|
+| **type** | Sí | "ClientCertificate" | Tipo de autenticación que se usará para los certificados de cliente de Capa de sockets seguros (SSL). Aunque se admiten los certificados autofirmados, no se admiten los certificados autofirmados para SSL. |
+| **pfx** | Sí | "@parameters('pfxParam') | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
+| **password** | Sí | "@parameters('passwordParam')" | La contraseña para acceder al archivo PFX |
 ||||| 
 
-Por ejemplo, este es el formato para el objeto `authentication` en la definición del desencadenador o acción. Para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
+En este ejemplo de definición de la acción HTTP, se usa la sección `authentication` para especificar la autenticación `ClientCertificate`. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-```javascript
-"authentication": {
-   "password": "@parameters('passwordParam')",
-   "pfx": "aGVsbG8g...d29ybGQ=",
-   "type": "ClientCertificate"
-}
-```
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticación de OAuth de Azure Active Directory (AD)
-
-Para este tipo de autenticación, la definición del desencadenador o acción puede incluir un objeto JSON `authentication` que tenga estas propiedades:
-
-| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
-|----------|----------|-------|-------------| 
-| **type** | SÍ | `ActiveDirectoryOAuth` | El tipo de autenticación para usar, que es "ActiveDirectoryOAuth" para OAuth de Azure AD | 
-| **authority** | Sin  | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación |  
-| **tenant** | SÍ | <*tenant-ID*> | El identificador del inquilino de Azure AD | 
-| **audience** | SÍ | <*resource-to-authorize*> | El recurso que desea que la autorización use, por ejemplo, `https://management.core.windows.net/` | 
-| **clientId** | SÍ | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización | 
-| **credentialType** | SÍ | "Secreto" o "Certificado" | El tipo de credencial que el cliente usa para solicitar autorización. Esta propiedad y el valor no aparecen en la definición subyacente, pero determina los parámetros necesarios para el tipo de credencial. | 
-| **password** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('passwordParam')" | Un parámetro con la contraseña para acceder al archivo PFX | 
-| **pfx** | Sí, solo para el tipo de credencial de "Certificado" | <*base64-encoded-pfx-file*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
-| **secret** | Sí, solo para el tipo de credencial de "Secreto" | <*secret-for-authentication*> | El secreto codificado en base 64 que el cliente usa para solicitar autorización |
-||||| 
-
-Por ejemplo, este es el formato para el objeto `authentication` cuando la definición de desencadenador o acción usa el tipo de credencial "Secreto": Para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
-
-```javascript
-"authentication": {
-   "audience": "https://management.core.windows.net/",
-   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "type": "ActiveDirectoryOAuth"
-}
-```
-
-<a name="secure-info"></a>
-
-## <a name="secure-sensitive-information"></a>Protección de la información confidencial
-
-Para proteger la información confidencial que se usa para la autenticación, como los nombres de usuario y contraseñas, en las definiciones de acciones y desencadenadores, puede usar parámetros y la expresión `@parameters()` para que esta información no esté visible después de guardar su aplicación lógica. 
-
-Por ejemplo, suponga que utiliza la autenticación "Básica" en la definición de acción o desencadenador. Este es un ejemplo de objeto `authentication` que especifica un nombre de usuario y una contraseña:
-
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "GET",
       "uri": "http://www.microsoft.com",
       "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
+         "type": "ClientCertificate",
+         "pfx": "@parameters('pfxParam')",
          "password": "@parameters('passwordParam')"
       }
-  },
-  "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
-En la sección `parameters` de la definición de aplicación lógica, defina los parámetros que usó en la definición de acción o desencadenador:
+> [!IMPORTANT]
+> Asegúrese de proteger la información confidencial que gestiona su definición de flujo de trabajo de aplicación lógica. Use parámetros protegidos y codifique los datos según sea necesario. Para obtener más información acerca de cómo proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
-```javascript
-"definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "HTTP": {
-      }
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticación de OAuth de Azure Active Directory (AD)
+
+Para utilizar la [autenticación de OAuth de Azure AD](../active-directory/develop/authentication-scenarios.md), la definición del desencadenador o acción puede incluir un objeto JSON `authentication`, que tiene las propiedades especificadas en la siguiente tabla. Para acceder al valor de parámetro durante el tiempo de ejecución, puede usar la expresión `@parameters('parameterName')`, proporcionada por el [lenguaje de definición de flujo de trabajo](https://aka.ms/logicappsdocs).
+
+| Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+|----------|----------|-------|-------------|
+| **type** | Sí | `ActiveDirectoryOAuth` | El tipo de autenticación para usar, que es "ActiveDirectoryOAuth" para OAuth de Azure AD |
+| **authority** | Sin  | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación |
+| **tenant** | Sí | <*tenant-ID*> | El identificador del inquilino de Azure AD |
+| **audience** | Sí | <*resource-to-authorize*> | Recurso que quiere usar para la autorización; por ejemplo, `https://management.core.windows.net/` |
+| **clientId** | Sí | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización |
+| **credentialType** | Sí | "Certificado" o "secreto" | El tipo de credencial que el cliente usa para solicitar autorización. Esta propiedad y el valor no aparecen en la definición subyacente, pero determina los parámetros necesarios para el tipo de credencial. |
+| **pfx** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('pfxParam') | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
+| **password** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('passwordParam')" | La contraseña para acceder al archivo PFX |
+| **secret** | Sí, solo para el tipo de credencial de "Secreto" | "@parameters('secretParam')" | Secreto de cliente para solicitar la autorización |
+|||||
+
+En este ejemplo de definición de la acción HTTP, se usa la sección `authentication` para especificar la autenticación `ActiveDirectoryOAuth` y la credencial de tipo "Secreto". Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "ActiveDirectoryOAuth",
+         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+         "audience": "https://management.core.windows.net/",
+         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+         "secret": "@parameters('secretParam')"
+     }
    },
-   "parameters": {
-      "passwordParam": {
-         "type": "securestring"
-      },
-      "userNameParam": {
-         "type": "securestring"
-      }
-   },
-   "triggers": {
-      "HTTP": {
-      }
-   },
-   "contentVersion": "1.0.0.0",
-   "outputs": {}
-},
+   "runAfter": {}
+}
 ```
 
-Si está creando o utilizando una plantilla de implementación de Azure Resource Manager, también tiene que incluir una sección `parameters` externa para la definición de plantilla. Para más información acerca de cómo proteger los parámetros, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
+> [!IMPORTANT]
+> Asegúrese de proteger la información confidencial que gestiona su definición de flujo de trabajo de aplicación lógica. Use parámetros protegidos y codifique los datos según sea necesario. Para obtener más información acerca de cómo proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

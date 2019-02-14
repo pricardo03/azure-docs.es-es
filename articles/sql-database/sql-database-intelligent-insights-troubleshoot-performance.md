@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455072"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993646"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
@@ -237,7 +237,7 @@ Para más información, consulte [Introducción a las tablas optimizadas para me
 
 Este patrón de rendimiento detectable indica una degradación del rendimiento actual de la carga de trabajo de la base de datos en comparación con la base de referencia de los últimos 7 días. El motivo es la escasez de DTU disponibles en el grupo elástico de su suscripción. 
 
-Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-service-tiers.md#dtu-based-purchasing-model), que consisten en una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
+Normalmente, se hace referencia a los recursos de SQL Database como [recursos de DTU](sql-database-purchase-models.md#dtu-based-purchasing-model), que consisten en una medida combinada de recursos de CPU y E/S (datos y registro de transacciones). Los [recursos del grupo elástico de Azure ](sql-database-elastic-pool.md) se usan como un grupo de recursos disponibles de eDTU que se comparten entre varias bases de datos con finalidades de escala. Cuando los recursos de eDTU disponibles en su grupo elástico no son lo suficientemente grandes como para admitir todas las bases de datos del grupo, el sistema detecta el problema de rendimiento por escasez de DTU en el grupo elástico.
 
 ### <a name="troubleshooting"></a>solución de problemas
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096711"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100336"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Incorporación de máquinas para su administración mediante Azure Automation State Configuration
 
@@ -24,7 +24,8 @@ Al igual que [PowerShell Desired State Configuration](/powershell/dsc/overview),
 
 Azure Automation State Configuration puede usarse para administrar diversas máquinas:
 
-- Azure Virtual Machines (implementado tanto en el modelo de implementación clásico como el de Azure Resource Manager)
+- Máquinas virtuales de Azure
+- Azure Virtual Machines (clásico)
 - Instancias de EC2 de Amazon Web Services (AWS)
 - Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS
 - Máquinas físicas y virtuales con Linux locales, en Azure o en una nube que no sea Azure
@@ -35,6 +36,31 @@ Además, si no está preparado para administrar la configuración de máquina de
 > La administración de máquinas virtuales de Azure con State Configuration se incluye sin cargo adicional si la extensión de máquina virtual DSC instalada es mayor que 2.70. Para más información, consulte la página [**Precios de Automation**](https://azure.microsoft.com/pricing/details/automation/).
 
 En las secciones siguientes, se describe cómo incorporar cada tipo de máquina a Azure Automation State Configuration.
+
+## <a name="azure-virtual-machines"></a>Máquinas virtuales de Azure
+
+Con Azure Automation State Configuration, puede incorporar fácilmente máquinas virtuales de Azure para la administración de configuraciones, mediante Azure Portal, las plantillas de Azure Resource Manager o PowerShell. Internamente y sin que un administrador tenga que acceder de forma remota a la máquina virtual, la extensión Configuración de estado deseado de la máquina virtual de Azure registra la máquina virtual con Azure Automation State Configuration.
+Puesto que la extensión Azure VM Desired State Configuration se ejecuta de forma asincrónica, en la sección [**Solución de problemas de incorporación de máquinas virtuales de Azure**](#troubleshooting-azure-virtual-machine-onboarding) se proporcionan los pasos para realizar un seguimiento de su progreso o solucionar problemas.
+
+### <a name="azure-portal"></a>Azure Portal
+
+En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de Azure Automation en la que quiere incorporar máquinas virtuales. En la página de State Configuration, en la pestaña **Nodos**, haga clic en **+ Agregar**.
+
+Seleccione una máquina virtual de Azure para incorporarla.
+
+Si la máquina no tiene instalada la extensión de estado deseada de PowerShell y el estado de energía es "en ejecución", haga clic en **Conectar**.
+
+En **Registro**, escriba los [valores del Administrador de configuración local de DSC de PowerShell](/powershell/dsc/metaconfig4) necesarios para su caso de uso, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
+
+![incorporación](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
+
+Se pueden implementar máquinas virtuales de Azure e incorporarlas a Azure Automation State Configuration mediante las plantillas de Azure Resource Manager. Consulte la página sobre cómo [configurar una máquina virtual mediante la extensión DSC y DSC de Azure Automation](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para ver una plantilla de ejemplo que incorpora una máquina virtual existente a Azure Automation State Configuration. Para buscar la clave de registro y la dirección URL de registro tomadas como entrada en esta plantilla, consulte la sección [**Registro seguro**](#secure-registration).
+
+### <a name="powershell"></a>PowerShell
+
+El cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure Virtual Machines (clásico)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > Los nombres de configuración del nodo de State Configuration distinguen mayúsculas de minúsculas en el portal. Si estas no coinciden, el nodo no se mostrará en la pestaña **Nodos**.
-
-## <a name="azure-virtual-machines"></a>Máquinas virtuales de Azure
-
-Con Azure Automation State Configuration, puede incorporar fácilmente máquinas virtuales de Azure para la administración de configuraciones, mediante Azure Portal, las plantillas de Azure Resource Manager o PowerShell. Internamente y sin que un administrador tenga que acceder de forma remota a la máquina virtual, la extensión Configuración de estado deseado de la máquina virtual de Azure registra la máquina virtual con Azure Automation State Configuration.
-Puesto que la extensión Azure VM Desired State Configuration se ejecuta de forma asincrónica, en la sección [**Solución de problemas de incorporación de máquinas virtuales de Azure**](#troubleshooting-azure-virtual-machine-onboarding) se proporcionan los pasos para realizar un seguimiento de su progreso o solucionar problemas.
-
-### <a name="azure-portal"></a>Azure Portal
-
-En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de Azure Automation en la que quiere incorporar máquinas virtuales. En la página de State Configuration, en la pestaña **Nodos**, haga clic en **+ Agregar**.
-
-Seleccione una máquina virtual de Azure para incorporarla.
-
-Si la máquina no tiene instalada la extensión de estado deseada de PowerShell y el estado de energía es "en ejecución", haga clic en **Conectar**.
-
-En **Registro**, escriba los [valores del Administrador de configuración local de DSC de PowerShell](/powershell/dsc/metaconfig4) necesarios para su caso de uso, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
-
-![incorporación](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
-
-Se pueden implementar máquinas virtuales de Azure e incorporarlas a Azure Automation State Configuration mediante las plantillas de Azure Resource Manager. Consulte la página sobre cómo [configurar una máquina virtual mediante la extensión DSC y DSC de Azure Automation](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para ver una plantilla de ejemplo que incorpora una máquina virtual existente a Azure Automation State Configuration. Para buscar la clave de registro y la dirección URL de registro tomadas como entrada en esta plantilla, consulte la sección [**Registro seguro**](#secure-registration).
-
-### <a name="powershell"></a>PowerShell
-
-El cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Máquinas virtuales de Amazon Web Services (AWS)
 
