@@ -4,7 +4,7 @@ description: Aprenda acerca de la seguridad de Azure, sus servicios y cómo func
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 982dbe20bafbcd713eb64761f8ce7c7c9b3f46cb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 28630a1d1b2ce212fe1054496814a9084f8cfc98
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693979"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116310"
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -149,7 +149,7 @@ En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguient
 -   Errores de aplicación (muestra eventos de excepción)
 -   Rendimiento (muestra eventos de rendimiento)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad del almacenamiento de Azure y un resumen de estas funcionalidades.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
@@ -368,7 +368,7 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 | Características comunes/gratuitas     | Características de la edición Basic    |Características de la edición Premium P1 |Características de la edición Premium P2 | Azure Active Directory Join, solo características relacionadas con Windows 10|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-|   [Objetos de directorio](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Administración de usuarios y grupos (agregar, actualizar y eliminar), aprovisionamiento basado en el usuario, registro de dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Inicio de sesión único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Cambio de contraseña de autoservicio para usuarios en la nube](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Informes de seguridad y uso](https://docs.microsoft.com/azure/active-directory/active-directory-editions)       |     [Aprovisionamiento y administración del acceso basados en grupo](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Restablecimiento de contraseña de autoservicio para usuarios en la nube](https://docs.microsoft.com/azure/active-directory/active-directory-editions),     [Personalización de marca de la compañía (personalización de las páginas de inicio de sesión y del panel de acceso)](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Proxy de aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Acuerdo de Nivel de Servicio del 99,9 %](https://docs.microsoft.com/azure/active-directory/active-directory-editions) |  [Administración de grupos y aplicaciones de autoservicio o incorporaciones de aplicaciones de autoservicio o grupos dinámicos](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Restablecimiento de contraseñas de autoservicio, cambio o desbloqueo con escritura diferida local](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Multi-Factor Authentication (en la nube y local [servidor MFA])](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [CAL de MIM + servidor MIM](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Cloud App Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-editions#cloud-app-discovery),    [Connect Health](https://docs.microsoft.com/azure/active-directory/active-directory-editions),  [Sustitución automática de la contraseña para cuentas de grupo](https://docs.microsoft.com/azure/active-directory/active-directory-editions)|  [Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection),   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)|  [Unir un dispositivo a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de BitLocker de administrador](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Inscripción automática de MDM, recuperación de BitLocker de autoservicio, administradores locales adicionales para dispositivos con Windows 10 a través de la unión a Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-editions)|
+|   [Objetos de directorio](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Administración de usuarios y grupos (agregar, actualizar y eliminar), aprovisionamiento basado en el usuario, registro de dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Inicio de sesión único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Cambio de contraseña de autoservicio para usuarios en la nube](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Informes de seguridad y uso](https://docs.microsoft.com/azure/active-directory/active-directory-editions)       |     [Aprovisionamiento y administración del acceso basados en grupo](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Restablecimiento de contraseña de autoservicio para usuarios en la nube](https://docs.microsoft.com/azure/active-directory/active-directory-editions),     [Personalización de marca de la compañía (personalización de las páginas de inicio de sesión y del panel de acceso)](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Proxy de aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Acuerdo de Nivel de Servicio del 99,9 %](https://docs.microsoft.com/azure/active-directory/active-directory-editions) |  [Administración de grupos y aplicaciones de autoservicio o incorporaciones de aplicaciones de autoservicio o grupos dinámicos](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Restablecimiento de contraseñas de autoservicio, cambio o desbloqueo con escritura diferida local](https://docs.microsoft.com/azure/active-directory/active-directory-editions),   [Multi-Factor Authentication (en la nube y local [servidor MFA])](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [CAL de MIM + servidor MIM](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Cloud App Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-editions),    [Connect Health](https://docs.microsoft.com/azure/active-directory/active-directory-editions),  [Sustitución automática de la contraseña para cuentas de grupo](https://docs.microsoft.com/azure/active-directory/active-directory-editions)|  [Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection),   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)|  [Unir un dispositivo a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de BitLocker de administrador](https://docs.microsoft.com/azure/active-directory/active-directory-editions), [Inscripción automática de MDM, recuperación de BitLocker de autoservicio, administradores locales adicionales para dispositivos con Windows 10 a través de la unión a Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-editions)|
 
 
 - [Cloud App Discovery](https://docs.microsoft.com/azure/active-directory/active-directory-cloudappdiscovery-whatis) es una característica Premium de Azure Active Directory que permite identificar aplicaciones en la nube usadas por los empleados de su organización.

@@ -4,21 +4,21 @@ description: El Indizador multimedia de Azure permite que el contenido de los ar
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785684"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000922"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indización de archivos multimedia con Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Información general
@@ -87,7 +87,7 @@ Azure Media Indexer 2 Preview admite características de texto a voz en los sigu
 * Japonés [JaJp]
 * Ruso [RuRu]
 * Inglés británico [EnGb]
-* Español de México [EsMx] 
+* Español de México [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipos de archivo admitidos
 

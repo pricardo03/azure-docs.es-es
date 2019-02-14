@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197558"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991283"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Creación de información detallada a partir de vídeos existentes
 
@@ -27,17 +27,14 @@ En este tema se muestra cómo crear y publicar información detallada de vídeo 
     La página muestra la información resumida del vídeo. 
 
     ![Información detallada](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. Presione el botón **Editar**.
 
     En esta página se muestra el desglose completo de un vídeo. El desglose se divide en bloques. Los bloques sirven para facilitar el recorrido por los datos. Por ejemplo, el bloque puede dividirse en función de cuándo cambian los oradores o de si hay una pausa larga. Puede crear su propia lista de reproducción que contenga solo las líneas que desee. Para mostrar solo partes específicas del vídeo de origen, puede filtrar por temas o palabras clave, opiniones, personas u oradores. Puede elegir ver solo la transcripción del vídeo o un reconocimiento óptico de caracteres.    
 
     ![Información detallada](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. Cree la lista de reproducción.
 
     Para agregar o quitar líneas hacia y desde la lista de reproducción, presione **+**/**-**.
-
 5. Obtenga una vista previa de la lista de reproducción.
 
     Cuando haya terminado de crear la lista de reproducción, presione **Preview** (Vista previa).

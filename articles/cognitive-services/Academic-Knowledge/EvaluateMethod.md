@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Use el método de evaluación para devolver un conjunto de entidades académicas basadas en una expresión de consulta.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871326"
 ---
 # <a name="evaluate-method"></a>Método de evaluación
 
@@ -30,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>Parámetros de solicitud  
 NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 -----------|-----------|---------|--------
-**expr**       | Cadena de texto | SÍ | Expresión de consulta que especifica qué entidades se deben devolver.
+**expr**       | Cadena de texto | Sí | Expresión de consulta que especifica qué entidades se deben devolver.
 **model**      | Cadena de texto | Sin   | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
 **attributes** | Cadena de texto | Sin <br>valor predeterminado: Id | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
 **count**        | Number | Sin <br>Valor predeterminado: 10 | Número de resultados que se van a devolver.

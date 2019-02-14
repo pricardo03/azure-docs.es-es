@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994676"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997582"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 ## <a name="overview"></a>Información general
@@ -45,7 +45,7 @@ Colección de entradas AssetFile para el trabajo de codificación.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre del archivo de recursos multimedia. |
 | **Tamaño**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:long** |Tamaño del archivo de recursos en bytes. |
@@ -74,7 +74,7 @@ Un archivo de entrada/origen que se usa al generar este recurso.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre de archivo de origen de entrada. |
 
@@ -94,7 +94,7 @@ Una determinada pista de vídeo en el AssetFile primario.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de vídeo. **Nota:**  este **identificador** no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **FourCC**<br/><br/> Obligatorio |**xs:string** |Código FourCC de códec de vídeo. |
@@ -126,7 +126,7 @@ Una determinada pista de audio en el AssetFile primario.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de audio. **Nota:**  no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **Codec** |**xs:string** |Cadena de códec de pista de audio. |
@@ -147,7 +147,7 @@ Parámetros de resultado de medición de la sonoridad.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versión del kit de desarrollo de medición de sonoridad profesional **Dolby**. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obligatorio |**xs:int** |DialogNormalization generado mediante DPLM, requerido si LoudnessMetering está establecido. |

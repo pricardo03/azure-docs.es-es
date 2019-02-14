@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d467310d45801edb68551696ca4b44ac0bef4d8f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 893ef999907c7f807fdf3a82b2372ece9c9a6a39
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421734"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112435"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -33,7 +33,7 @@ Tardará unos cinco minutos en realizar los pasos de este artículo.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -42,13 +42,13 @@ Todos los recursos se deben implementar en un [grupo de recursos](../../azure-re
 1. Obtenga una lista de las ubicaciones donde se pueden crear los recursos.
    
     ```powershell   
-    Get-AzureRmLocation | sort-object DisplayName | Select DisplayName
+    Get-AzLocation | sort-object DisplayName | Select DisplayName
     ```
 
 2. Cree el grupo de recursos en la ubicación que seleccione. En este ejemplo se muestra la creación de un grupo de recursos denominado **myResourceGroup** en la ubicación **Oeste de EE. UU.**:
 
     ```powershell   
-    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
+    New-AzResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
 ## <a name="create-the-files"></a>Creación de los archivos
@@ -177,8 +177,8 @@ En este paso, creará un archivo de plantilla que implementa los recursos y un a
 
     ```powershell
     $storageName = "st" + (Get-Random)
-    New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
-    $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
+    New-AzStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
+    $accountKey = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
     $context = New-AzureStorageContext -StorageAccountName $storageName -StorageAccountKey $accountKey 
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
@@ -199,7 +199,7 @@ Implemente la plantilla mediante los parámetros:
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
 $parametersPath = "https://" + $storageName + ".blob.core.windows.net/templates/Parameters.json"
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 
+New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parametersPath 
 ```
 
 > [!NOTE]

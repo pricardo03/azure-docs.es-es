@@ -10,14 +10,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 33bacb5d399e41e04a6c00225e7411cef0c20308
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217826"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Control de Procedimiento para habilitar el restablecimiento de contraseña desde Windows 7, 8, and 8.1
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedimientos para: Procedimiento para habilitar el restablecimiento de contraseña desde Windows 7, 8, and 8.1
 
 Como administrador ha habilitado el autoservicio de restablecimiento de contraseña (SSPR), pero los usuarios continúan llamando al servicio de soporte técnico para restablecer sus contraseñas porque no pueden llegar una ventana del explorador que les permita acceder al [portal de SSPR](https://aka.ms/sspr). Para equipos con Windows 10, puede habilitar el vínculo "Restablecer contraseña" en la pantalla de inicio de sesión con el tutorial [Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión](tutorial-sspr-windows.md), las instrucciones siguientes le ayudarán a habilitar a los usuarios de Windows 7, 8 y 8.1 para que restablezcan su contraseña mediante SSPR en la pantalla de inicio de sesión de Windows.
 

@@ -3,18 +3,18 @@ title: ¿Qué es Azure Cognitive Services?
 description: Azure Cognitive Services son API, SDK y servicios que se pueden usar con Microsoft Azure para compilar aplicaciones inteligentes.
 services: cognitive-services
 author: nitinme
-manager: cgronlund
+manager: nitinmed
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f3dfd5907312ddd9c01be000c03ca6d0cadc0a52
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d9271b32f6254b032fab9e93aaf82ab39e7f1932
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459866"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876300"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
