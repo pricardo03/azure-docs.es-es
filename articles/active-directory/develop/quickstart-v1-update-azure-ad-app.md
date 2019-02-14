@@ -16,12 +16,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819100"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191742"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Inicio rápido: Actualización de una aplicación en Azure Active Directory
 
@@ -144,7 +145,7 @@ Para obtener más información sobre los conceptos del manifiesto de aplicación
 
 Como se mencionó anteriormente, además de exponer y tener acceso a las API en sus propias aplicaciones, también puede registrar la aplicación cliente para tener acceso a las API expuestas por los recursos de Microsoft. Microsoft Graph API, llamada "Microsoft Graph" en lista de recursos y API del portal, está disponible para todas las aplicaciones registradas en Azure AD. Si va a registrar la aplicación cliente en un inquilino que contiene cuentas registradas en una suscripción de Office 365, también puede tener acceso a los ámbitos expuestos por los distintos recursos de Office 365.
 
-Para obtener una descripción completa sobre los ámbitos expuestos por Microsoft Graph API, consulte el artículo [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+Para obtener una descripción completa sobre los ámbitos expuestos por Microsoft Graph API, consulte el artículo [Referencia de permisos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
 > [!NOTE]
 > Debido a una limitación actual, las aplicaciones cliente nativas solo pueden llamar a Graph API de Azure AD si usan el permiso "Acceso al directorio de la organización". Esta restricción no se aplica a las aplicaciones web.

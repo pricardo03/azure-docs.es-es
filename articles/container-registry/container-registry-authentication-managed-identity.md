@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: 46965842831673d25d636e0cfbfa3d0097b82f99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857368"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984212"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use la identidad administrada de Azure para autenticarse en Azure Container Registry 
 
@@ -178,7 +178,7 @@ az acr login --name myContainerRegistry
 
 Verá el mensaje `Login succeeded`. A continuación, puede ejecutar los comandos `docker` sin proporcionar las credenciales. Por ejemplo, ejecute [docker pull][docker-pull] para extraer la imagen `aci-helloworld:v1` al especificar el nombre del servidor de inicio de sesión del registro. El nombre del servidor de inicio de sesión consta del nombre del registro de contenedor (todo en minúsculas) seguido por `.azurecr.io`; por ejemplo, `mycontainerregistry.azurecr.io`.
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
@@ -230,7 +230,7 @@ az acr login --name myContainerRegistry
 
 Verá el mensaje `Login succeeded`. A continuación, puede ejecutar los comandos `docker` sin proporcionar las credenciales. Por ejemplo, ejecute [docker pull][docker-pull] para extraer la imagen `aci-helloworld:v1` al especificar el nombre del servidor de inicio de sesión del registro. El nombre del servidor de inicio de sesión consta del nombre del registro de contenedor (todo en minúsculas) seguido por `.azurecr.io`; por ejemplo, `mycontainerregistry.azurecr.io`.
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 

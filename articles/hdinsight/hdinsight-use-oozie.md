@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993101"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984263"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Existen dos acciones definidas en el flujo de trabajo. La acción de inicio es *
 
 RunHiveScript tiene distintas variables. Pasa los valores cuando envíe el trabajo de Oozie desde la estación de trabajo con Azure PowerShell.
 
-<table border = "1">
-<tr><th>Variables de flujo de trabajo</th><th>DESCRIPCIÓN</th></tr>
-<tr><td>${jobTracker}</td><td>Especifica la dirección URL del seguimiento de trabajo de Hadoop. Use <strong>jobtrackerhost: 9010</strong> en HDInsight versión 3.0 y 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, <i>wasb://&lt;nombreDeContenedor&gt;@&lt;nombreDeCuentaDeAlmacenamiento&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica el nombre de cola al que se envía el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
-</table>
+|Variables de flujo de trabajo|DESCRIPCIÓN|
+|---|---|
+|${jobTracker}|Especifica la dirección URL del seguimiento de trabajo de Hadoop. Use **jobtrackerhost: 9010** en HDInsight versión 3.0 y 2.1.|
+|${nameNode}|Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, *wasb://&lt;nombreDeContenedor&gt;@&lt;nombreDeCuentaDeAlmacenamiento&gt;.blob.core.windows.net*.|
+|${queueName}|Especifica el nombre de cola al que se envía el trabajo. Use el **valor predeterminado**.|
 
-<table border = "1">
-<tr><th>Variable de acción de Hive</th><th>DESCRIPCIÓN</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Especifica el directorio de origen para el comando Create Table de Hive.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE.</td></tr>
-<tr><td>${hiveTableName}</td><td>Especifica el nombre de la tabla de Hive que hace referencia a los archivos de datos log4j.</td></tr>
-</table>
+|Variable de acción de Hive|DESCRIPCIÓN|
+|---|---|
+|${hiveDataFolder}|Especifica el directorio de origen para el comando Create Table de Hive.|
+|${hiveOutputFolder}|Especifica la carpeta de salida para la instrucción INSERT OVERWRITE.|
+|${hiveTableName}|Especifica el nombre de la tabla de Hive que hace referencia a los archivos de datos log4j.|
 
-<table border = "1">
-<tr><th>Variable de acción de Sqoop</th><th>DESCRIPCIÓN</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Especifica la cadena de conexión de la base de datos SQL de Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Especifica la tabla de base de datos SQL de Azure donde se exportan los datos.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE de Hive. Se trata de la misma carpeta para la exportación de Sqoop (export-dir).</td></tr>
-</table>
+|Variable de acción de Sqoop|DESCRIPCIÓN|
+|---|---|
+|${sqlDatabaseConnectionString}|Especifica la cadena de conexión de la base de datos SQL de Azure.|
+|${sqlDatabaseTableName}|Especifica la tabla de base de datos SQL de Azure donde se exportan los datos.|
+|${hiveOutputFolder}|Especifica la carpeta de salida para la instrucción INSERT OVERWRITE de Hive. Se trata de la misma carpeta para la exportación de Sqoop (export-dir).|
 
 Para obtener más información sobre el flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5ebd543000c8927f714e5345dfd8eb6033c6301a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630842"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820375"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Uso de Herramientas de Azure Data Lake para Visual Studio Code
 
@@ -24,7 +24,7 @@ En este artículo, obtendrá información sobre cómo usar Herramientas de Azure
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Herramientas de Azure Data Lake para VS Code es compatible con Windows, Linux y macOS. La ejecución y depuración locales de U-SQL solo funcionan en Windows.
+Herramientas de Azure Data Lake para VS Code es compatible con Windows, Linux y macOS. La ejecución y depuración locales de U-SQL solo funcionan en Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -68,18 +68,18 @@ Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **ADL: Open Sample Script**
 3. Seleccione el menú **Archivo** y, luego, seleccione **Nuevo**. Se agregará un archivo Sin título-1 al proyecto.
 4. Escriba el código siguiente en el archivo Sin título-1:
 
-        @departments  = 
-            SELECT * FROM 
-                (VALUES
-                    (31,    "Sales"),
-                    (33,    "Engineering"), 
-                    (34,    "Clerical"),
-                    (35,    "Marketing")
-                ) AS 
-                      D( DepID, DepName );
-         
+        @departments  = 
+            SELECT * FROM 
+                (VALUES
+                    (31,    "Sales"),
+                    (33,    "Engineering"), 
+                    (34,    "Clerical"),
+                    (35,    "Marketing")
+                ) AS 
+                      D( DepID, DepName );
+         
         OUTPUT @departments
-            TO "/Output/departments.csv"
+            TO "/Output/departments.csv"
         USING Outputters.Csv();
 
     El script crea un archivo departments.csv con algunos datos incluidos en la carpeta /output.
@@ -89,7 +89,7 @@ Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **ADL: Open Sample Script**
 **Para compilar un script U-SQL**
 
 1. Seleccione Ctrl+Mayús+P para abrir la paleta de comandos. 
-2. Escriba **ADL: Compile Script**. Los resultados de la compilación aparecen en la ventana **Salida**. También puede hacer clic con el botón derecho en un archivo de script y, luego, seleccione **ADL: Compile Script** para compilar un trabajo U-SQL. El resultado de la compilación aparece en el panel **Salida**.
+2. Escriba **ADL: Compile Script**. Los resultados de la compilación aparecen en la ventana **Salida**. También puede hacer clic con el botón derecho en un archivo de script y, luego, seleccionar **ADL: Compile Script** para compilar un trabajo de U-SQL. El resultado de la compilación aparece en el panel **Salida**.
  
 **Para enviar un script de U-SQL**
 
@@ -109,7 +109,7 @@ En la pestaña **Resumen** de la vista del trabajo puede ver los detalles del tr
 Si no estableció los parámetros en sus archivos individualmente, puede establecer el contexto predeterminado para aplicar esta configuración a todos los archivos de script.
 
 1. Seleccione Ctrl+Mayús+P para abrir la paleta de comandos. 
-2. Escriba **ADL: Set Default Context**. Haga clic con el botón derecho en el editor de scripts y seleccione **ADL: Set Default Context** (ADL: Establecer contexto predeterminado).
+2. Escriba **ADL: Set Default Context**. Haga clic con el botón derecho en el editor de scripts y seleccione **ADL: Set Default Context**.
 3. Elija la cuenta, la base de datos y el esquema que desee. La configuración se guarda en el archivo de configuración xxx_settings.json.
 
    ![Cuenta, base de datos y esquema establecidos como el contexto predeterminado](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-sequence.png)
@@ -124,8 +124,8 @@ Si no estableció los parámetros en sus archivos individualmente, puede estable
    - **database**: una base de datos de la cuenta. El valor predeterminado es **master**.
    - **schema**: un esquema de la base de datos. El valor predeterminado es **dbo**.
    - **optionalSettings**:
-        - **priority**: El intervalo de prioridades va de 1 a 1000, siendo 1 la prioridad más alta. El valor predeterminado es **1000**.
-        - **degreeOfParallelism**: El intervalo del grado de paralelismo va de 1 a 150. El valor predeterminado es el paralelismo máximo que se permite en su cuenta de Azure Data Lake Analytics. 
+        - **priority**: el intervalo de prioridades va de 1 a 1000, siendo 1 la prioridad más alta. El valor predeterminado es **1000**.
+        - **degreeOfParallelism**: el intervalo de paralelismo va de 1 a 150. El valor predeterminado es el paralelismo máximo que se permite en su cuenta de Azure Data Lake Analytics. 
 
    ![Contenido del archivo JSON](./media/data-lake-analytics-data-lake-tools-for-vscode/default-context-setting.png)
       
@@ -143,7 +143,7 @@ Si no estableció los parámetros en sus archivos individualmente, puede estable
    ![Elementos del archivo .gitIgnore](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
 
 
-## <a name="work-with-code-behind-files-c-sharp-python-and-r"></a>Trabajo con archivos de código subyacente: C Sharp, Python y R
+## <a name="work-with-code-behind-files-c-sharp-python-and-r"></a>Trabajo con archivos de código subyacente: C#, Python y R
 
 Herramientas de Azure Data Lake admite varios códigos personalizados. Para obtener instrucciones, consulte [Desarrollo de trabajos U-SQL con Python, R y CSharp para Azure Data Lake Analytics en VS Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
@@ -155,9 +155,9 @@ Puede usar Herramientas de Data Lake para registrar ensamblados de código perso
 
 **Para registrar un ensamblado**
 
-Puede registrar el ensamblado mediante los comandos **ADL: Register Assembly** o **ADL: Register Assembly (Advanced)**.
+Puede registrar el ensamblado mediante el comando **ADL: Register Assembly** o **ADL: Register Assembly (Advanced)**.
 
-**Para registrar a través del comando ADL: Register Assembly**
+**Para realizar el registro mediante el comando ADL: Register Assembly**
 1.  Seleccione Ctrl+Mayús+P para abrir la paleta de comandos.
 2.  Escriba **ADL: Register Assembly**. 
 3.  Especifique la ruta de acceso de ensamblado local. 
@@ -168,9 +168,9 @@ El portal se abre en un explorador y muestra el proceso de registro del ensambla
 
 Una manera más cómoda de desencadenar el comando **ADL: Register Assembly** es hacer clic con el botón derecho en el archivo .dll en el Explorador de archivos. 
 
-**Para registrar con el comando ADL: Register Assembly (Advanced)**
+**Para realizar el registro mediante el comando ADL: Register Assembly (Advanced)**
 1.  Seleccione Ctrl+Mayús+P para abrir la paleta de comandos.
-2.  Escriba **ADL: Register Assembly (Advanced)**. 
+2.  Escriba **ADL: Register Assembly (Advanced)** 
 3.  Especifique la ruta de acceso de ensamblado local. 
 4.  Se muestra el archivo JSON. Revise y edite las dependencias de ensamblado y los parámetros de recurso si es necesario. Las instrucciones se muestran en la ventana **Salida**. Para continuar con el registro del ensamblado, guarde (Ctrl+S) el archivo JSON.
 
@@ -233,7 +233,7 @@ Para poder compilar y ejecutar scripts de U-SQL en Data Lake Analytics, debe con
 <b id="sign-in-by-command">Para conectarse a Azure mediante un comando</b>
 
 1.  Seleccione Ctrl+Mayús+P para abrir la paleta de comandos. 
-2.  Escriba **ADL: Login**. La información de inicio de sesión aparece en la esquina inferior derecha.
+2.  Escriba **ADL: Login** (HDInsight: inicio de sesión). La información de inicio de sesión aparece en la esquina inferior derecha.
 
     ![Entrada del comando de inicio de sesión](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
@@ -243,7 +243,7 @@ Para poder compilar y ejecutar scripts de U-SQL en Data Lake Analytics, debe con
 
     ![Página de inicio de sesión](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png)  
      
-4.  Siga las instrucciones para iniciar sesión desde la página web. Cuando se conecte, el nombre de la cuenta de Azure aparecerá en la barra de estado que se encuentra en la esquina inferior izquierda de la ventana de VS Code. 
+4.  Siga las instrucciones para iniciar sesión desde la página web. Cuando se conecte, el nombre de la cuenta de Azure aparecerá en la barra de estado que se encuentra en la esquina inferior izquierda de la ventana de VS Code. 
 
 > [!NOTE] 
 >- Herramientas de Data Lake iniciará sesión automáticamente la próxima vez si no cierra la sesión.
@@ -262,7 +262,7 @@ No se puede cerrar la sesión desde el explorador. Para cerrar sesión, consulte
 
 
 ## <a name="create-an-extraction-script"></a>Creación de un script de extracción 
-Puede crear un script de extracción para archivos .csv, .tsv o .txt mediante el comando **ADL: Create EXTRACT Script** o desde el explorador de Azure Data Lake.
+Puede crear un script de extracción para los archivos .csv, .tsv y .txt mediante el comando **ADL: Create EXTRACT Script** o desde el explorador de Azure Data Lake.
 
 **Para crear un script de extracción mediante un comando**
 
@@ -312,14 +312,14 @@ Puede acceder a los recursos de Azure Data Lake Analytics para enumerar cuentas,
 Puede usar comandos relacionados con Azure Data Lake Store para:
  - [Examinar los recursos de Azure Data Lake Store](#list-the-storage-path) 
  - [Obtener una vista previa del archivo de Azure Data Lake Store](#preview-the-storage-file) 
- - [Cargar el archivo directamente en Azure Data Lake Store en VS Code](#upload-file-or-folder)
- - [Descargar el archivo directamente de Azure Data Lake Store en VS Code](#download-file)
+ - Cargar el archivo directamente en Azure Data Lake Store en VS Code
+ - Descargar el archivo directamente de Azure Data Lake Store en VS Code
 
 ### <a name="list-the-storage-path"></a>Enumeración de la ruta de acceso de almacenamiento 
 
 **Para enumerar la ruta de acceso de almacenamiento a través de la paleta de comandos**
 
-1. Haga clic con el botón derecho en el editor de scripts y seleccione **ADL: List Path** (ADL: Enumerar ruta de acceso).
+1. Haga clic con el botón derecho en el editor de scripts y seleccione **ADL: List Path**.
 2. Elija la carpeta en la lista o seleccione **Indicar ruta de acceso** o **Examinar desde ruta de acceso raíz**. (Usamos **Indicar ruta de acceso** como un ejemplo). 
 3. Seleccione la cuenta de Data Lake Analytics.
 4. Busque o escriba la ruta de acceso de la carpeta de almacenamiento (por ejemplo, /output/).  
@@ -339,7 +339,7 @@ Haga clic con el botón derecho en la cadena de la ruta de acceso y seleccione *
 
 ### <a name="preview-the-storage-file"></a>Vista previa del archivo de almacenamiento
 
-1. Haga clic con el botón derecho en el editor de scripts y seleccione **ADL: Preview File** (ADL: Obtener vista previa de archivo).
+1. Haga clic con el botón derecho en el editor de scripts y seleccione **ADL: Preview File**.
 2. Seleccione la cuenta de Data Lake Analytics. 
 3. Escriba una ruta de acceso del archivo de Azure Storage (por ejemplo, /output/SearchLog.txt). 
 
@@ -366,9 +366,9 @@ También puede [supervisar el estado de la carga](#check-storage-tasks-status).
 
 
 ### <a name="download-a-file"></a>Descarga de un archivo 
-Puede descargar un archivo mediante los comandos **ADL: Download File** o **ADL: Download File (Advanced)**.
+Puede descargar un archivo mediante el comando **ADL: Download File** o **ADL: Download File (Advanced)**.
 
-**Para descargar un archivo mediante el comando ADL: Download File (Advanced)**
+**Para descargar un archivo mediante el comando ADL: Download File (Advanced)** 
 1. Haga clic con el botón derecho en el editor de scripts y después seleccione **Download File (Advanced)** (Descargar archivo [Avanzado]).
 2. VS Code muestra un archivo JSON. Puede especificar las rutas de acceso de archivo y descargar varios archivos al mismo tiempo. Las instrucciones se muestran en la ventana **Salida**. Para continuar con la descarga del archivo o los archivos, guarde (Ctrl+S) el archivo JSON.
 
@@ -477,11 +477,11 @@ Herramientas de Data Lake para VS Code es compatible con las características si
  
     ![Tipos de objeto de IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
  
--   **Autocompletar de IntelliSense en metadatos de Data Lake Analytics**: Herramientas de Data Lake descarga localmente la información de metadatos de Data Lake Analytics. La característica IntelliSense rellena automáticamente los objetos a partir de los metadatos de Data Lake Analytics. Estos objetos incluyen base de datos, esquema, tabla, vista, función con valores de tabla, procedimientos y ensamblados de C#.
+-   **Autocompletar de IntelliSense en los metadatos de Data Lake Analytics**: Data Lake Tools descarga la información de metadatos de Data Lake Analytics localmente. La característica IntelliSense rellena automáticamente los objetos a partir de los metadatos de Data Lake Analytics. Estos objetos incluyen base de datos, esquema, tabla, vista, función con valores de tabla, procedimientos y ensamblados de C#.
  
     ![Metadatos de IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
--   **Marcador de errores de IntelliSense**: Herramientas de Data Lake subraya los errores de edición para U-SQL y C#. 
+-   **Marcador de error de IntelliSense**: Data Lake Tools subraya los errores de edición para U-SQL U y C#. 
 -   **Resaltado de la sintaxis**: Herramientas de Data Lake usa colores distintos para diferenciar elementos como variables, palabras clave, tipo de datos y funciones. 
 
     ![Sintaxis con distintos colores](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)

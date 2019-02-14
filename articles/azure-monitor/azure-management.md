@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0ad6b212e328612d2934562e1292b5c36546478
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965112"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990281"
 ---
 # <a name="azure-management---monitoring"></a>Administración de Azure: supervisión
 
@@ -52,13 +52,3 @@ Por protección se entiende garantizar que las aplicaciones y los datos estén s
 ## <a name="migrate"></a>Migrar 
 La migración hace referencia a la transición de las cargas de trabajo que se ejecutan de forma local a la nube de Azure.  [Azure Migrate](../migrate/migrate-overview.md) es un servicio que ayuda a evaluar la idoneidad de la migración a Azure, lo que incluye el cálculo del costo y el ajuste de tamaño basados en el rendimiento, de las máquinas virtuales locales.  Azure Site Recovery puede ayudarle a realizar la migración real de máquinas virtuales bien [desde entornos locales](../site-recovery/migrate-tutorial-on-premises-azure.md) o [desde Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) le ayudará en la migración de varios orígenes de base de datos a plataformas de datos de Azure.
 
-
-## <a name="operations-management-suite"></a>Operations Management Suite
-La documentación técnica anterior relacionada con la administración de Azure incluía Operations Management Suite (OMS), que es una agrupación de los siguientes servicios de administración de Azure:
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-Hemos empezado a dejar de describir esta agrupación en nuestra documentación técnica ya que toda la administración de Azure se ha expandido para incluir otros servicios. Ninguno de los servicios que forman parte de OMS han cambiado y cada uno tiene todavía un papel fundamental en la administración de las aplicaciones y recursos de Azure. Ahora debería centrarse en las tareas de administración que necesita realizar y en los diferentes servicios de Azure que trabajan juntos en cada tarea.

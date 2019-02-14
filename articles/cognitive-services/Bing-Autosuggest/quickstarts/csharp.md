@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Autosuggest API.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: fc0590b61c5e6b42a3f3f805021abfa4553bd289
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 331b7f3cffa07003908cd339adf9dbea2a4593e0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184417"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878228"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-c"></a>Guía de inicio rápido para Bing Autosuggest API con C#
 

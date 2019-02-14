@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido buscará traducciones alternativas y ejemplos de términos en contexto mediante Translator Text API con Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: ff4fdc94b77a09898efea3c74bef6091b2ebaac8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d923dee2c1bad70183d2c0fadbc1beebe7ef3cbe
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209255"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872431"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe mediante Go
 

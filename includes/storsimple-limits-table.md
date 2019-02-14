@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8a349916d0c0efc0f7895368a614897e3c6a15dc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: db05ce33a9fb602d6d48d1a1606f48a7fbde246e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889066"
 ---
-<!--author=alkohli last changed: 12/15/15-->
-
 | Identificador de límites | Límite | Comentarios |
 | --- | --- | --- |
 | Número máximo de credenciales de la cuenta de almacenamiento |64 | |
@@ -20,8 +18,8 @@ ms.locfileid: "50964624"
 | Número máximo de volúmenes |255 | |
 | Número máximo de programaciones por plantilla de ancho de banda |168 |Una programación para cada hora y cada día de la semana (24*7). |
 | Tamaño máximo de un volumen en capas en dispositivos físicos |64 TB para 8100 y 8600 |8100 y 8600 son dispositivos físicos. |
-| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan Standard y Premium Storage respectivamente. |
-| Tamaño máximo de un volumen anclado localmente en dispositivos físicos |9 TB para 8100  <br></br> 24 TB para 8600 |8100 y 8600 son dispositivos físicos. |
+| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br>  64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan Standard y Premium Storage respectivamente. |
+| Tamaño máximo de un volumen anclado localmente en dispositivos físicos |9 TB para 8100  <br></br>  24 TB para 8600 |8100 y 8600 son dispositivos físicos. |
 | Número máximo de conexiones iSCSI |512 | |
 | Número máximo de conexiones de iSCSI de iniciadores |512 | |
 | Número máximo de registros de control de acceso por dispositivo |64 | |

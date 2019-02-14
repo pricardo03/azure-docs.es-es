@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359994"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996967"
 ---
-# <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming 
+# <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming  
 
 ## <a name="overview"></a>Información general
 
@@ -48,7 +48,7 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}.streamin
 
 A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **Estándar** y **Premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
 
-Escriba|DESCRIPCIÓN
+Type|DESCRIPCIÓN
 ---|---
 **Estándar**|Se trata de la opción predeterminada, que probablemente funcione para la mayoría de los escenarios.<br/>Con esta opción conseguirá un Acuerdo de Nivel de Servicio fijo o limitado, los 15 días siguientes al inicio del punto de conexión de streaming serán gratuitos.<br/>Si crea más de un punto de conexión de streaming, solo el primero de ellos será gratuito durante los primeros 15 días; los demás se cobrarán tan pronto los inicie. <br/>Tenga en cuenta que la prueba gratuita solo se aplica a las cuentas de Media Services recién creadas y los puntos de conexión de streaming predeterminados. Los puntos de conexión de streaming ya existentes y los puntos de conexión de streaming creados adicionalmente no incluyen el período de evaluación gratuita, incluso si se actualizan a la versión 2.0 o se crean como versión 2.0.
 **Premium**|Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control.<br/>Con un Acuerdo de Nivel de Servicio variable que se basa en la capacidad adquirida de la unidad de streaming premium, los puntos de conexión de streaming dedicados residen en un entorno aislado y no compiten por los recursos.
@@ -71,27 +71,27 @@ Si el punto de conexión de streaming de la **versión "1.0"** tiene al menos 1 
 
 ### <a name="versions"></a>Versiones
 
-|Escriba|Versión de punto de conexión de streaming|Unidades de escalado|CDN|Facturación|Contrato de nivel de servicio| 
+|Type|Versión de punto de conexión de streaming|Unidades de escalado|CDN|Facturación|Contrato de nivel de servicio| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Clásico|1.0|0|N/D|Gratuito|N/D|
-|Punto de conexión de streaming estándar|2.0|0|SÍ|De pago|SÍ|
-|Unidades de streaming premium|1.0|>0|SÍ|De pago|SÍ|
-|Unidades de streaming premium|2.0|>0|SÍ|De pago|SÍ|
+|Punto de conexión de streaming estándar|2.0|0|Sí|De pago|Sí|
+|Unidades de streaming premium|1.0|>0|Sí|De pago|Sí|
+|Unidades de streaming premium|2.0|>0|Sí|De pago|Sí|
 
 ### <a name="features"></a>Características
 
 Característica|Estándar|Premium
 ---|---|---
-Gratis los primeros 15 días| SÍ |Sin 
+Gratis los primeros 15 días| Sí |Sin 
 Throughput |Hasta 600 Mbps cuando no se utiliza Azure CDN. Se puede ampliar con la red CDN.|200 Mbps por unidad de streaming. Se puede ampliar con la red CDN.
 Contrato de nivel de servicio | 99,9|99,9 (200 Mbps por unidad de streaming).
 CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
 La facturación se prorratea| Diario|Diario
-Cifrado dinámico|SÍ|SÍ
-Empaquetado dinámico|SÍ|SÍ
+Cifrado dinámico|Sí|Sí
+Empaquetado dinámico|Sí|Sí
 Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales
-Filtrado de IP/G20/host personalizado|SÍ|SÍ
-Descarga progresiva|SÍ|SÍ
+Filtrado de IP/G20/host personalizado|Sí|Sí
+Descarga progresiva|Sí|Sí
 Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional.<br/>Si considera que puede tener necesidades más allá del nivel Estándar. Si espera un tamaño de audiencia simultánea superior a 50 000 espectadores, póngase en contacto con nosotros (amsstreaming@microsoft.com).
 
 

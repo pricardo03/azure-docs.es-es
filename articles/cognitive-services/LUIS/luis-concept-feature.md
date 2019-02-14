@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 35f05df39a37b64c9619ef31455944207de13246
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 89d18ebd2f52467a19a76940044fea3ae254970a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216088"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770170"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Características de lista de frases en la aplicación de LUIS
 
@@ -25,26 +25,57 @@ En el aprendizaje automático, una *característica* es un rasgo distintivo o un
 Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar. Las características ayudan a LUIS a reconocer las intenciones y las entidades, pero las características no son intenciones o entidades propiamente dichas. En su lugar, es posible que las características proporcionen ejemplos de términos relacionados.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>¿Qué es una característica de lista de frases?
-Una lista de frases incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Lo que LUIS aprende sobre una de ellas se aplica automáticamente al resto. Esta lista no es una [entidad de lista](luis-concept-entity-types.md#types-of-entities) cerrada (coincidencias de texto exactas) de palabras coincidentes.
+Una lista de frases es una lista de palabras o frases que son importantes para la aplicación, mucho más que otras palabras de las expresiones. Una lista de frases se agrega al vocabulario del dominio de aplicación como una señal adicional para LUIS sobre esas palabras. Lo que LUIS aprende sobre una de ellas se aplica automáticamente al resto. Esta lista no es una [entidad de lista](luis-concept-entity-types.md#types-of-entities) cerrada de coincidencias de texto exactas.
 
-Una lista de frases se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
+Las listas de frases no ayudan a la lematización, por lo que deberá agregar expresiones de ejemplo que usen una variedad de lematizaciones para todas las palabras y frases importantes del vocabulario.
 
 ## <a name="phrase-lists-help-all-models"></a>Listas de frases que ayudan a todos los modelos
 
-Las listas de frases no están vinculadas a una entidad ni a una intención específicas, pero se agregan como un impulso a todos los modelos. Su objetivo es mejorar la detección de intenciones y la clasificación de entidades.
+Las listas de frases no están vinculadas a una entidad ni a una intención específicas, pero se agregan como una mejora importante para todas las entidades e intenciones. Su objetivo es mejorar la detección de intenciones y la clasificación de entidades.
 
 ## <a name="how-to-use-phrase-lists"></a>Cómo usar las listas de frases
-En el [tutorial sobre entidades simples](luis-quickstart-primary-and-secondary-data.md) de la aplicación de recursos humanos, la aplicación usa una lista de frases **Job** de tipos de trabajos como programador, reparador de tejados y secretaria. Si etiqueta uno de estos valores como una entidad de aprendizaje automático, LUIS aprende a reconocer el resto. 
 
-Una lista de frases puede ser intercambiable o no intercambiable. Una lista de frases *intercambiable* es para los valores que son sinónimos, mientras que una lista de frases *no intercambiable* está diseñada como una lista de vocabulario específico de la aplicación. Conforme vaya creciendo la lista de frases de vocabulario de aplicación, es posible que algunos de los términos presenten varias formas (sinónimos). Divida estos en otra lista de frases que sea intercambiable. 
+Cree una lista de frases cuando su aplicación tenga palabras o frases que son importantes para su funcionamiento, como:
+
+* términos del sector
+* jerga
+* abreviaturas
+* lenguaje específico de la empresa
+* lenguaje que pertenece a otro idioma, pero que se utiliza con frecuencia en la aplicación
+* palabras y frases clave en las expresiones de ejemplo
+
+Una vez que haya escrito algunas palabras o frases, use la función **Recomendar** para buscar valores relacionados. Revise los valores relacionados antes de agregarlos a su lista de frases.
 
 |Tipo de lista|Propósito|
 |--|--|
 |Intercambiable|Sinónimos o palabras que cuando se cambian por otra palabra en la lista, tienen la misma intención y extracción de entidades.|
 |No intercambiables|Vocabulario de aplicación, específico de la aplicación, más que de generalmente otras palabras en ese idioma.|
 
-Las listas de frases no solo ayudan con la detección de entidades sino también con la clasificación de intención, donde los elementos no intercambiables tienen sentido, como la incorporación de palabras de vocabulario que no se conocen en el idioma inglés.
+### <a name="interchangeable-lists"></a>Listas intercambiables
 
+Una lista de frases *intercambiable* contiene los valores que son sinónimos. Por ejemplo, si quiere obtener todos los cuerpos de agua encontrados y tiene expresiones de ejemplo tales como: 
+
+* ¿Qué ciudades están cerca de los Grandes Lagos? 
+* ¿Qué carretera pasa por Lake Havasu?
+* ¿Dónde empieza y termina el Nilo? 
+
+Cada expresión se debe determinar según la intención y las entidades, independientemente del cuerpo de agua: 
+
+* ¿Qué ciudades están cerca de [cuerpoDeAgua]?
+* ¿Qué carretera pasa por [cuerpoDeAgua]?
+* ¿Dónde empieza y termina [cuerpoDeAgua]? 
+
+Dado que las palabras o frases del cuerpo de agua son sinónimos y se pueden utilizar indistintamente en las expresiones, utilice la configuración **intercambiable** en la lista de frases. 
+
+### <a name="non-interchangeable-lists"></a>Listas no intercambiables
+
+Una lista de frases no intercambiables es una señal que aumenta la detección de LUIS. La lista de frases indica palabras o frases que son más importantes que otras palabras, de forma que se mejora el proceso para determinar la intención y para detectar las entidades. Por ejemplo, supongamos que tiene un dominio de temas (como los viajes) que es global (es decir, lo es en distintas referencias culturales, pero está en un mismo idioma). Hay palabras y frases que son importantes para la aplicación, pero no son sinónimos. 
+
+Como ejemplo adicional, utilice una lista de frases no intercambiables para palabras poco frecuentes, exclusivas y extranjeras. Es posible que LUIS no pueda reconocer las palabras poco frecuente y exclusivas, así como las palabras extranjeras (ajenas a la referencia cultural de la aplicación). La configuración no intercambiable indica que el conjunto de palabras poco frecuentes constituye una clase que LUIS debe aprender a reconocer, pero que no son sinónimos ni intercambiables entre sí.
+
+No agregue todas las palabras o frases posibles a una lista de frases. En su lugar, agregue unas cuantas cada vez, vuelva a entrenar el modelo y publíquelo. 
+
+Conforme vaya creciendo la lista de frases, es posible que algunos de los términos presenten varias formas (sinónimos). Divida estos en otra lista de frases que sea intercambiable. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
@@ -55,14 +86,6 @@ Las listas de frases intercambiables son una buena manera de optimizar el rendim
 Una lista de frases no es una instrucción para que LUIS realice coincidencias estrictas o siempre etiquete todos los términos de la lista de frases de la misma forma exacta. Simplemente es una sugerencia. Por ejemplo, podría tener una lista de frases en la que se indique que "Patti" y "Selma" son nombres, pero LUIS puede seguir usando la información contextual para reconocer que tienen otro significado en "Reservar cena para dos en Patti's Diner" y "Buscar indicaciones de ruta en coche para Selma, Georgia". 
 
 Agregar una lista de frases es una alternativa a la adición de más expresiones de ejemplo a una intención. 
-
-## <a name="an-interchangeable-phrase-list"></a>Una lista de frases intercambiables
-Use una lista de frases intercambiable cuando la lista de palabras o frases cree una clase o un grupo. Ejemplo de esto es una lista de meses como "Enero", "Febrero", "Marzo" o nombres como "John", "Mary", "Frank".  Estas listas son intercambiables, lo que significa que la expresión se podría etiquetar con la misma intención o entidad si se usara otra palabra de la lista de frases. Por ejemplo, si "Mostrar el calendario de enero" tiene la misma intención que "Mostrar el calendario de febrero", las palabras deberían estar en una lista intercambiable. 
-
-## <a name="a-non-interchangeable-phrase-list"></a>Una lista de frases no intercambiables
-Utilice una lista de frases no intercambiables para las palabras o frases que no son sinónimos que se pueden agrupar en el dominio. 
-
-Como ejemplo, utilice una lista de frases no intercambiables para palabras poco frecuentes, exclusivas y extranjeras. Es posible que LUIS no pueda reconocer las palabras poco frecuente y exclusivas, así como las palabras extranjeras (ajenas a la referencia cultural de la aplicación). La configuración no intercambiable indica que el conjunto de palabras poco frecuentes constituye una clase que LUIS debe aprender a reconocer, pero que no son sinónimos ni intercambiables entre sí.
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Cuándo se deben usar listas de frases frente a las entidades de lista
 Aunque tanto una lista de frases como las entidades de lista pueden afectar a las expresiones de todas las intenciones, en cada caso se realiza de forma diferente. Use una lista de frases para afectar a la puntuación de predicción de intención. Use una entidad de lista para afectar a la extracción de la entidad de una coincidencia de texto exacta. 

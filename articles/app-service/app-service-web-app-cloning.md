@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 17ea8545855cd926a393e9e40d3eccaabd6dba53
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2a28409120bac13ea7d288c7fc41f7154c003388
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886533"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106263"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonación de aplicaciones de Azure App Service mediante PowerShell
-Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a `New-AzureRMWebApp` que permite clonar una aplicación de App Service existente en una aplicación nueva que se crea en una región diferente o en la misma región. Esta opción permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a `New-AzWebApp` que permite clonar una aplicación de App Service existente en una aplicación nueva que se crea en una región diferente o en la misma región. Esta opción permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
 
 La clonación de aplicaciones actualmente solo se admite para los planes de Servicio de aplicaciones de nivel Premium. La nueva característica cuenta con las mismas limitaciones que la copia de seguridad de App Service; consulte [Realización de una copia de seguridad de una aplicación en Azure App Service](manage-backup.md).
 
@@ -33,31 +36,31 @@ Escenario: tiene una aplicación web existente de la región Centro-sur de EE. 
 Si conoce el nombre del grupo de recursos que contiene la aplicación de origen, puede usar el siguiente comando de PowerShell para obtener la información de la aplicación de origen (en este caso, llamada "`source-webapp`"):
 
 ```PowerShell
-$srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
+$srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-Para crear un nuevo plan de App Service, puede usar el comando `New-AzureRmAppServicePlan` como en el ejemplo siguiente:
+Para crear un nuevo plan de App Service, puede usar el comando `New-AzAppServicePlan` como en el ejemplo siguiente:
 
 ```PowerShell
-New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
+New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
-Con el comando `New-AzureRmWebApp`, puede crear la nueva aplicación en la región Centro-norte de EE. UU. y asociarla a un plan existente de App Service del nivel Premium. Además, puede usar el mismo grupo de recursos que la aplicación de origen, o bien definir un nuevo grupo de recursos, como se muestra en el siguiente comando:
+Con el comando `New-AzWebApp`, puede crear la nueva aplicación en la región Centro-norte de EE. UU. y asociarla a un plan existente de App Service del nivel Premium. Además, puede usar el mismo grupo de recursos que la aplicación de origen, o bien definir un nuevo grupo de recursos, como se muestra en el siguiente comando:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Para clonar una aplicación existente, incluidas todas las ranuras de implementación asociadas, debe usar el parámetro `IncludeSourceWebAppSlots`. El siguiente comando de PowerShell muestra el uso de ese parámetro con el comando `New-AzureRmWebApp`:
+Para clonar una aplicación existente, incluidas todas las ranuras de implementación asociadas, debe usar el parámetro `IncludeSourceWebAppSlots`. El siguiente comando de PowerShell muestra el uso de ese parámetro con el comando `New-AzWebApp`:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
 Para clonar una aplicación existente en la misma región, debe crear un nuevo grupo de recursos y un nuevo plan de App Service en la misma región y después usar el siguiente comando de PowerShell para clonar la aplicación:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
+$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonación de una aplicación existente en un entorno de App Service
@@ -66,13 +69,13 @@ Escenario: tiene una aplicación en la región Centro-sur de EE. UU. y desea cl
 Si conoce el nombre del grupo de recursos que contiene la aplicación de origen, puede usar el siguiente comando de PowerShell para obtener la información de la aplicación de origen (en este caso, llamada "`source-webapp`"):
 
 ```PowerShell
-$srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
+$srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
 Si conoce el nombre del ASE y el nombre del grupo de recursos al que este pertenece, puede crear la nueva aplicación en el ASE existente, tal y como se muestra en el siguiente comando:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
 El parámetro `Location` es necesario por el motivo anterior, pero se omite cuando se crea la aplicación en un ASE. 
@@ -83,13 +86,13 @@ Escenario: desea clonar la ranura de implementación de una aplicación en una a
 Si conoce el nombre del grupo de recursos que contiene la aplicación de origen, puede usar el siguiente comando de PowerShell para obtener la información de la ranura de la aplicación de origen (en este caso, llamada "`source-appslot`") vinculada a `source-app`:
 
 ```PowerShell
-$srcappslot = Get-AzureRmWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
+$srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
 En el siguiente comando, se muestra cómo se crea un clon de la aplicación de origen en una nueva aplicación:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
 ## <a name="configuring-traffic-manager-while-cloning-an-app"></a>Configuración de Traffic Manager durante la clonación de una aplicación
@@ -99,7 +102,7 @@ Para garantizar que las aplicaciones de los clientes tienen una elevada disponib
 Escenario: desea clonar una aplicación en otra región y configurar al mismo tiempo un perfil de Traffic Manager de Azure Resource Manager que incluya las dos aplicaciones. En el siguiente comando, se muestra cómo se crea un clon de la aplicación de origen en una nueva aplicación al tiempo que se configura un nuevo perfil de Traffic Manager:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
+$destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Incorporación de una nueva aplicación clonada a un perfil existente de Traffic Manager
@@ -112,7 +115,7 @@ $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<
 Después de obtener el identificador de Traffic Manager, el siguiente comando muestra cómo crear un clon de la aplicación de origen en una nueva aplicación al mismo tiempo que se agregan ambas aplicaciones a un perfil de Traffic Manager existente:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
+$destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
 
 ## <a name="current-restrictions"></a>Restricciones actuales

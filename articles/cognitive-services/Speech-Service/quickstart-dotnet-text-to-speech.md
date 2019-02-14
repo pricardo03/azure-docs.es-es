@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: En este tutorial, obtendrá información sobre cómo convertir texto a voz con la API REST Texto a voz. El texto de ejemplo incluido en esta guía se estructura como lenguaje de marcado de síntesis de voz (SSML). Esto le permite elegir la voz y el idioma de la respuesta de voz.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 9e0b71acc4faa97bf1aa82e56a3784c349663dc0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0086746ee676127a3fcae9e7b05efd3f7a9f65f3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207112"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878432"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Inicio rápido: Conversión de texto a voz con .NET Core
 

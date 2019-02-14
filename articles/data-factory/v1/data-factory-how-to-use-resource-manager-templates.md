@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024865"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111329"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
 > [!NOTE]
@@ -236,7 +236,7 @@ Para obtener los procedimientos recomendados sobre parametrización, consulte [P
 * La configuración varía según el entorno (por ejemplo: desarrollo, prueba y producción)
 * Secretos (por ejemplo, las contraseñas)
 
-Si necesita extraer los secretos de [Azure Key Vault](../../key-vault/key-vault-get-started.md) al implementar las entidades de Azure Data Factory mediante plantillas, especifique el **almacén de claves** y el **nombre secreto** tal como se muestra en el ejemplo siguiente:
+Si necesita extraer los secretos de [Azure Key Vault](../../key-vault/key-vault-overview.md) al implementar las entidades de Azure Data Factory mediante plantillas, especifique el **almacén de claves** y el **nombre secreto** tal como se muestra en el ejemplo siguiente:
 
 ```JSON
 "parameters": {

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462807"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734630"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
-Azure SQL Database, los grupos elásticos, Instancia administrada y las bases de datos de Instancia administrada pueden transmitir métricas y registros de diagnóstico para facilitar la supervisión del rendimiento. Puede configurar una base de datos para optimizar el uso de recursos, los trabajos y sesiones, y la conectividad en uno de los siguientes recursos de Azure:
+Las bases de datos únicas, bases de datos agrupadas en grupos elásticos y bases de datos de instancia en una instancia administrada pueden transmitir métricas y registros de diagnóstico para facilitar la supervisión del rendimiento. Puede configurar una base de datos para optimizar el uso de recursos, los trabajos y sesiones, y la conectividad en uno de los siguientes recursos de Azure:
 
 - **Azure SQL Analytics**: para obtener supervisión inteligente de sus bases de datos de Azure SQL que incluya informes de rendimiento, alertas y recomendaciones de mitigación.
 - **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
@@ -34,7 +34,7 @@ Para más información sobre las métricas y las categorías de registro admitid
 - [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
-En este artículo se proporciona orientación para ayudarle a habilitar telemetría de diagnósticos para bases de datos, grupos elásticos e Instancia administrada. También puede ayudarle a saber cómo configurar Azure SQL Analytics como una herramienta de supervisión que permita visualizar los datos de telemetría de diagnóstico de las bases de datos.
+En este artículo se proporciona orientación para ayudarle a habilitar los datos de telemetría de diagnósticos para bases de datos, grupos elásticos e Instancias administradas de Azure SQL. También puede ayudarle a saber cómo configurar Azure SQL Analytics como una herramienta de supervisión que permita visualizar los datos de telemetría de diagnóstico de las bases de datos.
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>Habilitación del registro de datos de telemetría de diagnóstico
 
@@ -55,82 +55,82 @@ Al habilitar las métricas y los registros de diagnóstico, debe especificar el 
 Puede aprovisionar un nuevo recurso de Azure o seleccionar uno existente. Después de elegir un recurso, deberá especificar qué datos se deben recopilar mediante la opción de **configuración de diagnóstico**.
 
 > [!NOTE]
-> Si también usa grupos elásticos o Instancia administrada, recomendamos que habilite también telemetría de diagnósticos para estos recursos. Los contenedores de base de datos de los grupos elásticos e Instancia administrada tienen su propia telemetría de diagnósticos independiente.
+> Si también usa grupos elásticos o una instancia administrada, recomendamos que habilite también los datos de telemetría de diagnósticos para estos recursos. Los contenedores de base de datos en los grupos elásticos y una instancia administrada tienen sus propios datos de telemetría de diagnósticos independientes.
 
-## <a name="enable-logging-for-azure-sql-database-or-databases-in-managed-instance"></a>Habilitación del registro en Azure SQL Database o en bases de datos de Instancia Administrada
+## <a name="enable-logging-for-azure-sql-databases"></a>Habilitación del registro para bases de datos de Azure SQL
 
-Habilite las métricas y el registro de diagnóstico en SQL Database y en bases de datos de Instancia administrada; no se habilitan de forma predeterminada.
+Habilite las métricas y el registro de diagnóstico en bases de datos SQL; no están habilitadas de forma predeterminada.
 
-Puede configurar instancias de Azure SQL Databases y bases de datos de Instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
+Puede configurar bases de datos SQL para recopilar los siguientes datos de telemetría de diagnóstico:
 
-| Telemetría de supervisión de bases de datos | Compatibilidad con Azure SQL Database | Compatibilidad con base de datos de Instancia administrada |
+| Telemetría de supervisión de bases de datos | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad con instancias administradas |
 | :------------------- | ------------------- | ------------------- |
-| [Todas las métricas](sql-database-metrics-diag-logging.md#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | SÍ | Sin  |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | SÍ | SÍ |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como la CPU, el registro y el bloqueo. | SÍ | SÍ |
-| [Errores](sql-database-metrics-diag-logging.md#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | SÍ | SÍ |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | SÍ | Sin  |
-| [Tiempos de expiración](sql-database-metrics-diag-logging.md#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | SÍ | Sin  |
-| [Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | SÍ | Sin  |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | SÍ | SÍ |
+| [Todas las métricas](sql-database-metrics-diag-logging.md#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin  |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como la CPU, el registro y el bloqueo. | Sí | Sí |
+| [Errores](sql-database-metrics-diag-logging.md#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | Sí | Sí |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | Sí | Sin  |
+| [Tiempos de expiración](sql-database-metrics-diag-logging.md#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | Sí | Sin  |
+| [Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | Sí | Sin  |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Use el menú de **Configuración de diagnóstico** para que cada una de las bases de datos en Azure Portal configure el streaming de telemetría de diagnóstico de Azure SQL Databases y bases de datos de Instancia administrada. Puede establecer los siguientes destinos: Azure Storage, Azure Event Hubs y Azure Log Analytics.
+Use el menú **Configuración de diagnóstico** para cada base de datos única, agrupada y de instancia en Azure Portal para configurar el streaming de los datos de telemetría de diagnóstico para bases de datos de Azure SQL. Puede establecer los siguientes destinos: Azure Storage, Azure Event Hubs y Azure Log Analytics.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-azure-sql-database"></a>Configuración del streaming de telemetría de diagnóstico para Azure SQL Database
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Configuración del streaming de datos de telemetría de diagnóstico para bases de datos únicas, agrupadas y de instancia
 
    ![Icono de SQL Database](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-Para habilitar el streaming de telemetría de diagnóstico para Azure SQL Database, siga estos pasos:
+Para habilitar el streaming de datos de telemetría de diagnóstico para bases de datos únicas, agrupadas y de instancia, siga estos pasos:
 
-1. Vaya al recurso de Azure SQL Database.
+1. Vaya al recurso de bases de datos de Azure SQL.
 1. Seleccione **Configuración de diagnóstico**.
 1. Seleccione **Activar diagnóstico** si no existe ninguna configuración anterior o **Editar configuración** para editar una configuración anterior.
    - Puede crear hasta tres conexiones paralelas para hacer streaming de la telemetría de diagnóstico.
    - Seleccione **+Agregar configuración de diagnóstico** para configurar el streaming en paralelo de diagnóstico a varios recursos.
 
-   ![Habilitación de diagnósticos en SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Habilitación de diagnósticos para bases de datos únicas, agrupadas y de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Escriba un nombre de configuración para su propia referencia.
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Para la experiencia de supervisión basada en eventos estándar, active las siguientes casillas para la telemetría de registro de diagnóstico de base de datos: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errores**, **DatabaseWaitStatistics**, **Tiempos de expiración**, **Bloqueos** e **Interbloqueos**.
 1. Para una experiencia de supervisión basada en un minuto avanzada, active la casilla para **AllMetrics**.
 1. Seleccione **Guardar**.
 
-   ![Configuración de diagnósticos en SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Configuración de diagnósticos para bases de datos únicas, agrupadas y de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
 > Los registros de auditoría de seguridad no se pueden habilitar en la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [Configuración de la auditoría para su base de datos](sql-database-auditing.md#subheading-2) y [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/) (Registros de auditoría de SQL en Azure Log Analytics y Azure Event Hubs).
 > [!TIP]
 > Repita estos pasos para cada instancia de Azure SQL Database que quiera supervisar.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-databases-in-managed-instance"></a>Configuración del streaming de telemetría de diagnóstico para bases de datos de Instancia administrada
+### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases-in-managed-instance"></a>Configuración del streaming de datos de telemetría de diagnóstico para bases de datos de instancia en Instancia administrada
 
-   ![Icono de bases de datos de Instancia Administrada](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+   ![Icono de base de datos de instancia en Instancia administrada](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
-Para habilitar el streaming de telemetría de diagnóstico para bases de datos de Instancia administrada, siga estos pasos:
+Para habilitar el streaming de datos de telemetría de diagnóstico para bases de datos de instancia en Instancia administrada, siga estos pasos:
 
-1. Vaya a la base de datos de Instancia administrada.
+1. Vaya a la base de datos de instancia en Instancia administrada.
 2. Seleccione **Configuración de diagnóstico**.
 3. Seleccione **Activar diagnóstico** si no existe ninguna configuración anterior o **Editar configuración** para editar una configuración anterior.
    - Se pueden crear hasta tres (3) conexiones paralelas para hacer streaming de la telemetría de diagnóstico.
    - Seleccione **+Agregar configuración de diagnóstico** para configurar el streaming en paralelo de diagnóstico a varios recursos.
 
-   ![Habilitación de diagnósticos en una base de datos de Instancia Administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Habilitación de diagnósticos para bases de datos de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 4. Escriba un nombre de configuración para su propia referencia.
 5. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 6. Active las casillas para la telemetría de diagnóstico de base de datos: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** y **Errores**.
 7. Seleccione **Guardar**.
 
-   ![Configuración de diagnósticos en una base de datos de Instancia Administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configuración de diagnósticos para bases de datos de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
 > [!TIP]
-> Repita estos pasos para cada base de datos de Instancia administrada que quiera supervisar.
+> Repita estos pasos para cada instancia que quiera supervisar.
 
-## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>Habilitación del registro para grupos elásticos o Instancia administrada
+## <a name="enable-logging-for-elastic-pools-or-managed-instances"></a>Habilitación del registro para grupos elásticos o instancias administradas
 
-Habilite la telemetría de diagnóstico para los grupos elásticos e Instancia administrada como contenedores de base de datos. Tienen su propia telemetría de diagnóstico que no está habilitada de forma predeterminada.
+Habilite los datos de telemetría de diagnóstico para los grupos elásticos y las instancias administradas como contenedores de base de datos. Tienen su propia telemetría de diagnóstico que no está habilitada de forma predeterminada.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configuración del streaming de telemetría de diagnóstico para grupos elásticos
 
@@ -161,23 +161,23 @@ Para habilitar el streaming de telemetría de diagnóstico del recurso de grupos
 > [!TIP]
 > Repita estos pasos para cada grupo elástico que quiera supervisar.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instance"></a>Configuración del streaming de telemetría de diagnóstico para Instancia administrada
+### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configuración del streaming de datos de telemetría de diagnóstico para instancias administradas
 
    ![Icono de Instancia administrada](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
 
-Puede configurar un recurso de Instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
+Puede configurar un recurso de instancia administrada para recopilar los siguientes datos de telemetría de diagnóstico:
 
 | Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
 | **Instancia administrada** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
-Para habilitar el streaming de telemetría de diagnóstico de un recurso de Instancia administrada, siga estos pasos:
+Para habilitar el streaming de datos de telemetría de diagnóstico de un recurso de instancia administrada, siga estos pasos:
 
-1. Vaya al recurso de Instancia administrada en Azure Portal.
+1. Vaya al recurso de instancia administrada en Azure Portal.
 1. Seleccione **Configuración de diagnóstico**.
 1. Seleccione **Activar diagnóstico** si no existe ninguna configuración anterior o **Editar configuración** para editar una configuración anterior.
 
-   ![Habilitación de diagnósticos en Instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
+   ![Habilitación de diagnósticos para una instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 1. Escriba un nombre de configuración para su propia referencia.
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
@@ -185,10 +185,10 @@ Para habilitar el streaming de telemetría de diagnóstico de un recurso de Inst
 1. Active la casilla para la telemetría de diagnóstico de instancias: **ResourceUsageStats**.
 1. Seleccione **Guardar**.
 
-   ![Configuración de diagnósticos en Instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![Configuración de diagnósticos para una instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
-> Repita estos pasos para cada Instancia administrada que quiera supervisar.
+> Repita estos pasos para cada instancia administrada que quiera supervisar.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -284,7 +284,7 @@ Lea sobre cómo [habilitar la configuración de diagnóstico al crear recursos c
 
 ## <a name="stream-into-azure-sql-analytics"></a>Transmisión en Azure SQL Analytics
 
-Azure SQL Analytics es una solución en la nube que supervisa el rendimiento de las instancias de Azure SQL Database, los grupos elásticos e Instancia administrada a escala entre varias suscripciones. Puede ayudarle a recopilar y visualizar métricas del rendimiento de Azure SQL Database y cuenta con inteligencia integrada para solucionar problemas de rendimiento.
+Azure SQL Analytics es una solución en la nube que supervisa el rendimiento de bases de datos, grupos elásticos e instancias administradas de Azure SQL a escala entre varias suscripciones. Puede ayudarle a recopilar y visualizar métricas del rendimiento de Azure SQL Database y cuenta con inteligencia integrada para solucionar problemas de rendimiento.
 
 ![Información general de Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
@@ -298,7 +298,7 @@ Puede supervisar una flota de SQL Database con Azure SQL Analytics. Lleve a cabo
 2. Cree un área de trabajo de supervisión en la solución.
 3. Configure bases de datos para transmitir datos de telemetría de diagnóstico al área de trabajo.
 
-Si usa grupos elásticos o Instancia administrada, también debe configurar la transmisión en streaming de datos de telemetría de diagnóstico a partir de estos recursos.
+Si usa grupos elásticos o instancias administradas, también debe configurar la transmisión en streaming de datos de telemetría de diagnóstico a partir de estos recursos.
 
 ### <a name="create-azure-sql-analytics-resource"></a>Creación de un recurso de Azure SQL Analytics
 
@@ -318,7 +318,7 @@ Si usa grupos elásticos o Instancia administrada, también debe configurar la t
 
 La manera más sencilla de configurar la ubicación en que las bases de datos registran la métrica es mediante Azure Portal. Tal como se ha descrito anteriormente, vaya a su recurso de SQL Database en Azure Portal y seleccione **Configuración de diagnóstico**.
 
-Si utiliza grupos elásticos o Instancia administrada, también tendrá que configurar los valores de diagnóstico de estos recursos para habilitar los datos de telemetría de diagnóstico que se transmitirán al área de trabajo.
+Si utiliza grupos elásticos o instancias administradas, también tendrá que configurar los valores de diagnóstico de estos recursos para habilitar los datos de telemetría de diagnóstico que se transmitirán al área de trabajo.
 
 ### <a name="use-the-sql-analytics-solution"></a>Uso de la solución SQL Analytics
 
@@ -403,9 +403,9 @@ Consulte las siguientes tablas en busca de detalles sobre todas las métricas po
 |---|---|
 |Azure SQL Database|Porcentaje de DTU; DTU usada; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; porcentaje de almacenamiento de XTP e interbloqueos |
 
-## <a name="logs-for-managed-instance"></a>Registros para Instancia administrada
+## <a name="logs-for-managed-instances"></a>Registros para instancias administradas
 
-Consulte la siguiente tabla en busca de detalles sobre los registros para Instancia administrada.
+Consulte la siguiente tabla en busca de detalles sobre los registros para instancias administradas.
 
 ### <a name="resource-usage-statistics"></a>Estadísticas de uso de recursos
 
@@ -421,20 +421,20 @@ Consulte la siguiente tabla en busca de detalles sobre los registros para Instan
 |ResourceType|Nombre del tipo de recurso Siempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID de la suscripción para la base de datos |
 |ResourceGroup|Nombre del grupo de recursos de la base de datos |
-|LogicalServerName_s|Nombre de la Instancia administrada |
+|LogicalServerName_s|Nombre de la instancia administrada |
 |ResourceId|URI de recurso |
-|SKU_s|SKU del producto de Instancia administrada |
+|SKU_s|SKU del producto de instancia administrada |
 |virtual_core_count_s|Número de núcleos virtuales disponibles |
 |avg_cpu_percent_s|Porcentaje de CPU medio |
-|reserved_storage_mb_s|Capacidad de almacenamiento reservado en Instancia administrada |
-|storage_space_used_mb_s|Almacenamiento utilizado en Instancia administrada |
+|reserved_storage_mb_s|Capacidad de almacenamiento reservado en la instancia administrada |
+|storage_space_used_mb_s|Almacenamiento usado en la instancia administrada |
 |io_requests_s|Recuento de IOPS |
 |io_bytes_read_s|Bytes de IOPS leídos |
 |io_bytes_written_s|Bytes de IOPS escritos |
 
-## <a name="logs-for-azure-sql-databases-and-managed-instance-databases"></a>Registros para las instancias de Azure SQL Database y bases de datos de Instancia administrada
+## <a name="logs-for-single-pooled-and-instance-databases"></a>Registros para bases de datos únicas, agrupadas y de instancia
 
-Consulte las siguientes tablas en busca de detalles sobre los registros para las instancias de Azure SQL Database y bases de datos de Instancia administrada.
+Consulte las siguientes tablas en busca de detalles sobre los registros para bases de datos únicas, agrupadas y de instancia de Azure SQL.
 
 ### <a name="query-store-runtime-statistics"></a>Estadísticas de tiempo de ejecución del Almacén de consultas
 

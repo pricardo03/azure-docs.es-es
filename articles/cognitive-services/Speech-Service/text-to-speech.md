@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: La API de Text-to-Speech ofrece más de 75 voces en más de 45 idiomas y configuraciones regionales. Para utilizar estas fuentes de voz estándar, basta con especificar el nombre de voz con algunos otros parámetros al llamar al servicio Voz.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251561"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859341"
 ---
 # <a name="about-the-text-to-speech-api"></a>Acerca de Text-to-Speech API
 
@@ -55,11 +55,11 @@ Muchas de las funcionalidades de **Speech to Text** API, sobre todo las relacion
 
 | Caso de uso | REST | SDK |
 |-----|-----|-----|----|
-| Carga de conjuntos de datos para la adaptación de voces | SÍ | Sin  |
-| Creación y administración de modelos de fuentes de voz | SÍ | Sin  |
-| Creación y administración de implementaciones de fuentes de voz | SÍ | Sin  |
-| Creación y administración de pruebas de fuentes de voz| SÍ | Sin  |
-| Administrar suscripciones | SÍ | Sin  |
+| Carga de conjuntos de datos para la adaptación de voces | Sí | Sin  |
+| Creación y administración de modelos de fuentes de voz | Sí | Sin  |
+| Creación y administración de implementaciones de fuentes de voz | Sí | Sin  |
+| Creación y administración de pruebas de fuentes de voz| Sí | Sin  |
+| Administrar suscripciones | Sí | Sin  |
 
 > [!NOTE]
 > La API implementa una medida que limita las solicitudes de API a 25 por cada 5 segundos. Los encabezados de los mensajes le informarán sobre los límites.

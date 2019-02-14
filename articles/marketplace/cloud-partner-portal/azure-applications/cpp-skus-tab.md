@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0af7a7fd43bba46de6faa770bf3042fbf58a90f6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196294"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890907"
 ---
 # <a name="azure-application-skus-tab"></a>Pestaña SKU de aplicación de Azure
 
@@ -90,7 +90,7 @@ Configure las siguientes opciones de la SKU:
   >[!NOTE]
   >Guarde los cambios de precios para habilitar la exportación/importación de los datos de precios.
 
-- **Simplified Currency Pricing** (Precios de moneda simplificada): Especifique el precio de la SKU, en USD por mes. Debe ser igual que Old Pricing. Para más información, consulte [Precios en moneda simplificada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Simplified Currency Pricing** (Precios de moneda simplificada): Especifique el precio de la SKU, en USD por mes. Debe ser igual que Old Pricing. Para más información, consulte [Precios en moneda simplificada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### <a name="package-details-for-solution-template"></a>Detalles del paquete para una plantilla de solución
 

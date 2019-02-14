@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Obtenga información sobre el panel de la aplicación, una herramienta de informes visualizada que permite supervisar las aplicaciones de un solo vistazo.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 3f263e6e6b74c1d9392ec58f176962b0c37d70c5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210002"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869966"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Estadísticas de uso y el modelo en el panel
 El panel de la aplicación permite supervisar la aplicación de un solo vistazo. El **Panel** se muestra cuando se abre una aplicación al hacer clic en el nombre de la aplicación en la página **My Apps** (Mis aplicaciones) y después en **Dashboard** (Panel) en el panel superior. 

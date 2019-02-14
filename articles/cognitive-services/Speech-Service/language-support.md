@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Los servicios de Voz de Azure admite un gran número de idiomas para la conversión de texto a voz y texto a voz, junto con la traducción por voz. En este artículo se proporciona una lista completa idiomas compatibles por servicio.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213332"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878041"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
 
@@ -31,30 +31,30 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  ar-EG | Árabe (Egipto), estándar moderno | Sin  | Sí | Sin 
  ca-ES | Catalán (España) | Sin  | No | Sin 
  da-DK | Danés (Dinamarca) | Sin  | No | Sin 
- de-DE | Alemán (Alemania) | SÍ | SÍ | Sin 
- en-AU | Inglés (Australia) | Sin  | SÍ | SÍ
- en-CA | Inglés (Canadá) | Sin  | SÍ | SÍ
- en-GB | Inglés (Reino Unido) | Sin  | SÍ | SÍ
- en-IN | Inglés (India) | SÍ | Sí | SÍ
- en-NZ | Inglés (Nueva Zelanda) | Sin  | SÍ | SÍ  
- en-US | Inglés (Estados Unidos) | SÍ | Sí | SÍ
- es-ES | Español (España) | SÍ | SÍ | Sin 
+ de-DE | Alemán (Alemania) | Sí | Sí | Sin 
+ en-AU | Inglés (Australia) | Sin  | Sí | Sí
+ en-CA | Inglés (Canadá) | Sin  | Sí | Sí
+ en-GB | Inglés (Reino Unido) | Sin  | Sí | Sí
+ en-IN | Inglés (India) | Sí | Sí | Sí
+ en-NZ | Inglés (Nueva Zelanda) | Sin  | Sí | Sí  
+ en-US | Inglés (Estados Unidos) | Sí | Sí | Sí
+ es-ES | Español (España) | Sí | Sí | Sin 
  es-MX | Español (México) | Sin  | Sí | Sin 
  fi-FI | Finés (Finlandia) | Sin  | No | Sin 
  fr-CA | Francés (Canadá) | Sin  | Sí | Sin 
- fr-FR | Francés (Francia) | SÍ | SÍ | Sin 
+ fr-FR | Francés (Francia) | Sí | Sí | Sin 
  hi-IN | Hindi (India) | Sin  | Sí | Sin 
- it-IT | Italiano (Italia) | SÍ | SÍ | Sin 
+ it-IT | Italiano (Italia) | Sí | Sí | Sin 
  ja-JP | Japonés (Japón) | Sin  | Sí | Sin 
  ko-KR | Coreano (Corea) | Sin  | Sí | Sin 
  nb-NO | Noruego, Bokmål (Noruego) | Sin  | No | Sin 
  nl-NL | Neerlandés (Países Bajos) | Sin  | Sí | Sin 
  pl-PL | Polaco (Polonia) | Sin  | No | Sin 
- pt-BR | Portugués (Brasil) | SÍ | SÍ | Sin 
+ pt-BR | Portugués (Brasil) | Sí | Sí | Sin 
  pt-PT | Portugués (Portugal) | Sin  | Sí | Sin 
- ru-RU | Ruso (Rusia) | SÍ | SÍ | Sin 
+ ru-RU | Ruso (Rusia) | Sí | Sí | Sin 
  sv-SE | Sueco (Suecia) | Sin  | No | Sin 
- zh-CN | Chino (mandarín, simplificado) | SÍ | SÍ | Sin 
+ zh-CN | Chino (mandarín, simplificado) | Sí | Sí | Sin 
  zh-HK | Chino (mandarín, tradicional) | Sin  | Sí | Sin 
  zh-TW | Chino (mandarín, Taiwán) | Sin  | Sí | Sin 
  th-TH | Tailandés (Tailandia) | Sin  | No | Sin 

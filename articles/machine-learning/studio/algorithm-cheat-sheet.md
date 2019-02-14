@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: f445f13d3c2d63e8942864458064658d237aa763
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245966"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884008"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Hoja de referencia rápida de algoritmos de aprendizaje automático de Azure Machine Learning Studio
 
@@ -67,8 +67,6 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de Machine Learn
 * Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Machine Learning Studio.
 
 * Para ver una lista completa de todos los algoritmos de Machine Learning Studio, consulte [Lista de la A a la Z de módulos de Machine Learning Studio][a-z-list] (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
-
-* Para descargar e imprimir un diagrama con información general de las funcionalidades de Machine Learning Studio, vea [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).
 
 
 

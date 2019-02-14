@@ -16,14 +16,15 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 92108f610fd86a9e2e2bbba864879e4b3289456c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 17b76a25b3c5c2c3ce4dc4217389706a4b24d837
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103588"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210302"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Control de Restricción de la aplicación a un conjunto de usuarios
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Procedimientos para: Restricción de la aplicación a un conjunto de usuarios
 
 Las aplicaciones registradas en un inquilino de Azure Active Directory (Azure AD) están disponibles de forma predeterminada para todos los usuarios del inquilino que se autentica correctamente.
 

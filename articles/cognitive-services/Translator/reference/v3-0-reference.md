@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Documentación de referencia para Translator Text API V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878704"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -49,7 +49,7 @@ Para hacer que la solicitud se administre en un centro de datos específico, cam
 |Azure|Asia Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 Suscríbase a Translator Text API o a [Cognitive Services: todo en uno](https://azure.microsoft.com/pricing/details/cognitive-services/) en Microsoft Cognitive Services y utilice la clave de suscripción (disponible en Azure Portal) para autenticarse. 
 

@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 02/05/2019
+ms.openlocfilehash: c3057934d960efd0a846ef31c5fac5abd63a21f6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189537"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768483"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Protección del acceso en Azure Logic Apps
 
@@ -120,7 +120,7 @@ Si quiere que la aplicación lógica solo active una aplicación lógica anidada
 
 #### <a name="set-ip-ranges---logic-app-deployment-template"></a>Establecimiento de intervalos IP: plantilla de implementación de aplicación lógica
 
-Si automatiza las implementaciones de aplicaciones lógicas mediante una [plantilla de implementación de Azure Resource Manager](logic-apps-create-deploy-template.md), puede establecer los intervalos IP en esa plantilla, por ejemplo:
+Si automatiza las implementaciones de aplicaciones lógicas mediante una [plantilla de implementación de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), puede establecer los intervalos IP en esa plantilla, por ejemplo:
 
 ``` json
 {
@@ -131,7 +131,7 @@ Si automatiza las implementaciones de aplicaciones lógicas mediante una [planti
          "triggers": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -175,14 +175,15 @@ Para configurar esta restricción en Azure Portal, vaya a la configuración de l
 
 1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración de flujo de trabajo**.
 
-1. En **Configuración de control de acceso** > 
-**Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
+1. En **Configuración del control de acceso** > 
+   **Direcciones IP entrantes permitidas**, seleccione **Intervalos IP específicos**.
 
-1. En **Intervalos IP para contenido**, especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas. Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x* 
+1. En **Intervalos IP para contenido**, especifique los intervalos de direcciones IP que pueden acceder a contenido desde las entradas y salidas. 
+   Un intervalo IP válido usa estos formatos: *x.x.x.x/x* o *x.x.x.x-x.x.x.x* 
 
 ### <a name="set-ip-ranges---logic-app-deployment-template"></a>Establecimiento de intervalos IP: plantilla de implementación de aplicación lógica
 
-Si automatiza las implementaciones de aplicaciones lógicas mediante una [plantilla de implementación de Azure Resource Manager](logic-apps-create-deploy-template.md), puede establecer los intervalos IP en esa plantilla, por ejemplo:
+Si automatiza las implementaciones de aplicaciones lógicas mediante una [plantilla de implementación de Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md), puede establecer los intervalos IP en esa plantilla, por ejemplo:
 
 ``` json
 {
@@ -193,7 +194,7 @@ Si automatiza las implementaciones de aplicaciones lógicas mediante una [planti
          "contents": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -210,44 +211,99 @@ Si automatiza las implementaciones de aplicaciones lógicas mediante una [planti
 
 ## <a name="secure-action-parameters-and-inputs"></a>Protección de parámetros de acción y entradas
 
-Al realizar la implementación en distintos entornos, puede que quiera parametrizar aspectos específicos de la definición de flujo de trabajo de la aplicación lógica. Por ejemplo, puede especificar parámetros en la [plantilla de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Para acceder al valor de parámetro de un recurso durante el tiempo de ejecución, puede usar la expresión `@parameters('parameterName')`, proporcionada por el [lenguaje de definición de flujo de trabajo](https://aka.ms/logicappsdocs). 
+Al realizar la implementación en distintos entornos, puede que quiera parametrizar elementos específicos de la definición de flujo de trabajo de la aplicación lógica. De este modo, puede proporcionar entradas en función de los entornos que se utilicen y proteger la información confidencial. Por ejemplo, si está autenticando acciones HTTP con [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), defina y proteja los parámetros que aceptan el Id. de cliente y el secreto de cliente necesarios para la autenticación. Para estos parámetros, la definición de aplicación lógica tiene su propia sección `parameters`.
+Para acceder al valor de parámetro durante el tiempo de ejecución, puede usar la expresión `@parameters('parameterName')`, proporcionada por el [lenguaje de definición de flujo de trabajo](https://aka.ms/logicappsdocs). 
 
-También puede proteger los parámetros específicos que no quiere que se muestre mientras edita el flujo de trabajo de la aplicación lógica al usar el tipo de parámetro `securestring`. Por ejemplo, puede proteger parámetros como el id. de cliente y el secreto de cliente usados para autenticar una acción HTTP con [Azure Active Directory](../connectors/connectors-native-http.md#authentication).
-Al especificar un tipo de parámetro como `securestring`, el parámetro no se devuelve con la definición del recurso y no es accesible mediante la visualización del recurso después de la implementación. 
+Puede definir los parámetros con el tipo `securestring` y usar codificación según sea necesario para proteger los parámetros y valores que no quiere que se muestren al editar la aplicación lógica o al visualizar el historial de ejecución. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación.
 
 > [!NOTE]
-> Cuando se usa un parámetro en el encabezado o el cuerpo de una solicitud, ese parámetro se puede ver cuando se accede al historial de ejecución de la aplicación lógica y a la solicitud HTTP saliente. Asegúrese de configurar las directivas de acceso al contenido según corresponda.
+> Si usa un parámetro en el encabezado o el cuerpo de una solicitud, ese parámetro se puede ver cuando se accede al historial de ejecución de la aplicación lógica y a la solicitud HTTP saliente. Asegúrese de configurar también las directivas de acceso al contenido en consecuencia.
 > Los encabezados de autorización nunca son visibles a través de entradas o salidas. Por lo tanto, si aquí se usa un secreto, no se podrá recuperar.
 
-En este ejemplo se muestra una plantilla de implementación de Azure Resource Manager que usa más de un parámetro en tiempo de ejecución con el tipo `securestring`: 
+Para obtener más información acerca de cómo proteger los parámetros en las definiciones de aplicaciones lógicas, consulte [Protección de parámetros en las definiciones de aplicaciones lógicas](#secure-parameters-workflow) más abajo en esta página.
+
+Si quiere automatizar las implementaciones con [plantillas de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters), también puede usar parámetros seguros en ellas. Por ejemplo, puede usar parámetros para obtener los secretos de Key Vault al crear la aplicación lógica. La definición de la plantilla de implementación tiene su propia sección `parameters`, independiente de la sección `parameters` de la aplicación lógica. Para obtener más información acerca de cómo proteger los parámetros en las plantillas de implementación, consulte [Protección de parámetros en las plantillas de implementación](#secure-parameters-deployment-template) más abajo en esta página.
+
+<a name="secure-parameters-workflow"></a>
+
+### <a name="secure-parameters-in-logic-app-definitions"></a>Protección de parámetros en las definiciones de aplicaciones lógicas
+
+Para proteger la información confidencial en la definición del flujo de trabajo de aplicación lógica, use parámetros seguros, de forma que esta información no esté visible después de guardar la aplicación lógica. Por ejemplo, suponga que utiliza la autenticación `Basic` en la definición de acción HTTP. En este ejemplo se incluye una sección `parameters` que define los parámetros de la definición de acción, además de una sección `authentication` que acepta los valores de parámetro `username` y `password`. Para asignar valores a estos parámetros, puede usar un archivo de parámetros independiente, por ejemplo:
+
+```json
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+         "type": "Http",
+         "inputs": {
+            "method": "GET",
+            "uri": "http://www.microsoft.com",
+            "authentication": {
+               "type": "Basic",
+               "username": "@parameters('usernameParam')",
+               "password": "@parameters('passwordParam')"
+            }
+         },
+         "runAfter": {}
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "manual": {
+         "type": "Request",
+         "kind": "Http",
+         "inputs": {
+            "schema": {}
+         }
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+}
+```
+
+Si usa secretos, puede obtener dichos secretos en el momento de la implementación mediante [Key Vault en Azure Resource Manager](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+<a name="secure-parameters-deployment-template"></a>
+
+### <a name="secure-parameters-in-azure-resource-manager-deployment-templates"></a>Protección de parámetros en las plantillas de implementación de Azure Resource Manager
+
+En este ejemplo se muestra una plantilla de implementación de Resource Manager que usa más de un parámetro en tiempo de ejecución con el tipo `securestring`:
 
 * `armTemplatePasswordParam`, que es la entrada del parámetro `logicAppWfParam` de la definición de la aplicación lógica
 
 * `logicAppWfParam`, que es la entrada de la acción HTTP mediante autenticación básica
 
-En un archivo de parámetros independiente, puede especificar el valor de entorno del parámetro `armTemplatePasswordParam`, o bien puede recuperar los secretos en tiempo de implementación mediante el uso de [KeyVault de Azure Resource Manager](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-La sección `parameters` interna pertenece a la definición del flujo de trabajo de la aplicación lógica, mientras que la sección `parameters` externa pertenece a la plantilla de implementación.
+En este ejemplo se incluye una sección `parameters` interna que pertenece a la definición del flujo de trabajo de la aplicación lógica, y una sección `parameters` externa que pertenece a la plantilla de implementación. Para especificar los valores de entorno para los parámetros, puede usar un archivo de parámetros independiente. 
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {       
+      "logicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
-         "metadata": {         
-            "description": "Name of the Logic App."       
-         }     
+         "metadata": {
+            "description": "Name of the Logic App."
+         }
       },
       "armTemplatePasswordParam": {
-         "type": "securestring"     
-      },     
-      "logicAppLocation": {       
+         "type": "securestring"
+      },
+      "logicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
-         "allowedValues": [         
+         "allowedValues": [
             "[resourceGroup().location]",
             "eastasia",
             "southeastasia",
@@ -281,7 +337,7 @@ La sección `parameters` interna pertenece a la definición del flujo de trabajo
    },
    "variables": {},
    "resources": [
-      {       
+      {
          "name": "[parameters('logicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('logicAppLocation')]",
@@ -300,15 +356,18 @@ La sección `parameters` interna pertenece a la definición del flujo de trabajo
                         "uri": "http://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "username",
-                              "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('usernameParam')",
+                           "password": "@parameters('logicAppWfParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
-               "parameters": { 
+               "parameters": {
                   "logicAppWfParam": {
+                     "type": "securestring"
+                  },
+                  "userNameParam": {
                      "type": "securestring"
                   }
                },
@@ -332,9 +391,11 @@ La sección `parameters` interna pertenece a la definición del flujo de trabajo
          }
       }
    ],
-   "outputs": {} 
-}   
+   "outputs": {}
+}
 ```
+
+Si usa secretos, puede obtener dichos secretos en el momento de la implementación mediante [Key Vault en Azure Resource Manager](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
 <a name="secure-requests"></a>
 
@@ -344,7 +405,7 @@ Estas son algunas de las maneras en que puede proteger cualquier punto de acceso
 
 ### <a name="add-authentication-on-outbound-requests"></a>Incorporación de la autenticación en las solicitudes salientes
 
-Cuando se trabaja con una acción HTTP, HTTP + Swagger (Open API) o Webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede usar la autenticación básica, la autenticación de certificado o la autenticación de Azure Active Directory. Para más información, consulte la [autenticación de desencadenadores o acciones](logic-apps-workflow-actions-triggers.md#connector-authentication) y [autenticación para acciones HTTP](../connectors/connectors-native-http.md#authentication).
+Cuando se trabaja con una acción HTTP, HTTP + Swagger (Open API) o Webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede usar la autenticación básica, la autenticación de certificado o la autenticación de Azure Active Directory. Para obtener más información, consulte la [autenticación de desencadenadores o acciones](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
 ### <a name="restrict-access-to-logic-app-ip-addresses"></a>Restricción del acceso a direcciones IP de aplicación lógica
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo preparar el texto para personalizar modelos de lenguaje y acústicos, y fuentes de voz para el servicio Voz.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 44f2cb9e95a9a79c85c23b0eebd919851b94c1f8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228141"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857182"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Instrucciones de transcripción para usar el servicio Voz
 

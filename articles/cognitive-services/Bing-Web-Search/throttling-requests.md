@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda más acerca de las solicitudes de limitación y cuándo se usa Bing Web Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: ''
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
-ms.openlocfilehash: ec22f66c84123893823242e87d9e1ee8e912b839
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ebd754726fcde32ef2eeb8da9edb2d5ff3437ec7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185420"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865291"
 ---
 # <a name="throttling-requests-to-the-bing-web-search-api"></a>Solicitudes de limitación a Bing Web Search API
 

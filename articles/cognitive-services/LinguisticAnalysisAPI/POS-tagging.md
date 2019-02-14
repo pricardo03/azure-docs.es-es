@@ -3,19 +3,19 @@ title: 'Etiquetado de categorías gramaticales: Linguistic Analysis API'
 description: Obtenga información sobre la manera en que el etiquetado de categorías gramaticales en Linguistic Analysis API permite identificar la categoría o función de cada palabra del texto.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 41383b5bbad0eb5c32b98c57f3ea35e6018993e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218128"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883158"
 ---
 # <a name="part-of-speech-tagging"></a>Etiquetado de categorías gramaticales
 

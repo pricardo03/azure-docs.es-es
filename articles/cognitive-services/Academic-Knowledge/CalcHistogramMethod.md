@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Con el método CalcHistogram se calcula la distribución de los valores de atributo para un conjunto de entidades de documento.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192543"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879027"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -32,7 +32,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 NOMBRE  |Valor | ¿Necesario?  |DESCRIPCIÓN
 -----------|----------|--------|----------
-**expr**    |Cadena de texto | SÍ  |Una expresión de consulta que especifica las entidades en las que se deben calcular los histogramas.
+**expr**    |Cadena de texto | Sí  |Una expresión de consulta que especifica las entidades en las que se deben calcular los histogramas.
 **model** |Cadena de texto | Sin  |Seleccione el nombre del modelo que quiere consultar.  Actualmente, el valor predeterminado es *latest*.
 **attributes** | Cadena de texto | Sin <br>valor predeterminado: | Una lista delimitada por comas que especifica los valores de atributo que se incluyen en la respuesta. Los nombres de atributo distinguen entre mayúsculas y minúsculas.
 **count** |Number | Sin <br>Valor predeterminado: 10 |Número de resultados que se van a devolver.

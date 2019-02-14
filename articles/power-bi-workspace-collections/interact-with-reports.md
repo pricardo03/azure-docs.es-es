@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 32b72444c620b542262db322c5af94e69c49521e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048680"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233109"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interacción con informes de Power BI mediante la API de JavaScript
 
@@ -63,7 +63,7 @@ La API de JavaScript proporciona funcionalidades de filtro básicas y avanzadas 
 #### <a name="basic-filters"></a>Filtros básicos
 Los filtros básicos se colocan en un nivel de jerarquía o de columna, y contienen la lista de valores que se incluyen o excluyen.
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
@@ -92,7 +92,7 @@ Los filtros avanzados utilizan los operadores lógicos AND y OR, y aceptan una o
 * IsBlank
 * IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
   $schema: "http://powerbi.com/product/schema#advanced",
   target: {

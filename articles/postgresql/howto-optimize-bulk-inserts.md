@@ -6,31 +6,35 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9d2bfcddc649e4fff68bdba49df0945e88067036
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545243"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810249"
 ---
-# <a name="optimizing-bulk-inserts-and-use-of-transient-data-on-azure-database-for-postgresql-server"></a>Optimización de las inserciones masivas y del uso de datos transitorios en un servidor de Azure Database for PostgreSQL 
-En este artículo se describe cómo puede optimizar las operaciones de inserción masiva y el uso de datos transitorios en un servidor de Azure Database for PostgreSQL.
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Optimización de las inserciones masivas y uso de datos transitorios en un servidor de Azure Database for PostgreSQL 
+En este artículo se describe cómo puede optimizar las operaciones de inserción masiva y usar datos transitorios en un servidor de Azure Database for PostgreSQL.
 
-## <a name="using-unlogged-tables"></a>Uso de tablas sin registrar
-Los clientes que tengan operaciones de carga de trabajo que impliquen datos transitorios o que inserten grandes conjuntos de datos de forma masiva deben considerar la posibilidad de usar tablas sin registrar.
+## <a name="use-unlogged-tables"></a>Uso de tablas sin registrar
+Si tiene operaciones de carga de trabajo que impliquen datos transitorios o que inserten grandes conjuntos de datos de forma masiva, debe considerar la posibilidad de usar tablas sin registrar.
 
-Las tablas sin registrar son una característica de PostgreSQL que puede usarse de forma eficaz para optimizar las inserciones masivas. PostgreSQL usa el registro de escritura previa (WAL), que ofrece atomicidad y durabilidad, dos de las propiedades ACID, de forma predeterminada. Insertar en una tabla sin registrar significaría que PostgreSQL haría inserciones sin escribir en el registro de transacciones, que en sí es una operación de E/S, lo que hace que estas tablas sean considerablemente más rápidas que las tablas normales.
+Las tablas sin registrar son una característica de PostgreSQL que puede usarse de forma eficaz para optimizar las inserciones masivas. PostgreSQL usa el registro de escritura previa (WAL), que proporciona atomicidad y durabilidad de forma predeterminada. Las propiedades ACID incluyen la Atomicidad, Coherencia, aIslamiento y Durabilidad. 
 
-A continuación se muestran las opciones para crear una tabla sin registrar:
-- Cree una tabla sin registrar con la sintaxis: `CREATE UNLOGGED TABLE <tableName>`
-- Convierta una tabla registrada existente en una tabla sin registrar con la sintaxis: `ALTER <tableName> SET UNLOGGED`.  Esto se puede invertir mediante la sintaxis: `ALTER <tableName> SET LOGGED`
+Realizar inserciones en tablas sin registrar significa que PostgreSQL las realiza sin escribir en el registro de transacciones, que a su vez es una operación de E/S. Como resultado, estas tablas son notablemente más rápidas que las tablas normales.
+
+Para crear una tabla sin registrar, utilice las siguientes opciones:
+- Cree una tabla sin registrar con la sintaxis `CREATE UNLOGGED TABLE <tableName>`.
+- Convierta una tabla registrada existente en una tabla sin registrar con la sintaxis `ALTER <tableName> SET UNLOGGED`.  
+
+Para invertir el proceso, use la sintaxis `ALTER <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Concesiones de las tablas sin registrar
-Las tablas sin registrar no son seguras para bloqueos. Una tabla sin registrar se trunca automáticamente después de un bloqueo o está sujeta a un apagado no limpio. Además, el contenido de una tabla sin registrar no se replica en los servidores en espera. Los índices creados en una tabla sin registrar también se quitan del registro automáticamente.  Una vez que se completa la operación de inserción, puede convertir la tabla en registrada para que la inserción sea duradera.
+Las tablas sin registrar no están protegidas contra bloqueos. Una tabla sin registrar se trunca automáticamente después de un bloqueo o está sujeta a un apagado no limpio. Además, el contenido de una tabla sin registrar no se replica en los servidores en espera. Los índices creados en una tabla sin registrar también se quitan del registro automáticamente. Una vez que se complete la operación de inserción, convierta la tabla en registrada para que la inserción sea duradera.
 
-Sin embargo, en algunas cargas de trabajo de clientes, hemos experimentado aproximadamente una mejora de rendimiento del 15 al 20 por ciento al usar tablas sin registrar.
+Algunas cargas de trabajo de clientes han experimentado una mejora de rendimiento aproximada del 15 al 20 por ciento al usar tablas sin registrar.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Revise la carga de trabajo en busca de usos de datos transitorios e inserciones masivas de gran tamaño.  
-
-Revise la siguiente documentación de PostgreSQL: [Create Table SQL Commands](https://www.postgresql.org/docs/current/static/sql-createtable.html)
+Revise la carga de trabajo en busca de usos de datos transitorios e inserciones masivas de gran tamaño. Consulte la siguiente documentación de PostgreSQL:
+ 
+- [Comandos de SQL "Create table"](https://www.postgresql.org/docs/current/static/sql-createtable.html)

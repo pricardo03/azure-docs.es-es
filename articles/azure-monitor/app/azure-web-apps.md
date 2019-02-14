@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116626"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565962"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 En [Azure Portal](https://portal.azure.com), puede configurar la supervisión del rendimiento de aplicaciones de sus aplicaciones web, back-ends móviles y aplicaciones de API en [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenta la aplicación para que envíe datos de telemetría sobre sus actividades al servicio Application Insights, donde se almacenan y analizan. En esta plataforma, se pueden usar los gráficos de métricas y las herramientas de búsqueda para ayudar a diagnosticar problemas, mejorar el rendimiento y evaluar el uso.
@@ -25,7 +25,7 @@ En [Azure Portal](https://portal.azure.com), puede configurar la supervisión de
 ## <a name="run-time-or-build-time"></a>Tiempo de ejecución o de compilación
 Puede configurar la supervisión mediante la instrumentación de la aplicación de dos maneras:
 
-* **Tiempo de ejecución**: puede seleccionar una extensión de supervisión de rendimiento cuando la aplicación web ya esté activa. No es necesario volver a compilar o instalar la aplicación. Tendrá a disposición un conjunto estándar de paquetes que supervisan tiempos de respuesta, tasas de éxito, excepciones, dependencias, etc. 
+* **Tiempo de ejecución**: puede seleccionar una extensión de supervisión de rendimiento cuando la aplicación web ya esté activa. No es necesario volver a compilar ni instalar la aplicación. Tendrá a disposición un conjunto estándar de paquetes que supervisan tiempos de respuesta, tasas de éxito, excepciones, dependencias, etc. 
 * **Tiempo de compilación** : puede instalar un paquete en la aplicación que esté en desarrollo. Esta opción es más versátil. Además de los mismos paquetes estándares, puede escribir código para personalizar los datos de telemetría o enviar los suyos propios. Puede registrar las actividades específicas o grabar eventos según la semántica del dominio de la aplicación. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentación del tiempo de ejecución con Application Insights
@@ -42,14 +42,27 @@ Si ya está ejecutando un servicio de aplicaciones en Azure, ya goza de cierta s
 
     ![Instrumentación de la aplicación web](./media/azure-web-apps/create-resource.png)
 
-2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación.
+2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación (la supervisión de aplicaciones de ASP.NET está activada de manera predeterminada con dos niveles distintos de recopilación).
 
-    ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options.png)
+    ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new.png)
+
+    * El nivel de recopilación **Básico** de .NET ofrece funcionalidades esenciales de APM de instancia única.
+    
+    * El nivel de recopilación **Recomendado** de .NET:
+        * Agrega las tendencias de uso de CPU, memoria y E/S.
+        * Correlaciona los microservicios entre los límites de solicitud y dependencia.
+        * Recopila las tendencias de uso y habilita la correlación entre los resultados de disponibilidad y las transacciones.
+        * Recopila las excepciones no controladas por el proceso de host.
+        * Mejora la precisión de las métricas de APM con carga, cuando se usa el muestreo.
+    
+    .NET Core ofrece la **recopilación recomendado** o deshabilitado para .NET Core 2.0 y 2.1.
 
 3. **Instrumente el servicio de aplicaciones** después de haber instalado Application Insights.
 
    **Habilite la supervisión de cliente** para la vista de página y la telemetría de usuario.
 
+    (Esta opción está habilitada de forma predeterminada para las aplicaciones de .NET Core con la **recopilación recomendada**, independientemente de si está presente el valor "APPINSIGHTS_JAVASCRIPT_ENABLED" de la aplicación. Actualmente, el soporte granular basado en la interfaz de usuario para deshabilitar la supervisión de cliente no está disponible para .NET Core).
+    
    * Seleccione Configuración > Configuración de la aplicación.
    * En Configuración de la aplicación, agregue un nuevo par clave-valor:
 
@@ -57,6 +70,7 @@ Si ya está ejecutando un servicio de aplicaciones en Azure, ya goza de cierta s
 
     Valor: `true`
    * **Guarde** la configuración y **reinicie** la aplicación.
+
 4. Explorar los datos de supervisión de la aplicación seleccionando **Configuración** > **Application Insights** > **View more in Application Insights** (Ver más en Application Insights).
 
 Posteriormente, si quiere, puede compilar la aplicación con Application Insights.
@@ -85,16 +99,12 @@ Application Insights puede proporcionar una telemetría más detallada instaland
 
 *¿Cómo cambio para enviar a un recurso de Application Insights diferente?*
 
-* En Visual Studio, haga clic con el botón derecho en el proyecto, elija **Configurar Application Insights** y seleccione el recurso que desea. Tiene la opción de crear un nuevo recurso. Vuelva a compilar e implementar.
+* En Visual Studio, haga clic con el botón derecho en el proyecto, elija **Configurar Application Insights** y seleccione el recurso que quiera. Tiene la opción de crear un nuevo recurso. Vuelva a compilar e implementar.
 
 ## <a name="more-telemetry"></a>Más telemetría
 
 * [Datos de carga de página web](../../azure-monitor/app/javascript.md)
 * [Telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="troubleshooting"></a>solución de problemas
 
@@ -102,10 +112,19 @@ Application Insights puede proporcionar una telemetría más detallada instaland
 
 La habilitación de JavaScript a través de App Services puede hacer que se recorten las respuestas HTML.
 
-- Solución alternativa 1: establezca la configuración de la aplicación APPINSIGHTS_JAVASCRIPT_ENABLED en false o quítela completamente y reinicie
-- Solución alternativa 2: agregue sdk a través de código y quite la extensión (en el caso de Profiler y Snapshot Debugger no será posible con esta configuración)
+* Solución alternativa 1: establezca la configuración de la aplicación APPINSIGHTS_JAVASCRIPT_ENABLED en false o quítela completamente y reinicie
+* Solución alternativa 2: agregue sdk a través de código y quite la extensión (en el caso de Profiler y Snapshot Debugger no será posible con esta configuración)
 
 Hacemos un seguimiento de este problema [aquí](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+Para .NET Core, actualmente **no se admite** lo siguiente:
+
+* Implementación autocontenida.
+* Aplicaciones con .NET Framework como destino.
+* Aplicaciones de .NET Core 2.2.
+
+> [!NOTE]
+> Se admiten .NET core 2.0 y .NET Core 2.1. Este artículo se actualizará cuando se agregue compatibilidad con .NET Core 2.2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecute el generador de perfiles en la aplicación activa](../../azure-monitor/app/profiler.md).

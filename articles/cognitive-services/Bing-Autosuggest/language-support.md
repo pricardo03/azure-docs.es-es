@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas y las regiones admitidos para Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7caf6a9f6bce90c6ffbaa7fa4040484938d6eafd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 94a887e06af1963b16d244103de407493d4c8eb7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177771"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857114"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Compatibilidad de idiomas y regiones para Bing Autosuggest API
 

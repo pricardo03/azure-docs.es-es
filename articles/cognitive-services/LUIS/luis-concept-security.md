@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 14b1199891599123a14d30e85a032f05974d7d0d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210246"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863626"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso al punto de conexión está disponible para todos los usuarios que tengan su propia cuenta de LUIS y el identificador de la aplicación pública. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 19e9690905fd993d59b186d59cc257b6b57e78b2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31d945f64cccd0c811d4dc45163583224102fb8a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449833"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965246"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -245,6 +245,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and Network Security Groups in an isolated network (Azure only, no hybrid connections)
@@ -352,7 +353,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.5"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -361,7 +362,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -380,7 +381,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -532,11 +533,12 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>Archivo de configuración de red
 Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a este archivo a la variable $NetworkConfigFile en el script anterior.
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -566,6 +568,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
 Si quiere instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, se proporciona uno en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]

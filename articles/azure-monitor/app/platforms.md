@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 0aee18115f34c86e84054f1aeddcc99d563f5f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 825f51742a65ead545f7c7fcb0a53d1a82a08b1a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116524"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992813"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análisis del desarrollador: lenguajes y plataformas e integraciones
 Estos elementos son implementaciones de [Application Insights](../../azure-monitor/app/app-insights-overview.md) sobre las que tenemos noticias, que incluyen también algunas de terceros.
@@ -69,9 +69,9 @@ Estos elementos son implementaciones de [Application Insights](../../azure-monit
 * El [Registro semántico (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) se integra con el [Bloque de aplicación de registro semántico](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Pruebas de carga en la nube](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [Complemento LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 * [Logrus](https://github.com/jjcollinge/logrus-appinsights)
+* [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="content-management-systems"></a>Sistemas de administración de contenido
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)

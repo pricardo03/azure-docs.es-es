@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259791"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877701"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparación de Azure Data Lake Storage Gen1 y Azure Blob Storage
-  >[!NOTE] 
-    >[Azure Data Lake Storage Gen2 (versión preliminar)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) se ha anunciado recientemente. Azure Data Lake Storage Gen2 (versión preliminar) es el resultado de la convergencia de las funcionalidades de nuestros dos servicios de almacenamiento existentes: Azure Blob Storage y [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Las características de Azure Data Lake Storage Gen1, como la semántica del sistema de archivos, la seguridad de nivel de archivo y la escala se combinan con las funcionalidades de recuperación ante desastres o alta disponibilidad, y de almacenamiento por niveles de bajo costo de [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). <br> Se recomienda encarecidamente empezar a usar Data Lake Storage Gen2 (versión preliminar) como base para crear instancias empresariales de Data Lake y sacar el máximo partido a Azure Blob Storage y Azure Data Lake Storage Gen1.
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
 La tabla de este artículo resume las diferencias entre Azure Data Lake Storage Gen1 y Azure Blob Storage en algunos aspectos clave del procesamiento de macrodatos. Azure Blob Storage es un almacén de objetos general escalable que está diseñado para una amplia variedad de escenarios de almacenamiento. Azure Data Lake Storage Gen1 es un repositorio a hiperescala optimizado para cargas de trabajo de análisis de macrodatos.
-
-
-
-
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |
@@ -37,7 +33,7 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Storage 
 | sección Estructura |Sistema de archivos jerárquico |Almacén de objetos con el espacio de nombres plano |
 | API |API de REST a través de HTTPS |API de REST a través de HTTP/HTTPS |
 | API de servidor |[WebHDFS-compatible REST API (API de REST compatible con WebHDFS)](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API (API de REST de Almacenamiento de blobs de Azure)](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Cliente de sistema de archivos de Hadoop |SÍ |SÍ |
+| Cliente de sistema de archivos de Hadoop |Sí |Sí |
 | Operaciones de datos: autenticación |Basado en las [identidades de Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basado en secretos compartidos: [teclas de acceso de cuenta](../storage/common/storage-account-manage.md#access-keys) y [claves de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operaciones de datos: protocolo de autenticación |OAuth 2.0. Las llamadas deben contener un JWT válido (JSON Web Token) emitido por Azure Active Directory |Código de autenticación de mensajes basado en hash (HMAC). Las llamadas deben contener un hash SHA-256 codificado en Base64 en una parte de la solicitud HTTP. |
 | Operaciones de datos: autorización |Listas de control de acceso (ACL) de POSIX.  Las ACL basadas en identidades de Azure Active Directory se pueden establecer en el nivel de archivo y de carpeta. |Para la autorización de nivel de cuenta: usar [claves de acceso de cuenta](../storage/common/storage-account-manage.md#access-keys)<br>Para la cuenta, el contenedor o la autorización de blob - Usar [claves de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

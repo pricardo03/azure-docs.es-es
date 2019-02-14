@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615220"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213195"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(EN DESUDO) Preguntas más frecuentes sobre Azure Container Service
 
@@ -85,7 +85,7 @@ Encontrará direcciones URL de clúster comunes en Azure Portal, el Explorador d
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>¿Cómo puedo actualizar el orquestador después de la implementación?
 
-Actualmente, Azure Container Service no proporciona herramientas para actualizar la versión del orquestador que implementó en el clúster. Si Container Service es compatible con una versión posterior, puede implementar un nuevo clúster. Otra opción es usar herramientas específicas de orquestador si están disponibles para actualizar un clúster local. Por ejemplo, consulte [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/) (Actualización de DC/OS).
+Actualmente, Azure Container Service no proporciona herramientas para actualizar la versión del orquestador que implementó en el clúster. Si Container Service es compatible con una versión posterior, puede implementar un nuevo clúster. Otra opción es usar herramientas específicas de orquestador si están disponibles para actualizar un clúster local. Por ejemplo, consulte [DC/OS Upgrading](http://docs.mesosphere.com/1.12/installing/production/upgrading) (Actualización de DC/OS).
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>¿Dónde se encuentra la cadena de conexión de SSH para el clúster?
 

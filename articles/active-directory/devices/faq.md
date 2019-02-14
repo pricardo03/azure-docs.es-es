@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296188"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700400"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
 **P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en mi información del usuario de Azure Portal? O bien ¿por qué el propietario del dispositivo está marcado como N/D para los dispositivos unidos a Azure Active Directory (Azure AD) híbrido?**
 
 **R:** los dispositivos Windows 10 que están unidos a Azure AD híbrido no aparecen bajo los **dispositivos del USUARIO**.
-Use la vista **Todos los dispositivos** de Azure Portal. También puede usar un cmdlet [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
+Use la vista **Todos los dispositivos** de Azure Portal. También puede usar un cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
 
 Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguientes:
 
@@ -176,7 +176,7 @@ Este comportamiento no es aplicable a ningún otro usuario que inicie sesión en
 
 **P: ¿Por qué me aparece un cuadro de diálogo que indica que *se ha producido un error* cuando intento unir mi equipo a Azure AD?**
 
-**R:** Este error se produce cuando configura la inscripción de Azure Active Directory con Intune. Asegúrese de que el usuario que intenta unirse a Azure AD tiene asignada la licencia de Intune correcta. Para obtener más información, consulte [Configuración de la inscripción de dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
+**R:** Este error se produce cuando configura la inscripción de Azure Active Directory con Intune. Asegúrese de que el usuario que intenta unirse a Azure AD tiene asignada la licencia de Intune correcta. Para obtener más información, consulte [Configuración de la inscripción de dispositivos Windows](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 
@@ -221,6 +221,12 @@ La unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Az
 **P: ¿Por qué mis usuarios tienen problemas en los dispositivos híbridos unidos a Azure AD en Windows 10 después de cambiar su UPN?**
 
 **R:** Actualmente, los cambios de UPN no son totalmente compatibles en dispositivos híbridos unidos a Azure AD. Aunque los usuarios pueden iniciar sesión en el dispositivo y acceder a sus aplicaciones de forma local, se produce un error en la autenticación con Azure AD después de cambiar un UPN. Como resultado, los usuarios experimentarán problemas con el acceso condicional y el inicio de sesión único en sus dispositivos. Para solucionar el problema, el usuario debe desunir el dispositivo de Azure AD (ejecutar "dsregcmd /leave" con privilegios elevados) y volver a realizar la unión (se produce automáticamente). Estamos trabajando actualmente para poder resolver este incidente. Sin embargo, los usuarios que inicien sesión con Windows Hello para empresas no tendrán este problema. 
+
+---
+
+**P: ¿Requieren los dispositivos unidos a Azure AD híbrido en Windows 10 línea de visión al controlador de dominio para acceder a recursos en la nube?**
+
+**R:**  No. Después de completar la unión a Azure AD híbrido en Windows 10 y de que el usuario ha iniciado sesión al menos una vez, el dispositivo no requiere línea de visión al controlador de dominio para acceder a recursos en la nube. Windows 10 puede obtener inicio de sesión único a aplicaciones de Azure AD desde cualquier lugar con conexión a internet, excepto cuando se cambia una contraseña. Si se cambia una contraseña fuera de la red corporativa (por ejemplo, mediante SSPR de Azure AD), el usuario debe tener línea de visión al controlador de dominio antes de que se pueda iniciar sesión en el dispositivo con la nueva contraseña. En caso contrario, solo puede iniciar sesión con la contraseña anterior, que Azure AD invalida e impide el inicio de sesión único. Sin embargo, este problema no se produce cuando se usa Windows Hello para empresas. Los usuarios que inician sesión con Windows Hello para empresas continúan recibiendo el inicio de sesión único en las aplicaciones de Azure AD después de un cambio de contraseña, aunque no tengan línea de visión a su controlador de dominio. 
 
 ---
 

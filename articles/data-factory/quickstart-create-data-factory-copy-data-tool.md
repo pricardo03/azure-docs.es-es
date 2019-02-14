@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017814"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992762"
 ---
-# <a name="use-the-copy-data-tool-to-copy-data"></a>Uso de la herramienta Copy Data para copiar datos 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-copy-data-tool.md)
 
@@ -70,7 +71,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
    ![Página de propiedades](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
-    a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
+     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
     ![Página del almacén de datos de origen](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
@@ -89,7 +90,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
 1. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), complete los siguientes pasos:
 
-   a. Haga clic en **Examinar** para ir a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, finalmente, haga clic en **Elegir**. 
+    a. Haga clic en **Examinar** para ir a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, finalmente, haga clic en **Elegir**. 
 
    ![Página de elección del archivo o la carpeta de entrada](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 

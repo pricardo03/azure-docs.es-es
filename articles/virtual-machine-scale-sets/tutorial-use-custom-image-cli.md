@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755210"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118401"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -88,6 +88,7 @@ exit
 La máquina virtual de origen ahora está personalizada con el servidor web de Nginx instalado. Vamos a crear la imagen de máquina virtual personalizada para usarla con un conjunto de escalado.
 
 Para crear una imagen, es necesario desasignar la máquina virtual. Desasigne la VM con [az vm deallocate](/cli//azure/vm). A continuación, establezca el estado de la máquina virtual como generalizado con [az vm generalize](/cli//azure/vm) para que la plataforma Azure sepa que la máquina virtual está preparada para usarla como imagen personalizada. Solo se puede crear una imagen de una máquina virtual generalizada:
+
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM

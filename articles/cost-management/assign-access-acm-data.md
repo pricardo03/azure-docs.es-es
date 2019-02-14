@@ -5,27 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052145"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766833"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
-Para la mayoría de los usuarios, una combinación de permisos otorgados en Azure Portal y Enterprise Portal (Contrato Enterprise) definen el nivel de acceso de un usuario a los datos de Azure Cost Management. Este artículo le guiará a través del proceso para asignar acceso a los datos de Cost Management. Una vez que se asigna la combinación de permisos, el usuario verá los datos en Cost Management en función del ámbito al que tenga acceso y del ámbito que se selecciona en Azure Portal.
+En el caso de los usuarios con Contratos Enterprise de Azure, una combinación de permisos otorgados en Azure Portal y Enterprise Portal (Contrato Enterprise) define el nivel de acceso de un usuario a los datos de Azure Cost Management. Para los usuarios con otros tipos de cuenta de Azure, el nivel de acceso a los datos de Cost Management es más sencillo. Este artículo le guiará a través del proceso para asignar acceso a los datos de Cost Management. Una vez que se asigna la combinación de permisos, el usuario verá los datos en Cost Management en función del ámbito al que tenga acceso y del ámbito que se selecciona en Azure Portal.
 
 El ámbito que un usuario selecciona se usa en Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando se usan los ámbitos, los usuarios no pueden seleccionar varios de ellos. En su lugar, deben seleccionar un ámbito más amplio que abarque los ámbitos secundarios y filtrar lo que quieran ver. Es importante comprender la consolidación de datos porque algunas personas no deberían tener acceso a un ámbito principal que abarque los ámbitos secundarios.
 
 ## <a name="cost-management-scopes"></a>Ámbitos de Cost Management
 
-Un usuario debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
+Cost Management es compatible con una variedad de tipos de cuenta de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). El tipo de cuenta determina los ámbitos disponibles.
+
+### <a name="azure-ea-subscription-scopes"></a>Ámbitos de suscripción de Azure para Contrato Enterprise
+
+Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los siguientes ámbitos para ver los datos de costos de las suscripciones de Azure para Contrato Enterprise.
 
 | **Ámbito** | **Definido en** | **Acceso requerido para ver los datos** | **Configuración de EA como requisito previo** | **Consolida los datos en** |
 | --- | --- | --- | --- | --- |
@@ -43,6 +47,18 @@ Un usuario debe tener al menos acceso de lectura a uno o varios de los siguiente
 El siguiente diagrama ilustra la relación entre los ámbitos de la administración de costos con los roles y la configuración del portal de EA.
 
 ![Diagrama que ilustra la relación entre los ámbitos de la administración de costos con los roles y la configuración del portal de EA](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+Cuando la opción **AD: ver los cargos**  esté deshabilitada en el portal de EA, verá un mensaje que indica que los *Costos están deshabilitados para su organización* cuando intente ver los costos para los departamentos y cuentas.
+
+Del mismo modo, cuando **PC: ver los cargos** esté deshabilitado en el portal de EA, verá un mensaje que indica que los *Costos están deshabilitados para su organización* cuando intente ver los costos para las cuentas de inscripción, los grupos de administración, las suscripciones y los grupos de recursos.
+
+## <a name="other-azure-account-scopes"></a>Otros ámbitos de la cuenta de Azure
+
+Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los siguientes ámbitos para ver los datos de costos de otras suscripciones de Azure:
+
+- Cuenta de Azure
+- Grupo de administración
+- Grupos de recursos
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Habilitar el acceso a los costos en el portal de EA
 
@@ -109,7 +125,7 @@ Después de completar los pasos anteriores, la cuenta de usuario se convierte en
 
 ## <a name="assign-management-group-scope-access"></a>Asignar el acceso al ámbito de grupo de administración
 
-Para obtener acceso al ámbito de grupo de administración es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+Para obtener acceso al ámbito de grupo de administración es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de administración en Azure Portal. Debe tener al menos el permiso de acceso de usuario administrador (o propietario) para el grupo de Administrador de acceso de usuario (o Propietario) del grupo de administración para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de administración_ y, a continuación, seleccione los **grupos de administración** que necesite.
@@ -125,7 +141,7 @@ Para obtener acceso al ámbito de grupo de administración es necesario tener al
 
 ## <a name="assign-subscription-scope-access"></a>Asignar acceso de ámbito de suscripción
 
-Para obtener acceso a la suscripción, es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos a una suscripción en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) de la suscripción para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+Para obtener acceso a la suscripción, es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos a una suscripción en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) de la suscripción para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios) en la barra lateral, busque _suscripciones_ y , a continuación, seleccione la opción **Subscriptions** (Suscripciones).
@@ -139,7 +155,7 @@ Para obtener acceso a la suscripción, es necesario tener al menos permiso de Le
 
 ## <a name="assign-resource-group-scope-access"></a>Asignar el acceso al ámbito de grupo de recursos
 
-Para obtener acceso al grupo de recursos es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de recursos en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) del grupo de recursos para habilitar el acceso de otros usuarios. También debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
+Para obtener acceso al grupo de recursos es necesario tener al menos permiso de Lector de Cost Management (o Lector). Puede configurar los permisos de un grupo de recursos en Azure Portal. Debe tener al menos el permiso de Administrador de acceso de usuario (o Propietario) del grupo de recursos para habilitar el acceso de otros usuarios. En el caso de las cuentas de Azure para EA, también debe haber habilitado la opción de configuración **PC: ver los cargos** en el portal de EA.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Seleccione **All Services** (Todos los servicios)en la barra lateral, busque los _grupos de recursos_ y, a continuación, seleccione la opción **Resource groups** (Grupos de recursos).

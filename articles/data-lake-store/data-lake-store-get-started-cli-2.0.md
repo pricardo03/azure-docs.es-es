@@ -10,14 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979073"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864866"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introducción a Azure Data Lake Store con la CLI de Azure
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -37,7 +40,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 * **CLI de Azure**: consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para instrucciones.
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 En este artículo se utiliza un enfoque de autenticación más sencillo con Data Lake Storage Gen1, donde se inicia sesión como usuario final. El nivel de acceso a la cuenta de Data Lake Storage Gen1 y al sistema de archivos está determinado por el nivel de acceso del usuario que ha iniciado sesión. No obstante, existen otros enfoques para realizar la autenticación con Data Lake Storage Gen1, como la **autenticación de usuario final** o la **autenticación de servicio a servicio**. Para obtener instrucciones y más información acerca de cómo realizar la autenticación, consulte [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticación entre servicios con Data Lake Store mediante Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
@@ -232,5 +235,5 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 ## <a name="next-steps"></a>Pasos siguientes
 * [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Uso de Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

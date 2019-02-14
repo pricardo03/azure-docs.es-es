@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118999"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960750"
 ---
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
 Con la [disponibilidad general de Azure App Service], los sitios de Servicios móviles de Azure se pueden migrar fácilmente in situ para aprovechar todas las características del Servicio de aplicaciones de Azure.  En este documento se explica lo que puede esperar al migrar su sitio de Servicios móviles de Azure al Servicio de aplicaciones de Azure.
@@ -332,7 +332,7 @@ Resolución: Si quiere clonar su sitio, hágalo en el portal.
 ### <a name="changing-webconfig-does-not-work"></a>El cambio de Web.config no funciona
 Si tiene un sitio de ASP.NET, los cambios realizados en el archivo `Web.config` no se aplican.  El Servicio de aplicaciones de Azure crea un archivo `Web.config` adecuado durante el inicio para admitir el tiempo de ejecución de Servicios móviles.  Puede reemplazar determinadas configuraciones (como los encabezados personalizados) mediante un archivo de transformación XML.  Cree un archivo llamado `applicationHost.xdt`: este archivo debe terminar en el directorio `D:\home\site` en el Servicio de Azure.  Cargue el archivo `applicationHost.xdt` a través de un script de implementación personalizado o directamente mediante Kudu.  A continuación se muestra un documento de ejemplo:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>

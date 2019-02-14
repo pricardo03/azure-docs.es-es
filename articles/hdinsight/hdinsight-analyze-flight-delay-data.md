@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e95440f72580b928cd41b6d03f30459cfb70a510
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817672"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965399"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Apache Hive en HDInsight
 [Apache Hive](https://hive.apache.org/) ofrece un modo de ejecutar trabajos de [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) mediante un lenguaje de scripting de tipo SQL, denominado *[HiveQL][hadoop-hiveql]*, que se puede usar para resumir, consultar y analizar grandes volúmenes de datos.
@@ -66,13 +66,13 @@ Si desea más información sobre cómo obtener o cargar los datos en su propia c
 
 La siguiente tabla enumera los archivos utilizados en este tutorial:
 
-<table border="1">
-<tr><th>Archivos</th><th>DESCRIPCIÓN</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Archivo de scripts de HiveQL que necesita el trabajo de Hive. Este script se ha cargado en una cuenta de almacenamiento de blobs de Azure con el público. El <a href="#appendix-b">apéndice B</a> tiene instrucciones para preparar y cargar este archivo a su propia cuenta de Azure Blob Storage.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Datos de entrada para los trabajos de Hive. Los datos se han cargado en una cuenta de almacenamiento de blobs de Azure con el acceso público. El <a href="#appendix-a">apéndice A</a> tiene instrucciones para obtener y cargar los datos en su propia cuenta de Azure Blob Storage.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>La ruta de acceso de salida para el trabajo de Hive. El contenedor predeterminado se usa para almacenar los datos de salida.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>La carpeta de estado del trabajo de Hive en el contenedor predeterminado.</td></tr>
-</table>
+|Archivos|DESCRIPCIÓN|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|Archivo de scripts de HiveQL que necesita el trabajo de Hive. Este script se ha cargado en una cuenta de almacenamiento de blobs de Azure con el público. El <a href="#appendix-b">apéndice B</a> tiene instrucciones para preparar y cargar este archivo a su propia cuenta de Azure Blob Storage.|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Datos de entrada para los trabajos de Hive. Los datos se han cargado en una cuenta de almacenamiento de blobs de Azure con el acceso público. El <a href="#appendix-a">apéndice A</a> tiene instrucciones para obtener y cargar los datos en su propia cuenta de Azure Blob Storage.|
+|\tutorials\flightdelays\output|La ruta de acceso de salida para el trabajo de Hive. El contenedor predeterminado se usa para almacenar los datos de salida.|
+|\tutorials\flightdelays\jobstatus|La carpeta de estado del trabajo de Hive en el contenedor predeterminado.|
+
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Creación de clústeres y ejecución de trabajos de Hive/Sqoop
 Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecutar un trabajo de Hive es crear un clúster para el trabajo y eliminar el trabajo una vez completado. El siguiente script cubre todo el proceso.
@@ -250,12 +250,11 @@ La carga del archivo de datos y los archivos de script de [HiveQL](https://cwiki
 1. Diríjase a[Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. En la página, seleccione los siguientes valores:
 
-    <table border="1">
-    <tr><th>NOMBRE</th><th>Valor</th></tr>
-    <tr><td>Filter Year</td><td>2013 </td></tr>
-    <tr><td>Filter Period</td><td>January</td></tr>
-    <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (borrar todos los demás campos)</td></tr>
-    </table>
+    |NOMBRE|Valor|
+    |---|---|
+    |Filter Year|2013|
+    |Filter Period|January|
+    |Fields|*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (borrar todos los demás campos)|
 
 3. Haga clic en **Descargar**.
 4. Descomprima el archivo en la carpeta **C:\Tutorials\FlightDelay\2013Data**. Cada archivo es un archivo CSV y tiene un tamaño aproximado de 60 GB.
@@ -266,11 +265,10 @@ La carga del archivo de datos y los archivos de script de [HiveQL](https://cwiki
 
 1. Prepare los parámetros:
 
-    <table border="1">
-    <tr><th>Nombre de la variable</th><th>Notas</th></tr>
-    <tr><td>$storageAccountName</td><td>La cuenta de Azure Storage donde desea cargar los datos.</td></tr>
-    <tr><td>$blobContainerName</td><td>El contenedor de blobs en donde desea cargar los datos.</td></tr>
-    </table>
+    |Nombre de la variable|Notas|
+    |---|---|
+    |$storageAccountName|La cuenta de Azure Storage donde desea cargar los datos.|
+    |$blobContainerName|El contenedor de blobs en donde desea cargar los datos.|
     
 2. Abra Azure PowerShell ISE.
 3. Pegue el siguiente script en el panel de scripts:
@@ -375,11 +373,10 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 
 1. Prepare los parámetros:
 
-    <table border="1">
-    <tr><th>Nombre de la variable</th><th>Notas</th></tr>
-    <tr><td>$storageAccountName</td><td>La cuenta de Azure Storage donde desea cargar el script de HiveQL.</td></tr>
-    <tr><td>$blobContainerName</td><td>El contenedor de blobs en donde desea cargar el script de HiveQL.</td></tr>
-    </table>
+    |Nombre de la variable|Notas|
+    |---|---|
+    |$storageAccountName|La cuenta de Azure Storage donde desea cargar el script de HiveQL.|
+    |$blobContainerName|El contenedor de blobs en donde desea cargar el script de HiveQL.|
     
 2. Abra Azure PowerShell ISE.  
 
@@ -564,14 +561,14 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 
 1. Prepare los parámetros:
 
-    <table border="1">
-    <tr><th>Nombre de la variable</th><th>Notas</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>El nombre del servidor de Base de datos SQL de Azure. No escriba nada para crear un nuevo servidor.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>El nombre de inicio de sesión del servidor de Base de datos SQL de Azure. Si $sqlDatabaseServerName es un servidor existente, se utilizan el nombre y la contraseña de inicio de sesión para autenticarse con el servidor. En caso contrario, se utilizan para crear un nuevo servidor.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>La contraseña de inicio de sesión del servidor de Base de datos SQL de Azure.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>Este valor se usa solo cuando se crea un nuevo servidor de base de datos de Azure.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>La Base de datos SQL usada para crear la tabla AvgDelays para el trabajo de Sqoop. Si se deja en blanco, se creará una base de datos denominada HDISqoop. El nombre de tabla para el resultado del trabajo de Sqoop es AvgDelays. </td></tr>
-    </table>
+    |Nombre de la variable|Notas|
+    |---|---|
+    |$sqlDatabaseServerName|El nombre del servidor de Base de datos SQL de Azure. No escriba nada para crear un nuevo servidor.|
+    |$sqlDatabaseUsername|El nombre de inicio de sesión del servidor de Base de datos SQL de Azure. Si $sqlDatabaseServerName es un servidor existente, se utilizan el nombre y la contraseña de inicio de sesión para autenticarse con el servidor. En caso contrario, se utilizan para crear un nuevo servidor.|
+    |$sqlDatabasePassword|La contraseña de inicio de sesión del servidor de Base de datos SQL de Azure.|
+    |$sqlDatabaseLocation|Este valor se usa solo cuando se crea un nuevo servidor de base de datos de Azure.|
+    |$sqlDatabaseName|La Base de datos SQL usada para crear la tabla AvgDelays para el trabajo de Sqoop. Si se deja en blanco, se creará una base de datos denominada HDISqoop. El nombre de tabla para el resultado del trabajo de Sqoop es AvgDelays.|
+
     
 2. Abra Azure PowerShell ISE.
 

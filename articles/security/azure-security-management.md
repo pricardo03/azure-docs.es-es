@@ -4,7 +4,7 @@ description: En este artículo se describen los pasos para mejorar la seguridad 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242014"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117931"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -117,7 +117,7 @@ Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en dire
 ## <a name="security-guidelines"></a>Directrices de seguridad
 En general, para ayudar a proteger las estaciones de trabajo de administrador para su uso con la nube se usan procedimientos similares a los usados para cualquier estación de trabajo local; por ejemplo, compilación minimizada y permisos restrictivos. Algunos aspectos únicos de la administración en la nube son más parecidos a la administración remota o empresarial fuera de banda. Estos incluyen el uso y la auditoría de credenciales, el acceso remoto con seguridad mejorada y la detección de amenazas y respuesta a las mismas.
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 Puede usar las restricciones de inicio de sesión de Azure para impedir que direcciones IP de origen tengan acceso a herramientas administrativas y solicitudes de acceso de auditoría. Para ayudar a Azure a identificar los clientes de administración (estaciones de trabajo o aplicaciones), puede configurar SMAPI (mediante herramientas desarrolladas por el cliente tales como cmdlets de Windows PowerShell) y Azure Portal para que requieran la instalación de certificados de administración del lado cliente, además de los certificados SSL. Se recomienda también que el acceso de administrador requiera autenticación multifactor.
 
 Algunas aplicaciones o servicios que se implementan en Azure pueden tener sus propios mecanismos de autenticación para el acceso de usuario final y de administrador, mientras que otras aprovechan toda la funcionalidad de Azure AD. Dependiendo de si desea federar credenciales mediante Servicios de federación de Active Directory (AD FS), usar la sincronización de directorios o mantener las cuentas de usuario únicamente en la nube, el uso de [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte de Azure AD Premium) lo ayuda a administrar los ciclos de vida de las identidades entre los recursos.

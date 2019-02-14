@@ -4,7 +4,7 @@ description: El resumen de vídeo puede ayudarle a crear resúmenes de vídeos l
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: aba01314b26f11df41aef25215697389bc7f46b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786014"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004815"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo  
 ## <a name="overview"></a>Información general
 El procesador de multimedia (PM) **Miniaturas de vídeo multimedia de Azure** le permite crear un resumen de un vídeo útil para aquellos clientes que solo quieren ver un resumen de un vídeo largo. Por ejemplo, es posible que los clientes quieran ver un breve "vídeo de resumen" al mantener el mouse sobre una miniatura. Al ajustar los parámetros de **Miniaturas de vídeo multimedia de Azure** mediante un valor predeterminado de configuración, puede usar la eficaz tecnología de detección de tomas y concatenación del PM para generar de forma algorítmica un subclip descriptivo.  
 

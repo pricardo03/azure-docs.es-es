@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 360fd9247684fea483d744d9be77d095b667d66d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889328"
 ---
-<!--author=alkohli last changed: 07/05/2017-->
-
 > [!NOTE] 
 > No se puede modificar la configuración de cifrado ni las credenciales de la cuenta de almacenamiento asociadas a un contenedor de volúmenes después de crearlo.
 

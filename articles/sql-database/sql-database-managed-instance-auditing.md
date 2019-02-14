@@ -13,17 +13,17 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456041"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729004"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database mediante T-SQL
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database
 
-La auditoría de [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md) realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage. La auditoría también:
+La auditoría de [Instancia administrada](sql-database-managed-instance.md) hace un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage. La auditoría también:
 
 - Puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 - Posibilita y facilita la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/compliance/).
@@ -38,7 +38,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
    1. Navegue hasta Azure Storage donde le gustaría almacenar los registros de auditoría.
 
       > [!IMPORTANT]
-      > Use una cuenta de almacenamiento de la misma región que el servidor de Instancia administrada para evitar lecturas y escrituras entre regiones.
+      > Use una cuenta de almacenamiento de la misma región que la Instancia administrada para evitar lecturas y escrituras entre regiones.
 
    1. En la cuenta de almacenamiento, vaya a **Información general** y haga clic en **Blobs**.
 
@@ -94,7 +94,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
           > [!IMPORTANT]
           > Quite el signo de interrogación ("?") caracteres del principio del token.
 
-     1. Conéctese a la instancia administrada mediante SQL Server Management Studio (SSMS) o cualquier otra herramienta compatible.
+     1. Conéctese a la Instancia administrada mediante SQL Server Management Studio (SSMS) o cualquier otra herramienta compatible.
 
      1. Ejecute la siguiente instrucción T-SQL para **crear una nueva credencial** utilizando la dirección URL del contenedor y el token de SAS que creó en los pasos anteriores:
 
@@ -154,7 +154,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
 Para información adicional:
 
-- [Diferencias de auditoría entre Instancia administrada, Azure SQL DB y SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Diferencias de auditoría entre bases de datos únicas, grupos elásticos, e instancias administradas en Azure SQL Database y bases de datos de SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -162,7 +162,7 @@ Para información adicional:
 
 Los registros de auditoría de una instancia administrada se pueden enviar a Event Hubs o Log Analytics mediante Azure Monitor. En esta sección se describe cómo configurar todo esto:
 
-1. En [Azure Portal ](https://portal.azure.com/), vaya a la instancia administrada de SQL.
+1. En [Azure Portal ](https://portal.azure.com/), vaya a la instancia administrada.
 
 2. Haga clic en **Configuración de diagnóstico**.
 
@@ -209,9 +209,6 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 
 - Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](sql-database-auditing.md) (Introducción a la auditoría de base de datos SQL).
 
-  > [!IMPORTANT]
-  > El método para ver los registros de auditoría desde Azure Portal (panel "Registros de auditoría") está disponible actualmente para Instancia administrada.
-
 ### <a name="consume-logs-stored-in-event-hub"></a>Uso de registros almacenados en Event Hubs
 
 Para consumir datos de registros de auditoría desde el centro de eventos, deberá configurar una secuencia que consuma eventos y los escriba en un destino. Para obtener más información, consulte la documentación de Azure Event Hubs.
@@ -222,21 +219,21 @@ Si se escriben registros de auditoría en Log Analytics, estarán disponibles en
 
 Log Analytics proporciona conclusiones operativas en tiempo real gracias a uso de paneles personalizados y de búsqueda integrados para analizar fácilmente millones de registros en todas las cargas de trabajo y servidores. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de Log Analytics, consulte la [referencia de búsqueda de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Diferencias de auditoría entre Instancia administrada, Azure SQL Database y SQL Server
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Diferencias de auditoría entre bases de datos en Azure SQL Database y bases de datos en SQL Server
 
-Las diferencias principales entre la auditoría de SQL en Instancia administrada, Azure SQL Database y las instancias locales de SQL Server son:
+Las diferencias clave entre la auditoría en bases de datos en Azure SQL Database y bases de datos en SQL Server son las siguientes:
 
-- En Instancia administrada, la auditoría de SQL funciona en el nivel de servidor y almacena los archivos de registro `.xel` en la cuenta de Azure Blob Storage.
-- En Azure SQL Database, la auditoría de SQL funciona en el nivel de base de datos.
-- En las máquinas virtuales o instancias locales de SQL Server, la auditoría de SQL funciona en el nivel de servidor, pero almacena los eventos en registros de eventos de Windows o del sistema de archivos.
+- Con la opción de implementación de instancia administrada en Azure SQL Database, la auditoría funciona en el nivel de servidor y almacena los archivos de registro `.xel` en la cuenta de Azure Blob Storage.
+- Con las opciones de implementación de base de datos única y grupo elástico en Azure SQL Database, la auditoría funciona en el nivel de la base de datos.
+- En las máquinas virtuales o instancias locales de SQL Server, la auditoría funciona en el nivel de servidor, pero almacena los eventos en registros de eventos de Windows o del sistema de archivos.
 
 En Instancia administrada, la auditoría de XEvent admite Azure Blob Storage como destino. **No se admiten** archivos ni registros de Windows.
 
-Las principales diferencias en la sintaxis de `CREATE AUDIT` para guardar la auditoría en Azure Blob Storage son:
+Las principales diferencias en la sintaxis de `CREATE AUDIT` para la auditoría en Azure Blob Storage son:
 
 - Se proporciona una nueva sintaxis de `TO URL` que permite especificar la dirección URL del contenedor de Azure Blob Storage donde se colocarán los archivos `.xel`.
 - Se proporciona una nueva sintaxis `TO EXTERNAL MONITOR` para habilitar los destinos Event Hubs y Log Analytics.
-- La sintaxis `TO FILE` **no se admite** porque Instancia administrada no puede acceder a los recursos compartidos de archivos de Windows.
+- La sintaxis `TO FILE` **no se admite** porque SQL Database no puede acceder a los recursos compartidos de archivos de Windows.
 - La opción de apagado **no se admite**.
 - `queue_delay` de 0 **no se admite**.
 

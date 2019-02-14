@@ -9,15 +9,15 @@ ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 474478c8049dd97558b49b1df4b00655268fc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044105"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815207"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar el explorador de trabajos y la vista de trabajo para Azure Data Lake Analytics
-El servicio Azure Data Lake Analytics archiva los trabajos enviados en un [almacén de consultas](#query-store). En este artículo aprenderá a utilizar el explorador de trabajos y la vista de trabajo de Azure Data Lake Tools para Visual Studio para encontrar la información histórica del trabajo. 
+El servicio Azure Data Lake Analytics archiva los trabajos enviados en un almacén de consultas. En este artículo aprenderá a utilizar el explorador de trabajos y la vista de trabajo de Azure Data Lake Tools para Visual Studio para encontrar la información histórica del trabajo. 
 
 De forma predeterminada, el servicio Data Lake Analytics archiva los trabajos durante 30 días. El período de expiración se puede configurar desde Azure Portal configurando la directiva de caducidad personalizada. No podrá acceder a la información de trabajo tras la expiración. 
 
@@ -56,18 +56,18 @@ La vista de trabajo contiene:
     
       ![Estado de las fases del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * Job Result: (Resultado del trabajo) correcto o con error. Puede que se produzcan errores en todas las fases.
+    * Resultado del trabajo: correcto o con error. Puede que se produzcan errores en todas las fases.
     * Duración total: tiempo de reloj (duración) entre la hora de envío y la hora de finalización.
-    * Total Compute Time: (Tiempo total de proceso) suma del tiempo de ejecución de cada vértice, puede considerarse como el tiempo en que el trabajo se ejecuta en un solo vértice. Consulte Total de vértices para obtener más información sobre vértices.
+    * Tiempo de proceso total: suma del tiempo de ejecución de cada vértice, puede considerarse como el tiempo en que el trabajo se ejecuta en un solo vértice. Consulte Total de vértices para obtener más información sobre vértices.
     * Hora de envío/inicio/finalización: hora en que el servicio Data Lake Analytics recibe el envío del trabajo/empieza a ejecutar el trabajo/finaliza el trabajo correctamente o no.
     * Compilación/En cola/En ejecución: tiempo de reloj empleado durante la fase de puesta en cola, de preparación y de ejecución.
     * Cuenta: cuenta de Data Lake Analytics utilizada para ejecutar el trabajo.
     * Autor: usuario que envió el trabajo, puede ser una cuenta del sistema o la cuenta de una persona real.
     * Prioridad: prioridad del trabajo. Cuanto menor sea el número, mayor será la prioridad. Solo afecta a la secuencia de los trabajos en la cola. Al establecer una prioridad mayor no se adelantan trabajos en ejecución.
     * Paralelismo: número máximo solicitado de unidades de Azure Data Lake Analytics (ADLAU) simultáneas, también llamadas vértices. Actualmente, un vértice es igual a una máquina virtual con dos núcleos virtuales y seis GB de RAM, aunque esto podría aumentar en futuras actualizaciones de Data Lake Analytics.
-    * Bytes Left: (Bytes restantes) bytes que deben procesarse hasta que se complete el trabajo.
+    * Bytes restantes: bytes que deben procesarse hasta que se complete el trabajo.
     * Bytes leídos/escritos: bytes que se han leído/escrito desde que se inició la ejecución del trabajo.
-    * Total vertices: (Número total de vértices) el trabajo se divide en muchos elementos de trabajo, cada elemento de trabajo se denomina un vértice. Este valor describe de cuántos elementos de trabajo está formado el trabajo. Un vértice puede considerarse como una unidad de proceso básico, también denominada unidad de Azure Data Lake Analytics (ADLAU), y los vértices se pueden ejecutar en paralelismo. 
+    * Vértices totales: el trabajo se divide en muchos elementos de trabajo, cada elemento de trabajo se denomina un vértice. Este valor describe de cuántos elementos de trabajo está formado el trabajo. Un vértice puede considerarse como una unidad de proceso básico, también denominada unidad de Azure Data Lake Analytics (ADLAU), y los vértices se pueden ejecutar en paralelismo. 
     * Completado/En ejecución/Con error: número de vértices completados, en ejecución o con errores. Los vértices pueden no ejecutarse debido a errores del sistema y de código de usuario, pero el sistema intenta automáticamente ejecutar los vértices con errores varias veces. Si el vértice sigue dando errores después de intentar ejecutarlo varias veces, se producirá un error en todo el trabajo.
 * Gráfico del trabajo
   
@@ -85,11 +85,11 @@ La vista de trabajo contiene:
     
       ![Fase del gráfico del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
-    * SV1 Extract: (Extracción SV1) nombre de una fase, denominada mediante un número y el método de operación.
-    * 84 vertices: (84 vértices) recuento total de vértices en esta fase. La cifra indica en cuántos elementos de trabajo se divide esta fase.
-    * 12.90 s/vertex: (12,90 s/vértice) tiempo promedio de ejecución de los vértices de esta fase. La cifra se calcula mediante SUM (tiempo de ejecución de cada vértice)/(recuento total de vértices). Lo que significa que si se pudiera asignar que todos los vértices se ejecuten en paralelismo, la fase entera se completaría en 12,90 segundos. También significa que si todo el trabajo de esta fase se realiza en serie, el coste sería n.º de vértices*tiempo medio.
-    * 850,895 rows written: (850 895 filas escritas) número total de filas escritas en esta fase.
-    * Lectura/escritura: cantidad de datos leídos/escritos en esta fase, en bytes.
+    * SV1 Extract (Extracción SV1): nombre de una fase, denominada mediante un número y el método de operación.
+    * 84 vertices (84 vértices): recuento total de vértices en esta fase. La cifra indica en cuántos elementos de trabajo se divide esta fase.
+    * 12.90 s/vertex (12,90 s/vértice): tiempo promedio de ejecución de los vértices de esta fase. La cifra se calcula mediante SUM (tiempo de ejecución de cada vértice)/(recuento total de vértices). Lo que significa que si se pudiera asignar que todos los vértices se ejecuten en paralelismo, la fase entera se completaría en 12,90 segundos. También significa que si todo el trabajo de esta fase se realiza en serie, el coste sería n.º de vértices*tiempo medio.
+    * 850,895 rows written (850 895 filas escritas): número total de filas escritas en esta fase.
+    * R (lectura) y W (escritura): cantidad de datos leídos/escritos en esta fase, en bytes.
     * Colores: colores que se usan en la fase para indicar distintos estados de vértice.
       
       * El color verde indica que el vértice se ha ejecutado correctamente.
@@ -101,15 +101,15 @@ La vista de trabajo contiene:
       Puede encontrar más detalles de la fase si mueve el cursor del mouse sobre un estado:
       
       ![Detalles de la fase del gráfico del trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
-  * Vértices: describe los detalles de los vértices, por ejemplo, cuántos vértices hay en total, cuántos vértices se completaron, si tienen errores o siguen en ejecución, en espera, etc.
-  * Data read cross/intra pod: (Lectura de datos entre pods/dentro del pod) los archivos y datos se almacenan en varios pods en un sistema de archivos distribuido. Este valor describe la cantidad de datos leídos en un mismo pod o entre pods.
-  * Total compute time. (Tiempo total de proceso) suma del tiempo de ejecución de cada vértice de la fase, puede considerarse como el tiempo que se tardaría si todo el trabajo de la fase se ejecutase en un solo vértice.
-  * Data and rows written/read: (Datos y filas de escritos/leídos) indica cuantos datos o filas se han leído/escrito o hay que leer.
-  * Vertex read failures: (Errores de lectura de vértices) describe cuántos vértices produjeron errores al leer datos.
-  * Vertex duplicate discards: (Descartes de duplicados de vértice) si un vértice se ejecuta demasiado despacio, puede que el sistema programe que varios vértices ejecuten el mismo elemento de trabajo. Los vértices redundantes se descartarán cuando uno de los vértices se complete correctamente. Vertex duplicate discards: (Descartes de duplicados de vértice) registra el número de vértices que se descartan como duplicados en la fase.
-  * Vertex revocations: (Revocaciones de vértice) el vértice se ejecutó correctamente, pero por algún motivo se vuelven a ejecutar después. Por ejemplo, si un vértice de canal de bajada pierde datos de entrada intermedios, le pedirá al vértice de canal de subida que vuelva a ejecutarse.
-  * Vertex schedule executions: (Ejecuciones de programación de vértice) tiempo total que se han programado los vértices.
-  * Mín./Media/Máx. de datos de vértice leídos: cantidad mínima, media y máxima de datos leídos en cada vértice.
+  * Vértices: describe los detalles de los vértices; por ejemplo, cuántos vértices hay en total, cuántos vértices se completaron, si tienen errores o siguen en ejecución, en espera, etc.
+  * Datos leídos en un pod o entre pods: los archivos y datos se almacenan en varios pods en un sistema de archivos distribuido. Este valor describe la cantidad de datos leídos en un mismo pod o entre pods.
+  * Tiempo de proceso total: suma del tiempo de ejecución de cada vértice de la fase, puede considerarse como el tiempo que se tardaría si todo el trabajo de la fase se ejecutase en un solo vértice.
+  * Datos y filas escritos/leídos: indica cuantos datos o filas se han leído/escrito o hay que leer.
+  * Errores de lectura de vértice: describe cuántos vértices produjeron errores al leer datos.
+  * Descartes de duplicado de vértice: si un vértice se ejecuta demasiado despacio, puede que el sistema programe que varios vértices ejecuten el mismo elemento de trabajo. Los vértices redundantes se descartarán cuando uno de los vértices se complete correctamente. Vertex duplicate discards: (Descartes de duplicados de vértice) registra el número de vértices que se descartan como duplicados en la fase.
+  * Revocaciones de vértice: el vértice se ejecutó correctamente, pero por algún motivo se vuelven a ejecutar después. Por ejemplo, si un vértice de canal de bajada pierde datos de entrada intermedios, le pedirá al vértice de canal de subida que vuelva a ejecutarse.
+  * Ejecuciones programadas del vértice: tiempo total que se han programado los vértices.
+  * Lectura de datos mín./media/máx. de vértice: cantidad mínima, media y máxima de datos leídos en cada vértice.
   * Duración: tiempo de reloj que tarda una fase; debe cargar el perfil para ver este valor.
   * Reproducción del trabajo
     
@@ -126,11 +126,11 @@ La vista de trabajo contiene:
     
       ![Ejemplo del mapa de montón de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Progreso: progreso de la ejecución del trabajo, vea la información de [Información de fase](#stage-information).
+    * Progreso: progreso de la ejecución del trabajo, consulte la Información de fase.
     * Datos leídos/escritos: mapa térmico del total de datos leídos o escritos en cada fase.
-    * Compute time: (Tiempo de proceso) mapa térmico de SUM (tiempo de ejecución de cada vértice), puede considerarse como el tiempo que se tardaría si todo el trabajo de la fase se ejecutase en un solo vértice.
-    * Average execution time per node: (Tiempo medio de ejecución por nodo) mapa térmico de SUM (tiempo de ejecución de cada vértice)/(número de vértices). Lo que significa que si se pudiera asignar que todos los vértices se ejecuten en paralelismo, la fase entera se hará en este período de tiempo.
-    * Input/Output throughput: (Rendimiento de entrada/salida) mapa térmico de rendimiento de entrada y salida de cada fase, mediante el que puede confirmar si se trata de un trabajo con límite de E/S.
+    * Tiempo de proceso: mapa térmico de SUM (tiempo de ejecución de cada vértice), puede considerarse como el tiempo que se tardaría si todo el trabajo de la fase se ejecutase en un solo vértice.
+    * Tiempo de ejecución promedio por nodo: mapa térmico de SUM (tiempo de ejecución de cada vértice)/(número de vértices). Lo que significa que si se pudiera asignar que todos los vértices se ejecuten en paralelismo, la fase entera se hará en este período de tiempo.
+    * Rendimiento de entrada/salida: mapa térmico de rendimiento de entrada y salida de cada fase, mediante el que puede confirmar si se trata de un trabajo con límite de E/S.
 * Operaciones de metadatos
   
     Puede realizar algunas operaciones de metadatos en el script U-SQL, como crear una base de datos, eliminar una tabla, etc. Estas operaciones se muestran en la operación de metadatos después de la compilación. Aquí puede encontrar aserciones, crear entidades y eliminar entidades.
@@ -138,7 +138,7 @@ La vista de trabajo contiene:
     ![Operaciones de metadatos de vista de trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * Historial de los estados
   
-    El historial de los estados también se visualiza en el resumen del trabajo, pero aquí se ofrecen más detalles. Puede encontrar la información detallada, como, por ejemplo, cuándo el trabajo está preparado, en cola, iniciado, en ejecución o finalizado. También puede encontrar cuántas veces se ha compilado el trabajo (CcsAttempts: 1), cuándo se envía el trabajo realmente al clúster (detalle: envío del trabajo al clúster), etc.
+    El historial de los estados también se visualiza en el resumen del trabajo, pero aquí se ofrecen más detalles. Puede encontrar la información detallada, como, por ejemplo, cuándo el trabajo está preparado, en cola, iniciado, en ejecución o finalizado. También puede consultar cuántas veces se ha compilado el trabajo (línea CcsAttempts: 1), cuando se envía realmente el trabajo al clúster (línea con el texto Detail: Dispatching job to cluster [Detalles: Enviando trabajo al clúster]), etc.
   
     ![Historial de los estados de vista de trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * Diagnóstico
@@ -148,7 +148,7 @@ La vista de trabajo contiene:
     ![Diagnóstico de vista de trabajo de Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
   
   * Advertencias: aquí aparece una alerta con una advertencia del compilador. Puede hacer clic en el vínculo "x problemas" para obtener más detalles cuando aparezca la alerta.
-  * Vertex run too long: (Ejecución de vértice demasiado larga) si algún vértice agota el tiempo (digamos, 5 horas), aquí se encontrarán los problemas.
+  * Vertex run too long (Ejecución de vértice demasiado larga): si algún vértice agota el tiempo (digamos, 5 horas), aquí se encontrarán los problemas.
   * Uso de recursos: si ha asignado más paralelismo del necesario o insuficiente, aquí se encontrarán problemas. También puede hacer clic en Uso de recursos para ver más detalles y ejecutar escenarios hipotéticos para encontrar una mejor asignación de recursos (si desea más información, vea esta guía).
   * Comprobación de memoria: si algún vértice utiliza más de 5 GB de memoria, aquí se encontrarán problemas. Puede que el sistema termine la ejecución del trabajo si este usa más memoria que la limitación del sistema.
 

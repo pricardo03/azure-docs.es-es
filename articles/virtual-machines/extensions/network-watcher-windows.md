@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142707"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976934"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual del agente de Network Watcher para Windows
 
@@ -79,10 +79,10 @@ Puede implementar las extensiones de VM de Azure con plantillas de Azure Resourc
 
 ## <a name="powershell-deployment"></a>Implementación de PowerShell
 
-Use el comando `Set-AzureRmVMExtension` para implementar la extensión de máquina virtual del agente de Network Watcher en una máquina virtual existente:
+Use el comando `Set-AzVMExtension` para implementar la extensión de máquina virtual del agente de Network Watcher en una máquina virtual existente:
 
 ```powershell
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
   -ResourceGroupName "myResourceGroup1" `
   -Location "WestUS" `
   -VMName "myVM1" `
@@ -99,7 +99,7 @@ Set-AzureRmVMExtension `
 Puede recuperar los datos sobre el estado de las implementaciones de extensiones desde Azure Portal y mediante PowerShell. Para ver el estado de implementación de las extensiones de una VM determinada, ejecute el comando siguiente con el módulo de Azure PowerShell:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+Get-AzVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
 El resultado de la ejecución de las extensiones se registra en los archivos que se encuentran en el siguiente directorio:

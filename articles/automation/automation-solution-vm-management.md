@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476403"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658393"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -136,7 +136,7 @@ En un entorno que incluya dos, o más, componentes de varias máquinas virtuales
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Destino de las acciones de inicio y detención por lista de máquinas virtuales
 
-1. Agregue una etiqueta **sequencestart** y **sequencestop** con un valor entero positivo para las máquinas virtuales que pretende agregar a la variable **VMList**. 
+1. Agregue una etiqueta **sequencestart** y **sequencestop** con un valor entero positivo para las VM que pretende agregar al parámetro **VMList**.
 1. Ejecute el runbook **SequencedStartStop_Parent** con el parámetro ACTION establecido en **start**, agregue una lista separada por comas de máquinas virtuales en el parámetro *VMList* y establezca el parámetro WHATIF en **True**. Obtenga una vista previa de los cambios.
 1. Configure el parámetro **External_ExcludeVMNames** con una lista separada por comas de máquinas virtuales (VM1, VM2, VM3).
 1. Este escenario no respeta las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupnames**. Para este escenario, es preciso que cree su propia programación de Automation. Para más información, consulte [Programación de un runbook en Azure Automation](../automation/automation-schedules.md).
@@ -285,8 +285,8 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 |Consultar | DESCRIPCIÓN|
 |----------|----------|
-|Búsqueda de trabajos del runbook ScheduledStartStop_Parent que hayan finalizado correctamente | ```search Category == "JobLogs" | donde ( RunbookName_s == "ScheduledStartStop_Parent" ) | donde ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Búsqueda de trabajos del runbook SequencedStartStop_Parent que hayan finalizado correctamente | ```search Category == "JobLogs" | donde ( RunbookName_s == "SequencedStartStop_Parent" ) | donde ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Búsqueda de trabajos del runbook ScheduledStartStop_Parent que hayan finalizado correctamente | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Búsqueda de trabajos del runbook SequencedStartStop_Parent que hayan finalizado correctamente | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Visualización de la solución
 
@@ -319,13 +319,29 @@ El siguiente es un correo electrónico de ejemplo que se envía cuando la soluci
 
 ![Página de la solución Update Management de Automation](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>Agregar o excluir VM
+
+La solución proporciona la capacidad de agregar VM como destino de la solución o excluir específicamente las máquinas de la solución.
+
+### <a name="add-a-vm"></a>Agregar una VM
+
+Hay un par de opciones que puede usar para asegurarse de que una VM se incluye en la solución Start/Stop cuando se ejecuta.
+
+* Cada uno de los [runbooks](#runbooks) primarios de la solución tiene un parámetro **VMList**. Puede pasar una lista separada por comas de nombres de VM a este parámetro al programar el runbook principal adecuado para su situación, y estas VM se incluirán cuando se ejecute la solución.
+
+* Para seleccionar varias VM, establezca **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** con los nombres de los grupos de recursos que contienen las VM que quiere iniciar o detener. También se puede establecer este valor como `*`, para que la solución se ejecute en todos los grupos de recursos de la suscripción.
+
+### <a name="exclude-a-vm"></a>Excluir una VM
+
+Para excluir una VM de la solución, puede agregarla a la variable **External_ExcludeVMNames**. Esta variable es una lista separada por comas de VM específicas para excluir de la solución Start/Stop.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificación de las programaciones de inicio y apagado
 
-La administración de las programaciones de inicio y apagado en esta solución sigue los mismos pasos descritos en [Programación de un runbook en Azure Automation](automation-schedules.md).
+La administración de las programaciones de inicio y apagado en esta solución sigue los mismos pasos descritos en [Programación de un runbook en Azure Automation](automation-schedules.md). Debe haber una programación independiente para iniciar y detener las VM.
 
-Se admite la configuración de la solución para simplemente detener las máquinas virtuales en un momento determinado. Para ello, necesita lo siguiente:
+Se admite la configuración de la solución para simplemente detener las máquinas virtuales en un momento determinado. En este escenario, creará simplemente una programación **Stop** y ninguna programación **Start** correspondiente. Para ello, necesita lo siguiente:
 
-1. Asegúrese de que ha agregado los grupos de recursos para que las máquinas virtuales se cierren en la variable **External_Start_ResourceGroupNames**.
+1. Asegúrese de que ha agregado los grupos de recursos para que las máquinas virtuales se cierren en la variable **External_Stop_ResourceGroupNames**.
 2. Cree su propia programación para el tiempo que desea apagar las máquinas virtuales.
 3. Navegue hasta el runbook **ScheduledStartStop_Parent** y haga clic en **Programación**. Esto le permite seleccionar la programación que creó en el paso anterior.
 4. Seleccione **Parameters and run settings** (Parámetros y configuración de ejecución) y establezca el parámetro ACTION en "Stop".

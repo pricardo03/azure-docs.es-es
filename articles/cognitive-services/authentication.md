@@ -1,20 +1,20 @@
 ---
-title: Autenticación
+title: Authentication
 titleSuffix: Cognitive Services - Azure
 description: 'Hay tres maneras de autenticar una solicitud a un recurso de Azure Cognitive Services: una clave de suscripción, un token de portador o una suscripción multiservicio. En este artículo aprenderá sobre cada método y cómo realizar una solicitud.'
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305458"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859752"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 

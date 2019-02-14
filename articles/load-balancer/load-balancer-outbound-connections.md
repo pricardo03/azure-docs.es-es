@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201387"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814833"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -34,17 +34,17 @@ Azure usa la traducción de direcciones de red de origen (SNAT) para realizar es
 Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenarios según sea necesario. Revíselos cuidadosamente para comprender las funcionalidades, las restricciones y los patrones que se aplican a su modelo de implementación y escenario de aplicación. Revise las instrucciones para [administrar estos escenarios](#snatexhaust).
 
 >[!IMPORTANT] 
->Load Balancer estándar presenta capacidades nuevas y comportamientos diferentes en la conectividad saliente.   Por ejemplo, el [escenario 3](#defaultsnat) no existe cuando hay una instancia interna de Load Balancer estándar y es necesario realizar pasos diferentes.   Revise cuidadosamente todo el documento para entender los conceptos y las diferencias generales entre las SKU.
+>Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente.  No son lo mismo que las SKU de nivel Básico.  Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar.  Esto incluye establecer conectividad saliente cuando se usa una instancia interna de Standard Load Balancer.  Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar.  El [escenario 3](#defaultsnat) no está disponible con la SKU de nivel Estándar.  Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente.  En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales en un conjunto de disponibilidad y todas las instancias de VMSS se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella.  Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](load-balancer-standard-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-rules-overview.md).  Al usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.
 
 ## <a name="scenarios"></a>Información general de los escenarios
 
 Cuando se usan [recursos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), se definen explícitamente Azure Load Balancer y los recursos relacionados.  Actualmente, Azure proporciona tres métodos diferentes para lograr la conectividad saliente con los recursos de Azure Resource Manager. 
 
-| Escenario | Método | Protocolos IP | DESCRIPCIÓN |
-| --- | --- | --- | --- |
-| [1. Máquina virtual con una dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. |
-| [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública de nivel de instancia en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
-| [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública en el nivel de instancia)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Este es un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
+| SKU | Escenario | Método | Protocolos IP | DESCRIPCIÓN |
+| --- | --- | --- | --- | --- |
+| Nivel Estándar o Básico | [1. Máquina virtual con una dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. Cuando se usa Standard Load Balancer, también deben usarse las [reglas de salida](load-balancer-outbound-rules-overview.md) para definir explícitamente la conectividad saliente |
+| Nivel Estándar o Básico | [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública de nivel de instancia en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
+| Ninguna o nivel Básico | [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública en el nivel de instancia)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Este es un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
 
 Si no quiere que una máquina virtual se comunique con puntos de conexión situados fuera de Azure en el espacio de direcciones IP públicas, puede usar grupos de seguridad de red (NSG) para bloquear el acceso según sea necesario. En la sección [Impedir la conectividad saliente](#preventoutbound) se proporciona información sobre los grupos de seguridad de red. Las instrucciones sobre cómo diseñar, implementar y administrar una red virtual sin acceso de salida escapan del ámbito de este artículo.
 
@@ -68,7 +68,7 @@ Para distinguir los flujos individuales que se originan en la máquina virtual, 
 
 Los puertos SNAT se asignan previamente, como se describe en la sección [Descripción de SNAT y PAT](#snat). Estos puertos son un recurso finito que puede agotarse. Es importante entender cómo se [consumen](#pat). Para comprender cómo realizar el diseño de cara a este consumo y solucionar los posibles problemas, revise la sección [Administración de agotamiento de SNAT](#snatexhaust).
 
-Cuando hay [varias direcciones IP públicas asociadas a Load Balancer básico](load-balancer-multivip-overview.md), cualquiera de estas direcciones IP públicas son [candidatas para los flujos de salida](#multivipsnat), y se selecciona una de forma aleatoria.  
+Cuando hay [varias direcciones IP públicas asociadas a Load Balancer básico](load-balancer-multivip-overview.md), cualquiera de estas direcciones IP públicas son candidatas para los flujos de salida y se selecciona una de forma aleatoria.  
 
 Para supervisar el mantenimiento de las conexiones salientes con Load Balancer básico, puede usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) y [registros de eventos de alerta](load-balancer-monitor-log.md#alert-event-log).
 
@@ -164,7 +164,7 @@ En la tabla siguiente se muestran las asignaciones previas de puertos SNAT para 
 | 801-1000 | 32 |
 
 >[!NOTE]
-> Al usar Load Balancer estándar con [varios servidores fron-ends](load-balancer-multivip-overview.md), [cada dirección IP de servidor front-end multiplica el número de puertos SNAT disponibles](#multivipsnat) en la tabla anterior. Por ejemplo, un grupo de servidores back-end de 50 VM con dos reglas de equilibrio de carga, cada uno con una dirección IP de servidor front-end independiente, usará 2048 (2 x 1024) puertos SNAT por cada configuración de IP. Consulte los detalles para [varios servidores front-end](#multife).
+> Al usar Standard Load Balancer con [varios servidores front-end](load-balancer-multivip-overview.md), cada dirección IP de servidor front-end multiplica el número de puertos SNAT disponibles en la tabla anterior. Por ejemplo, un grupo de servidores back-end de 50 VM con dos reglas de equilibrio de carga, cada uno con una dirección IP de servidor front-end independiente, usará 2048 (2 x 1024) puertos SNAT por cada configuración de IP. Consulte los detalles para [varios servidores front-end](#multife).
 
 Recuerde que el número de puertos SNAT disponibles no equivale directamente al número de flujos. Un solo puerto SNAT se puede reutilizar con varios destinos únicos. Solo se consumen puertos si es necesario que los flujos sean únicos. Para instrucciones sobre diseño y mitigación, consulte [cómo administrar este recurso agotable](#snatexhaust), así como la sección en la que se describe [PAT](#pat).
 
@@ -257,7 +257,8 @@ Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimien
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de [Load Balancer](load-balancer-overview.md).
 - Más información acerca de [Load Balancer Estándar](load-balancer-standard-overview.md).
+- Obtenga más información sobre las [reglas de salida](load-balancer-outbound-rules-overview.md) para la instancia pública de Load Balancer estándar.
+- Más información acerca de [Load Balancer](load-balancer-overview.md).
 - Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md).
 - Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave en Azure.

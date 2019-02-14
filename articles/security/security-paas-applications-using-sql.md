@@ -4,7 +4,7 @@ description: 'Obtenga información sobre los procedimientos recomendados de segu
 services: security
 documentationcenter: na
 author: techlake
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 72d5ec09becc1f1d9e23e284e18bcc037ccb3072
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452486"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109375"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedimientos recomendados para proteger bases de datos PaaS en Azure
 
@@ -29,7 +29,7 @@ Azure SQL Database y SQL Data Warehouse proporcionan un servicio de base de dato
 
 - Autenticación de Azure Active Directory (en lugar de la autenticación de SQL Server)
 - Firewall de Azure SQL
-- Cifrado de datos transparente (TDE) 
+- Cifrado de datos transparente (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Usar un repositorio centralizado de identidades
 Las bases de datos Azure SQL pueden configurarse para usar uno de los dos tipos de autenticación:

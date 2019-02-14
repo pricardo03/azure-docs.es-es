@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b12b8b30cf063092ca1a0394d5a46e03622586e4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: eb6438271547348abef78dd8b35b577f2ac0ab8c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165336"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889007"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-regular-updates-via-the-azure-classic-portal"></a>Instalación de actualizaciones normales a través del Portal de Azure clásico
 1. En la página **Dispositivos** , seleccione el dispositivo en el que desea instalar las actualizaciones.
 2. Navegue a **Dispositivos** > **Mantenimiento** y desplácese hacia abajo hasta **Actualizaciones de software**.

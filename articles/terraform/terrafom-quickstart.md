@@ -7,12 +7,12 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 2c2ebaf362c2d6e8b07a19e3b878f83bff2d857a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757273"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869184"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Creación de una configuración de Terraform para Azure
 
@@ -87,7 +87,7 @@ terraform apply plan.out
 
 Una vez terminado esto, puede ver que se ha creado el grupo de recursos y que se ha colocado una instancia de Azure Cosmos DB en él.
 
-## <a name="update-configuration"></a>Actualización de la configuración
+## <a name="update-configuration"></a>actualizar la configuración
 
 Actualice la configuración para incluir una instancia de Azure Container Instances. El contenedor ejecuta una aplicación que lee y escribe datos en Cosmos DB.
 

@@ -4,7 +4,7 @@ description: En el artículo se describe cómo trabaja Microsoft para proteger n
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172979"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104782"
 ---
 # <a name="azure-infrastructure-security"></a>Seguridad de la infraestructura de Azure
 Microsoft Azure se ejecuta en centros de datos administrados y operados por Microsoft. Estos centros de datos geográficamente dispersos cumplen los estándares del sector en materia de seguridad y confiabilidad, como ISO/IEC 27001:2013 y NIST SP 800-53. El personal de operaciones de Microsoft administra y supervisa los centros de datos. El personal de operaciones tiene años de experiencia en la prestación de servicios en línea más grandes del mundo con continuidad ininterrumpida durante el día.
@@ -52,7 +52,7 @@ Sin importar el tipo de implementación, siempre es responsable de lo siguiente:
 Asegúrese de que comprende la división de responsabilidades entre usted y Microsoft en una implementación SaaS, PaaS e IaaS. Para más información, consulte [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilidades compartidas en la informática en la nube).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre lo que hace Microsoft para ayudar a proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que Microsoft hace para ayudar a proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](azure-physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](azure-infrastructure-availability.md)

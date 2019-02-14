@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: df1efc1506fbbe51ba5afb03f147c51a57d9bbdb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f4541bb9516855c4391188fb57e5ab64bc03c76e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727065"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890491"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Creación y configuración de clústeres de Azure Kubernetes Service en Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar Azure Kubernetes Service (AKS). En este artículo se muestra cómo usar Ansible para crear y configurar un clúster de Azure Kubernetes Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-- **Entidad de servicio de Azure**: al [crear la entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), tenga en cuenta los siguientes valores: **appId**, **displayName**, **password** y **tenant**.
+- **Entidad de servicio de Azure**: al [crear la entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), tenga en cuenta los siguientes valores: **appId**, **displayName**, **password** y **tenant**.
 
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 

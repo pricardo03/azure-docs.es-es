@@ -4,7 +4,7 @@ description: En este artículo se proporciona una descripción general de la adm
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 21ae81f1d8423a9d05208ec6d8c4f31d909d2f9f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173166"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104558"
 ---
 # <a name="azure-production-operations-and-management"></a>Operaciones de producción y administración de Azure    
 La administración y el funcionamiento de la red de producción de Azure es un esfuerzo coordinado entre los equipos de operaciones de Azure y Azure SQL Database. Los equipos usan varias herramientas de supervisión de rendimiento de sistemas y de aplicaciones en el entorno. Y usan las herramientas adecuadas para supervisar dispositivos de red, servidores, servicios y procesos de aplicación.

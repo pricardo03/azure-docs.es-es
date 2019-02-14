@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314378"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109504"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)
 
@@ -39,7 +39,7 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 
    HDInsight solo es compatible con Azure Key Vault. Si tiene su propio almacén de claves, puede importar las claves a Azure Key Vault. Recuerde que las claves deben tener habilitadas las opciones "Eliminación temporal" y "No purgar". Las características "Eliminación temporal" y "No purgar" están disponibles a través de las interfaces de REST, .NET/C#, PowerShell y la CLI de Azure.
 
-   Para crear un nuevo almacén de claves, siga la guía de inicio rápido de [Azure Key Vault](../../key-vault/key-vault-get-started.md). Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../../key-vault/about-keys-secrets-and-certificates.md).
+   Para crear un nuevo almacén de claves, siga la guía de inicio rápido de [Azure Key Vault](../../key-vault/key-vault-overview.md). Para obtener más información sobre cómo importar claves existentes, visite [Información acerca de claves, secretos y certificados](../../key-vault/about-keys-secrets-and-certificates.md).
 
    Para crear una nueva clave, seleccione **Generar/Importar** en el menú **Claves** en **Configuración**.
 
@@ -120,4 +120,4 @@ Puede usar Azure Portal o la CLI de Azure para rotar las claves en el almacén d
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-whatis.md)
-* Para empezar a trabajar con Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md).
+* Para empezar a trabajar con Azure Key Vault, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-overview.md).

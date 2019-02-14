@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658341"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894163"
 ---
 # <a name="marketplace-faqs"></a>Preguntas más frecuentes de Marketplace
 
@@ -350,7 +350,7 @@ Si aún no tiene una cuenta Microsoft, puede [crear una](https://signup.live.com
 
 **¿Por qué se necesita la cuenta del Centro de desarrollo?**
 
-La cuenta del Centro de desarrollo es obligatoria para que Microsoft pueda facturar al cliente en nombre del publicador por el tipo de anuncio Transact. El registro de la cuenta del Centro de desarrollo permite a Microsoft validar la información legal, fiscal y bancaria. Para más información, consulte el [registro en el Centro de desarrollo](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+La cuenta del Centro de desarrollo es obligatoria para que Microsoft pueda facturar al cliente en nombre del publicador por el tipo de anuncio Transact. El registro de la cuenta del Centro de desarrollo permite a Microsoft validar la información legal, fiscal y bancaria. Para más información, consulte el [registro en el Centro de desarrollo](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **¿Qué anunciantes requieren un registro de cuenta en el Centro de desarrollo?**
 

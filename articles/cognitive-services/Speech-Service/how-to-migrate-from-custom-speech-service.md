@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Custom Speech Service ahora forma parte del servicio Voz. Cambie al servicio Voz para aprovechar las actualizaciones más recientes de calidad y características.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856904"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar de Custom Speech Service al servicio Voz
 
@@ -40,12 +40,6 @@ El modelo de precios es más sencillo, al pasar a un modelo de precios por hora 
 3. Siga las guías de inicio rápido y los ejemplos del SDK para usar las API correctas. Si usa las API de REST, también debe usar los puntos de conexión y las claves de recursos correctos.
 
 4. Actualice la aplicación cliente para usar las API y el servicio Voz.
-
-> [!NOTE]
-> * Si habilitó la voz en Language Understanding (LUIS), un único recurso de LUIS en la misma región funcionará para LUIS, así como todos los servicios de voz. Para obtener más información, consulte [Reconocimiento de intenciones a partir de contenido de voz](how-to-recognize-intents-from-speech-csharp.md).
-> * La traducción de texto a texto no forma parte del servicio Voz. Esta funcionalidad requiere su propia suscripción de recursos de Azure.
- 
-
 
 ## <a name="migration-for-existing-customers"></a>Migración para los clientes actuales
 

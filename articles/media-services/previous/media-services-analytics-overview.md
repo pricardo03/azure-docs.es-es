@@ -4,7 +4,7 @@ description: Información general sobre la versión preliminar pública de Anál
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783594"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003779"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services
+# <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services 
+
 ## <a name="overview"></a>Información general
 Cada vez más organizaciones adoptan el vídeo como medio preferido para formar a sus empleados, atraer a sus clientes y documentar las funciones empresariales. La informática en la nube proporciona una manera de almacenar estos archivos multimedia de gran tamaño, transmitirlos y acceder a ellos. Pero a medida que la biblioteca de contenido de vídeo de una empresa crece, necesita un medio igualmente eficaz de extraer información de ese contenido. 
 

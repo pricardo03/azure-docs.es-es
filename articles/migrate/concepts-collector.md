@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262615"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813337"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -32,7 +32,7 @@ El dispositivo del recopilador está conectado constantemente al proyecto de Azu
 - Este modelo no depende de la configuración de estadísticas de vCenter Server para la recopilación de datos de rendimiento.
 - Puede detener la generación de perfiles continua en cualquier momento desde el recopilador.
 
-**Gratificación instantánea:** Con el dispositivo de detección continua, una vez que la detección se ha completado (tarda un par de horas según el número de VM), podrá crear valoraciones de forma instantánea. Puesto que la recopilación de datos de rendimiento se inicia al iniciar la detección, si desea obtener gratificación instantánea, para el criterio de tamaño en la valoración debe seleccionar *como local*. Para obtener valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección para obtener recomendaciones de tamaño que sean confiables.
+**Valoraciones rápidas:** Con el dispositivo de detección continua, una vez que la detección se ha completado (tarda un par de horas según el número de VM), podrá crear valoraciones de forma instantánea. Puesto que la recopilación de datos de rendimiento se inicia al comenzar la detección, si lo que busca es obtener valoraciones rápidas, sebe de seleccionar *local* como criterio de tamaño en la valoración. Para obtener valoraciones basadas en el rendimiento, se recomienda esperar al menos un día después de iniciar la detección para obtener recomendaciones de tamaño que sean confiables.
 
 El dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de VM, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
 
@@ -65,7 +65,7 @@ El recopilador debe pasar algunas comprobaciones de requisitos previos para aseg
 - **Compruebe la conexión a Internet**: El recopilador puede conectarse a Internet directamente o a través de un proxy.
     - La comprobación de requisitos previos comprueba la conectividad a las [direcciones URL obligatorias y opcionales](#urls-for-connectivity).
     - Si tiene una conexión directa a Internet, no es necesario realizar ninguna acción específica, salvo asegurarse de que el recolector puede llegar a las direcciones URL necesarias.
-    - Si se conecta a través de un proxy, tenga en cuenta los [requisitos](#connect-via-a-proxy) que se indican más abajo.
+    - Si se conecta a través de un proxy, tenga en cuenta los requisitos que se indican más abajo.
 - **Compruebe la sincronización temporal**: El recopilador debe estar sincronizado con el servidor horario de Internet para asegurarse de que se autentiquen las solicitudes al servicio.
     - La dirección URL portal.azure.com debe ser accesible desde el recopilador para que se pueda validar la hora.
     - Si la máquina no está sincronizada, debe cambiar la hora del reloj de la máquina virtual del recopilador para que coincida con la hora actual. Para hacerlo, abra un símbolo del sistema de administración en la máquina virtual y ejecute **w32tm /tz** para comprobar la zona horaria. Ejecute **w32tm /resync** para sincronizar la hora.
@@ -75,7 +75,7 @@ El recopilador debe pasar algunas comprobaciones de requisitos previos para aseg
     - El servicio del recopilador se conecta a vCenter Server, recopila los metadatos y los datos de rendimiento de la máquina virtual, y los envía al servicio Azure Migrate.
 - **Compruebe si está instalado VMware PowerCLI 6.5**: El módulo de VMware PowerCLI 6.5 de PowerShell debe estar instalado en la VM del recopilador para que pueda comunicarse con vCenter Server.
     - Si el recopilador puede tener acceso a las direcciones URL necesarias para instalar el módulo, se instala automáticamente durante la implementación del recopilador.
-    - Si el recopilador no puede instalar el módulo durante la implementación, deberá [instalarlo manualmente](#install-vwware-powercli-module-manually).
+    - Si el recopilador no puede instalar el módulo durante la implementación, deberá instalarlo manualmente.
 - **Compruebe la conexión a vCenter Server**: El recopilador debe ser capaz de conectarse a vCenter Server y consultar las VM, sus metadatos y los contadores de rendimiento. [Comprobar los requisitos previos](#connect-to-vcenter-server) para la conexión.
 
 
@@ -101,8 +101,6 @@ El recopilador debe pasar algunas comprobaciones de requisitos previos para aseg
     ![Almacén de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
 
     7. Compruebe que el certificado se importa según lo previsto y que las comprobaciones de requisitos previos de conectividad de Internet funcionan según lo esperado.
-
-
 
 
 ### <a name="urls-for-connectivity"></a>Direcciones URL para la conectividad
@@ -150,6 +148,79 @@ El recopilador se comunica como se resume en el diagrama y la tabla siguientes.
 Servicio Azure Migrate | TCP 443 | El recopilador se comunica con el servicio Azure Migrate a través de SSL 443.
 vCenter Server | TCP 443 | El recopilador debe ser capaz de comunicarse con vCenter Server.<br/><br/> De manera predeterminada, se conecta a vCenter en el puerto 443.<br/><br/> Si vCenter Server escucha en otro puerto, debe estar disponible como puerto de salida en el recopilador.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Metadatos recopilados
+
+El dispositivo del recopilador detecta los siguientes metadatos de configuración para cada VM. Los datos de configuración de las VM están disponibles una hora después de iniciar la detección.
+
+- Nombre para mostrar de la máquina virtual (en vCenter Server)
+- Ruta de acceso de inventario de la máquina virtual (el host o la carpeta en vCenter Server)
+- Dirección IP
+- Dirección MAC
+- Sistema operativo
+- Número de núcleos, discos, NIC
+- Tamaño de memoria, tamaños de disco
+- Contadores de rendimiento de la máquina virtual, el disco y la red.
+
+### <a name="performance-counters"></a>contadores de rendimiento
+
+ El dispositivo del recopilador recopila los siguientes contadores de rendimiento para cada VM desde el host ESXi en un intervalo de 20 segundos. Estos son los contadores de vCenter y, aunque la terminología indica el promedio, los ejemplos de 20 segundos son contadores en tiempo real. Los datos de rendimiento para las VM comienzan a estar disponibles en el portal dos horas después de haberse iniciado la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para obtener recomendaciones de tamaño precisas. Si busca una gratificación instantánea, puede crear evaluaciones con criterio de tamaño, por ejemplo *como local*, que no tendrá en cuenta los datos de rendimiento para el ajuste del tamaño.
+
+**Contador** |  **Impacto en la evaluación**
+--- | ---
+cpu.usage.average | Costo y tamaño de VM recomendados  
+mem.usage.average | Costo y tamaño de VM recomendados  
+virtualDisk.read.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.write.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.numberReadAveraged.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+virtualDisk.numberWriteAveraged.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
+net.received.average | Calcula el tamaño de la máquina virtual                          
+net.transmitted.average | Calcula el tamaño de la máquina virtual     
+
+La lista completa de contadores de VMware recopilados por Azure Migrate está disponible a continuación:
+
+**Categoría** |  **Metadata** | **Elemento DataPoint de vCenter**
+--- | --- | ---
+Detalles de la máquina | Id. de VM | vm.Config.InstanceUuid
+Detalles de la máquina | Nombre de la máquina virtual | vm.Config.Name
+Detalles de la máquina | Id. de vCenter Server | VMwareClient.InstanceUuid
+Detalles de la máquina |  Descripción de la VM |  vm.Summary.Config.Annotation
+Detalles de la máquina | Nombre del producto de licencia | vm.Client.ServiceContent.About.LicenseProductName
+Detalles de la máquina | Tipo de sistema operativo | vm.Summary.Config.GuestFullName
+Detalles de la máquina | Versión del sistema operativo | vm.Summary.Config.GuestFullName
+Detalles de la máquina | Tipo de arranque | vm.Config.Firmware
+Detalles de la máquina | Número de núcleos | vm.Config.Hardware.NumCPU
+Detalles de la máquina | Megabytes de memoria | vm.Config.Hardware.MemoryMB
+Detalles de la máquina | Número de discos | vm.Config.Hardware.Device.ToList().FindAll(x => x es VirtualDisk).count
+Detalles de la máquina | Lista de tamaños de los discos | vm.Config.Hardware.Device.ToList().FindAll(x => x es VirtualDisk)
+Detalles de la máquina | Lista de adaptadores de red | vm.Config.Hardware.Device.ToList().FindAll(x => x es VirtualEthernetCard)
+Detalles de la máquina | Uso de CPU | cpu.usage.average
+Detalles de la máquina | Uso de memoria | mem.usage.average
+Detalles del disco (por disco) | Valor de clave del disco | disk.Key
+Detalles del disco (por disco) | Número de unidad del disco | disk.UnitNumber
+Detalles del disco (por disco) | Valor de clave de controladora de disco | disk.ControllerKey.Value
+Detalles del disco (por disco) | Gigabytes aprovisionados | virtualDisk.DeviceInfo.Summary
+Detalles del disco (por disco) | Nombre del disco | Este valor se genera mediante disk.UnitNumber, disk.Key y disk.ControllerKey.Value
+Detalles del disco (por disco) | Número de operaciones de lectura por segundo | virtualDisk.numberReadAveraged.average
+Detalles del disco (por disco) | Número de operaciones de escritura por segundo | virtualDisk.numberWriteAveraged.average
+Detalles del disco (por disco) | Megabytes por segundo de rendimiento de lectura | virtualDisk.read.average
+Detalles del disco (por disco) | Megabytes por segundo de rendimiento de escritura | virtualDisk.write.average
+Detalles del adaptador de red (por NIC) | Nombre del adaptador de red | nic.Key
+Detalles del adaptador de red (por NIC) | Dirección MAC | ((VirtualEthernetCard)nic).MacAddress
+Detalles del adaptador de red (por NIC) | Direcciones IPv4 | vm.Guest.Net
+Detalles del adaptador de red (por NIC) | Direcciones IPv6 | vm.Guest.Net
+Detalles del adaptador de red (por NIC) | Megabytes por segundo de rendimiento de lectura | net.received.average
+Detalles del adaptador de red (por NIC) | Megabytes por segundo de rendimiento de escritura | net.transmitted.average
+Detalles de la ruta de acceso de inventario | NOMBRE | container.GetType().Name
+Detalles de la ruta de acceso de inventario | Tipo de objeto secundario | container.ChildType
+Detalles de la ruta de acceso de inventario | Información de referencia | container.MoRef
+Detalles de la ruta de acceso de inventario | Ruta de acceso del inventario completo | container.Name con ruta de acceso completa
+Detalles de la ruta de acceso de inventario | Detalles del objeto primario | Container.Parent
+Detalles de la ruta de acceso de inventario | Detalles de carpeta para cada VM | ((Folder)container).ChildEntity.Type
+Detalles de la ruta de acceso de inventario | Detalles del centro de datos para cada carpeta de la VM | ((Datacenter)container).VmFolder
+Detalles de la ruta de acceso de inventario | Detalles del centro de datos para cada carpeta de host | ((Datacenter)container).HostFolder
+Detalles de la ruta de acceso de inventario | Detalles de clúster para cada host | ((ClusterComputeResource)container).Host)
+Detalles de la ruta de acceso de inventario | Detalles de host para cada VM | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Protección del dispositivo del recopilador
@@ -200,34 +271,6 @@ Una vez configurado el dispositivo, puede ejecutar la detección. Así es como f
 - Se detectan las máquinas virtuales y sus metadatos y datos de rendimiento se envían a Azure. Estas acciones forman parte de un trabajo de recopilación.
     - El dispositivo del recopilador tiene un identificador específico del recopilador que se conserva para una determinada máquina en las distintas detecciones.
     - A cada trabajo de recopilación en ejecución se le asigna un identificador de sesión específico. El identificador cambia para cada trabajo de recopilación y se puede usar para solucionar problemas.
-
-### <a name="collected-metadata"></a>Metadatos recopilados
-
-El dispositivo del recopilador detecta los siguientes metadatos de configuración para cada VM. Los datos de configuración de las VM están disponibles una hora después de iniciar la detección.
-
-- Nombre para mostrar de la máquina virtual (en vCenter Server)
-- Ruta de acceso de inventario de la máquina virtual (el host o la carpeta en vCenter Server)
-- Dirección IP
-- Dirección MAC
-- Sistema operativo
-- Número de núcleos, discos, NIC
-- Tamaño de memoria, tamaños de disco
-- Contadores de rendimiento de la máquina virtual, el disco y la red.
-
-#### <a name="performance-counters"></a>contadores de rendimiento
-
- El dispositivo del recopilador recopila los siguientes contadores de rendimiento para cada VM desde el host ESXi en un intervalo de 20 segundos. Estos son los contadores de vCenter y, aunque la terminología indica el promedio, los ejemplos de 20 segundos son contadores en tiempo real. Los datos de rendimiento para las VM comienzan a estar disponibles en el portal dos horas después de haberse iniciado la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para obtener recomendaciones de tamaño precisas. Si busca una gratificación instantánea, puede crear evaluaciones con criterio de tamaño, por ejemplo *como local*, que no tendrá en cuenta los datos de rendimiento para el ajuste del tamaño.
-
-**Contador** |  **Impacto en la evaluación**
---- | ---
-cpu.usage.average | Costo y tamaño de VM recomendados  
-mem.usage.average | Costo y tamaño de VM recomendados  
-virtualDisk.read.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-virtualDisk.write.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-virtualDisk.numberReadAveraged.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-virtualDisk.numberWriteAveraged.average | Calcula el tamaño del disco, el costo de almacenamiento y el tamaño de máquina virtual
-net.received.average | Calcula el tamaño de la máquina virtual                          
-net.transmitted.average | Calcula el tamaño de la máquina virtual     
 
 ## <a name="next-steps"></a>Pasos siguientes
 

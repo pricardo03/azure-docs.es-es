@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322830"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982801"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensión de Azure Diagnostics para máquinas virtuales de Windows
 
@@ -59,13 +59,17 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>Implementación de PowerShell
 
-Se puede utilizar el comando `Set-AzureRmVMDiagnosticsExtension` para agregar la extensión de Azure Diagnostics a una máquina virtual existente. Consulte también [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](ps-extensions-diagnostics.md).
+Se puede utilizar el comando `Set-AzVMDiagnosticsExtension` para agregar la extensión de Azure Diagnostics a una máquina virtual existente. Consulte también [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](ps-extensions-diagnostics.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
 $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -VMName $vm_name `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```

@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156687"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107385"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
 
 > [!NOTE] 
 > Este artículo trata sobre App Service Environment v1. Hay una versión más reciente que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](intro.md).
 >
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Información general
 Los entornos de App Service pueden crearse con una dirección de red virtual interna, en lugar de una VIP pública.  Esta dirección interna la proporciona un componente de Azure denominado equilibrador de carga interno (ILB).  Un ASE del ILB se puede crear con el Portal de Azure.  También se puede crear de forma automática por medio de las plantillas de Azure Resource Manager.  Este artículo le guía por los pasos y la sintaxis necesarios para crear un ASE de ILB con plantillas de Azure Resource Manager.
@@ -51,7 +53,7 @@ Una vez que se haya rellenado el archivo *azuredeploy.parameters.json* de un ASE
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Después que se envíe la plantilla de Azure Resource Manager el ASE de ILB tardará unas horas en crearse.  Una vez completada la creación, el ASE de ILB se mostrará en el portal, en la lista de entornos de App Service de la suscripción que desencadenó la implementación.
 
@@ -124,7 +126,7 @@ Una vez rellenado el archivo *azuredeploy.parameters.json* , se puede configurar
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Una vez que se envía la plantilla de Azure Resource Manager, se tarda unos 40 minutos en aplicar el cambio por cada front-end de ASE.  Por ejemplo, con un ASE de un tamaño predeterminado que usa dos front-ends, la plantilla tardará aproximadamente una hora y veinte minutos en completarse.  Mientras la plantilla ejecute el ASE no se podrá escalar.  
 

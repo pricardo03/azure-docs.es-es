@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Face en este tutorial paso a paso.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: diberry
-ms.openlocfilehash: d738f089ff7af59c340a2ea9f67918c1298f9e47
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769800"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099095"
 ---
 # <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
 
@@ -68,8 +68,8 @@ Las imágenes de contenedor para Face API están disponibles.
 
 ### <a name="docker-pull-for-the-face-container"></a>Docker pull para el contenedor de Face
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Uso del contenedor
@@ -132,18 +132,7 @@ Si ejecuta el contenedor con un [montaje](./face-resource-container-config.md#mo
 
 Los contenedores de Face API envían información de facturación a Azure mediante un recurso de _Face API_ en la cuenta de Azure. 
 
-Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían los datos del cliente a Microsoft. 
-
-El comando `docker run` utiliza los siguientes argumentos para la facturación:
-
-| Opción | DESCRIPCIÓN |
-|--------|-------------|
-| `ApiKey` | La clave de API del recurso de _Face API_ que se usa para realizar el seguimiento de la información de facturación. |
-| `Billing` | El punto de conexión del recurso de _Face API_ que se usa para realizar el seguimiento de la información de facturación.|
-| `Eula` | Indica que ha aceptado la licencia del contenedor.<br/>El valor de esta opción debe establecerse en `accept`. |
-
-> [!IMPORTANT]
-> Las tres opciones deben especificarse con valores válidos; en caso contrario, no se inicia el contenedor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](./face-resource-container-config.md) (Configuración de contenedores).
 

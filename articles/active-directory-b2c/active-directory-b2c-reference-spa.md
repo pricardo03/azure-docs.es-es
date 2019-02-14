@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7342849af63ef2f153a89418fbf87f60bd4c4833
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183295"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104845"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Inicio de sesión de aplicaciones de página única con el flujo implícito de OAuth 2.0
 
@@ -30,7 +30,7 @@ Para admitir estas aplicaciones, Azure Active Directory B2C (Azure AD B2C) usa e
 Azure AD B2C extiende el flujo implícito de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Azure AD B2C presenta el [parámetro de directiva](active-directory-b2c-reference-policies.md). Con el parámetro de directiva, puede usar OAuth 2.0 para agregar políticas a su aplicación, como registro, inicio de sesión y flujos de usuario de administración de perfiles. En este artículo, le mostramos cómo usar el flujo implícito y Azure AD para implementar cada una de estas experiencias en sus aplicaciones de una página. Vea nuestros ejemplos de [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) y [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) que le ayudarán a empezar a trabajar.
 
 En las solicitudes HTTP de ejemplo de este artículo se usa nuestro directorio de ejemplo de Azure AD B2C, **fabrikamb2c.onmicrosoft.com**. También se usa nuestra propia aplicación y nuestros flujos de usuario de ejemplo. Puede probar las solicitudes por sí mismo con estos valores, o bien puede reemplazarlos por los suyos propios.
-Sepa cómo [obtener su propio directorio, aplicación y flujos de usuario de Azure AD B2C](#use-your-own-b2c-tenant).
+Sepa cómo [obtener su propio directorio, aplicación y flujos de usuario de Azure AD B2C](#use-your-own-azure-ad-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo

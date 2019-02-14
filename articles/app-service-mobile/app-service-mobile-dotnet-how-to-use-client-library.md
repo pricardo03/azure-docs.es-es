@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 01294ec8aa65a8405bc99be215008dad66a73d8d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816788"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960758"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -64,7 +64,7 @@ Tenga en cuenta que [JsonPropertyAttribute][6] se usa para definir la asignació
 
 Para aprender a crear tablas en el back-end de Mobile Apps, consulte el [tema del SDK de servidor .NET][7] o el tema del [SDK de servidor Node.js][8]. Si creó el back-end de aplicación móvil en Azure Portal mediante la guía de inicio rápido, también puede usar la opción **Tablas fáciles** en [Azure Portal].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Control de Instalación del paquete del SDK de cliente administrado
+### <a name="how-to-install-the-managed-client-sdk-package"></a>Procedimientos para: Instalación del paquete del SDK de cliente administrado
 Utilice uno de los métodos siguientes para instalar el paquete del SDK de cliente administrado para Mobile Apps desde [NuGet][9]:
 
 * **Visual Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Administrar paquetes NuGet**, busque el paquete `Microsoft.Azure.Mobile.Client` y haga clic en **Instalar**.
@@ -609,7 +609,7 @@ Una API personalizada le permite definir extremos personalizados que exponen la 
 
 Puede llamar a una API personalizada al realizar una llamada a una de las sobrecargas del método [InvokeApiAsync] en el cliente. Por ejemplo, la siguiente línea de código envía una solicitud POST a la API **completeAll** en el back-end:
 
-```
+```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 

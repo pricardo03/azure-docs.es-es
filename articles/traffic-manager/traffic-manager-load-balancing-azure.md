@@ -1,10 +1,10 @@
 ---
 title: Uso de servicios de equilibrio de carga en Azure | Microsoft Docs
-description: 'En este tutorial se muestra cómo crear un escenario con la cartera de equilibrio de carga de Azure: Traffic Manager, Application Gateway y Load Balancer.'
+description: 'En este tutorial se muestra cómo crear un escenario al usar la cartera de equilibrio de carga de Azure: Traffic Manager, Application Gateway y Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
-manager: vitinnan
+manager: dkays
 editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401113"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734358"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
@@ -35,8 +35,11 @@ En un nivel conceptual, cada uno de estos servicios desempeña un rol distinto e
   * Enrutamiento de rendimiento para enviar al solicitante al punto de conexión más cercano en términos de latencia.
   * Enrutamiento de prioridad para dirigir todo el tráfico a un punto de conexión, con otros puntos de conexión como respaldo.
   * Enrutamiento round-robin ponderado, que distribuye el tráfico según la ponderación asignada a cada punto de conexión.
+  * Enrutamiento basado en la geografía para distribuir el tráfico a los puntos de conexión de la aplicación según la ubicación geográfica del usuario.
+  * Enrutamiento basado en la subred para distribuir el tráfico a los puntos de conexión de la aplicación según la subred (rango de direcciones IP) del usuario.
+  * Enrutamiento de varios valores que le permite enviar las direcciones IP de más de un punto de conexión de la aplicación en una única respuesta de DNS.
 
-  El cliente se conecta directamente a ese punto de conexión. Azure Traffic Manager detecta cuándo un punto de conexión está en mal estado y redirige a los clientes a otra instancia en buen estado. Consulte la [documentación de Azure Traffic Manager](traffic-manager-overview.md) para más información sobre el servicio.
+  El cliente se conecta directamente al punto de conexión devuelto por Traffic Manager. Azure Traffic Manager detecta cuándo un punto de conexión está en mal estado y redirige a los clientes a otra instancia en buen estado. Consulte la [documentación de Azure Traffic Manager](traffic-manager-overview.md) para más información sobre el servicio.
 * **Application Gateway** proporciona un controlador de entrega de aplicaciones (ADC) como servicio, así como diversas funcionalidades de equilibrio de carga de nivel 7 para la aplicación. Permite a los clientes optimizar la productividad de las granjas de servidores web al traspasar la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway. Otras funcionalidades de enrutamiento de nivel 7 son la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en ruta de acceso de URL y la posibilidad de hospedar varios sitios web tras una única instancia de Application Gateway. Application Gateway puede configurarse como una puerta de enlace accesible desde Internet, una puerta de enlace solo para uso interno o una combinación de las dos. Application Gateway está completamente administrada por Azure, es escalable y tiene una elevada disponibilidad. Cuenta con un amplio conjunto de funcionalidades de diagnóstico y registro, lo que facilita su administración.
 * **Load Balancer**, parte integral de la pila de Azure SDN, proporciona servicios de equilibrio de carga de capa 4 de alto rendimiento y baja latencia para todos los protocolos TCP y UDP. Administra conexiones entrantes y salientes. Puede configurar puntos de conexión con equilibrio de carga públicos e internos y definir reglas para asignar conexiones entrantes a destinos de grupo de back-end con opciones de sondeo de estado TCP y HTTP para administrar la disponibilidad del servicio.
 
@@ -48,10 +51,10 @@ Además, el grupo de máquinas virtuales predeterminado que sirve el contenido d
 
 El uso de Traffic Manager, Application Gateway y Load Balancer permite que este sitio web logre estos objetivos de diseño:
 
-* **Redundancia geográfica múltiple**: si una región queda inactiva, Traffic Manager enruta el tráfico sin problemas a la siguiente región más adecuada sin intervención del propietario de la aplicación.
-* **Menor latencia**: dado que Traffic Manager dirige automáticamente al cliente a la región más cercana, este experimenta una menor latencia al solicitar los contenidos de la página web.
-* **Escalabilidad independiente**: como la carga de trabajo de la aplicación web está separada por el tipo de contenido, el propietario de la aplicación puede escalar las cargas de trabajo de solicitudes manteniendo la independencia entre ellas. Application Gateway garantiza que el tráfico se enrute a los grupos correctos según las reglas especificadas y el estado de la aplicación.
-* **Equilibrio de carga interno**: con Load Balancer frente al clúster de alta disponibilidad, solo se expone a la aplicación el punto de conexión en buen estado y activo correspondiente para una base de datos. Además, un administrador de base de datos puede optimizar la carga de trabajo si distribuye réplicas activas y pasivas en el clúster de forma independiente de la aplicación de front-end. Load Balancer entrega conexiones al clúster de alta disponibilidad y garantiza que las únicas bases de datos que reciban solicitudes de conexión sean las que se encuentren en buen estado.
+* **Redundancia geográfica múltiple**: Si una región queda inactiva, Traffic Manager enruta el tráfico sin problemas a la siguiente región más adecuada sin intervención del propietario de la aplicación.
+* **Menor latencia**: Dado que Traffic Manager dirige automáticamente al cliente a la región más cercana, este experimenta una menor latencia al solicitar los contenidos de la página web.
+* **Escalabilidad independiente**: Como la carga de trabajo de la aplicación web está separada por el tipo de contenido, el propietario de la aplicación puede escalar las cargas de trabajo de solicitudes manteniendo la independencia entre ellas. Application Gateway garantiza que el tráfico se enrute a los grupos correctos según las reglas especificadas y el estado de la aplicación.
+* **Equilibrio de carga interno**: Con Load Balancer frente al clúster de alta disponibilidad, solo se expone a la aplicación el punto de conexión en buen estado y activo correspondiente para una base de datos. Además, un administrador de base de datos puede optimizar la carga de trabajo si distribuye réplicas activas y pasivas en el clúster de forma independiente de la aplicación de front-end. Load Balancer entrega conexiones al clúster de alta disponibilidad y garantiza que las únicas bases de datos que reciban solicitudes de conexión sean las que se encuentren en buen estado.
 
 En el siguiente diagrama se muestra la arquitectura de este escenario:
 
@@ -62,31 +65,31 @@ En el siguiente diagrama se muestra la arquitectura de este escenario:
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Configuración de la pila de equilibrio de carga
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Paso 1: Creación de un perfil de Traffic Manager
+### <a name="step-1-create-a-traffic-manager-profile"></a>Paso 1: Crear un perfil de Traffic Manager
 
 1. En Azure Portal, haga clic en **Crear un recurso** > **Redes** > **Perfil de Traffic Manager** > **Crear**.
 2. Escriba la información básica siguiente:
 
-  * **Nombre**: proporciona un nombre de prefijo DNS para el perfil de Traffic Manager.
-  * **Método de enrutamiento**: seleccione la directiva del método de enrutamiento del tráfico. Para más información sobre los métodos de enrutamiento del tráfico, consulte [Métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md).
-  * **Suscripción**: seleccione la suscripción que contiene el perfil.
-  * **Grupo de recursos**: seleccione el grupo de recursos que contiene el perfil. Puede ser un grupo de recursos nuevo o existente.
-  * **Ubicación del grupo de recursos**: el servicio Traffic Manager es global y no está enlazado a una ubicación. Sin embargo, debe especificar una región para el grupo donde residen los metadatos asociados al perfil de Traffic Manager. Esta ubicación no afecta a la disponibilidad en tiempo de ejecución del perfil.
+  * **Nombre**: Escriba un nombre de prefijo DNS para el perfil de Traffic Manager.
+  * **Método de enrutamiento**: Seleccione la directiva del método de enrutamiento del tráfico. Para más información sobre los métodos de enrutamiento del tráfico, consulte [Métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md).
+  * **Suscripción**: Seleccione la suscripción que contiene el perfil.
+  * **Grupo de recursos**: Seleccione el grupo de recursos que contiene el perfil. Puede ser un grupo de recursos nuevo o existente.
+  * **Ubicación del grupo de recursos**: El servicio Traffic Manager es global y no está enlazado a una ubicación. Sin embargo, debe especificar una región para el grupo donde residen los metadatos asociados al perfil de Traffic Manager. Esta ubicación no afecta a la disponibilidad en tiempo de ejecución del perfil.
 
 3. Haga clic en **Crear** para generar el perfil de Traffic Manager.
 
   ![Hoja de creación de perfil de Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>Paso 2: Creación de las puertas de enlace de aplicaciones
+### <a name="step-2-create-the-application-gateways"></a>Paso 2: Crear las puertas de enlace de aplicaciones
 
 1. En Azure Portal, vaya al panel izquierdo y haga clic en **Crear un recurso** > **Redes** > **Application Gateway**.
 2. Rellene la información básica de la puerta de enlace de aplicaciones:
 
-  * **Nombre**: nombre de la puerta de enlace de aplicaciones.
-  * **Tamaño de la SKU**: el tamaño de la puerta de enlace de aplicaciones, disponible como Pequeño, Mediano o Grande.
-  * **Recuento de instancias**: el número de instancias, un valor de entre 2 y 10.
-  * **Grupo de recursos**: el grupo de recursos que contiene la puerta de enlace de aplicaciones. Puede ser un grupo de recursos existente o uno nuevo.
-  * **Ubicación**: la región de la puerta de enlace de aplicaciones, que es la misma ubicación en el grupo de recursos. La ubicación es importante ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace.
+  * **Nombre**: Nombre de la puerta de enlace de aplicaciones.
+  * **Tamaño de la SKU**: El tamaño de la puerta de enlace de aplicaciones, disponible como Pequeño, Mediano o Grande.
+  * **Recuento de instancias**: El número de instancias, un valor de entre 2 y 10.
+  * **Grupo de recursos**: El grupo de recursos que contiene la puerta de enlace de aplicaciones. Puede ser un grupo de recursos existente o uno nuevo.
+  * **Ubicación**: La región de la puerta de enlace de aplicaciones, que es la misma ubicación en el grupo de recursos. La ubicación es importante ya que la red virtual y la dirección IP pública deben estar en la misma ubicación que la puerta de enlace.
 3. Haga clic en **OK**.
 4. Defina la red virtual, la subred, la IP de front-end y las configuraciones de agente de escucha para la puerta de enlace de aplicaciones. En este escenario, la dirección IP de front-end es **pública**, lo que permite que se agregue como punto de conexión al perfil de Traffic Manager más adelante.
 5. Configure el agente de escucha con una de las siguientes opciones:
@@ -113,24 +116,24 @@ Cuando elige un grupo de back-end, una puerta de enlace de aplicaciones configur
 
    Configuración básica:
 
-   + **Nombre**: nombre descriptivo de la regla a la que se puede acceder en el portal.
-   + **Agente de escucha**: agente de escucha que se utiliza para la regla.
-   + **Grupo de back-end predeterminado**: el grupo de back-end que se usará con la regla predeterminada.
-   + **Configuración de HTTP predeterminada**: la configuración de HTTP que se usará con la regla predeterminada.
+   + **Nombre**: Nombre descriptivo de la regla a la que se puede acceder en el portal.
+   + **Agente de escucha**: Agente de escucha que se usa para la regla.
+   + **Grupo de back-end predeterminado**: El grupo de back-end que se usará con la regla predeterminada.
+   + **Configuración de HTTP predeterminada**: La configuración de HTTP que se usará con la regla predeterminada.
 
    Reglas basadas en ruta de acceso:
 
-   + **Nombre**: el nombre descriptivo de la regla basada en la ruta de acceso.
-   + **Rutas de acceso**: la regla de ruta de acceso que se usa para reenviar el tráfico.
-   + **Grupo de back-end**: el grupo de back-end que se usará con esta regla.
-   + **Configuración de HTTP**: la configuración de HTTP que se usará con esta regla.
+   + **Nombre**: El nombre descriptivo de la regla basada en la ruta de acceso.
+   + **Rutas de acceso**: La regla de ruta de acceso que se usa para reenviar el tráfico.
+   + **Grupo de back-end**: El grupo de back-end que se usará con esta regla.
+   + **Configuración de HTTP**: La configuración de HTTP que se usará con esta regla.
 
    > [!IMPORTANT]
-   > Rutas de acceso: las rutas de acceso válidas deben comenzar por "/". El carácter comodín "\*" solo se permite al final. Algunos ejemplos válidos son /xyz, /xyz\* o /xyz/\*.
+   > Rutas de acceso: Las rutas de acceso válidas deben comenzar por "/". El carácter comodín "\*" solo se permite al final. Algunos ejemplos válidos son /xyz, /xyz\* o /xyz/\*.
 
    ![Hoja "Add path-based rule" (Agregar regla basada en ruta de acceso) para Application Gateway](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
-### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Paso 3: Adición de puertas de enlace de aplicaciones a los puntos de conexión de Traffic Manager
+### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>Paso 3: Agregar puertas de enlace de aplicaciones a los puntos de conexión de Traffic Manager
 
 En este escenario, Traffic Manager está conectado a las puertas de enlace de aplicaciones (como se ha configurado en los pasos anteriores) que residen en regiones diferentes. Ahora que están configuradas las puertas de enlace de aplicaciones, el paso siguiente consiste en conectarlas al perfil de Traffic Manager.
 
@@ -141,13 +144,13 @@ En este escenario, Traffic Manager está conectado a las puertas de enlace de ap
 
 3. Para crear un punto de conexión, escriba la información siguiente:
 
-  * **Tipo**: seleccione el tipo de punto de conexión para el equilibrio de carga. En este escenario, seleccione **Punto de conexión de Azure** porque vamos a conectarlo a las instancias de puerta de enlace de aplicaciones que se configuraron anteriormente.
-  * **Nombre**: escriba el nombre del punto de conexión.
-  * **Tipo de recurso de destino**: seleccione **Dirección IP pública** y, en **Target resource** (Recurso de destino), seleccione la dirección IP pública de la instancia de Application Gateway configurada antes.
+  * **Tipo**: Seleccione el tipo de punto de conexión para el equilibrio de carga. En este escenario, seleccione **Punto de conexión de Azure** porque vamos a conectarlo a las instancias de puerta de enlace de aplicaciones que se configuraron anteriormente.
+  * **Nombre**: Escriba el nombre del punto de conexión.
+  * **Tipo de recurso de destino**: Seleccione **Dirección IP pública** y, en **Recurso de destino**, seleccione la dirección IP pública de la instancia de Application Gateway configurada antes.
 
    !["Add endpoint" (Agregar punto de conexión) en Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. Ahora puede probar la configuración accediendo a ella con el DNS de su perfil de Traffic Manager (en este ejemplo, TrafficManagerScenario.trafficmanager.net). Puede reenviar solicitudes, activar o desactivar máquinas virtuales y servidores web creados en distintas regiones y cambiar la configuración de perfil de Traffic Manager para probar la configuración.
+4. Ahora puede probar la configuración accediendo a ella con el DNS de su perfil de Traffic Manager (en este ejemplo: TrafficManagerScenario.trafficmanager.net). Puede reenviar solicitudes, activar o desactivar máquinas virtuales y servidores web creados en distintas regiones y cambiar la configuración de perfil de Traffic Manager para probar la configuración.
 
 ### <a name="step-4-create-a-load-balancer"></a>Paso 4: Creación de un equilibrador de carga
 
@@ -200,13 +203,13 @@ Para más información cómo configurar un equilibrador de carga interno, consul
 8. En **Floating IP** (IP flotante), seleccione **Deshabilitada** o **Habilitada**.
 9. Haga clic en **Aceptar** para crear la regla.
 
-### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Paso 5: Conexión de máquinas virtuales de nivel web al equilibrador de carga
+### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Paso 5: Conectar VM de nivel web al equilibrador de carga
 
 Ahora se configuran la dirección IP y el puerto de front-end del equilibrador de carga en las aplicaciones que se ejecutan en las máquinas virtuales de nivel web para cualquier conexión de base de datos. Esta configuración es específica de la aplicación que se ejecuta en estas máquinas virtuales. Para configurar la dirección IP de destino y el puerto, consulte la documentación de la aplicación. Para buscar la dirección IP del front-end, en Azure Portal, vaya al grupo de IP de font-end en la **configuración del equilibrador de carga**.
 
 ![Panel de navegación "Frontend IP pool" (Grupo de IP de font-end) de Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Traffic Manager?](traffic-manager-overview.md)
 * [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700682"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106178"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Administración de acceso mediante RBAC y Azure PowerShell
 
@@ -221,7 +221,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles.
 
 Para asignar un rol, debe identificar el objeto (usuario, grupo o aplicación) y el ámbito.
 
-Si no conoce el identificador de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal o bien puede utilizar [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+Si no conoce el identificador de suscripción, lo encontrará en la hoja **Suscripciones** de Azure Portal o bien puede utilizar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 Para obtener el identificador del objeto de un grupo de Azure AD, use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 524e10b93905372377fe388a38c5dc55fdcee877
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509995"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991233"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Nivel de servicio Hiperescalado (versión preliminar) para hasta 100 TB
 
@@ -32,7 +32,7 @@ El nivel de servicio de Hiperescalado en Azure SQL Database es el nivel de servi
 > [!IMPORTANT]
 > El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar pública y está disponible en regiones de Azure limitadas. Para obtener la lista completa de regiones, consulte las [regiones disponibles del nivel de servicio Hiperescalado](#available-regions). No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio Hiperescala.
 > [!NOTE]
-> Para más información acerca de los niveles de servicios Uso general y Crítico para la empresa en el modelo de compra basado en núcleos virtuales, consulte los niveles de servicio [de uso general](sql-database-service-tier-general-purpose.md) y [crítico para la empresa](sql-database-service-tier-business-critical.md). Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-service-tiers.md).
+> Para más información acerca de los niveles de servicios Uso general y Crítico para la empresa en el modelo de compra basado en núcleos virtuales, consulte los niveles de servicio [de uso general](sql-database-service-tier-general-purpose.md) y [crítico para la empresa](sql-database-service-tier-business-critical.md). Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
 > [!IMPORTANT]
 > El nivel de servicio Hiperescalado está actualmente en versión preliminar pública. No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio Hiperescala.
 
@@ -162,7 +162,7 @@ El nivel de servicio Hiperescala se encuentra actualmente en versión preliminar
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para consultar preguntas frecuentes sobre Hiperescala, consulte [Preguntas más frecuentes acerca de Hiperescala](sql-database-service-tier-hyperscale-faq.md).
-- Para más información sobre los niveles de servicio, consulte [Niveles de servicio](sql-database-service-tiers.md).
+- Para más información sobre los niveles de servicio, consulte [Niveles de servicio](sql-database-purchase-models.md).
 - Consulte [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) (Introducción a los límites de recursos de un servidor de SQL Database) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para conocer los límites del modelo de compras para una base de datos única, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md).
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).

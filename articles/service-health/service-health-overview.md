@@ -1,25 +1,20 @@
 ---
 title: Información general de Service Health | Microsoft Docs
 description: Información personalizada sobre cómo las aplicaciones de Azure se ven afectadas por el mantenimiento y los problemas de servicios de Azure actuales y futuros.
-services: Resource health
-documentationcenter: ''
-author: rboucher
-manager: ''
-editor: ''
-ms.assetid: ''
+services: service-health
+author: stephbaron
+ms.author: stbaron
+documentationcenter: service-health
 ms.service: service-health
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.author: robb
-ms.openlocfilehash: aa7a925255b0c30b84c3b32bb53ba3f31c11fa6b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162297"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871709"
 ---
 # <a name="service-health"></a>Service Health
 Service Health proporciona un panel personalizable que realiza un seguimiento del estado de los servicios de Azure en las regiones donde los use. En este panel, puede realizar el seguimiento de eventos activos, como problemas de servicio, próximos mantenimientos planeados o avisos de estado relevantes. Cuando los eventos se vuelven inactivos, se colocan en el historial de estado durante 90 días. Por último, puede usar el panel de Service Health para crear y administrar las alertas de estado de servicio que proactivamente le notifican cuando los problemas del servicio le afectan.

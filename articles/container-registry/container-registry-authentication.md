@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661639"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979078"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
 
@@ -60,7 +60,7 @@ Las entidades de servicio permiten la conectividad desatendida con un Registro e
 
 También puede iniciar sesión directamente con una entidad de servicio. Cuando ejecute el siguiente comando, proporcione de forma interactiva el identificador de aplicación (nombre de usuario) y la contraseña de la entidad de servicio cuando se le solicite. Para consultar procedimientos recomendados para administrar credenciales de inicio de sesión, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -80,7 +80,7 @@ Cada registro de contenedor incluye una cuenta de usuario administrador, que est
 
 A la cuenta de administrador se le proporcionan dos contraseñas, y las dos se pueden regenerar. Las dos contraseñas le permiten mantener la conexión con el registro mediante una contraseña mientras se regenera la otra. Si la cuenta de administrador está habilitada, puede pasar el nombre de usuario y cualquier contraseña al comando `docker login` cuando se le solicite para la autenticación básica en el registro. Por ejemplo: 
 
-```Docker
+```
 docker login myregistry.azurecr.io 
 ```
 
