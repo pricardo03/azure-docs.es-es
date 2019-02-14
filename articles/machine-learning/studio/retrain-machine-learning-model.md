@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509582"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236267"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Reciclaje de un modelo de Azure Machine Learning Studio
 Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predictivo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles. 
@@ -53,8 +53,6 @@ Reciclar el servicio web:
 * Implementar el servicio web de reciclaje
 * Usar el código de servicio de ejecución por lotes para reciclar el modelo
 
-Para obtener un tutorial de los anteriores pasos, consulte [Reciclar modelos de Machine Learning mediante programación](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md). 
 
@@ -63,8 +61,6 @@ Si ha implementado un servicio web clásico:
 * Crear un nuevo punto de conexión del servicio web predictivo
 * Obtener la dirección URL de revisión y el código
 * Utilice la dirección URL de revisión para señalar el nuevo punto de conexión en el modelo reciclado 
-
-Para obtener un tutorial de los anteriores pasos, consulte [Reciclaje de un servicio web clásico](retrain-a-classic-web-service.md).
 
 Si tiene dificultades para reciclar un servicio web clásico, consulte [Solución de problemas de reciclaje de un servicio web clásico de Azure Machine Learning](troubleshooting-retraining-models.md).
 
@@ -76,8 +72,6 @@ Si ha implementado un nuevo servicio web:
 * Actualice la referencia al blob `ilearner` en JSON
 * Importe JSON en una definición de servicio web
 * Actualice el servicio web con la nueva definición de servicio web
-
-Para obtener un tutorial de los pasos anteriores, consulte [Reciclaje de un servicio web nuevo mediante los cmdlets de PowerShell de Machine Learning](retrain-new-web-service-using-powershell.md).
 
 El proceso de configuración de reentrenamiento de un servicio web clásico implica los pasos siguientes:
 

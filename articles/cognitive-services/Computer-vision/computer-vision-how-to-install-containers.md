@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Computer Vision en este tutorial paso a paso.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1e7f62d35e9850202b7d55c3c3440ff88413931d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 58a22253efb6928c87937e4aba852dd93a3e4422
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473500"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978551"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar y ejecutar contenedores de Reconocer texto
 
@@ -72,7 +72,7 @@ Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandl
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>Comando Docker pull para el contenedor Reconocer texto
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -146,18 +146,7 @@ Si ejecuta el contenedor con un [montaje](./computer-vision-resource-container-c
 
 Los contenedores de Reconocer texto envían información de facturación a Azure mediante un recurso de _Reconocer texto_ en la cuenta de Azure. 
 
-Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían los datos del cliente a Microsoft. 
-
-El comando `docker run` utiliza los siguientes argumentos para la facturación:
-
-| Opción | DESCRIPCIÓN |
-|--------|-------------|
-| `ApiKey` | Clave de API del recurso de _Reconocer texto_ utilizado para realizar un seguimiento de la información de facturación. |
-| `Billing` | Punto de conexión del recurso de _Reconocer texto_ que se usa para realizar un seguimiento de la información de facturación.|
-| `Eula` | Indica que ha aceptado la licencia del contenedor.<br/>El valor de esta opción debe establecerse en `accept`. |
-
-> [!IMPORTANT]
-> Las tres opciones deben especificarse con valores válidos; en caso contrario, no se inicia el contenedor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](./computer-vision-resource-container-config.md) (Configuración de contenedores).
 

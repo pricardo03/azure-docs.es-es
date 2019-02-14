@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 9cb1c5ebf8809ca3f4f977b513ecaa7909b401c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452284"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204515"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>¿Qué es Azure Active Directory Identity Protection (actualizado)?
 
@@ -210,11 +211,11 @@ Para obtener más detalles, consulte [Asignación de roles de administrador en A
 
 | Capacidad | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| Directiva de riesgo de usuario | SÍ | No | Sin  |
-| Directiva de riesgo de inicio de sesión | SÍ | No | Sin  |
+| Directiva de riesgo de usuario | Sí | No | Sin  |
+| Directiva de riesgo de inicio de sesión | Sí | No | Sin  |
 | Informe de usuarios de riesgo | Acceso total | Información limitada | Información limitada |
 | Informe de inicios de sesión peligrosos | Acceso total | Información limitada | Información limitada |
-| Directiva de registro de MFA | SÍ | No | Sin  |
+| Directiva de registro de MFA | Sí | No | Sin  |
 
 
 

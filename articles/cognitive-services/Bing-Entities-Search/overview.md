@@ -4,24 +4,24 @@ titlesuffix: Azure Cognitive Services
 description: Use Bing Entity Search API para extraer y buscar entidades y lugares desde las consultas de búsqueda.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9190c87b7afff66162e25fb3cd08bfeac76aff74
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 957a104b8fea7274763f16320cc094ede1f94567
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757871"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871851"
 ---
 # <a name="what-is-bing-entity-search-api"></a>¿Qué es Bing Entity Search API?
 
 Bing Entity Search API envía una consulta de búsqueda a Bing y obtiene resultados que incluyen entidades y lugares. Los resultados de lugares incluyen restaurantes, hoteles u otros negocios locales. Bing devuelve lugares si en la consulta se especifica el nombre de la empresa local o si se solicita un tipo de negocio (por ejemplo, restaurantes cercanos). Bing devuelve entidades si en la consulta se especifican personas, lugares o incluso cosas famosas (puntos turísticos, estados, países, etc.).
 
-|Característica  |Descripción  |
+|Característica  |DESCRIPCIÓN  |
 |---------|---------|
 |[Sugerencias de búsqueda en tiempo real](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Proporciona sugerencias de búsqueda que pueden mostrarse como una lista desplegable a medida que los usuarios escriben.       | 
 | [Desambiguación de entidades](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Obtenga varias entidades para las consultas con varios significados posibles. |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700022"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106436"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado mediante Azure PowerShell
 
@@ -95,7 +95,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida un rol
     
 1. Edite el archivo JSON para agregar la operación `"Microsoft.Support/*"` a la propiedad `Actions`. Asegúrese de incluir una coma después de la operación de lectura. Esta acción permitirá al usuario crear incidencias de soporte técnico.
 
-1. Obtenga el identificador de la suscripción mediante el comando [Get AzSubscription](/powershell/module/az.profile/get-azsubscription).
+1. Obtenga el identificador de la suscripción mediante el comando [Get AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
     ```azurepowershell
     Get-AzSubscription

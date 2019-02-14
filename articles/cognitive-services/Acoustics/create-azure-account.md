@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Siga esta guía para configurar las cuentas de Azure Batch y Storage necesarias para trabajar con la acústica.
 services: cognitive-services
 author: ashtat
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 638ea3e707352a95cb1fb407add365a83d11faa7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b8735c0c5d05f2ee4bd17dc41fc90d1f5aa5128a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876698"
 ---
 # <a name="create-an-azure-batch-account"></a>Creación de una cuenta de Azure Batch
 Siga esta guía para configurar las cuentas de Azure Batch y Storage necesarias para trabajar con la acústica. Para información sobre el complemento de Unity que se desarrolló como parte de Elementos acústicos de un proyecto, consulte [¿Qué son los Elementos acústicos de un proyecto?](what-is-acoustics.md) Para información sobre cómo incorporar la acústica en un proyecto de Unity, consulte la [introducción](getting-started.md).  

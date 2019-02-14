@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: c10666b72902451a278837696a1ab58daa008be5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696122"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217486"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Inicio rápido: Inicio de sesión y adquisición de un token de acceso por parte de los usuarios desde una aplicación de JavaScript
 

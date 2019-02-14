@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: El contenedor de LUIS carga la aplicación entrenada o publicada en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296909"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982393"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -60,7 +60,7 @@ Las opciones `--cpus` y `--memory` se utilizan con el comando `docker run`.
 
 Utilice el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de un contenedor del repositorio `mcr.microsoft.com/azure-cognitive-services/luis`:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -252,7 +252,7 @@ Hay más [ejemplos](luis-container-configuration.md#example-docker-run-commands)
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. Los puntos de conexión de las aplicaciones publicadas (en ensayo o producción), tienen una ruta _diferente_ a la de los puntos de conexión de las aplicaciones entrenadas. 
 
-Utilice el host, https://localhost:5000, con las API de contenedor. 
+Utilice el host, `https://localhost:5000`, con las API de contenedor. 
 
 |Tipo de paquete|Método|Enrutar|Parámetros de consulta|
 |--|--|--|--|
@@ -324,18 +324,7 @@ Si ejecuta el contenedor con un [montaje](luis-container-configuration.md#mount-
 
 El contenedor de LUIS envía información de facturación a Azure mediante un recurso de _Language Understanding_ de la cuenta de Azure. 
 
-Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían los datos del cliente (la expresión) a Microsoft. 
-
-`docker run` utiliza los siguientes argumentos para la facturación:
-
-| Opción | DESCRIPCIÓN |
-|--------|-------------|
-| `ApiKey` | Clave de API del recurso de _Language Understanding_ que se utiliza para realizar un seguimiento de la información de facturación.<br/>El valor de esta opción debe establecerse en una clave de API del recurso aprovisionado de Azure para LUIS que está especificado en `Billing`. |
-| `Billing` | El punto de conexión del recurso de _Language Understanding_ se utiliza para hacer un seguimiento de la información de facturación.<br/>El valor de esta opción debe establecerse en el URI del punto de conexión de un recurso aprovisionado de Azure para LUIS.|
-| `Eula` | Indica que ha aceptado la licencia del contenedor.<br/>El valor de esta opción debe establecerse en `accept`. |
-
-> [!IMPORTANT]
-> Las tres opciones deben especificarse con valores válidos; en caso contrario, no se inicia el contenedor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](luis-container-configuration.md) (Configuración de contenedores).
 

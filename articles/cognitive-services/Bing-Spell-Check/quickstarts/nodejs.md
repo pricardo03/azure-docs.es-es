@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Spell Check API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: bfe37f5f754303f146328326900f23e54a034d7e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0fea6f163e6d977f26e13c816c4eaa514eea676b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194736"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864900"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>Guía de inicio rápido para Bing Spell Check API con Node.js 
 

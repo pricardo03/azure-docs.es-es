@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: En este inicio rápido aprenderá a traducir texto de un idioma a otro mediante Translator Text API con Go en menos de 10 minutos.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bc46fbda191ba13d5fb770ac4128ee2b56eb81c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2bd759958aa69d1fd87c136fdde2c462ca8dee96
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218366"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876188"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena mediante Go
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440441"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247146"
 ---
 Las organizaciones tienen necesidades informáticas a gran escala. Las cargas de trabajo de Big Compute incluyen el diseño y análisis de ingeniería, los cálculos de riesgos financieros, la representación de imágenes, los modelos complejos, las simulaciones de Monte Carlo, etc. 
 
@@ -25,12 +25,12 @@ Use la nube de Azure para ejecutar eficazmente cargas de trabajo de Linux y Wind
     * Configure su propio entorno de clúster en máquinas virtuales de Azure o en [conjuntos de escalado de máquinas virtuales](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
     * Migre mediante "lift and shift" un clúster local o implemente un nuevo clúster en Azure para obtener capacidad adicional. 
     * Use las plantillas de Azure Resource Manager para implementar los [administradores de carga de trabajo](#workload-managers) principales, la infraestructura y las [aplicaciones](#hpc-applications). 
-    * Elija los [tamaños de las máquinas virtuales de HPC y GPU](#hpc-and-gpu-sizes) que incluyan hardware especializado y conexiones de red para cargas de trabajo MPI o GPU. 
+    * Elija los [tamaños de las máquinas virtuales de HPC y GPU](#hpc-and-gpu-vm-sizes) que incluyan hardware especializado y conexiones de red para cargas de trabajo MPI o GPU. 
     * Agregue [almacenamiento de alto rendimiento](#hpc-storage) para cargas de trabajo intensivas de E/S.
 * **Soluciones híbridas**
     * Ampliación de la solución local para descargar cargas de trabajo máximas ("ráfagas") en la infraestructura de Azure
-    * Use el proceso en la nube a petición con el [administrador de cargas de trabajo](#workload-manager) ya existente.
-    * Aproveche las ventajas de los [tamaños de las máquinas virtuales de HPC y GPU](#hpc-and-gpu-sizes) para las cargas de trabajo de MPI o GPU.
+    * Use el proceso en la nube a petición con el [administrador de cargas de trabajo](#workload-managers) ya existente.
+    * Aproveche las ventajas de los [tamaños de las máquinas virtuales de HPC y GPU](#hpc-and-gpu-vm-sizes) para las cargas de trabajo de MPI o GPU.
 * **Soluciones de Big Compute como servicio**
     * Desarrolle soluciones y flujos de trabajo personalizados de Big Compute mediante [Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch) y otros [servicios de Azure](#related-azure-services) relacionados.
     * Ejecute soluciones de ingeniería y simulación habilitadas para Azure de proveedores como [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) y [Cycle Computing](https://cyclecomputing.com/) (que ahora [se han unido a Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
@@ -135,7 +135,7 @@ Más información:
 
 Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, Batch y los servicios de proceso relacionados son el fundamento de muchas soluciones de HPC para Azure. Sin embargo, la solución puede aprovechar las ventajas de muchos servicios de Azure relacionados. Aquí se muestra una lista parcial:
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 * [Blob Storage, Table Storage y Queue Storage](../articles/storage/storage-introduction.md)
 * [Almacenamiento de archivos](../articles/storage/storage-files-introduction.md)

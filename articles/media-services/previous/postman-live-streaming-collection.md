@@ -4,23 +4,23 @@ description: En este artículo se proporciona una definición de la colección d
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786384"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998457"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importación de la colección de Postman con operaciones de streaming en vivo
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importación de la colección de Postman con operaciones de streaming en vivo 
 
 Este artículo contiene una definición de la colección de **Postman** que contiene solicitudes HTTP agrupadas que llaman a las API de REST de Azure Media Services de **streaming en vivo**. Para obtener información sobre cómo configurar **Postman** para que pueda usarse para llamar a las API de REST de Media Services, consulte el tutorial [Configuración de Postman para llamadas API de REST de Azure Media Services](media-rest-apis-with-postman.md).
 

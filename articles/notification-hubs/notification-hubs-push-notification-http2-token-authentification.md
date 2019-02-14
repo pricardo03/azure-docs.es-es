@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 46c00a4dbf6e72165477662dbc709211dad70737
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d0d181afd9bb8f1d387ce8e33f50a78dae3a11ec
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452537"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961438"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticación basada en token (HTTP/2) para APNs
 
@@ -118,7 +118,7 @@ Puede configurar el centro para que use la autenticación basada en token median
 
 A continuación se muestra un ejemplo de código que ilustra el uso correcto:
 
-```text
+```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
 string token = "YOUR TOKEN HERE";
 string keyId = "YOUR KEY ID HERE";

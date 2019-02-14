@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43305efc146151d131152e712869e283af65f0b2
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ddf36c97a8aebd3cd7446dca07e77c7f743afcb9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359772"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982954"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>¿Qué es SQL Server en máquinas virtuales de Azure? (Windows)
 
@@ -86,7 +86,7 @@ Para usar su propia licencia, puede convertir una VM con SQL de pago por uso exi
 Es posible implementar una imagen anterior de SQL Server que no esté disponible en Azure Portal mediante PowerShell. Para ver todas las imágenes disponibles con PowerShell, utilice el comando siguiente:
 
   ```PowerShell
-  Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
   ```
 
 Para más información acerca de cómo implementar máquinas virtuales con SQL Server mediante PowerShell, consulte [Aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
@@ -108,7 +108,7 @@ De manera predeterminada, el Programa para la mejora de la experiencia del clien
 ### <a name="windows-virtual-machines"></a>Máquinas virtuales Windows
 * [Información general de Virtual Machines](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 * [Introducción a Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Redes

@@ -13,14 +13,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745255"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001875"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-python"></a>Creación de una factoría de datos y una canalización con Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Inicio rápido: Creación de una factoría de datos y una canalización con Python
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-python.md)
@@ -47,6 +48,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 2.  Use herramientas como [Explorador de Azure Storage](http://storageexplorer.com/) para crear el contenedor **adfv2tutorial** y la carpeta **input** en el contenedor. A continuación, cargue el archivo **input.txt** en la carpeta **input**.
 
 ## <a name="install-the-python-package"></a>Instalar el paquete de Python
+
 1. Abra un terminal o símbolo del sistema con privilegios de administrador. 
 2. En primer lugar, instale el paquete de Python para los recursos de administración de Azure:
 
@@ -104,7 +106,6 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
-
     ```
 3. Agregue el código siguiente al método **main** que crea una instancia de la clase DataFactoryManagementClient. Este objeto se usa para crear la factoría de datos, el servicio vinculado, los conjuntos de datos y la canalización. También se usa para supervisar los detalles de ejecución de la canalización. Establezca la variable **subscription_id** en el identificador de su suscripción a Azure. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
@@ -165,9 +166,11 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     print_item(ls)
 ```
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
+
 En esta sección, se crean dos conjuntos de datos: uno para el origen y otro para el receptor.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Crear un conjunto de datos para un blob de Azure
+
 Agregue el código siguiente al método main que crea un conjunto de datos de blob de Azure. Para obtener más información sobre las propiedades del conjunto de datos de blob, consulte el artículo [Conector de blob de Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Se define un conjunto de datos que representa los datos de origen del blob de Azure. Este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior.
@@ -184,6 +187,7 @@ Se define un conjunto de datos que representa los datos de origen del blob de Az
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Crear un conjunto de datos para un blob de Azure de receptor
+
 Agregue el código siguiente al método main que crea un conjunto de datos de blob de Azure. Para obtener más información sobre las propiedades del conjunto de datos de blob, consulte el artículo [Conector de blob de Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Se define un conjunto de datos que representa los datos de origen del blob de Azure. Este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior.
@@ -218,7 +222,6 @@ Agregue el código siguiente al método **main** que crea una **canalización co
     print_item(p)
 ```
 
-
 ## <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
 
 Agregue el código siguiente al método **Main** que **desencadena una ejecución de canalización**.
@@ -232,6 +235,7 @@ Agregue el código siguiente al método **Main** que **desencadena una ejecució
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Supervisar una ejecución de canalización
+
 Agregue el código siguiente al método **Main** para supervisar la ejecución de la canalización:
 
 ```python
@@ -251,6 +255,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Script completo
+
 Este es el código de Python completo:
 
 ```python
@@ -381,6 +386,7 @@ main()
 ```
 
 ## <a name="run-the-code"></a>Ejecución del código
+
 Compile e inicie la aplicación y, a continuación, compruebe la ejecución de la canalización.
 
 La consola imprime el progreso de la creación de la factoría de datos, el servicio vinculado, los conjuntos de datos, la canalización y la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad de copia con el tamaño de los datos leídos/escritos. A continuación, use herramientas como [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para comprobar que los blobs se copian a "outputBlobPath" desde "inputBlobPath", como se especificó en las variables.
@@ -417,8 +423,8 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
+
 Para eliminar la factoría de datos, agregue el siguiente código al programa:
 
 ```python
@@ -426,4 +432,5 @@ adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Consulte los [tutoriales](tutorial-copy-data-dot-net.md) para obtener información acerca del uso de Data Factory en otros escenarios.

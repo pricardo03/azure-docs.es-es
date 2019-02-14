@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817238"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892191"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migración de Contoso: Rediseño de la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database
 
@@ -317,7 +317,7 @@ Para conectarse a Azure SQL Database, los administradores de Contoso configuran 
 
 ¿Necesita más ayuda?
 
-[Obtenga información sobre](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) la creación y la administración de reglas de firewall para Azure SQL Database.
+[Obtenga información sobre](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) la creación y la administración de reglas de firewall para Azure SQL Database.
 
 ### <a name="migrate"></a>Migrar
 

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6d8df5e4992cd8d51f1b5259947139d3b180ec82
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: ec34ff874eae9bbdd53470f135bcf0c182d5daed
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267053"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983345"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Ejecución de scripts en una máquina virtual Windows
 
@@ -34,7 +34,7 @@ La [extensión de scripts personalizados](../extensions/custom-script-windows.md
 La característica [Comando Ejecutar](run-command.md) habilita la administración de máquinas virtuales y aplicaciones y la solución de problemas mediante scripts, y está disponible incluso cuando no se puede acceder a la máquina, por ejemplo, si el firewall invitado no tiene abierto el puerto RDP o SSH.
 
 * Ejecute scripts en máquinas virtuales de Azure.
-* Se puede ejecutar mediante [Azure Portal](run-command.md), la [API de REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), la [CLI de Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+* Se puede ejecutar mediante [Azure Portal](run-command.md), la [API de REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), la [CLI de Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) o [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand).
 * Ejecute un script, vea la salida rápidamente y repita según sea necesario en Azure Portal.
 * El script se puede ejecutar directamente o puede ejecutar uno de los scripts integrados.
 * Ejecute un script de PowerShell en máquinas Windows y un script de Bash en máquinas Linux.
@@ -68,7 +68,7 @@ La [consola serie](serial-console.md) brinda acceso directo a una máquina virtu
 
 Más información sobre las distintas características disponibles para ejecutar scripts y comandos dentro de las máquinas virtuales.
 
-* [Extensión de scripts personalizados](../extensions/custom-script-windows.md)
+* [Extensión Custom Script](../extensions/custom-script-windows.md)
 * [Comando Ejecutar](run-command.md)
 * [Trabajo híbrido de runbook](../../automation/automation-hybrid-runbook-worker.md)
 * [Consola serie](serial-console.md)

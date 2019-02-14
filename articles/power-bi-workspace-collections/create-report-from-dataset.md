@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170426"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232793"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI
 
@@ -40,13 +40,13 @@ La *clase PowerBIToken* requiere que instale el [paquete NuGet Power BI Core](ht
 
 **Instalación de un paquete NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **Código de C#**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Para crear un informe nuevo, debe proporcionarse la configuración de creación.
 
 **Instalación de un paquete NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **Código JavaScript**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Al llamar a *powerbi.createReport()*, aparecerá un lienzo en blanco en modo de edición en el elemento *div*.
@@ -95,7 +97,7 @@ Al llamar a *powerbi.createReport()*, aparecerá un lienzo en blanco en modo de 
 
 El informe no se creará hasta que llame a la operación **save as**, lo que se puede hacer desde el menú archivo o desde JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ El informe no se creará hasta que llame a la operación **save as**, lo que se 
 
 Para interactuar con el nuevo informe es preciso que lo inserte de la misma manera en que la aplicación inserta un informe normal, es decir, se debe emitir un token nuevo específico para el nuevo informe y, después, llame al método de inserción.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Guardado y carga automáticos de un informe nuevo mediante el informe "guardado"
 
 Para automatizar el proceso de "save as" y, luego, cargar el informe nuevo, puede usar el evento "guardado". Este evento se desencadena cuando se completa la operación save y devuelve un objeto JSON que contiene el identificador nuevo reportId, el nombre del informe, el objeto reportId anterior (si hay) y si la operación fue saveAs o save.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ Para automatizar el proceso de "save as" y, luego, cargar el informe nuevo, pued
 
 Para automatizar el proceso puede escuchar el evento "guardado", tomar el nuevo objeto reportId, crear el nuevo token e insertar el nuevo informe.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Otras referencias

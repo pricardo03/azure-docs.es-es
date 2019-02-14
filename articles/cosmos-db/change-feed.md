@@ -1,19 +1,19 @@
 ---
 title: Compatibilidad con la fuente de cambios en Azure Cosmos DB
 description: Use la compatibilidad con la fuente de cambios de Azure Cosmos DB para controlar los cambios en documentos y realizar el procesamiento basado en eventos tales como desencadenadores y mantener actualizados las cachés y los sistemas de análisis.
-author: rafats
-ms.author: rafats
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 95fd5b753d2018ebf422c4d9c88c2e3f6aba7bd8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452267"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244443"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -35,10 +35,10 @@ La característica actualmente es compatible con los siguientes SDK de cliente y
 
 | **Controladores cliente** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | SÍ | No | No | Sí | Sin  |
-|Java|N/D|SÍ|No|No|Sí|Sin |
-|Python|N/D|SÍ|No|No|Sí|Sin |
-|Node/JS|N/D|SÍ|No|No|Sí|Sin |
+| .NET | N/D | Sí | No | No | Sí | Sin  |
+|Java|N/D|Sí|No|No|Sí|Sin |
+|Python|N/D|Sí|No|No|Sí|Sin |
+|Node/JS|N/D|Sí|No|No|Sí|Sin |
 
 ## <a name="change-feed-and-different-operations"></a>Fuente de cambios y operaciones diferentes
 

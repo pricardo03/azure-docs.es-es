@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Speech to Text API transcribe secuencias de audio en texto que la aplicación puede mostrar al usuario o actuar como si fuera una entrada. El servicio está disponible mediante el SDK y un punto de conexión RESTful.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4884756c50e181e5536ad93ae795543bf1edf8ba
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5012245a79295f1e05079f6c0a368ac832b8974a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220242"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978585"
 ---
 # <a name="about-the-speech-to-text-api"></a>Acerca de Speech to Text API
 
@@ -44,17 +44,17 @@ Algunas de las funcionalidades de la API **Conversión de voz en texto**, especi
 
 | Caso de uso | REST | SDK |
 |-----|-----|-----|----|
-| Transcripción de una expresión corta, como un comando (longitud < 15 s); sin resultados provisionales | SÍ | SÍ |
-| Transcripción de una expresión más larga (> 15 s) | Sin  | SÍ |
-| Transcripción de secuencias de audio con resultados provisionales opcionales | Sin  | SÍ |
-| Reconocimiento de las intenciones del orador a través de LUIS | No\* | SÍ |
-| Creación de pruebas de precisión | SÍ | Sin  |
-| Carga de conjuntos de datos para la adaptación de modelos | SÍ | Sin  |
-| Creación y administración de modelos de voz | SÍ | Sin  |
-| Creación y administración de implementaciones de modelos | SÍ | Sin  |
-| Administrar suscripciones | SÍ | Sin  |
-| Creación y administración de implementaciones de modelos | SÍ | Sin  |
-| Creación y administración de implementaciones de modelos | SÍ | Sin  |
+| Transcripción de una expresión corta, como un comando (longitud < 15 s); sin resultados provisionales | Sí | Sí |
+| Transcripción de una expresión más larga (> 15 s) | Sin  | Sí |
+| Transcripción de secuencias de audio con resultados provisionales opcionales | Sin  | Sí |
+| Reconocimiento de las intenciones del orador a través de LUIS | No\* | Sí |
+| Creación de pruebas de precisión | Sí | Sin  |
+| Carga de conjuntos de datos para la adaptación de modelos | Sí | Sin  |
+| Creación y administración de modelos de voz | Sí | Sin  |
+| Creación y administración de implementaciones de modelos | Sí | Sin  |
+| Administrar suscripciones | Sí | Sin  |
+| Creación y administración de implementaciones de modelos | Sí | Sin  |
+| Creación y administración de implementaciones de modelos | Sí | Sin  |
 
 > [!NOTE]
 > La API de REST implementa una medida que limita las solicitudes de API a 25 por cada 5 segundos. Los encabezados de los mensajes le informarán sobre los límites

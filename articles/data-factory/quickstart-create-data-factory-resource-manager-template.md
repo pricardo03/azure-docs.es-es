@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: bb6c3281ffc434bd31f901b2b7f6e540f893ca76
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888786"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001909"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versión actual](quickstart-create-data-factory-resource-manager-template.md)
@@ -32,9 +33,11 @@ En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Re
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
 Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
+
 Para más información acerca de las plantillas de Azure Resource Manager en general, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 En la siguiente sección se proporciona la plantilla completa de Resource Manager para definir las entidades de Data Factory para que pueda ejecutar el tutorial rápidamente y probar la plantilla. Para entender cómo se define cada entidad de Data Factory, consulte la sección [Entidades de Data Factory en la plantilla](#data-factory-entities-in-the-template).
@@ -42,6 +45,7 @@ En la siguiente sección se proporciona la plantilla completa de Resource Manage
 Para obtener información sobre la sintaxis y las propiedades de JSON para los recursos de la factoría de datos en una plantilla, consulte [Tipos de recurso Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>JSON de Data Factory
+
 Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFTutorial** con el siguiente contenido:
 
 ```json
@@ -265,6 +269,7 @@ Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFTutor
 ```
 
 ## <a name="parameters-json"></a>Parámetros JSON
+
 Cree un archivo JSON denominado **ADFTutorialARM Parameters.json** que contenga parámetros para la plantilla de Azure Resource Manager.
 
 > [!IMPORTANT]
@@ -319,6 +324,7 @@ Cree un archivo JSON denominado **ADFTutorialARM Parameters.json** que contenga 
 > Puede tener archivos JSON de parámetros independientes para los entornos de desarrollo, pruebas y producción, que puede usar con la misma plantilla JSON de Data Factory. Al usar un script de PowerShell, puede automatizar la implementación de las entidades de Data Factory en estos entornos.
 
 ## <a name="deploy-data-factory-entities"></a>Implementación de entidades de Data Factory
+
 En PowerShell, ejecute el siguiente comando para implementar las entidades de Data Factory mediante la plantilla de Resource Manager que ha creado en esta guía de inicio rápido.
 
 ```PowerShell
@@ -327,7 +333,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 El resultado se parecerá al del ejemplo siguiente:
 
-```
+```console
 DeploymentName          : MyARMDeployment
 ResourceGroupName       : ADFTutorialResourceGroup
 ProvisioningState       : Succeeded
@@ -369,7 +375,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-1. Cree una variable que contenga el nombre de la factoría de datos. Especifique el mismo nombre que especificó en el archivo ADFTutorialARM Parameters.json.
+2. Cree una variable que contenga el nombre de la factoría de datos. Especifique el mismo nombre que especificó en el archivo ADFTutorialARM Parameters.json.
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -404,7 +410,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     
     Este es la salida de ejemplo:
     
-    ```
+    ```console
     Confirm
     Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
@@ -418,7 +424,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     
     Este es la salida de ejemplo:
     
-    ```
+    ```console
     TriggerName       : ArmTemplateTestTrigger
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : ARMFactory1128
@@ -427,31 +433,37 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     ```
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
+
 1. Después de iniciar sesión en [Azure Portal](https://portal.azure.com/), haga clic en **Todos los servicios**, busque la palabra clave, como **data fa**, y seleccione **Factorías de datos**.
 
     ![Examinar el menú de Factorías de datos](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
+
 2. En la página **Factorías de datos**, haga clic en la factoría de datos que ha creado. Si es necesario, filtre la lista por el nombre de su factoría de datos.
 
     ![Selección de la factoría de datos](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
+
 3. En la página Factoría de datos, haga clic en el icono **Supervisión y administración**.
 
     ![Icono Supervisión y administración](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
+
 4. La **Aplicación de integración de datos** se debe abrir en una pestaña independiente del explorador web. Si la pestaña Supervisar no está activa, cambie a la **pestaña Supervisar**. Tenga en cuenta que la ejecución de la canalización la desencadenó un **desencadenador del programador**.
 
     ![Supervisar ejecución de canalización](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
     > Verá que la canalización se ejecuta solo en a las horas en punto (por ejemplo, 4 a. m., 5 a. m., 6 a. m., etc). Haga clic en **Actualizar** en la barra de herramientas para actualizar la lista cuando la hora que alcance la hora siguiente.
+
 5. Haga clic en el vínculo de las columnas **Acciones**.
 
     ![Vínculo de acciones de canalización](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
+
 6. Vea las ejecuciones de actividad asociadas con la ejecución de la canalización. En este inicio rápido, la canalización tiene solo una actividad del tipo: Copy. Por consiguiente, se ve una ejecución de dicha actividad.
 
     ![Ejecuciones de actividad](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. Haga clic en el vínculo situado debajo de la columna **Output**. Se ve el resultado de la operación de copia en la ventana de **salida**. Haga clic en el botón de maximizar para ver la salida completa. Puede cerrar la ventana de salida maximizada.
+7. Haga clic en el vínculo situado debajo de la columna **Output**. Se ve el resultado de la operación de copia en la ventana de **salida**. Haga clic en el botón de maximizar para ver la salida completa. Puede cerrar la ventana de salida maximizada.
 
     ![Ventana de salida](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
-7. Una vez que vea que la ejecución se ha realizado correctamente o se ha producido errores, detenga el desencadenador. El desencadenador ejecuta la canalización cada hora. La canalización copia el mismo archivo de la carpeta de entrada a la carpeta de salida en cada ejecución. Para detener el desencadenador, escriba el siguiente comando en la ventana de PowerShell.
+8. Una vez que vea que la ejecución se ha realizado correctamente o se ha producido errores, detenga el desencadenador. El desencadenador ejecuta la canalización cada hora. La canalización copia el mismo archivo de la carpeta de entrada a la carpeta de salida en cada ejecución. Para detener el desencadenador, escriba el siguiente comando en la ventana de PowerShell.
     
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
@@ -460,6 +472,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## <a name="data-factory-entities-in-the-template"></a>Definiciones de JSON para entidades
+
 Las siguientes entidades de Data Factory se definen en la plantilla JSON:
 
 - [Servicio vinculado de Azure Storage](#azure-storage-linked-service)
@@ -469,6 +482,7 @@ Las siguientes entidades de Data Factory se definen en la plantilla JSON:
 - [Desencadenador](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
+
 AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Como parte de los requisitos previos, ha creado un contenedor y ha cargado datos en esta cuenta de almacenamiento. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección. Consulte [Servicio vinculado de Azure Storage](connector-azure-blob-storage.md#linked-service-properties) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage.
 
 ```json
@@ -495,6 +509,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 ConnectionString utiliza los parámetros storageAccountName y storageAccountKey. Los valores de estos parámetros se pasan mediante el uso de un archivo de configuración. La definición también usa las variables azureStroageLinkedService y dataFactoryName definidas en la plantilla.
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de datos de entrada de blob de Azure
+
 El servicio vinculado Azure Storage especifica la cadena de conexión que el servicio Data Factory utiliza en tiempo de ejecución para conectarse a su cuenta de Azure Storage. En la definición del conjunto de datos de blob de Azure, especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](connector-azure-blob-storage.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.
 
 ```json
@@ -518,10 +533,10 @@ El servicio vinculado Azure Storage especifica la cadena de conexión que el ser
         }
     }
 },
-
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Conjunto de datos de salida del blob de Azure
+
 Especifique el nombre de la carpeta en la instancia de Azure Blob Storage que contiene los datos copiados desde la carpeta de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](connector-azure-blob-storage.md#dataset-properties) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.
 
 ```json
@@ -548,6 +563,7 @@ Especifique el nombre de la carpeta en la instancia de Azure Blob Storage que co
 ```
 
 #### <a name="data-pipeline"></a>Canalización de datos
+
 Defina una canalización que copie los datos de un conjunto de datos del blob de Azure a otro. Consulte [JSON de canalización](concepts-pipelines-activities.md#pipeline-json) para obtener descripciones de elementos JSON que se usan para definir una canalización en este ejemplo.
 
 ```json
@@ -587,6 +603,7 @@ Defina una canalización que copie los datos de un conjunto de datos del blob de
 ```
 
 #### <a name="trigger"></a>Desencadenador
+
 Defina un desencadenador que ejecute la canalización cada hora. El desencadenador implementado está en estado detenido. Inicie el desencadenador mediante el cmdlet **Start-AzureRmDataFactoryV2Trigger**. Para más información acerca de los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización en Azure Data Factory](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
@@ -624,6 +641,7 @@ Defina un desencadenador que ejecute la canalización cada hora. El desencadenad
 ```
 
 ## <a name="reuse-the-template"></a>Reutilización de la plantilla
+
 En el tutorial, ha creado una plantilla para definir las entidades de Data Factory y una plantilla para pasar valores de parámetros. Para usar la misma plantilla para implementar las entidades de Data Factory en distintos entornos, cree un archivo de parámetros para cada entorno y utilícelo al implementarla en ese entorno.
 
 Ejemplo:
@@ -635,9 +653,11 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
+
 Tenga en cuenta que el primer comando usa el archivo de parámetros para el entorno de desarrollo, el segundo para el entorno de prueba y el tercero para el entorno de producción.
 
 También puede volver a usar la plantilla para llevar a cabo tareas repetidas. Por ejemplo, cree muchas factorías de datos con una o varias canalizaciones que implementen la misma lógica, pero cada factoría de datos usa cuentas de Azure Storage diferentes. En este escenario, usa la misma plantilla en el mismo entorno (desarrollo, prueba o producción) con distintos archivos de parámetros para crear factorías de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Consulte los [tutoriales](tutorial-copy-data-dot-net.md) para obtener información acerca del uso de Data Factory en otros escenarios.

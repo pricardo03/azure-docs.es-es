@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: La referencia de dominios creados previamente, que son colecciones creadas previamente de intenciones y entidades de Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221018"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868963"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -103,7 +103,7 @@ El dominio de comunicación ofrece intenciones y entidades relacionadas con el c
 | AssignContactNickname| Asignar un alias a un contacto.|Cambiar Isaac por papá <br/>Editar el alias de Jim<br/>Agregar alias para Patti Owens|
 | CallVoiceMail| Conectarse al buzón de voz del usuario.|Conectarme a mi buzón de voz <br/>Buzón de voz<br/>Llamar al buzón de voz|
 | CheckIMStatus| Comprobar el estado de un contacto en Skype.|¿El estado en línea de Jim indica que está fuera? <br/>¿Carol está disponible para chatear?|
-| Confirm| Confirmar una acción.|SÍ<br/>Correcto<br/>De acuerdo<br/>Confirmo que deseo enviar este correo electrónico.<br/>|
+| Confirm| Confirmar una acción.|Sí<br/>Correcto<br/>De acuerdo<br/>Confirmo que deseo enviar este correo electrónico.<br/>|
 | Dial| Hacer una llamada telefónica.|Llamar a Jim<br/>Marcar 311<br/>|
 | FindContact| Buscar información del contacto por nombre.|Buscar el número de Carol<br/>Mostrarme el número de Carol<br/>|
 | FindSpeedDial| Buscar el número de marcación rápida establecido para un número de teléfono y viceversa.|¿A quién corresponde el número de marcación 5?<br/>¿Tengo establecida la marcación rápida?<br/>¿Cuál es el número de marcación rápida del número 941-5555-333?|

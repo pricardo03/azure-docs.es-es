@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548602"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233397"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 Azure Functions facilita la implementación de Function App mediante la integración continua de App Service. Functions se integra con BitBucket, Dropbox, GitHub y Azure DevOps. Esto permite un flujo de trabajo en el que las actualizaciones del código de la función realizadas mediante uno de estos servicios integrados desencadenan la implementación en Azure. Si no está familiarizado con Azure Functions, consulte primero [Información general sobre Azure Functions](functions-overview.md).
@@ -29,7 +29,7 @@ La implementación continua representa una buena opción para los proyectos dond
 * [Repositorio local de GIT](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 Las implementaciones se configuran por Function App. Después de habilitada la implementación continua, el acceso al código de la función en el portal está establecido en acceso *de solo lectura*.
 
@@ -98,7 +98,7 @@ Si dispone de funciones existentes que ha creado y mantenido en el portal, es ne
 - [Uso de Descarga de archivos mediante el repositorio local de Git](#downgit)
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Control de Configuración de las credenciales de implementación
+#### <a name="how-to-configure-deployment-credentials"></a>Procedimientos para: Configuración de las credenciales de implementación
 Para poder descargar archivos desde la Function App con FTP o el repositorio local de Git, debe configurar las credenciales para acceder al sitio. Las credenciales se establecen en el nivel de la aplicación de función. Use los pasos siguientes para establecer las credenciales de implementación en Azure Portal:
 
 1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Credenciales de implementación**.
@@ -108,7 +108,7 @@ Para poder descargar archivos desde la Function App con FTP o el repositorio loc
 2. Escriba un nombre de usuario y una contraseña y haga clic en **Guardar**. Ahora puede usar estas credenciales para tener acceso a la aplicación de función mediante FTP o desde el repositorio de Git integrado.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Control de Descarga de archivos mediante FTP
+#### <a name="how-to-download-files-using-ftp"></a>Procedimientos para: Descarga de archivos mediante FTP
 
 1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Propiedades** y luego copie los valores de **FTP/usuario de implementación**, **Nombre del host FTP** y **Nombre del host FTPS**.  
 
@@ -119,7 +119,7 @@ Para poder descargar archivos desde la Function App con FTP o el repositorio loc
 2. Desde el cliente de FTP, use la información de conexión recopilada para conectarse a la aplicación y descargar los archivos de origen de las funciones.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Control de Descarga de archivos mediante el repositorio local de Git
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Procedimientos para: Descarga de archivos mediante el repositorio local de Git
 
 1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Opciones de implementación**. 
    
