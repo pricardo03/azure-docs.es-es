@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: bd3711a88b14d7a24df7c20c72b49fca5953b568
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886474"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991538"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -41,7 +41,7 @@ La compatibilidad con el protocolo HTTP/2 está disponible únicamente para los 
 
 De forma predeterminada, HTTP/2 está deshabilitado. El siguiente fragmento de código de Azure PowerShell de ejemplo muestra cómo habilitarlo:
 
-```
+```powershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw

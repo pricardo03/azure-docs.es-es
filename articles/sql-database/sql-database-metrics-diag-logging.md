@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734630"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893603"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -65,14 +65,14 @@ Puede configurar bases de datos SQL para recopilar los siguientes datos de telem
 
 | Telemetría de supervisión de bases de datos | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad con instancias administradas |
 | :------------------- | ------------------- | ------------------- |
-| [Todas las métricas](sql-database-metrics-diag-logging.md#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin  |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como la CPU, el registro y el bloqueo. | Sí | Sí |
-| [Errores](sql-database-metrics-diag-logging.md#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | Sí | Sí |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | Sí | Sin  |
-| [Tiempos de expiración](sql-database-metrics-diag-logging.md#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | Sí | Sin  |
-| [Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | Sí | Sin  |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
+| [Todas las métricas](#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin  |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como la CPU, el registro y el bloqueo. | Sí | Sí |
+| [Errores](#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | Sí | Sí |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | Sí | Sin  |
+| [Tiempos de expiración](#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | Sí | Sin  |
+| [Bloqueos](#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | Sí | Sin  |
+| [SQLInsights](#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -169,7 +169,7 @@ Puede configurar un recurso de instancia administrada para recopilar los siguien
 
 | Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
-| **Instancia administrada** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
+| **Instancia administrada** | [ResourceUsageStats](#logs-for-managed-instances): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
 Para habilitar el streaming de datos de telemetría de diagnóstico de un recurso de instancia administrada, siga estos pasos:
 

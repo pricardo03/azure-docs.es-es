@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659524"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894069"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
 Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, debe familiarizarse con los conceptos que se analizan en este artículo:
 
 * Objetos [LiveEvents](#live-events)
-* [Tipos de objetos LiveEvent](#live-vent-types)
-* [Comparación de tipos de objetos LiveEvent](#live-event-types-comparison)
+* Tipos de objetos LiveEvent
+* Comparación de tipos de objetos LiveEvent
 * [Opciones de creación de objetos LiveEvent](#live-event-creation-options)
 * [Direcciones URL de ingesta de objetos LiveEvent](#live-event-ingest-urls)
 * [Dirección URL de vista previa de objetos LiveEvent](#live-event-preview-url)

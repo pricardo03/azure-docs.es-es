@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697707"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201897"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Control de Planeación de la implementación de la unión a Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 
 
 Unión a Azure AD permite unir dispositivos directamente a Azure AD sin necesidad de unirlos a un entorno local de Active Directory, al tiempo que mantiene la productividad y la seguridad de los usuarios. La opción Unión a Azure AD está preparada para la empresa tanto para implementaciones de ámbito como a escala.   

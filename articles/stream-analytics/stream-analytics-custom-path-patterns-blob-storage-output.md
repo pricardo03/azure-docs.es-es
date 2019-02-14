@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765202"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982682"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -67,8 +67,6 @@ Tenga en cuenta que cada registro en el blob tiene una columna **client_id** que
 ## <a name="custom-datetime-path-patterns"></a>Patrones personalizados de ruta de acceso de fecha y hora
 
 Los patrones de la ruta de acceso de fecha y hora personalizados le permiten especificar un formato de salida que se alinee con las convenciones de Hive Streaming, lo que le proporciona a Azure Stream Analytics la capacidad de enviar datos a Azure HDInsight y Azure Databricks para su procesamiento posterior. Los patrones de la ruta de acceso de fecha personalizados se implementan fácilmente utilizando la palabra clave `datetime` en el campo Prefijo de ruta de acceso de la salida de blob, así como el especificador de formato. Por ejemplo, `{datetime:yyyy}`.
-
-Use este vínculo de [Azure Portal](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) para alternar la marca de característica que habilita los patrones de la ruta de acceso de fecha y hora personalizados para la versión preliminar de la salida de Blob Storage. Esta característica pronto estará habilitada en el portal principal.
 
 ### <a name="supported-tokens"></a>Tokens admitidos
 

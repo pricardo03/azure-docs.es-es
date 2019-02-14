@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: b5a460f3449785721ac360ba398bc47d1945b954
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497711"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244231"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Comparta y descubra recursos en la Galería de Azure AI.
 
-**[Azure AI Gallery](http://gallery.cortanaintelligence.com)** es un sitio administrado por la comunidad cuyo fin es descubrir y compartir soluciones creadas con Azure AI.
+**[Azure AI Gallery](http://gallery.azure.ai)** es un sitio administrado por la comunidad cuyo fin es descubrir y compartir soluciones creadas con Azure AI.
 La Galería contiene una variedad de recursos que puede usar para desarrollar sus propias soluciones de análisis.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>¿Qué se puede encontrar en la Galería?

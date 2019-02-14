@@ -16,12 +16,13 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 55866d5ff28c707c26141683bb90c8f2873b17c8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818913"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182619"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft (versión preliminar)
 

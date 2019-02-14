@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451228"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895404"
 ---
 # <a name="saas-application-technical-info-tab"></a>Pestaña Información técnica de aplicaciones SaaS
 
@@ -42,7 +42,7 @@ Para ayudarle a decidir qué tipo de aplicación SaaS está compilando, consulte
 Para crear esta experiencia, es preciso configurar las siguientes partes:
 
 - Conecte el sitio web del servicio SaaS con las API SaaS de Microsoft. En el artículo [SaaS Sell through Azure - APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) (Venta de SaaS mediante Azure: API) se explica cómo crear la conexión.
-- Habilite venta mediante Azure en Cloud Partner Portal en el formulario Configuración técnica y la información necesaria. Para más información sobre este modelo de facturación y cómo se implementa, consulte [SaaS: vender mediante Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions#overview).
+- Habilite venta mediante Azure en Cloud Partner Portal en el formulario Configuración técnica y la información necesaria. Para más información sobre este modelo de facturación y cómo se implementa, consulte [SaaS: vender mediante Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
  ![Formulario de venta mediante Microsoft](./media/saas-techinfo-sellthrough-ms.png)
 

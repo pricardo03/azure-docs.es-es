@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002044"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892565"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -349,7 +349,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, Xamarin  |
 | **Atributos**              | N/D  |
-| **Referencias**              | [Administrar la configuración y las características de los dispositivos con directivas de Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **Referencias**              | [Administrar la configuración y las características de los dispositivos con directivas de Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Pasos** | <p>Si la aplicación escribe información confidencial, como información de identificación personal del usuario (correo electrónico, número de teléfono, nombre, apellidos, preferencias, etc.), en el sistema de archivos del dispositivo móvil, se debería cifrar antes de escribirla en el sistema de archivos local. Si la aplicación es empresarial, considere la posibilidad de publicar la aplicación mediante Windows Intune.</p>|
 
 ### <a name="example"></a>Ejemplo

@@ -15,12 +15,13 @@ ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: b6ef0f46bae454a4656694496d411a5a4cff0da5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171203"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
@@ -49,9 +50,9 @@ El destinatario de estos correos electrónicos para roles de Azure AD depende de
 
 | Usuario | La activación de roles está pendiente de aprobación | La solicitud de activación de roles está completa | PIM está habilitado |
 | --- | --- | --- | --- |
-| Administrador de roles con privilegios</br>(Activado/apto) | SÍ</br>(solo si no se especifican aprobadores explícitos) | Sí* | SÍ |
-| Administrador de seguridad</br>(Activado/apto) | Sin  | Sí* | SÍ |
-| Administrador global</br>(Activado/apto) | Sin  | Sí* | SÍ |
+| Administrador de roles con privilegios</br>(Activado/apto) | Sí</br>(solo si no se especifican aprobadores explícitos) | Sí* | Sí |
+| Administrador de seguridad</br>(Activado/apto) | Sin  | Sí* | Sí |
+| Administrador global</br>(Activado/apto) | Sin  | Sí* | Sí |
 
 \* Si el parámetro [**Notificaciones**](pim-how-to-change-default-settings.md#notifications) se establece en **Habilitar**.
 

@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300241"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184506"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -31,10 +32,10 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 
 | Tipo de cuenta y operación | Escritorio | Móvil |
 | --- | --- | --- |
-| Azure Active Directory: sincronización |SÍ |Sin  |
+| Azure Active Directory: sincronización |Sí |Sin  |
 | Azure Active Directory: copia de seguridad/restauración |Sin  |Sin  |
-| Cuenta de Microsoft: sincronización |SÍ |SÍ |
-| Cuenta de Microsoft: copia de seguridad/restauración |Sin  |SÍ |
+| Cuenta de Microsoft: sincronización |Sí |Sí |
+| Cuenta de Microsoft: copia de seguridad/restauración |Sin  |Sí |
 
 ## <a name="what-is-backup"></a>¿Qué es una copia de seguridad?
 La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Backup está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Backup utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.

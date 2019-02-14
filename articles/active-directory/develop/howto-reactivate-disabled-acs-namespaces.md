@@ -15,14 +15,15 @@ ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: a8e1d1b73d360b55375e5164670ff16268941ede
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d0078c260e09ec9fd31ecf2124bc4bf7ad7f92b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092258"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173749"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Control de Reactivación de los espacios de nombres deshabilitados de Access Control Service
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedimientos para: Reactivación de los espacios de nombres deshabilitados de Access Control Service
 
 En noviembre de 2017, anunciamos que Microsoft Azure Access Control Service (ACS), un servicio de Azure Active Directory (Azure AD), se va a retirar el 7 de noviembre de 2018.
 

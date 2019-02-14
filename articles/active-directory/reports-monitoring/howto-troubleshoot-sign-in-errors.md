@@ -13,14 +13,15 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7225ebd91c4c236b5f54574f1657239420c9f541
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165411"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198480"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Control de Solución de errores de inicio de sesión mediante informes de Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos para: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
 
 En el [informe de inicios de sesión](concept-sign-ins.md) de Azure Active Directory (Azure AD), puede encontrar respuesta a algunas preguntas sobre la administración del acceso a las aplicaciones de la organización, como las siguientes:
 

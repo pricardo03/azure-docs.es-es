@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: f15ba7606136786b49eb4d6a0da097e7abf3fab4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6549c68ec248720c81531d137d45909a4de55e9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231668"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998406"
 ---
-# <a name="scaling-media-processing-overview"></a>Información general del escalado de procesamiento de medios
+# <a name="scaling-media-processing-overview"></a>Información general del escalado de procesamiento de medios 
 Esta página proporciona una introducción a cómo y por qué se debe escalar el procesamiento de medios. 
 
 ## <a name="overview"></a>Información general

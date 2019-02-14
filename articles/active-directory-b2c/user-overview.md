@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157982"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100132"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -47,21 +47,21 @@ Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las si
 Puede usar la siguiente información para crear una nueva cuenta profesional:
 
 - [Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Actualizar un perfil de usuario
 
 Puede usar la siguiente información para actualizar el perfil de un usuario:
 
 - [Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Restablecer la contraseña de un usuario
 
 Puede usar la siguiente información para restablecer la contraseña de un usuario: 
 
 - [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Usuario invitado
 
@@ -69,7 +69,7 @@ Puede invitar a usuarios externos al inquilino como usuario invitado. Un escenar
 
 Cuando se invita a un usuario invitado al inquilino, se proporciona la dirección de correo electrónico del destinatario y un mensaje que describe la invitación. El vínculo de invitación lleva al usuario a la página de consentimiento donde el botón **Empezar** está seleccionado y se acepta la revisión de permisos. Si no hay una bandeja de entrada asociada a la dirección de correo electrónico, el usuario puede navegar a la página de consentimiento, para ello debe ir a una página de Microsoft con las credenciales de invitación. A continuación, se obliga al usuario a canjear la invitación del mismo modo que cuando hace clic en el vínculo del correo electrónico. Por ejemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-También puede usar [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post) para invitar a un usuario invitado.
+También puede usar [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) para invitar a un usuario invitado.
 
 ## <a name="consumer-user"></a>Usuario consumidor
 

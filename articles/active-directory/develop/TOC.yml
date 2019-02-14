@@ -81,7 +81,7 @@ items:
         href: native-app.md
       - name: Aplicación de servidor o de demonio
         href: service-to-service.md
-    - name: Autenticación
+    - name: Authentication
       items:
       - name: Conceptos básicos sobre autenticación
         href: authentication-scenarios.md
@@ -142,7 +142,7 @@ items:
       href: authentication-national-cloud.md
   - name: Guías de procedimientos
     items:
-    - name: Autenticación
+    - name: Authentication
       items:
       - name: Configurar inicio de sesión único
         displayName: SSO
@@ -320,7 +320,7 @@ items:
       href: azure-ad-endpoint-comparison.md
     - name: Tipos de aplicación
       href: v2-app-types.md
-    - name: Autenticación
+    - name: Authentication
       items:
       - name: Conceptos básicos sobre autenticación
         href: authentication-scenarios.md
@@ -366,7 +366,7 @@ items:
       href: authentication-national-cloud.md
   - name: Guías de procedimientos
     items:
-    - name: Autenticación
+    - name: Authentication
       items:
       - name: Configuración de notificaciones de rol
         href: active-directory-enterprise-app-role-management.md
@@ -439,12 +439,13 @@ items:
   - name: Probar Iniciar sesión con Microsoft
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Ayuda
+    displayName: support, help options
     href: developer-support-help-options.md
   - name: Identidades administradas de recursos de Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 667076d5bafc1b7cc3577a49446af58aee806b87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9b02dc22bbe27b02d608130eac72a00c7d1471c3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251714"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238460"

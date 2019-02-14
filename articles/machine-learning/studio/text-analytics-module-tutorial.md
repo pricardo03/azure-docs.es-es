@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511367"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242675"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creación de un modelo de análisis de opiniones en Azure Machine Learning Studio
 
@@ -33,9 +33,9 @@ En este tutorial, aprenderá estos pasos a medida que le guiamos por un modelo d
 
 Puede encontrar los experimentos citados en este tutorial en la Galería de Azure AI:
 
-[Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Predict Book Reviews](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews - Predictive Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Predict Book Reviews - Predictive Experiment](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Paso 1: Limpiar y preprocesar el conjunto de datos de texto
 El experimento comienza dividiendo las puntuaciones de revisión en depósitos con las categorías baja y alta para formular el problema como una clasificación de dos clases. Se utilizarán los módulos [Editar metadatos](https://msdn.microsoft.com/library/azure/dn905986.aspx) y [Agrupar valores categóricos](https://msdn.microsoft.com/library/azure/dn906014.aspx).

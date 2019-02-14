@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilice el método de interpretación para devolver interpretaciones con formato de cadenas de consulta de usuario basadas en datos de Academic Graph y Academic Grammar en Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171667"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860531"
 ---
 # <a name="interpret-method"></a>Método de interpretación
 
@@ -31,7 +31,7 @@ Para proporcionar una experiencia interactiva, puede llamar a este método varia
 
 NOMBRE     | Valor | ¿Necesario?  | DESCRIPCIÓN
 ---------|---------|---------|---------
-**consulta**    | Cadena de texto | SÍ | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
+**consulta**    | Cadena de texto | Sí | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
 **model**    | Cadena de texto | Sin   | Nombre del modelo que desea consultar.  Actualmente, el valor predeterminado es *latest* (más reciente).        
 **complete** | 0 o 1 | Sin <br>valor predeterminado:0  | 1 significa que las sugerencias de finalización automática se generan según los datos de gráfico y la gramática.         
 **count**    | Number | Sin <br>valor predeterminado:10 | Número máximo de interpretaciones de retorno.         

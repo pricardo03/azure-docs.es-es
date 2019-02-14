@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cbccab219e7b610c9ff51013a2d79764c2243e26
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736026"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889543"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
-
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 1. Use las credenciales de su cuenta de Microsoft para iniciar sesión en el [Portal de Microsoft Azure Government](https://portal.azure.us/).
 2. En el Portal de Azure Government, haga clic en **+** y, una vez en Marketplace, haga clic en **Ver todo**. Busque el dispositivo _físico de StorSimple_. Seleccione y haga clic en **Serie física de dispositivos de StorSimple** y, a continuación, haga clic en **Crear**. O bien, en el portal Government, haga clic en **+** y, una vez en **Almacenamiento**, haga clic en **Serie física de dispositivos de StorSimple**.

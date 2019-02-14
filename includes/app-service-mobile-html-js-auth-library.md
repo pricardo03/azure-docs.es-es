@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973245"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905190"
 ---
 ### <a name="server-auth"></a>Instrucciones: Autenticación con un proveedor (flujo de servidor)
 Para que Mobile Apps administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en Azure App Service, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor.
@@ -17,7 +17,7 @@ Para obtener más información, consulte el tutorial [Incorporación de la auten
 
 Una vez que haya registrado el proveedor de identidades, simplemente llame al método `.login()` con el valor del proveedor. Por ejemplo, para iniciar sesión con Facebook, use el siguiente código:
 
-```
+```javascript
 client.login("facebook").done(function (results) {
      alert("You are now signed in as: " + results.userId);
 }, function (err) {
@@ -40,7 +40,7 @@ La aplicación también puede ponerse en contacto de manera independiente con el
 
 Este ejemplo usa el SDK de cliente de Facebook para la autenticación:
 
-```
+```javascript
 client.login(
      "facebook",
      {"access_token": token})
@@ -57,7 +57,7 @@ En este ejemplo se asume que el token proporcionado por el SDK del proveedor cor
 
 Se puede recuperar la información de autenticación desde el punto de conexión `/.auth/me` mediante una llamada HTTP con cualquier biblioteca de AJAX.  Asegúrese de establecer el encabezado `X-ZUMO-AUTH` en el token de autenticación.  El token de autenticación se almacena en `client.currentUser.mobileServiceAuthenticationToken`.  Por ejemplo, para usar la API de captura:
 
-```
+```javascript
 var url = client.applicationUrl + '/.auth/me';
 var headers = new Headers();
 headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159747"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005461"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services
+# <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 La API de **REST de Media Services Operations** se usa para crear trabajos, activos, canales en vivo y otros recursos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
@@ -55,12 +55,12 @@ Las siguientes consideraciones se aplican al usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Encabezados de solicitud HTTP estándar compatibles con los Media Services
 Para cada llamada que realice en los Media Services, hay un conjunto de encabezados necesarios que debe incluir en la solicitud y también un conjunto de encabezados opcionales que puede incluir si lo desea. En la tabla siguiente se enumeran los encabezados necesarios:
 
-| Encabezado | Escriba | Valor |
+| Encabezado | Type | Valor |
 | --- | --- | --- |
 | Autorización |Portador |El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por Azure Active Directory. |
-| x-ms-version |DECIMAL |2.17 (o una versión más reciente)|
-| DataServiceVersion |DECIMAL |3.0 |
-| MaxDataServiceVersion |DECIMAL |3.0 |
+| x-ms-version |Decimal |2.17 (o una versión más reciente)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Dado que Media Services usa OData para exponer sus API de REST, los encabezados DataServiceVersion y MaxDataServiceVersion deben incluirse en todas las solicitudes; sin embargo, si no se incluyen, Media Services supone que el valor de DataServiceVersion en uso es 3.0.
@@ -69,7 +69,7 @@ Para cada llamada que realice en los Media Services, hay un conjunto de encabeza
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
-| Encabezado | Escriba | Valor |
+| Encabezado | Type | Valor |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |
@@ -83,7 +83,7 @@ A continuación se muestra un conjunto de encabezados opcionales:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Encabezados de respuesta HTTP estándar compatibles con los Media Services
 A continuación se muestra un conjunto de encabezados que pueden devolverse según el recurso que estuviera solicitando y la acción que deseara realizar.
 
-| Encabezado | Escriba | Valor |
+| Encabezado | Type | Valor |
 | --- | --- | --- |
 | request-id |string |Identificador único de la operación o servicio actual generado. |
 | client-request-id |string |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |

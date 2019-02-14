@@ -4,7 +4,7 @@ description: En este artículo se proporciona una lista de los procedimientos re
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3cee4a9e7d32214610b5d5de21f6853148ed01c4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e607c1ce032972c62f4e70e9cb620e83e57a881b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345730"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115545"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Patrones y procedimientos recomendados de seguridad en Azure
 
@@ -36,7 +36,7 @@ Los procedimientos recomendados están diseñados como recurso para los profesio
 * [Procedimientos recomendados de PaaS de Azure](security-paas-deployments.md)
 * [Procedimientos recomendados de seguridad de Azure Service Fabric](azure-service-fabric-security-best-practices.md)
 * [Procedimientos recomendados de seguridad para las máquinas virtuales de Azure](azure-security-best-practices-vms.md)
-* [Implementing a secure hybrid network architecture in Azure (Implementación de una arquitectura de red híbrida segura en Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Implementación de una arquitectura de red híbrida segura en Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 * [Procedimientos recomendados de seguridad de Internet de las cosas](azure-security-iot-best-practices.md)
 * [Protección de bases de datos PaaS en Azure](security-paas-applications-using-sql.md)
 * [Protección de aplicaciones web y móviles PaaS con Azure App Service](security-paas-applications-using-app-services.md)

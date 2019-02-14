@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493004"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241451"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copia del trabajo de otras personas para realizar ciencia de datos
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciencia de datos para principiantes
@@ -52,7 +52,7 @@ Uno de los secretos empresariales de la ciencia de datos es conseguir que otras 
 
 Microsoft tiene un servicio basado en la nube denominado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que puede probar de forma gratuita. Proporciona un área de trabajo donde puede experimentar con diferentes algoritmos de aprendizaje automático y, si consigue una solución que funciona, puede iniciarla como un servicio web.
 
-Una parte de este servicio recibe el nombre de **[Galería de Azure AI](https://gallery.cortanaintelligence.com/)**. Contiene recursos, incluida una colección de experimentos o modelos de Azure Machine Learning, que los usuarios han compilado y con los que han ayudado para que los usen otros usuarios. Estos experimentos son una excelente manera de aprovechar las ideas y el duro trabajo de otras personas para empezar a crear sus propias soluciones. Todo el mundo puede consultarla.
+Una parte de este servicio recibe el nombre de **[Galería de Azure AI](https://gallery.azure.ai/)**. Contiene recursos, incluida una colección de experimentos o modelos de Azure Machine Learning, que los usuarios han compilado y con los que han ayudado para que los usen otros usuarios. Estos experimentos son una excelente manera de aprovechar las ideas y el duro trabajo de otras personas para empezar a crear sus propias soluciones. Todo el mundo puede consultarla.
 
 ![Galería de Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Puedo hacer clic en él y me lleva directamente a **Azure Machine Learning Studi
 Y ahora tengo un punto de partida. Puedo cambiar sus datos por los míos y retocar el modelo. Esto me proporciona un punto de partida que funciona y me permite trabajar aprovechando el trabajo de las personas que realmente saben lo que hacen.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Búsqueda de experimentos que muestran técnicas de aprendizaje automático
-Hay otros experimentos en [Azure AI Gallery](https://gallery.cortanaintelligence.com) incluidos específicamente para proporcionar ejemplos de procedimientos para personas nuevas en la ciencia de datos. Por ejemplo, hay un experimento en la galería que muestra qué hacer cuando faltan valores ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)[Métodos para gestionar valores que faltan]). Le guía por 15 maneras diferentes de sustituir valores vacíos, y habla sobre las ventajas de cada método y cuándo usarlo.
+Hay otros experimentos en [Azure AI Gallery](https://gallery.azure.ai) incluidos específicamente para proporcionar ejemplos de procedimientos para personas nuevas en la ciencia de datos. Por ejemplo, hay un experimento en la galería que muestra qué hacer cuando faltan valores ([Methods for handling missing values](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)[Métodos para gestionar valores que faltan]). Le guía por 15 maneras diferentes de sustituir valores vacíos, y habla sobre las ventajas de cada método y cuándo usarlo.
 
 ![Experimento de la Galería de Machine Learning Studio: métodos para valores ausentes](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Azure AI Gallery](https://gallery.cortanaintelligence.com) es un lugar para buscar experimentos que funcionan y que puede usar como punto de partida para sus propias soluciones.
+[Azure AI Gallery](https://gallery.azure.ai) es un lugar para buscar experimentos que funcionan y que puede usar como punto de partida para sus propias soluciones.
 
 Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Microsoft Azure Machine Learning.
 

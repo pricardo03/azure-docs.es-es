@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492834"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244305"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web a partir de un experimento
 
@@ -35,7 +35,7 @@ Por suerte, puede lograrlo con la [API para volver a entrenar de Azure Machine L
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configuración del experimento de entrenamiento
-Use el [experimento de entrenamiento](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com). Abra este experimento en su área de trabajo [Azure Machine Learning Studio](https://studio.azureml.net).
+Use el [experimento de entrenamiento](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) de ejemplo que se encuentra en la [Galería de Cortana Intelligence](http://gallery.azure.ai). Abra este experimento en su área de trabajo [Azure Machine Learning Studio](https://studio.azureml.net).
 
 > [!NOTE]
 > Para seguir este ejemplo, puede que le interese usar un área de trabajo estándar en lugar de un área de trabajo gratis. Cree un punto de conexión para cada cliente (para un total de diez puntos de conexión) y que requiere un área de trabajo estándar, ya que un área de trabajo gratis se limita a tres puntos de conexión. Si solo tiene un área de trabajo gratis, simplemente tiene que cambiar los scripts para permitir solo las ubicaciones.
@@ -63,7 +63,7 @@ Ahora debe implementar el servicio web de puntuación.
 Para ello, haga clic en **Set Up Web Service** (Configurar servicio web) bajo el lienzo y seleccione **Predictive Web Service** (Servicio web predictivo). Esto crear un experimento de puntuación.
 Debe realizar algunos ajustes menores para que funcione como un servicio web. Quite la columna de etiqueta "cnt" de los datos de entrada y limite las salida a solo el identificador de instancia y el valor de predicción correspondiente.
 
-Para ahorrarse ese trabajo, puede abrir el [experimento predictivo](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) en la galería que ya se ha preparado.
+Para ahorrarse ese trabajo, puede abrir el [experimento predictivo](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) en la galería que ya se ha preparado.
 
 Para implementar el servicio web, ejecute el experimento predictivo y luego haga clic en el botón **Deploy Web Service** (Implementar servicio web) bajo el lienzo. Asigne el nombre “Bike Rental Scoring” al servicio web de puntuación.
 

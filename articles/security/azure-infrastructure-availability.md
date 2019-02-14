@@ -4,7 +4,7 @@ description: En este artículo se describen los niveles de redundancia para prop
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3679361522105d1f3c55eae6b1f33c1c6baa1d55
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171500"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105882"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilidad de la infraestructura de Azure
 Azure proporciona una disponibilidad sólida basada en la amplia redundancia lograda con la tecnología de virtualización. Azure proporciona numerosos niveles de redundancia para proporcionar la máxima disponibilidad de los datos de los clientes.
@@ -43,7 +43,7 @@ Azure garantiza que una base de datos sea accesible desde Internet mediante una 
 Azure ofrece almacenamiento mediante un servicio de almacenamiento muy durable y escalable que proporciona puntos de conexión de conectividad. Esto significa que una aplicación puede acceder directamente al servicio de almacenamiento. El servicio de almacenamiento procesa las solicitudes de almacenamiento entrantes de forma eficiente, con integridad transaccional.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre lo que hace Microsoft para ayudar a proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que Microsoft hace para ayudar a proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](azure-physical-security.md)
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)

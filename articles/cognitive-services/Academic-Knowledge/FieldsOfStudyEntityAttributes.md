@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Obtenga información sobre los atributos que puede usar con la entidad de campo de estudio en Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 793b35d9c6412c40a87f3f91fcd772476d57584f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878959"
 ---
 # <a name="field-of-study-entity"></a>Entidad de campo de estudio
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105804"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999375"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -53,7 +53,7 @@ La estructura básica del archivo de una solución de administración es la mism
 ## <a name="parameters"></a>Parámetros
 Los [parámetros](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
 
-Cuando un usuario [instala la solución de administración](solutions.md#install-a-management-solution) mediante plantillas de Azure Marketplace o Azure QuickStart, se le pide que seleccione un [área de trabajo de Log Analytics y una cuenta de Automation](solutions.md#log-analytics-workspace-and-automation-account).  Estos se usan para rellenar los valores de cada uno de los parámetros estándar.  Al usuario no se le pide que proporcione valores directamente para los parámetros estándar, pero se le pide que proporcione valores para cualquier parámetro adicional.
+Cuando un usuario [instala la solución de administración](solutions.md#install-a-monitoring-solution) mediante plantillas de Azure Marketplace o Azure QuickStart, se le pide que seleccione un [área de trabajo de Log Analytics y una cuenta de Automation](solutions.md#log-analytics-workspace-and-automation-account).  Estos se usan para rellenar los valores de cada uno de los parámetros estándar.  Al usuario no se le pide que proporcione valores directamente para los parámetros estándar, pero se le pide que proporcione valores para cualquier parámetro adicional.
 
 
 A continuación se muestra un parámetro de ejemplo.  
@@ -83,7 +83,7 @@ En la tabla siguiente se enumeran los parámetros estándar de todas las solucio
 >
 >
 
-| Parámetro | Escriba | DESCRIPCIÓN |
+| Parámetro | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | accountName |string |Nombre de la cuenta de Azure Automation. |
 | pricingTier |string |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Azure Automation. |

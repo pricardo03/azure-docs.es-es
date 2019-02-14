@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516623"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873026"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Administración del acceso, encendido y modo de conectividad de Azure Data Box Gateway (versión preliminar)
 
@@ -35,7 +35,7 @@ El acceso al dispositivo Data Box Gateway se controla mediante el uso de una con
 
 ### <a name="change-device-administrator-password"></a>Cambio de la contraseña del administrador del dispositivo
 
-Si ha olvidado la contraseña, puede cambiarla. Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del administrador del dispositivo.
+Siga estos pasos en la interfaz de usuario local para cambiar la contraseña del administrador del dispositivo.
 
 1. En la interfaz de usuario web local, vaya a **Mantenimiento > Cambio de contraseña**.
 2. Escriba la contraseña actual y, a continuación, la nueva contraseña. La contraseña proporcionada debe contener entre 8 y 16 caracteres. La contraseña debe contener tres de los siguientes caracteres: caracteres en mayúsculas, minúsculas, números y caracteres especiales. Confirme la nueva contraseña.

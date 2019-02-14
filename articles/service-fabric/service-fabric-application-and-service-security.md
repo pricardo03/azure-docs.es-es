@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: f83f7afa4173316f127c76f20967054bf13c9a6b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 91e7fdd215d246156f601d3b5e6e05b7f8f71f59
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097918"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116463"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Seguridad del servicio y la aplicación de Service Fabric
 Una arquitectura de microservicios puede aportar [muchas ventajas](service-fabric-overview-microservices.md). Administrar la seguridad de los microservicios, sin embargo, es un desafío y no es lo mismo que administrar la seguridad de las aplicaciones tradicionales monolíticas. 
@@ -31,7 +31,7 @@ Este artículo no es una guía de seguridad de microservicios, ya que muchos de 
 ## <a name="authentication-and-authorization"></a>Autenticación y autorización
 A menudo es necesario para los recursos y las API expuestas por un servicio limitarse a determinados usuarios de confianza o clientes. La autenticación es el proceso de determinar la identidad de un usuario de forma confiable.  La autorización es el proceso que pone las API o los servicios a disposición de algunos usuarios autenticados y no de otros.
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 El primer paso para tomar decisiones de confianza sobre el nivel de API es la autenticación. La autenticación es el proceso de determinar la identidad de un usuario de forma confiable.  Cuando hay microservicios, la autenticación normalmente se controla de forma centralizada. Si usa una API Gateway, puede [descargar la autenticación](/azure/architecture/patterns/gateway-offloading) a la puerta de enlace. Si utiliza este método, asegúrese de que no se pueda llegar directamente a los servicios individuales (sin la API Gateway) a menos que se implemente una seguridad adicional para autenticar si los mensajes proceden de la puerta de enlace o no.
 
 Si se puede tener acceso directamente a los servicios, es posible emplear un servicio de autenticación como Azure Active Directory o un microservicio de autenticación dedicado que actúe como servicio de token de seguridad (STS) puede utilizarse para autenticar a los usuarios. Las decisiones de confianza se comparten entre los servicios con tokens de seguridad o cookies. 
@@ -110,7 +110,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Más información sobre la seguridad del clúster](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
