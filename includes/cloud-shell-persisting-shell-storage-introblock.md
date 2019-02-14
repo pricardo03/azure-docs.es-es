@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886240"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247144"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -40,7 +40,7 @@ Mediante la opción avanzada puede asociar recursos existentes. Al seleccionar u
 Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar configuración avanzada** para ver otras opciones. Las opciones de almacenamiento rellenadas se filtran por cuentas de almacenamiento con redundancia local (LRS), almacenamiento con redundancia geográfica (GRS) y almacenamiento con redundancia de zona (ZRS). 
 
 > [!NOTE]
-> Se recomienda usar cuentas de almacenamiento con redundancia geográfica o con redundancia de zona para contar con resistencia adicional para el recurso compartido de archivos de respaldo. El tipo de redundancia depende de los objetivos y las preferencias de precio. [Obtenga más información sobre las opciones de replicación para las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> Se recomienda usar cuentas de almacenamiento con redundancia geográfica o con redundancia de zona para contar con resistencia adicional para el recurso compartido de archivos de respaldo. El tipo de redundancia depende de los objetivos y las preferencias de precio. [Obtenga más información sobre las opciones de replicación para las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![La configuración de grupo de recursos](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

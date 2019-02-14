@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701648"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118027"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics (versión preliminar).
 
@@ -154,7 +154,7 @@ Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure 
 
 **¿Puedo incurrir en costos adicionales al usar la entrada de datos de referencia SQL en Azure Stream Analytics?**
 
-No se aplica ningún [costo por unidad de streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) adicional en el trabajo de Stream Analytics. Sin embargo, el trabajo de Stream Analytics debe tener una cuenta de Azure Storage asociada. El trabajo de Stream Analytics consulta la base de datos SQL (durante el inicio de trabajo y el intervalo de actualización) para recuperar el conjunto de datos de referencia y almacena dicha instantánea en la cuenta de almacenamiento. El almacenamiento de estas instantáneas incurrirá en los cargos adicionales detallados en la [página de precios](https://azure.microsoft.compricing/details/storage/) de la cuenta de Azure Storage.
+No se aplica ningún [costo por unidad de streaming](https://azure.microsoft.com/pricing/details/stream-analytics/) adicional en el trabajo de Stream Analytics. Sin embargo, el trabajo de Stream Analytics debe tener una cuenta de Azure Storage asociada. El trabajo de Stream Analytics consulta la base de datos SQL (durante el inicio de trabajo y el intervalo de actualización) para recuperar el conjunto de datos de referencia y almacena dicha instantánea en la cuenta de almacenamiento. El almacenamiento de estas instantáneas incurrirá en los cargos adicionales detallados en la [página de precios](https://azure.microsoft.com/pricing/details/storage/) de la cuenta de Azure Storage.
 
 **¿Cómo puedo saber si se realiza una consulta de la instantánea de los datos de referencia desde la base de datos SQL y si se usa en el trabajo de Azure Stream Analytics?**
 
