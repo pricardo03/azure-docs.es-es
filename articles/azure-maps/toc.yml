@@ -31,6 +31,8 @@ items:
     href: azure-maps-event-grid-integration.md
   - name: Elección del plan de tarifa adecuado
     href: choose-pricing-tier.md
+  - name: Autenticación con Azure Maps
+    href: azure-maps-authentication.md
   - name: Cobertura
     items:
     - name: Cobertura de geocodificación
@@ -49,8 +51,10 @@ items:
   items:
   - name: Administración de cuentas de Maps
     items:
-    - name: Administración de cuentas y claves
+    - name: Administrar cuentas
       href: how-to-manage-account-keys.md
+    - name: Administración de la autenticación
+      href: how-to-manage-authentication.md
     - name: Administración del plan de tarifa
       href: how-to-manage-pricing-tier.md
     - name: Visualización de métricas de uso
@@ -59,6 +63,8 @@ items:
     items:
     - name: Búsqueda de una dirección
       href: how-to-search-for-address.md
+    - name: Representación de datos personalizados en un mapa estático
+      href: how-to-render-custom-data.md
   - name: Creación de mapas de JavaScript
     items:
     - name: Uso del control de mapa
@@ -99,6 +105,10 @@ items:
       href: map-events.md
     - name: Aplicaciones de mapas accesibles
       href: map-accessibility.md
+  - name: Creación de mapas de Android
+    items:
+    - name: Uso del control de mapa de Android
+      href: how-to-use-android-map-control-library.md
 - name: Referencia
   items:
   - name: Extensiones de API y de parámetros
@@ -183,9 +193,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 0fb1d864dd18a781d0eeba4c8dea610e3ccb07f2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a657596cb266db20404d7f2ec1074834d181772
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999460"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111057"

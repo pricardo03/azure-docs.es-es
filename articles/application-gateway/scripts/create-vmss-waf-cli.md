@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4201b85ac50f69cc56bbfd4acde685a24f5dee34
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 68c0b1c01d79f591b5023d2e048d1788a3eaffd4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575888"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117381"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Restringir el tráfico web mediante la CLI de Azure
 
@@ -48,14 +48,14 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | Get-Help | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-net) | Crea una red virtual. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) | Crea una subred en una red virtual. |
+| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Crea una red virtual. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Crea una subred en una red virtual. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Crea la dirección IP pública de la puerta de enlace de aplicaciones. |
 | [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Crear una puerta de enlace de aplicaciones. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Crea un conjunto de escalado de máquinas virtuales. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Crea una cuenta de almacenamiento. |
 | [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) | Crea una cuenta de almacenamiento. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network_public_ip_show) | Obtiene la dirección IP pública de la puerta de enlace de aplicaciones. |
+| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show) | Obtiene la dirección IP pública de la puerta de enlace de aplicaciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
