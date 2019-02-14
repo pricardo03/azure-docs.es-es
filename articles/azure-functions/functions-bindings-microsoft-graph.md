@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822636"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100805"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -982,7 +982,7 @@ Los webhooks le permiten reaccionar antes los eventos de Microsoft Graph. Para a
 - Un [enlace de entrada de la suscripción de webhook de Microsoft Graph](#webhook-input) le permite mostrar las suscripciones existentes y, opcionalmente, actualizarlas.
 - Un [enlace de salida de la suscripción de webhook de Microsoft Graph](#webhook-output) le permite crear o eliminar suscripciones de webhook.
 
-Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Para más información sobre los webhooks, consulte [Trabajar con Intune en Microsoft Graph].
 

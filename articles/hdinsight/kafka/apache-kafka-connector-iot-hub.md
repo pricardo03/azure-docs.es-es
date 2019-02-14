@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608637"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978075"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Uso de Apache Kafka en HDInsight con Azure IoT Hub
 
@@ -127,7 +127,7 @@ Desde una conexión SSH en el nodo perimetral, siga estos pasos para configurar 
 
     * Cambie las líneas `key.converter=` y `value.converter=` por los siguientes valores:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -189,7 +189,7 @@ Para recuperar información de IoT Hub que usa el conector, siga estos pasos:
 
         Reemplace `myhubname` por el nombre de su centro de IoT: La respuesta es similar al siguiente texto:
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -239,14 +239,14 @@ Para configurar el origen para que funcione con su instancia de IoT Hub, realice
 
     En el editor, busque y cambie las siguientes entradas:
 
-    * `Kafka.Topic=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `iotin`. Los mensajes recibidos del centro de IoT se colocan en el tema `iotin`.
+    * `Kafka.Topic=PLACEHOLDER`: Reemplace  por `iotin`. Los mensajes recibidos del centro de IoT se colocan en el tema `iotin`.
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`: reemplace `PLACEHOLDER` por el nombre compatible con el centro de eventos.
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: reemplace `PLACEHOLDER` por el punto de conexión compatible con el centro de eventos.
     * `IotHub.Partitions=PLACEHOLDER`: reemplace `PLACEHOLDER` por el número de particiones de los pasos anteriores.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `service`.
+    * `IotHub.AccessKeyName=PLACEHOLDER`: Reemplace  por `service`.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: reemplace `PLACEHOLDER` por la clave principal de la directiva `service`.
     * `IotHub.StartType=PLACEHOLDER`: reemplace `PLACEHOLDER` por una fecha UTC. Esta fecha corresponde a cuando el conector comienza a buscar mensajes. El formato de fecha es `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: Reemplace `100` por `5`. Este cambio hace que el conector lea los mensajes en Kafka una vez que hay cinco nuevos mensajes en el centro de IoT.
+    * `BatchSize=100`: Reemplace  por `5`. Este cambio hace que el conector lea los mensajes en Kafka una vez que hay cinco nuevos mensajes en el centro de IoT.
 
     Para ver una configuración de ejemplo, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -272,7 +272,7 @@ Para configurar la conexión de receptor para que funcione con su instancia de I
 
     En el editor, busque y cambie las siguientes entradas:
 
-    * `topics=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `iotout`. Los mensajes enviados a `iotout` se reenvían al centro de IoT.
+    * `topics=PLACEHOLDER`: Reemplace  por `iotout`. Los mensajes enviados a `iotout` se reenvían al centro de IoT.
     * `IotHub.ConnectionString=PLACEHOLDER`: reemplace `PLACEHOLDER` por la cadena de conexión de la directiva `service`.
 
     Para ver una configuración de ejemplo, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
@@ -349,7 +349,7 @@ Para enviar mensajes mediante el conector, siga estos pasos:
     > [!IMPORTANT]  
     > Debe establecer el valor de la entrada `"deviceId"` en el identificador del dispositivo. En el ejemplo siguiente, el dispositivo se denomina `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

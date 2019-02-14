@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751096"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -447,7 +448,7 @@ Al hacer clic en el icono de Amazon Web Services (AWS) en el Panel de acceso, au
 
  * En la sección **Aprovisionamiento**, en la subsección **Asignaciones** aparece un mensaje del tipo "Cargando..." y no se muestran las asignaciones de atributos. El único flujo de trabajo de aprovisionamiento que se admite actualmente es la importación de roles desde AWS a Azure AD para su selección durante la asignación de usuarios y grupos. Las asignaciones de atributos para esto vienen predeterminadas y no se pueden configurar.
  
- * La sección **Aprovisionamiento** solo admite escribir un conjunto de credenciales para un inquilino de AWS cada vez. Todos los roles importados se escriben en la propiedad appRoles del [objeto servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) de Azure AD para el inquilino de AWS. Se pueden agregar varios inquilinos de AWS (representados por objetos servicePrincipal) a Azure AD desde la galería para el aprovisionamiento, pero hay un problema conocido que impide escribir automáticamente todos los roles importados desde los múltiples objetos servicePrincipal de AWS que se usaron para el aprovisionamiento en el objeto servicePrincipal único empleado para el inicio de sesión único. Una posible solución alternativa consiste en usar [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) para extraer todos los objetos appRoles importados en cada objeto servicePrincipal de AWS en los que esté configurado el aprovisionamiento. Estas cadenas de roles se pueden agregar posteriormente al objeto servicePrincipal de AWS donde esté configurado el inicio de sesión único.
+ * La sección **Aprovisionamiento** solo admite escribir un conjunto de credenciales para un inquilino de AWS cada vez. Todos los roles importados se escriben en la propiedad appRoles del [objeto servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) de Azure AD para el inquilino de AWS. Se pueden agregar varios inquilinos de AWS (representados por objetos servicePrincipal) a Azure AD desde la galería para el aprovisionamiento, pero hay un problema conocido que impide escribir automáticamente todos los roles importados desde los múltiples objetos servicePrincipal de AWS que se usaron para el aprovisionamiento en el objeto servicePrincipal único empleado para el inicio de sesión único. Una posible solución alternativa consiste en usar [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extraer todos los objetos appRoles importados en cada objeto servicePrincipal de AWS en los que esté configurado el aprovisionamiento. Estas cadenas de roles se pueden agregar posteriormente al objeto servicePrincipal de AWS donde esté configurado el inicio de sesión único.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
