@@ -25,6 +25,8 @@ items:
     href: quickstart-create-data-factory-rest-api.md
   - name: 'Creación de una factoría de datos: Plantilla de Resource Manager'
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Creación de un flujo de datos
+    href: data-flow-create.md
   expanded: true
 - name: Tutoriales
   items:
@@ -408,6 +410,42 @@ items:
       href: control-flow-wait-activity.md
     - name: Actividad web
       href: control-flow-web-activity.md
+  - name: Transformaciones de flujos de datos
+    items:
+    - name: Agregado
+      href: data-flow-aggregate.md
+    - name: División condicional
+      href: data-flow-conditional-split.md
+    - name: Columna derivada
+      href: data-flow-derived-column.md
+    - name: Exists
+      href: data-flow-exists.md
+    - name: Filtrar
+      href: data-flow-filter.md
+    - name: Unión
+      href: data-flow-join.md
+    - name: Búsqueda
+      href: data-flow-lookup.md
+    - name: Nueva rama
+      href: data-flow-new-branch.md
+    - name: Dinamización
+      href: data-flow-pivot.md
+    - name: Seleccionar
+      href: data-flow-select.md
+    - name: Receptor
+      href: data-flow-sink.md
+    - name: Sort
+      href: data-flow-sort.md
+    - name: Origen
+      href: data-flow-source.md
+    - name: Clave suplente
+      href: data-flow-surrogate-key.md
+    - name: Unión
+      href: data-flow-union.md
+    - name: Anulación de dinamización
+      href: data-flow-unpivot.md
+    - name: Periodo
+      href: data-flow-window.md
   - name: Parametrizar
     items:
     - name: Parametrizar servicios vinculados
@@ -528,9 +566,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opciones de soporte técnico
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174425"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270426"
