@@ -97,20 +97,13 @@ items:
   - name: Mantenimiento y actualizaciones
     href: maintenance-and-updates.md
   - name: Almacenamiento en disco
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introducción a los discos administrados
       href: managed-disks-overview.md
-    - name: SSD Premium
-      href: premium-storage.md
-    - name: SSD estándar
-      href: disks-standard-ssd.md
-    - name: SSD ultra
-      href: disks-ultra-ssd.md
-    - name: Rendimiento de Premium Storage
+    - name: Selección de un tipo de disco para máquinas virtuales de IaaS
+      href: disks-types.md
+    - name: Diseño para alto rendimiento
       href: premium-storage-performance.md
-    - name: Standard Storage
-      href: standard-storage.md
     - name: Objetivos de escalabilidad para discos
       href: disk-scalability-targets.md
     - name: Copia de seguridad y recuperación ante desastres para discos
@@ -334,6 +327,8 @@ items:
         href: attach-disk-ps.md
       - name: Azure Portal
         href: attach-managed-disk-portal.md
+    - name: Realización de pruebas comparativas de un disco
+      href: disks-benchmarks.md
     - name: Desconexión de un disco
       href: detach-disk.md
     - name: Cambio del tamaño de un disco
@@ -354,7 +349,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Habilitar el acelerador de escritura
       href: how-to-enable-write-accelerator.md
-    - name: Uso de SSD ultra
+    - name: Habilitación de discos Ultra
       href: disks-enable-ultra-ssd.md
     - name: Migración a Managed Disks
       href: migrate-to-managed-disks.md
@@ -466,9 +461,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Preguntas más frecuentes
     href: faq.md
-ms.openlocfilehash: 770b828330bc0ad10b0aa78277f0872368cf201c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a94dc323129041ffaaadc65204fdc35327b88b33
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299893"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328833"
