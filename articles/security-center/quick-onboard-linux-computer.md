@@ -4,7 +4,7 @@ description: En esta guía de inicio rápido se explica cómo incorporar equipos
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 48a04bbe77a6fe836c282556709e13bb9cd9a337
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848199"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114629"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Linux a Azure Security Center
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Linux a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento del agente de Linux.
 
 En esta guía de inicio rápido se explica cómo instalar el agente de Linux en un equipo Linux.
@@ -82,7 +82,7 @@ Para eliminar el agente:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido, se va a aprovisionar el agente en un equipo Linux. Para más información sobre el uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
+En esta guía de inicio rápido, se va a aprovisionar el agente en un equipo Linux. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Definición y evaluación de las directivas de seguridad](tutorial-security-policy.md)

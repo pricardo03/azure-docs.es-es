@@ -4,33 +4,31 @@ titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar solicitudes a la API de REST Bing Web Search mediante Ruby y reciba una respuesta JSON
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4b5194628e47340f9582800e3fdd9117d9ade212
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 117271b0a952090bf8af2416206652972ae274ff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192654"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210839"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de Ruby para llamar a Bing Web Search API  
 
-Use esta guía de inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON en menos de 10 minutos.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Ruby envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Ruby, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * [Ruby 2.4 o posterior](https://www.ruby-lang.org/en/downloads/)
 * Una clave de suscripción
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Creación de un proyecto y declaración de los módulos necesarios
 

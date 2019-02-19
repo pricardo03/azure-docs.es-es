@@ -1,6 +1,6 @@
 ---
 title: Establecimiento de permisos para Data Lake Storage Gen2 con Explorador de Azure Storage
-description: En este tema, aprenderá a establecer permisos con Explorador de Azure Storage en archivos y directorios dentro de su cuenta de almacenamiento compatible con Azure Data Lake Storage Gen2 (versión preliminar).
+description: En este tema, aprenderá a establecer permisos con el Explorador de Azure Storage en archivos y directorios dentro de su cuenta de almacenamiento compatible con Azure Data Lake Storage Gen2.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238320"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867059"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Establecimiento de permisos en el nivel de archivo y directorio mediante Explorador de Azure Storage con Azure Data Lake Storage Gen2 (versión preliminar)
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Establecimiento de permisos en el nivel de archivo y directorio mediante el Explorador de Azure Storage con Azure Data Lake Storage Gen2
 
-Los archivos almacenados en Azure Data Lake Storage Gen2 (versión preliminar) admiten la administración de listas de control de acceso (ACL) y permisos detallados. En conjunto, la administración de ACL y los permisos detallados le permiten administrar el acceso a los datos de manera muy detallada.
+Los archivos almacenados en Azure Data Lake Storage Gen2 admiten la administración de listas de control de acceso (ACL) y permisos detallados. En conjunto, la administración de ACL y los permisos detallados le permiten administrar el acceso a los datos de manera muy detallada.
 
 En este artículo, aprenderá a usar Explorador de Azure Storage para:
 

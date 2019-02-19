@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 30174051c0d26595c65a79724cf3d08465a4cab7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/12/2019
+ms.openlocfilehash: bea32acf4028a4ab43fcc8cd967a31ea397babf3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566988"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234227"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Ruby para consultar una base de datos SQL de Azure
 
@@ -27,7 +27,21 @@ Esta guía de inicio rápido muestra cómo se usa [Ruby](https://www.ruby-lang.o
 
 Para completar este tutorial de inicio rápido, debe cumplir los siguientes requisitos previos:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+
+  || Base de datos única | Instancia administrada |
+  |:--- |:--- |:---|
+  | Crear| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configuración | [Regla de firewall de IP en el nivel de servidor](sql-database-server-level-firewall-rule.md)| [Conectividad desde una máquina virtual](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
+  |Carga de datos|Adventure Works cargado por inicio rápido|[Restauración de World Wide Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restauración o importación de Adventure Works a partir del archivo [BACPAC](sql-database-import.md) desde [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works a una base de datos de la instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
   
 - Ruby y el software relacionado para el sistema operativo:
   
@@ -39,7 +53,13 @@ Para completar este tutorial de inicio rápido, debe cumplir los siguientes requ
 
 ## <a name="get-sql-server-connection-information"></a>Obtención de información de conexión de SQL Server
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor o nombre de host, el nombre de la base de datos y la información de inicio de sesión.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+
+2. Vaya a las páginas **SQL Database** o **Instancias administradas de SQL**.
+
+3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para una única base de datos o el nombre completo del servidor junto a **Host** para una instancia administrada. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**. 
 
 ## <a name="create-code-to-query-your-sql-database"></a>Creación del código para consultar la base de datos SQL
 

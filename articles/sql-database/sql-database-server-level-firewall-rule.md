@@ -1,6 +1,6 @@
 ---
 title: Creación de una regla de firewall de nivel de servidor con Azure SQL Database | Microsoft Docs
-description: Creación de una regla de firewall de nivel de servidor de SQL Database para una base de datos única o agrupada
+description: Creación de una regla de firewall de nivel de servidor de SQL Database para bases de datos únicas o agrupadas
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757234"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108966"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor en SQL Database mediante Azure Portal
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para bases de datos únicas y agrupadas mediante Azure Portal
 
-Este inicio rápido le guía a través de la creación de una regla de firewall de nivel de servidor en una instancia de Azure SQL Database mediante Azure Portal para que pueda conectarse a esta desde un recurso local.
+Este inicio rápido le guía en la creación de una [regla de firewall de nivel de servidor](sql-database-firewall-configure.md) para bases de datos agrupadas y únicas en Azure SQL Database mediante Azure Portal para que pueda conectarse a servidores de base de datos, bases de datos únicas y grupos elásticos y sus bases de datos. Una regla de firewall es necesaria para conectarse desde otros recursos de Azure y desde recursos locales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

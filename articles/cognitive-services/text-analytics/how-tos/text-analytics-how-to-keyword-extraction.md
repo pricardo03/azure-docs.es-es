@@ -1,22 +1,22 @@
 ---
-title: Cómo extraer frases clave en la API de REST Text Analytics (Microsoft Cognitive Services en Azure) | Microsoft Docs
-description: Cómo extraer frases clave mediante la API de REST Text Analytics en Microsoft Cognitive Services en Azure en este tutorial de la guía detallada.
+title: Extracción de frases clave con Text Analytics REST API | Microsoft Docs
+description: Extracción de frases clave con Text Analytics REST API desde Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216751"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245616"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Ejemplo: Cómo extraer frases clave en Text Analytics
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Ejemplo: Extracción de frases clave con Text Analytics
 
 [Key Phrase Extraction API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evalúa el texto no estructurado y, en cada documento JSON, devuelve una lista de frases clave. 
 
@@ -29,13 +29,13 @@ Actualmente, la extracción de frases clave admite el inglés, el alemán, el es
 
 ## <a name="preparation"></a>Preparación
 
-La extracción de frases clave funciona mejor cuando se proporcionan fragmentos más grandes de texto en los que trabajar. Es lo contrario del análisis de opiniones, que funciona mejor con bloques de texto más pequeños. Para obtener los mejores resultados de ambas operaciones, considere la posibilidad de reestructurar las entradas en consecuencia.
+La extracción de frases clave funciona mejor cuando se proporcionan cantidades más grandes de texto en los que trabajar. Es lo contrario del análisis de opiniones, que funciona mejor con cantidades de texto más pequeñas. Para obtener los mejores resultados de ambas operaciones, considere la posibilidad de reestructurar las entradas en consecuencia.
 
 Debe tener documentos JSON en este formato: identificador, texto, idioma
 
 El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. El ejemplo siguiente es una ilustración del contenido que podría enviar a la extracción de frases clave.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Todas las solicitudes POST devolverán una respuesta con formato JSON con los id
 
 La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos.
 
-A continuación, se muestra un ejemplo de salida de la extracción de frases clave:
+Aquí se muestra un ejemplo de salida de la extracción de frases clave:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

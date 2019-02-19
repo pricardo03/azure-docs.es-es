@@ -4,27 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar solicitudes a la API de REST Bing Web Search mediante Java y reciba una respuesta JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a8844e339f439de4e5446e00f8e40e9a0fd1a3de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d20d147bc77698e97630ad3bd5e58348db45f5b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172143"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187481"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Guía de inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Java
 
-Use esta guía de inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Java envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
@@ -32,6 +28,8 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
 * [JDK 7 o 8](https://aka.ms/azure-jdks)
 * [Biblioteca Gson](https://github.com/google/gson)
 * Una clave de suscripción
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-import-dependencies"></a>Creación de un proyecto e importación de dependencias
 

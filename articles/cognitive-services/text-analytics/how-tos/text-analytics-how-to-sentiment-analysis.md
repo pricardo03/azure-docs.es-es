@@ -1,22 +1,22 @@
 ---
-title: Cómo analizar opiniones en la API REST Text Analytics (Microsoft Cognitive Services en Azure) | Microsoft Docs
-description: Cómo detectar opiniones mediante la API REST Text Analytics en Microsoft Cognitive Services en Azure con este tutorial.
+title: Análisis de sentimiento mediante Text Analytics de Azure Cognitive Services | Microsoft Docs
+description: Obtenga información sobre cómo detectar opiniones mediante la API de REST Text Analytics.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212501"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242142"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Ejemplo: Cómo detectar opiniones en Text Analytics
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Ejemplo: Detección de opiniones con Text Analytics
 
 La [API de análisis de sentimiento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evalúa entradas de texto y devuelve una puntuación de las opiniones para cada documento, de 0 (negativo) a 1 (positivo).
 

@@ -12,16 +12,17 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494671"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190473"
 ---
 # <a name="what-is-hybrid-identity"></a>¿Qué es la identidad híbrida? 
 
-Hoy en día, las empresas y las organizaciones se basan cada vez más en una combinación de aplicaciones locales y en la nube.  Los usuarios requieren acceso a esas aplicaciones tanto en el entorno local como en la nube. Este requisito se ha convertido en un escenario desafiante. 
+En la actualidad, tanto en las empresas como en las organizaciones se puede encontrar cada vez más una combinación de aplicaciones locales y en la nube.  Los usuarios requieren acceso a esas aplicaciones tanto en el entorno local como en la nube. Este requisito se ha convertido en un escenario desafiante. 
 
 Las soluciones de identidad de Microsoft abarcan funcionalidades locales y basadas en la nube.  Estas soluciones crean una identidad de usuario común para la autenticación y autorización en todos los recursos, independientemente de la ubicación. A esto lo llamamos **identidad híbrida**.
 
@@ -43,13 +44,13 @@ Estos son algunos escenarios comunes de identidad híbrida y administración de 
 |-----|-----|-----|-----| 
 |Sincronice nuevas cuentas de usuarios, contactos y grupos creadas en Active Directory local con la nube automáticamente.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 |Configurar mi inquilino para escenarios híbridos de Office 365|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Permitir que mis usuarios inicien sesión en Cloud Services y accedan con su contraseña local|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Implementar el inicio de sesión único utilizando credenciales corporativas|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|  
-|Asegurarse de que ningún hash de contraseña está almacenado en la nube| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Habilitar soluciones de autenticación multifactor en la nube| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Permitir que mis usuarios inicien sesión en Cloud Services y accedan con su contraseña local.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Implementar el inicio de sesión único mediante credenciales corporativas.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|  
+|Asegurarse de que no se almacenan hashes de contraseña en la nube.| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Habilitar soluciones de autenticación multifactor en la nube.| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 |Habilitar soluciones locales de autenticación multifactor| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Admitir la autenticación de tarjeta inteligente para mis usuarios<sup>4</sup>| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Mostrar notificaciones de expiración de contraseña en el portal de Office y en el escritorio de Windows 10| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Admitir la autenticación mediante tarjeta inteligente para mis usuarios.<sup>4</sup>| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Mostrar notificaciones de expiración de contraseña en el Portal de Office y en el escritorio de Windows 10.| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Sincronización de hash de contraseñas con inicio de sesión único. 
 > 

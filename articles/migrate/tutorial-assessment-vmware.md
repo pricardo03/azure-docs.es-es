@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730771"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235842"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server en la versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.5 o posterior para implementar la máquina virtual del recopilador.
+- **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server en la versión 5.5, 6.0, 6.5 o 6.7. Además, necesita un host de ESXi que ejecute la versión 5.5 o posterior para implementar la máquina virtual del recopilador.
 - **Cuenta de vCenter Server**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
 - **Permisos**: en el servidor vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato .OVA.
 
@@ -182,7 +182,7 @@ Importe el archivo descargado en el servidor vCenter Server.
     - Seleccione la nube de Azure a la que tiene previsto migrar (Azure Global o Azure Government).
     - Acepte los términos de licencia y lea la información de terceros.
     - El recopilador comprueba que la VM tenga acceso a Internet.
-    - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) a las que tiene acceso el recopilador.
+    - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector) a las que tiene acceso el recopilador.
 
       > [!NOTE]
       > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado de dicho proxy, se podría producir un error inicialmente en la conexión a Internet; [conozca más](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre cómo solucionar este problema mediante la importación del certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.

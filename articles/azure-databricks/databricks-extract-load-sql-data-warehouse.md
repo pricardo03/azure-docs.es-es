@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818658"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893143"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -153,7 +153,7 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-6. En este bloque de código, reemplace los valores de marcado de posición `application-id`, `authentication-id` y `tenant-id` de este bloque de código por los valores que recopiló al realizar los pasos de la sección [Reserva de la configuración de la cuenta de almacenamiento](#config). Reemplace el valor de marcador de posición `storage-account-name` por el nombre de la cuenta de almacenamiento.
+6. En este bloque de código, reemplace los valores de marcado de posición `application-id`, `authentication-id` y `tenant-id` de este bloque de código por los valores que recopiló al realizar los pasos de la sección Reserva de la configuración de la cuenta de almacenamiento. Reemplace el valor de marcador de posición `storage-account-name` por el nombre de la cuenta de almacenamiento.
 
 7. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 

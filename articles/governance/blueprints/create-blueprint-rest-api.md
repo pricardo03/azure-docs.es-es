@@ -4,17 +4,17 @@ description: Utilice los planos técnicos de Azure Blueprint para crear, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566989"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989973"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -329,6 +329,12 @@ El valor de `{BlueprintVersion}` es una cadena de letras, números y guiones (si
 
 Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción. El **cuerpo de la solicitud** especifica el plano técnico que se va a asignar, proporciona el nombre y la ubicación de cualquier grupo de recursos de la definición del plano técnico y proporciona todos los parámetros que se han definido en el plano técnico y que han sido utilizados por uno o más artefactos asociados.
 
+En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
+
+- `{tenantId}`: reemplácelo por su identificador de inquilino
+- `{YourMG}`: reemplácelo por el identificador del grupo de administración
+- `{subscriptionId}`: reemplácelo por el identificador de suscripción
+
 1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tiene una autorización diferente.
 
    - URI DE LA API REST
@@ -387,6 +393,25 @@ Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar 
          "location": "westus"
      }
      ```
+
+   - Identidad administrada asignada por el usuario
+
+     Una asignación de plano técnico también puede usar una [identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/overview.md). En este caso, la parte de **identidad** del cuerpo de la solicitud cambia del modo siguiente.  Reemplace `{yourRG}` y `{userIdentity}` por el nombre del grupo de recursos y el nombre de su identidad administrada asignada por el usuario, respectivamente.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     La **identidad administrada asignada por el usuario** puede estar en cualquier suscripción y grupo de recursos para los que tenga permiso el usuario que asigna el plano técnico.
+
+     > [!IMPORTANT]
+     > Los planos técnicos no administran la identidad administrada asignada por el usuario. Los usuarios son responsables de asignar los roles y permisos necesarios o, de lo contrario, se producirá un error en la asignación del plano técnico.
 
 ## <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
 

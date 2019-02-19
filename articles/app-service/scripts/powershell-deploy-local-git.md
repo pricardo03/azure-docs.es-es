@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dcba93561f1f3488c8849ea419bd94765102f849
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8103777b85d8e11416811c694103c58755f1a23a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587141"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114440"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Creación de una aplicación web e implementación de código desde un repositorio local de Git
 
 Este script de ejemplo crea una aplicación web en App Service con sus recursos relacionados y, después, implementa el código de la aplicación web desde un repositorio local de Git.
 
-Si es necesario, actualice a la versión más reciente de Azure PowerShell con la ayuda de la [Guía de Azure PowerShell](/powershell/azure/overview) y, luego, ejecute `Connect-AzureRmAccount` para crear una conexión con Azure. Además, el código de aplicación debe confirmarse en un repositorio de Git local.
+Si es necesario, actualice a la versión más reciente de Azure PowerShell con la ayuda de la [Guía de Azure PowerShell](/powershell/azure/overview) y, luego, ejecute `Connect-AzAccount` para crear una conexión con Azure. Además, el código de aplicación debe confirmarse en un repositorio de Git local.
 
 ## <a name="sample-script"></a>Script de ejemplo
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
 
@@ -37,7 +39,7 @@ Si es necesario, actualice a la versión más reciente de Azure PowerShell con l
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación web y todos los recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>Explicación del script
@@ -46,7 +48,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Crea una aplicación web con el grupo de recursos y el grupo de App Service necesarios. Cuando el directorio actual contenga un repositorio Git, agregue un `azure` remoto. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crea una aplicación web con el grupo de recursos y el grupo de App Service necesarios. Cuando el directorio actual contenga un repositorio Git, agregue un `azure` remoto. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

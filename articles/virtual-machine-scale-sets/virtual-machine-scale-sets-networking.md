@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: a939438ad657066805f0179eb06f829abf301763
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 9203e786f701929a25251066190f5d507eacac02
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740134"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982038"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
 Al implementar el conjunto de escalado de máquinas virtuales de Azure a través del portal, algunas propiedades de red se establecen de forma predeterminada, por ejemplo, una instancia de Azure Load Balancer mediante reglas NAT de entrada. En este artículo se describe cómo utilizar algunas de las características más avanzadas de redes que puede configurar con conjuntos de escalado.
 
-Puede configurar todas las características que se tratan en este artículo usando plantillas de Azure Resource Manager. También se incluyen ejemplos de la CLI de Azure y PowerShell para las características seleccionadas. Use la CLI de Azure 2.0.10 o versiones posteriores y PowerShell 4.2.0 o versiones posteriores.
+Puede configurar todas las características que se tratan en este artículo usando plantillas de Azure Resource Manager. También se incluyen ejemplos de la CLI de Azure y PowerShell para las características seleccionadas.
 
 ## <a name="accelerated-networking"></a>Redes aceleradas
 Azure Accelerated Networking mejora el rendimiento de la red al permitir la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual. Para obtener más información sobre el uso de redes acelerada, consulte los temas sobre redes aceleradas para máquinas virtuales [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Para usar las redes aceleradas con conjuntos de escalado, establezca enableAcceleratedNetworking en **true** en los valores de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo: 
@@ -169,14 +169,14 @@ Ejemplo de plantilla: [201-vmss-public-ip-linux](https://github.com/Azure/azure-
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consulta de las direcciones IP públicas de las máquinas virtuales en un conjunto de escalado
 Para enumerar las direcciones IP públicas asignadas para escalar máquinas virtuales del conjunto mediante la CLI, use el comando **az vmss list-instance-public-ips**.
 
-Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _AzureRmPublicIpAddress_. Por ejemplo: 
+Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _Get-AzPublicIpAddress_. Por ejemplo: 
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 También puede consultar las direcciones IP públicas haciendo referencia directamente al identificador de recurso de la configuración de la dirección IP pública. Por ejemplo: 
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
 También puede mostrar las direcciones IP públicas asignadas a las máquinas virtuales del conjunto de escalado mediante una consulta a [Azure Resource Explorer](https://resources.azure.com) o a la API REST de Azure con la versión **2017-03-30** o superior.

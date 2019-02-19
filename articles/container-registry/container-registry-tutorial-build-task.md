@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756366"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868572"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor en la nube al confirmar código fuente
 
@@ -51,6 +51,8 @@ ACR Tasks admite actualmente los siguientes desencadenadores:
 
 * Confirmación en un repositorio Git
 * Actualización de imagen base
+
+En este tutorial, la tarea ACR compila e inserta una imagen de contenedor único especificada en un archivo Dockerfile. Azure Container Registry Tasks también puede ejecutar [tareas de varios pasos](container-registry-tasks-multi-step.md) (actualmente en versión preliminar) mediante un archivo YAML que define pasos para compilar, insertar y, opcionalmente, probar varios contenedores.
 
 ## <a name="create-a-build-task"></a>Creación de una tarea de compilación
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > Si ha creado anteriormente tareas durante la vista previa con el comando `az acr build-task`, deberá volver a crear esas tareas mediante el comando [az acr task][az-acr-task].
 
-Esta tarea especifica que siempre que confirme código en la rama *maestra* del repositorio especificado por `--context`, ACR Tasks compilará la imagen de contenedor desde el código de esa rama. Se usa el archivo de Docker que especifica `--file` en la raíz del repositorio. El argumento `--image` especifica un valor parametrizado de `{{.Run.ID}}` para la porción de la versión de la etiqueta de la imagen, lo que garantiza que la imagen compilada es correlativa a una compilación específica y que está etiquetada de forma exclusiva.
+Esta tarea especifica que siempre que confirme código en la rama *maestra* del repositorio especificado por `--context`, ACR Tasks compilará la imagen de contenedor desde el código de esa rama. La instancia de Dockerfile que especifica `--file` en la raíz del repositorio se usa para compilar la imagen. El argumento `--image` especifica un valor parametrizado de `{{.Run.ID}}` para la porción de la versión de la etiqueta de la imagen, lo que garantiza que la imagen compilada es correlativa a una compilación específica y que está etiquetada de forma exclusiva.
 
 La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecutado correctamente debe ser parecida a la siguiente:
 

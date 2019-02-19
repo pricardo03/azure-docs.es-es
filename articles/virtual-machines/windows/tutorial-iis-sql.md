@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/27/2018
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c5fa818a7f0d25a91ea6d272c30384de4c1765b3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: aa8f4e188761c50391cd2ead49ae8d8b9081188f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887111"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983498"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalación de la pila SQL, IIS y .NET en una máquina virtual Windows con Azure PowerShell
 
@@ -32,20 +32,22 @@ En este tutorial, vamos a instalar una pila SQL, IIS y .NET con Azure PowerShell
 > * Creación de una máquina virtual que ejecute SQL Server
 > * Instalación de la extensión de SQL Server
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
-Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.7.0 del módulo AzureRM.Compute o versiones posteriores. Ejecute `Get-Module -ListAvailable AzureRM.Compute` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
+
+Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com/powershell](https://shell.azure.com/powershell) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione Entrar para ejecutarlos.
 
 ## <a name="create-a-iis-vm"></a>Creación de una máquina virtual con IIS 
 
-En este ejemplo, usamos el cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) en PowerShell Cloud Shell para crear rápidamente una máquina virtual Windows Server 2016 y, a continuación, instalar IIS y .NET Framework. Las máquinas virtuales con IIS y SQL comparten un grupo de recursos y una red virtual, por lo que creamos variables para esos nombres.
+En este ejemplo, usamos el cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) en PowerShell Cloud Shell para crear rápidamente una máquina virtual Windows Server 2016 y, a continuación, instalar IIS y .NET Framework. Las máquinas virtuales con IIS y SQL comparten un grupo de recursos y una red virtual, por lo que creamos variables para esos nombres.
 
 
 ```azurepowershell-interactive
 $vmName = "IISVM"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $resourceGroup `
     -Name $vmName `
     -Location "East US" `
@@ -57,10 +59,10 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Instale IIS y .NET Framework utilizando la extensión de script personalizado con el cmdlet [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
+Instale IIS y .NET Framework utilizando la extensión de script personalizado con el cmdlet [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
     -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
     -VMName $vmName `
@@ -73,29 +75,29 @@ Set-AzureRmVMExtension `
 
 ## <a name="create-another-subnet"></a>Creación de otra subred
 
-Cree una segunda subred para la máquina virtual de SQL. Obtenga la red virtual mediante [Get-AzureRmVirtualNetwork]{/powershell/module/azurerm.network/get-azurermvirtualnetwork}.
+Cree una segunda subred para la máquina virtual de SQL. Obtenga la red virtual mediante [Get-AzVirtualNetwork]{/powershell/module/az.network/get-azvirtualnetwork}.
 
 ```azurepowershell-interactive
-$vNet = Get-AzureRmVirtualNetwork `
+$vNet = Get-AzVirtualNetwork `
    -Name $vNetName `
    -ResourceGroupName $resourceGroup
 ```
 
-Cree una configuración para la subred con [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig).
+Cree una configuración para la subred con [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig `
+Add-AzVirtualNetworkSubnetConfig `
    -AddressPrefix 192.168.0.0/24 `
    -Name mySQLSubnet `
    -VirtualNetwork $vNet `
    -ServiceEndpoint Microsoft.Sql
 ```
 
-Actualice la red virtual con la nueva información de subred mediante [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork).
+Actualice la red virtual con la nueva información de subred mediante [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork).
    
 ```azurepowershell-interactive   
-$vNet | Set-AzureRmVirtualNetwork
+$vNet | Set-AzVirtualNetwork
 ```
 
 ## <a name="azure-sql-vm"></a>Máquina virtual de Azure SQL
@@ -104,7 +106,7 @@ Utilice una imagen de Marketplace de Azure configurada previamente de un servido
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $resourceGroup `
     -Name "mySQLVM" `
     -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
@@ -116,10 +118,10 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) para agregar la [extensión de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) a la máquina virtual con SQL.
+Use [Set-AzVMSqlServerExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension) para agregar la [extensión de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) a la máquina virtual con SQL.
 
 ```azurepowershell-interactive
-Set-AzureRmVMSqlServerExtension `
+Set-AzVMSqlServerExtension `
    -ResourceGroupName $resourceGroup  `
    -VMName mySQLVM `
    -Name "SQLExtension" `

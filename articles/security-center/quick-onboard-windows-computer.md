@@ -4,7 +4,7 @@ description: En esta guía de inicio rápido se explica cómo aprovisionar Micro
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 57560a035f4d0468625e4c8f3ad6b7a7e516590f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850687"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115868"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Windows a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de Microsoft Monitoring Agent.
 
 En esta guía de inicio rápido se explica cómo instalar Microsoft Monitoring Agent en un equipo Windows.
@@ -97,7 +97,7 @@ Para eliminar el agente:
 3. En **Programas y características**, seleccione **Microsoft Monitoring Agent** y haga clic en **Desinstalar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido se ha explicado cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows. Para más información sobre el uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
+En esta guía de inicio rápido se ha explicado cómo aprovisionar Microsoft Monitoring Agent en un equipo Windows. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Definición y evaluación de las directivas de seguridad](tutorial-security-policy.md)

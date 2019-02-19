@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885156"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171237"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales en Azure Portal
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático según el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. Un equilibrador de carga de Azure distribuirá el tráfico a las instancias de máquina virtual del conjunto de escalado. En esta guía de inicio rápido se crea un conjunto de escalado de máquinas virtuales en Azure Portal.
@@ -46,11 +46,12 @@ Puede implementar un conjunto de escalado con una imagen de Windows Server o Lin
     - La **contraseña** debe tener 12 caracteres como mínimo y reunir, al menos, tres de los cuatro requisitos de complejidad siguientes: contener al menos una minúscula, una mayúscula, un número y un carácter especial. Para más información, consulte la sección acerca de los [requisitos de nombre de usuario y contraseña](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
     - Si selecciona una imagen de disco del sistema operativo Linux, puede elegir su **clave pública SSH** en su lugar. Proporcione solo su clave pública, como *~/.ssh/id_rsa.pub*. Puede usar Azure Cloud Shell del portal para [crear y utilizar claves SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-7. Escriba un **nombre de dirección IP pública**, como *myPublicIP*.
-8. Escriba una **etiqueta de nombre de dominio** única, como *myuniquedns*. Esta etiqueta del sistema de nombres de dominio es la base del FQDN del equilibrador de carga delante del conjunto de escalado.
-9. Para confirmar las opciones del conjunto de escalado, seleccione **Crear**.
+    ![Detalles básicos para crear un conjunto de escalado de máquinas virtuales en Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Seleccione una opción de equilibrio de carga, como *Equilibrador de carga*, en **Elegir opciones de equilibrio de carga**. Escriba los detalles restantes de la opción de equilibrio de carga. Por ejemplo, en el caso de *Equilibrador de carga* es preciso especificar un **nombre de dirección IP pública** y una **etiqueta de nombre de dominio**.
+1. Escriba los detalles de la red virtual en **Configurar redes virtuales**. Por ejemplo, puede crear una red virtual, *myVirtualNetwork* y una nueva subred, *default*.
+1. Para confirmar las opciones del conjunto de escalado, seleccione **Crear**.
+    ![Detalles de la red para crear un conjunto de escalado de máquinas virtuales en Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Creación de un conjunto de escalado de máquinas virtuales en Azure Portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Conexión a una máquina virtual en el conjunto de escalado

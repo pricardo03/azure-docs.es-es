@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/11/2018
-ms.openlocfilehash: 93249b7d274ce9d7928dfa46eb339da68c92b785
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: c6b23038ad68492e1965e1ebf7ce5e7cf1d788f7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163303"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236641"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de .NET y C# en Visual Studio para conectar a una base de datos de Azure SQL Database y consultarla
 
@@ -27,13 +27,33 @@ En esta guía de inicio rápido se muestra cómo usar [.NET Framework](https://w
 
 Para completar este inicio rápido necesita instalar:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
+- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+
+  || Base de datos única | Instancia administrada |
+  |:--- |:--- |:---|
+  | Crear| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configuración | [Regla de firewall de IP en el nivel de servidor](sql-database-server-level-firewall-rule.md)| [Conectividad desde una máquina virtual](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividad desde el sitio](sql-database-managed-instance-configure-p2s.md)
+  |Carga de datos|Adventure Works cargado por inicio rápido|[Restauración de World Wide Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restauración o importación de Adventure Works a partir del archivo [BACPAC](sql-database-import.md) desde [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works a una base de datos de la instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise.
 
 ## <a name="get-sql-server-connection-information"></a>Obtención de información de conexión de SQL Server
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor o nombre de host, el nombre de la base de datos y la información de inicio de sesión.
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+
+2. Vaya a las páginas **SQL Database** o **Instancias administradas de SQL**.
+
+3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para una única base de datos o el nombre completo del servidor junto a **Host** para una instancia administrada. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**. 
 
 ## <a name="create-code-to-query-the-sql-database"></a>Creación del código para consultar la base de datos SQL
 

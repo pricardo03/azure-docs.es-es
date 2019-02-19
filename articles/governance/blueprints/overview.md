@@ -4,17 +4,17 @@ description: Azure Blueprint es un servicio de Azure que se usa para crear, defi
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 29670b94450e9f145a96b737ef96970db40aeed8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563378"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998559"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -112,6 +112,12 @@ Todos los permisos anteriores se incluyen en el rol **Propietario**. El rol **Co
 
 > [!NOTE]
 > La entidad de servicio para Azure Blueprint requiere el rol **Propietario** en la suscripción asignada con el fin de habilitar la implementación. Si usa el portal, este rol se le concede automáticamente y se revoca para la implementación. Si usa la API REST, este rol se debe conceder manualmente, pero se sigue revocando de forma automática una vez finalizada la implementación.
+
+## <a name="video-overview"></a>Introducción en vídeo
+
+La siguiente introducción sobre Azure Blueprints es de Azure Fridays. Para descargar el vídeo, visite [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) (Azure Fridays - Introducción a Azure Blueprints) en Channel 9.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

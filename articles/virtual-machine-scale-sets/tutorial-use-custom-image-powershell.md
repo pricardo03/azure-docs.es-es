@@ -16,14 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bca92b5079b5ef21c954b46bfbeab9b973828fc8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a3b0f9b2b158bd36259ee96633682e1777333499
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427447"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981050"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
+
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -34,9 +35,9 @@ Al crear el conjunto de escalado, se especifica la imagen que se usará cuando s
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure. 
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Creación y configuración de una máquina virtual de origen
@@ -44,24 +45,24 @@ Si decide instalar y usar PowerShell de forma local, en este tutorial se requier
 >[!NOTE]
 > Este tutorial le guía por el proceso de creación y uso de una imagen de máquina virtual generalizada. No se admite la creación de un conjunto de escalado a partir de un disco duro virtual especializado.
 
-Primero, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) y, después, cree una máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myCustomVM* en el grupo de recursos llamado *myResourceGroup*. Cuando se le solicite, escriba el nombre de usuario y la contraseña que se usarán como credenciales de inicio de sesión para la máquina virtual:
+Primero, cree un grupo de recursos con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) y, después, cree una máquina virtual con [New-AzVM](/powershell/module/az.compute/new-azvm). Esta máquina virtual se usará después como origen para la imagen de máquina virtual personalizada. En el ejemplo siguiente, se crea una máquina virtual llamada *myCustomVM* en el grupo de recursos llamado *myResourceGroup*. Cuando se le solicite, escriba el nombre de usuario y la contraseña que se usarán como credenciales de inicio de sesión para la máquina virtual:
 
 ```azurepowershell-interactive
 # Create a resource a group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 # Create a Windows Server 2016 Datacenter VM
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Name "myCustomVM" `
   -ImageName "Win2016Datacenter" `
   -OpenPorts 3389
 ```
 
-Para conectarse a la máquina virtual, obtenga la dirección IP pública con [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress), tal y como se indica a continuación:
+Para conectarse a la máquina virtual, obtenga la dirección IP pública con [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress), tal y como se indica a continuación:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
 Cree una conexión remota con la máquina virtual. Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. Proporcione su propia dirección IP mediante el comando anterior. Cuando se le solicite, escriba las credenciales que usó al crear la máquina virtual en el primer paso:
@@ -90,34 +91,34 @@ La conexión remota a la máquina virtual se cierra automáticamente cuando term
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Crear una imagen de máquina virtual personalizada a partir de la máquina virtual de origen
 La máquina virtual de origen ahora está personalizada con el servidor web de IIS instalado. Vamos a crear la imagen de máquina virtual personalizada para usarla con un conjunto de escalado.
 
-Para crear una imagen, es necesario desasignar la máquina virtual. Desasigne la máquina virtual con [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). A continuación, establezca el estado de la máquina virtual como generalizado con [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) para que la plataforma Azure sepa que la máquina virtual está preparada para usarla como imagen personalizada. Solo se puede crear una imagen de una máquina virtual generalizada:
+Para crear una imagen, es necesario desasignar la máquina virtual. Desasigne la máquina virtual con [Stop-AzVm](/powershell/module/az.compute/stop-azvm). A continuación, establezca el estado de la máquina virtual como generalizado con [Set-AzVm](/powershell/module/az.compute/set-azvm) para que la plataforma Azure sepa que la máquina virtual está preparada para usarse como imagen personalizada. Solo se puede crear una imagen de una máquina virtual generalizada:
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
-Set-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
+Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
+Set-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
 ```
 
 La desasignación y generalización de la máquina virtual puede tardar unos minutos.
 
-Ahora, cree una imagen de la máquina virtual mediante [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) y [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). En el ejemplo siguiente se crea una imagen llamada *myImage* a partir de la máquina virtual:
+Ahora, cree una imagen de la máquina virtual mediante [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig) y [New-AzImage](/powershell/module/az.compute/new-azimage). En el ejemplo siguiente se crea una imagen llamada *myImage* a partir de la máquina virtual:
 
 ```azurepowershell-interactive
 # Get VM object
-$vm = Get-AzureRmVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
+$vm = Get-AzVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
 
 # Create the VM image configuration based on the source VM
-$image = New-AzureRmImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
 
 # Create the custom VM image
-New-AzureRmImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
+New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Creación de un conjunto de escalado a partir de la imagen de máquina virtual personalizada
-Ahora, cree un conjunto de escalado con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss), que usa el parámetro `-ImageName` para definir la imagen de máquina virtual personalizada creada en el paso anterior. Para distribuir el tráfico a las instancias individuales de VM, también se crea un equilibrador de carga. El equilibrador de carga incluye reglas para distribuir el tráfico en el puerto TCP 80, y permitir el tráfico de Escritorio remoto en el puerto TCP 3389 y la conexión remota de PowerShell en el puerto TCP 5985. Cuando se le solicite, proporcione sus propias credenciales administrativas para las instancias de máquina virtual en el conjunto de escalado:
+Ahora, cree un conjunto de escalado con [New-AzVmss](/powershell/module/az.compute/new-azvmss), que usa el parámetro `-ImageName` para definir la imagen de máquina virtual personalizada creada en el paso anterior. Para distribuir el tráfico a las instancias individuales de VM, también se crea un equilibrador de carga. El equilibrador de carga incluye reglas para distribuir el tráfico en el puerto TCP 80, y permitir el tráfico de Escritorio remoto en el puerto TCP 3389 y la conexión remota de PowerShell en el puerto TCP 5985. Cuando se le solicite, proporcione sus propias credenciales administrativas para las instancias de máquina virtual en el conjunto de escalado:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -133,10 +134,11 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 
 ## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
-Para ver el conjunto de escalado en acción, obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) como se muestra a continuación:
+Para ver el conjunto de escalado en acción, obtenga la dirección IP pública del equilibrador de carga con [Get-AzPublicIPAddress](/powershell/module/az.network/Get-AzPublicIpAddress) como se muestra a continuación:
+
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
   -Name "myPublicIPAddress" | Select IpAddress
 ```
@@ -147,10 +149,10 @@ Escriba la dirección IP pública en un explorador web. Se muestra la página we
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). El parámetro `-Force` confirma que desea eliminar los recursos sin pedir confirmación adicional. El parámetro `-AsJob` devuelve el control a la petición de confirmación sin esperar a que finalice la operación.
+Para quitar el conjunto de escalado y los recursos adicionales, elimine el grupo de recursos y todos sus recursos con [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). El parámetro `-Force` confirma que desea eliminar los recursos sin pedir confirmación adicional. El parámetro `-AsJob` devuelve el control a la petición de confirmación sin esperar a que finalice la operación.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

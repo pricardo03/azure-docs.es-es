@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240818"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207065"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Tutorial: poner bases de datos SQL a disposición de los usuarios de Azure Stack
 
@@ -35,7 +35,7 @@ Como administrador de la nube de Azure Stack, puede crear ofertas que permitan a
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>Implementar un proveedor de recursos de SQL Server
 
-El proceso de implementación se describe con todo detalle en el [artículo Uso de bases de datos SQL en Microsoft Azure Stack](azure-stack-sql-resource-provider-deploy.md) y consta de los siguientes pasos principales:
+El proceso de implementación se describe con todo detalle en el artículo [Uso de bases de datos SQL en Microsoft Azure Stack](azure-stack-sql-resource-provider-deploy.md) y consta de los siguientes pasos principales:
 
 1. [Implemente el proveedor de recursos SQL](azure-stack-sql-resource-provider-deploy.md).
 2. [Compruebe la implementación](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).

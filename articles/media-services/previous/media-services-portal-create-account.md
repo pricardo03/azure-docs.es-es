@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32e81b4c5c551f5fe7fd8ccda3e1b9a4e7d3b26f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d5b3af2b950dd33c797af874d56806de8049b358
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565945"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210686"
 ---
-# <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Azure Media Services mediante Azure Portal
+# <a name="create-a-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Media Services desde Azure Portal
 
 Azure Portal proporciona una forma de crear rápidamente una cuenta de Azure Media Services (AMS). Puede usar la cuenta para obtener acceso a Media Services que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Media Services, también crea una cuenta de almacenamiento asociada (o usa una ya existente). Si elimina una cuenta de Media Services, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
 
 La cuenta de almacenamiento principal puede ser de uso general v1 o de uso general v2. Actualmente, Azure portal solo permite seleccionar v1, pero puede agregar v2 al crear la cuenta mediante la API o Powershell. Para más información acerca de los tipos de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-La cuenta de Media Services y todas las cuentas de almacenamiento asociadas deben estar en la misma suscripción de Azure. Se recomienda utilizar cuentas de almacenamiento en la misma ubicación que la cuenta de Media Services.
+La cuenta de Media Services y todas las cuentas de almacenamiento asociadas deben estar en la misma suscripción de Azure. Se recomienda encarecidamente usar cuentas de almacenamiento que se encuentren en la misma ubicación que la cuenta de Media Services para evitar costos adicionales debidos a la latencia y a la salida de datos.
 
 En este artículo se muestra cómo crear una cuenta de Media Services con Azure Portal.
 

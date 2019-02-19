@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, obtendrá información sobre cómo detectar el idioma del texto proporcionado mediante Java y Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 00ffb0eef5b7452894b27a00328dae4546d45c6f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c40736bf22f53723a69a649215cdbb79a703e515
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208444"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964107"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Inicio rápido: Uso de Translator Text API para detectar el idioma del texto mediante Java
 
@@ -171,6 +171,12 @@ Eso es todo, ya está listo para ejecutar la aplicación de ejemplo. Desde la l�
 
 ```console
 gradle build
+```
+
+Cuando la compilación se complete, ejecute lo siguiente:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Respuesta de muestra

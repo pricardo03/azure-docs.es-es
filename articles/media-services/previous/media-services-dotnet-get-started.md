@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 40057f6d7ab792557f17c777276091e7c7c05c3c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 34a6676444c4723f64264e41cb0e3c4842486bf6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233623"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003098"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Azure Media Services (AMS) mediante el SDK de .NET para Azure Media Services.
@@ -87,7 +88,7 @@ Para iniciar el punto de conexión de streaming, haga lo siguiente:
 
 Cuando se usa Media Services con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Media Services: conexión a la cuenta de Media Services; creación, actualización, acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
-Sobrescriba la clase Program predeterminada con el código siguiente, que muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Media Services. Para más información, consulte [Conexión a la API de Media Services](media-services-use-aad-auth-to-access-ams-api.md).
+Sobrescriba la clase de programa predeterminada con el código siguiente: El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Media Services. Para más información, consulte [Conexión a la API de Media Services](media-services-use-aad-auth-to-access-ams-api.md).
 
 No olvide actualizar el nombre de archivo y la ruta de acceso con la ubicación del archivo multimedia.
 

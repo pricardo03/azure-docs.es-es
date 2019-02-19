@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d8a3d8f890001138f0582a099021b4537227a337
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: dbe8417e8a26cb222fe52ac7c0284b3956ed65fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586904"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106943"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Eliminación de una copia de seguridad de una Web mediante Azure PowerShell
 
@@ -30,6 +30,8 @@ Para ejecutar este script, necesita una copia de seguridad existente de una apli
 
 ## <a name="sample-script"></a>Script de ejemplo
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
@@ -37,7 +39,7 @@ Para ejecutar este script, necesita una copia de seguridad existente de una apli
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación web y todos los recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>Explicación del script
@@ -46,8 +48,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Obtiene una lista de copias de seguridad de una aplicación web. |
-| [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Quita la copia de seguridad especificada de una aplicación web. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtiene una lista de copias de seguridad de una aplicación web. |
+| [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Quita la copia de seguridad especificada de una aplicación web. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

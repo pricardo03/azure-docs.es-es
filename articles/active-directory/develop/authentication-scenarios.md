@@ -17,12 +17,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: db642fea6dbf1bd1ebc53f5066d01dc4f9a5490f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095640"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244562"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
@@ -47,7 +48,7 @@ Esto es lo que necesita saber sobre los distintos componentes que se muestran en
 
 * Azure AD es el proveedor de identidades. El proveedor de identidades es el responsable de comprobar la identidad de los usuarios y las aplicaciones que existen en el directorio de una organización y de emitir tokens de seguridad tras la autenticación correcta de dichos usuarios y aplicaciones.
 * Cualquier aplicación que necesite externalizar la autenticación a Azure AD se debe registrar en Azure AD. Azure AD registra la aplicación y la identifica de forma única en el directorio.
-* Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de Azure AD para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Para obtener más información, consulte las [bibliotecas de autenticación v2.0](reference-v2-libraries.md) y las [bibliotecas de autenticación v1.0](active-directory-authentication-libraries.md) de Azure AD.
+* Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de Azure AD para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Para más información, consulte las [bibliotecas de autenticación v2.0](reference-v2-libraries.md) y las [bibliotecas de autenticación v1.0](active-directory-authentication-libraries.md) de Azure AD.
 * Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente. Puede encontrar guías de inicio rápido, tutoriales y ejemplos de código en una variedad de lenguajes y marcos que muestran lo que debe hacer la aplicación.
   * Para crear rápidamente una aplicación y agregar funcionalidad similar a obtener tokens, actualizar tokens, iniciar la sesión de un usuario, mostrar información de usuario y mucho más, vea la sección **Inicios rápidos** de la documentación.
   * Para obtener procedimientos detallados basados en un escenario para tareas de autenticación principales para desarrolladores, como obtener tokens de acceso y usarlos en las llamadas a Microsoft Graph API y otras API, implementar el inicio de sesión con Microsoft con una aplicación tradicional basada en explorador web mediante OpenID Connect y más, consulte la sección **Tutoriales** de la documentación.

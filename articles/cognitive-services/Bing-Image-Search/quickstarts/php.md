@@ -5,19 +5,19 @@ description: Use esta guía de inicio rápido para enviar solicitudes de búsque
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7015d22222113c1b38c9fd43f218f243d9be7bbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181544"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232496"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y PHP
 
@@ -49,9 +49,9 @@ Para ejecutar esta aplicación, siga estos pasos.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Construcción y realización de una solicitud HTTP
+## <a name="construct-and-perform-an-http-request"></a>Construcción y realización de una solicitud HTTP
 
-1. Use las variables del último paso para preparar una solicitud HTTP a Image Search API.
+1. Use las variables del último paso para preparar una solicitud HTTP para Image Search API.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -59,7 +59,7 @@ Para ejecutar esta aplicación, siga estos pasos.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Realice la solicitud web y obtenga la respuesta JSON.
+2. Envíe la solicitud web y obtenga la respuesta JSON.
 
     ```php
     $context = stream_context_create($options);
@@ -81,7 +81,7 @@ Procese e imprima la respuesta JSON devuelta.
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>Respuesta JSON de ejemplo
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta de ejemplo se ha truncado para mostrar un único resultado.
 
@@ -125,7 +125,7 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -137,7 +137,8 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 ## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) de Bing Search API. 
 * [Obtención de una clave de acceso de Cognitive Services gratis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
 * [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

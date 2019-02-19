@@ -1,6 +1,6 @@
 ---
-title: Protección de una base de datos independiente o agrupada en Azure SQL Database | Microsoft Docs
-description: Conozca las técnicas y características para proteger una base de datos independiente o agrupada en Azure SQL Database.
+title: Protección de una base de datos única o agrupada en Azure SQL Database | Microsoft Docs
+description: Conozca las técnicas y características para proteger una base de datos única o agrupada en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752524"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004604"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Protección de una base de datos independiente o agrupada
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
 
-Azure SQL Database protege los datos de una base de datos independiente o agrupada al permitir:
+Azure SQL Database protege los datos de una base de datos única o agrupada al permitir:
 
 - Limitar el acceso mediante reglas de firewall
 - Usar mecanismos de autenticación que requieran la identidad

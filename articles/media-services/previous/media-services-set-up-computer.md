@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84ca8aff053fdcd7e085392ecf28ca687803a8f9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 108fd47eea88e4fe0bd8e3eb22cb03e1a092a29e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230223"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999154"
 ---
-# <a name="set-up-your-media-services-development-environment"></a>Configure el entorno de desarrollo de Media Services
+# <a name="set-up-your-media-services-development-environment"></a>Configure el entorno de desarrollo de Media Services  
 
 Los pasos siguientes describen los requisitos previos necesarios para el desarrollo con Azure Media Services.
 

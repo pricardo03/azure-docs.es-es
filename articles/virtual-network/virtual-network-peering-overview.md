@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169321"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175734"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -78,7 +78,7 @@ También puede probar el [Solucionador de los problemas de emparejamiento de red
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones
 
 Las siguientes restricciones se aplican cuando las redes virtuales están emparejadas globalmente:
-- Las redes virtuales pueden existir en cualquier región de nube pública de Azure, pero no en nubes nacionales de Azure.
+- Las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure en las regiones de la nube de Azure China, pero no en las nubes de Azure Government.
 - Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure en la red virtual emparejada globalmente. El equilibrador de carga y los recursos que se comunican con él deben estar en la misma región.
 - No se pueden utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace. Para poder hacerlo, las redes virtuales emparejadas deben estar en la misma región.
 

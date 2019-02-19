@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: En este tutorial aprenderá a transliterar (convertir) texto de un script a otro mediante Java y Translator Text REST API. En este ejemplo, se transcribe el japonés para que use el alfabeto latino.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: e42aa7ec796b3be912614ced5f3a4db47f67c124
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2345204fc8b51cf1f7dc8020950c121e12676547
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210070"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961303"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Inicio rápido: Uso de Translator Text API para transliterar texto mediante Java
 
@@ -171,6 +171,12 @@ Eso es todo, ya está listo para ejecutar la aplicación de ejemplo. Desde la l�
 
 ```console
 gradle build
+```
+
+Cuando la compilación se complete, ejecute lo siguiente:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Respuesta de muestra

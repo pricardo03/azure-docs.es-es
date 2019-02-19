@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b725713777eb6ca25c829d327f91921b28cd4203
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035975"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977936"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan tareas básicas de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
@@ -42,12 +42,12 @@ Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha 
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
-Cree un grupo de recursos con el comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+Cree un grupo de recursos con el comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroupVM* en la región *EastUS*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "EastUS"
 ```
@@ -56,7 +56,7 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Al crear una máquina virtual, hay varias opciones disponibles, como la imagen de sistema operativo, la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual denominada *myVM* que ejecuta la versión predeterminada de Windows Server 2016 Datacenter.
+Al crear una máquina virtual, hay varias opciones disponibles, como la imagen del sistema operativo, la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual denominada *myVM* que ejecuta la versión predeterminada de Windows Server 2016 Datacenter.
 
 Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
@@ -64,10 +64,10 @@ Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta
 $cred = Get-Credential
 ```
 
-Cree la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Cree la máquina virtual con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Location "EastUS" `
@@ -85,7 +85,7 @@ Una vez finalizada la implementación, cree una conexión del escritorio remoto 
 Ejecute los siguientes comandos para devolver la dirección IP pública de la máquina virtual. Tome nota de esta dirección IP para poder conectarse a ella con un explorador para probar la conectividad web en un paso posterior.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
@@ -101,16 +101,18 @@ En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después
 
 Azure Marketplace incluye muchas imágenes que pueden usarse para crear una máquina virtual. En los pasos anteriores se creó una máquina virtual mediante la imagen de Windows Server 2016 Datacenter. En este paso, el módulo de PowerShell se usa para buscar en Marketplace otras imágenes de Windows, que también se pueden usar como base para nuevas máquinas virtuales. Este proceso consiste en buscar el publicador, la oferta, la SKU y, opcionalmente, un número de versión para [identificar](cli-ps-findimage.md#terminology) la imagen.
 
-Use el comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) para devolver una lista de publicadores de imágenes:
+Use el comando [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) para devolver una lista de publicadores de imágenes:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "EastUS"
+Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Use el comando [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) para devolver una lista de ofertas de imágenes. Con este comando, la lista devuelta se filtra por el publicador especificado denominado `MicrosoftWindowsServer`:
+Use el comando [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) para devolver una lista de ofertas de imágenes. Con este comando, la lista devuelta se filtra por el publicador especificado denominado `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
+Get-AzVMImageOffer `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer"
 ```
 
 Los resultados deberán tener un aspecto similar a este ejemplo: 
@@ -123,10 +125,13 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-El comando [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) filtra entonces por el publicador y el nombre de la oferta para devolver una lista de nombres de imágenes.
+El comando [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) filtrará entonces por el publicador y el nombre de la oferta para devolver una lista de nombres de imágenes.
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzVMImageSku `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer" `
+   -Offer "WindowsServer"
 ```
 
 Los resultados deberán tener un aspecto similar a este ejemplo: 
@@ -153,7 +158,7 @@ Skus                                      Offer         PublisherName          L
 Esta información puede usarse para implementar una máquina virtual con una imagen específica. En este ejemplo se implementa una máquina virtual mediante la versión más reciente de Windows Server 2016 con una imagen de Containers.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
     -Location "EastUS" `
@@ -175,7 +180,7 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 ### <a name="vm-sizes"></a>Tamaños de máquina virtual
 
 En la tabla siguiente se clasifican los tamaños en casos de uso.  
-| Escriba                     | Tamaños comunes           |    DESCRIPCIÓN       |
+| Type                     | Tamaños comunes           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
 | [Proceso optimizado](sizes-compute.md)   | Fsv2, Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
@@ -186,69 +191,71 @@ En la tabla siguiente se clasifican los tamaños en casos de uso.
 
 ### <a name="find-available-vm-sizes"></a>Búsqueda de los tamaños de máquina virtual disponibles
 
-Para ver una lista de tamaños de máquina virtual disponibles en una región determinada, use el comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
+Para ver una lista de tamaños de máquina virtual disponibles en una región determinada, use el comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize).
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "EastUS"
+Get-AzVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
 
 Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos.
 
-Antes de cambiar el tamaño de una máquina virtual, compruebe si el tamaño deseado está disponible en el clúster actual de máquinas virtuales. El comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) devuelve una lista de tamaños.
+Antes de cambiar el tamaño de una máquina virtual, compruebe si el tamaño deseado está disponible en el clúster actual de máquinas virtuales. El comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) devuelve una lista de tamaños.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
+Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-Si el tamaño deseado está disponible, puede cambiarlo con la máquina virtual encendida, aunque se reiniciará durante la operación.
+Si el tamaño está disponible, puede cambiarlo con la máquina virtual encendida, aunque se reiniciará durante la operación.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
+$vm = Get-AzVM `
+   -ResourceGroupName "myResourceGroupVM"  `
+   -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Update-AzVM `
+   -VM $vm `
+   -ResourceGroupName "myResourceGroupVM"
 ```
 
 Si el tamaño que desea no está disponible en el clúster actual, se debe desasignar la máquina virtual para que se pueda llevar a cabo la operación de cambio de tamaño. La desasignación de una máquina virtual se traduce en la eliminación de los datos del disco temporal y la dirección IP pública cambiará, a menos que se use una dirección IP estática.
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
-$vm = Get-AzureRmVM `
+$vm = Get-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_E2s_v3"
-Update-AzureRmVM -VM $vm `
+Update-AzVM -VM $vm `
    -ResourceGroupName "myResourceGroupVM"
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -Name $vm.name
 ```
 
 ## <a name="vm-power-states"></a>Estados de una máquina virtual
 
-Una máquina virtual de Azure puede tener uno de muchos estados de energía. Este estado representa el estado actual de la máquina virtual desde el punto de vista del hipervisor.
+Una máquina virtual de Azure puede tener uno de muchos estados de energía. 
 
-### <a name="power-states"></a>Estados de energía
 
 | Estado de energía | DESCRIPCIÓN
 |----|----|
-| Iniciando | Indica que se está iniciando la máquina virtual. |
-| Ejecución | Indica que la máquina virtual se está ejecutando. |
-| Deteniéndose | Indica que se está deteniendo la máquina virtual. |
-| Stopped | Indica que la máquina virtual se ha detenido. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
-| Desasignando | Indica que se está desasignando la máquina virtual. |
+| Iniciando | La máquina virtual se está iniciando. |
+| En ejecución | La máquina virtual se está ejecutando. |
+| Deteniéndose | La máquina virtual se está deteniendo. |
+| Stopped | La máquina virtual está detenida. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
+| Desasignando | La máquina virtual se está desasignando. |
 | Desasignado | Indica que la máquina virtual se quitó del hipervisor, pero sigue estando disponible en el plano de control. Las máquinas virtuales en el estado `Deallocated` no incurren en cargos por los procesos. |
-| - | Indica que se desconoce el estado de la máquina virtual. |
+| - | Se desconoce el estado de la máquina virtual. |
 
-### <a name="find-power-state"></a>Búsqueda del estado de una máquina virtual
 
-Para recuperar el estado de una máquina virtual concreta, use el comando [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Asegúrese de especificar un nombre válido para la máquina virtual y el grupo de recursos.
+Para recuperar el estado de una máquina virtual concreta, use el comando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Asegúrese de especificar un nombre válido para la máquina virtual y el grupo de recursos.
 
 ```azurepowershell-interactive
-Get-AzureRmVM `
+Get-AzVM `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
@@ -264,14 +271,14 @@ PowerState/running
 
 ## <a name="management-tasks"></a>Tareas de administración
 
-Durante el ciclo de vida de una máquina virtual, puede ejecutar tareas de administración como iniciarla, detenerla o eliminarla. Además, puede crear scripts para automatizar tareas repetitivas o complejas. Con Azure PowerShell, se pueden ejecutar muchas tareas comunes de administración desde la línea de comandos o en scripts.
+Durante el ciclo de vida de una máquina virtual, puede que desee ejecutar tareas de administración como iniciarla, detenerla o eliminarla. Además, puede crear scripts para automatizar tareas repetitivas o complejas. Con Azure PowerShell, se pueden ejecutar muchas tareas comunes de administración desde la línea de comandos o en scripts.
 
 ### <a name="stop-a-vm"></a>Detención de una máquina virtual
 
-Detenga y desasigne una máquina virtual con [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
+Detenga y desasigne una máquina virtual con [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
 ```
@@ -281,17 +288,17 @@ Si desea mantener la máquina virtual en un estado aprovisionado, use el paráme
 ### <a name="start-a-vm"></a>Inicio de una máquina virtual
 
 ```azurepowershell-interactive
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>Eliminación de un grupo de recursos
 
-Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.
+Todo el contenido dentro de un grupo de recursos se elimina al eliminar el grupo de recursos.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
    -Name "myResourceGroupVM" `
    -Force
 ```

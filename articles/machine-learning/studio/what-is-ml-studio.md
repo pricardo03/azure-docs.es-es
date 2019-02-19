@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469130"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243695"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio es una herramienta de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.
@@ -36,11 +36,6 @@ Para desarrollar un modelo de análisis predictivo, normalmente se utilizan dato
 **Azure Machine Learning Studio** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un lienzo interactivo, conectándolos todos para formar un ***experimento*** que se ejecuta en Machine Learning Studio. Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego publicarlo como ***servicio web*** para que otros usuarios puedan acceder al modelo.
 
 No se requiere ningún tipo de programación, basta con conectar visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
-
-> [!TIP]
-> Para descargar e imprimir un diagrama con información general de las funcionalidades de Machine Learning Studio, vea [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).
->
->
 
 ![Diagrama de Azure Machine Learning Studio: crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.][ml-studio-overview]
 
@@ -66,7 +61,7 @@ Haga clic en **Studio**, se le dirigirá a la **Azure Machine Learning Studio**.
 * **CONFIGURACIÓN** : una colección de ajustes que puede utilizar para configurar la cuenta y los recursos.
 
 ### <a name="gallery"></a>Gallery
-Haga clic en **Galería** y se le dirigirá a la **[Galería de Azure AI](http://gallery.cortanaintelligence.com/)**. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
+Haga clic en **Galería** y se le dirigirá a la **[Galería de Azure AI](http://gallery.azure.ai/)**. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
 Para más información acerca de la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Azure AI](gallery-how-to-use-contribute-publish.md).
 
@@ -83,7 +78,7 @@ Puede crear un experimento desde cero, o puede usar un experimento de ejemplo ex
 
 Para obtener un ejemplo de creación de un experimento simple, consulte [Creación de un experimento sencillo en Azure Machine Learning Studio](create-experiment.md).
 
-Para obtener un tutorial más completo de la creación de una solución de análisis predictivos, consulte [Desarrollo de una solución predictiva con Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Para obtener un tutorial más completo de la creación de una solución de análisis predictivos, consulte [Desarrollo de una solución predictiva con Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### <a name="datasets"></a>Conjuntos de datos
 Un conjunto de datos son datos que se han cargado en Machine Learning Studio para utilizarse en el proceso de modelado. Machine Learning Studio incluye varios conjuntos de datos de ejemplo con los que puede experimentar, y puede cargar más a medida que los necesite. A continuación se muestran algunos ejemplos de los conjuntos de datos incluidos:
@@ -162,7 +157,7 @@ Una vez entrenado un modelo, se evalúa con los datos restantes de la prueba. Pu
 * **ejemplo**: una parte de un conjunto de datos diseñado para ser representante del conjunto. Los ejemplos pueden elegirse aleatoriamente o según características específicas del conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Puede aprender los datos básicos del análisis predictivo y de Machine Learning mediante un [tutorial detallado](create-experiment.md) y el [uso de ejemplos](sample-experiments.md).
+Puede aprender los datos básicos del análisis predictivo y de Machine Learning mediante un [inicio rápido paso a paso](create-experiment.md) y el [uso de ejemplos](sample-experiments.md).
 
 
 <!-- Module References -->

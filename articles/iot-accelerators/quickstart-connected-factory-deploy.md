@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602654"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098892"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Inicio rápido: Prueba de una solución basada en la nube para administrar los dispositivos IoT industriales
 
@@ -42,7 +42,7 @@ En la página **Create Connected Factory solution** (Crear solución Connected F
 
 Seleccione la **Suscripción** y la **Región** que desea usar para implementar el acelerador de soluciones. Generalmente, elegirá la región más cercana. En esta guía de inicio rápido, vamos a usar **Visual Studio Enterprise** y **Este de EE. UU**. Debe ser un [administrador global o un usuario](iot-accelerators-permissions.md) en la suscripción.
 
-Haga clic en **Crear solución** para comenzar la implementación. Este proceso tarda al menos cinco minutos en ejecutarse:
+Haga clic en **Crear** para iniciar la implementación. Este proceso tarda al menos cinco minutos en ejecutarse:
 
 ![Detalles de la solución Connected Factory](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ En la página **Soluciones aprovisionadas**, haga clic en el nuevo acelerador de
 
 ![Elección de la nueva solución](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-Puede consultar información sobre el acelerador de soluciones Connected Factory en el panel que aparece. Elija **Panel de soluciones** para ver el acelerador de soluciones Connected Factory:
+Puede consultar información sobre el acelerador de soluciones Connected Factory en la página que aparece. Elija **Go to your Solution accelerator** (Ir al acelerador de soluciones) para ver el acelerador de soluciones Connected Factory:
 
 ![Panel de soluciones](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

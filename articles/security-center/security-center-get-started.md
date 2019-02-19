@@ -4,7 +4,7 @@ description: Esta guía de inicio rápido muestra cómo actualizarse al plan de 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8a0467a383e2c8e3efab685187c5a37d1549f664
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838172"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116701"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guía de inicio rápido: incorporación de su suscripción de Azure al nivel Estándar de Security Center
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard
 Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 En este artículo, actualizará al nivel Estándar para una mayor seguridad e instalará Microsoft Monitoring Agent en las máquinas virtuales para supervisar las amenazas y vulnerabilidades de seguridad.
@@ -107,7 +107,7 @@ Si desea deshabilitar el aprovisionamiento automático:
 En esta guía de inicio rápido ha actualizado al nivel Standard y ha aprovisionado Microsoft Monitoring Agent para la administración unificada de seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Para más información sobre cómo usar Security Center, siga la guía de inicio rápido para la incorporación de equipos Windows que se encuentran en local y en otras nubes.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: incorporación de equipos Windows a Azure Security Center](quick-onboard-windows-computer.md)
+> [Inicio rápido: Incorporación de equipos Windows a Azure Security Center](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

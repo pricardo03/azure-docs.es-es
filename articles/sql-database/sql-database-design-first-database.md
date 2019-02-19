@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Diseño de la primera base de datos única de Azure SQL Database mediante SSMS | Microsoft Docs'
-description: Aprenda a diseñar su primera base de datos SQL de Azure mediante SQL Server Management Studio.
+title: 'Tutorial: Diseño de la primera base de datos relacional de Azure SQL Database mediante SSMS | Microsoft Docs'
+description: Aprenda a diseñar su primera base de datos relacional en una base de datos única en Azure SQL Database con SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,30 +9,30 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459543"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990486"
 ---
-# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Diseño de la primera instancia de Azure SQL Database mediante SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con SSMS
 
-Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para:
+Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) para:
 
 > [!div class="checklist"]
-> * Crear una base de datos en Azure Portal*
-> * Establecer una regla de firewall de nivel de servidor en Azure Portal
-> * Conéctese a la base de datos con SSMS
-> * Crear tablas con SSMS
-> * Carga masiva de datos con BCP
-> * Consulta de datos con SSMS
+> - Creación de una base de datos única mediante Azure Portal*
+> - Configuración de una regla de firewall por IP de nivel de servidor mediante Azure Portal
+> - Conéctese a la base de datos con SSMS
+> - Crear tablas con SSMS
+> - Carga masiva de datos con BCP
+> - Consulta de datos con SSMS
 
 *Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!NOTE]
-> Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore](sql-database-service-tiers-vcore.md).
+> Para este tutorial, se utiliza una base de datos única. También puede usar una base de datos agrupada en un grupo elástico o una base de datos de instancia en una instancia administrada. Para la conectividad a una instancia administrada, consulte estos artículos de inicio rápido sobre la instancia administrada: [Inicio rápido: Configuración de una máquina virtual de Azure para la conexión a Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vm.md) y [Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -45,90 +45,84 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-database"></a>Crear una base de datos en blanco
+## <a name="create-a-blank-single-database"></a>Crear una base de datos única en blanco
 
-Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers-dtu.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor de Azure SQL Database](sql-database-features.md).
+Se crea una base de datos única en Azure SQL Database con un conjunto definido de recursos de proceso y almacenamiento. La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y se administra mediante un [servidor de bases de datos](sql-database-servers.md).
 
-Siga estos pasos para crear una instancia en blanco de SQL Database.
+Siga estos pasos para crear una base de datos única en blanco.
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-
-1. En la página **Nuevo**, seleccione **Bases de datos** en la sección de Microsoft Azure Marketplace y, a continuación, haga clic en **SQL Database** en la sección **Destacados**.
+2. En la página **Nuevo**, seleccione **Bases de datos** en la sección de Microsoft Azure Marketplace y, a continuación, haga clic en **SQL Database** en la sección **Destacados**.
 
    ![crear una base de datos en blanco](./media/sql-database-design-first-database/create-empty-database.png)
 
-   1. Rellene el formulario de **SQL Database** con la siguiente información, como se muestra en la imagen anterior:
+3. Rellene el formulario de **SQL Database** con la siguiente información, como se muestra en la imagen anterior:
 
-      | Configuración       | Valor sugerido | DESCRIPCIÓN |
-      | ------------ | ------------------ | ------------------------------------------------- |
-      | **Nombre de la base de datos** | *yourDatabase* | Para conocer los nombres de base de datos válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
-      | **Suscripción** | *yourSubscription*  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-      | **Grupos de recursos** | *yourResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-      | **Seleccionar origen** | Base de datos en blanco | Especifica que se debe crear una base de datos en blanco. |
+    | Configuración       | Valor sugerido | DESCRIPCIÓN |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Nombre de la base de datos** | *yourDatabase* | Para conocer los nombres de base de datos válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
+    | **Suscripción** | *yourSubscription*  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
+    | **Grupos de recursos** | *yourResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+    | **Seleccionar origen** | Base de datos en blanco | Especifica que se debe crear una base de datos en blanco. |
 
-   1. Haga clic en **Servidor** para usar un servidor existente o cree y configure un servidor nuevo para la nueva base de datos. Seleccione el servidor o haga clic en **Crear un nuevo servidor** y rellene el formulario **Nuevo servidor** con la información siguiente:
+4. Haga clic en **Servidor** para usar un servidor de bases de datos existente o para crear y configurar uno nuevo. Seleccione un servidor existente o haga clic en **Crear un nuevo servidor** y rellene el formulario **Nuevo servidor** con la información siguiente:
 
-      | Configuración       | Valor sugerido | DESCRIPCIÓN |
-      | ------------ | ------------------ | ------------------------------------------------- |
-      | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-      | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
-      | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe usar caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
-      | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
+    | Configuración       | Valor sugerido | DESCRIPCIÓN |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
+    | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe usar caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+    | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
 
-      ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
+    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
-      Haga clic en **Seleccionar**.
+5. Haga clic en **Seleccionar**.
+6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Puede explorar las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio.
 
-   1. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Puede explorar las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio. De forma predeterminada, se selecciona el tipo **Estándar** para el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
+    Después de seleccionar el nivel de servicio, el número de DTU o núcleos virtuales y la cantidad de almacenamiento, haga clic en **Aplicar**.
 
-      > [!IMPORTANT]
-      > Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto las siguientes: Norte de Reino Unido, Centro-oeste de EE. UU., Sur de Reino Unido 2, Este de China, US DoD (centro), Centro de Alemania, US DoD (este), US Gov (suroeste), US Gov (centro-sur), Nordeste de Alemania, Norte de China y US Gov (este). En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+7. Introduzca una **intercalación** para la base de datos en blanco (para este tutorial, use el valor predeterminado). Para más información sobre las intercalaciones, vea [Collations](/sql/t-sql/statements/collations) (Intercalaciones)
 
-      Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.
+8. Una vez completado el formulario de **SQL Database**, haga clic en **Crear** para aprovisionar la base de datos única. Esta operación puede tardar unos minutos.
 
-   1. Introduzca una **intercalación** para la base de datos en blanco (para este tutorial, use el valor predeterminado). Para más información sobre las intercalaciones, vea [Collations](/sql/t-sql/statements/collations) (Intercalaciones)
+9. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
 
-1. Una vez completado el formulario de **SQL Database**, haga clic en **Crear** para aprovisionar la base de datos. Esta operación puede tardar unos minutos.
+   ![notificación](./media/sql-database-design-first-database/notification.png)
 
-1. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
+## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de nivel de servidor
 
-     ![notificación](./media/sql-database-design-first-database/notification.png)
+El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este firewall evita que las herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que una regla de firewall permita sus direcciones IP. Para habilitar la conectividad externa a la base de datos única, primero debe agregar una regla de firewall para la dirección IP (o un intervalo de direcciones IP). Siga estos pasos para crear una [regla de firewall por IP de nivel de servidor de SQL Database](sql-database-firewall-configure.md).
 
-## <a name="create-a-firewall-rule"></a>Creación de una regla de firewall
-
-El servicio SQL Database crea un firewall en el nivel de servidor. El firewall impide que las herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos del servidor. Para habilitar la conectividad externa a la base de datos, primero debe agregar una regla para la dirección IP al firewall. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](sql-database-firewall-configure.md).
-
-> [!NOTE]
-> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el administrador abra el puerto 1433.
+> [!IMPORTANT]
+> El servicio SQL Database se comunica a través del puerto 1433. Si intenta conectarse a este servicio desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse a la base de datos única, salvo que el administrador abra el puerto 1433.
 
 1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en *yourDatabase* en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el **nombre del servidor completo** (por ejemplo, *sample-svr.database.windows.net*) y proporciona opciones para otras configuraciones.
 
-1. Copie este nombre del servidor completo para conectarse a su servidor y a sus bases de datos de SQL Server Management Studio.
+2. Copie este nombre del servidor completo para conectarse a su servidor y a sus bases de datos de SQL Server Management Studio.
 
    ![nombre del servidor](./media/sql-database-design-first-database/server-name.png)
 
-1. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
+3. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
 
-   ![regla de firewall del servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
+   ![Regla de firewall de IP en el nivel de servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-   1. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
+4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall por IP. La regla de firewall por IP puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-   1. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor de SQL Database.
+5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor de SQL Database.
 
-   1. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
+6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
-Ahora puede pasar la dirección IP a través del firewall. Ahora puede conectarse al servidor de SQL Database y sus bases de datos mediante SQL Server Management Studio u otra herramienta que elija. Asegúrese de usar la cuenta de administración de servidor que creó anteriormente.
+Ahora puede pasar la dirección IP a través del firewall por IP. Ahora puede conectarse a la base de datos única mediante SQL Server Management Studio u otra herramienta que elija. Asegúrese de usar la cuenta de administración de servidor que creó anteriormente.
 
 > [!IMPORTANT]
-> De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
+> De forma predeterminada, el acceso a través del firewall por IP de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
 
 ## <a name="connect-to-the-database"></a>Conexión a la base de datos
 
-Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para establecer una conexión con un servidor de Azure SQL Database.
+Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para establecer una conexión con la base de datos única.
 
 1. Abra SQL Server Management Studio.
-
-1. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
+2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
    | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -140,17 +134,17 @@ Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) 
 
    ![conectar con el servidor](./media/sql-database-design-first-database/connect.png)
 
-   1. Haga clic en **Opciones** en el cuadro de diálogo **Conectar con el servidor**. En la sección **Conectar con base de datos**, escriba *yourDatabase* para conectarse a esta base de datos.
+3. Haga clic en **Opciones** en el cuadro de diálogo **Conectar con el servidor**. En la sección **Conectar con base de datos**, escriba *yourDatabase* para conectarse a esta base de datos.
 
-      ![conectar a base de datos en el servidor](./media/sql-database-design-first-database/options-connect-to-db.png)  
+    ![conectar a base de datos en el servidor](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-   1. Haga clic en **Conectar**. Se abre la ventana del **Explorador de objetos** en SSMS.
+4. Haga clic en **Conectar**. Se abre la ventana del **Explorador de objetos** en SSMS.
 
-1. En el **Explorador de objetos**, expanda **Bases de datos** y, después, expanda *yourDatabase* para ver los objetos de la base de datos de ejemplo.
+5. En el **Explorador de objetos**, expanda **Bases de datos** y, después, expanda *yourDatabase* para ver los objetos de la base de datos de ejemplo.
 
    ![Objetos de base de datos](./media/sql-database-design-first-database/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos
+## <a name="create-tables-in-your-database"></a>Creación de tablas en la base de datos
 
 Cree un esquema de base de datos con cuatro tablas que modelan un sistema de administración de estudiantes para universidades con [Transact-SQL](/sql/t-sql/language-reference):
 
@@ -168,7 +162,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
 1. En el **Explorador de objetos**, haga clic con el botón derecho en *yourDatabase* y seleccione **Nueva consulta**. Se abre una ventana de consulta en blanco que está conectada a la base de datos.
 
-1. En la ventana de consulta, ejecute la consulta siguiente para crear cuatro tablas en la base de datos:
+2. En la ventana de consulta, ejecute la consulta siguiente para crear cuatro tablas en la base de datos:
 
    ```sql
    -- Create Person table
@@ -213,7 +207,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
    ![Cree las tablas.](./media/sql-database-design-first-database/create-tables.png)
 
-1. Expanda el nodo **Tablas** en *yourDatabase* en el **Explorador de objetos** de SQL Server Management Studio para ver las tablas que ha creado.
+3. Expanda el nodo **Tablas** en *yourDatabase* en el **Explorador de objetos** de SQL Server Management Studio para ver las tablas que ha creado.
 
    ![crear tablas en SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
@@ -221,17 +215,17 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
 1. Cree una carpeta denominada *sampleData* en la carpeta Descargas para almacenar datos de ejemplo para la base de datos.
 
-1. Haga clic con el botón derecho en los vínculos siguientes y guárdelos en la carpeta *sampleData*.
+2. Haga clic con el botón derecho en los vínculos siguientes y guárdelos en la carpeta *sampleData*.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-1. Abra una ventana del símbolo del sistema y navegue hasta la carpeta *sampleData*.
+3. Abra una ventana del símbolo del sistema y navegue hasta la carpeta *sampleData*.
 
-1. Ejecute los comandos siguientes para insertar datos de ejemplo en las tablas y reemplace los valores de *server*, *database*, *user* y *password* por los valores correspondientes al entorno.
-  
+4. Ejecute los comandos siguientes para insertar datos de ejemplo en las tablas y reemplace los valores de *server*, *database*, *user* y *password* por los valores correspondientes al entorno.
+
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
@@ -258,7 +252,7 @@ Ejecute las siguientes consultas para recuperar información de las tablas de ba
        AND Grade > 75
    ```
 
-1. Ejecute la siguiente consulta en una ventana de consulta:
+2. Ejecute la siguiente consulta en una ventana de consulta:
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
@@ -276,14 +270,14 @@ Ejecute las siguientes consultas para recuperar información de las tablas de ba
 En este tutorial, ha aprendido muchas tareas de base de datos básicas. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Creación de una base de datos
-> * Configurar una regla de firewall
-> * Conectarse a la base de datos con [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
-> * Cree las tablas.
-> * Realizar cargas masivas de datos
-> * Consultar los datos
+> - Creación de una base de datos única
+> - Configuración de una regla de firewall por IP de nivel de servidor
+> - Conectarse a la base de datos con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
+> - Cree las tablas.
+> - Realizar cargas masivas de datos
+> - Consultar los datos
 
 Avance hasta el próximo tutorial para obtener información sobre cómo diseñar una base de datos mediante Visual Studio y C#.
 
 > [!div class="nextstepaction"]
-> [Diseño de una base de datos de Azure SQL Database y conexión con C# y ADO.NET](sql-database-design-first-database-csharp.md)
+> [Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con C# y ADO.NET](sql-database-design-first-database-csharp.md)

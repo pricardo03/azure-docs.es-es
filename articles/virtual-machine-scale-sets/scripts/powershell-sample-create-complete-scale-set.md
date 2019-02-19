@@ -16,28 +16,31 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20bf851cc9b2965a355286699e1ef255887d7650
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 22de937c33edc7c8ec6944acf657937a1ce604f7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697095"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981901"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales completo con PowerShell
-Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016. Se configuran y crean recursos individuales, en lugar de usar las [opciones integradas de creación de recursos disponibles aquí en New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Después de ejecutar el script, puede acceder a las instancias de máquina virtual mediante RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016. Se configuran y crean recursos individuales, en lugar de usar las [opciones integradas de creación de recursos disponibles aquí en New-AzVmss](powershell-sample-create-simple-scale-set.md). Después de ejecutar el script, puede acceder a las instancias de máquina virtual mediante RDP.
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="sample-script"></a>Script de ejemplo
+
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/complete-scale-set/complete-scale-set.ps1 "Create a complete virtual machine scale set")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 Ejecute el siguiente comando para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explicación del script
@@ -45,24 +48,24 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Crea una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Crea una red virtual. |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Crea una dirección IP pública. |
-| [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) | Crea una configuración de dirección IP de Front-End para un equilibrador de carga. |
-| [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) | Crea una configuración de grupo de direcciones de back-end para un equilibrador de carga. |
-| [New-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig) | Crea una configuración de regla NAT entrante para un equilibrador de carga. |
-| [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) | Crea un equilibrador de carga. |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) | Crea una configuración de sondeo para un equilibrador de carga. |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) | Crea una configuración de regla para un equilibrador de carga. |
-| [Set-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Set-AzureRmLoadBalancer) | Actualice el equilibrador de carga con la información que se proporciona. |
-| [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | Cree una configuración de IP para las instancias de máquina virtual del conjunto de escalado. Las instancias de máquina virtual están conectadas al grupo de back-end del equilibrador de carga, a un grupo de NAT y a una subred de la red virtual. |
-| [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) | Crea una configuración del conjunto de escalado. Dicha configuración incluye información como el número de instancias de máquina virtual que se crean, la SKU de la máquina virtual (tamaño) y el modo de la directiva de actualización. La configuración se agrega a los cmdlets adicionales y se usa durante la creación del conjunto de escalado. |
-| [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Defina la imagen que se va a utilizar para las instancias de máquina virtual y agréguela a la configuración del conjunto de escalado. |
-| [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Defina las credenciales del nombre de usuario y la contraseña de administración, así como el prefijo de asignación de nombres de máquina virtual. Agregue estos valores a la configuración del conjunto de escalado. |
-| [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration) | Agregue una interfaz de red virtual a las instancias de máquina virtual, en función de la configuración de la IP. Agregue estos valores a la configuración del conjunto de escalado. |
-| [New-AzureRmVmss](/powershell/module/AzureRM.Compute/New-AzureRmVmss) | Cree el conjunto de escalado en función de la información proporcionada en la configuración del conjunto de escalado. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Crea una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Crea una red virtual. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública. |
+| [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | Crea una configuración de dirección IP de Front-End para un equilibrador de carga. |
+| [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | Crea una configuración de grupo de direcciones de back-end para un equilibrador de carga. |
+| [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | Crea una configuración de regla NAT entrante para un equilibrador de carga. |
+| [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) | Crea un equilibrador de carga. |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Crea una configuración de sondeo para un equilibrador de carga. |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | Crea una configuración de regla para un equilibrador de carga. |
+| [Set-AzLoadBalancer](/powershell/module/az.Network/Set-azLoadBalancer) | Actualice el equilibrador de carga con la información que se proporciona. |
+| [New-AzVmssIpConfig](/powershell/module/az.Compute/New-azVmssIpConfig) | Cree una configuración de IP para las instancias de máquina virtual del conjunto de escalado. Las instancias de máquina virtual están conectadas al grupo de back-end del equilibrador de carga, a un grupo de NAT y a una subred de la red virtual. |
+| [New-AzVmssConfig](/powershell/module/az.Compute/New-azVmssConfig) | Crea una configuración del conjunto de escalado. Dicha configuración incluye información como el número de instancias de máquina virtual que se crean, la SKU de la máquina virtual (tamaño) y el modo de la directiva de actualización. La configuración se agrega a los cmdlets adicionales y se usa durante la creación del conjunto de escalado. |
+| [Set-AzVmssStorageProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Defina la imagen que se va a utilizar para las instancias de máquina virtual y agréguela a la configuración del conjunto de escalado. |
+| [Set-AzVmssOsProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Defina las credenciales del nombre de usuario y la contraseña de administración, así como el prefijo de asignación de nombres de máquina virtual. Agregue estos valores a la configuración del conjunto de escalado. |
+| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.Compute/Add-azVmssNetworkInterfaceConfiguration) | Agregue una interfaz de red virtual a las instancias de máquina virtual, en función de la configuración de la IP. Agregue estos valores a la configuración del conjunto de escalado. |
+| [New-AzVmss](/powershell/module/az.Compute/New-azVmss) | Cree el conjunto de escalado en función de la información proporcionada en la configuración del conjunto de escalado. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).

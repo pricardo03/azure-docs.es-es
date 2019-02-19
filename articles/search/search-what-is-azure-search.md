@@ -9,19 +9,19 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ab41826661db3f46161aca4e650e5e974c6b3b45
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562800"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994983"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. La ejecución de consultas se realiza sobre un índice definido por el usuario.
 
 + Cree un corpus de búsqueda que contenga solo sus datos, originados a partir de varios tipos y plataformas de contenido. 
 + Sáquele partido a la indexación con inteligencia artificial para extraer texto y características de archivos de imágenes, o entidades y frases clave de texto sin formato.
-+ Cree experiencias de búsqueda intuitivas con navegación por facetas y filtros, sinónimos, autocompletar, y análisis de texto para términos de búsqueda autocorregidos con la característica "¿Quiso decir?".
++ Cree experiencias de búsqueda intuitivas con navegación por facetas y filtros, sinónimos, autocompletar, y análisis de texto para términos de búsqueda corregidos automáticamente con la característica "¿Quiso decir?".
 + Agregue búsqueda geográfica para la característica "buscar cerca de mí", analizadores de idiomas para búsqueda de texto completo en idiomas distintos al inglés, y lógica de puntuación para una clasificación de las búsquedas.
 
 La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) o [SDK de .NET](search-howto-dotnet-sdk.md) sencillos que enmascaran la complejidad inherente de la recuperación de información. Además de las API, Azure Portal proporciona soporte administrativo y de administración de contenido, con herramientas para la creación de prototipos y la consulta de índices. Como el servicio se ejecuta en la nube, Microsoft administra la infraestructura y la disponibilidad.

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 15ddb29f090ca8dc14befc93e3377c181038b554
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816167"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integración de Azure Active Directory con Captive Portal de Palo Alto Networks
 
@@ -81,7 +82,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Captive Por
 2. **[Configuración del inicio de sesión único de Captive Portal de Palo Alto Networks](#configure-palo-alto-networks-captive-portal-single-sign-on)**: configure los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: prueba el inicio de sesión único de Azure AD con el usuario *Britta Simon*.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: configure Britta Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Captive Portal de Palo Alto Networks](#create-palo-alto-networks-captive-portal-test-user)**: Cree un usuario homólogo de *Britta Simon* en Captive Portal de Palo Alto Networks que esté vinculado al usuario de Azure AD.
+5. **Creación de un usuario de prueba en Captive Portal de Palo Alto Networks**: Cree un usuario homólogo de *Britta Simon* en Captive Portal de Palo Alto Networks que esté vinculado al usuario de Azure AD.
 6. **[Prueba de inicio de sesión único](#test-single-sign-on)**: compruebe que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD

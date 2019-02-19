@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 416566ac52e8df6324cbf6146919df160deb0f98
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6965379aadefd110ce6e46e105bbde10626b63c1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221001"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892174"
 ---
 # <a name="configure-your-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python para Azure App Service
 En este artículo se describe la forma en que [Azure App Service](app-service-linux-intro.md) ejecuta aplicaciones de Python y cómo se puede personalizar el comportamiento de App Service cuando es necesario. Las aplicaciones de Python deben implementarse con todos los módulos [pip](https://pypi.org/project/pip/) requeridos. El motor de implementación de App Service (Kudu) activa automáticamente un entorno virtual y ejecuta `pip install -r requirements.txt` al implementar un [repositorio de Git](../deploy-local-git.md) o un [paquete Zip](../deploy-zip.md) con los procesos de compilación activos.
@@ -82,7 +82,7 @@ Para las aplicaciones de Django, App Service busca un archivo denominado `wsgi.p
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Si desea un control más específico sobre el comando de inicio, utilice un [comando de inicio personalizado](#custom-startup-command) y reemplace `<module>` por el nombre del módulo que contiene el archivo *wsgi.py*.
+Si desea un control más específico sobre el comando de inicio, utilice un comando de inicio personalizado y reemplace `<module>` por el nombre del módulo que contiene el archivo *wsgi.py*.
 
 ### <a name="flask-app"></a>Aplicación de Flask
 
@@ -95,7 +95,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Si el módulo de la aplicación principal está contenido en un archivo diferente, use un nombre diferente para el objeto de la aplicación, o si desea proporcionar argumentos adicionales para Gunicorn, use un [comando de inicio personalizado](#custom-startup-command).
+Si el módulo de la aplicación principal está contenido en un archivo diferente, use un nombre distinto para el objeto de la aplicación o, si desea proporcionar argumentos adicionales para Gunicorn, use un comando de inicio personalizado.
 
 ### <a name="default-behavior"></a>Comportamiento predeterminado
 
@@ -160,7 +160,7 @@ Los marcos web más usados le permiten acceder a la información de `X-Forwarded
 - Reinicie App Service, espere 15-20 segundos y vuelva a comprobar la aplicación.
 - Asegúrese de que está utilizando App Service para Linux en lugar de una instancia basada en Windows. Desde la CLI de Azure, ejecute el comando `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, reemplazando `<resource_group_name>` y `<app_service_name>` en consecuencia. Debería ver `app,linux` como salida; en caso contrario, vuelva a crear la instancia de App Service y elija Linux.
 - Use SSH o la consola de Kudu para conectarse directamente con App Service y compruebe que los archivos existen en *site/wwwroot*. Si no existen los archivos, revise el proceso de implementación y vuelva a implementar la aplicación.
-- Si existen los archivos, App Service no fue capaz de identificar el archivo de inicio específico. Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#custom-startup-command).
+- Si existen los archivos, App Service no fue capaz de identificar el archivo de inicio específico. Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un comando de inicio personalizado.
 - **Ve el mensaje "Servicio no disponible" en el explorador.** El explorador ha superado el tiempo de espera mientras esperaba una respuesta de App Service, lo cual indica que App Service ha iniciado el servidor Gunicorn, pero los argumentos que especifica el código de la aplicación son incorrectos.
 - Actualice el explorador, especialmente si usa los planes de tarifa más bajos en su plan de App Service. Por ejemplo, la aplicación puede tardar más en iniciarse si usa niveles gratis, por ejemplo, y comienza a tener capacidad de respuesta después de actualizar el explorador.
 - Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#customize-startup-command).

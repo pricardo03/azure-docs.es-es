@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: bd76d8a7f3f41a8aa6b2e614d37f361a98ac4efd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53281319"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233146"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutorial: Habilitar la integración y los firewalls de redes virtuales en el espacio de nombres de Event Hubs
 
@@ -30,9 +30,9 @@ En este tutorial, aprenderá a:
 > * Configurar el firewall (filtrado de IP) con el espacio de nombres de Event Hubs.
 
 >[!WARNING]
-> La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus.
+> La implementación de la integración de instancias de Virtual Network puede evitar que otros servicios de Azure interactúen con Event Hubs.
 >
-> Las integraciones propias no se admiten si las redes virtuales están habilitadas, pero se admitirán próximamente.
+> Las integraciones propias no se admiten si las redes virtuales están habilitadas.
 > Escenarios comunes de Azure que no funcionan con redes virtuales:
 > * Azure Diagnostics y registro
 > * Azure Stream Analytics

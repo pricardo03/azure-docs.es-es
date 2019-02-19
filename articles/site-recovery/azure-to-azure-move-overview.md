@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824714"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112553"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -33,7 +33,7 @@ Este documento recorre los distintos escenarios en los que le gustaría traslada
 Los clientes trasladan las máquinas virtuales por las razones siguientes:-
 
 - Si ya se ha implementado en una región y se ha agregado compatibilidad con una nueva, que está más cerca de los usuarios finales de la aplicación o servicio, entonces querrá **trasladar las máquinas virtuales tal cual están a la nueva región** para reducir la latencia. El mismo enfoque se aplica si desea consolidar las suscripciones o si existen reglas de gobierno o de organización que requieren el traslado. 
-- Si la máquina virtual se ha implementado como una máquina virtual de instancia única o como parte de un conjunto de disponibilidad y desea aumentar el SLA de disponibilidad, puede **trasladar las máquinas virtuales como un conjunto de disponibilidad**. 
+- Si la máquina virtual se ha implementado como una máquina virtual de instancia única o como parte de un conjunto de disponibilidad y desea aumentar los Acuerdos de Nivel de Servicio (SLA) de disponibilidad, puede **trasladar las máquinas virtuales a una zona de disponibilidad**. 
 
 ## <a name="how-to-move-azure-vms"></a>Procedimiento para trasladar máquinas virtuales de Azure
 El traslado de máquinas virtuales implica los pasos siguientes:
@@ -97,7 +97,7 @@ En función de las [arquitecturas](#typical-architectures-for-a-multi-tier-deplo
 
 2. **Máquinas virtuales de cada nivel implementadas en un conjunto de disponibilidad**: puede elegir configurar para colocar las máquinas virtuales en un conjunto de disponibilidad en zonas de disponibilidad independientes, cuando elija habilitar la replicación para la máquina virtual mediante Azure Site Recovery. El SLA de disponibilidad será del 99,9 % una vez finalizada la operación de traslado.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

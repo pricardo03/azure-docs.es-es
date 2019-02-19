@@ -13,12 +13,13 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 022fd8e1ab8445954b205f471cd1aa4d18e11545
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167145"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178165"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -58,13 +59,15 @@ Para conocer mejor PIM y su documentación, debe revisar los términos siguiente
 | --- | --- | --- |
 | Apto | Type | Asignación de roles que requiere que un usuario realice una o varias acciones para usar el rol. Si un usuario es apto para un rol, eso significa que puede activarlo cuando necesite para realizar tareas con privilegios. No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. |
 | active | Type | Asignación de roles que no requiere que el usuario realice ninguna acción para usar el rol. Los usuarios asignados como activos tienen privilegios asignados al rol. |
-| activar |  | Proceso de realizar una o más acciones para usar el rol para el cual es apto un usuario. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados. |
+| activar |  | Proceso de realizar una o varias acciones para usar un rol para el que es apto un usuario. Entre las acciones se puede incluir realizar una comprobación de autenticación multifactor (MFA), proporcionar una justificación de negocios o solicitar la aprobación de los aprobadores designados. |
 | asignado | Estado | Usuario que tiene una asignación de roles activa. |
-| activado | Estado | Usuario con una asignación de roles apta, que ha realizado las acciones necesarias para activar el rol y ahora está activo. |
+| activado | Estado | Usuario con una asignación de roles apta, que ha realizado las acciones necesarias para activar el rol y ahora está activo.  Una vez activado, el usuario puede utilizar el rol durante un período preconfigurado de tiempo antes de tener que volver a activarlo. |
 | apto permanente | Duration | Asignación de roles en la que un usuario siempre es apto para activar el rol. |
 | activo permanente | Duration | Asignación de roles en la que un usuario siempre puede usar el rol, sin realizar ninguna acción. |
 | apto con expiración | Duration | Asignación de roles en la que un usuario es apto para activar el rol en un plazo específico de tiempo, con principio y fin. |
 | activo con expiración | Duration | Asignación de roles en la que un usuario puede usar el rol sin realizar ninguna acción en un plazo determinado con principio y fin. |
+| acceso just-in-time (JIT) |  | Modelo en el que los usuarios reciben permisos temporales para realizar tareas con privilegios, lo que impide que usuarios malintencionados o sin autorización obtengan acceso después de que el permiso haya expirado. El acceso se concede solo cuando los usuarios lo necesitan. |
+| principio de acceso con privilegios mínimos |  | Una práctica de seguridad recomendada en la que se proporcionan a todos los usuarios únicamente los privilegios mínimos necesarios para realizar las tareas que están autorizados a realizar. Esta práctica minimiza el número de administradores globales, ya que en su lugar utiliza roles de administrador específicos para determinados escenarios. |
 
 ## <a name="what-does-pim-look-like"></a>¿Qué aspecto tiene PIM?
 
@@ -104,6 +107,6 @@ PIM admite los siguientes escenarios:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Primer uso de PIM](pim-getting-started.md)
 - [Requisitos de licencia para usar PIM](subscription-requirements.md)
 - [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Implementación de PIM](pim-deployment-plan.md)

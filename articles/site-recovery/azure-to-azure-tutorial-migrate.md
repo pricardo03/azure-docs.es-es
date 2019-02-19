@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810429"
+ms.locfileid: "55882274"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -31,7 +31,7 @@ En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure a o
 > * [Descarte de los recursos en la región de origen](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> Este documento le guía para trasladar las máquinas virtuales de Azure de una región a otra tal cual; si lo que se requiere es mejorar la disponibilidad al trasladar máquinas virtuales de un conjunto de disponibilidad a máquinas virtuales ancladas por zona de otra región, consulte el tutorial aquí.
+> Este documento le guía para trasladar las máquinas virtuales de Azure de una región a otra tal cual; si lo que se requiere es mejorar la disponibilidad al trasladar máquinas virtuales de un conjunto de disponibilidad a máquinas virtuales ancladas por zona de otra región, consulte el tutorial [aquí](move-azure-VMs-AVset-Azone.md).
 
 ## <a name="verify-prerequisites"></a>Verificación de los requisitos previos
 

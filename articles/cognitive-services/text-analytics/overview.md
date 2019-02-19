@@ -3,25 +3,25 @@ title: ¿Qué es Text Analytics?
 titleSuffix: Azure Cognitive Services
 description: Text Analytics en Azure Cognitive Services para el análisis de opiniones, la extracción de frases clave, la detección del idioma y la vinculación de entidades.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227886"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242947"
 ---
 # <a name="what-is-text-analytics"></a>¿Qué es Text Analytics?
 
 Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato, e incluye cuatro funciones principales: análisis de sentimiento, extracción de frases clave y detección de lenguaje y vinculación de entidad.
 
-La API tiene el respaldo de los recursos de [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
+La API forma parte de [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo.
 
 ## <a name="capabilities-in-text-analytics"></a>Funcionalidades de Text Analytics
 

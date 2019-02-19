@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975396"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237807"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Compilación de una aplicación de Python y PostgreSQL en Azure App Service
 
@@ -33,6 +33,9 @@ En este tutorial, aprenderá a:
 > * Implementación de la aplicación en Azure
 > * Visualización de los registros de diagnóstico
 > * Administrar la aplicación en Azure Portal
+
+> [!NOTE]
+> Antes de crear una instancia de Azure Database for PostgreSQL, consulte [aquí](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) para ver qué generación de proceso está disponible en su región.
 
 También puede seguir los pasos de este artículo en macOS. Las instrucciones de Linux y Windows son las mismas en la mayoría de los casos, pero en este tutorial no se detallan las diferencias.
 
@@ -407,11 +410,11 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Vaya a [Azure Portal](https://portal.azure.com) para ver la aplicación que ha creado.
 
-En el menú izquierdo, haga clic en **App Services** y, luego, haga clic en el nombre de la aplicación de Azure.
+En el menú izquierdo, haga clic en **App Services** y, luego, en el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/tutorial-python-postgresql-app/app-resource.png)
 
-De forma predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
+De manera predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
 
 ![Página de App Service en Azure Portal](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,7 +431,7 @@ En este tutorial aprendió lo siguiente:
 > * Visualización de los registros de diagnóstico
 > * Administrar la aplicación en Azure Portal
 
-Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación.
+Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
 > [Asignación de un nombre DNS personalizado existente a Azure App Service](../app-service-web-tutorial-custom-domain.md)
