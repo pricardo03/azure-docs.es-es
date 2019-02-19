@@ -1,5 +1,5 @@
 items:
-- name: Documentación sobre el control de acceso basado en rol
+- name: Documentación sobre el control de acceso basado en rol para recursos de Azure
   href: index.yml
 - name: Información general
   items:
@@ -9,11 +9,11 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Guías de inicio rápido
   items:
-  - name: Ver roles de un usuario
+  - name: Visualización del acceso de un usuario
     href: check-access.md
 - name: Tutoriales
   items:
-  - name: 'Concesión de acceso a un usuario: portal'
+  - name: 'Concesión de acceso a un usuario: Portal'
     href: quickstart-assign-role-user-portal.md
   - name: 'Concesión de acceso a un usuario: PowerShell'
     href: tutorial-role-assignments-user-powershell.md
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Descripción de las asignaciones de denegación
     href: deny-assignments.md
-  - name: Privileged Identity Management (PIM) para RBAC
+  - name: PIM para recursos de Azure
     href: pim-azure-resource.md
   - name: Acceso condicional para la administración de Azure
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Desarrollo de aptitudes con Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099214"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408772"

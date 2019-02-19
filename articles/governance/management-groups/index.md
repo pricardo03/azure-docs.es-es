@@ -1,6 +1,6 @@
 ---
-title: Organización de los recursos con grupos de administración de Azure
-description: Obtenga información sobre los grupos de administración y cómo utilizarlos.
+title: 'Organización de los recursos con grupos de administración de Azure: Servicios de gobierno de Azure'
+description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584614"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339294"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -118,7 +118,7 @@ Para realizar el seguimiento de los grupos de administración mediante esta API,
 1. Como administrador de inquilinos del inquilino de Azure AD, [eleve los privilegios de acceso](../../role-based-access-control/elevate-access-global-admin.md) y asigne un rol de lector al usuario de auditoría con el ámbito `/providers/microsoft.insights/eventtypes/management`.
 1. Como usuario de auditoría, llame a la [API de registro de actividad de inquilinos](/rest/api/monitor/tenantactivitylogs) para ver las actividades del grupo de administración. Va a filtrar **Microsoft.Management** por proveedor de recursos para todas las actividades del grupo de administración.  Ejemplo:
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
