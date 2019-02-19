@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: db83cf4310cb4d74dcbbd290f650e4dcfc00c0c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343713"
 documentType: LandingData
 title: Documentación de Azure Policy
 metadata:
   title: 'Documentación sobre Azure Policy: tutoriales y referencia de API'
-  description: 'Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas.'
+  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
   services: azure-policy
   author: DCtheGeek
   manager: carmonm
@@ -12,53 +18,56 @@ metadata:
   ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
-  description: 'Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas.'
+  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Aprenda a crear, asignar y administrar definiciones de directivas en Azure.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/portal.svg
-            text: Azure Portal
-            href: ./assign-policy-portal
-          - image:
-              src: ./media/powershell.svg
-            text: Azure PowerShell
-            href: ./assign-policy-powershell
-          - image:
-              src: ./media/cli.svg
-            text: Azure CLI
-            href: ./assign-policy-azurecli
-  - title: Tutoriales detallados
+    - image:
+        alt: Azure Portal
+        src: ./media/portal.svg
+      text: Azure Portal
+      href: ./assign-policy-portal
+    - image:
+        alt: Azure PowerShell
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: ./assign-policy-powershell
+    - image:
+        alt: Azure CLI
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: ./assign-policy-azurecli
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Aprenda a crear, asignar y administrar definiciones de directivas en Azure.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creación y administración de Azure Policy</a>
-  - title: Ejemplos
+    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creación y administración de Azure Policy</a>
+- title: Ejemplos
+  items:
+  - type: paragraph
+    text: Los siguientes ejemplos de JSON pueden ayudarle a crear definiciones de directivas en Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Los siguientes ejemplos de JSON pueden ayudarle a crear definiciones de directivas en Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
-  - title: Referencia
+    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure/policy">CLI de Azure</a></p>
-          - title: PowerShell
-            html: '<p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>'
-          - title: API DE REST
-            html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Asignaciones</a></p><p><a href="/rest/api/resources/policydefinitions">Definiciones de directiva</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definiciones de iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos con seguimiento de directiva</a></p><p><a href="/rest/api/policy-insights/remediations">Correcciones</a></p>
+    - title: Línea de comandos
+      html: <p><a href="/cli/azure/policy">CLI de Azure</a></p>
+    - title: PowerShell
+      html: <p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
+    - title: API DE REST
+      html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Asignaciones</a></p><p><a href="/rest/api/resources/policydefinitions">Definiciones de directiva</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definiciones de iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos con seguimiento de directiva</a></p><p><a href="/rest/api/policy-insights/remediations">Correcciones</a></p>

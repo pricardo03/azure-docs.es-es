@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507433"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341240"
 documentType: LandingData
 title: 'Administración de Azure: gobierno'
 metadata:
@@ -39,21 +39,25 @@ sections:
     - href: ./management-groups/overview
       html: <p>Obtenga información sobre cómo agrupar y organizar las suscripciones en una jerarquía lógica que admitan la implementación de otros servicios de gobierno de una manera estructurada.<br /></p>
       image:
+        alt: Grupos de administración
         src: ./media/management-groups-illustration.svg
       title: Grupos de administración
     - href: ./resource-graph/
       html: <p>Use una herramienta de línea de comandos eficaz (admite la CLI de Azure y Azure PowerShell) para consultar rápidamente detalles complejos sobre los recursos de Azure. Busque y muestre la información que anteriormente requería scripts complejos e iterativos para detectar esos recursos a escala.</p>
       image:
+        alt: Gráfico de recursos
         src: ./media/resource-graph-illustration.svg
       title: Gráfico de recursos
     - href: ./policy/
       html: <p>Defina y aplique estándares a los recursos en su entorno. Evite la creación de recursos no deseados, mejore los nuevos recursos con elementos adicionales y audite y corrija recursos que ya se encuentren en su entorno.</p>
       image:
+        alt: Directiva
         src: ./media/policy-illustration.svg
       title: Directiva
     - href: ./blueprints/
       html: <p>Cree un paquete nativo de Azure de <i>artefactos</i> (grupos de recursos, directivas, asignaciones de roles, plantillas de Resource Manager, etc.) que se pueden implementar dinámicamente a las suscripciones para crear entornos coherentes y repetibles.</p>
       image:
+        alt: Planos técnicos
         src: ./media/blueprints-illustration.svg
       title: Planos técnicos
 - title: Implementaciones
