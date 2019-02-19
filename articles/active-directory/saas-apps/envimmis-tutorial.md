@@ -4,150 +4,155 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/03/2018
+ms.topic: tutorial
+ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: b85dc27f6b6a23be6dc89a0f0a7cf9f78681446d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: eeac36ae28d3d780e1a1e190a0cc0cccda81382f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197456"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integración de Azure Active Directory con Envi MMIS
 
 En este tutorial, obtendrá información sobre cómo integrar Envi MMIS en Azure Active Directory (Azure AD).
-
 La integración de Envi MMIS con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Envi MMIS.
-- Puede permitir que los usuarios inicien sesión automáticamente en Envi MMIS (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Envi MMIS.
+* Puede permitir que los usuarios inicien sesión automáticamente en Envi MMIS (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Envi MMIS, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Envi MMIS
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en Envi MMIS
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar Envi MMIS desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Envi MMIS admite el inicio de sesión único iniciado por **SP** e **IDP**.
 
 ## <a name="adding-envi-mmis-from-the-gallery"></a>Agregar Envi MMIS desde la galería
+
 Para configurar la integración de Envi MMIS en Azure AD, será preciso que agregue Envi MMIS desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Envi MMIS desde la galería, siga los pasos a continuación:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Envi MMIS**, seleccione **Envi MMIS** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Envi MMIS en la lista de resultados](./media/envimmis-tutorial/tutorial_envimmis_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **Envi MMIS**, seleccione **Envi MMIS** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+
+     ![Envi MMIS en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, se configura y se prueba el inicio de sesión único de Azure AD con Envi MMIS con una usuaria de prueba llamada "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Envi MMIS para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Envi MMIS.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Envi MMIS con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Envi MMIS.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Envi MMIS, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Envi MMIS](#create-an-envi-mmis-test-user)**: para tener un homólogo de Britta Simon en Envi MMIS que esté vinculado a la representación de ella en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Configuración del inicio de sesión único de Envi MMIS](#configure-envi-mmis-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Envi MMIS](#create-envi-mmis-test-user)**: para tener un homólogo de Britta Simon en Envi MMIS que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación de Envi MMIS.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Envi MMIS, siga los pasos a continuación:**
+Para configurar el inicio de sesión único de Azure AD con Envi MMIS, realice los pasos siguientes:
 
-1. En Azure Portal, en la página de integración de la aplicación **Envi MMIS**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Envi MMIS**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/envimmis-tutorial/tutorial_envimmis_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Envi MMIS**, siga los pasos a continuación si quiere configurar la aplicación en el modo que inició **IDP**:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_url.png)
+3. En la página **Set-up Single Sign-On with SAML** (Configurar inicio de sesión único con SAML), haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account`
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`.
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-1. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+    ![Información de dominio y direcciones URL de inicio de sesión único de Envi MMIS](common/idp-intiated.png)
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_url1.png)
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account`.
-     
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
+
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de Envi MMIS](common/metadata-upload-additional-signon.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.<CUSTOMER DOMAIN>.com/Account`
+
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de Envi MMIS](mailto:support@ioscorp.com) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de Envi MMIS](mailto:support@ioscorp.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/envimmis-tutorial/tutorial_envimmis_certificate.png) 
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. Haga clic en el botón **Guardar** .
+7. En la sección **Set up Envi MMIS** (Configurar Envi MMIS), copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/tutorial_general_400.png)
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-envi-mmis-single-sign-on"></a>Configuración del inicio de sesión único en Envi MMIS
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de Envi MMIS.
 
-1. Haga clic en la pestaña **My Domain** (Mi dominio).
+2. Haga clic en la pestaña **My Domain** (Mi dominio).
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure1.png)
 
-1. Haga clic en **Editar**.
+3. Haga clic en **Editar**.
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure2.png)
 
-1. Seleccione la casilla **Use remote authentication** (Usar autenticación remota) y, a continuación, seleccione **Redirección HTTP** (Redirección HTTP) desde la lista desplegable **Tipo de autenticación**.
+4. Seleccione la casilla **Use remote authentication** (Usar autenticación remota) y, a continuación, seleccione **Redirección HTTP** (Redirección HTTP) desde la lista desplegable **Tipo de autenticación**.
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure3.png)
 
-1. Seleccione la pestaña **Recursos** y, a continuación, haga clic en **Cargar metadatos**.
+5. Seleccione la pestaña **Recursos** y, a continuación, haga clic en **Cargar metadatos**.
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure4.png)
 
-1. En la ventana emergente **Cargar metadatos**, realice los siguientes pasos:
+6. En la ventana emergente **Cargar metadatos**, realice los siguientes pasos:
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure5.png)
 
@@ -157,60 +162,78 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. Haga clic en **Aceptar**.
 
-1. Después de cargar el archivo de metadatos descargado, los campos se rellenarán automáticamente. Haga clic en **Update** (Actualizar).
+7. Después de cargar el archivo de metadatos descargado, los campos se rellenarán automáticamente. Haga clic en **Update** (Actualizar).
 
     ![Botón Configurar inicio de sesión único](./media/envimmis-tutorial/configure6.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/envimmis-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/envimmis-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/envimmis-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/envimmis-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-an-envi-mmis-test-user"></a>Crear un usuario de prueba de Envi MMIS
 
-Para permitir que los usuarios de Azure AD inicien sesión en Envi MMIS, deben aprovisionarse en Envi MMIS.  
-En el caso de Envi MMIS, el aprovisionamiento es una tarea manual.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure al concederle acceso a Envi MMIS.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Envi MMIS**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **Envi MMIS**.
+
+    ![Vínculo de Envi MMIS en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-envi-mmis-test-user"></a>Creación de un usuario de prueba de Envi MMIS
+
+Para permitir que los usuarios de Azure AD inicien sesión en Envi MMIS, deben aprovisionarse en Envi MMIS. En el caso de Envi MMIS, el aprovisionamiento es una tarea manual.
 
 **Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
 1. Inicie sesión como administrador en el sitio de la compañía de Envi MMIS.
 
-1. Haga clic en la pestaña **Lista de usuarios**.
+2. Haga clic en la pestaña **Lista de usuarios**.
 
     ![Agregar empleado](./media/envimmis-tutorial/user1.png)
 
-1. Haga clic en el botón **Agregar usuario**.
+3. Haga clic en el botón **Agregar usuario**.
 
     ![Agregar empleado](./media/envimmis-tutorial/user2.png)
 
-1. En la sección **Add User** (Agregar usuario), realice estos pasos:
+4. En la sección **Add User** (Agregar usuario), realice estos pasos:
 
     ![Agregar empleado](./media/envimmis-tutorial/user3.png)
 
@@ -228,61 +251,17 @@ En el caso de Envi MMIS, el aprovisionamiento es una tarea manual.
 
     g. Haga clic en **Save**(Guardar).
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure al concederle acceso a Envi MMIS.
-
-![Asignación de rol de usuario][200] 
-
-**Para asignar a Britta Simon a Envi MMIS, siga los pasos a continuación:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **Envi MMIS**.
-
-    ![Vínculo de Envi MMIS en la lista de aplicaciones](./media/envimmis-tutorial/tutorial_envimmis_app.png)  
-
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"][202]
-
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Envi MMIS en el panel de acceso, debe iniciar sesión automáticamente en su aplicación de Envi MMIS.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Envi MMIS en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Envi MMIS para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/envimmis-tutorial/tutorial_general_01.png
-[2]: ./media/envimmis-tutorial/tutorial_general_02.png
-[3]: ./media/envimmis-tutorial/tutorial_general_03.png
-[4]: ./media/envimmis-tutorial/tutorial_general_04.png
-
-[100]: ./media/envimmis-tutorial/tutorial_general_100.png
-
-[200]: ./media/envimmis-tutorial/tutorial_general_200.png
-[201]: ./media/envimmis-tutorial/tutorial_general_201.png
-[202]: ./media/envimmis-tutorial/tutorial_general_202.png
-[203]: ./media/envimmis-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

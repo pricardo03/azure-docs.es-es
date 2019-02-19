@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e55a50a1a4ae1db995a6054cf9dc13382236b8e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813311"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integración de Azure Active Directory con Keeper Password Manager & Digital Vault
 
@@ -78,7 +79,7 @@ Para que el inicio de sesión único funcione es preciso establecer una relació
 Para configurar y probar el inicio de sesión único de Azure AD con Keeper Password Manager & Digital Vault, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Keeper Password Manager & Digital Vault](#configure-keeper-password-manager-&-digital-vault-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+2. **Configuración del inicio de sesión único en Keeper Password Manager & Digital Vault**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Creación de un usuario de prueba de Keeper Password Manager & Digital Vault](#create-keeper-password-manager--digital-vault-test-user)**: para tener en esta aplicación un homólogo de Britta Simon que esté vinculado a la representación de ella en Azure AD.
@@ -123,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con Keeper Password Mana
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -149,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com

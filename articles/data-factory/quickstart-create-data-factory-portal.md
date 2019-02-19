@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018254"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989396"
 ---
-# <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Inicio rápido: Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-portal.md)
 
-En esta guía de inicio rápido se describe cómo usar la interfaz de usuario de Azure Data Factory para crear y supervisar una factoría de datos. La canalización que ha creado en esta factoría de datos *copia* los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo *transformar* datos mediante Azure Data Factory, consulte [Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory](tutorial-transform-data-spark-portal.md).
+En esta guía de inicio rápido se describe cómo usar la interfaz de usuario de Azure Data Factory para crear y supervisar una factoría de datos. La canalización que ha creado en esta factoría de datos *copia* los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo *transformar* datos mediante Azure Data Factory, consulte [Tutorial: Transformación de datos con Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Si no está familiarizado con Azure Data Factory, consulte [Introduction to Azure Data Factory](data-factory-introduction.md) antes de seguir los pasos de esta guía de inicio rápido. 
@@ -80,7 +81,7 @@ En este procedimiento, creará un servicio vinculado para vincular la cuenta de 
    ![Selección del icono Azure Blob Storage](./media/quickstart-create-data-factory-portal/select-azure-blob-linked-service.png)
 1. Complete los siguientes pasos: 
 
-   a. En **Name** (Nombre), escriba **AzureStorageLinkedService**.
+    a. En **Name** (Nombre), escriba **AzureStorageLinkedService**.
 
    b. En **Storage account name** (Nombre de la cuenta de Storage), seleccione el nombre de la cuenta correspondiente.
 
@@ -91,7 +92,7 @@ En este procedimiento, creará un servicio vinculado para vincular la cuenta de 
    ![Configuración del servicio vinculado de Azure Storage](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
-En este procedimiento, va a crear dos conjuntos de datos: **InputDataset** y **OutputDataset**. Estos conjuntos de datos son de tipo **AzureBlob**. Hacen referencia al servicio vinculado de Azure Storage que creó en la sección anterior. 
+En este procedimiento, creará dos conjuntos de datos: **InputDataset** y **OutputDataset**. Estos conjuntos de datos son de tipo **AzureBlob**. Hacen referencia al servicio vinculado de Azure Storage que creó en la sección anterior. 
 
 El conjunto de datos de entrada representa los datos de origen en la carpeta de entrada. En la definición del conjunto de datos de entrada, se especifica el contenedor de blobs (**adftutorial**), la carpeta (**input**) y el archivo (**emp.txt**) que contiene los datos de origen. 
 
@@ -109,7 +110,7 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
 
 1. Cambie a la pestaña **Connection** (Conexión) y complete los pasos siguientes: 
 
-    a. En **Linked service** (Servicio vinculado), seleccione **AzureStorageLinkedService**.
+     a. En **Linked service** (Servicio vinculado), seleccione **AzureStorageLinkedService**.
 
     b. En **File path** (Ruta del archivo), seleccione el botón **Browse** (Examinar).
 
@@ -117,10 +118,11 @@ En la configuración del servicio vinculado se especifica la cuenta de Azure Sto
 
     ![Búsqueda del archivo de entrada](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (opcional) Seleccione **Preview data** (Vista previa de los datos) para obtener una vista previa de los datos del archivo emp.txt.     
+    d. (opcional) Seleccione **Preview data** (Vista previa de los datos) para obtener una vista previa de los datos del archivo emp.txt.     
+
 1. Repita los pasos para crear el conjunto de datos de salida:  
 
-   a. Haga clic en el botón **+** (Más) y seleccione **Dataset** (Conjunto de datos).
+    a. Haga clic en el botón **+** (Más) y seleccione **Dataset** (Conjunto de datos).
 
    b. En la página **New Dataset** (Nuevo conjunto de datos), seleccione **Azure Blob Storage** y después **Finish** (Finalizar).
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811577"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169860"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutorial: Integración de Azure Active Directory con Blackboard Learn
 
@@ -122,7 +123,7 @@ Para configurar el inicio de sesión único de Azure AD con Blackboard Learn, re
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -148,7 +149,7 @@ Para configurar el inicio de sesión único de Azure AD con Blackboard Learn, re
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -174,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -211,7 +212,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-blackboard-learn-test-user"></a>Creación de un usuario de prueba de Blackboard Learn
 
-En esta sección, creará un usuario llamado Britta Simon en Blackboard Learn. Compatibilidad de aplicaciones de Blackboard Learn para el aprovisionamiento de usuarios justo a tiempo. Asegúrese de que ha configurado las notificaciones, tal y como se describe en la sección **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**
+En esta sección, creará un usuario llamado Britta Simon en Blackboard Learn. Compatibilidad de aplicaciones de Blackboard Learn para el aprovisionamiento de usuarios justo a tiempo. Asegúrese de que ha configurado las notificaciones como se describe en la sección **Configuración del inicio de sesión único de Azure AD**
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

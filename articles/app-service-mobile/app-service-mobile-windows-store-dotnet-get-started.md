@@ -1,5 +1,5 @@
 ---
-title: Creación de una Plataforma universal de Windows (UWP) que se use en Mobile Apps | Microsoft Docs
+title: Creación de una Plataforma universal de Windows (UWP) que se use en Azure Mobile Apps | Microsoft Docs
 description: Siga este tutorial para aprender a usar back-ends de aplicación móvil de Azure para el desarrollo de aplicaciones para Plataforma universal de Windows (UWP) en C#, Visual Basic o JavaScript.
 services: app-service\mobile
 documentationcenter: windows
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: c8bd6430b362fde81c3133c2c16cf369aa050103
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 00b635853d0dfad73a258ddc8ef9b168559fc5df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999368"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098432"
 ---
-# <a name="create-a-windows-app"></a>Creación de una aplicación para Windows
+# <a name="create-a-windows-app-with-an-azure-backend"></a>Creación de una aplicación de Windows con un back-end de Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
@@ -38,7 +38,9 @@ Completar este tutorial es un requisito previo para todos los tutoriales de apli
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Windows 10
 * [Visual Studio Community 2017].
+* Debe estar familiarizado con el desarrollo de aplicaciones de UWP. Visite la [documentación de UWP](https://docs.microsoft.com/windows/uwp/) para aprender a [configurar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) para compilar aplicaciones de UWP.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Creación de un nuevo back-end de Aplicaciones móviles de Azure
 

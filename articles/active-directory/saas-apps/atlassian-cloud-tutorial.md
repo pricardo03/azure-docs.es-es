@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3356d7425e692f248a3850e8bef7b80d4daba276
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825762"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutorial: Integración de Azure Active Directory con Atlassian Cloud
 
@@ -39,6 +40,7 @@ Para configurar la integración de Azure AD con Atlassian Cloud se necesitan los
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
 * Suscripción habilitada para el inicio de sesión único en Atlassian Cloud
+* Para habilitar el inicio de sesión único en Lenguaje de marcado de aserción de seguridad (SAML) para productos de Atlassian Cloud, debe configurar Atlassian Access. Más información sobre [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -124,33 +126,19 @@ Para configurar el inicio de sesión único de Azure AD con Atlassian Cloud, sig
     > [!NOTE]
     > El valor de URL de inicio de sesión anterior no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico del cliente Atlassian Cloud](https://support.atlassian.com/) para obtenerlo.
 
-6. La aplicación Atlassian Cloud espera encontrar las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML.
-
-    De forma predeterminada, el valor **Identificador de usuario** se asigna a user.userprincipalname. Cambie este valor para asignarlo a user.mail. También puede elegir cualquier otro valor adecuada según la configuración de su organización, pero en la mayoría de los casos, el correo electrónico debería funcionar. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+6. La aplicación Atlassian Cloud espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación Atlassian Cloud espera que **nameidentifier** se asigne con **user.mail**, por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar dicha asignación.
 
     ![imagen](common/edit-attribute.png)
 
-7. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, siga estos pasos:
-
-     a. Haga clic en el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
-
-    ![imagen](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![imagen](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. En la lista **Source attribute** (Atributo de origen), seleccione **user.mail**.
-
-    c. Haga clic en **Save**(Guardar).
-
-8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-9. En la sección **Configurar Atlassian Cloud**, copie las direcciones URL que necesite.
+8. En la sección **Configurar Atlassian Cloud**, copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -205,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com

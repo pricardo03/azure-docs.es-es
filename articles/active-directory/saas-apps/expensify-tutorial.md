@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453900"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integración de Azure Active Directory con Expensify
 
@@ -104,9 +105,12 @@ Para configurar el inicio de sesión único de Azure AD con Expensify, siga esto
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Expensify](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.expensify.com/authentication/saml/login`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. En el cuadro de texto **Identificador (Id. de entidad)**, escriba una dirección URL: `https://www.expensify.com`
+
+    > [!NOTE]
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com) para obtener este valor.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -125,18 +129,18 @@ Para configurar el inicio de sesión único de Azure AD con Expensify, siga esto
 ### <a name="configure-expensify-single-sign-on"></a>Configuración del inicio de sesión único de Expensify
 
 Para habilitar SSO en Expensify, primero deberá habilitar el **control de dominio** en la aplicación. Se puede habilitar el control de dominio de la aplicación mediante los pasos enumerados [aquí](https://help.expensify.com/domain-control). Para más información, trabaje con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com). Una vez habilitado el control de dominio, siga estos pasos:
-   
+
 ![Configurar inicio de sesión único](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Inicie sesión en la aplicación Expensify.
-    
+
 2. En el panel izquierdo, haga clic en **Configuración** y vaya a **SAML**.
-    
+
 3. Cambie la opción **Inicio de sesión SAML** a **Habilitado**.
-    
+
 4. Abra el documento de metadatos de federación descargado desde Azure AD en el Bloc de notas, copie el contenido y péguelo en el cuadro de texto **Metadatos del proveedor de identidades** que se proporciona.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -191,7 +195,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 En esta sección, creará un usuario denominado Britta Simon en Expensify. Colabore con el [equipo de soporte técnico de cliente de Expensify](mailto:help@expensify.com) para agregar los usuarios a la plataforma de Expensify.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -204,4 +208,3 @@ Al hacer clic en el icono de Expensify en el panel de acceso, debería iniciar s
 - [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

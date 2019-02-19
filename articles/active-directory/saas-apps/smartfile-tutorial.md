@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Directions on Microsoft | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Directions on Microsoft.
+title: 'Tutorial: Integración de Azure Active Directory con SmartFile | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SmartFile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: e0c8986f-2acd-418d-a306-437abc44b640
+ms.assetid: 25610bd7-8943-4e04-8cbb-5e90ff3c054d
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b767854842faf7980c3d773d2700a9c08317b53b
+ms.openlocfilehash: f3a68a651ec62305f396dff07526d071bae82cc0
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172508"
+ms.locfileid: "56170251"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Integración de Azure Active Directory con Directions on Microsoft
+# <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Tutorial: Integración de Azure Active Directory con SmartFile
 
-En este tutorial, aprenderá a integrar Directions on Microsoft con Azure Active Directory (Azure AD).
-La integración de Directions on Microsoft con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, obtendrá información sobre cómo integrar SmartFile con Azure Active Directory (Azure AD).
+La integración de SmartFile con Azure AD le proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a Directions on Microsoft.
-* Puede permitir que los usuarios inicien sesión automáticamente en Directions on Microsoft (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a SmartFile.
+* Puede permitir que los usuarios inicien sesión automáticamente en SmartFile (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Directions on Microsoft, se necesitan los siguientes elementos:
+Para configurar la integración de Azure AD con SmartFile, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en Directions on Microsoft
+* Una suscripción habilitada para el inicio de sesión único de SmartFile
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Directions on Microsoft admite el inicio de sesión único iniciado por **SP**
+* SmartFile admite el inicio de sesión único iniciado por **SP**
 
-## <a name="adding-directions-on-microsoft-from-the-gallery"></a>Adición de Directions on Microsoft desde la galería
+## <a name="adding-smartfile-from-the-gallery"></a>Adición de SmartFile desde la galería
 
-Para configurar la integración de Directions on Microsoft en Azure AD, deberá agregar Directions on Microsoft desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de SmartFile en Azure AD, será preciso que agregue SmartFile desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Directions on Microsoft desde la galería, realice los pasos siguientes:**
+**Para agregar SmartFile desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Para configurar la integración de Directions on Microsoft en Azure AD, deberá 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Directions on Microsoft**, seleccione **Directions on Microsoft** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **SmartFile**, seleccione **SmartFile** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Directions on Microsoft en la lista de resultados](common/search-new-app.png)
+     ![SmartFile en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con Directions on Microsoft con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Directions on Microsoft.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con SmartFile con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SmartFile.
 
-Para configurar y probar el inicio de sesión único de Microsoft Azure AD con Directions on Microsoft, es preciso completar los siguientes pasos preliminares:
+Para configurar y probar el inicio de sesión único de Azure AD con SmartFile, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Directions on Microsoft](#configure-directions-on-microsoft-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en SmartFile](#configure-smartfile-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Directions on Microsoft](#create-directions-on-microsoft-test-user)**: para tener un homólogo de Britta Simon en Directions on Microsoft que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de SmartFile](#create-smartfile-test-user)**: para tener un homólogo de Britta Simon en SmartFile que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con Directions on Microsoft, siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con SmartFile, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Directions on Microsoft**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SmartFile**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -103,28 +103,20 @@ Para configurar el inicio de sesión único en Azure AD con Directions on Micros
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Directions on Microsoft](common/sp-identifier.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de SmartFile](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-    |  |
-    | --- |
-    | `https://www.directionsonmicrosoft.com/user/login` |
-    | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.smartfile.com/ftp/login`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
-    |  |
-    | --- |
-    | `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |
-    | `https://www.directionsonmicrosoft.com/simplesaml/<companyname>` |
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `<SUBDOMAIN>.smartfile.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de clientes de SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-6. En la sección **Set up Directions on Microsoft** (Configurar Directions on Microsoft), copie las direcciones URL adecuadas según sus necesidades.
+6. En la sección **Set up SmartFile** (Configurar SmartFile), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -134,12 +126,9 @@ Para configurar el inicio de sesión único en Azure AD con Directions on Micros
 
     c. URL de cierre de sesión
 
-### <a name="configure-directions-on-microsoft-single-sign-on"></a>Configuración del inicio de sesión único en Directions on Microsoft
+### <a name="configure-smartfile-single-sign-on"></a>Configuración del inicio de sesión único de SmartFile
 
-Para configurar el inicio de sesión único en **Directions on Microsoft**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com). Para que el equipo de soporte técnico de Directions on Microsoft pueda buscar su pertenencia al sitio federado, incluya la información de su compañía en el correo electrónico.
-    
->[!NOTE]
->El inicio de sesión único de Directions on Microsoft debe habilitarlo el [equipo de soporte técnico de cliente de Directions on Microsoft](mailto:service@DirectionsOnMicrosoft.com). Recibirá una notificación cuando se haya habilitado el inicio de sesión único.
+Para configurar el inicio de sesión único en **SmartFile**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -168,15 +157,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Directions on Microsoft.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a SmartFile.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y  **Directions on Microsoft**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **SmartFile**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Directions on Microsoft**.
+2. En la lista de aplicaciones, seleccione **SmartFile**.
 
-    ![Vínculo de Directions on Microsoft en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a SmartFile en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -192,17 +181,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-directions-on-microsoft-test-user"></a>Creación de un usuario de prueba en Directions on Microsoft
+### <a name="create-smartfile-test-user"></a>Creación de un usuario de prueba en SmartFile
 
-No hay ningún elemento de acción para que configure el aprovisionamiento de usuarios para Directions on Microsoft.  
-
-Cuando un usuario asignado intenta iniciar sesión en Directions on Microsoft desde el Panel de acceso, Directions on Microsoft comprueba si el usuario existe. Si no hay cuentas de usuario disponibles, Directions on Microsoft crea una automáticamente.
+En esta sección, creará un usuario llamado Britta Simon en SmartFile. Trabaje con el  [equipo de soporte técnico de SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) para agregar los usuarios a la plataforma de SmartFile. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Directions on Microsoft del Panel de acceso, debería iniciar sesión automáticamente en la instancia de Directions on Microsoft para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de SmartFile en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de SmartFile para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

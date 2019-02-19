@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Evernote | Microsoft Docs'
-description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Evernote.
+title: 'Tutorial: Integración de Azure Active Directory con Stormboard | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Stormboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+ms.assetid: 46780ebd-bbfe-4ddc-bf50-22052321026c
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1875c198115c2d7c37eb48c3fde6c65d4ffe4d2
+ms.openlocfilehash: 95384a03effd023511e5fd31a47c807a562894d6
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171934"
+ms.locfileid: "56197375"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integración de Azure Active Directory con Evernote
+# <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Tutorial: Integración de Azure Active Directory con Stormboard
 
-En este tutorial, obtendrá información sobre cómo integrar Evernote con Azure Active Directory (Azure AD).
-La integración de Evernote con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Stormboard con Azure Active Directory (Azure AD).
+La integración de Stormboard con Azure AD le proporciona las siguientes ventajas:
 
-* En Azure AD puede controlar quién tiene acceso a Evernote.
-* Puede permitir que los usuarios inicien sesión automáticamente en Evernote (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a Stormboard.
+* Puede permitir que los usuarios inicien sesión automáticamente en Stormboard (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,25 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Evernote, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Stormboard, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en Evernote
+* Una suscripción habilitada para el inicio de sesión único en Stormboard
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Evernote admite el inicio de sesión único iniciado tanto por **SP** como por **IDP**
+* Stormboard admite SSO iniciado por **SP e IDP**
 
-## <a name="adding-evernote-from-the-gallery"></a>Incorporación de Evernote desde la galería
+* Stormboard admite el aprovisionamiento de usuarios **Just-In-Time**
 
-Para configurar la integración de Evernote en Azure AD, es preciso agregar Evernote desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Evernote desde la galería, realice los pasos siguientes:**
+## <a name="adding-stormboard-from-the-gallery"></a>Adición de Stormboard desde la galería
+
+Para configurar la integración de Stormboard en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar Stormboard desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -65,31 +68,31 @@ Para configurar la integración de Evernote en Azure AD, es preciso agregar Ever
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Evernote**, seleccione **Evernote** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Stormboard**, seleccione **Stormboard** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Evernote en la lista de resultados](common/search-new-app.png)
+     ![Stormboard en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Evernote con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Evernote.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Stormboard con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Stormboard.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Evernote, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Stormboard, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Evernote](#configure-evernote-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Stormboard](#configure-stormboard-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Evernote](#create-evernote-test-user)**: para tener un homólogo de Britta Simon en Evernote que esté vinculado a la representación de ella en Azure AD.
+5. **[Creación de un usuario de prueba de Stormboard](#create-stormboard-test-user)**: para tener un homólogo de Britta Simon en Stormboard que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con Stormboard, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Evernote**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Stormboard**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -103,21 +106,24 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
 4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Evernote](common/idp-identifier.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Stormboard](common/both-replyurl.png)
 
-    En el cuadro de texto **Identificador**, escriba una dirección URL: `https://www.evernote.com/saml2`
+    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.stormboard.com/saml2/ad/acs/<TEAMID>`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![imagen](common/both-preintegrated-signon.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Stormboard](common/both-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.evernote.com/Login.action`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.stormboard.com/saml2/ad/login/<TEAMID>`
+
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico del cliente Stormboard](mailto:support@stormboard.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-7. En la sección **Set up Evernote** (Configurar Evernote), copie las direcciones URL adecuadas según sus necesidades.
+7. En la sección **Set up Stormboard** (Configurar Stormboard), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -127,29 +133,9 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
     c. URL de cierre de sesión
 
-### <a name="configure-evernote-single-sign-on"></a>Configuración del inicio de sesión único en Evernote
+### <a name="configure-stormboard-single-sign-on"></a>Configuración del inicio de sesión único de Stormboard
 
-1. En otra ventana del explorador web, inicie sesión en el sitio de la empresa de Evernote como administrador.
-
-2. Vaya a **"Consola de administración"**
-
-    ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
-
-3. En la **"Consola de administración"**, vaya a **"Seguridad"** y seleccione **"Inicio de sesión único"**
-
-    ![SSO-Setting](./media/evernote-tutorial/tutorial_evernote_sso.png)
-
-4. Configure los valores siguientes:
-
-    ![Certificate-Setting](./media/evernote-tutorial/tutorial_evernote_certx.png)
-    
-     a.  **Enable SSO** (Habilitar SSO): El SSO está habilitado de manera predeterminada (haga clic en **Disable Single Sign-on** [Deshabilitar el inicio de sesión único] para quitar el requisito de SSO).
-
-    b. Pegue el valor del campo **Dirección URL de inicio de sesión** que copió de Azure Portal en el cuadro de texto **SAML HTTP Request URL** (Dirección URL de solicitud HTTP de SAML).
-
-    c. Abra el certificado que se descargó de Azure AD en un bloc de notas y copie el contenido, incluido "BEGIN CERTIFICATE" y "END CERTIFICATE", y péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509). 
-
-    d. Haga clic en **Guardar cambios**
+Para configurar el inicio de sesión único en **Stormboard**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Stormboard](mailto:support@stormboard.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -167,9 +153,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -178,15 +164,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Evernote.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Stormboard.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Evernote**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Stormboard**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Evernote**.
+2. En la lista de aplicaciones, seleccione **Stormboard**.
 
-    ![Vínculo de Evernote en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a Stormboard en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -202,34 +188,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-evernote-test-user"></a>Creación de un usuario de prueba en Evernote
+### <a name="create-stormboard-test-user"></a>Creación de un usuario de prueba en Stormboard
 
-Para permitir que los usuarios de Azure AD inicien sesión en Evernote, deben aprovisionarse en Evernote.  
-En el caso de Evernote, el aprovisionamiento es una tarea manual.
-
-**Para aprovisionar cuentas de usuario, realice estos pasos:**
-
-1. Inicie sesión en el sitio de la empresa de Evernote como administrador.
-
-2. Haga clic en la **"Consola de administración"**.
-
-    ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
-
-3. En la **"Consola de administración"**, vaya a **"Agregar usuarios"**.
-
-    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
-
-4. **Agregue miembros del equipo** en el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de usuario y haga clic en **Invitar**.
-
-    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0002.png)
-    
-5. Una vez que se envía la invitación, el titular de la cuenta de Azure Active Directory recibirá un correo electrónico para aceptar la invitación.
+En esta sección, se crea un usuario llamado a Britta Simon en Stormboard. Stormboard admite el **aprovisionamiento de usuarios Just-In-Time**, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Stormboard, se crea otro después de la autenticación.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Evernote en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Evernote para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Stormboard en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Stormboard para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

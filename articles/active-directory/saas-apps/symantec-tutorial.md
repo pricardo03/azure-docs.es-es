@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: b1aa60b028efb4bf4820f1f084a7cf0eea6e9639
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bf4d2d18971948e15cca2e1b91d9d55a73cefe4b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808126"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integración de Azure Active Directory con Symantec Web Security Service (WSS)
 
@@ -79,7 +80,7 @@ Para que el inicio de sesión único funcione, es necesario establecer una relac
 Para configurar y probar el inicio de sesión único de Azure AD con Symantec Web Security Service (WSS), es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Symantec Web Security Service (WSS)](#configure-symantec-web-security-service-(wss)-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
+2. **Configuración del inicio de sesión único de Symantec Web Security Service (WSS)**: para configurar el inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Creación de un usuario de prueba de Symantec Web Security Service (WSS)](#create-symantec-web-security-service-wss-test-user)**: para tener un homólogo de Britta Simon en Symantec Web Security Service (WSS) que esté vinculado a la representación de ella en Azure AD.
@@ -138,7 +139,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com

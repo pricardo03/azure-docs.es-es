@@ -4,57 +4,50 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2018
+ms.topic: tutorial
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: f7973ccb384a8e882a9ced5020a53824bf0c4e7d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 116dc5acbfac6efd280b377602e932ed16b81ada
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169882"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171713"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Tutorial: Integración de Azure Active Directory con Drift
 
 En este tutorial, aprenderá a integrar Drift con Azure Active Directory (Azure AD).
-
 La integración de Drift con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Drift.
-- Puede permitir que los usuarios inicien sesión automáticamente en Drift (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Drift.
+* Puede permitir que los usuarios inicien sesión automáticamente en Drift (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Drift, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único de Drift
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único de Drift
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-1. Adición de Drift desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+* Drift admite el inicio de sesión único iniciado por **SP** e **IDP**
+
+* Drift admite el aprovisionamiento de usuarios **Just-In-Time**
 
 ## <a name="adding-drift-from-the-gallery"></a>Adición de Drift desde la galería
 
@@ -62,95 +55,113 @@ Para configurar la integración de Drift en Azure AD, tendrá que agregar Drift 
 
 **Para agregar Drift desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
 4. En el cuadro de búsqueda, escriba **Drift**, seleccione **Drift** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Drift en la lista de resultados](./media/drift-tutorial/tutorial_drift_addfromgallery.png)
+     ![Drift en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Drift con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Drift para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de Drift.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Drift con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Drift.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Drift, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Drift](#creating-a-drift-test-user)**: para tener un homólogo de Britta Simon en Drift que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Drift](#configure-drift-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Drift](#create-drift-test-user)**: para tener un homólogo de Britta Simon en Drift que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en su aplicación Drift.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Drift, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Drift, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **Drift**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Drift**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, haga clic en **Seleccionar** para el modo **SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-    ![Configurar inicio de sesión único](common/tutorial_general_301.png)
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
 3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![Configurar inicio de sesión único](common/editconfigure.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Drift](./media/drift-tutorial/tutorial_drift_url.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Drift](common/both-preintegrated-advanced-urls.png)
 
      a. Haga clic en **Establecer direcciones URL adicionales**.
+ 
+    b. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL: `https://app.drift.com` 
 
-    b. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL: `https://app.drift.com`
+    c. Si quiere configurar la aplicación en modo iniciado por **SP**, realice el siguiente paso:
 
-    c. Si quiere configurar la aplicación en modo iniciado por **SP**, en el cuadro de texto **Sign-on URL** (URL de inicio de sesión), escriba una dirección URL: `https://start.drift.com`
+    d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://start.drift.com`
 
-5. La aplicación Drift espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. Haga clic en el botón **Edit** (Editar) para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
+6. La aplicación Drift espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](./media/drift-tutorial/tutorial_drift_attribute.png)
+    ![imagen](common/edit-attribute.png)
 
-6. En la sección **Notificaciones del usuario** del cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario), configure el atributo token SAML como se muestra en la imagen anterior y realice los siguientes pasos:
-    
-    | Nombre del atributo | Valor de atributo |
+7. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos: 
+
+    | NOMBRE | Atributo de origen|
     | ---------------| --------------- |    
     | NOMBRE | user.displayname |
 
-     a. Haga clic en la reclamación `name` (reclamación resaltada) para abrir el cuadro de diálogo **Manage user claims** (Administrar las reclamaciones del usuario).
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](./media/drift-tutorial/tutorial_drift_attribute1.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![imagen](./media/drift-tutorial/tutorial_drift_attribute3.png)
+    ![imagen](common/new-attribute-details.png)
 
-    b. Seleccione **Atributo** como origen.
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. Deje el campo de **espacio de nombres** en blanco.
+    c. Deje **Espacio de nombres** en blanco.
 
-    d. En la lista **Source attribute** (Atributo de origen), seleccione **user.mail**.
+    d. Seleccione **Atributo** como origen.
 
-    e. Haga clic en **Save**(Guardar).
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-7. En la página **Certificado de firma de SAML**, en la sección **Certificado de firma de SAML**, haga clic **Descargar** para descargar el **archivo XML de metadatos de federación** y, luego, guarde el archivo de metadatos en el equipo.
+    f. Haga clic en **Aceptar**.
 
-    ![Vínculo de descarga del certificado](./media/drift-tutorial/tutorial_drift_certificate.png) 
+    g. Haga clic en **Save**(Guardar).
 
-8. En otra ventana del explorador web, inicie sesión en Drift como administrador.
+8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-9. En la parte izquierda de la barra de menús, haga clic en el **icono de configuración** > **App Settings** > **Authentication** (Configuración de la aplicación > Autenticación) y realice los pasos siguientes:
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
+
+9. En la sección **Set up Drift** (Configurar Drift), copie las direcciones URL adecuadas según sus necesidades.
+
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-drift-single-sign-on"></a>Configuración del inicio de sesión único de Drift
+
+1. En otra ventana del explorador web, inicie sesión en Drift como administrador.
+
+2. En la parte izquierda de la barra de menús, haga clic en el **icono de configuración** > **App Settings** > **Authentication** (Configuración de la aplicación > Autenticación) y realice los pasos siguientes:
 
     ![Vínculo de administración](./media/drift-tutorial/tutorial_drift_admin.png)
 
@@ -160,82 +171,75 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. Haga clic en **Enable SAML**(Habilitar SAML).
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    ![Creación de un usuario de Azure AD][100]
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
 2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_01.png) 
+    ![Botón Nuevo usuario](common/new-user.png)
 
 3. En las propiedades Usuario, siga estos pasos.
 
-    ![Creación de un usuario de prueba de Azure AD](common/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
-    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Seleccione **Crear**.
+    d. Haga clic en **Create**(Crear).
 
-### <a name="creating-a-drift-test-user"></a>Creación de un usuario de prueba de Drift
-
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Drift. Drift admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Drift, se crea un nuevo usuario, en caso de que no exista.
->[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Drift](mailto:integrations@drift.com).
-
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Drift.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Drift**.
 
-    ![Asignar usuario][201]
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **Drift**.
 
-    ![Configurar inicio de sesión único](./media/drift-tutorial/tutorial_drift_app.png) 
+    ![Vínculo a Drift en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Asignar usuario][202]
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][203]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. En el cuadro de diálogo **Add Assignment** (Agregar asignación), seleccione el botón **Assign** (Asignar).
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-drift-test-user"></a>Creación de un usuario de prueba en Drift
+
+En esta sección, se crea un usuario llamado a Britta Simon en Drift. Drift admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Drift, se crea otro después de la autenticación.
+
+>[!Note]
+>Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Drift](mailto:integrations@drift.com).
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Drift en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Drift.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de Drift en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Drift para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png

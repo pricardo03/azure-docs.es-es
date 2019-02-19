@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ca0e2c0ce12edba504745e2783844db5109ee01a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812992"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integración de Azure Active Directory con Zoom
 
@@ -124,6 +125,10 @@ Para configurar el inicio de sesión único de Azure AD con Zoom, realice los pa
     | Apellidos  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
     | Número de teléfono  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
     | department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | role |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+    > [!NOTE]
+    > Haga clic [aquí](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para saber cómo configurar el valor Role en Azure AD.
 
      a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
@@ -141,15 +146,18 @@ Para configurar el inicio de sesión único de Azure AD con Zoom, realice los pa
 
     f. Haga clic en **Save**(Guardar).
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+    > [!NOTE]
+    > Zoom puede esperar una reclamación de grupo en la carga útil de SAML, por lo que si ha creado algún grupo, póngase en contacto con el [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/en-us) con la información del grupo para que también puedan configurar esta información de grupo al final. También debe proporcionar el identificador de objeto al [equipo de soporte técnico de Zoom](https://support.zoom.us/hc/en-us) para que puedan configurarlo al final. Siga el [documento](https://support.zoom.us/hc/en-us/articles/115005887566) para obtener el identificador de objeto.
+
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Set up Zoom** (Configurar Zoom), copie las direcciones URL adecuada según sus necesidades.
+8. En la sección **Set up Zoom** (Configurar Zoom), copie las direcciones URL adecuada según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -160,29 +168,29 @@ Para configurar el inicio de sesión único de Azure AD con Zoom, realice los pa
 1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de Zoom como administrador.
 
 2. Haga clic en la pestaña **Inicio de sesión único** .
-   
-    ![Pestaña de Inicio de sesión único](./media/zoom-tutorial/IC784700.png "Inicio de sesión único")
+
+    ![Pestaña de Inicio de sesión único](./media/zoom-tutorial/ic784700.png "Inicio de sesión único")
 
 3. Haga clic en la pestaña **Control de seguridad** y luego vaya a la configuración de **Inicio de sesión único**.
 
 4. En la sección Inicio de sesión único, siga estos pasos:
-   
-    ![Sección de Inicio de sesión único](./media/zoom-tutorial/IC784701.png "Inicio de sesión único")
-   
+
+    ![Sección de Inicio de sesión único](./media/zoom-tutorial/ic784701.png "Inicio de sesión único")
+
      a. En el cuadro de texto **Dirección URL de la página de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
-   
+
     b. En el cuadro de texto **Dirección URL de la página de cierre de sesión**, pegue el valor de **dirección URL de cierre de sesión** que copió de Azure Portal.
-     
+
     c. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de identidades** .
 
     d. En el cuadro de texto **Emisor**, pegue el valor de **Identificador Azure AD** que ha copiado de Azure Portal. 
 
     e. Haga clic en **Save**(Guardar).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Para obtener más información, visite la documentación de Zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566).
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -198,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -240,17 +248,17 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoom, deben aprovi
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para aprovisionar una cuenta de usuario, realice estos pasos:
 
 1. Inicie sesión en su sitio de la compañía de **Zoom** como administrador.
- 
+
 2. En la pestaña **Administración de cuentas** haga clic en **Administración de usuarios**.
 
 3. En la sección Administración de usuarios, haga clic en **Agregar usuarios**.
-   
-    ![Administración de usuarios](./media/zoom-tutorial/IC784703.png "Administración de usuarios")
+
+    ![Administración de usuarios](./media/zoom-tutorial/ic784703.png "Administración de usuarios")
 
 4. En la página **Agregar usuarios** , realice los pasos siguientes:
-   
-    ![Agregar usuarios](./media/zoom-tutorial/IC784704.png "Agregar usuarios")
-   
+
+    ![Agregar usuarios](./media/zoom-tutorial/ic784704.png "Agregar usuarios")
+
      a. Como **Tipo de usuario**, seleccione **Básico**.
 
     b. En el cuadro de texto **Correos electrónicos** , escriba la dirección de correo electrónico de una cuenta de Azure AD válida que quiera suministrar.
@@ -260,7 +268,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoom, deben aprovi
 > [!NOTE]
 > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zoom que proporcione Zoom para aprovisionar cuentas de usuario de Azure Active Directory.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -273,4 +281,3 @@ Al hacer clic en el icono de Zoom en el panel de acceso y debería iniciar sesi�
 - [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
