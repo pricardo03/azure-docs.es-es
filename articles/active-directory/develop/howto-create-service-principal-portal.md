@@ -14,14 +14,15 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: 708ec047a1c9883e34f2e255cd7a0f1237ded2bf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096881"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238069"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Control de Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
 Cuando haya código que deba tener acceso a ciertos recursos o modificarlos, puede crear una identidad para la aplicación. Esta identidad se conoce como una entidad de servicio. Entonces puede asignar los permisos necesarios a la entidad de servicio. En este artículo se muestra cómo usar el portal para crear la entidad de servicio. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
 
@@ -136,7 +137,7 @@ Debe tener permisos suficientes para registrar una aplicación en su inquilino d
 
    ![Ver registros de aplicaciones](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Si la opción Registros de aplicaciones está establecida en **No**, los [administradores globales](../users-groups-roles/directory-assign-admin-roles.md) serán los únicos que podrán registrar aplicaciones. Si la cuenta está asignada al rol Usuario, pero la opción Registros de aplicaciones está limitada a los usuarios administradores, pida al administrador que le asigne un rol de administrador global o que permita a los usuarios registrar las aplicaciones.
+Si la configuración de registro de aplicaciones se establece en **No**, solo los usuarios con un rol de administrador pueden registrar este tipo de aplicaciones. Consulte los [roles disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) y los [permisos de roles](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para conocer los roles de administrador disponibles y los permisos específicos en Azure AD que se otorgan a cada rol. Si la cuenta está asignada al rol Usuario, pero la opción Registros de aplicaciones está limitada a los administradores, pida al administrador que le asigne un rol de administrador para poder crear y administrar todos los aspectos de los registros de aplicaciones, o que permita a los usuarios registrar las aplicaciones.
 
 ### <a name="check-azure-subscription-permissions"></a>Comprobación de los permisos de suscripción de Azure
 

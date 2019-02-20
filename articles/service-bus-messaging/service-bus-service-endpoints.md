@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: 8a5832433d1d8c81c22c828ec4659c10951f680a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103639"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234074"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de Virtual Network con Azure Service Bus
 
@@ -27,9 +27,9 @@ Una vez realizada la configuración para enlazarse con al menos un punto de cone
 El resultado es una relación privada y aislada entre las cargas de trabajo enlazadas a la subred y el espacio de nombres respectivo de Service Bus, a pesar de que la dirección de red que se puede observar en el punto de conexión de servicio de mensajería esté en un intervalo IP público.
 
 >[!WARNING]
-> La implementación de la integración de instancias de Virtual Network puede evitar que otros servicios de Azure interactúen con Service Bus.
+> La implementación de la integración de instancias de redes virtuales puede evitar que otros servicios de Azure interactúen con Service Bus.
 >
-> Los servicios de confianza de Microsoft no se admiten cuando se implementan las instancias de Virtual Network, pero estarán disponibles muy pronto.
+> Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
 >
 > Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
 > - Azure Monitor

@@ -9,27 +9,27 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 957ce60b8519ccb1e3287232f7a5459a56b25bb7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995157"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960622"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
-Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un tipo de visualización de datos utilizado para representar la densidad de los datos mediante una gama de colores. A menudo se utilizan para mostrar las "zonas activas" de datos en un mapa y son una forma excelente de representar grandes conjuntos de datos de puntos.  Por ejemplo, la representación de decenas de miles de puntos dentro de la vista del mapa cubre la mayor parte del área del mapa y daría lugar a que muchos símbolos se tapen entre sí, lo que dificulta la comprensión de los datos. Sin embargo, la visualización de este mismo conjunto de datos como un mapa térmico facilita la visualización dónde los datos de puntos son más densos y la densidad relativa a otras áreas. Hay muchos escenarios en los que se usan los mapas térmicos. Estos son algunos ejemplos:
+Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un tipo de visualización de datos utilizado para representar la densidad de los datos mediante una gama de colores. A menudo se utilizan para mostrar las "zonas activas" de los datos en un mapa y son una forma excelente de representar grandes conjuntos de datos de puntos.  Por ejemplo, si se representaran decenas de miles de puntos como símbolos en la vista del mapa, se cubriría cubre la mayor parte del área del mapa, lo que daría lugar a que muchos símbolos quedaran tapados por otros y dificultaría la comprensión de los datos. Sin embargo, la visualización de este mismo conjunto de datos como un mapa térmico facilita la visualización dónde los datos de puntos son más densos y la densidad relativa a otras áreas. Hay muchos escenarios en los que se usan los mapas térmicos. Estos son algunos ejemplos:
 
 * Los datos de temperatura normalmente se representan como mapa térmico, ya que este proporciona aproximaciones de temperatura entre dos puntos de datos.
-* La representación de datos de sensores de ruido como un mapa térmico no solo muestra la intensidad del ruido donde se encuentra el sensor, sino que también puede proporcionar información sobre la degradación a lo largo de una distancia. Puede que el nivel de ruido de cualquier sitio no sea elevado; sin embargo, si el área de cobertura de ruido de varios sensores se superpone, es posible que esta área superpuesta pueda experimentar niveles de ruido más elevados y, por tanto, serían visibles en el mapa térmico.
-* La visualización de un seguimiento por GPS que incluya la velocidad como un mapa de altura y peso donde la intensidad de cada punto se basa en la velocidad es una forma magnífica de ver rápidamente dónde acelera el vehículo.
+* La representación de datos de sensores de ruido como un mapa térmico no solo muestra la intensidad del ruido donde se encuentra el sensor, sino que también puede proporcionar información sobre la degradación a lo largo de una distancia. Puede que el nivel de ruido de un sitio no sea elevado; sin embargo, si el área de cobertura de ruido de varios sensores se superpone, es posible que esta área superpuesta pueda experimentar niveles de ruido más elevados y, por tanto, serían visibles en el mapa térmico.
+* La visualización de un seguimiento por GPS que incluya la velocidad como un mapa de altura ponderada, donde la intensidad de cada punto de datos se basaría en la velocidad, es una forma magnífica de ver rápidamente dónde acelera el vehículo.
 
 > [!TIP]
-> Las capas de burbuja de forma predeterminada representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de tal forma que solo represente las características geométricas de punto, establezca la propiedad `filter` de la capa en `['==', '$type', 'Point']`.
+> De forma predeterminada, las capas de un mapa térmico representarán las coordenadas de todos los objetos geométricos de un origen de datos. Para limitar la capa de tal forma que solo represente las características geométricas de punto, establezca la propiedad `filter` de la capa en `['==', '$type', 'Point']`.
 
 ## <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
-Para representar un origen de datos de puntos como un mapa térmico solo tiene que pasar el origen de datos a una instancia de la clase HeatMapLayer y agregarlo al mapa como se muestra aquí.
+Para representar un origen de datos de puntos como un mapa térmico, solo tiene que pasar el origen de datos a una instancia de la clase `HeatMapLayer` y agregarlo al mapa tal y como se muestra aquí.
 
 <br/>
 
@@ -42,8 +42,8 @@ En este ejemplo, cada punto térmico tiene un radio de 10 píxeles a todos los n
 
 En el ejemplo anterior se personalizó el mapa térmico con la configuración de las opciones de radio y opacidad. La capa de mapa térmico ofrece varias opciones de personalización:
 
-* `radius`: define un radio de píxel en el que representar cada punto de datos. El radio puede establecerse como un número fijo o como una expresión. Establecer el radio como una expresión que establece el radio según el nivel de zoom puede dar lugar a mapas térmicos que parecen tener un radio que representa un área espacial coherente en el mapa.
-* `color`: especifica cómo se colorea el mapa térmico. Se suele utilizar una paleta de colores degradados para los mapas térmicos, pero las paletas de colores escalonados también son útiles si desea que el mapa térmico se asemeje más a datos de contorno. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos. Los valores de color de los mapas térmicos se especifican como una expresión en el valor `heatmap-density`. El color del índice 0 de una expresión de degradado o el color predeterminado de un color escalonado define el color del área donde no hay ningún dato o el color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente. Estos son ejemplos de expresiones de color:
+* `radius`: define un radio de píxel en el que representar cada punto de datos. El radio puede establecerse como un número fijo o como una expresión. Mediante una expresión, es posible escalar el radio en función del nivel de zoom, que parece representar un área espacial coherente del mapa (por ejemplo, un radio de 5 millas).
+* `color`: especifica cómo se colorea el mapa térmico. Se suele utilizar una paleta de colores degradados para los mapas térmicos, pero las paletas de colores escalonados también son útiles si desea que el mapa térmico se asemeje más a datos de contorno. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos. Los valores de color de los mapas térmicos se especifican como una expresión en el valor `heatmap-density`. El color del índice 0 de una expresión de degradado o el color predeterminado de un color escalonado define el color del área donde no hay ningún dato y puede utilizarse para especificar el color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente. Estos son ejemplos de expresiones de color:
 
 | Expresión de color degradado | Expresión de color escalonado | 
 |---------------------------|--------------------------|
@@ -51,8 +51,8 @@ En el ejemplo anterior se personalizó el mapa térmico con la configuración de
 
 * `opacity`: especifica el grado de opacidad o transparencia de la capa de mapa térmico.
 * `intensity`: aplica un multiplicador al peso de cada punto de datos para aumentar la intensidad general del mapa térmico. Esto ayuda a que las pequeñas diferencias en el peso de los puntos de datos resulten más fáciles de visualizar.
-* `weight`: de forma predeterminada, todos los puntos de datos tienen un peso de 1; por lo tanto, todos los puntos de datos se ponderan equitativamente. La opción de peso actúa como un multiplicador y puede establecerse como un número o una expresión. Si se establece un número como número, digamos 2, sería el equivalente a colocar cada punto de datos dos veces en el mapa, duplicando así la intensidad. Establecer la opción de peso en un número representa el mapa térmico de forma similar a la opción de intensidad. Sin embargo, si se usa una expresión, el peso de cada punto de datos puede basarse en otros aspectos, como alguna métrica de las propiedades del punto. Si consideramos los datos de los terremotos como ejemplo, cada punto de datos representa un terremoto y una métrica importante que cada terremoto tiene es la magnitud. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y casi no se sienten. El uso del valor de magnitud en una expresión para asignar la opción de peso dará lugar a que se destaquen más los terremotos más importantes, a fin de que estén mejor representados en el mapa térmico.
-* Además de las opciones de la capa base, es decir, zoom mínimo y máximo, visible y filtro, también existe una opción `source` si desea actualizar el origen de datos y la opción `source-layer` si el origen de datos es un origen de mosaico de vector.
+* `weight`: de forma predeterminada, todos los puntos de datos tienen un peso de 1; por lo tanto, todos los puntos de datos se ponderan equitativamente. La opción de peso actúa como un multiplicador y puede establecerse como un número o una expresión. Si el peso se establece con un número, digamos 2, equivaldría a colocar cada punto de datos dos veces en el mapa, por lo que se duplicaría la densidad. Establecer la opción de peso en un número representa el mapa térmico de forma similar a la opción de intensidad. Sin embargo, si se usa una expresión, el peso de cada punto de datos puede basarse en algunas métricas de las propiedades de dichos puntos de datos. Si tomamos los datos de un terremoto como ejemplo, cada punto de datos representaría un terremoto. Las métricas importantes que tenga cada punto de datos se considerarán valores de magnitud. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y casi no se sienten. Si utilizamos el valor de magnitud de una expresión para asignar el peso a cada punto de datos, conseguiremos que los terremotos más importantes se representen mejor en el mapa térmico.
+* Además de las opciones de la capa base, el zoom mínimo y máximo, la opción Visible y el filtro, también está la opción `source` si desea actualizar el origen de datos y la opción `source-layer` si el origen de dato es un origen de corte vectorial.
 
 A continuación, se muestra una herramienta para probar las diferentes opciones de la capa de mapa térmico.
 
@@ -62,7 +62,7 @@ A continuación, se muestra una herramienta para probar las diferentes opciones 
 </iframe>
 
 > [!TIP]
-> Al habilitar la agrupación en clústeres en el origen de datos, los puntos que están cerca unos de otros se agrupan como un punto agrupado. El número de puntos de cada clúster puede utilizarse como la expresión de peso para el mapa térmico y reducir significativamente el número de puntos que se deben representar. El número de punto de un clúster se almacena en la propiedad point_count de la característica de puntos como se muestra a continuación. 
+> Al habilitar la agrupación en clústeres en el origen de datos, los puntos que están cerca unos de otros se agrupan como un punto agrupado. El número de puntos de cada clúster puede utilizarse como la expresión de peso para el mapa térmico y reducir significativamente el número de puntos que se deben representar. El número de puntos de un clúster se almacena en la propiedad `point_count property` de la característica de puntos, tal y como se muestra a continuación. 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']

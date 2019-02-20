@@ -4,23 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo filtrar y mostrar los resultados de búsqueda de Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: c59cb173480fbeefa890317fb4804f07b9f58f76
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199500"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrado de los resultados incluidos en la respuesta de búsqueda  
 
-Al consultar la web, Bing devuelve todo el contenido que cree que es pertinente para la búsqueda. Por ejemplo, si la consulta de búsqueda es "navegar+barco", la respuesta podría contener los resultados siguientes:
+Al consultar la web, Bing devuelve todo el contenido relevante para la búsqueda. Por ejemplo, si la consulta de búsqueda es "navegar+barco", la respuesta podría contener los resultados siguientes:
 
 ```json
 {
@@ -44,8 +44,16 @@ Al consultar la web, Bing devuelve todo el contenido que cree que es pertinente 
     }
 }    
 ```
+Puede filtrar los tipos de contenido que reciba (por ejemplo imágenes, vídeos y noticias) mediante el parámetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Si Bing encuentra contenido relevante a los resultados especificados, lo mostrará. El filtro de respuesta es una lista de resultados delimitados por comas. 
 
-Si está interesado en determinados tipos de contenido, como imágenes, vídeos o noticias, puede solicitar solo esos resultados con el parámetro de consulta [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Si Bing busca contenido pertinente para los resultados especificados, Bing lo devuelve. El filtro de respuesta es una lista de resultados delimitados por comas. A continuación se muestra cómo utilizar `responseFilter` para solicitar imágenes, vídeos y noticias de barcos de navegación. Cuando se codifica la cadena de consulta, las comas cambian a %2c.  
+Para excluir determinados tipos de contenido (como imágenes) de la respuesta, puede agregar un carácter `-` al principio del valor `responseFilter`. Asimismo, puede separar los tipos excluidos con comas (`,`). Por ejemplo: 
+
+```
+&responseFilter=-images,-videos
+```
+
+
+A continuación se muestra cómo utilizar `responseFilter` para solicitar imágenes, vídeos y noticias de barcos de navegación. Cuando se codifica la cadena de consulta, las comas cambian a %2c.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-A continuación se muestra la respuesta de la consulta anterior. Como puede ver, Bing no encontró resultados pertinentes de vídeo y de noticias, y no se incluyen en la respuesta.
+A continuación se muestra la respuesta de la consulta anterior. Como Bing no encontró resultados relevantes de vídeo y de noticias, estos no se incluyen en la respuesta.
 
 ```json
 {
@@ -80,12 +88,6 @@ A continuación se muestra la respuesta de la consulta anterior. Como puede ver,
         }
     }
 }
-```
-
-Si desea excluir determinados tipos de contenido (por ejemplo, imágenes) de la respuesta, puede excluirlos agregando un prefijo con un guion (signo menos) al valor responseFilter. Separe los tipos excluidos con comas:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Aunque Bing no devolvió resultados de vídeo y de noticias en la respuesta anterior, no significa que no exista contenido de vídeo y de noticias. Solo quiere decir que la página no los incluyó. Sin embargo, si [página](./paging-webpages.md) más resultados, probablemente las páginas siguientes los incluyan. Además, si se llama directamente a los puntos de conexión de [Video Search API](../bing-video-search/search-the-web.md) y [News Search API](../bing-news-search/search-the-web.md), es probable que la respuesta contenga resultados.

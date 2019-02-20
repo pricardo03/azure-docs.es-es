@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a63a10225f4dc55092c62e39b22cdf15d7f7ca5e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104089"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217520"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -189,4 +189,4 @@ Siga el [blog de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga información sobre conceptos fundamentales de Service Fabric y procedimientos recomendados](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+Obtenga información sobre los [conceptos fundamentales de Service Fabric](service-fabric-technical-overview.md) y los [procedimientos recomendados](service-fabric-best-practices-overview.md).

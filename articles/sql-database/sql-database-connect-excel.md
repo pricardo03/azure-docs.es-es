@@ -1,6 +1,6 @@
 ---
-title: Conexión de Excel a SQL Database | Microsoft Docs
-description: Más información acerca de cómo conectar Microsoft Excel a Base de datos SQL de Azure en la nube. Importación de datos en Excel para la generación de informes y la exploración de datos.
+title: Conectar Excel a una base de datos única en Azure SQL Database | Microsoft Docs
+description: Obtenga más información acerca de cómo conectar Microsoft Excel a una base de datos única en Azure SQL Database. Importación de datos en Excel para la generación de informes y la exploración de datos.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,21 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754589"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237028"
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Conexión de Excel a una Base de datos SQL de Azure y creación de un informe
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar Excel a una base de datos única de Azure SQL Database y crear un informe
 
-Conecte Excel a una instancia de SQL Database en la nube e importe datos y cree tablas y gráficos basados en los valores de la base de datos. En este tutorial va a configurar la conexión entre Excel y una tabla de base de datos, guardar el archivo que almacena los datos y la información de conexión de Excel y, finalmente, crear un gráfico dinámico a partir de los valores de la base de datos.
+Conecte Excel a una base de datos única de Azure SQL Database e importe datos y cree tablas y gráficos basados en los valores de la base de datos. En este tutorial va a configurar la conexión entre Excel y una tabla de base de datos, guardar el archivo que almacena los datos y la información de conexión de Excel y, finalmente, crear un gráfico dinámico a partir de los valores de la base de datos.
 
-Antes de comenzar, necesitará una Base de datos SQL en Azure. Si no tiene una, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-single-database-get-started.md) para tener una base de datos con datos de ejemplo en funcionamiento en unos minutos. En este artículo se importarán los datos de ejemplo en Excel de dicho artículo, pero puede seguir los pasos con sus propios datos.
+Antes de comenzar, necesitará una base de datos única. Si no tiene una, consulte [Creación de una base de datos única](sql-database-single-database-get-started.md) y [Create server-level IP firewall](sql-database-server-level-firewall-rule.md) (Creación de un firewall de IP de nivel de servidor) para tener en funcionamiento en unos minutos una base de datos única con datos de ejemplo.
+
+En este artículo se importarán los datos de ejemplo en Excel de dicho artículo, pero puede seguir los pasos con sus propios datos.
 
 También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 2016](https://products.office.com/).
 

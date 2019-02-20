@@ -1,6 +1,6 @@
 ---
-title: 'Ejecución de paquetes de SSIS con la actividad Ejecutar paquete de SSIS: Azure | Microsoft Docs'
-description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de Ejecutar paquete SSIS.
+title: 'Ejecución de paquetes SSIS con la actividad Ejecutar paquete de SSIS: Azure | Microsoft Docs'
+description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad Ejecutar paquete de SSIS.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,103 +8,77 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 02/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 73d14ebf8ed365659ec547469cd903d5db22c561
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a948a75ce3f6c21d7e92e3e1ccb1ef98dbe2ea0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428620"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114390"
 ---
-# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory
-En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad Ejecutar paquete SSIS. 
+# <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
+En este artículo se describe cómo ejecutar un paquete SSIS desde una canalización de Azure Data Factory mediante la actividad Ejecutar paquete de SSIS. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-**Azure SQL Database**. El tutorial de este artículo usa una instancia de Azure SQL Database que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
-
-## <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
-Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](tutorial-create-azure-ssis-runtime-portal.md).
+Cree una instancia de Azure-SSIS Integration Runtime (IR) si no tiene ya una. Para ello, siga las instrucciones paso a paso del [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Ejecución de un paquete en Azure Portal
-En esta sección, usará la interfaz de usuario de Data Factory para crear una canalización de Data Factory con una actividad Ejecutar paquete de SSIS que invoca un paquete SSIS.
-
-### <a name="create-a-data-factory"></a>Crear una factoría de datos
-El primer paso es crear una factoría de datos con Azure Portal. 
-
-1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-2. Acceda a [Azure Portal](https://portal.azure.com). 
-3. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
-   
-   ![New->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. En la página **New data factory** (Nueva factoría de datos), escriba **ADFTutorialDataFactory** en **Name** (Nombre). 
-      
-     ![Página New data factory (Nueva factoría de datos)](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
- 
-   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si ve el siguiente error en el campo del nombre, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory). Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
-  
-     ![Error de nombre no disponible](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
-3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
-4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
-     
-      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
-      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
-         
-    Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Seleccione **V2** para la **versión**.
-5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que admite Data Factory. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) utilizados por la factoría de datos pueden encontrarse en otras ubicaciones.
-6. Seleccione **Anclar al panel**.     
-7. Haga clic en **Create**(Crear).
-8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
-
-    ![icono implementando factoría de datos](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
-   
-    ![Página principal Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
-10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente. 
+En esta sección, usará la interfaz de usuario (UI) o aplicación de ADF para crear una canalización de ADF con la actividad Ejecutar paquete de SSIS que ejecuta el paquete de SSIS.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creación de una canalización con una actividad Ejecutar paquete de SSIS
-En este paso, usa la interfaz de Data Factory para crear una canalización. Agregue una actividad Ejecutar paquete de SSIS a la canalización y configúrela para ejecutar el paquete de SSIS. 
+En este paso, usará la interfaz de usuario o aplicación de ADF para crear una canalización. Agregará una actividad Ejecutar paquete de SSIS a la canalización y la configurará para ejecutar el paquete de SSIS. 
 
-1. En la página de introducción, haga clic en **Create pipeline** (Crear canalización): 
+1. En la página de inicio o información general de ADF de Azure Portal, haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario o aplicación de ADF en una pestaña aparte. 
 
-    ![Página de introducción](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. En el cuadro de herramientas **Actividades**, expanda **General**, arrastre la actividad **Ejecutar paquete de SSIS** y colóquela en la superficie del diseñador de canalizaciones. 
+   ![Página principal Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   ![Arrastre la actividad Ejecutar paquete de SSIS a la superficie del diseñador](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   En la página **Let's get started** (Empecemos), haga clic en **Create pipeline** (Crear canalización): 
 
-3. En la pestaña **General** de las propiedades de la actividad Ejecutar paquete de SSIS, proporcione un nombre y una descripción para la actividad. Establezca el tiempo de espera opcional y los valores de reintento.
+   ![Página de introducción](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 
-    ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+2. En el cuadro de herramientas **Activities** (Actividades), expanda **General**, arrastre la actividad **Execute SSIS Package** (Ejecutar paquete de SSIS) y colóquela en la superficie del diseñador de canalizaciones. 
 
-4. En la pestaña **Configuración** de las propiedades de la actividad Ejecutar paquete de SSIS, seleccione el entorno de ejecución de integración de Azure SSIS asociado con la base de datos`SSISDB` donde se implementó el paquete. Proporcione la ruta de acceso del paquete en la base de datos `SSISDB` en el formato `<folder name>/<project name>/<package name>.dtsx`. Si lo desea, especifique la ejecución de 32 bits y un nivel de registro predefinido o personalizado, y proporcione una ruta de acceso de entorno en el formato `<folder name>/<environment name>`.
+   ![Arrastrar la actividad Execute SSIS Package (Ejecutar paquete de SSIS) a la superficie del diseñador](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-    ![Establecimiento de las propiedades en la pestaña Configuración](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+3. En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), proporcione un nombre y una descripción para la actividad. Establezca el tiempo de espera opcional y los valores de reintento.
 
-5. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
+   ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-6. Publique la canalización en Data Factory con un clic en el botón **Publish All** (Publicar todo). 
+4. En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), seleccione su instancia de Azure-SSIS IR que está asociada a la base de datos SSISDB donde está implementado el paquete. Si el paquete necesita el entorno de ejecución de 32 bits para funcionar, active la casilla **32-Bit runtime** (Entorno de ejecución de 32 bits). En **Logging level** (Nivel de registro), seleccione un ámbito predefinido de registro para la ejecución de su paquete. Active la casilla **Customized** (Personalizado), si quiere escribir en su lugar un nombre de registro personalizado. Cuando se ejecuta la instancia de Azure-SSIS IR y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Haga clic en el botón **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. 
 
-### <a name="optionally-parameterize-the-activity"></a>Si lo desea, parametrice la actividad
+   ![Establecer propiedades de la pestaña Settings (Configuración): Automatic (Automática)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-Si lo desea, asigne valores, expresiones o funciones, que pueden hacer referencia a las variables del sistema de Data Factory, a los parámetros del paquete o del proyecto en formato JSON utilizando el botón "Ver código fuente" en la parte inferior del cuadro de actividad Ejecutar paquete de SSIS, o el botón "Código", en la esquina superior derecha del área de canalización. Por ejemplo, puede asignar los parámetros de la canalización de Data Factory a los parámetros del paquete o del proyecto de SSIS, tal y como se muestra en las capturas de pantalla siguientes:
+   Cuando la instancia de Azure-SSIS IR no se está ejecutando o la casilla **Manual entries** (Entradas manuales) está activada, puede escribir las rutas de acceso de su paquete y entorno de SSISDB en los siguientes formatos: `<folder name>/<project name>/<package name>.dtsx` y `<folder name>/<environment name>`.
 
-![Edición de script JSON para la actividad Ejecutar paquete de SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+   ![Establecer las propiedades en la pestaña Settings (Configuración): manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-![Adición de parámetros a la actividad Ejecutar paquete de SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
+5. En la pestaña **SSIS Parameters** (Parámetros de SSIS) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), cuando la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los parámetros de SSIS existentes en el proyecto o paquete seleccionados de SSISDB para que les asigne valores. En caso contrario, puede escribirlos uno a uno para asignar valores manualmente. Asegúrese de que existen y se han escrito correctamente para que la ejecución del paquete se realice de forma adecuada. También puede agregar contenido dinámico a sus valores mediante expresiones, funciones, variables del sistema de ADF y parámetros o variables de canalización de ADF.
 
-![Adición de parámetros a la actividad Ejecutar paquete de SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
+   ![Establecer propiedades en la pestaña SSIS Parameters (Parámetros de SSIS)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+
+6. En la pestaña **Connection Managers** (Administradores de conexiones) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), cuando la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los administradores de conexiones en el proyecto o paquete seleccionados de SSISDB para que les asigne valores. En caso contrario, puede escribirlos uno a uno para asignar valores manualmente. Asegúrese de que existen y se han escrito correctamente para que la ejecución del paquete se realice de forma adecuada. También puede agregar contenido dinámico a sus valores mediante expresiones, funciones, variables del sistema de ADF y parámetros o variables de canalización de ADF.
+
+   ![Establecer propiedades en la pestaña Connection Managers (Administradores de conexiones)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+
+7. En la pestaña **Property Overrides** (Reemplazos de propiedad) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), puede escribir las rutas de acceso de las propiedades existentes en el paquete seleccionado de SSISDB una a una para asignarles valores manualmente. Asegúrese de que existen y de que se escriben correctamente para que la ejecución del paquete se realice de forma adecuada; por ejemplo, para invalidar el valor de la variable de usuario, escriba su ruta de acceso en el siguiente formato: `\Package.Variables[User::YourVariableName].Value`. También puede agregar contenido dinámico a sus valores mediante expresiones, funciones, variables del sistema de ADF y parámetros o variables de canalización de ADF.
+
+   ![Establecer propiedades en la pestaña Property Overrides (Reemplazos de propiedad)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+
+8. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
+
+9. Para publicar la canalización en ADF, haga clic en **Publish All** (Publicar todo). 
 
 ### <a name="run-the-pipeline"></a>Ejecución de la canalización
-En esta sección, desencadena una ejecución de canalización y luego la supervisa. 
+En este paso, desencadenará una ejecución de canalización. 
 
 1. Para desencadenar una ejecución de canalización, haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger now** (Desencadenar ahora). 
 
-    ![Trigger now (Desencadenar ahora)](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
+   ![Trigger now (Desencadenar ahora)](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
 2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar). 
 
@@ -112,176 +86,136 @@ En esta sección, desencadena una ejecución de canalización y luego la supervi
 
 1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información (como la hora de inicio de la ejecución). Para actualizar la vista, haga clic en **Refresh** (Actualizar).
 
-    ![Ejecuciones de la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+   ![Ejecuciones de la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
 2. Haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Solo verá una ejecución de actividad porque la canalización solo tiene una actividad (actividad Ejecutar paquete de SSIS).
 
-    ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+   ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
 3. Puede ejecutar la **consulta** siguiente en la base de datos SSISDB en el servidor de Azure SQL para comprobar la ejecución del paquete. 
 
-    ```sql
-    select * from catalog.executions
-    ```
+   ```sql
+   select * from catalog.executions
+   ```
 
-    ![Comprobación de las ejecuciones del paquete](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+   ![Comprobación de las ejecuciones del paquete](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
 4. También puede obtener el identificador de ejecución de SSISDB desde la salida de la ejecución de la actividad de canalización, y usar el identificador para comprobar registros de ejecución y mensajes de error más completos en SSMS.
 
-    ![Obtenga el identificador de ejecución.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
+   ![Obtenga el identificador de ejecución.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>Programación de la canalización con un desencadenador
 
 También puede crear un desencadenador programado para la canalización de manera que esta se ejecute según una programación (por hora, cada día, etc.). Para ver un ejemplo, consulte [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule) (Creación de una factoría de datos: interfaz de usuario de Data Factory).
 
 ## <a name="run-a-package-with-powershell"></a>Ejecución de un paquete con PowerShell
-En esta sección, usará Azure PowerShell para crear una canalización de Data Factory con una actividad Ejecutar paquete de SSIS que ejecuta un paquete SSIS. 
+En esta sección, usará Azure PowerShell para crear una canalización de ADF con una actividad Ejecutar paquete de SSIS que ejecuta el paquete de SSIS. 
 
-Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+Instale los módulos de Azure PowerShell más recientes siguiendo las instrucciones paso a paso que se indican en [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
-### <a name="create-a-data-factory"></a>Crear una factoría de datos
-Puede usar la misma factoría de datos que tiene el IR de SSIS de Azure o crear una factoría de datos independiente. El siguiente procedimiento detalla los pasos para crear una factoría de datos. Creará una canalización con una actividad Ejecutar paquete de SSIS en esta factoría de datos. La actividad Ejecutar paquete de SSIS ejecuta el paquete de SSIS. 
-
-1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) entre comillas dobles y ejecute el comando. Por ejemplo: `"adfrg"`. 
-   
-     ```powershell
-    $resourceGroupName = "ADFTutorialResourceGroup";
-    ```
-
-    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y vuelva a ejecutar el comando
-2. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
-
-    ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
-    ``` 
-    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y ejecute el comando de nuevo. 
-3. Defina una variable para el nombre de la factoría de datos. 
-
-    > [!IMPORTANT]
-    >  Actualice el nombre de la factoría de datos para que sea globalmente único. 
-
-    ```powershell
-    $DataFactoryName = "ADFTutorialFactory";
-    ```
-
-5. Para crear la factoría de datos, ejecute el siguiente cmdlet **Set-AzureRmDataFactoryV2** con las propiedades ResourceGroupName y Location de la variable $ResGrp: 
-    
-    ```powershell       
-    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
-                                            -Location $ResGrp.Location `
-                                            -Name $dataFactoryName 
-    ```
-
-Tenga en cuenta los siguientes puntos:
-
-* El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
-
-    ```
-    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
-    ```
-* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+### <a name="create-an-adf-with-azure-ssis-ir"></a>Creación de un ADF con Azure-SSIS IR
+Puede usar un ADF existente que ya tenga aprovisionado Azure-SSIS IR o crear un ADF con Azure-SSIS IR siguiendo las instrucciones paso a paso del [Tutorial: Implementación de paquetes SSIS en Azure mediante PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creación de una canalización con una actividad Ejecutar paquete de SSIS 
 En este paso se crea una canalización con una actividad Ejecutar paquete de SSIS. La actividad ejecuta el paquete de SSIS. 
 
 1. Cree un archivo JSON con el nombre **RunSSISPackagePipeline.json** en la carpeta **C:\ADF\RunSSISPackage** con un contenido similar al del siguiente ejemplo:
 
-    > [!IMPORTANT]
-    > Reemplace los nombres de objeto, descripciones, rutas de acceso, valores de propiedades y parámetros, contraseñas y otros valores de variables antes de guardar el archivo. 
+   > [!IMPORTANT]
+   > Reemplace los nombres de objeto, descripciones, rutas de acceso, valores de propiedades y parámetros, contraseñas y otros valores de variables antes de guardar el archivo. 
 
-    ```json
-    {
-        "name": "RunSSISPackagePipeline",
-        "properties": {
-            "activities": [{
-                "name": "mySSISActivity",
-                "description": "My SSIS package/activity description",
-                "type": "ExecuteSSISPackage",
-                "typeProperties": {
-                    "connectVia": {
-                        "referenceName": "myAzureSSISIR",
-                        "type": "IntegrationRuntimeReference"
-                    },
-                    "runtime": "x64",
-                    "loggingLevel": "Basic",
-                    "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
-                    },
-                    "environmentPath":   "FolderName/EnvironmentName",
-                    "projectParameters": {
-                        "project_param_1": {
-                            "value": "123"
-                        }
-                    },
-                    "packageParameters": {
-                        "package_param_1": {
-                            "value": "345"
-                        }
-                    },
-                    "projectConnectionManagers": {
-                        "MyAdonetCM": {
-                            "userName": {
-                                "value": "sa"
-                            },
-                            "passWord": {
-                                "value": {
-                                    "type": "SecureString",
-                                    "value": "abc"
-                                }
-                            }
-                        }
-                    },
-                    "packageConnectionManagers": {
-                        "MyOledbCM": {
-                            "userName": {
-                                "value": "sa"
-                            },
-                            "passWord": {
-                                "value": {
-                                    "type": "SecureString",
-                                    "value": "def"
-                                }
-                            }
-                        }
-                    },
-                    "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
-                            "value": 8,
-                            "isSensitive": false
-                        }
-                    }
-                },
-                "policy": {
-                    "timeout": "0.01:00:00",
-                    "retry": 0,
-                    "retryIntervalInSeconds": 30
-                }
-            }]
-        }
-    }
-    ```
+   ```json
+   {
+       "name": "RunSSISPackagePipeline",
+       "properties": {
+           "activities": [{
+               "name": "mySSISActivity",
+               "description": "My SSIS package/activity description",
+               "type": "ExecuteSSISPackage",
+               "typeProperties": {
+                   "connectVia": {
+                       "referenceName": "myAzureSSISIR",
+                       "type": "IntegrationRuntimeReference"
+                   },
+                   "runtime": "x64",
+                   "loggingLevel": "Basic",
+                   "packageLocation": {
+                       "packagePath": "FolderName/ProjectName/PackageName.dtsx"
+                   },
+                   "environmentPath": "FolderName/EnvironmentName",
+                   "projectParameters": {
+                       "project_param_1": {
+                           "value": "123"
+                       }
+                   },
+                   "packageParameters": {
+                       "package_param_1": {
+                           "value": "345"
+                       }
+                   },
+                   "projectConnectionManagers": {
+                       "MyAdonetCM": {
+                           "userName": {
+                               "value": "sa"
+                           },
+                           "passWord": {
+                               "value": {
+                                   "type": "SecureString",
+                                   "value": "abc"
+                               }
+                           }
+                       }
+                   },
+                   "packageConnectionManagers": {
+                       "MyOledbCM": {
+                           "userName": {
+                               "value": "sa"
+                           },
+                           "passWord": {
+                               "value": {
+                                   "type": "SecureString",
+                                   "value": "def"
+                               }
+                           }
+                       }
+                   },
+                   "propertyOverrides": {
+                       "\\Package.MaxConcurrentExecutables": {
+                           "value": 8,
+                           "isSensitive": false
+                       }
+                   }
+               },
+               "policy": {
+                   "timeout": "0.01:00:00",
+                   "retry": 0,
+                   "retryIntervalInSeconds": 30
+               }
+           }]
+       }
+   }
+   ```
 
-2.  En Azure PowerShell, cambie a la carpeta `C:\ADF\RunSSISPackage`.
+2. En Azure PowerShell, cambie a la carpeta `C:\ADF\RunSSISPackage`.
 
 3. Para crear la canalización **RunSSISPackagePipeline**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
 
-    ```powershell
-    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                                   -ResourceGroupName $ResGrp.ResourceGroupName `
-                                                   -Name "RunSSISPackagePipeline"
-                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
-    ```
+   ```powershell
+   $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+                                                  -ResourceGroupName $ResGrp.ResourceGroupName `
+                                                  -Name "RunSSISPackagePipeline"
+                                                  -DefinitionFile ".\RunSSISPackagePipeline.json"
+   ```
 
-    Este es la salida de ejemplo:
+   Este es la salida de ejemplo:
 
-    ```
-    PipelineName      : Adfv2QuickStartPipeline
-    ResourceGroupName : <resourceGroupName>
-    DataFactoryName   : <dataFactoryName>
-    Activities        : {CopyFromBlobToBlob}
-    Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
-    ```
+   ```
+   PipelineName      : Adfv2QuickStartPipeline
+   ResourceGroupName : <resourceGroupName>
+   DataFactoryName   : <dataFactoryName>
+   Activities        : {CopyFromBlobToBlob}
+   Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
+   ```
 
 ### <a name="run-the-pipeline"></a>Ejecución de la canalización
 Use el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** para ejecutar la canalización. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
@@ -322,67 +256,66 @@ En el paso anterior, ejecutó la canalización a petición. También puede crear
 
 1. Cree un archivo JSON con el nombre **MyTrigger.json** en la carpeta **C:\ADF\RunSSISPackage** con el siguiente contenido: 
 
-    ```json
-    {
-        "properties": {
-            "name": "MyTrigger",
-            "type": "ScheduleTrigger",
-            "typeProperties": {
-                "recurrence": {
-                    "frequency": "Hour",
-                    "interval": 1,
-                    "startTime": "2017-12-07T00:00:00-08:00",
-                    "endTime": "2017-12-08T00:00:00-08:00"
-                }
-            },
-            "pipelines": [{
-                    "pipelineReference": {
-                        "type": "PipelineReference",
-                        "referenceName": "RunSSISPackagePipeline"
-                    },
-                    "parameters": {}
-                }
-            ]
-        }
-    }    
-    ```
+   ```json
+   {
+       "properties": {
+           "name": "MyTrigger",
+           "type": "ScheduleTrigger",
+           "typeProperties": {
+               "recurrence": {
+                   "frequency": "Hour",
+                   "interval": 1,
+                   "startTime": "2017-12-07T00:00:00-08:00",
+                   "endTime": "2017-12-08T00:00:00-08:00"
+               }
+           },
+           "pipelines": [{
+               "pipelineReference": {
+                   "type": "PipelineReference",
+                   "referenceName": "RunSSISPackagePipeline"
+               },
+               "parameters": {}
+           }]
+       }
+   }    
+   ```
 2. En **Azure PowerShell**, cambie a la carpeta **C:\ADF\RunSSISPackage**.
 3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Trigger** para crear el desencadenador. 
 
-    ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                    -DataFactoryName $DataFactory.DataFactoryName `
-                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
-    ```
+   ```powershell
+   Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+                                   -DataFactoryName $DataFactory.DataFactoryName `
+                                   -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
+   ```
 4. De manera predeterminada, el desencadenador está en estado detenido. Para iniciar el desencadenador ejecute el cmdlet **Start-AzureRmDataFactoryV2Trigger**. 
 
-    ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                      -DataFactoryName $DataFactory.DataFactoryName `
-                                      -Name "MyTrigger" 
-    ```
+   ```powershell
+   Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+                                     -DataFactoryName $DataFactory.DataFactoryName `
+                                     -Name "MyTrigger" 
+   ```
 5. Confirme que el desencadenador se haya iniciado con la ejecución del cmdlet **Get-AzureRmDataFactoryV2Trigger**. 
 
-    ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
-                                    -DataFactoryName $DataFactoryName `
-                                    -Name "MyTrigger"     
-    ```    
+   ```powershell
+   Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+                                   -DataFactoryName $DataFactoryName `
+                                   -Name "MyTrigger"     
+   ```    
 6. Ejecute el comando siguiente al comenzar la hora siguiente. Por ejemplo, si la hora actual es 15:25 UTC, ejecute el comando a las 16:00 UTC. 
     
-    ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
-                                       -DataFactoryName $DataFactoryName `
-                                       -TriggerName "MyTrigger" `
-                                       -TriggerRunStartedAfter "2017-12-06" `
-                                       -TriggerRunStartedBefore "2017-12-09"
-    ```
+   ```powershell
+   Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+                                      -DataFactoryName $DataFactoryName `
+                                      -TriggerName "MyTrigger" `
+                                      -TriggerRunStartedAfter "2017-12-06" `
+                                      -TriggerRunStartedBefore "2017-12-09"
+   ```
 
-    Puede ejecutar la consulta siguiente en la base de datos SSISDB en el servidor de Azure SQL para comprobar la ejecución del paquete. 
+   Puede ejecutar la consulta siguiente en la base de datos SSISDB en el servidor de Azure SQL para comprobar la ejecución del paquete. 
 
-    ```sql
-    select * from catalog.executions
-    ```
+   ```sql
+   select * from catalog.executions
+   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea la siguiente entrada de blog:

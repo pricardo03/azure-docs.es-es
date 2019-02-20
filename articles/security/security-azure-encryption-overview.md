@@ -4,7 +4,7 @@ description: Obtenga información acerca de las distintas opciones de cifrado en
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035103"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114661"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -39,7 +39,7 @@ Azure admite distintos modelos de cifrado, incluido el cifrado de servidor que u
 
 ### <a name="client-side-encryption"></a>Cifrado de cliente
 
-El cifrado de cliente se realiza fuera de Azure. Incluye:
+El cifrado de cliente se realiza fuera de Azure.  Incluye:
 
 - Datos cifrados por una aplicación que se está ejecutando en el centro de datos del cliente o por una aplicación de servicio.
 - Datos que ya están cifrados cuando Azure los recibe.
@@ -52,9 +52,9 @@ Los tres modelos de cifrado del servidor ofrecen características de administrac
 
 - **Claves administradas del servicio**: proporcionan una combinación de control y comodidad con una sobrecarga reducida.
 
-- **Claves administradas por el cliente**: le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
+- **Claves administradas del cliente**: le permiten controlar las claves, incluyendo la con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
 
-- **Claves administradas del servicio en el hardware controlado por el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
+- **Claves administradas del servicio en el hardware que controla el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -78,7 +78,7 @@ Para obtener más información acerca de la biblioteca cliente de Azure Storage 
 
 Cuando se usa el cifrado de cliente con Key Vault, los datos se cifran con una clave de cifrado de contenido (CEK) simétrica única generada por el SDK de cliente de Azure Storage. La CEK se cifra mediante una clave de cifrado de claves (KEK), que puede ser una clave simétrica o un par de claves asimétricas. Puede administrarla de forma local o almacenarla en Key Vault. A continuación, se cargan los datos cifrados en Azure Storage.
 
-Para obtener más información acerca del cifrado de cliente con Key Vault e iniciar las instrucciones sobre procedimientos, vea [Tutorial: Cifrado y descifrado de blobs en Azure Storage con Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Para obtener más información acerca del cifrado del lado cliente con Key Vault e iniciar las instrucciones sobre los procedimientos, consulte [Tutorial: cifrado y descifrado de blobs en Azure Storage mediante Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por último, también puede usar la biblioteca cliente de Azure Storage para Java para realizar el cifrado de cliente antes de cargar datos en Azure Storage y descifrar los datos cuando se descargan en el cliente. Esta biblioteca también admite la integración con [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de las claves de la cuenta de almacenamiento.
 
@@ -172,7 +172,7 @@ Para obtener más información acerca de las conexiones VPN de punto a sitio par
 
 [Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificación: Azure Portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPN de sitio a sitio 
 

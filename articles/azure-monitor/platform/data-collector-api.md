@@ -1,6 +1,6 @@
 ---
-title: Log Analytics HTTP Data Collector API | Microsoft Docs
-description: Puede usar Log Analytics HTTP Data Collector API para agregar datos POST JSON en el repositorio de Log Analytics desde cualquier cliente que pueda llamar a la API de REST. Este artículo describe cómo utilizar la API y contiene algunos ejemplos de cómo publicar datos mediante diferentes lenguajes de programación.
+title: HTTP Data Collector API de Azure Monitor | Microsoft Docs
+description: Puede usar HTTP Data Collector API de Azure Monitor para agregar datos POST JSON en un área de trabajo de Log Analytics desde cualquier cliente que pueda llamar a la API REST. Este artículo describe cómo utilizar la API y contiene algunos ejemplos de cómo publicar datos mediante diferentes lenguajes de programación.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,25 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211107"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237933"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
-Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
+En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> La API del recopilador de datos HTTP de Log Analytics se encuentra en versión preliminar pública.
+> HTTP Data Collector API de Azure Monitor se encuentra en versión preliminar pública.
 
 ## <a name="concepts"></a>Conceptos
-Puede usar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde cualquier cliente que pueda llamar a una API de REST.  Podría tratarse de un runbook en Azure Automation que recopila datos de administración de Azure u otra nube, o podría ser un sistema de administración alternativo que usa Log Analytics para consolidar y analizar los datos.
+Puede usar HTTP Data Collector API para enviar datos a un área de trabajo de Log Analytics en Azure Monitor desde cualquier cliente que pueda llamar a una API REST.  Podría tratarse de un runbook en Azure Automation que recopila datos de administración de Azure u otra nube, o podría ser un sistema de administración alternativo que usa Azure Monitor para consolidar y analizar los datos de registro.
 
-Todos los datos del repositorio de Log Analytics se almacenan como un registro con un tipo de registro concreto.  Se da formato a los datos para enviarlos a la API del recopilador de datos HTTP como varios registros en JSON.  Al enviar los datos, se crea un registro individual en el repositorio para cada registro en la carga de solicitud.
+Todos los datos del área de trabajo Log Analytics se almacenan como un registro con un tipo de registro concreto.  Se da formato a los datos para enviarlos a la API del recopilador de datos HTTP como varios registros en JSON.  Al enviar los datos, se crea un registro individual en el repositorio para cada registro en la carga de solicitud.
 
 
 ![Información general del recopilador de datos HTTP](media/data-collector-api/overview.png)
@@ -62,7 +64,7 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | time-generated-field |Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorización
-Cualquier solicitud a Log Analytics HTTP Data Collector API debe incluir un encabezado de autorización. Para autenticar una solicitud, debe firmar la solicitud con la clave principal o secundaria del área de trabajo que realiza la solicitud. Después, pase esa firma como parte de la solicitud.   
+Cualquier solicitud a HTTP Data Collector API de Azure Monitor debe incluir un encabezado de autorización. Para autenticar una solicitud, debe firmar la solicitud con la clave principal o secundaria del área de trabajo que realiza la solicitud. Después, pase esa firma como parte de la solicitud.   
 
 Este es el formato del encabezado de autorización:
 
@@ -130,11 +132,11 @@ Puede procesar por lotes varios registros en una sola solicitud con el formato s
 ```
 
 ## <a name="record-type-and-properties"></a>Propiedades y tipo de registro
-Cuando se envían datos a través de Log Analytics HTTP Data Collector API se define un tipo de registro personalizado. Actualmente, no se pueden escribir datos en tipos de registros existentes creados por otros tipos de datos y soluciones. Log Analytics lee los datos entrantes y después crea las propiedades que coinciden con los tipos de datos de los valores que especifique.
+Cuando se envían datos a través de HTTP Data Collector API de Azure Monitor, se define un tipo de registro personalizado. Actualmente, no se pueden escribir datos en tipos de registros existentes creados por otros tipos de datos y soluciones. Azure Monitor lee los datos entrantes y después crea las propiedades que coinciden con los tipos de datos de los valores que especifique.
 
-Cada solicitud a Log Analytics API debe incluir un encabezado **Log-Type** con el nombre del tipo de registro. El sufijo **_CL** se anexa automáticamente al nombre que especifique para distinguirlo de otros tipos de registros como un registro personalizado. Por ejemplo, si escribe el nombre **MyNewRecordType**, Log Analytics crea un registro con el tipo de **MyNewRecordType_CL**. Esto ayuda a garantizar que no haya conflictos entre los nombres de tipo creados por el usuario y los incluidos en las soluciones de Microsoft actuales o futuras.
+Cada solicitud a Data Collector API debe incluir un encabezado **Log-Type** con el nombre del tipo de registro. El sufijo **_CL** se anexa automáticamente al nombre que especifique para distinguirlo de otros tipos de registros como un registro personalizado. Por ejemplo, si escribe el nombre **MyNewRecordType**, Azure Monitor crea un registro con el tipo de **MyNewRecordType_CL**. Esto ayuda a garantizar que no haya conflictos entre los nombres de tipo creados por el usuario y los incluidos en las soluciones de Microsoft actuales o futuras.
 
-Para identificar el tipo de datos de una propiedad, Log Analytics agrega un sufijo al nombre de la propiedad. Si una propiedad contiene un valor null, la propiedad no se incluye en ese registro. Esta tabla enumera el tipo de datos de la propiedad y el sufijo correspondiente:
+Para identificar el tipo de datos de una propiedad, Azure Monitor agrega un sufijo al nombre de la propiedad. Si una propiedad contiene un valor null, la propiedad no se incluye en ese registro. Esta tabla enumera el tipo de datos de la propiedad y el sufijo correspondiente:
 
 | Tipo de datos de la propiedad | Sufijo |
 |:--- |:--- |
@@ -144,10 +146,10 @@ Para identificar el tipo de datos de una propiedad, Log Analytics agrega un sufi
 | Fecha/hora |_t |
 | GUID |_g |
 
-El tipo de datos que utiliza Log Analytics para cada propiedad depende de si ya existe el tipo de registro para el nuevo registro.
+El tipo de datos que utiliza Azure Monitor para cada propiedad depende de si ya existe el tipo de registro para el nuevo registro.
 
-* Si el tipo de registro no existe, Log Analytics crea uno nuevo. Log Analytics utiliza la inferencia de tipos de JSON para determinar el tipo de datos de cada propiedad para el nuevo registro.
-* Si el tipo de registro existe, Log Analytics intenta crear un nuevo registro en función de las propiedades existentes. Si el tipo de datos de una propiedad en el nuevo registro no coincide y no se puede convertir al tipo existente, o si el registro incluye una propiedad que no existe, Log Analytics crea una nueva propiedad que tiene el sufijo pertinente.
+* Si el tipo de registro no existe, Azure Monitor crea uno nuevo mediante la inferencia de tipos JSON para determinar el tipo de datos para cada propiedad del nuevo registro.
+* Si el tipo de registro existe, Azure Monitor intenta crear un nuevo registro en función de las propiedades existentes. Si el tipo de datos de una propiedad en el nuevo registro no coincide y no se puede convertir al tipo existente, o si el registro incluye una propiedad que no existe, Azure Monitor crea una nueva propiedad que tiene el sufijo pertinente.
 
 Por ejemplo, esta entrada de envío crearía un registro con tres propiedades **number_d**, **boolean_b** y **string_s**:
 
@@ -157,20 +159,22 @@ Si después se envía la entrada siguiente, con todos los valores con formato de
 
 ![Registro de ejemplo 2](media/data-collector-api/record-02.png)
 
-Pero, si después se realiza el siguiente envío, Log Analytics crearía las nuevas propiedades **boolean_d** y **string_d**. Estos valores no se pueden convertir:
+Pero, si después se realiza el siguiente envío, Azure Monitor crearía las nuevas propiedades **boolean_d** y **string_d**. Estos valores no se pueden convertir:
 
 ![Registro de ejemplo 3](media/data-collector-api/record-03.png)
 
-Si después se envía la entrada siguiente, antes de que se cree el tipo de registro, Log Analytics crearía un registro con tres propiedades **number_s**, **boolean_s** y **string_s**. En esta entrada, se da un formato de cadena a cada uno de los valores iniciales:
+Si después se envía la entrada siguiente, antes de que se cree el tipo de registro, Azure Monitor crearía un registro con tres propiedades **number_s**, **boolean_s** y **string_s**. En esta entrada, se da un formato de cadena a cada uno de los valores iniciales:
 
 ![Registro de ejemplo 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Límites de datos
-Existen algunas limitaciones en cuando a los datos enviados a la API de recopilación de datos de Log Analytics.
+Existen algunas restricciones en cuando a los datos enviados a Data Collector API de Azure Monitor.
 
-* Máximo de 30 MB por publicación en la API de recopilación de datos de Log Analytics. Se trata de un límite de tamaño para una sola publicación. Si los datos de una única publicación superan los 30 MB, debe dividir los datos en fragmentos más pequeños y enviarlos al mismo tiempo.
+* Máximo de 30 MB por publicación en Data Collector API de Azure Monitor. Se trata de un límite de tamaño para una sola publicación. Si los datos de una única publicación superan los 30 MB, debe dividir los datos en fragmentos más pequeños y enviarlos al mismo tiempo.
 * Límite de 32 kB para los valores de campo. Si el valor del campo es mayor que 32 kB, se truncarán los datos.
 * El número máximo recomendado de campos para un tipo determinado es 50. Se trata de un límite práctico desde una perspectiva de la experiencia de búsqueda y la facilidad de uso.  
+* Una tabla en un área de trabajo de Log Analytics solo admite hasta 500 columnas (denominada campo en este artículo). 
+* El número máximo de caracteres para el nombre de columna es 500.
 
 ## <a name="return-codes"></a>Códigos de retorno
 El código de estado HTTP 200 significa que se ha recibido la solicitud para su procesamiento. Esto indica que el trabajo se ha completado correctamente.
@@ -196,15 +200,10 @@ Esta tabla muestra el conjunto completo de códigos de estado que el servicio pu
 | 503 |Servicio no disponible |ServiceUnavailable |El servicio actualmente no está disponible para recibir solicitudes. Vuelva a intentar realizar la solicitud. |
 
 ## <a name="query-data"></a>Datos de consulta
-Para consultar los datos enviados por Log Analytics HTTP Data Collector API, busque los registros cuyo **Type** sea igual al valor de **LogType** que especificó, con el sufijo **_CL**. Por ejemplo, si utilizó **MyCustomLog**, se devolverán todos los registros cuyo **Type= MyCustomLog_CL**.
-
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
-
-> `MyCustomLog_CL`
+Para consultar los datos enviados por HTTP Data Collector API de Azure Monitor, busque los registros cuyo **Type** sea igual al valor de **LogType** que especificó, con el sufijo **_CL**. Por ejemplo, si utilizó **MyCustomLog**, se devolverán todos los registros con `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Solicitudes de ejemplo
-En las secciones siguientes, encontrará ejemplos de cómo enviar datos a Log Analytics HTTP Data Collector API usando diferentes lenguajes de programación.
+En las secciones siguientes, encontrará ejemplos de cómo enviar datos a HTTP Data Collector API de Azure Monitor mediante el uso de diferentes lenguajes de programación.
 
 Para cada ejemplo, siga estos pasos para establecer las variables para el encabezado de autorización:
 
@@ -226,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +320,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +467,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Use la [API de búsqueda de registros](../../azure-monitor/log-query/log-query-overview.md) para recuperar datos desde el repositorio de Log Analytics.
+- Use [Log Search API](../log-query/log-query-overview.md) para recuperar datos desde el área de trabajo de Log Analytics.
 
-- Más información sobre cómo [crear una canalización de datos con Data Collector API](../../azure-monitor/platform/create-pipeline-datacollector-api.md) mediante el flujo de trabajo Logic Apps a Log Analytics.
+- Más información sobre cómo [crear una canalización de datos con Data Collector API](create-pipeline-datacollector-api.md) mediante el flujo de trabajo Logic Apps a Azure Monitor.

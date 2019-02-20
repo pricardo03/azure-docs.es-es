@@ -4,7 +4,7 @@ description: En este documento se explica cómo usar Azure Security Center en un
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619884"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114304"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso de Azure Security Center para dar respuesta a incidentes
 Muchas organizaciones aprenden a responder a incidentes de seguridad solo después de sufrir un ataque. Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Azure Security Center puede usarse en distintas fases de una respuesta a incidentes.
@@ -84,7 +84,7 @@ Judy ha iniciado sesión en Azure Portal y está trabajando en la consola de Sec
    > En este escenario, Judy va a realizar una evaluación de la alerta de actividad SQL malintencionada, como se muestra en la ilustración anterior.
    >
    >
-2. Hace clic en la alerta **Actividad SQL malintencionada** y revisa los recursos atacados en la hoja **Actividad SQL malintencionada**: ![Detalles del incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png).
+2. Haga clic en la alerta **Actividad SQL malintencionada** y revise los recursos que hayan sido atacados en la hoja **Actividad SQL malintencionada**:  ![Detalles del incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     En esta hoja, Judy puede tomar notas relativas a los recursos atacados, cuántas veces ocurrió este ataque y cuándo se detectó.
 3. Hace clic en el **recurso atacado** para más información acerca de este ataque.

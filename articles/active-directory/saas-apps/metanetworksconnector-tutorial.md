@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Meta Networks Connector | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Meta Networks Connector | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Meta Networks Connector.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c4d702a33742da5501be208154cbdd593fa0524
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669202"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199721"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integración de Azure Active Directory con Meta Networks Connector
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: integración de Azure Active Directory con Meta Networks Connector
 
 En este tutorial, aprenderá a integrar Meta Networks Connector con Azure Active Directory (Azure AD).
 
@@ -240,7 +241,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Meta Networks Connector. Meta Networks Connector admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Meta Networks Connector se creará un nuevo usuario, en caso de que no exista.
 
 >[!Note]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Meta Networks Connector](mailto:support@metanetworks.com).
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el  [equipo de soporte técnico de Meta Networks Connector](mailto:support@metanetworks.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -277,7 +278,7 @@ En esta sección, habilitará a Britta Simon para usar el inicio de sesión úni
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Meta Networks Connector en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Meta Networks Connector.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

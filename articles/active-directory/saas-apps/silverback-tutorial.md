@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Silverback | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Silverback | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Silverback.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123869"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172723"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integración de Azure Active Directory con Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: integración de Azure Active Directory con Silverback
 
 En este tutorial, obtendrá información sobre cómo integrar Silverback con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Silverback](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOURSILVERBACKURL>.com/ssp`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOURSILVERBACKURL>.com/ssp`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `<YOURSILVERBACKURL>.com`
 
@@ -126,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 6.  Inicie sesión en su servidor de Silverback como administrador y realice los pasos siguientes:
 
-    a.  Navigate to **Admin** > **Authentication Provider** (Administrador > Proveedor de autenticación).
+     a.  Navigate to **Admin** > **Authentication Provider** (Administrador > Proveedor de autenticación).
 
     b. En la página **Authentication Provider Settings** (Configuración del proveedor de autenticación), realice los siguientes pasos:
 
@@ -174,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/silverback-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -196,7 +197,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Silverback, tienen
 
     ![Usuario ](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-    a. En el cuadro de texto **Username** (Nombre de usuario), escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
+     a. En el cuadro de texto **Username** (Nombre de usuario), escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 
@@ -248,7 +249,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Silverback en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Silverback.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

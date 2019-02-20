@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con GlassFrog | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con GlassFrog | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GlassFrog.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fdd1e8acf446ba3e409e2ff0bf9ca18f581c299
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d6bdc9f2214f8a23ffd1a126905faf00f2fc4264
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Tutorial: integración de Azure Active Directory con GlassFrog
 
@@ -138,7 +139,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/glassfrog-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -149,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-glassfrog-test-user"></a>Creación de un usuario de prueba de GlassFrog
 
-En esta sección, creará un usuario llamado Britta Simon en GlassFrog. Trabaje con el [equipo de soporte técnico de GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) para agregar los usuarios a la plataforma de GlassFrog. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en GlassFrog. Trabaje con el  [equipo de soporte técnico de GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) para agregar usuarios a la plataforma de GlassFrog. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -180,7 +181,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de GlassFrog en el panel de acceso, debería iniciar sesión automáticamente en la aplicación GlassFrog.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

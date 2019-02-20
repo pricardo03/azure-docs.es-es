@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515325"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185865"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -34,9 +34,7 @@ El enfoque de actualización recomendado y usado con mayor frecuencia es la actu
 
 Se puede realizar una actualización de la aplicación supervisada mediante las API nativas o administradas, PowerShell, la CLI de Azure, Java o REST. Para obtener instrucciones sobre cómo realizar una actualización con Visual Studio, consulte [Actualización de la aplicación con Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Con la actualización gradual supervisada de Service Fabric, el Administrador de aplicaciones puede configurar la directiva de evaluación de estado que Service Fabric usa para determinar que la aplicación es correcta. Además, el Administrador puede configurar la acción que se realizará cuando la evaluación de estado encuentre errores (por ejemplo, realizar una reversión automática). En esta sección se ofrece orientación sobre una actualización supervisada para uno de los ejemplos del SDK que PowerShell utiliza. El siguiente vídeo de la Academia virtual de Microsoft también le guía a través de una actualización de la aplicación: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+Con la actualización gradual supervisada de Service Fabric, el Administrador de aplicaciones puede configurar la directiva de evaluación de estado que Service Fabric usa para determinar que la aplicación es correcta. Además, el Administrador puede configurar la acción que se realizará cuando la evaluación de estado encuentre errores (por ejemplo, realizar una reversión automática). En esta sección se ofrece orientación sobre una actualización supervisada para uno de los ejemplos del SDK que PowerShell utiliza. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Paso 1: Crear e implementar el ejemplo de objetos visuales
 Para compilar y publicar la aplicación, haga clic con el botón derecho en el proyecto de aplicación, **VisualObjectsApplication,** y seleccione el comando **Publicar**.  Para más información, consulte el [tutorial sobre la actualización de aplicaciones de Service Fabric](service-fabric-application-upgrade-tutorial.md).  También puede usar PowerShell para implementar la aplicación.
@@ -76,7 +74,7 @@ Ahora el archivo *ApplicationManifest.xml* (que se encuentra en el proyecto **Vi
 
 Ahora, compile el proyecto; para ello, seleccione solamente el proyecto **ActorService** y luego haga clic con el botón derecho y seleccione la opción **Compilar** en Visual Studio. Si selecciona **Volver a generar todo**, debe actualizar las versiones de todos los proyectos, ya que el código habrá cambiado. A continuación, vamos a empaquetar la aplicación actualizada; para ello, haga clic con el botón derecho en ***VisualObjectsApplication***, seleccione el menú de Service Fabric y elija **Paquete**. Esta acción crea un paquete de aplicación que se puede implementar.  La aplicación actualizada está lista para implementarse.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Paso 3: Decidir sobre las directivas de mantenimiento y los parámetros de actualización
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Paso 3:  Decidir sobre las directivas de mantenimiento y los parámetros de actualización
 Familiarícese con los [parámetros de actualización de la aplicación](service-fabric-application-upgrade-parameters.md) y el [proceso de actualización](service-fabric-application-upgrade.md) para obtener una buena comprensión de los distintos parámetros de actualización, los tiempos de espera y el criterio de estado aplicados. En este tutorial, el criterio de evaluación de estado del servicio se establecerá en los valores predeterminados (y recomendados), lo que significa que todos los servicios e instancias deben ser *correctos* tras la actualización.  
 
 Sin embargo, vamos a aumentar *HealthCheckStableDuration* a 180 segundos (de modo que los servicios sean correctos durante al menos 120 segundos antes de que la actualización continúe con el siguiente dominio de actualización).  Vamos a configurar también *UpgradeDomainTimeout* para que sea 1200 segundos y *UpgradeTimeout* para que sea 3000 segundos.

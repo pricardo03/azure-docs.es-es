@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 283f8c935556006a21812578d0638b72adb6eed0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906321"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Tutorial: integración de Azure Active Directory con SecureW2 JoinNow Connector
 
@@ -33,7 +34,7 @@ La integración de SecureW2 JoinNow Connector con Azure AD proporciona las sigui
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con SecureW2 JoinNow Connector se necesitan los siguientes elementos:
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SecureW2 JoinNow Connector](./media/securejoinnow-tutorial/tutorial_securejoinnow_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
@@ -148,7 +149,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/securejoinnow-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -158,7 +159,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>Creación de un usuario de prueba de SecureW2 JoinNow Connector
 
-En esta sección, creará el usuario Britta Simon en SecureW2 JoinNow Connector. Trabaje con el [equipo de soporte técnico de SecureW2 JoinNow Connector](mailto:support@securew2.com) para agregar los usuarios a la plataforma de SecureW2 JoinNow conector. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en SecureW2 JoinNow Connector. Trabaje con el  [equipo de soporte técnico de withSecureW2 JoinNow Connector](mailto:support@securew2.com) para agregar usuarios a la plataforma de SecureW2 JoinNow conector. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -194,7 +195,7 @@ En esta sección, habilitará a Britta Simon para usar el inicio de sesión úni
 
 **Para probar la aplicación, realice los pasos siguientes:** 
 
-a. Abra el cliente SecureW2 JoinNow Connector, seleccione el dispositivo adecuado de la lista y haga clic en el botón **Iniciar sesión**.
+ a. Abra el cliente SecureW2 JoinNow Connector, seleccione el dispositivo adecuado de la lista y haga clic en el botón **Iniciar sesión**.
 
 b. Se abrirá el explorador predeterminado y se le redirigirá a Azure Portal para la autenticación.
 

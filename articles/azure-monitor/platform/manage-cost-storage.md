@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821480"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236115"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Administración del uso y los costos para Log Analytics
 
@@ -116,6 +116,9 @@ Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el
 
 > [!NOTE]
 > Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
+
+> [!NOTE]
+> Puede obtener más información sobre cómo (configurar el plan de tarifa a través de ARM) [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] y cómo asegurarse de que su implementación de ARM se realice correctamente, independientemente de si la suscripción se encuentra en el modelo de precios heredado o en uno nuevo. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar que Log Analytics ya no recopile datos

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con SmartLPA | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con SmartLPA | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y SmartLPA.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jeedes
-ms.openlocfilehash: eedec7de74f3bdd7ae43d1b1eb0decd5fe83ebf6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 01d8a52d18bb3b6317f843eb6c30061e730ee3ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075583"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161091"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Tutorial: Integración de Azure Active Directory con SmartLPA
+# <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>Tutorial: integración de Azure Active Directory con SmartLPA
 
 En este tutorial, aprenderá a integrar SmartLPA con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SmartLPA](./media/smartlpa-tutorial/tutorial_smartlpa_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<TENANTNAME>.smartlpa.com/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<TENANTNAME>.smartlpa.com/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 
@@ -152,7 +153,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/smartlpa-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -162,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-smartlpa-test-user"></a>Creación de un usuario de prueba de SmartLPA
 
-En esta sección, creará un usuario llamado Britta Simon en SmartLPA. Trabaje con el [equipo de soporte técnico de SmartLPA](mailto:support@smartlpa.com) para agregar los usuarios a la plataforma de SmartLPA. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en SmartLPA. Trabaje con el  [equipo de soporte técnico de SmartLPA](mailto:support@smartlpa.com) para agregar usuarios a la plataforma de SmartLPA. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -199,7 +200,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de SmartLPA en el panel de acceso, debería iniciar sesión automáticamente en la aplicación SmartLPA.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

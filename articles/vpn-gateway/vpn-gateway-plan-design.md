@@ -1,26 +1,18 @@
 ---
 title: 'Planeamiento y diseño de conexiones entre sitios locales: Azure VPN Gateway | Microsoft Docs'
-description: Obtenga información acerca del planeamiento y diseño de VPN Gateway para conexiones entre sitios locales, híbridos y entre redes virtuales
+description: Obtenga información acerca del planeamiento y diseño de VPN Gateway para conexiones locales, híbridas y de red virtual a red virtual
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
-ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yushwang
+ms.openlocfilehash: 7802061ba09a30ca34ed3804ace846118c5edb9b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125483"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235377"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planeamiento y diseño de VPN Gateway
 
@@ -79,7 +71,7 @@ Al crear conexiones, debe tener en cuenta los intervalos de subred. Los interval
 
 También es importante evitar las subredes superpuestas cuando se trabaja con conexiones entre redes virtuales. Si las subredes se superponen y una dirección IP existe en la red virtual de envío y en la red virtual de destino, se produce un error en las conexiones entre redes virtuales. Azure no puede enrutar los datos a la otra red virtual porque la dirección de destino forma parte de la red virtual de envío.
 
-Las puertas de enlace de VPN requieren una subred específica llamada subred de puerta de enlace. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar GatewaySubnet. Asegúrese de no asignar un nombre distinto a la subred de puerta de enlace y no implemente máquinas virtuales ni ningún otro elemento en la subred de puerta de enlace. Consulte [Subredes de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsub).
+VPN Gateway requieren una subred específica llamada subred de puerta de enlace. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar GatewaySubnet. Asegúrese de no asignar un nombre distinto a la subred de puerta de enlace y no implemente máquinas virtuales ni ningún otro elemento en la subred de puerta de enlace. Consulte [Subredes de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 
 #### <a name="local"></a>Acerca de las puertas de enlace de red local
 
@@ -140,4 +132,4 @@ Ambos modelos de implementación permiten configurar una conexión de tunelizaci
 
 Consulte los artículos [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) e [Información sobre VPN Gateway](vpn-gateway-about-vpngateways.md) para obtener más información que pueda ayudarle con el diseño.
 
-Para obtener más información acerca de la configuración de puerta de enlace específica, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
+Para obtener más información acerca de la configuración de puerta de enlace específica, vea [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744099"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235893"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -130,38 +130,42 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-1. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
+1. ¿Cuánto dura la licencia proporcionada en el servidor de configuración implementado a través de OVF? ¿Qué ocurre si no reactivo la licencia?
+
+    La licencia proporcionada con la plantilla de OVA es una licencia de evaluación válida durante 180 días. Antes de que expire, debe activar la licencia. En caso contrario, esto puede provocar que la configuración del servidor se detenga y, por lo tanto, se entorpezcan las actividades de replicación.
+
+2. ¿Puedo usar la máquina virtual, donde está instalado el servidor de configuración, para otros fines?
 
     **No**, se recomienda usar la máquina únicamente para el servidor de configuración. Asegúrese de seguir todas las especificaciones mencionadas en [Requisitos previos](#prerequisites) para una administración eficaz de la recuperación ante desastres.
-2. ¿Puedo cambiar el almacén ya registrado en el servidor de configuración por un almacén recién creado?
+3. ¿Puedo cambiar el almacén ya registrado en el servidor de configuración por un almacén recién creado?
 
     **No**, una vez que un almacén está registrado con el servidor de configuración, no se puede cambiar.
-3. ¿Puedo usar el mismo servidor de configuración para proteger las máquinas físicas y virtuales?
+4. ¿Puedo usar el mismo servidor de configuración para proteger las máquinas físicas y virtuales?
 
     **Sí**, se puede usar el mismo servidor de configuración para la replicación de máquinas físicas y virtuales. Pero solo se puede realizar la conmutación por recuperación de una máquina física a una máquina virtual de VMware.
-4. ¿Cuál es el propósito de un servidor de configuración y dónde se usa?
+5. ¿Cuál es el propósito de un servidor de configuración y dónde se usa?
 
     Consulte la [arquitectura de replicación de VMware a Azure](vmware-azure-architecture.md) para obtener más información sobre el servidor de configuración y sus funciones.
-5. ¿Dónde puedo encontrar la versión más reciente del servidor de configuración?
+6. ¿Dónde puedo encontrar la versión más reciente del servidor de configuración?
 
     Para obtener los pasos de actualización del servidor de configuración a través del portal, vea [Actualización del servidor de configuración](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, consulte [aquí](https://aka.ms/asr_how_to_upgrade).
-6. ¿Dónde puedo descargar la frase de contraseña para el servidor de configuración?
+7. ¿Dónde puedo descargar la frase de contraseña para el servidor de configuración?
 
     Consulte [este artículo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para descargar la frase de contraseña.
-7. ¿Se puede cambiar la frase de contraseña?
+8. ¿Se puede cambiar la frase de contraseña?
 
     **No**, se **recomienda encarecidamente no cambiar la frase de contraseña** del servidor de configuración. El cambio de la frase de contraseña interrumpe la replicación de las máquinas protegidas y lleva a un estado de mantenimiento crítico.
-8. ¿Dónde puedo descargar las claves de registro del almacén?
+9. ¿Dónde puedo descargar las claves de registro del almacén?
 
     En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**. En Servidores, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
-9. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
+10. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
 
     **No**, no se admite el uso de componentes del servidor de configuración clonados.
 
-10. ¿Puedo cambiar la dirección IP del servidor de configuración?
+11. ¿Puedo cambiar la dirección IP del servidor de configuración?
 
     **No**, es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que todas las direcciones IP asignadas al servidor de configuración sean direcciones IP estáticas y no direcciones IP de DHCP.
-11. ¿Puedo configurar el servidor de configuración en Azure?
+12. ¿Puedo configurar el servidor de configuración en Azure?
 
     Se recomienda configurar el servidor de configuración en el entorno local con una línea de vista directa con v-Center, y para reducir las latencias de transferencia de datos. Puede realizar copias de seguridad programadas del servidor de configuración con [fines de conmutación por recuperación](vmware-azure-manage-configuration-server.md#failback-requirements).
 

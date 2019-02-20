@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818131"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118214"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -992,7 +992,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Esta sección contiene los siguientes ejemplos que leen un solo documento mediante la especificación de un valor de identificación desde varios orígenes:
 
-* [Desencadenador de cola, buscar identificador de JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Desencadenador de cola, buscar identificador de JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Desencadenador de HTTP, buscar identificador de cadena de consulta](#http-trigger-look-up-id-from-query-string-javascript)
 * [Desencadenador de HTTP, buscar identificador de datos de ruta](#http-trigger-look-up-id-from-route-data-javascript)
 * [Desencadenador de colas, obtener varios documentos, mediante SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1200,7 +1200,7 @@ Este es el código de JavaScript:
 
 Esta sección contiene los siguientes ejemplos que leen un solo documento mediante la especificación de un valor de identificación desde varios orígenes:
 
-* [Desencadenador de cola, buscar identificador de JSON](#queue-trigger-look-up-id-from-string-python)
+* [Desencadenador de cola, buscar identificador de JSON](#queue-trigger-look-up-id-from-json-python)
 * [Desencadenador de HTTP, buscar identificador de cadena de consulta](#http-trigger-look-up-id-from-query-string-python)
 * [Desencadenador de HTTP, buscar identificador de datos de ruta](#http-trigger-look-up-id-from-route-data-python)
 * [Desencadenador de colas, obtener varios documentos, mediante SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -2288,7 +2288,7 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
     }
 ```
 
-Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-example).
+Para obtener un ejemplo completo, consulte Salida: ejemplo de C#.
 
 ## <a name="output---configuration"></a>Salida: configuración
 

@@ -3,8 +3,8 @@ title: Problema al configurar el aprovisionamiento de usuarios para una aplicaci
 description: Cómo solucionar los problemas habituales que surgen al configurar el aprovisionamiento de usuarios para una aplicación que ya aparece en la galería de aplicaciones de Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 61739d381d5c668b5f1a9467b10398d173601b33
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822279"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178539"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD
 
@@ -55,7 +56,7 @@ Si establece **Estado de aprovisionamiento** en **Activado** en la sección **Az
 
 ## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>No se puede guardar la configuración porque las credenciales de la aplicación no funcionan
 
-Para que funcione el aprovisionamiento, Azure AD necesita credenciales válidas que le permitan conectarse a una API de administración de usuarios proporcionada por esa aplicación. Si estas credenciales no funcionan o las desconoce, revise el tutorial para configurar esta aplicación, como se ha descrito antes.
+Para que funcione el aprovisionamiento, Azure AD necesita credenciales válidas que le permitan conectarse a una API de administración de usuarios proporcionada por esa aplicación. Si estas credenciales no funcionan o las desconoce, revise el tutorial para configurar esta aplicación, tal como se ha descrito antes.
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Los registros de auditoría indican que hay usuarios omitidos y no aprovisionados, aunque estén asignados
 

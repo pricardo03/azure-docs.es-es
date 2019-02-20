@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Workteam | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Workteam | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workteam.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d6ca6395e4f5e1aca361c56e21afc4e6bd1fc0c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132447"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185781"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integración de Azure Active Directory con Workteam
+# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: integración de Azure Active Directory con Workteam
 
 En este tutorial, aprenderá a integrar Workteam con Azure Active Directory (Azure AD).
 
@@ -139,13 +140,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
      ![Workteam saml](./media/workteam-tutorial/tutorial_workteam_saml.png)
 
-    a. En **SAML IdP** (Proveedor de identidades de SAML), seleccione **AD Azure**.
+     a. En **SAML IdP** (Proveedor de identidades de SAML), seleccione **AD Azure**.
 
     b. En el cuadro de texto **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML), pegue el valor **correspondiente**, que ha copiado de Azure Portal.
 
     c. En el cuadro de texto **SAML Entity ID** (Identificador de entidad de SAML), pegue el valor **correspondiente** que ha copiado de Azure Portal.
 
-    d. En el Bloc de notas, abra el **certificado codificado en Base 64** que descargó de Azure Portal, copie el contenido y, luego, péguelo en el cuadro **Certificado de firma SAML (Base64)**.
+    d. En el Bloc de notas, abra el **certificado codificado en Base 64** que descargó de Azure Portal, copie el contenido y, a continuación, péguelo en el cuadro **Certificado de firma SAML (Base64)** .
 
     e. Haga clic en **OK**.
 
@@ -173,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/workteam-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -197,7 +198,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workteam, tienen q
 
     ![Nuevo usuario de Workteam](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre del usuario de la siguiente manera: **Brittasimon**.
+     a. En el cuadro de texto **Name** (Nombre), escriba el nombre del usuario de la siguiente manera: **Brittasimon**.
 
     b. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon@contoso.com**.
 
@@ -238,7 +239,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Workteam en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Workteam.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

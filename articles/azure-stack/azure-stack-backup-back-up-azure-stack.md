@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250051"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210312"
 ---
 # <a name="back-up-azure-stack"></a>Copia de seguridad de Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Realice una copia de seguridad a petición en Azure Stack con la copia de seguridad vigente. Para obtener instrucciones acerca de cómo configurar el entorno de PowerShell, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md). Para iniciar sesión en Azure Stack, consulte [Uso del portal de administración de Azure Stack](azure-stack-manage-portals.md).
+Realice una copia de seguridad a petición en Azure Stack. Para obtener instrucciones acerca de cómo configurar el entorno de PowerShell, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md). Para iniciar sesión en Azure Stack, consulte [Uso del portal de administración de Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Inicio de la copia de seguridad de Azure Stack
 
@@ -121,4 +121,4 @@ Use el portal de administración de Azure Stack para comprobar que esa copia de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre el flujo de trabajo para recuperarse de un evento de pérdida de datos. Consulte [Recover from catastrophic data loss](azure-stack-backup-recover-data.md) (Recuperación después de una pérdida de datos grave).
+Obtenga más información sobre el flujo de trabajo para [recuperarse de un evento de pérdida de datos](azure-stack-backup-recover-data.md).

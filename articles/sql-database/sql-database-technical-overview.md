@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755432"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982274"
 ---
-# <a name="the-azure-sql-database-service"></a>Servicio Azure SQL Database
+# <a name="what-is-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database?
 
 SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece un rendimiento escalable de modo dinámico dentro de dos modelos de compra diferentes: un modelo de compra basado en núcleos virtuales y un modelo de compra basado en DTU. SQL Database también proporciona opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para un análisis analítico extremo, y [OLTP en memoria](sql-database-in-memory.md) para un procesamiento de transacciones extremo. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente.
 
@@ -67,10 +67,10 @@ La escalabilidad dinámica es diferente del escalado automático. El escalado au
 SQL Database ofrece dos modelos de compra:
 
 - El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas. Los tamaños de proceso de cada nivel ofrecen una combinación diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
-- El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento.
+- El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. El modelo de compra basado en núcleos virtuales también le permite usar la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos. Para más información sobre la Ventaja híbrida de Azure, consulte las [preguntas frecuentes](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) está actualmente en versión preliminar pública. No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio de hiperescala.
+  > El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) para bases de datos únicas está actualmente en versión preliminar pública. No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio de hiperescala.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Grupos elásticos para maximizar la utilización de los recursos
 
@@ -195,6 +195,41 @@ SQL Database facilita la creación y el mantenimiento de aplicaciones y aumenta 
   Editor de código abierto, gratuito y que se puede descargar para Windows, macOS y Linux que admite extensiones, entre las que se incluye la [extensión mssql](https://aka.ms/mssql-marketplace), para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse.
 
 SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, PHP, Ruby y .NET en MacOS, Linux y Windows. SQL Database admite las mismas [bibliotecas de conexiones](sql-database-libraries.md) como SQL Server.
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre SQL Database
+
+### <a name="what-is-the-current-version-of-sql-database"></a>¿Cuál es la versión actual de SQL Database?
+
+La versión actual de SQL Database es V12. Se ha retirado la versión V11.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>¿Puedo controlar cuando se produce el tiempo de inactividad de la aplicación de revisiones?
+
+ No. El impacto de la aplicación de revisiones no suele ser perceptible si [usa una lógica de reintento](sql-database-develop-overview.md#resiliency) en la aplicación. Para más información sobre cómo prepararse para los eventos de mantenimiento planeado en Azure SQL Database, consulte [Planeación de los eventos de mantenimiento en Azure SQL Database](sql-database-planned-maintenance.md).
+
+### <a name="azure-hybrid-benefit-questions"></a>Preguntas de la Ventaja híbrida de Azure
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>¿Hay derechos de doble uso con Ventaja híbrida de Azure para SQL Server?
+
+Dispone de 180 días de derechos de doble uso de la licencia para asegurarse de que las migraciones se ejecutan sin problemas. Transcurrido dicho período, la licencia de SQL Server solo puede usarse en la nube en SQL Database, y carece de derechos de doble uso en el entorno local y en la nube.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>¿En qué se diferencia la Ventaja híbrida de Azure para SQL Server de Movilidad de licencias?
+
+En la actualidad, ofrecemos las ventajas de la movilidad de licencias a los clientes de SQL Server con Software Assurance, lo que permite la reasignación de sus licencias a servidores compartidos de terceros. Esta ventaja puede usarse en IaaS de Azure y AWS EC2.
+La Ventaja híbrida de Azure para SQL Server se diferencia de la movilidad de licencias en dos áreas principales:
+
+- Proporciona ventajas económicas para mover cargas de trabajo muy virtualizadas a Azure. Los clientes de SQL EE pueden obtener 4 núcleos en Azure en la SKU de uso general por cada núcleo que posean en el entorno local para aplicaciones muy virtualizadas. La movilidad de licencias no ofrece ninguna ventaja especial sobre los costos de mover cargas de trabajo virtualizadas a la nube.
+- Se proporciona para destinos PaaS en Azure (Instancia administrada de SQL Database) que son muy compatibles con SQL Server local.
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>¿Cuáles son los derechos específicos de la Ventaja híbrida de Azure para SQL Server?
+
+Los clientes de SQL Database tendrán asociados los siguientes derechos con la Ventaja híbrida de Azure para SQL Server:
+
+|Superficie de licencia|¿Qué le permite obtener la Ventaja híbrida de Azure para SQL Server?|
+|---|---|
+|Clientes de núcleo de SQL Server Enterprise Edition con SA|<li>Puede pagar la tasa base sobre la SKU De uso general o Crítico para la empresa</li><br><li>1 núcleo local = 4 núcleos en la SKU De uso general</li><br><li>1 núcleo local = 1 núcleo en SKU Crítico para la empresa</li>|
+|Clientes de núcleo de SQL Server Standard Edition con SA|<li>Puede pagar la tasa base solo sobre la SKU De uso general</li><br><li>1 núcleo local = 1 núcleo en la SKU De uso general</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Contactar con el equipo de ingeniería de SQL Server
 

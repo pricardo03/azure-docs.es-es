@@ -4,7 +4,7 @@ description: En este artículo se proporciona información general de la segurid
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436817"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116227"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Introducción a la seguridad de Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric aborda los desafíos de desarrollar y administrar aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en la implementación de cargas de trabajo exigentes y críticas que son escalables y confiables.
@@ -47,8 +47,8 @@ La seguridad de cliente a nodo se configura mediante identidades de cliente. Par
 
 Service Fabric admite dos tipos de control de acceso para los clientes que están conectados a un clúster de Service Fabric:
 
--   **Administrador**: acceso total a las funcionalidades de administración, que incluyen funcionalidades de escritura y de lectura.
--   **Usuario**: acceso de solo lectura tanto a las funcionalidades de administración (por ejemplo, funcionalidades de consulta) como a la capacidad para resolver aplicaciones y servicios.
+-   **Administrator**: acceso total a las funcionalidades de administración, que incluyen funcionalidades de escritura y de lectura.
+-   **User**: acceso de solo lectura tanto a las funcionalidades de administración (por ejemplo, funcionalidades de consulta) como a la capacidad para resolver aplicaciones y servicios.
 
 Mediante el uso de control de acceso, los administradores de clústeres pueden limitar el acceso a ciertos tipos de operaciones de clúster. Esto hace que el clúster sea más seguro.
 
@@ -87,7 +87,7 @@ El flujo de trabajo de la supervisión y el diagnóstico consta de tres pasos:
 
 2.  **Agregación de eventos**: para poder mostrar los eventos generados antes hay que recopilarlos y agregarlos. Normalmente, se recomienda usar [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similar a la recopilación de registros basada en agentes) o [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (recopilación de registros en proceso).
 
-3.  **Análisis**: Para poder analizar y mostrar eventos, estos se deben poder visualizar y se debe poder acceder a ellos en algún formato. Hay varias plataformas para el análisis y la visualización de datos de supervisión y diagnóstico. Se recomiendan [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) y [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights), ya que se integran bien con Service Fabric.
+3.  **Análisis**: para poder analizar y mostrar eventos, es necesario que puedan visualizarse y que permitan acceder a ellos en algún formato. Hay varias plataformas para el análisis y la visualización de datos de supervisión y diagnóstico. Se recomiendan [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) y [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights), ya que se integran bien con Service Fabric.
 
 También puede usar [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) para supervisar muchos de los recursos de Azure que incorporan un clúster de Service Fabric.
 

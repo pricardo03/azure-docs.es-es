@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279933"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213207"
 ---
 >[!NOTE]
 >En el caso de recursos que no son fijos, puede solicitar que se generen las cuotas abriendo un vale de soporte. **No** cree cuentas adicionales de Azure Media Services para obtener límites mayores.
@@ -27,7 +27,7 @@ ms.locfileid: "52279933"
 | Canales activos por cuenta de AMS |5|
 | Programas en estado detenido por canal  |50|
 | Programas en estado de ejecución por canal  |3|
-| Extremos de streaming en estado de ejecución por cuenta de ASM|2|
+| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2|
 | Unidades de streaming por extremo de streaming |10 |
 | Cuentas de almacenamiento | 1000 <sup>(5)</sup> (fijo) |
 | Directivas | 1 000 000<sup>(6)</sup> |

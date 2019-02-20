@@ -2,17 +2,17 @@
 title: 'Azure Key Vault: Uso de la eliminación temporal con la CLI'
 description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de la CLI
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663951"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116730"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -193,7 +193,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 ## <a name="purging-a-soft-delete-protected-key-vault"></a>Purga de un almacén de claves protegido por eliminación temporal
 
 > [!IMPORTANT]
-> Si purga un almacén de claves o uno de los objetos que contiene se eliminará definitivamente, lo que significa que no se podrá recuperar de nuevo.
+> Si purga un almacén de claves o uno de los objetos que contiene, se eliminará definitivamente, lo que significa que no se podrá recuperar.
 
 La función de purga se usa para eliminar permanentemente un objeto del almacén de claves o un almacén de claves completo que anteriormente se habían eliminado temporalmente. Como se muestra en la sección anterior, los objetos almacenados en un almacén de claves con la característica de eliminación temporal habilitada pueden pasar por varios estados:
 
@@ -226,5 +226,5 @@ La lista de objetos del almacén de claves eliminado también muestra cuándo se
 ## <a name="other-resources"></a>Otros recursos:
 
 - Para obtener una información general sobre la nueva característica de eliminación temporal, consulte [la información general sobre la eliminación temporal de Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para obtener una descripción general del uso de Azure Key Vault, consulte [Introducción a Azure Key Vault](key-vault-get-started.md).
+- Para obtener información general del uso de Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md).
 

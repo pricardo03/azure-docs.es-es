@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Vibe HCM | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Vibe HCM | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Vibe HCM.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 395f99c986e0a51e8dd2c440d258724e862f275c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 79787045f0379e6b672350206740297000f298c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020774"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185577"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Tutorial: Integración de Azure Active Directory con Vibe HCM
+# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Tutorial: integración de Azure Active Directory con Vibe HCM
 
 En este tutorial, aprenderá a integrar Vibe HCM con Azure Active Directory (Azure AD).
 
@@ -150,7 +151,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/vibehcm-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -160,7 +161,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-vibe-hcm-test-user"></a>Crear un usuario de prueba de Vibe HCM
 
-En esta sección, creará un usuario llamado Britta Simon en Vibe HCM. Trabaje con el [equipo de soporte técnico de Vibe HCM](mailto:support@vibehcm.com) para agregar los usuarios a la plataforma de Vibe HCM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Vibe HCM. Trabaje con el  [equipo de soporte técnico de Vibe HCM](mailto:support@vibehcm.com) para agregar usuarios a la plataforma de Vibe HCM. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -197,7 +198,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Vibe HCM en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Vibe HCM.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239679"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164029"
 ---
 # <a name="azure-stack-administration-basics"></a>Aspectos básicos de administración de Azure Stack
-Hay varias cosas que debe saber si no está familiarizado con la administración de Azure Stack. Esta guía proporciona información general acerca del rol de los operadores de Azure Stack, y de lo que debe decir a los usuarios para que aumenten su productividad rápidamente.
+Hay varias cosas que debe saber si no está familiarizado con la administración de Azure Stack. En este artículo se proporciona información general acerca del rol de operador de Azure Stack, y de lo que debe decir a los usuarios para que aumenten su productividad rápidamente.
 
 ## <a name="understand-the-builds"></a>Descripción de las compilaciones
 
 ### <a name="integrated-systems"></a>Sistemas integrados
 
-Si se usa un sistema integrado de Azure Stack, las versiones actualizadas de Azure Stack se distribuyen a través de paquetes de actualización. Para importar y aplicar estos paquetes, haga clic en el icono Actualizaciones del portal de administrador.
+Si se usa un sistema integrado de Azure Stack, las versiones actualizadas de Azure Stack se distribuyen a través de paquetes de actualización. Para importar y aplicar estos paquetes, haga clic en el icono Actualizaciones del portal de administrador. No se admite para actualizar las instalaciones de ASDK. 
  
 ### <a name="development-kit"></a>Kit de desarrollo
 
@@ -46,7 +46,7 @@ Deberá saber qué servicios puede poner a disposición de los usuarios. Azure S
 De forma predeterminada, Azure Stack incluye los siguientes “servicios fundamentales” cuando se implementa Azure Stack:
 
 - Proceso
-- Storage
+- Almacenamiento
 - Redes
 - Key Vault
 

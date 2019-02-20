@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745724"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106417"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
-En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
+En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](../platform/alerts-overview.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
 
-Alertas de registro consiste en reglas de búsqueda de registros creadas para [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para obtener más información sobre su uso, consulte [creación de alertas de registro en Azure](../../azure-monitor/platform/alerts-log.md).
+Alertas de registro consiste en reglas de consulta de registro creadas para [Azure Monitor](../learn/tutorial-viewdata.md) o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Para obtener más información sobre su uso, consulte [creación de alertas de registro en Azure](../platform/alerts-log.md).
 
 > [!NOTE]
-> Ahora los datos de registro populares de [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) también están disponibles en la plataforma de métricas de Azure Monitor. Para obtener más detalles, consulte [Alerta de métricas de los registros](../../azure-monitor/platform/alerts-metric-logs.md).
+> Ahora los datos de registro populares de [Azure Monitor](../learn/tutorial-viewdata.md) también están disponibles en la plataforma de métricas de Azure Monitor. Para obtener más detalles, consulte [Alerta de métricas de los registros](../platform/alerts-metric-logs.md).
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regla de alertas de búsqueda de registros: definición y tipos
@@ -41,7 +41,7 @@ Las reglas de búsqueda de registros se definen mediante los siguientes detalles
 
 - **Umbral**.  Los resultados de la búsqueda de registros se evalúan para determinar si se debe crear una alerta.  El umbral es diferente para los distintos tipos de reglas de alerta de búsqueda de registros.
 
-Las reglas de búsqueda de registros para [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events) pueden ser de dos tipos. Cada uno de estos tipos se describe en detalle en las secciones que aparecen a continuación.
+Las reglas de consulta de registros para [Azure Monitor](../learn/tutorial-viewdata.md) o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events) pueden ser de dos tipos. Cada uno de estos tipos se describe en detalle en las secciones que aparecen a continuación.
 
 - **[Número de resultados](#number-of-results-alert-rules)**. Alerta única creada cuando los registros de números devueltos por la búsqueda de registros superan un número especificado.
 - **[Unidades métricas](#metric-measurement-alert-rules)**.  Alerta creada para cada objeto de los resultados de la búsqueda de registros con valores que superan el umbral especificado.
@@ -99,14 +99,28 @@ Considere la posibilidad de un escenario en el que desearía tener una alerta en
 - **Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Período de tiempo:** 30 minutos<br>
 - **Frecuencia de alerta:** cinco minutos<br>
-- **Valor agregado:** mayor que 90<br>
+- **Lógica de alertas: estado y umbral:** mayor que 90<br>
+- **Campo de grupo (Agregado en):** Equipo
 - **Activación de alerta según:** infracciones totales mayores que 2<br>
 
-La consulta crearía un valor medio para cada equipo a intervalos de cinco minutos.  Esta consulta se ejecutaría cada 5 minutos para los datos recopilados en los 30 minutos anteriores.  A continuación se muestran datos de ejemplo para tres equipos.
+La consulta crearía un valor medio para cada equipo a intervalos de cinco minutos.  Esta consulta se ejecutaría cada 5 minutos para los datos recopilados en los 30 minutos anteriores. Puesto que la opción Campo de grupo (Agregado en) seleccionada es la tabla "Computer" en columnas, el valor AggregatedValue se divide en varios valores de "Computer" y se determina la utilización media del procesador para cada equipo que viene determinada por un intervalo temporal de 5 minutos.  El resultado de la consulta de ejemplo para (supongamos) tres equipos sería el siguiente.
+
+
+|TimeGenerated [UTC] |Equipo  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Si se realizara el trazado de los resultados de la consulta, este tendría el siguiente aspecto.
 
 ![Resultados de la consulta de ejemplo](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-En este ejemplo, se crearán alertas independientes para srv02 y srv03 porque han incumplido el umbral del 90 % tres veces en el período de tiempo.  Si se cambiara **Desencadenar alerta según:** a **Consecutivo**, entonces se crearía una alerta solo para srv03, ya que incumplió el umbral para tres ejemplos consecutivos.
+En este ejemplo, hemos visto en intervalos de 5 minutos para cada uno de los tres equipos la utilización media del procesador calculada durante 5 minutos. srv01 ha infringido el umbral de 90 solo una vez en el minuto 1:25 del intervalo. En comparación, srv02 supera el umbral de 90 en los puntos 1:10, 1:15 y 1:25 del intervalo mientras que srv03 supera el umbral de 90 en los puntos 1:10, 1:15, 1:20 y 1:30. Puesto que la alerta está configurada para desencadenarse si las infracciones son más de dos, vemos que srv02 y srv03 son los únicos que cumplen este criterio. Por tanto, se crearán alertas independientes para srv02 y srv03 porque han incumplido el umbral del 90 % dos veces en varios intervalos de tiempo.  Si, en vez de eso, el parámetro *Desencadenar alerta según:* se configuró para la opción *Continuous breaches* (Infracciones continuas), la alerta se desencadenaría **solo** para srv03 ya que infringió el umbral en tres intervalos de tiempo consecutivos, desde 1:10 a 1:20. Y **no** se desencadenaría para srv02, ya que este infringió el umbral en dos intervalos de tiempo consecutivos, de 1:10 a 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regla de alertas de búsqueda de registros: desencadenamiento y estado
 
@@ -114,11 +128,11 @@ La regla de alertas de búsqueda de registros funciona con la lógica dictada po
 
 Ahora, supongamos que tenemos una regla de alerta de registro denominada *Contoso-Log-Alert*, según la configuración en el [ejemplo proporcionado para la alerta de registro de tipo Número de resultados](#example-of-number-of-records-type-log-alert). 
 - A las 13:00 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros produjo 0 registros; estuvo por debajo del umbral y, por tanto, la alerta no se activó. 
-- En la siguiente iteración a las 13:10 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 5 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](../../azure-monitor/platform/action-groups.md) asociado. 
-- A las 13:15 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 2 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](../../azure-monitor/platform/action-groups.md) asociado.
+- En la siguiente iteración a las 13:10 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 5 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](../platform/action-groups.md) asociado. 
+- A las 13:15 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros proporcionó 2 registros; se superó el umbral y se activó la alerta y, poco después, se desencadenó el [grupo de acciones](../platform/action-groups.md) asociado.
 - A continuación, a la 13:20 h, cuando Alertas de Azure ejecutó Contoso-Log-Alert, el resultado de la búsqueda de registros produjo de nuevo 0 registros; estuvo por debajo del umbral y, por tanto, la alerta no se activó.
 
-Pero en el caso anterior, a las 13:15 h Alertas de Azure no puede determinar que persisten los problemas subyacentes de la 13:10 h ni si hay nuevos errores de red; ya que la consulta proporcionada por el usuario puede considerar los registros anteriores, las alertas de Azure sí pueden determinarlo. Por tanto, para estar totalmente seguros, cuando Contoso-Log-Alert se ejecuta a la 13:15 h, el [grupo de acciones](../../azure-monitor/platform/action-groups.md) configurado se vuelve a activar. A la 13:20 h, cuando no hay registros visibles: Alertas de Azure no puede asegurar que la causa de los registros se ha solucionado; por lo tanto, Contoso-Log-Alert no se cambiará a Resuelto en el panel de Alertas de Azure ni en las notificaciones que se envíen para informar de la resolución de la alerta.
+Pero en el caso anterior, a las 13:15 h Alertas de Azure no puede determinar que persisten los problemas subyacentes de la 13:10 h ni si hay nuevos errores de red; ya que la consulta proporcionada por el usuario puede considerar los registros anteriores, las alertas de Azure sí pueden determinarlo. Por tanto, para estar totalmente seguros, cuando Contoso-Log-Alert se ejecuta a la 13:15 h, el [grupo de acciones](../platform/action-groups.md) configurado se vuelve a activar. A la 13:20 h, cuando no hay registros visibles: Alertas de Azure no puede asegurar que la causa de los registros se ha solucionado; por lo tanto, Contoso-Log-Alert no se cambiará a Resuelto en el panel de Alertas de Azure ni en las notificaciones que se envíen para informar de la resolución de la alerta.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Precios y facturación de las alertas de registro
@@ -133,9 +147,8 @@ Los precios que se aplican a las alertas de registro están disponibles en la p�
     > Si hay caracteres no válidos como `<, >, %, &, \, ?, /`, se sustituirán por `_` en la factura. Para eliminar los recursos de scheduleQueryRules creados para la facturación de reglas de alertas mediante una [API de Log Analytics heredada](api-alerts.md), el usuario debe eliminar la programación original y la acción de la alerta mediante [esa API](api-alerts.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre la [creación de alertas de registro en Azure](../../azure-monitor/platform/alerts-log.md).
+* Más información sobre la [creación de alertas de registro en Azure](../platform/alerts-log.md).
 * Información sobre [webhooks en alertas de registro en Azure](alerts-log-webhook.md).
-* Más información acerca de las [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
-* Más información sobre [Application Insights](../../azure-monitor/app/analytics.md).
-* Más información sobre [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* Más información acerca de las [Alertas de Azure](../platform/alerts-overview.md).
+* Más información sobre [Application Insights](../app/analytics.md).
+* Más información sobre las [consultas de registros en Azure Monitor](../log-query/log-query-overview.md).    

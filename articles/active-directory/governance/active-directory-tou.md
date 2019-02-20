@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822517"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163774"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Condiciones de uso.
@@ -333,6 +334,9 @@ Puede configurar una directiva de acceso condicional para la aplicación de Azur
 Puede configurar una directiva de acceso condicional para la aplicación de inscripción en Microsoft Intune y requerir una instancia de Términos de uso antes de la inscripción de un dispositivo en Intune. Para obtener más información, consulte la entrada de blog [Choosing the right Terms solution for your organization](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) (Elección de la solución de términos adecuada para su organización).
 
 ![Aplicación en la nube de Microsoft Intune](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> No se admite la aplicación de inscripción de Intune debido a los [Términos de uso por dispositivo](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535282"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238154"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtención de una cadena de conexión de Event Hubs
 
@@ -51,13 +51,16 @@ Puede agregar una nueva directiva SAS y obtener la cadena de conexión o usar la
 ![Obtención de la cadena de conexión de Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obtención de la cadena de conexión con Azure PowerShell
-Puede usar Get-AzureRmEventHubNamespaceKey para obtener la cadena de conexión para el nombre de directiva o regla específica, tal como se muestra a continuación:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Puede usar Get-AzEventHubNamespaceKey para obtener la cadena de conexión del nombre de directiva o regla específica, tal como se muestra a continuación:
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-Consulte [Azure Event Hubs PowerShell module](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) (Módulo de PowerShell de Azure Event Hubs) para obtener más detalles.
+Consulte [Azure Event Hubs PowerShell module](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) (Módulo de PowerShell de Azure Event Hubs) para obtener más detalles.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Obtención de la cadena de conexión con la CLI de Azure
 Puede usar lo siguiente para obtener la cadena de conexión para el espacio de nombres:

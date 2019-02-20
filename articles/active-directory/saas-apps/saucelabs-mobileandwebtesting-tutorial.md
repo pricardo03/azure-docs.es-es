@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Sauce Labs - Mobile and Web Testing | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Sauce Labs - Mobile and Web Testing | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Sauce Labs - Mobile and Web Testing.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267246"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207014"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integración de Azure Active Directory con Sauce Labs - Mobile and Web Testing
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: integración de Azure Active Directory con Sauce Labs - Mobile and Web Testing
 
 En este tutorial, obtendrá información sobre cómo integrar Sauce Labs - Mobile and Web Testing con Azure Active Directory (Azure AD).
 
@@ -133,7 +134,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
 
-    a. Haga clic en **Examinar** y cargue el archivo de metadatos descargado de Azure AD.
+     a. Haga clic en **Examinar** y cargue el archivo de metadatos descargado de Azure AD.
 
     b. Seleccione la casilla **PERMITIR APROVISIONAMIENTO JUST-IN-TIME**.
 
@@ -163,7 +164,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/saucelabs-mobileandwebtesting-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -175,7 +176,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear una usuaria llamada Britta Simon en Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Sauce Labs - Mobile and Web Testing, si aún no existe, se crea un usuario.
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -212,7 +213,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el mosaico de Sauce Labs - Mobile and Web Testing en el panel de acceso, debe iniciar sesión automáticamente en la aplicación Sauce Labs - Mobile and Web Testing.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

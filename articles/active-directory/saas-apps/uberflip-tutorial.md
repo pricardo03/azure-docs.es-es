@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Uberflip | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Uberflip | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Uberflip.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: bb1f53895fcd91a9474302fcf8c9e0040fe91961
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 28add36dedcd942150a96d32508246ee03da60f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182585"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integración de Azure Active Directory con Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integración de Azure Active Directory con Uberflip
 
 En este tutorial, aprenderá a integrar Uberflip con Azure Active Directory (Azure AD).
 
@@ -154,7 +155,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/uberflip-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 

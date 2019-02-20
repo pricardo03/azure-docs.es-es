@@ -3,8 +3,8 @@ title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azur
 description: Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190928"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186359"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -220,7 +221,7 @@ Resumen de los factores que influyen en el tiempo que lleva completar una **sinc
 
 * Si los usuarios del ámbito de aprovisionamiento se corresponden o no con los usuarios existentes en la aplicación de destino, o si deben crearse por primera vez. Las tareas de sincronización para las cuales se crean todos los usuarios por primera vez, llevan aproximadamente *el doble de tiempo* que los trabajos de sincronización para los cuales todos los usuarios se corresponden con usuarios existentes.
 
-* Número de errores en los [registros de auditoría](check-status-user-account-provisioning.md). El rendimiento es también menor si hay muchos errores y si el servicio de aprovisionamiento ha quedado en un estado de "cuarentena". 
+* Número de errores en los [registros de auditoría](check-status-user-account-provisioning.md). El rendimiento es también menor si hay muchos errores y si el servicio de aprovisionamiento ha quedado en un estado de "cuarentena".    
 
 * Solicitar los límites de velocidad y otras limitaciones que haya implementado el sistema de destino. Algunos sistemas de destino implementan límites de velocidad y otras limitaciones en las solicitudes, que pueden afectar al rendimiento durante operaciones de sincronización grandes. En estos casos, una aplicación que recibe demasiadas solicitudes demasiado rápido puede ralentizar su velocidad de respuesta o cerrar la conexión. Para mejorar el rendimiento, el conector debe ajustarse; para ello, no debe enviar las solicitudes de la aplicación más rápido de lo que la aplicación puede procesarlas. Los conectores de aprovisionamiento que ha compilado Microsoft hacen este ajuste. 
 

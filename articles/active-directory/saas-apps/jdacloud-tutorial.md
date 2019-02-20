@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con JDA Cloud | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con JDA Cloud | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y JDA Cloud.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703496"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168347"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integración de Azure Active Directory con JDA Cloud
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: integración de Azure Active Directory con JDA Cloud
 
 En este tutorial, aprenderá a integrar JDA Cloud con Azure Active Directory (Azure AD).
 
@@ -109,7 +110,7 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Información de dominio y direcciones URL de inicio de sesión único de JDA Cloud](./media/jdacloud-tutorial/tutorial_jdacloud_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.jdadelivers.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.jdadelivers.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`.
 
@@ -160,7 +161,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/jdacloud-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -170,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-jda-cloud-test-user"></a>Creación de un usuario de prueba de JDA Cloud
 
-En esta sección, creará un usuario llamado Britta Simon en JDA Cloud. Trabaje con el [equipo de soporte técnico de JDA Cloud](https://support.jda.com/) para añadir los usuarios a la plataforma de JDA Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en JDA Cloud. Trabaje con el  [equipo de soporte técnico de JDA Cloud](https://support.jda.com/)  para añadir usuarios a la plataforma de JDA Cloud. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -207,7 +208,7 @@ En esta sección, va a habilitar a Britta Simon para que use el inicio de sesió
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de JDA Cloud en el panel de acceso, debería iniciar sesión automáticamente en la aplicación JDA Cloud.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

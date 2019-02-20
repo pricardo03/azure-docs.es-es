@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con ON24 Virtual Environment SAML Connection | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con ON24 Virtual Environment SAML Connection | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ON24 Virtual Environment SAML Connection.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071116"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209496"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integración de Azure Active Directory con ON24 Virtual Environment SAML Connection
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: integración de Azure Active Directory con ON24 Virtual Environment SAML Connection
 
 En este tutorial, obtendrá información sobre cómo integrar ON24 Virtual Environment SAML Connection con Azure Active Directory (Azure AD).
 
@@ -111,11 +112,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![imagen](./media/on24-tutorial/b1-domains_and_urlsedit.png)
 
-5. En la sección **Configuración de SAML básica	**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
+5. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
     ![imagen](./media/on24-tutorial/tutorial_on24_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
      **Dirección URL del entorno de producción**
     
@@ -171,7 +172,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, seleccione **Usuarios** y, a continuación, seleccione **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![imagen](./media/on24-tutorial/d_users_and_groups.png)
 
@@ -179,11 +180,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/on24-tutorial/d_adduser.png)
 
-3. En las propiedades de usuario, realice los pasos siguientes.
+3. En las propiedades Usuario, siga estos pasos.
 
     ![imagen](./media/on24-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -194,13 +195,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>Creación de un usuario de prueba de ON24 Virtual Environment SAML Connection
 
-En esta sección, creará un usuario llamado Britta Simon en ON24 Virtual Environment SAML Connection. Póngase en contacto con el [equipo de soporte técnico de conexión de ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) para agregar los usuarios en la plataforma de ON24 Virtual Environment SAML Connection. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ON24 Virtual Environment SAML Connection. Póngase en contacto con el  [equipo de soporte técnico de conexión de ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) para agregar usuarios en la plataforma de ON24 Virtual Environment SAML Connection. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ON24 Virtual Environment SAML Connection.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
     ![imagen](./media/on24-tutorial/d_all_applications.png)
 
@@ -216,7 +217,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![imagen](./media/on24-tutorial/d_assign_user.png)
 
-4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios y, a continuación, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
     
@@ -225,7 +226,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de ON24 Virtual Environment SAML Connection en el Panel de acceso, debe iniciar sesión automáticamente en la aplicación ON24 Virtual Environment SAML Connection.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

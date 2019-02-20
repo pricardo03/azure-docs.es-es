@@ -4,7 +4,7 @@ description: En este artículo se proporciona una descripción general de la arq
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186483"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118146"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes y límites del sistema de información de Azure
 En este artículo se proporciona una descripción general de la arquitectura y administración de Azure. El entorno del sistema de Azure se compone de las siguientes redes:
@@ -54,7 +54,7 @@ El equipo del sistema operativo proporciona imágenes en forma de discos duros v
 
 Hay tres tipos de imágenes de sistema operativo administrado por tejido:
 
-- Host: se trata de un sistema operativo personalizado que se ejecuta en las máquinas virtuales host.
+- Host: se trata de un sistema operativo personalizado que se ejecuta en las máquinas virtuales de host.
 - Nativo: es un sistema operativo nativo que se ejecuta en inquilinos (por ejemplo, Azure Storage). Este sistema operativo no tiene ningún hipervisor.
 - Invitado: es un sistema operativo invitado que se ejecuta en máquinas virtuales invitadas.
 
@@ -81,7 +81,7 @@ Los equipos de servicio son:
 - Azure Compute
 - Red de Azure
 - Servicios de ingeniería en la nube
-- ISSD: seguridad
+- ISSD: Seguridad
 - Autenticación multifactor
 - SQL Database
 - Storage

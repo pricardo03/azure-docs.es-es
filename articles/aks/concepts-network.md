@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820137"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176244"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ En AKS, puede implementar un clúster que use uno de los dos siguientes modelos 
 
 ### <a name="kubenet-basic-networking"></a>Red (básica) de kubenet
 
-La opción de red de *kubenet* es la configuración predeterminada para la creación del clúster de AKS. Con *kubenet*, los nodos obtienen una dirección IP de una subred de la red virtual de Azure. Los pods reciben una dirección IP de un espacio de direcciones lógicamente distinto a la subred de red virtual de Azure de los nodos. A continuación se configura la traducción de direcciones de red (NAT) para que los pods puedan acceder a los recursos en la red virtual de Azure. La dirección IP de origen del tráfico se somete a un proceso NAT hacia la dirección IP principal del nodo.
+La opción de red de *kubenet* es la configuración predeterminada para la creación del clúster de AKS. Con *kubenet*, los nodos obtienen una dirección IP de una subred de la red virtual de Azure. Los pods reciben una dirección IP de un espacio de direcciones lógicamente distinto a la subred de red virtual de Azure de los nodos. A continuación, se configura la traducción de direcciones de red (NAT) para que los pods puedan acceder a los recursos en la red virtual de Azure. La dirección IP de origen del tráfico se somete a un proceso NAT hacia la dirección IP principal del nodo.
 
 Los nodos usan el complemento [kubenet][kubenet] de Kubernetes. Puede dejar que la plataforma de Azure cree y configure las redes virtuales por usted o puede implementar el clúster de AKS en una subred de red virtual existente. Nuevamente, solo los nodos que reciben una dirección IP enrutable y los pods usan NAT para comunicarse con otros recursos fuera del clúster de AKS. Este enfoque reduce enormemente el número de direcciones IP que se deben reservar en el espacio de red para que los pods las usen.
 
@@ -102,9 +102,17 @@ Otra característica común de los controladores de entrada es la terminación S
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 
-Un grupo de seguridad de red filtra el tráfico de las máquinas virtuales como, por ejemplo, el de los nodos de AKS. Al crear los servicios, como LoadBalancer, la plataforma Azure configura automáticamente las reglas de grupo de seguridad de red que son necesarias. No configure manualmente las reglas del grupo de seguridad de red para filtrar el tráfico de los pods en un clúster de AKS. Defina los puertos necesarios y el reenvío como parte de los manifiestos de servicio de Kubernetes y permita que la plataforma Azure cree o actualice las reglas correspondientes.
+Un grupo de seguridad de red filtra el tráfico de las máquinas virtuales como, por ejemplo, el de los nodos de AKS. Al crear los servicios, como LoadBalancer, la plataforma Azure configura automáticamente las reglas de grupo de seguridad de red que son necesarias. No configure manualmente las reglas del grupo de seguridad de red para filtrar el tráfico de los pods en un clúster de AKS. Defina los puertos necesarios y el reenvío como parte de los manifiestos de servicio de Kubernetes y permita que la plataforma Azure cree o actualice las reglas correspondientes. También puede usar las directivas de red, tal como se describe en la sección siguiente, para aplicar automáticamente las reglas de filtro de tráfico a los pods.
 
 Existen reglas predeterminadas de grupos de seguridad de red para tráfico como el de SSH. Estas reglas predeterminadas son para solucionar problemas de acceso y administración de clústeres. La eliminación de estas reglas predeterminadas puede causar problemas con la administración de AKS y rompe el objetivo de nivel de servicio (SLO).
+
+## <a name="network-policies"></a>Directivas de red
+
+De forma predeterminada, todos los pods de un clúster de AKS pueden enviar y recibir tráfico sin limitaciones. Para mejorar la seguridad, puede definir reglas que controlan el flujo de tráfico. Las aplicaciones de back-end solo se suelen exponer en los servicios de front-end, o los componentes de base de datos solo son accesibles para las capas de aplicación que se conectan a ellos.
+
+La directiva de red es una característica de Kubernetes que permite controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración asignada como etiquetas, espacio de nombres o puerto de tráfico. Los grupos de seguridad de red se usan más para los nodos de AKS y no para los pods. El uso de directivas de red proporciona una manera más adecuada y nativa en la nube para controlar el flujo de tráfico. Como los pods se crean dinámicamente en un clúster de AKS, se pueden aplicar automáticamente las directivas de red necesarias.
+
+Para obtener más información, consulte [Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)][use-network-policies].
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -139,3 +147,4 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

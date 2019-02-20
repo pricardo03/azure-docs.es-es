@@ -12,30 +12,31 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2018
+ms.topic: conceptual
+ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 090f9771bf8d1010e4249d97d5768891f02c54b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 76b752df4557ac5b0b493f1fb40d1712d37c8e22
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096609"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207677"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Puede usar la [concesión de credenciales de cliente de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) especificada en RFC 6749 y a veces denominada *OAuth de dos días*, para acceder a recursos hospedados en la web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.
+Puede usar la [concesión de credenciales de cliente de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) especificada en RFC 6749 y a veces denominada *OAuth de dos días*, para acceder a recursos hospedados en la web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para las interacciones entre servidores que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. Estos tipos de aplicaciones suelen denominarse *demonios* o *cuentas de servicio*.
 
-El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, Azure Active Directory (Azure AD) también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.
+El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, la plataforma de identidad de Microsoft también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.
 
 > [!NOTE]
 > No todas las características y escenarios de Azure AD son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
-En el escenario más típico de *OAuth de tres vías*, una aplicación cliente tiene permiso para obtener acceso a un recurso en nombre de un usuario específico. El permiso se delega desde el usuario a la aplicación, habitualmente durante el proceso de [consentimiento](v2-permissions-and-consent.md). Sin embargo, en el flujo de credenciales de cliente, los permisos se conceden directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que la propia aplicación tenga autorización para realizar una acción, y que sea el usuario el que tenga la autorización.
+En el escenario más típico de *OAuth de tres vías*, una aplicación cliente tiene permiso para obtener acceso a un recurso en nombre de un usuario específico. El permiso se delega desde el usuario a la aplicación, habitualmente durante el proceso de [consentimiento](v2-permissions-and-consent.md). Sin embargo, en el flujo de credenciales de cliente (*OAuth con dos patas*), los permisos se conceden directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que sea la propia aplicación la que tenga autorización para realizar una acción, no el usuario. 
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -47,10 +48,10 @@ El flujo completo de credenciales de cliente tiene un aspecto similar al diagram
 
 Una aplicación recibe habitualmente autorización directa para acceder a un recurso de una de dos maneras: 
 
-* Mediante una lista de control de acceso (ACL) en el recurso
-* Mediante la asignación de permisos de aplicación en Azure AD
+* [Mediante una lista de control de acceso (ACL) en el recurso](#access-control-lists)
+* [Mediante la asignación de permisos de aplicación en Azure AD](#application-permissions)
 
-Estos dos métodos son los más comunes en Azure AD y se recomiendan para los clientes y recursos que realizan el flujo de credenciales de cliente. Sin embargo, un recurso puede elegir autorizar a sus clientes de otras formas. Cada servidor de recurso puede elegir el mejor método para su aplicación.
+Estos dos métodos son los más comunes en Azure AD y se recomiendan para los clientes y recursos que realizan el flujo de credenciales de cliente. Un recurso puede elegir autorizar a sus clientes de otras formas. Cada servidor de recurso puede elegir el mejor método para su aplicación.
 
 ### <a name="access-control-lists"></a>Listas de control de acceso
 
@@ -73,18 +74,18 @@ Para más información sobre los permisos de aplicación, vaya a [Microsoft Grap
 
 Para usar permisos de aplicación en la aplicación, siga los pasos que se describen en las secciones siguientes.
 
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar los permisos en el portal de registro de aplicaciones
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
 
-1. Registre y cree una aplicación mediante el [portal de registro de aplicaciones](quickstart-v2-register-an-app.md) o la nueva [experiencia de registros de aplicaciones (versión preliminar)](quickstart-register-app.md).
+1. Registre y cree una aplicación desde el [Portal de registro de aplicaciones ](quickstart-v2-register-an-app.md) o la nueva [forma de registrar aplicaciones (versión preliminar)](quickstart-register-app.md).
 1. Vaya a la aplicación en el portal que usó para registrar o crear la aplicación. Deberá usar, al menos, un secreto de aplicación cuando cree la aplicación.
-2. Busque la sección de **permisos de Microsoft Graph** y agregue los **permisos** que necesite la aplicación.
-3. **Guarde** el registro de aplicaciones.
+1. Busque la sección de **permisos de API** y agregue los **permisos de aplicación**  que esta requiere.
+1. **Guarde** el registro de aplicaciones.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Se recomienda: Inicie la sesión del usuario en la aplicación
 
 Habitualmente, cuando compila una aplicación que usa permisos de aplicación, la aplicación requiere una página o vista en la que el administrador aprueba los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
-Si inicia la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el usuario antes de pedirle que apruebe los permisos de aplicación. Aunque no es estrictamente necesario, puede ayudarlo a crear una experiencia más intuitiva para los usuarios. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
+Si inicia la sesión del usuario en la aplicación, puede identificar la organización a la que este pertenece antes de pedirle que apruebe los permisos de la aplicación. Aunque no es estrictamente necesario, puede ayudarlo a crear una experiencia más intuitiva para los usuarios. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
 
@@ -100,7 +101,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ```
-// Pro tip: Try pasting the following request in a browser!
+// Pro tip: Try pasting the following request in a browser.
 ```
 
 ```
@@ -128,7 +129,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- |
 | `tenant` | El inquilino de directorio que concedió los permisos solicitados a la aplicación, en formato GUID. |
 | `state` | Un valor incluido en la solicitud que también se devuelve en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
-| `admin_consent` | Se establece en **true**. |
+| `admin_consent` | Se establece en **True**. |
 
 ##### <a name="error-response"></a>Respuesta de error
 
@@ -170,9 +171,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que va a funcionar la aplicación, con el formato de GUID o de nombre de dominio. |
 | `client_id` | Obligatorio | El identificador de la aplicación que está asignado a la aplicación. Puede encontrar esta información en el portal donde registró la aplicación. |
-| `scope` | Obligatorio |El valor pasado del parámetro `scope` en esta solicitud debe ser el identificador de recurso (URI de identificador de aplicación) del recurso que desea, con el sufijo `.default`. Para el ejemplo de Microsoft Graph, el valor es `https://graph.microsoft.com/.default`. Este valor indica al punto de conexión v2.0 que, de todos los permisos de aplicación directos que configuró para la aplicación, debe emitir un token para los que están asociados con el recurso que desea usar. |
+| `scope` | Obligatorio | El valor pasado del parámetro `scope` en esta solicitud debe ser el identificador de recurso (URI de identificador de aplicación) del recurso que desea, con el sufijo `.default`. Para el ejemplo de Microsoft Graph, el valor es `https://graph.microsoft.com/.default`. </br>Este valor indica al punto de conexión v2.0 que, de todos los permisos directos de la aplicación que ha configurado para la aplicación, debe emitir un token para los que están asociados con el recurso que desea usar. Para más información sobre el ámbito `/.default`, consulte la [documentación de consent](v2-permissions-and-consent.md#the-default-scope). |
 | `client_secret` | Obligatorio | El secreto de la aplicación que generó para la aplicación en el portal de registro de aplicaciones. El secreto de cliente debe codificarse como dirección URL antes de enviarse. |
-| `grant_type` | Obligatorio | Debe ser `client_credentials`. |
+| `grant_type` | Obligatorio | Se debe establecer en `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado
 
@@ -191,10 +192,10 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | Parámetro | Condición | DESCRIPCIÓN |
 | --- | --- | --- |
 | `tenant` | Obligatorio | El inquilino del directorio en el que va a funcionar la aplicación, con el formato de GUID o de nombre de dominio. |
-| `client_id` | Obligatorio |El identificador de la aplicación que está asignado a la aplicación. |
-| `scope` | Obligatorio | El valor pasado del parámetro `scope` en esta solicitud debe ser el identificador de recurso (URI de identificador de aplicación) del recurso que desea, con el sufijo `.default`. Para el ejemplo de Microsoft Graph, el valor es `https://graph.microsoft.com/.default`. <br>Este valor indica al punto de conexión v2.0 que, de todos los permisos de aplicación directos que configuró para la aplicación, debe emitir un token para los que están asociados con el recurso que desea usar. |
-| `client_assertion_type` | Obligatorio | El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| `client_assertion` | Obligatorio | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
+| `client_id` | Obligatorio |El identificador de aplicación (cliente) que se asigna a la aplicación. |
+| `scope` | Obligatorio | El valor pasado del parámetro `scope` en esta solicitud debe ser el identificador de recurso (URI de identificador de aplicación) del recurso que desea, con el sufijo `.default`. Para el ejemplo de Microsoft Graph, el valor es `https://graph.microsoft.com/.default`. <br>Este valor indica al punto de conexión v2.0 que, de todos los permisos de aplicación directos que configuró para la aplicación, debe emitir un token para los que están asociados con el recurso que desea usar. Para más información sobre el ámbito `/.default`, consulte la [documentación de consent](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Obligatorio | El valor se debe establecer en `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obligatorio | Una aserción (JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
 | `grant_type` | Obligatorio | Se debe establecer en `client_credentials`. |
 
 Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
@@ -261,6 +262,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## <a name="code-sample"></a>Código de ejemplo
+## <a name="code-samples-and-other-documentation"></a>Ejemplos de código y otra documentación
 
-Para ver un ejemplo de una aplicación que implementa la concesión de credenciales de cliente mediante el uso del punto de conexión de consentimiento del administrador, consulte nuestro [ejemplo de código de demonio v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Lea la [documentación en la que se describen de forma general las credenciales del cliente](http://aka.ms/msal-net-client-credentials) en la Biblioteca de autenticación de Microsoft
+
+| Muestra | Plataforma |Descripción |
+|--------|----------|------------|
+|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Consola de .NET Core 2.1 | Una aplicación de .NET Core sencilla que muestra los usuarios de un inquilino que consultan Microsoft Graph mediante la identidad de la aplicación, en lugar hacerlo en nombre de un usuario. El ejemplo también muestra la variación del uso de certificados para la autenticación. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Una aplicación web que sincroniza datos de Microsoft Graph mediante la identidad de la aplicación, en lugar hacerlo en nombre de un usuario. |

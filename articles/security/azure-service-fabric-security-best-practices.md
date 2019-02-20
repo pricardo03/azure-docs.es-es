@@ -4,7 +4,7 @@ description: En este artículo se proporciona un conjunto de procedimientos reco
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391227"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114712"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -173,7 +173,7 @@ Hay dos pasos básicos para configurar un almacén de claves:
 
     El almacén de claves debe estar habilitado para la implementación. El proveedor de recursos de proceso, a continuación, puede obtener los certificados del almacén e instalarlos en las instancias de máquina virtual.
 
-Para más información sobre cómo configurar un almacén de claves, consulte [Introducción a Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+Para obtener más información sobre cómo configurar un almacén de claves, consulte [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## <a name="assign-users-to-roles"></a>Asignación de usuarios a roles
 Una vez que haya creado las aplicaciones para representar el clúster, debe asignar los usuarios a los roles compatibles con Service Fabric: solo lectura y administrador. Puede asignar los roles mediante Azure Portal.

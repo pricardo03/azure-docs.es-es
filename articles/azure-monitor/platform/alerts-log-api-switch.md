@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e4e935a9c78950517623acdf8196d51793fff18a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462467"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118231"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Cambio de la preferencia de API para las alertas de registro
 
@@ -30,6 +30,7 @@ Hay varias ventajas de crear y administrar alertas mediante la [API scheduledQue
 
 - Capacidad de [buscar en registros entre varias áreas de trabajo](../log-query/cross-workspace-query.md) en las reglas de alerta y abarcar recursos externos, como áreas de trabajo de Log Analytics o incluso aplicaciones de Application Insights
 - Cuando se usan varios campos para agrupar en la consulta, al usar la [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) el usuario puede especificar en qué campo agregar en Azure Portal
+- Si registra las alertas creadas mediante [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), puede obtener un período definido de hasta 48 horas y recuperar datos durante un período más largo que el anterior.
 - Las reglas de alertas se crean de una sola vez como único recurso sin necesidad de crear tres niveles de recursos, como con la [API heredada de alertas de Log Analytics](api-alerts.md)
 - Interfaz de programación única para todas las variantes de las alertas de registro basadas en consultas en Azure; la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) puede usarse para administrar las reglas para Log Analytics, así como para Application Insights
 - Toda nueva funcionalidad de alertas de registro y los desarrollos futuros estarán disponible solo a través de la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
@@ -57,6 +58,13 @@ Con el cuerpo de solicitud que contiene el siguiente código JSON.
 }
 ```
 
+También puede obtener acceso a la API desde una línea de comandos de PowerShell mediante [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la tarea de invocar a la API de Azure Resource Manager. Tal como se muestra a continuación, el ejemplo de llamada PUT usa la herramienta ARMclient para cambiar todas las reglas de alerta asociadas al área de trabajo de Log Analytics específica.
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 Si el cambio de todas las reglas de alertas en el área de trabajo de Log Analytics para usar la nueva [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) es correcto, se proporcionará la respuesta siguiente.
 
 ```json
@@ -70,6 +78,12 @@ Además, los usuarios pueden comprobar el estado actual del área de trabajo de 
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+Para ejecutar los pasos anteriores mediante la línea de comandos de PowerShell con la herramienta [ARMClient](https://github.com/projectkudu/ARMClient), consulte el ejemplo siguiente.
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 Si el área de trabajo de Log Analytics especificada se ha cambiado para usar [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) únicamente, la respuesta JSON será como se muestra a continuación.

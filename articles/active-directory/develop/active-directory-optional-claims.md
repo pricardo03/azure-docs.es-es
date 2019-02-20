@@ -16,14 +16,15 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077260"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185458"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Control de Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedimientos para: Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
 
 Esta característica la usan los desarrolladores de aplicaciones para especificar las notificaciones que desean que los tokens envíen a las aplicaciones. Estas notificaciones opcionales sirven para:
 - Seleccionar las notificaciones adicionales que se incluirán en los tokens para la aplicación.
@@ -76,7 +77,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). |
 |`email`                     | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Estado de la cuenta de los usuarios de un inquilino. | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
-| `upn`                      | Notificación UserPrincipalName. | JWT, SAML  |           | Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados <br> Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | Notificación UserPrincipalName. | JWT, SAML  |           | Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  |
 
 ### <a name="v20-optional-claims"></a>Notificaciones opcionales de la versión 2.0
 
@@ -85,30 +86,28 @@ Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero 
 **Tabla 3: Notificaciones opcionales exclusivas de la versión 2.0**
 
 | Notificación de JWT     | NOMBRE                            | DESCRIPCIÓN                                | Notas |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Dirección IP                      | Dirección IP del cliente desde el que se inició sesión.   |       |
 | `onprem_sid`  | Identificador de seguridad local |                                             |       |
 | `pwd_exp`     | Tiempo de expiración de la contraseña        | Fecha y hora a la que expira la contraseña. |       |
-| `pwd_url`     | Cambiar dirección URL de contraseña             | Dirección URL que el usuario puede visitar para cambiar la contraseña.   |       |
-| `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye   |       |
-| `nickname`    | Alias                        | Nombre adicional del usuario, aparte del nombre y del apellido. |       |                                                                                                                |       |
+| `pwd_url`     | Cambiar dirección URL de contraseña             | Dirección URL que el usuario puede visitar para cambiar la contraseña.   |   |
+| `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye   |  En función de la configuración de las [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips) de MFA.    |
+| `nickname`    | Alias                        | Nombre adicional del usuario, aparte del nombre y del apellido. | 
 | `family_name` | Apellido                       | Proporciona el apellido del usuario según está definido en el objeto de usuario de Azure AD. <br>"family_name": "Miller" |       |
 | `given_name`  | Nombre                      | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario de Azure AD.<br>"given_name": "Frank"                   |       |
+| `upn`       | Nombre principal de usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
 
-Algunas notificaciones opcionales se pueden configurar para cambiar la manera de devolver la notificación. Estas propiedades adicionales se utilizan principalmente para ayudar a la migración de aplicaciones locales con expectativas de datos diferentes (por ejemplo, `include_externally_authenticated_upn_without_hash` ayuda con los clientes que no pueden admitir almohadillas [`#`] en el UPN).
+Algunas notificaciones opcionales se pueden configurar para cambiar la manera de devolver la notificación. Estas propiedades adicionales se usan principalmente para ayudarle a migrar aplicaciones locales con diferentes expectativas de datos (por ejemplo, `include_externally_authenticated_upn_without_hash` le ayudará con los clientes que no pueden admitir almohadillas [`#`] en el UPN).
 
-**Tabla 4: Valores para configurar las notificaciones opcionales estándares**
+**Tabla 4: Valores para configurar las notificaciones opcionales**
 
-| Nombre de propiedad                                     | Nombre de la propiedad adicional                                                                                                             | DESCRIPCIÓN |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Puede usarse en respuestas SAML y JWT.        |
-| | `include_externally_authenticated_upn`              | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las almohadillas (`#`) se reemplazan por caracteres de subrayado (`_`), por ejemplo `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Especificar que la notificación opcional upn sin propiedades adicionales no cambia el comportamiento: para ver una nueva notificación emitida en el token, se debe agregar al menos una de las propiedades adicionales. 
+| Nombre de propiedad  | Nombre de la propiedad adicional | DESCRIPCIÓN |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Puede usarse en respuestas SAML y JWT y para los token v1.0 y v2.0. |
+|                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las almohadillas (`#`) se reemplazan con guiones bajos (`_`); por ejemplo, `foo_hometenant.com_EXT_@resourcetenant.com`. |
 
 #### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales
 
@@ -151,12 +150,12 @@ Puede configurar notificaciones opcionales para la aplicación al modificar el m
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

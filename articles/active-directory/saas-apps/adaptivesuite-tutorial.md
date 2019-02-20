@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430296"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166528"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integración de Azure Active Directory con Adaptive Insights
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: integración de Azure Active Directory con Adaptive Insights
 
 En este tutorial obtendrá más información sobre cómo integrar Adaptive Insights con Azure Active Directory (Azure AD).
 
@@ -111,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    a. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+     a. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`.
 
@@ -126,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     Tenga en cuenta que en la dirección URL puede poner lo siguiente:
 
-    a. URL de inicio de sesión
+     a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -148,7 +149,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![SAML SSO Settings (Configuración de SSO de) SAML](./media/adaptivesuite-tutorial/IC805646.png "SAML SSO Settings (Configuración de SSO de) SAML")
 
-    a. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
+     a. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
 
     b. Pegue el valor del **Azure Ad Identifier** (Identificador de Azure AD) que ha copiado de Azure Portal en el cuadro de texto **Identity Provider Entity ID** (Id. de entidad del proveedor de identidades).
 
@@ -188,7 +189,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/adaptivesuite-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -216,7 +217,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Insights,
 
    ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
 
-   a. Escriba el **nombre**, el **inicio de sesión**, la **dirección de correo electrónico** y la **contraseña** o de un usuario válido de Azure Active Directory que quiera aprovisionar en los cuadros de texto relacionados.
+    a. Escriba el **nombre**, el **inicio de sesión**, la **dirección de correo electrónico** y la **contraseña** o de un usuario válido de Azure Active Directory que quiera aprovisionar en los cuadros de texto relacionados.
 
    b. Seleccione un **Role**(rol).
 
@@ -255,7 +256,7 @@ En esta sección, concederá acceso a Adaptive Insights a Britta Simon para perm
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Adaptive Insights del Panel de acceso, debería iniciar sesión automáticamente en su aplicación Adaptive Insights.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

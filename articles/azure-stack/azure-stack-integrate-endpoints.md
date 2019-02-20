@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816363"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117283"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integración del centro de datos de Azure Stack: publicar puntos de conexión
 
@@ -38,11 +38,11 @@ No se indican las VIP de infraestructura interna porque no son necesarias para l
 |Punto de conexión (VIP)|Registro de host DNS A|Protocolo|Puertos|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Portal (usuario)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (usuario)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (usuario)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (usuario)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Grafo|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista de revocación de certificados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP y UDP|53|
@@ -66,7 +66,7 @@ No se indican las VIP de infraestructura interna porque no son necesarias para l
 Azure Stack solo admite servidores proxy transparentes. En una implementación en la que un proxy transparente establece un vínculo superior a un servidor proxy tradicional, debe permitir los siguientes puertos y direcciones URL para la comunicación saliente:
 
 > [!Note]  
-> Azure Stack no admite el uso de Express Route para llegar a los servicios de Azure que se muestran en esta tabla.
+> Azure Stack no admite el uso de Express Route para obtener acceso a los servicios de Azure que se muestran en esta tabla.
 
 |Propósito|Dirección URL de destino|Protocolo|Puertos|Red de origen|
 |---------|---------|---------|---------|---------|
@@ -75,11 +75,10 @@ Azure Stack solo admite servidores proxy transparentes. En una implementación e
 |Revisión y actualización|https://&#42;.azureedge.net|HTTPS|443|VIP pública - /27|
 |Registro|https://management.azure.com|HTTPS|443|VIP pública - /27|
 |Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP pública - /27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP pública - /27<br>Red de la infraestructura pública|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP pública - /27<br>Red de la infraestructura pública|
 |NTP|(Se proporciona la dirección IP del servidor NTP para la implementación)|UDP|123|VIP pública - /27|
 |DNS|(Se proporciona la dirección IP del servidor DNS para la implementación)|TCP<br>UDP|53|VIP pública - /27|
 |CRL|(La dirección URL en los puntos de distribución de CRL en el certificado)|HTTP|80|VIP pública - /27|
-|Copia de seguridad de infraestructura|(Dirección IP o FQDN del servidor de archivos de destino externo)|SMB|445|Red de la infraestructura pública|
 |LDAP|Bosque de Active Directory proporcionado para la integración con Graph|TCP<br>UDP|389|VIP pública - /27|
 |SSL de LDAP|Bosque de Active Directory proporcionado para la integración con Graph|TCP|636|VIP pública - /27|
 |GC DE LDAP|Bosque de Active Directory proporcionado para la integración con Graph|TCP|3268|VIP pública - /27|
@@ -89,9 +88,6 @@ Azure Stack solo admite servidores proxy transparentes. En una implementación e
 
 > [!Note]  
 > Las direcciones URL de salida tienen equilibrio de carga mediante Azure Traffic Manager para proporcionar la mejor conectividad posible basada en la ubicación geográfica. Con URL con equilibrio de carga, Microsoft puede actualizar y cambiar los puntos de conexión de back-end sin que ello afecte a los usuarios. Microsoft no comparte la lista de direcciones IP para las URL con equilibrio de carga. Debe usar un dispositivo que admita el filtrado por dirección URL, en lugar de por dirección IP.
-
-> [!Note]  
-> En la revisión 1809, el servicio Copia de seguridad de infraestructura se comunica con el servidor de archivos externos desde la red VIP pública. Antes de la revisión 1809, el servicio se comunicaba mediante la red de la infraestructura pública. Si el entorno no permite acceder a los recursos de la infraestructura desde la red VIP pública, se aplicará la versión más reciente de la [revisión 1809](azure-stack-update-1809.md#post-update-steps) para Azure Stack. Esta revisión trasladará el servicio Copia de seguridad de infraestructura de nuevo a la red de infraestructura pública. En la actualización 1811, si se aplica la revisión 1809, el servicio Copia de seguridad de infraestructura se mantiene en la red de infraestructura pública. Si no se aplica la revisión, la actualización trasladará el servicio de nuevo a la red de infraestructura pública.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

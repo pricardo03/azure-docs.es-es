@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con GetThere | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con GetThere | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GetThere.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433107"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: integración de Azure Active Directory con GetThere
 
@@ -111,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![imagen](./media/getthere-tutorial/tutorial_getthere_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba cualquiera de las siguientes direcciones URL:
+     a. En el cuadro de texto **Identificador**, escriba cualquiera de las siguientes direcciones URL:
     | |
     |--|
     | `getthere.com` |
@@ -136,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Sitename | "Proporcione el valor según la organización" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Nombre de usuario |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
     
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](./media/getthere-tutorial/i2-attribute.png)
 
@@ -160,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     Tenga en cuenta que en la dirección URL puede poner lo siguiente:
 
-    a. URL de inicio de sesión
+     a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -186,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/getthere-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -197,7 +198,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-getthere-test-user"></a>Creación de un usuario de prueba de GetThere
 
-En esta sección, creará un usuario llamado Britta Simon en GetThere. Trabaje con el [equipo de soporte técnico del cliente de GetThere](mailto:dataintegration@sabre.com) para agregar los usuarios a la plataforma de GetThere. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en GetThere. Trabaje con el  [equipo de soporte técnico de GetThere](mailto:dataintegration@sabre.com) para agregar usuarios a la plataforma de GetThere. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -228,7 +229,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de GetThere en el panel de acceso, debería iniciar sesión automáticamente en su aplicación GetThere.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

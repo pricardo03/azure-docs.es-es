@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 367310527619d4bdb5f84a80c567a9d83698846e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c48e41318ff5ba189e4cc8b8529bb3b81911052
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433779"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: integración de Azure Active Directory con Fluxx Labs
 
@@ -109,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Fluxx Labs](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
     | Entorno | Patrón de dirección URL|
     |-------------|------------|
@@ -152,7 +153,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
 
-    a. Seleccione la casilla de verificación **SAML SSO** (SSO de SAML).
+     a. Seleccione la casilla de verificación **SAML SSO** (SSO de SAML).
 
     b. En el cuadro de texto **Request Path** (Ruta de acceso de la solicitud), escriba **/auth/saml**.
 
@@ -197,7 +198,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/fluxxlabs-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -225,7 +226,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Fluxx Labs, deben 
 
     ![Configuración de Fluxx Labs](./media/fluxxlabs-tutorial/config5.png)
 
-    a. Fluxx Labs usa la dirección de correo electrónico como identificador único para los inicios de sesión SSO. Rellene el campo **SSO UID** con la dirección de correo electrónico del usuario, que coincide con la dirección de correo electrónico que usan como inicio de sesión con SSO.
+     a. Fluxx Labs usa la dirección de correo electrónico como identificador único para los inicios de sesión SSO. Rellene el campo **SSO UID** con la dirección de correo electrónico del usuario, que coincide con la dirección de correo electrónico que usan como inicio de sesión con SSO.
 
     b. Haga clic en **Save**(Guardar).
 

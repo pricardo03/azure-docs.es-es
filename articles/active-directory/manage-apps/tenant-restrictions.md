@@ -3,9 +3,8 @@ title: Administración del acceso a aplicaciones en la nube mediante la restricc
 description: Uso de Restricciones de inquilino para administrar los usuarios que pueden acceder a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: yossib
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: richagi
-ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2dc03b329ce8a4b42f44b958aee96654dafb098
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163099"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197749"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -89,7 +89,7 @@ En esta sección se muestra la experiencia de los usuarios finales y los adminis
 
 ### <a name="end-user-experience"></a>Experiencia del usuario final
 
-Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando acceder a la instancia de Fabrikam de una aplicación SaaS compartida como Outlook en línea. Si Fabricam es un inquilino no permitido de la instancia de Contoso, el usuario ve la página siguiente:
+Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando acceder a la instancia de Fabrikam de una aplicación SaaS compartida como Outlook en línea. Si Fabrikam es un inquilino no permitido de la instancia de Contoso, el usuario ve la página siguiente:
 
 ![Página de acceso denegado para usuarios en inquilinos no permitidos](./media/tenant-restrictions/end-user-denied.png)
 

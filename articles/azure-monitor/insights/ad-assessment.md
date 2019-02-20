@@ -1,5 +1,5 @@
 ---
-title: Optimización del entorno de Active Directory con Azure Log Analytics | Microsoft Docs
+title: Optimización del entorno de Active Directory con Azure Monitor | Microsoft Docs
 description: Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193015"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999035"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Azure Monitor
 
 ![Símbolo de AD Health Check](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos del servidor. Este artículo facilita la instalación y el uso de la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
 
@@ -40,22 +42,22 @@ Después de agregar la solución y completar una comprobación, se muestra infor
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* La solución Active Directory Health Check requiere que esté instalada una versión compatible de .NET Framework 4.5.2 o superior en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y el servicio Log Analytics, usan el agente de MMA.
+* La solución Active Directory Health Check requiere que esté instalada una versión compatible de .NET Framework 4.5.2 o superior en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y Azure Monitor, usan el agente de MMA.
 * La solución es compatible con controladores de dominio que ejecutan Windows Server 2008, y 2008 R2, Windows Server 2012, y 2012 R2 y Windows Server 2016.
 * Un área de trabajo de Log Analytics para agregar la solución Active Directory Health Check desde Azure Marketplace en Azure Portal.  No es necesario realizar ninguna configuración más.
 
   > [!NOTE]
-  > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían al servicio Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
+  > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían a Azure Monitor en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
   >
   >
 
-Para llevar a cabo la comprobación de estado en los controladores de dominio que son miembros del dominio que se va a evaluar, necesitan un agente y conectividad a Log Analytics mediante alguno de los siguientes métodos admitidos:
+Para llevar a cabo la comprobación de estado en los controladores de dominio que son miembros del dominio que se va a evaluar, necesitan un agente y conectividad a Azure Monitor mediante alguno de los siguientes métodos admitidos:
 
 1. Instale [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
-2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el controlador de dominio se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
+2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con Azure Monitor, el controlador de dominio se puede hospedar en varios hosts junto con Azure Monitor para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
 3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) una vez que habilite la solución en el área de trabajo.  
 
-El agente del controlador de dominio que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración al servicio Log Analytics.  Los datos no se escriben en las bases de datos de Operations Manager.  
+El agente del controlador de dominio que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración a Azure Monitor.  Los datos no se escriben en las bases de datos de Operations Manager.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Detalles de la recopilación de datos de Active Directory Health Check
 
@@ -73,7 +75,7 @@ Active Directory Health Check recopila datos de los siguientes orígenes mediant
 - API del servicio de replicación de archivos (NTFRS)
 - Código personalizado C#
 
-Los datos se recopilan en el controlador de dominio y se reenvían a Log Analytics cada siete días.  
+Los datos se recopilan en el controlador de dominio y se reenvían a Azure Monitor cada siete días.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Cómo se establecen prioridades entre las recomendaciones
 A cada recomendación efectuada se le asigna un valor de ponderación que identifica su importancia relativa. Se muestran solo las diez recomendaciones más importantes.
@@ -107,30 +109,33 @@ Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
-3. Haga clic en el icono de **introducción** del área de trabajo de Log Analytics en Azure Portal.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. En la página de **información general**, haga clic en el icono de **Active Directory Health Check**.
 5. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
 6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de la comprobación de estado](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
-Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log Analytics usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
+Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Azure Monitor usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
-1. En Azure Portal, en la página del área de trabajo de Log Analytics correspondiente al área de trabajo seleccionado, haga clic en el icono de **Búsqueda de registros**.
-2. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Captura de pantalla que muestra la consulta de Búsqueda de registros: <br><br> ![recomendaciones con error](./media/ad-assessment/ad-failed-recommendations.png)
+Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
 
-3. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Captura de pantalla que muestra la consulta de registros:<br><br> ![recomendaciones con error](media/ad-assessment/ad-failed-recommendations.png)
+
+Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para crear y usar un archivo de texto IgnoreRecommendations.txt
 1. Cree un archivo llamado IgnoreRecommendations.txt.
-2. Pegue o escriba cada RecommendationId para cada recomendación que desee que Log Analytics omita en una línea independiente y, luego, guarde y cierre el archivo.
-3. Coloque el archivo en la carpeta siguiente en cada equipo donde desea que Log Analytics omita las recomendaciones.
+2. Pegue o escriba cada RecommendationId para cada recomendación que desee que Azure Monitor omita en una línea independiente y, luego, guarde y cierre el archivo.
+3. Coloque el archivo en la carpeta siguiente en cada equipo donde desea que Azure Monitor omita las recomendaciones.
    * En equipos con Microsoft Monitoring Agent (conectado directamente o a través de Operations Manager): *UnidadDelSistema*:\Archivos de programa\Microsoft Monitoring Agent\Agent
    * En el servidor de administración de Operations Manager 2012 R2: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2012 R2\Operations Manager\Server
    * En el servidor de administración de Operations Manager 2016: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para comprobar que se omiten las recomendaciones
 Después de que se ejecute la siguiente comprobación de estado programada, de forma predeterminada cada siete días, las recomendaciones especificadas se marcan como *omitidas* y no aparecerán en el panel.
 
-1. Puede usar las consultas de búsqueda de registros siguientes para enumerar todas las recomendaciones omitidas.
+1. Puede usar las consultas de registros siguientes para enumerar todas las recomendaciones omitidas.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Después de que se ejecute la siguiente comprobación de estado programada, de f
 
 *¿Por qué se muestran solo las 10 recomendaciones principales?*
 
-* En lugar de darle una lista exhaustiva y abrumadora de tareas, se recomienda centrarse primero en las recomendaciones prioritarias. Después de aplicarlas, se mostrarán más recomendaciones. Si prefiere ver una lista detallada, puede ver todas las recomendaciones mediante Búsqueda de registros.
+* En lugar de darle una lista exhaustiva y abrumadora de tareas, se recomienda centrarse primero en las recomendaciones prioritarias. Después de aplicarlas, se mostrarán más recomendaciones. Si prefiere ver una lista detallada, puede ver todas las recomendaciones mediante una consulta de registros.
 
 *¿Se puede hacer caso omiso de una recomendación?*
 
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsquedas de registros en Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.
+* Use [consultas de registros de Azure Monitor](../log-query/log-query-overview.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.

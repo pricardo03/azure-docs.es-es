@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Way We Do | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Way We Do | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Way We Do.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259683"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165134"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutorial: Integración de Azure Active Directory con Way We Do
+# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutorial: integración de Azure Active Directory con Way We Do
 
 En este tutorial, aprenderá a integrar Way We Do con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Way We Do](./media/waywedo-tutorial/tutorial_waywedo_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.waywedo.com`
 
@@ -140,7 +141,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Way We Do guardar](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Haga clic en el botón de alternar de **Turn on single sign-on** (Activar inicio de sesión único) para cambiar a **Sí** y habilitar el inicio de sesión único.
+     a. Haga clic en el botón de alternar de **Turn on single sign-on** (Activar inicio de sesión único) para cambiar a **Sí** y habilitar el inicio de sesión único.
 
     b. En el cuadro de texto **Single sign-on name**  (Nombre de inicio de sesión único), escriba su nombre.
 
@@ -185,7 +186,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/waywedo-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -198,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon en Way We Do. Way We Do admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Way We Do, se crea un nuevo usuario, en caso de que no exista.
 
 > [!Note]
-> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Way We Do](mailto:support@waywedo.com).
+> Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el  [equipo de soporte técnico de Way We Do](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -235,7 +236,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Way We Do en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Way We Do.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

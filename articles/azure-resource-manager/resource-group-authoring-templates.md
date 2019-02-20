@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745596"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237856"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
@@ -46,7 +46,7 @@ En la estructura más simple, una plantilla tiene los siguientes elementos:
 | parameters |Sin  |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
 | variables |Sin  |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
 | functions |Sin  |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
-| resources |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos. |
+| resources |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos o suscripción. |
 | outputs |Sin  |Valores que se devuelven después de la implementación. |
 
 Cada elemento tiene propiedades que puede configurar. En el ejemplo siguiente se muestra la sintaxis completa de una plantilla:
@@ -217,7 +217,7 @@ Dentro de la plantilla, puede crear sus propias funciones. Estas funciones está
 Al definir una función de usuario, hay algunas restricciones:
 
 * La función no puede acceder a las variables.
-* La función no puede acceder a los parámetros de plantilla. Es decir, la [función de los parámetros](resource-group-template-functions-deployment.md#parameters) está restringida a los parámetros de función.
+* La función solo puede usar los parámetros que se definen en la función. Cuando usa la [función de parámetros](resource-group-template-functions-deployment.md#parameters) dentro de una función definida por el usuario, los parámetros de esa función serán los que limiten sus acciones.
 * La función no puede llamar a otras funciones definidas por el usuario.
 * La función no puede usar la [función de referencia](resource-group-template-functions-resource.md#reference).
 * Los parámetros de la función no pueden tener valores predeterminados.
@@ -298,9 +298,23 @@ En la sección de salidas, especifique valores que se devuelven de la implementa
 
 Para obtener más información, consulte [Outputs section of Azure Resource Manager templates](resource-manager-templates-outputs.md) (Sección de elementos de salida de plantillas de Azure Resource Manager).
 
-## <a name="comments"></a>Comentarios
+<a id="comments" />
 
-Tiene unas cuantas opciones para agregar comentarios a la plantilla.
+## <a name="comments-and-metadata"></a>Comentarios y metadatos
+
+Tiene unas cuantas opciones para agregar comentarios y metadatos a la plantilla.
+
+Puede agregar un objeto `metadata` prácticamente en cualquier parte de la plantilla. Resource Manager omite el objeto, pero el editor JSON puede advertirle de que la propiedad no es válida. En el objeto, defina las propiedades que necesita.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 Para **parameters**, agregue un objeto `metadata` con una propiedad `description`.
 
@@ -342,18 +356,6 @@ Para **resources**, agregue un elemento `comments` o un objeto de metadatos. En 
     "properties": {}
   }
 ]
-```
-
-Puede agregar un objeto `metadata` prácticamente en cualquier parte de la plantilla. Resource Manager omite el objeto, pero el editor JSON puede advertirle de que la propiedad no es válida. En el objeto, defina las propiedades que necesita.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 Para **outputs**, agregue un objeto de metadatos para el valor de salida.

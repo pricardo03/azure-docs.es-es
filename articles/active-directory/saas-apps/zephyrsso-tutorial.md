@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con ZephyrSSO | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con ZephyrSSO | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ZephyrSSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310905"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209533"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integración de Azure Active Directory con ZephyrSSO
+# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: integración de Azure Active Directory con ZephyrSSO
 
 En este tutorial, aprenderá a integrar ZephyrSSO con Azure Active Directory (Azure AD).
 
@@ -109,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ZephyrSSO](./media/zephyrsso-tutorial/tutorial_zephyrsso_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`.
 
@@ -150,7 +151,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/zephyrsso-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -160,7 +161,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
   
 ### <a name="create-a-zephyrsso-test-user"></a>Crear un usuario de prueba de ZephyrSSO
 
-En esta sección, creará un usuario llamado Britta Simon en ZephyrSSO. Trabaje con el [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com) para agregar los usuarios a la plataforma de ZephyrSSO. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ZephyrSSO. Trabaje con el  [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com)  para agregar usuarios a la plataforma de ZephyrSSO. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -197,7 +198,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de ZephyrSSO en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación ZephyrSSO.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -17,12 +17,13 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078107"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166036"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -34,9 +35,9 @@ En este artículo se proporciona la información necesaria para configurar la co
 
 Azure AD habilita el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier ubicación de la red pública de Internet. Gracias a la condición de ubicación, podrá controlar el acceso a las aplicaciones en la nube en función de la ubicación de la red de un usuario. Estos son los casos de uso más comunes de la condición de ubicación:
 
-- Requerir la autenticación multifactor a los usuarios que accedan a un servicio desde fuera de la red corporativa  
+- Solicitar la autenticación multifactor a los usuarios que obtengan acceso a un servicio desde fuera de la red corporativa.
 
-- Bloquear el acceso a los usuarios que accedan a un servicio desde determinados países o regiones. 
+- Bloquear el acceso a los usuarios que accedan a un servicio desde determinados países o regiones.
 
 Una ubicación es una etiqueta para una ubicación de red que representa una ubicación con nombre o IP de autenticación multifactor de confianza.
 
@@ -62,9 +63,9 @@ Una ubicación con nombre tiene los siguientes componentes:
 
 - **Marcar como ubicación de confianza**: marca que puede establecer a una ubicación con nombre para indicar una ubicación de confianza. Las ubicaciones de confianza son áreas de red que controla el departamento de TI. Además del acceso condicional, Azure Identity Protection y los informes de seguridad de Azure AD también usan las ubicaciones con nombre de confianza para reducir los [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **País o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre. 
+- **Países o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre. 
 
-- **Incluir áreas desconocidas**: algunas direcciones IP no están asignadas a ningún país determinado. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Podrían estar activas si debe aplicarse la directiva con la ubicación con nombre a las ubicaciones desconocidas.
+- **Incluir áreas desconocidas**: algunas direcciones IP no están asignadas a ningún país determinado. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
 El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar:
 
@@ -150,7 +151,7 @@ Al crear o actualizar ubicaciones con nombre, en el caso de las actualizaciones 
 
 ### <a name="cloud-proxies-and-vpns"></a>Servidores proxy en la nube y soluciones VPN 
 
-Cuando utiliza un proxy hospedado en la nube o una solución VPN, la dirección IP que utiliza Azure AD al evaluar una directiva es la dirección IP del proxy. No se utiliza el encabezado X-Forwarded-For (XFF) que contiene la dirección IP pública del usuario, ya que no hay ninguna validación de que provenga de un origen de confianza y podría ser un método de falsificación de la dirección IP. 
+Cuando utiliza un proxy hospedado en la nube o una solución VPN, la dirección IP que utiliza Azure AD al evaluar una directiva es la dirección IP del proxy. No se usa el encabezado X-Forwarded-For (XFF) que contiene la dirección IP pública del usuario, ya que no hay ninguna validación de que provenga de un origen de confianza y podría ser un método de falsificación de la dirección IP. 
 
 Cuando se implementa un proxy de la nube, puede utilizarse una directiva que se utiliza para requerir un dispositivo unido a un dominio, o la notificación interna de corpnet desde AD FS.
 

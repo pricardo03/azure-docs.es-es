@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411754"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895693"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
 
 La instalación del servicio de movilidad es un paso clave durante la habilitación de la replicación. Para realizar este paso correctamente, simplemente se deben cumplir los requisitos previos y usar las configuraciones admitidas. Los errores más comunes que aparecen durante la instalación del servicio de movilidad se deben a:
 
-* Errores de credenciales/privilegios
-* Errores de inicio de sesión
-* Errores de conectividad
-* Sistemas operativos no admitidos
-* Errores de instalación de VSS
+* [Errores de credenciales/privilegios](#credentials-check-errorid-95107--95108)
+* [Errores de inicio de sesión](#login-failures-errorid-95519-95520-95521-95522)
+* [Errores de conectividad](#connectivity-failure-errorid-95117--97118)
+* [Errores con el uso compartido de archivos e impresoras](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [Errores de WMI](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Sistemas operativos no admitidos](#unsupported-operating-systems)
+* [Configuraciones de aplicaciones no admitidas](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [Errores de instalación de VSS](#vss-installation-failures)
+* [Uso del nombre del dispositivo en la configuración de GRUB en lugar del UUID del dispositivo](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [Volumen LVM](#lvm-support-from-920-version)
+* [Advertencias de reinicio](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 Al habilitar la replicación, Azure Site Recovery intenta insertar el agente de instalación del servicio de movilidad en su máquina virtual. Como parte de esto, el servidor de configuración intenta conectarse con la máquina virtual y copiar el agente. Para permitir que la instalación se realice correctamente, siga las instrucciones de solución de problemas detalladas que se indican a continuación.
 
@@ -56,12 +62,14 @@ Cuando se produce un error al establecer una relación de confianza de dominio e
 
 Si quiere modificar las credenciales de la cuenta de usuario elegida, siga las instrucciones que se indican [aquí](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="login-failure-errorid-95519"></a>Error de inicio de sesión (ErrorID: 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>Error de inicio de sesión (ErrorID: 95519, 95520, 95521 y 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>Las credenciales de la cuenta de usuario se han deshabilitado (ErrorID: 95519)
 
 La cuenta de usuario elegida durante la habilitación de la replicación se ha deshabilitado. Para habilitar la cuenta de usuario, consulte el artículo [aquí](https://aka.ms/enable_login_user) o ejecute el siguiente comando reemplazando el texto *username* con el nombre de usuario real.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>Error de inicio de sesión (ErrorID: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>Se han bloqueado las credenciales después de varios intentos de inicio de sesión fracasados (ErrorID: 95520)
 
 Varios esfuerzos de reintento erróneos para obtener acceso a una máquina bloquearán la cuenta de usuario. El error puede deberse a alguno de los siguientes motivos:
 
@@ -70,11 +78,11 @@ Varios esfuerzos de reintento erróneos para obtener acceso a una máquina bloqu
 
 Por lo tanto, modifique las credenciales elegidas siguiendo las instrucciones indicadas [aquí](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) y reintente la operación más tarde.
 
-## <a name="login-failure-errorid-95521"></a>Error de inicio de sesión (ErrorID: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Los servidores de inicio de sesión no están disponibles en la máquina de origen (ErrorID: 95521)
 
 Este error se produce cuando los servidores de inicio de sesión no están disponibles en la máquina de origen. La falta de disponibilidad de los servidores de inicio de sesión dará lugar a errores de solicitud de inicio de sesión y, por tanto, no se podrá instalar el agente de movilidad. Para iniciar sesión correctamente, asegúrese de que los servidores de inicio de sesión estén disponibles en la máquina de origen e inicie el servicio de inicio de sesión. Para obtener instrucciones detalladas, haga clic [aquí](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## <a name="login-failure-errorid-95522"></a>Error de inicio de sesión (ErrorID: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Los servidores de inicio de sesión no se están ejecutando en la máquina de origen (ErrorID: 95522)
 
 El servicio de inicio de sesión no se ejecuta en la máquina de origen y produce un error de solicitud de inicio de sesión. Por lo tanto, no se puede instalar el agente de movilidad. Para resolver este problema, asegúrese de que el servicio de inicio de sesión se ejecute en la máquina de origen para iniciar sesión correctamente. Para iniciar el servicio de inicio de sesión, ejecute el comando "net start Logon" desde el símbolo del sistema o inicie el servicio "NetLogon" desde el administrador de tareas.
 
@@ -138,15 +146,17 @@ Se pueden encontrar otros artículos de solución de problemas de WMI en los sig
 Otra causa bastante común de error puede deberse a un sistema operativo no admitido. Asegúrese de que está utilizando la versión de kernel o de sistema operativo compatible para conseguir una instalación correcta del servicio de movilidad. Evite el uso de revisiones privadas.
 Para ver la lista de sistemas operativos y versiones de kernel compatibles con Azure Site Recovery, consulte nuestro [documento de la matriz de soporte técnico](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Los volúmenes o las particiones de arranque y del sistema no están en el mismo disco (ErrorID: 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>Las configuraciones del disco de arranque no son compatibles (ErrorID: 95309, 95310 y 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Los volúmenes o las particiones de arranque y del sistema no están en el mismo disco (ErrorID: 95309)
 
 Antes de la versión 9.20, la ubicación de los volúmenes o las particiones de arranque y del sistema en discos diferentes era una configuración no compatible. Desde la [versión 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), esta configuración es compatible. Use la versión más reciente para esta compatibilidad.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>No se ha encontrado el disco de arranque (ErrorID: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>El disco de arranque no está disponible (ErrorID: 95310)
 
 Una máquina virtual sin disco de arranque no se puede proteger. Esto garantiza la correcta recuperación de la máquina virtual durante una operación de conmutación por error. La ausencia del disco de arranque genera un error al arrancar la máquina después de la conmutación por error. Asegúrese de que la máquina virtual contiene un disco de arranque e intente realizar la operación de nuevo. Asimismo, tenga en cuenta que no se admiten varios discos de arranque en la misma máquina.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>Se han encontrado varios discos de arranque (ErrorID: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>Hay varias discos de arranque en la máquina de origen (ErrorID: 95311)
 
 Una máquina virtual con varios discos de arranque no es una [configuración compatible](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
@@ -154,9 +164,45 @@ Una máquina virtual con varios discos de arranque no es una [configuración com
 
 Antes de la versión 9.20, el volumen o partición raíz en varios discos era una configuración no compatible. Desde la [versión 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), esta configuración es compatible. Use la versión más reciente para esta compatibilidad.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>Error de UUID de GRUB (ErrorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>No se pudo habilitar la protección debido a que se ha mencionado el nombre del dispositivo en la configuración de GRUB en lugar del UUID (ErrorID: 95320)
 
-Si la instancia de GRUB de la máquina de origen usa el nombre de dispositivo en lugar del UUID, se produce un error en la instalación del agente de movilidad. Solicite al administrador del sistema que realice los cambios en el archivo GRUB.
+**Causa posible:** </br>
+Los archivos de configuración de GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" o "/etc/default/grub") pueden contener el valor de los parámetros **root** y **resume** como nombres reales del dispositivo, en lugar del UUID. Site Recovery exige el enfoque de UUID, ya que el nombre de los dispositivos puede cambiar al reiniciar la VM, debido a que la VM puede no mostrar el mismo nombre tras la conmutación por error, lo que puede generar problemas. Por ejemplo:  </br>
+
+
+- La línea siguiente procede del archivo GRUB **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- La siguiente línea es del archivo GRUB **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+Si ve la cadena en negrita anterior, GRUB tiene nombres de dispositivos reales para los parámetros "root" y "resume", en lugar del UUID.
+ 
+**Solución:**<br>
+Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
+
+
+1. Para buscar el UUID del dispositivo, ejecute el comando "blkid <device name>". Por ejemplo: <br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Ahora, sustituya el nombre del dispositivo por su UUID utilizando el formato "root=UUID=<UUID>". Por ejemplo, si reemplazamos los nombres de dispositivo por el UUID de root y reanudamos el parámetro mencionado anteriormente en los archivos "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" o "/etc/default/grub:", las líneas de los archivos serán parecidas a las siguientes: <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. Reinicie la protección
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>La instalación de Mobility Service se ha completado con una advertencia de reinicio (ErrorID: 95265 y 95266)
+
+El servicio de movilidad de Site Recovery tiene muchos componentes, uno de los cuales es el controlador del filtro. El controlador del filtro solamente se carga en el sistema cuando se reinicia el sistema. Esto significa que las correcciones del controlador del filtro solo pueden aplicarse cuando se carga un nuevo controlador del filtro, lo que solo ocurre cuando se reinicia el sistema.
+
+**Tenga en cuenta** que se trata de una advertencia y que la replicación existente funcionará incluso después de que se realice la nueva actualización del agente. Puede reiniciar el sistema en cualquier momento para aprovechar las ventajas del nuevo controlador del filtro, pero, si no reinicia, el antiguo controlador seguirá funcionando. De este modo, si actualiza sin reiniciar, salvo el controlador del filtro, **se aplicarán todas las demás mejoras y correcciones del servicio de movilidad**. Por tanto, aunque resulte conveniente, no es obligatorio reiniciar el sistema después de cada actualización. Para más información acerca de cuándo es obligatorio reiniciar, haga clic [aquí](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>Si quiere consultar procedimientos recomendados sobre la programación de actualizaciones durante la ventana de mantenimiento, vaya [aquí](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## <a name="lvm-support-from-920-version"></a>Compatibilidad con LVM desde la versión 9.20
 

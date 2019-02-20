@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Certain Admin SSO | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Certain Admin SSO | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Certain Admin SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 40bdba8e7ce699f0fd6ca589c753f51b550fae05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439460"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205535"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: Integración de Azure Active Directory con Certain Admin SSO
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: integración de Azure Active Directory con Certain Admin SSO
 
 En este tutorial, obtendrá información sobre cómo integrar Certain Admin SSO con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Certain Admin SSO](./media/certainadminsso-tutorial/tutorial_certainadminsso_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.certain.com`
 
@@ -152,7 +153,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/certainadminsso-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -162,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-certain-admin-sso-test-user"></a>Creación de un usuario de prueba de Certain Admin SSO
 
-En esta sección, creará la usuaria Britta Simon en Certain Admin SSO. Trabaje junto al [equipo de soporte técnico de Certain Admin SSO](mailto:integrations@certain.com) para agregar los usuarios en la plataforma de Certain Admin SSO. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará la usuaria Britta Simon en Certain Admin SSO. Trabaje junto al  [equipo de soporte técnico de Certain Admin SSO](mailto:integrations@certain.com) para agregar usuarios en la plataforma de Certain Admin SSO. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -199,7 +200,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Certain Admin SSO del panel de acceso, debería iniciar sesión automáticamente en su aplicación Certain Admin SSO.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

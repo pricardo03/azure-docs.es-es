@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732318"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234755"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -133,9 +133,9 @@ Para habilitar el servicio de administrador de reparaciones:
 
 3. Actualice el manifiesto de clúster con estos cambios, con el manifiesto de clúster actualizado [crear un nuevo clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [actualizar la configuración del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Una vez que el clúster se ejecute con el manifiesto del clúster actualizado, podrá ver el servicio de sistema de administrador de reparaciones en ejecución en el clúster, denominado `fabric:/System/RepairManagerService`, en la sección de servicios del sistema en Service Fabric Explorer.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Deshabilitar las actualizaciones automáticas de Windows en todos los nodos
+### <a name="configure-windows-updates-for-all-nodes"></a>Configurar las actualizaciones de Windows para todos los nodos
 
-Es posible que las actualizaciones automáticas de Windows provoquen la pérdida de disponibilidad ya que varios nodos de clúster pueden reiniciarse al mismo tiempo. La aplicación de orquestación de revisiones intenta deshabilitar las actualizaciones automáticas de Windows en cada nodo del clúster de forma predeterminada. Pero en caso de que la configuración se administre por directivas de administrador o de grupo, se recomienda configurar explícitamente la directiva de Windows Update en "Notificar antes de descargar".
+Es posible que las actualizaciones automáticas de Windows provoquen la pérdida de disponibilidad, ya que varios nodos de clúster pueden reiniciarse al mismo tiempo. La aplicación de orquestación de revisiones intenta deshabilitar las actualizaciones automáticas de Windows en cada nodo del clúster de forma predeterminada. En caso de que la configuración se administre mediante directivas de administrador o de grupo, se recomienda configurar explícitamente la directiva de Windows Update en "Notificar antes de descargar".
 
 ## <a name="download-the-app-package"></a>Descargar el paquete de la aplicación
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744524"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234548"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solución de problemas de Hybrid Runbook Worker
 
@@ -187,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>Escenario: no puede agregar una instancia de Hybrid Runbook Worker.
+
+#### <a name="issue"></a>Problema
+
+Recibió el siguiente mensaje cuando intentaba agregar una instancia de Hybrid Runbook Worker mediante el cmdlet `Add-HybridRunbookWorker`.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>Causa
+
+Esto puede surgir si la máquina ya está registrada con una cuenta de Automation diferente o si intenta volver a agregar la instancia de Hybrid Runbook Worker después de retirarla de una máquina.
+
+#### <a name="resolution"></a>Resolución
+
+Para resolver este problema, quite la siguiente clave del Registro y pruebe el cmdlet `Add-HybridRunbookWorker` de nuevo:
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

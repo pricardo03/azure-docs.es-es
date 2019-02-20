@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con RingCentral | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con RingCentral | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y RingCentral.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 35033e52fb54177428f8869ebcc462bd9465ad4c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872501"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutorial: integración de Azure Active Directory con RingCentral
 
@@ -113,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 5. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+     a. Haga clic en **Cargar el archivo de metadatos**.
 
     ![imagen](./media/ringcentral-tutorial/b9_saml.png)
 
@@ -138,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 6. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -182,7 +183,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![imagen](./media/ringcentral-tutorial/ringcentral4.png)
 
-    a. Haga clic en **Examinar** para cargar el archivo de metadatos que descargó de Azure Portal.
+     a. Haga clic en **Examinar** para cargar el archivo de metadatos que descargó de Azure Portal.
 
     b. Después de cargar los metadatos los valores se rellenan automáticamente en la sección **Información general de inicio de sesión único**.
 
@@ -198,7 +199,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![imagen](./media/ringcentral-tutorial/ringcentral5.png)
 
-    a. Seleccione **Habilitar inicio de sesión único**.
+     a. Seleccione **Habilitar inicio de sesión único**.
     
     b. Seleccione **Permitir a los usuarios iniciar sesión con credenciales de inicio de sesión único o de RingCentral**.
 
@@ -208,7 +209,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, seleccione **Usuarios** y luego seleccione **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![imagen](./media/ringcentral-tutorial/d_users_and_groups.png)
 
@@ -216,11 +217,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/ringcentral-tutorial/d_adduser.png)
 
-3. En las Propiedades de usuario, siga los pasos a continuación.
+3. En las propiedades Usuario, siga estos pasos.
 
     ![imagen](./media/ringcentral-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -231,13 +232,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-ringcentral-test-user"></a>Crear un usuario de prueba de RingCentral
 
-En esta sección, creará un usuario llamado Britta Simon en RingCentral. Colabore con el [equipo de soporte técnico de RingCentral](https://success.ringcentral.com/RCContactSupp) para agregar usuarios en la plataforma de RingCentral. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en RingCentral. Colabore con el  [equipo de soporte técnico para el cliente de RingCentral](https://success.ringcentral.com/RCContactSupp) para agregar usuarios en la plataforma de RingCentral. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a RingCentral.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
     ![imagen](./media/ringcentral-tutorial/d_all_applications.png)
 
@@ -249,20 +250,20 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![imagen](./media/ringcentral-tutorial/d_leftpaneusers.png)
 
-4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el panel **Agregar asignación**.
+4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![imagen](./media/ringcentral-tutorial/d_assign_user.png)
 
-4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-5. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de RingCentral en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación RingCentral.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

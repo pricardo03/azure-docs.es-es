@@ -15,14 +15,15 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
-ms.openlocfilehash: 0e2b6e29e159970784ab8c321bbc8c16e96b60e3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d3a2c79fd46b9c14f1bbb2794581746f6ff45cd6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757390"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179627"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Control de Configuración del cifrado de tokens SAML de Azure AD (versión preliminar)
+# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedimientos para: Configuración del cifrado de tokens SAML de Azure AD (versión preliminar)
 
 > [!NOTE]
 > El cifrado de tokens es una característica Premium de Azure Active Directory (Azure AD). Para más información sobre las ediciones, las características y los precios de Azure AD, consulte [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -33,19 +34,19 @@ Cifrar las aserciones SAML entre Azure AD y la aplicación proporciona una garan
 
 Incluso sin el cifrado de tokens, los tokens SAML de Azure AD nunca se transmiten por la red sin cifrar. Azure AD requiere que los intercambios de solicitud/respuesta de token se realicen a través de canales HTTPS/TLS cifrados para que las comunicaciones entre el IDP, el explorador y la aplicación se realicen en vínculos cifrados. Considere el valor del cifrado de tokens para su situación en comparación con la sobrecarga de administrar certificados adicionales.   
 
-Para configurar el cifrado de tokens, debe cargar un archivo de certificado X509 que contiene la clave pública en el objeto de aplicación de Azure AD que representa la aplicación. Para obtener el certificado X509, puede descargarlo desde la misma aplicación u obtenerlo del proveedor de la aplicación en los casos donde este proporciona las claves de cifrado, o bien, en casos donde la aplicación espera que el usuario proporcione una clave cifrada, se puede crear usando herramientas de criptografía, la parte de la clave privada que se cargó en el almacén de claves de la aplicación y el certificado de clave pública coincidente que se cargó en Azure AD.
+Para configurar el cifrado de tokens, debe cargar un archivo de certificado X.509 que contenga la clave pública en el objeto de aplicación de Azure AD que representa la aplicación. Para obtener el certificado X.509, puede descargarlo desde la misma aplicación u obtenerlo del proveedor de la aplicación en los casos donde este proporciona las claves de cifrado, o bien, en casos donde la aplicación espera que el usuario proporcione una clave cifrada, se puede crear usando herramientas de criptografía, la parte de la clave privada que se cargó en el almacén de claves de la aplicación y el certificado de clave pública coincidente que se cargó en Azure AD.
 
 Azure AD usa AES-256 para cifrar los datos de aserción SAML.
 
 ## <a name="configure-saml-token-encryption"></a>Configuración del cifrado de tokens SAML
 
-Para configurar el cifrado de tokens SAML, siga estos pasos.
+Para configurar el cifrado de tokens SAML, siga estos pasos:
 
 1. Obtenga un certificado de clave pública que coincida con una clave privada configurada en la aplicación.
 
-    Cree un par de claves asimétrico para usarlo en el cifrado. O bien, si la aplicación suministra una clave pública para usarlo en el cifrado, siga las instrucciones de la aplicación para descargar el certificado X509.
+    Cree un par de claves asimétrico para usarlo en el cifrado. O bien, si la aplicación suministra una clave pública para usarlo en el cifrado, siga las instrucciones de la aplicación para descargar el certificado X.509.
 
-    La clave pública se debe almacenar en un archivo de certificado X509 en formato .cer.
+    La clave pública se debe almacenar en un archivo de certificado X.509 en formato .cer.
 
     Si la aplicación usa una clave creada para la instancia, siga las instrucciones que proporciona la aplicación para instalar la clave privada que la aplicación usará para descifrar los tokens del inquilino de Azure AD.
 
@@ -66,9 +67,9 @@ Puede agregar el certificado público a la configuración de la aplicación dent
     > [!NOTE]
     > La opción **Cifrado de tokens** solo está disponible para aplicaciones SAML que se hayan configurado desde la hoja **Aplicaciones empresariales** de Azure Portal, ya sea desde la Galería de aplicaciones o desde una aplicación que no pertenece a la galería. En el caso de otras aplicaciones, esta opción de menú está deshabilitada. En el caso de las aplicaciones registradas mediante la experiencia **Registros de aplicaciones** de Azure Portal, puede configurar el cifrado de los tokens SAML con el manifiesto de aplicación, a través de Microsoft Graph o PowerShell.
 
-1. En la página **Cifrado de tokens**, seleccione **Importar certificado** para importar el archivo .cer que contiene el certificado X509 público.
+1. En la página **Token encryption** (Cifrado de tokens), seleccione **Import Certificate** (Importar certificado) para importar el archivo .cer que contiene el certificado X.509 público.
 
-    ![Importación del archivo .cer que contiene el certificado X509](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Importar el archivo .cer que contiene el certificado X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Una vez que se importa el certificado y la clave privada se configura para usarla en el lado de la aplicación, para activar el cifrado debe seleccionar **...** junto al estado de la huella digital y, luego, seleccionar **Activate token encryption** (Activar el certificado de tokens) desde las opciones del menú desplegable.
 
@@ -94,7 +95,7 @@ Cuando configure un valor keyCredential mediante Graph, PowerShell o en el manif
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Para configurar el cifrado de tokens mediante Microsoft Graph
 
-1. Actualice el objeto `keyCredentials` de la aplicación con un certificado X509 para el cifrado. El ejemplo siguiente muestra cómo hacerlo.
+1. Actualice el objeto `keyCredentials` de la aplicación con un certificado X.509 para el cifrado. El ejemplo siguiente muestra cómo hacerlo.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>

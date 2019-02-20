@@ -3,8 +3,8 @@ title: Creación de informes sobre el aprovisionamiento automático de cuentas d
 description: Aprenda a comprobar el estado de los trabajos de aprovisionamiento automático de cuentas de usuario y a solucionar problemas del aprovisionamiento de usuarios individuales.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203919"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206997"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -64,7 +65,7 @@ El informe de resumen de aprovisionamiento está visible en la pestaña **Aprovi
 
 * Tanto si ha finalizado una [sincronización inicial](user-provisioning.md#what-happens-during-provisioning) como si no.
 
-* Tanto si el proceso de aprovisionamiento se ha puesto en cuarentena como si no, y sea cual sea la razón para el estado de cuarentena (por ejemplo, error al comunicarse con el sistema de destino debido a credenciales de administrador no válidas).
+* Tanto si el proceso de aprovisionamiento se ha puesto en cuarentena como si no, y sea cual sea la razón para el estado de cuarentena (por ejemplo, error al comunicarse con el sistema de destino debido a que las credenciales del administrador no son válidas).
 
 El informe de resumen de aprovisionamiento debe ser el primer lugar en el que busquen los administradores para comprobar el estado operativo del trabajo de aprovisionamiento.
 
@@ -79,7 +80,7 @@ Todas las actividades realizadas por el servicio de aprovisionamiento se registr
 
 * **Eventos de exportación**: cada vez que el servicio de aprovisionamiento de Azure AD escribe una cuenta de usuario o un objeto de grupo para un sistema de destino, se registra un evento de "exportación". Estos eventos registran todos los atributos de usuario y sus valores, escritos por el servicio de aprovisionamiento de Azure AD en el momento del evento. Si se ha producido un error al escribir la cuenta de usuario o el objeto de grupo en el sistema de destino, se mostrará aquí.
 
-* **Eventos de custodia de procesos**: las custodias de procesos se producen cuando el servicio de aprovisionamiento se encuentra con un error al intentar una operación y comienza a reintentar la operación en un intervalo de tiempo de espera. Cada vez que se retire una operación de aprovisionamiento, se registra un evento de "custodia".
+* **Eventos de custodia de procesos**: las custodias de procesos se producen cuando el servicio de aprovisionamiento se encuentra con un error al intentar una operación y comienza a reintentar la operación en un intervalo de tiempo de espera. Cada vez que se reintenta una operación de aprovisionamiento, se registra un evento de "custodia".
 
 Al examinar los eventos de aprovisionamiento para un usuario individual, los eventos se suelen producir en este orden:
 

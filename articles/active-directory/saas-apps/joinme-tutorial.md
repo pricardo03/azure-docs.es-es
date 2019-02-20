@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con join.me | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con join.me | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y join.me.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872480"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209547"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integración de Azure Active Directory con join.me
+# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: integración de Azure Active Directory con join.me
 
 En este tutorial, obtendrá información sobre cómo integrar join.me con Azure Active Directory (Azure AD).
 
@@ -125,7 +126,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, seleccione **Usuarios** y luego **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![imagen](./media/joinme-tutorial/d_users_and_groups.png)
 
@@ -133,11 +134,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/joinme-tutorial/d_adduser.png)
 
-3. En las Propiedades de usuario, siga los pasos a continuación.
+3. En las propiedades Usuario, siga estos pasos.
 
     ![imagen](./media/joinme-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -148,13 +149,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
   
 ### <a name="create-a-joinme-test-user"></a>Creación de un usuario de prueba de join.me
 
-En esta sección, creará un usuario llamado Britta Simon en join.me. Trabaje con el [equipo de soporte técnico de join.me](https://help.join.me/s/?language) para agregar los usuarios a la plataforma de join.me. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en join.me. Trabaje con el  [equipo de soporte técnico de join.me](https://help.join.me/s/?language) para agregar usuarios a la plataforma de join.me. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a join.me.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
     ![imagen](./media/joinme-tutorial/d_all_applications.png)
 
@@ -166,11 +167,11 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![imagen](./media/joinme-tutorial/d_leftpaneusers.png)
 
-4. Seleccione el botón **Agregar** y, después, **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![imagen](./media/joinme-tutorial/d_assign_user.png)
 
-4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
     
@@ -179,7 +180,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de join.me en el panel de acceso, debería iniciar sesión automáticamente en su aplicación join.me.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Nuclino | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Nuclino | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Nuclino.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145631"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutorial: integración de Azure Active Directory con Nuclino
 
@@ -109,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Nuclino](./media/nuclino-tutorial/tutorial_nuclino_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`.
 
@@ -136,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | first_name | user.givenname |
     | last_name | user.surname |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/nuclino-tutorial/tutorial_attribute_04.png)
 
@@ -178,7 +179,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de Nuclino](./media/nuclino-tutorial/configure4.png)
 
-    a. Seleccione **Inicio de sesión único (SSO) basado en SAML**.
+     a. Seleccione **Inicio de sesión único (SSO) basado en SAML**.
 
     b. Copie el valor de la **dirección URL de ACS (tiene que copiarlo y pegarlo en su proveedor de inicio de sesión único)** y péguelo en el cuadro de texto **URL de respuesta** de la sección de **Dominio y direcciones URL de Nuclino** en Azure Portal.
 
@@ -216,7 +217,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/nuclino-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -229,7 +230,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Nuclino. Nuclino admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Nuclino, se crea un nuevo usuario, en caso de que no exista.
 
 > [!Note]
-> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Nuclino](mailto:contact@nuclino.com).
+> Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el  [equipo de soporte técnico de Nuclino](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -266,7 +267,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Nuclino en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Nuclino.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

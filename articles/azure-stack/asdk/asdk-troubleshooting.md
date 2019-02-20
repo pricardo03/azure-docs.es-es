@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2111fe6a70f45559faeb3e0f8096548dcc7b48bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 40394409dfafa3ad6b3d6685f5c944fc78df813f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238948"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172223"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Solución de problemas del Kit de desarrollo de Microsoft Azure Stack (ASDK)
-En este documento se proporciona información para solucionar problemas comunes de ASDK. Si tiene algún problema que no esté documentado, asegúrese de consultar el [foro MSDN de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para más información y ayuda.  
+En este artículo se proporciona información para solucionar problemas comunes de ASDK. Si tiene algún problema que no esté documentado, asegúrese de consultar el [foro MSDN de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para más información y ayuda.  
 
 > [!IMPORTANT]
 > Como el ASDK es un entorno de evaluación, no se ofrece soporte técnico oficial a través de los servicios de soporte técnico al cliente (CSS) de Microsoft.
@@ -67,7 +67,7 @@ Si ve discos duros virtuales "huérfanos", es importante saber si forman parte d
 
 Puede leer más acerca de cómo configurar el umbral de conservación y las recuperaciones a petición en [Administración de cuentas de almacenamiento](../azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 ### <a name="storage-reclamation"></a>Recuperación de almacenamiento
 La funcionalidad reclamada capacidad puede tardar hasta 14 horas en mostrarse en el portal. La recuperación de espacio depende de diversos factores, como el porcentaje de uso de archivos de contenedor internos en el almacén de blobs de bloque. Por lo tanto, en función de cuántos datos se eliminen, no hay ninguna garantía de la cantidad de espacio que se podría recuperar cuando se ejecute el recolector de elementos no utilizados.
 

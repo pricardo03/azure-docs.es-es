@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631675"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182993"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
+
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
 
 > [!NOTE]
-> Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solución de los problemas que les afectan. Para informar de un problema o formular una pregunta, envíe su consulta al [foro de MSDN de Azure Media Services].
-> 
-> 
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. 
+
+Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solución de los problemas que les afectan. Para informar de un problema o formular una pregunta, envíe su consulta al [foro de MSDN de Azure Media Services]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemas actualmente conocidos
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas generales de Media Services

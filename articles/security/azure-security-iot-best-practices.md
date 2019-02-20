@@ -4,7 +4,7 @@ description: El artículo proporciona una lista exclusiva de los procedimientos 
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9413c0503c1b78550776d1c2f6ab8239205a788b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185347"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117874"
 ---
 # <a name="internet-of-things-security-best-practices"></a>Procedimientos recomendados de seguridad de Internet de las cosas
 
@@ -57,7 +57,7 @@ Siga las prácticas recomendadas que aparecen a continuación si es desarrollado
 
 Siga las prácticas recomendadas que aparecen a continuación si es implementador de soluciones de IoT:
 
-* **Implementar hardware de forma segura**: las implementaciones de IoT pueden requerir la implementación de hardware en ubicaciones no seguras, por ejemplo, espacios públicos o configuraciones regionales no supervisadas.
+* **Implementar hardware de forma segura**: las implementaciones de IoT pueden requerir la implementación de hardware en ubicaciones no seguras; por ejemplo, en espacios públicos o configuraciones regionales no supervisadas.
 * **Mantener seguras las claves de autenticación**: durante la implementación, cada dispositivo requiere identificadores de dispositivo y claves de autenticación asociadas generadas por el servicio en la nube. Mantenga seguras estas claves físicamente incluso después de la implementación. Un dispositivo malintencionado puede usar cualquier clave en peligro para su enmascaramiento como dispositivo existente.
 
 ## <a name="iot-solution-operator"></a>Operador de soluciones de IoT

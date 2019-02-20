@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063240"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234687"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Elección del plan de tarifa adecuado de Azure Maps
 
@@ -30,19 +30,22 @@ Los planes de tarifa S0 y S1 manipulan diferentes volúmenes de rendimiento de d
 | Capacidad                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    |
+| Batch geocoding (versión preliminar)              |                   |     ✓    |
+| Polygons from search          |                   |     ✓    |
 | Enrutamiento                                 |        ✓           |     ✓    |
+| Route range                    |                   |     ✓    |
+| Batch routing (versión preliminar)                |                   |     ✓    |
+| Matrix routing (versión preliminar)               |                   |     ✓    |
 | Representación                                  |        ✓           |     ✓    |
+| Imagery plus hybrid imagery    |            |     ✓    |
 | Tráfico                                 |        ✓           |     ✓    |
 | Zonas horarias                              |        ✓           |     ✓    |
-| * Imagery más Hybrid Imagery (versión preliminar)  |        ✓           |     ✓    |
-| * Route Range (versión preliminar)                  |        ✓           |     ✓    |
-| * IP 2 Location (versión preliminar)                |        ✓           |     ✓    |
-| * Polygons from search (versión preliminar)         |        ✓           |     ✓    |
-| * Batch Geocoding (versión preliminar)              |        ✓           |     ✓    |
-| * Batch Routing (versión preliminar)                |        ✓           |     ✓    |
-| * Matrix Routing (versión preliminar)               |        ✓           |     ✓    |
+| Geolocation (versión preliminar)                |        ✓           |     ✓    |
+| Data (versión preliminar)               |                   |     ✓    |
+| Spatial (versión preliminar)               |                   |     ✓    |
+| Geofencing (versión preliminar)               |                   |     ✓    |
 
-\* No se podrá acceder a estas funcionalidades en el plan de tarifa S0 a partir del 4 de febrero de 2019.
+
 
 Merece la pena considerar estos puntos de datos adicionales:
 * ¿Qué tipo de empresa tiene?

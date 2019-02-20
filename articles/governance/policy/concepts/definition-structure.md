@@ -4,17 +4,17 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698299"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237424"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -90,8 +90,20 @@ Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusi
 > [!NOTE]
 > Pueden añadirse parámetros a una definición existente y asignada. El nuevo parámetro debe incluir la propiedad **defaultValue**. Así se evita que las asignaciones existentes de la directiva o la iniciativa realizadas indirectamente no sean válidas.
 
-Por ejemplo, podría definir una directiva para limitar las ubicaciones en las que se pueden implementar los recursos.
-Podría declarar los parámetros siguientes en el momento de crear la directiva:
+### <a name="parameter-properties"></a>Propiedades del parámetro
+
+Un parámetro tiene las siguientes propiedades que se usan en la definición de directiva:
+
+- **name**: El nombre del parámetro. Lo utiliza la función de la implementación `parameters` dentro de la regla de directiva. Para más información, consulte [Uso de un valor de parámetro](#using-a-parameter-value).
+- `type`: Determina si el parámetro es una **cadena** o una **matriz**.
+- `metadata`: Define las subpropiedades que usa principalmente Azure Portal para mostrar información intuitiva:
+  - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
+  - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
+  - `strongType`: (Opcional) Se usa al asignar la definición de directiva mediante el portal. Proporciona una lista que tiene en cuenta el contexto. Para más información, consulte [strongType](#strongtype).
+- `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor. Requerido cuando se actualiza una definición de directiva existente que está asignada.
+- `allowedValues`: (Opcional) Proporciona la lista de valores que acepta el parámetro durante la asignación.
+
+Por ejemplo, podría definir una definición de directiva para limitar las ubicaciones en las que se pueden implementar los recursos. Un parámetro para esa definición de directiva podría ser **allowedLocations**. Este parámetro podría utilizarse por cada asignación de la definición de directiva para limitar los valores aceptados. El uso de **strongType** proporciona una experiencia mejorada al completar la asignación mediante el portal:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Podría declarar los parámetros siguientes en el momento de crear la directiva:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-El tipo de un parámetro puede ser cadena o matriz. La propiedad de metadatos se usa para herramientas como Azure Portal para mostrar información intuitiva.
-
-Dentro de la propiedad de metadatos, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. Los valores permitidos para **strongType** actualmente incluyen:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Uso de un valor de parámetro
 
 En la regla de directiva, se hace referencia a los parámetros con la siguiente sintaxis de función con el valor de implementación `parameters`:
 
@@ -126,6 +134,19 @@ En la regla de directiva, se hace referencia a los parámetros con la siguiente 
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+En este ejemplo se hace referencia al parámetro **allowedLocations** que se mostró en las [ propiedades del parámetro](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal. Los valores permitidos para **strongType** actualmente incluyen:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Ubicación de definición
 
@@ -187,7 +208,7 @@ Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operació
 
 ### <a name="conditions"></a>Condiciones
 
-Una condición evalúa si un **campo** cumple determinados criterios. Estas son las condiciones que se admiten:
+Una condición evalúa si un **campo** o el descriptor de acceso **value** cumple determinados criterios. Estas son las condiciones que se admiten:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -231,7 +252,53 @@ Se admiten los siguientes campos:
   - Esta sintaxis con corchetes admite nombres de etiqueta que contengan un punto.
   - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
   - Ejemplo: `tags[Acct.CostCenter]` donde **Acct.CostCenter** es el nombre de la etiqueta.
+
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
+
+### <a name="value"></a>Valor
+
+Las condiciones también se pueden formar mediante el uso de **value**. **value** comprueba las condiciones en [parámetros](#parameters), [funciones de plantilla admitidas](#policy-functions) o literales.
+**value** se empareja con cualquier [condición](#conditions) admitida.
+
+#### <a name="value-examples"></a>Ejemplos de value
+
+En este ejemplo de regla de directiva se utiliza **value** para comparar el resultado de la función `resourceGroup()` y la propiedad **name** devuelta con una condición  **like** de `*netrg`. La regla niega cualquier recurso que no sea de **tipo** `Microsoft.Network/*` en cualquier grupo de recursos cuyo nombre termine en `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+En este ejemplo de regla de directiva se utiliza **value** para comprobar si el resultado de varias funciones anidadas es **igual a** `true`. La regla deniega cualquier recurso que no tenga al menos tres etiquetas.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Efecto
 
@@ -274,12 +341,15 @@ Para obtener información detallada sobre cada efecto, el orden de evaluación, 
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
-Se encuentran disponibles varias [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) para usarlas en una regla de directiva. Actualmente se admiten estas funciones:
+A excepción de las siguientes funciones de implementación y recursos, todas las [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) están disponibles para su uso dentro de una regla de directiva:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [suscripción](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- lista*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 

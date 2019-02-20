@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Shuccho Navi| Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Shuccho Navi | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Shuccho Navi.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312188"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209683"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: Integración de Azure Active Directory con Shuccho Navi
+# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: integración de Azure Active Directory con Shuccho Navi
 
 En este tutorial, aprenderá a integrar Shuccho Navi con Azure Active Directory (Azure AD).
 
@@ -126,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, seleccione **Usuarios** y, luego, seleccione **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
     ![imagen](./media/shucchonavi-tutorial/d_users_and_groups.png)
 
@@ -134,28 +135,28 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/shucchonavi-tutorial/d_adduser.png)
 
-3. En las propiedades Usuario, siga los pasos a continuación.
+3. En las propiedades Usuario, siga estos pasos.
 
     ![imagen](./media/shucchonavi-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
-    c. Seleccione **Propiedades**, seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
+    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
 
     d. Seleccione **Crear**.
  
 ### <a name="create-a-shuccho-navi-test-user"></a>Creación de un usuario de prueba de Shuccho Navi
 
-En esta sección, creará un usuario llamado Britta Simon en Shuccho Navi. Trabaje con el [equipo de soporte técnico de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para agregar los usuarios en la plataforma de Shuccho Navi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Shuccho Navi. Trabaje con el  [equipo de soporte técnico de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para agregar usuarios a la plataforma de Shuccho Navi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Shuccho Navi.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
     ![imagen](./media/shucchonavi-tutorial/d_all_applications.png)
 
@@ -167,20 +168,20 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![imagen](./media/shucchonavi-tutorial/d_leftpaneusers.png)
 
-4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos**, en el panel **Agregar asignación**.
+4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![imagen](./media/shucchonavi-tutorial/d_assign_user.png)
 
 4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-5. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Shuccho Navi del panel de acceso, debería iniciar sesión automáticamente en su aplicación Shuccho Navi.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

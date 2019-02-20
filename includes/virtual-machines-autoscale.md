@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594310"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213197"
 ---
 Puede realizar fácilmente el [escalado automático](../articles/azure-monitor/platform/autoscale-best-practices.md) de sus [máquinas virtuales (VM)](../articles/virtual-machines/windows/overview.md) si usa los [conjuntos de escalado de máquinas virtuales](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) y la [característica de escalado automático de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Las máquinas virtuales tienen que ser miembros del conjunto de escalado que se va a escalar automáticamente. Este artículo le proporciona información que le permitirá entender mejor cómo escalar las máquinas virtuales tanto vertical como horizontalmente mediante métodos automáticos y manuales.
 
@@ -57,11 +57,11 @@ También puede [configurar desencadenadores](../articles/azure-monitor/platform/
 
 Puede agregar o quitar máquinas virtuales cambiando la capacidad del conjunto de escalado. En Azure Portal, puede reducir o aumentar el número de máquinas virtuales (que aparece como **número de instancias**) del conjunto de escalado desplazando la barra de condición Invalidar en la pantalla Escalado hacia la izquierda o la derecha.
 
-Con Azure PowerShell, tendrá que obtener el objeto del conjunto de escalado mediante [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). A continuación, establezca la propiedad **sku.capacity** en el número de máquinas virtuales que desee y actualice el conjunto de escalado mediante [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Mediante la CLI de Azure, cambie la capacidad con el parámetro **--new-capacity** del comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
+Con Azure PowerShell, tendrá que obtener el objeto del conjunto de escalado mediante [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). A continuación, establezca la propiedad **sku.capacity** en el número de máquinas virtuales que quiera, y actualice el conjunto de escalado mediante [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Mediante la CLI de Azure, cambie la capacidad con el parámetro **--new-capacity** del comando [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale).
 
 ### <a name="vertical"></a>Vertical
 
-Puede cambiar manualmente el tamaño de las máquinas virtuales en Azure Portal en la pantalla Tamaño del conjunto de escalado. Puede usar Azure PowerShell con Get-AzureRmVmss, mediante la configuración de la propiedad de la sku de referencia de imagen y, a continuación, mediante el uso de [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) y [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Puede cambiar manualmente el tamaño de las máquinas virtuales en Azure Portal en la pantalla Tamaño del conjunto de escalado. Puede usar Azure PowerShell con Get-AzVmss, mediante la configuración de la propiedad de la SKU de referencia de imagen y, a continuación, mediante [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) y [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

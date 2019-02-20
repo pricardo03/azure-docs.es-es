@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247806"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211451"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -37,7 +37,7 @@ La directiva de administración del ciclo de vida está disponible con cuentas d
 La característica de administración del ciclo de vida es gratuita en la versión preliminar. A los clientes se les cobra el costo operativo habitual para las llamadas API [Mostrar blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) y [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Para más información sobre los precios, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registro en la versión preliminar 
-Para inscribirse en la versión preliminar pública, debe enviar una solicitud para registrar esta característica en la suscripción. Las solicitudes se aprueban normalmente al cabo de dos semanas. Tras la aprobación, todas las cuentas nuevas y existentes de GPv2 o de Blob Storage de las siguientes regiones incluyen la característica: Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de EE. UU. 2 y Europa Occidental. La versión preliminar solo admite blobs en bloques. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general.
+Para inscribirse en la versión preliminar pública, debe enviar una solicitud para registrar esta característica en la suscripción. Las solicitudes se aprueban normalmente al cabo de 72 horas. Tras la aprobación, todas las cuentas nuevas y existentes de GPv2 o de Blob Storage de las siguientes regiones incluyen la característica: Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de EE. UU. 2 y Europa Occidental. La versión preliminar solo admite blobs en bloques. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general.
 
 Para enviar una solicitud, ejecute los siguientes comandos de PowerShell o de la CLI.
 
@@ -189,7 +189,7 @@ Durante la versión preliminar, los filtros válidos incluyen:
 
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión preliminar solo admite `blockBlob`. | SÍ |
+| blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión preliminar solo admite `blockBlob`. | Sí |
 | prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de "https://myaccount.blob.core.windows.net/container1/foo/..." coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, las reglas se aplican a todos los blobs dentro de la cuenta. | Sin  |
 
 ### <a name="rule-actions"></a>Acciones de regla

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de Bonusly para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configuración de Bonusly para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Bonusly.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 9d9ad137ed8b42c388fdb2dac63846e27f884d56
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348997"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173715"
 ---
-# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configuración de Bonusly para el aprovisionamiento automático de usuarios
+# <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: configuración de Bonusly para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es mostrar los pasos que se realizan en Bonusly y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios o grupos en Bonusly.
 

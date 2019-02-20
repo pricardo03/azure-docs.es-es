@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208172"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182959"
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 > [!div class="op_single_selector"]
@@ -28,9 +28,7 @@ ms.locfileid: "34208172"
 > 
 > 
 
-Una aplicación de Service Fabric de Azure contiene uno o varios servicios que ejecutan su código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin él mediante [Reliable Services](service-fabric-reliable-services-introduction.md).  Este vídeo de Microsoft Virtual Academy también muestra cómo crear un servicio confiable sin estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Una aplicación de Service Fabric de Azure contiene uno o varios servicios que ejecutan su código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin él mediante [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
 ## <a name="basic-concepts"></a>Conceptos básicos
 Para empezar a trabajar con Reliable Services, solo es necesario comprender cuatro conceptos básicos:
@@ -219,7 +217,7 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 ## <a name="next-steps"></a>Pasos siguientes
 [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
-[Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Primeros pasos: servicios de la API web de Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
 
 [Obtenga más información acerca de las colecciones fiables](service-fabric-reliable-services-reliable-collections.md)
 

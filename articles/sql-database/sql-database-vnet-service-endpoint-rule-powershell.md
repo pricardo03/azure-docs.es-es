@@ -1,5 +1,5 @@
 ---
-title: PowerShell para las reglas y los puntos de conexión del servicio Virtual Network en Azure SQL| Microsoft Docs
+title: PowerShell para los puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
 description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión del servicio virtual para su Azure SQL Database y SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566302"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117619"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
 
-Tanto Azure [SQL Database](sql-database-technical-overview.md) como [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) admiten puntos de conexión de servicio virtual.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de base de datos de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales.
 
-> [!NOTE]
-> Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. En cambio, este artículo *no* se aplica a la **Instancia administrada de Azure SQL Database**, ya que no tiene un punto de conexión de servicio asociado a una subred de instancia administrada.
+> [!IMPORTANT]
+> Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.
 
 En este artículo se proporciona y se describe un script de PowerShell que realiza las siguientes acciones:
 

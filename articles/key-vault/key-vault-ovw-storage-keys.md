@@ -7,14 +7,14 @@ services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814850"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118061"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Cuenta de almacenamiento administrado por Azure Key Vault: CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55814850"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Instrucciones paso a paso sobre cómo usar Key Vault para administrar claves de cuenta de almacenamiento
 --------------------------------------------------------------------------------
+Desde un punto de vista conceptual, la lista de pasos que se han seguido es:
+- Primero debemos obtener una cuenta de almacenamiento (que existe previamente)
+- A continuación, capturamos un almacén de claves (que existe previamente)
+- Después, agregamos al almacén una cuenta de almacenamiento que administra Key Vault, estableciendo Key1 como la clave activa y con un período de regeneración de 180 días
+- Por último, establezca un contexto de almacenamiento para la cuenta de almacenamiento especificada, con Key1
+
 En las siguientes instrucciones, Key Vault se asignará como un servicio con permisos de operador en la cuenta de almacenamiento
 
 > [!NOTE]
@@ -56,13 +62,13 @@ En las siguientes instrucciones, Key Vault se asignará como un servicio con per
     ```
     Copie el campo de identificador del resultado del comando anterior.
     
-2. Para obtener el identificador del objeto de la entidad de servicio de Azure Key Vault, ejecute el siguiente comando:
+2. Para obtener el identificador del objeto de la entidad de servicio de Azure Key Vault, ejecute el siguiente comando
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Después de que el comando haya finalizado correctamente, busque el identificador de objeto en el resultado.
+    Después de que el comando haya finalizado correctamente, busque el identificador de objeto en el resultado:
     ```console
         {
             ...
@@ -71,7 +77,7 @@ En las siguientes instrucciones, Key Vault se asignará como un servicio con per
         }
     ```
     
-3. Asignación del rol Operador de claves de almacenamiento a la identidad de Azure Key Vault
+3. Asigne el rol Operador de claves de almacenamiento a la identidad de Azure Key Vault.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
@@ -85,9 +91,41 @@ En las siguientes instrucciones, Key Vault se asignará como un servicio con per
     ```
     En caso de que el usuario no haya creado la cuenta de almacenamiento y no tenga permisos para la cuenta de almacenamiento, los pasos siguientes establecen los permisos de la cuenta para asegurarse de que puede administrar todos los permisos de almacenamiento en el almacén de claves.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Instrucciones paso a paso sobre cómo usar Key Vault para crear y generar tokens de SAS
+--------------------------------------------------------------------------------
+También puede pedir a Key Vault que genere tokens de SAS (Firma de acceso compartido). Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Con una SAS, puede conceder a los clientes acceso a los recursos de su cuenta de almacenamiento sin compartir las claves de la cuenta. Este es el aspecto clave de usar las firmas de acceso compartido en las aplicaciones: una SAS es una forma segura de compartir los recursos de almacenamiento sin poner en peligro las claves de cuenta.
+
+Una vez completados los pasos enumerados anteriormente, puede ejecutar los comandos siguientes para solicitar a Key Vault que genere los tokens de SAS en su lugar. 
+
+Con los pasos siguientes se pueden conseguir las siguientes cosas:
+- Establecer una definición de SAS de cuenta llamada "<YourSASDefinitionName>" en una cuenta de almacenamiento que administra Key Vault "<YourStorageAccountName>"en el almacén "<VaultName>". 
+- Crear un token de SAS de cuenta para los servicios de blobs, archivos, tablas y colas, para los tipos de recursos de servicio, contenedor y objeto, con todos los permisos, a través de https y con las fechas de inicio y finalización especificadas
+- Establecer en el almacén una definición de SAS de almacenamiento que administra Key Vault, con el identificador URI de la plantilla como el token de SAS que se creó anteriormente, del tipo de SAS "account" y válido durante N días
+- Recuperar el token de acceso real a partir del secreto de Key Vault que se corresponde con la definición de SAS
+
+1. En este paso se creará una definición de SAS. Una vez creada, puede pedir a Key Vault que genere más tokens SAS para usted. Esta operación requiere el permiso storage/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Puede obtener más ayuda sobre la operación anterior [aquí](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+Si esta operación se ejecuta correctamente, verá una salida parecida a la que se muestra a continuación. Cópiela
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. En este paso, se usará la salida ($sasToken) que se generó anteriormente para crear una definición de SAS. Para obtener más documentación consulte [aquí](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > En caso de que el usuario no tenga permisos para la cuenta de almacenamiento, primero debemos obtener el identificador de objeto del usuario
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ En las siguientes instrucciones, Key Vault se asignará como un servicio con per
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Acceso a la cuenta de almacenamiento con tokens de SAS
+## <a name="fetch-sas-tokens-in-code"></a>Captura de los tokens de SAS en el código
 
 En esta sección, analizaremos cómo puede llevar a cabo operaciones en la cuenta de almacenamiento mediante la captura de [tokens de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) desde Key Vault.
 
-En la sección siguiente, mostraremos cómo capturar la clave de la cuenta de almacenamiento que se almacena en Key Vault y la usaremos para crear una definición de SAS (firma de acceso compartido) para la cuenta de almacenamiento.
+En la siguiente sección, demostraremos cómo capturar los tokens de SAS, una vez que se ha creado una definición de SAS como se indicó anteriormente.
 
 > [!NOTE] 
   Existen tres maneras de autenticarse en Key Vault, como puede leer en los [conceptos básicos](key-vault-whatis.md#basic-concepts).
@@ -132,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>Comandos pertinentes de la CLI de Azure
 
-### <a name="relavant-azure-cli-cmdlets"></a>Cmdlets de la CLI de Azure pertinentes
-[Cmdlets de almacenamiento de la CLI de Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>Cmdlets de PowerShell relevantes
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Comandos de Storage de la CLI de Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>Otras referencias
 

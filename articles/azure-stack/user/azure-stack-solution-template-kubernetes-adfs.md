@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744970"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115409"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implementación de Kubernetes en Azure Stack con los Servicios de federación de Active Directory
 
@@ -43,13 +43,19 @@ Para empezar, asegúrese de tener los permisos adecuados y de que la instancia d
 
     No se puede implementar el clúster en una suscripción de **administrador** de Azure Stack. Debe usar una suscripción de **Usuario**. 
 
-1. Si no tiene un clúster de Kubernetes en Marketplace, póngase en contacto con su administrador de Azure Stack.
+1. Necesitará el servicio Key Vault en su suscripción de Azure Stack.
+
+1. Necesitará el clúster de Kubernetes en Marketplace. 
+
+Si falta el servicio Key Vault y el elemento de Marketplace del clúster de Kubernetes, hable con el administrador de Azure Stack.
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 Deberá trabajar con el administrador de Azure Stack para que configure la entidad de servicio cuando se use AD FS como solución de identidad. La entidad de servicio permite que la aplicación acceda a los recursos de Azure Stack.
 
-1. El administrador de Azure Stack le proporciona un certificado e información de la entidad de servicio. Dicha información debe verse así:
+1. El administrador de Azure Stack le proporciona un certificado e información de la entidad de servicio.
+
+    - La información de la entidad de servicio debe ser similar a esto:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -60,9 +66,11 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Asigne un rol de colaborador en su suscripción a la nueva entidad de servicio. Para obtener instrucciones, consulte la sección sobre cómo [asignar un rol](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+    - El certificado será un archivo con la extensión `.pfx`. Almacenará el certificado en un almacén de claves como un secreto.
 
-3. Cree un almacén de claves para almacenar el certificado de la implementación.
+2. Asigne un rol de colaborador en su suscripción a la nueva entidad de servicio. Para obtener instrucciones, consulte la sección sobre cómo [asignar un rol](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
+
+3. Cree un almacén de claves para almacenar el certificado de la implementación. Use los siguientes scripts de PowerShell en lugar del Portal.
 
     - Necesita la siguiente información:
 
@@ -70,12 +78,12 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
         | ---   | ---         |
         | Azure Resource Manager Endpoint | Microsoft Azure Resource Manager es una plataforma de administración que permite a los administradores implementar, administrar y supervisar recursos de Azure. Azure Resource Manager puede controlar estas tareas como grupo, en vez de individualmente, en una sola operación.<br>El punto de conexión del Kit de desarrollo de Azure Stack (ASDK) es `https://management.local.azurestack.external/`.<br>El punto de conexión en los sistemas integrados es `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`. |
         | Id. de suscripción | El [identificador de suscripción](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) es su forma de tener acceso a las ofertas de Azure Stack. |
-        | Nombre de usuario | Nombre del usuario. |
+        | Nombre de usuario | Use solamente el nombre de usuario en lugar de su nombre de dominio y nombre de usuario; por ejemplo, `username` en lugar de `azurestack\username`. |
         | Nombre del grupo de recursos.  | Nombre del nuevo grupo de recursos, también puede seleccionar uno existente. El nombre del recurso debe ser alfanumérico y estar en minúsculas. |
         | Nombre del almacén de claves | Nombre del almacén.<br> Patrón de expresión regular: `^[a-zA-Z0-9-]{3,24}$`. |
         | Ubicación del grupo de recursos | Ubicación del grupo de recursos. Esta es la región que elige para la instalación de Azure Stack. |
 
-    - Abra PowerShell con un símbolo del sistema con privilegios elevados. Ejecute el siguiente script con sus valores de parámetros:
+    - Abra PowerShell con un símbolo del sistema con privilegios elevados y [conéctelo a Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Ejecute el siguiente script con los parámetros actualizados para coincidir con sus valores:
 
     ```PowerShell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -103,7 +111,7 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
         Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
     ```
 
-4. Cargue el certificado en la instancia de Key Vault.
+4. Cargue el certificado en el almacén de claves.
 
     - Necesita la siguiente información:
 
@@ -111,12 +119,12 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
         | ---   | ---         |
         | Ruta de acceso del certificado | Nombre de dominio completo o ruta de acceso al certificado. |
         | Contraseña del certificado | Contraseña del certificado. |
-        | Nombre del secreto | Secreto que se generó en el paso anterior. |
-        | Nombre del almacén de claves | Nombre del almacén de claves creado en el paso anterior. |
+        | Nombre del secreto | El nombre de secreto que se usa para hacer referencia el certificado almacenado en el almacén. |
+        | Nombre del almacén de claves | El nombre del almacén de claves creado en el paso anterior. |
         | Azure Resource Manager Endpoint | El punto de conexión del Kit de desarrollo de Azure Stack (ASDK) es `https://management.local.azurestack.external/`.<br>El punto de conexión en los sistemas integrados es `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`. |
         | Id. de suscripción | El [identificador de suscripción](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) es su forma de tener acceso a las ofertas de Azure Stack. |
 
-    - Abra PowerShell con un símbolo del sistema con privilegios elevados. Ejecute el siguiente script con sus valores de parámetros:
+    - Abra PowerShell con un símbolo del sistema con privilegios elevados y [conéctelo a Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Ejecute el siguiente script con los parámetros actualizados para coincidir con sus valores:
 
     ```PowerShell  
         
@@ -124,7 +132,7 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
     $tempPFXFilePath = "<certificate path>"
     $password = "<certificate password>"
     $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<keyvault name>"
+    $keyVaultName = "<key vault name>"
     $armEndpoint="<Azure Resource Manager Endpoint>"
     $subscriptionId="<Your Subscription ID>"
     # Login Azure Stack Environment
@@ -194,11 +202,11 @@ Deberá trabajar con el administrador de Azure Stack para que configure la entid
 
 1. Escriba el **id. de cliente de la entidad de servicio**. El proveedor de nube de Azure Kubernetes usa este identificador. El id. de cliente identificado como identificador de la aplicación cuando el administrador de Azure Stack creó la entidad de servicio.
 
-1. Escriba el **grupo de recursos del almacén de claves**. 
+1. Escriba el **grupo de recursos de Key Vault** que origina el almacén de claves que contiene el certificado.
 
-1. Escriba el **nombre del almacén de claves**.
+1. Escriba el **nombre de Key Vault**, esto es, el nombre del almacén de claves que contiene el certificado como un secreto. 
 
-1. Escriba el **secreto del almacén de claves**.
+1. Escriba el **secreto del almacén de claves**. El nombre del secreto hace referencia a su certificado.
 
 1. Escriba la **versión del proveedor de nube de Azure Kubernetes**. Esta es la versión para el proveedor de Kubernetes Azure. Azure Stack publica una compilación de Kubernetes personalizada para cada versión de Azure Stack.
 

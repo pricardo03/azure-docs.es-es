@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: El propietario de una aplicación puede agregar colaboradores a la aplicación. Estos colaboradores pueden modificar el modelo, entrenar y publicar la aplicación.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217788"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167601"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Administración de creadores y colaboradores 
 
@@ -44,14 +44,13 @@ Aunque LUIS no admite actualmente la transferencia de propiedad, puede exportar 
 
 ## <a name="azure-active-directory-resources"></a>Recursos de Azure Active Directory
 
-Si usa Azure Active Directory (Azure AD) en su organización, LUIS necesita permiso para obtener acceso a la información sobre sus usuarios cuando quieran usar LUIS. Los recursos que requiere LUIS son mínimos. 
+Si usa [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) en su organización, Language Understanding (LUIS) necesita permiso para obtener acceso a la información sobre sus usuarios cuando quieran usar LUIS. Los recursos que requiere LUIS son mínimos. 
 
 Podrá ver la descripción detallada cuando intente registrarse con una cuenta que tenga consentimiento del administrador o no requiera consentimiento del administrador: Ejemplos de consentimiento del administrador serían los siguientes:
 
-* Permite iniciar sesión en la aplicación con su cuenta profesional y dejar que la aplicación lea su perfil. También permite que la aplicación lea información básica de la empresa.
-* Permite que la aplicación vea y actualice los datos, incluso cuando no se esté usando la aplicación.
+* Permite iniciar sesión en la aplicación con su cuenta profesional y dejar que la aplicación lea su perfil. También permite que la aplicación lea información básica de la empresa. Esta opción concede permiso de LUIS para leer datos de perfil básicos, como el id. de usuario, el correo electrónico o el nombre.
+* Permite que la aplicación vea y actualice los datos, incluso cuando no se esté usando la aplicación. El permiso es necesario para actualizar el token de acceso del usuario.
 
-El primer permiso concede permiso de LUIS para leer datos de perfil básico, como el identificador de usuario, el correo electrónico o el nombre. El segundo permiso es necesario para actualizar el token de acceso del usuario.
 
 ## <a name="azure-active-directory-tenant-user"></a>Usuario inquilino de Azure Active Directory
 
@@ -59,11 +58,8 @@ LUIS usa el flujo de consentimiento de Azure Active Directory (Azure AD) estánd
 
 El administrador de inquilinos debe trabajar directamente con el usuario que requiera que se le conceda acceso para usar LUIS en Azure AD. 
 
-En primer lugar, el usuario inicia sesión en LUIS y ve el cuadro de diálogo emergente que necesita aprobación de administrador. El usuario se pone en contacto con el administrador de inquilinos antes de continuar. 
-
-En segundo lugar, el administrador de inquilinos inicia sesión en LUIS y ve un cuadro de diálogo emergente de flujo de consentimiento. Este es el cuadro de diálogo que debe usar el administrador para conceder permiso al usuario. Una vez que el administrador acepte el permiso, el usuario podrá continuar con LUIS.
-
-Si el administrador de inquilinos no inicia sesión en LUIS, el administrador puede acceder a [consentimiento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS. 
+* En primer lugar, el usuario inicia sesión en LUIS y ve el cuadro de diálogo emergente que necesita aprobación de administrador. El usuario se pone en contacto con el administrador de inquilinos antes de continuar. 
+* En segundo lugar, el administrador de inquilinos inicia sesión en LUIS y ve un cuadro de diálogo emergente de flujo de consentimiento. Este es el cuadro de diálogo que debe usar el administrador para conceder permiso al usuario. Una vez que el administrador acepte el permiso, el usuario podrá continuar con LUIS. Si el administrador de inquilinos no inicia sesión en LUIS, el administrador puede obtener acceso a la opción de [consentimiento](https://account.activedirectory.windowsazure.com/r#/applications) de LUIS, que se muestra en la siguiente captura de pantalla. Tenga en cuenta que la lista tiene filtrados los elementos que incluyen el nombre `LUIS`.
 
 ![Permiso de Azure Active Directory por sitio web de aplicación](./media/luis-how-to-collaborate/tenant-permissions.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239414"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116106"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault
 ## <a name="introduction"></a>Introducción
@@ -43,7 +43,7 @@ Esta es una breve descripción de cómo funciona el cifrado del lado cliente:
 4. A continuación, se cargan los datos cifrados en el servicio Azure Storage.
 
 ## <a name="set-up-your-azure-key-vault"></a>Configuración de Azure Key Vault
-Para continuar con este tutorial, debe seguir los siguientes pasos que se describe en el tutorial: [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md):
+Para continuar con este tutorial, debe seguir los siguientes pasos que se describen: [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Cree un almacén de claves.
 * Agregue una clave o un secreto al almacén de claves.

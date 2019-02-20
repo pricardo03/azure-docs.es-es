@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273513"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232610"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de Virtual Network con Azure Event Hubs
 
@@ -29,7 +29,7 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 >[!WARNING]
 > La implementación de la integración de instancias de Virtual Network puede evitar que otros servicios de Azure interactúen con Event Hubs.
 >
-> Los servicios de confianza de Microsoft no se admiten cuando se implementan las instancias de Virtual Network, pero estarán disponibles muy pronto.
+> Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
 >
 > Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
 > - Azure Monitor
@@ -39,7 +39,7 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > - Azure IoT Device Explorer
 > - Explorador de datos de Azure
 >
-> Los siguientes servicios de Microsoft deben estar en una red virtual.
+> Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure Web Apps
 > - Azure Functions
 
@@ -74,7 +74,7 @@ Parámetros de plantilla:
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"**, lo que no restringe las conexiones.
-> Cuando se realizan las reglas de Virtual Network o de firewall, debemos cambiar el valor ***"defaultAction"***.
+> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
 > De
 > ```json

@@ -16,12 +16,13 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187297"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177261"
 ---
 # <a name="license-requirements-to-use-pim"></a>Requisitos de licencia para usar PIM
 
@@ -33,6 +34,7 @@ Para usar PIM, el directorio debe tener una de las siguientes licencias de pago 
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
+- Microsoft 365 M5
 
 Para más información, consulte [¿Qué es Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 
@@ -63,5 +65,6 @@ Si expira una licencia de Azure AD Premium P2, EMS E5 o una licencia de evaluaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Implementación de PIM](pim-deployment-plan.md)
 - [Primer uso de PIM](pim-getting-started.md)
 - [Roles que no puede administrar en PIM](pim-roles.md)

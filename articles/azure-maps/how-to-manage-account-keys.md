@@ -1,6 +1,6 @@
 ---
-title: Administración de la cuenta y las claves de Azure Maps | Microsoft Docs
-description: Puede usar Azure Portal para administrar su cuenta y sus claves de acceso de Azure Maps.
+title: Administrar la cuenta de Azure Maps | Microsoft Docs
+description: Puede usar Azure Portal para administrar la cuenta de Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103051"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113703"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Administración de la cuenta y las claves de Azure Maps
+# <a name="manage-your-azure-maps-account"></a>Administrar la cuenta de Azure Maps
 
-Puede administrar su cuentas y sus claves de Azure Maps mediante Azure Portal. Una vez que tenga una cuenta y una clave, puede implementar las API en su sitio web o aplicación móvil.
+Puede usar Azure Portal para administrar la cuenta de Azure Maps. Una vez que tenga una cuenta, puede implementar las API en su sitio web o aplicación móvil.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -32,16 +32,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 4. Escriba la información de la nueva cuenta.
 
 ![Escribir la información de la cuenta en el portal](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>Administración de las claves en la página de la cuenta
-
-Una vez que cree una cuenta, obtendrá dos claves generadas aleatoriamente. Use las claves para autenticarse en las API de Azure Maps cuando desee recuperar datos de mapas o crear una nueva instancia de un mapa de JavaScript.
-
-Puede encontrar las claves en Azure Portal. Vaya a la cuenta. Seleccione **Claves** en el menú.
-
-![Administración de las claves de la cuenta en el portal](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-Desde esta página puede copiar las claves o generar otras nuevas.
 
 ## <a name="delete-an-account"></a>Eliminación de una cuenta
 

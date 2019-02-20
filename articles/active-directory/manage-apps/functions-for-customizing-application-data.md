@@ -3,8 +3,8 @@ title: Escritura de expresiones para asignaciones de atributos en Azure Active D
 description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179045"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164641"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -34,10 +35,10 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
   2. Constantes de cadena, que deben ir entre comillas. Por ejemplo:  "Estados Unidos"
   3. Otras funciones. Por ejemplo:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \"Contoso\""
+* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Append
@@ -49,7 +50,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 | NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **suffix** |Obligatorio |string |La cadena que se va a anexar al final del valor de origen. |
 
 - - -
@@ -72,7 +73,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
 
-Si uno de los valores de origen es un atributo multivalor, cada valor de ese atributo se une, separado del valor del separador.
+Si uno de los valores de origen es un atributo multivalor, cada valor de ese atributo se unirá, separado por el valor del separador.
 
 **Parámetros:**<br> 
 
@@ -105,7 +106,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 | NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string | Normalmente un atributo de nombre o de apellido |
+| **de origen** |Obligatorio |string | Normalmente un atributo de nombre o de apellido. |
 
 - - -
 ### <a name="not"></a>not
@@ -167,7 +168,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 | NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |string | Lista de reglas de generación de valor único para evaluar |
+| **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |string | Lista de reglas de generación de valor único para realizar la evaluación. |
 
 
 - - -
@@ -181,6 +182,19 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 | NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatorio |string |Objeto **[appRoleAssignments]**. |
+
+- - -
+### <a name="split"></a>Dividir
+**Función:**<br> Split(source, delimiter)
+
+**Descripción:**<br> divide una cadena en una matriz de varios valores, usando el carácter delimitador especificado.
+
+**Parámetros:**<br> 
+
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| --- | --- | --- | --- |
+| **de origen** |Obligatorio |string |**de origen** que se actualiza. |
+| **delimitador** |Obligatorio |string |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -232,7 +246,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 | NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
+| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 ## <a name="examples"></a>Ejemplos
@@ -282,8 +296,18 @@ NormalizeDiacritics([givenName])
 * **INPUT** (givenName): "Zoë"
 * **OUTPUT**:  "Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir una cadena en una matriz con varios valores
+Debe tomar una lista de cadenas delimitada con comas y dividir esas cadenas en una matriz que se pueda conectar a un atributo de varios valores, como el atributo PermissionSets de Salesforce. En este ejemplo, una lista de conjuntos de permisos se ha rellenado en extensionAttribute5 en Azure AD.
 
+**Expresión:** <br>
+Split([extensionAttribute5], ",")
+
+**Entrada/salida de ejemplo:** <br>
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
 Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>
  Por ejemplo, desea dar formato a las fechas de ServiceNow.
 
@@ -302,7 +326,6 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
  Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
 
 **Expresión:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Entrada/salida de ejemplo:**
@@ -310,8 +333,19 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Conversión del valor generado de userPrincipalName (UPN) a minúsculas
+### <a name="replace-characters-using-a-regular-expression"></a>Reemplazar los caracteres con una expresión regular
+Debe buscar los caracteres que coincidan con un valor de expresión regular y quitarlos.
 
+**Expresión:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Entrada/salida de ejemplo:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **OUTPUT**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Conversión del valor generado de userPrincipalName (UPN) a minúsculas
 En el ejemplo siguiente, el valor de UPN se genera mediante la concatenación de los campos de origen PreferredFirstName y PreferredLastName, y la función ToLower opera en la cadena generada para convertir todos los caracteres a minúsculas. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +357,6 @@ En el ejemplo siguiente, el valor de UPN se genera mediante la concatenación de
 * **OUTPUT**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generación de un valor único para el atributo userPrincipalName (UPN)
-
 Según el nombre del usuario, el segundo nombre y el apellido, deberá generar un valor para el atributo UPN y comprobar su unicidad en el directorio de AD de destino antes de asignar el valor al atributo UPN.
 
 **Expresión:** <br>
@@ -349,4 +382,3 @@ Según el nombre del usuario, el segundo nombre y el apellido, deberá generar u
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](use-scim-to-provision-users-and-groups.md)
 * [Notificaciones de aprovisionamiento de cuentas](user-provisioning.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](../saas-apps/tutorial-list.md)
-

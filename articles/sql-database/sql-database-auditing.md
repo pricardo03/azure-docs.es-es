@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297691"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234669"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -43,7 +43,7 @@ Puede usar la auditoría de base de datos SQL para:
 > [!IMPORTANT]
 > Los registros de auditoría se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
 >
-> - **Premium Storage** actualmente **no es compatible** con Append Blobs.
+> - **Premium Storage** actualmente **no es compatible** con la opción para anexar blobs.
 > - **El almacenamiento en VNet** actualmente **no se admite**.
 
 ## <a id="subheading-8"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
@@ -125,6 +125,7 @@ Si decide escribir los registros de auditoría en Log Analytics:
 Si eligió escribir registros de auditoría en el centro de eventos:
 
 - Para consumir datos de registros de auditoría desde el centro de eventos, deberá configurar una secuencia que consuma eventos y los escriba en un destino. Para más información, consulte la [documentación de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+- Los registros de auditoría del Centro de eventos se capturan en el cuerpo de los eventos de [Apache Avro](http://avro.apache.org/) y se almacenan con el formato JSON con codificación UTF-8. Para leer los registros de auditoría, puede usar [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) o herramientas similares que procesen este formato.
 
 Si eligió escribir los registros de auditoría en una cuenta de almacenamiento de Azure, hay varios métodos que puede usar para ver los registros:
 
@@ -251,7 +252,7 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 
 Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), tal como se muestra en estos ejemplos:
 
-- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Implementar un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

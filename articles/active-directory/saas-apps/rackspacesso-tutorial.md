@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Rackspace SSO | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Rackspace SSO | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Rackspace SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 24864fd1e21efaf37f846fc95b9dae39ffb19e5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042064"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186848"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integración de Azure Active Directory con Rackspace SSO
+# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: integración de Azure Active Directory con Rackspace SSO
 
 En este tutorial aprenderá a integrar Rackspace SSO con Azure Active Directory (Azure AD).
 
@@ -145,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/rackspacesso-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -192,7 +193,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Rackspace SSO del panel de acceso, debería iniciar sesión automáticamente en su aplicación Rackspace SSO.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

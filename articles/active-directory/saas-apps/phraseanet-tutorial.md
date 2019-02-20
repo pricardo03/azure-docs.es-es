@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Phraseanet | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Phraseanet | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Phraseanet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118325"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175547"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: Integración de Azure Active Directory con Phraseanet
+# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: integración de Azure Active Directory con Phraseanet
 
 En este tutorial, aprenderá a integrar Phraseanet con Azure Active Directory (Azure AD).
 
@@ -138,7 +139,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/phraseanet-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -149,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-phraseanet-test-user"></a>Creación de un usuario de prueba de Phraseanet
 
-En esta sección, creará un usuario llamado Britta Simon en Phraseanet. Colabore con el [equipo de soporte técnico de Phraseanet](mailto:support@alchemy.fr) para agregar los usuarios en la plataforma de Phraseanet. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Phraseanet. Colabore con el  [equipo de soporte técnico de Phraseanet](mailto:support@alchemy.fr) para agregar usuarios en la plataforma de Phraseanet. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -180,7 +181,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Phraseanet en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Phraseanet.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

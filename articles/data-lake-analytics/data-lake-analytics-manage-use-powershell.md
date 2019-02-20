@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
-ms.openlocfilehash: 5bd8763234aa02d68b6e86b7259fcf10b4ef4ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684298"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233589"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Administración de Análisis de Azure Data Lake mediante Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -23,11 +23,13 @@ En este artículo se describe cómo administrar cuentas, orígenes de datos, usu
 
 ## <a name="prerequisites"></a>requisitos previos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para usar PowerShell con Data Lake Analytics, recopile la siguiente información: 
 
-* **Identificador de suscripción**: el identificador de la suscripción de Azure que contiene su cuenta de Data Lake Analytics.
+* **Id. de suscripción**: el identificador de la suscripción de Azure que contiene su cuenta de Data Lake Analytics.
 * **Grupo de recursos**: el nombre del grupo de recursos de Azure que contiene la cuenta de Data Lake Analytics.
-* **Nombre de la cuenta de Data Lake Analytics**: el nombre de la cuenta de Data Lake Analytics.
+* **Nombre de la cuenta de Data Lake Analytics**: nombre de la cuenta de Data Lake Analytics.
 * **Nombre de la cuenta predeterminada de Data Lake Store**: cada cuenta de Data Lake Analytics tiene una cuenta de Data Lake Store predeterminada.
 * **Ubicación**: la ubicación de la cuenta de Data Lake Analytics como "Este de EE. UU. 2" u otras ubicaciones admitidas.
 
@@ -49,22 +51,22 @@ Inicie sesión con un identificador de suscripción o por nombre de la suscripci
 
 ```powershell
 # Using subscription id
-Connect-AzureRmAccount -SubscriptionId $subId
+Connect-AzAccount -SubscriptionId $subId
 
 # Using subscription name
-Connect-AzureRmAccount -SubscriptionName $subname 
+Connect-AzAccount -SubscriptionName $subname 
 ```
 
 ## <a name="saving-authentication-context"></a>Guardar el contexto de autenticación
 
-El cmdlet `Connect-AzureRmAccount` siempre pide las credenciales. Puede evitar que se le pidan mediante los cmdlets siguientes:
+El cmdlet `Connect-AzAccount` siempre pide las credenciales. Puede evitar que se le pidan mediante los cmdlets siguientes:
 
 ```powershell
 # Save login session information
-Save-AzureRmProfile -Path D:\profile.json  
+Save-AzAccounts -Path D:\profile.json  
 
 # Load login session information
-Select-AzureRmProfile -Path D:\profile.json 
+Select-AzAccounts -Path D:\profile.json 
 ```
 
 ### <a name="log-in-using-a-service-principal-identity-spi"></a>Inicio de sesión con una identidad de entidad de servicio (SPI)
@@ -76,7 +78,7 @@ $spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 $spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
-Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
+Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## <a name="manage-accounts"></a>Administrar cuentas
@@ -336,7 +338,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 El cmdlet `New-AdlAnalyticsComputePolicy` crea una nueva directiva de proceso para una cuenta de Data Lake Analytics. En este ejemplo se establece el número máximo de unidades de asignación (AU) disponibles para el usuario especificado en 50 y la prioridad mínima del trabajo en 250.
 
 ```powershell
-$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+$userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
@@ -481,10 +483,10 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## <a name="working-with-azure"></a>Trabajo con Azure
 
-### <a name="get-details-of-azurerm-errors"></a>Obtener detalles de errores de AzureRm
+### <a name="get-error-details"></a>Ver detalles del error
 
 ```powershell
-Resolve-AzureRmError -Last
+Resolve-AzError -Last
 ```
 
 ### <a name="verify-if-you-are-running-as-an-administrator-on-your-windows-machine"></a>Comprobación de si se ejecuta un administrador en el equipo Windows
@@ -505,7 +507,7 @@ A partir de un nombre de suscripción:
 ```powershell
 function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub = (Get-AzSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
@@ -517,7 +519,7 @@ A partir de un identificador de suscripción:
 ```powershell
 function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub = (Get-AzSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
@@ -541,7 +543,7 @@ Get-TenantIdFromDomain $domain
 ### <a name="list-all-your-subscriptions-and-tenant-ids"></a>Enumeración de todas las suscripciones e identificadores de inquilino
 
 ```powershell
-$subs = Get-AzureRmSubscription
+$subs = Get-AzSubscription
 foreach ($sub in $subs)
 {
     Write-Host $sub.Name "("  $sub.Id ")"
@@ -551,7 +553,7 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Creación de una cuenta de Data Lake Analytics mediante una plantilla
 
-También puede usar una plantilla de Grupo de recursos de Azure con el siguiente ejemplo: [Creación de una cuenta de Data Lake Analytics mediante una plantilla](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+También puede usar una plantilla del grupo de recursos de Azure mediante el siguiente ejemplo: [Crear una cuenta de Data Lake Analytics mediante una plantilla](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Reglas y puntos de conexión del servicio Virtual Network para Azure SQL Database y SQL Data Warehouse | Microsoft Docs
+title: Puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
 description: Marque una subred como punto de conexión del servicio de Virtual Network. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su instancia de Azure SQL Database. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453934"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118384"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de Virtual Network para servidores de bases de datos
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure [SQL Database](sql-database-technical-overview.md) o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database y SQL Data Warehouse.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de base de datos de las bases de datos únicas y el grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o las bases de datos de [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database y SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. Este artículo *no* es válido para las **instancias administradas de Azure SQL Database**.
+> Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.
 
 Para crear una regla de red virtual, primero debe existir un [punto de conexión de servicio de red virtual] [ vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia.
 

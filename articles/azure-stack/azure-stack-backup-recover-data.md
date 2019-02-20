@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246490"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207422"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Recuperación después de una pérdida de datos grave
 
 *Se aplica a: Sistemas integrados de Azure Stack.*
 
-Azure Stack ejecuta los servicios de Azure en el centro de datos. Azure Stack puede ejecutarse incluso en entornos de cuatro nodos instalados en un único bastidor. En cambio, Azure se ejecuta en más de 40 regiones en varios centros de datos y distintas zonas en cada región. Los recursos de usuario pueden abarcar varios servidores, bastidores, centros de datos y regiones. Con Azure Stack, actualmente solo tiene la opción de implementar toda la nube en un único bastidor. Esto hace que la nube quede expuesta al riesgo de que se produzcan errores graves en el centro de datos, o bien fallos debido a errores importantes en productos. Cuando se produce un desastre, la instancia de Azure Stack queda sin conexión. Todos los datos son potencialmente irrecuperables.
+Azure Stack ejecuta servicios de Azure en su centro de datos y puede ejecutarse incluso en entornos de cuatro nodos instalados en un único bastidor. En cambio, Azure se ejecuta en más de 40 regiones en varios centros de datos y distintas zonas en cada región. Los recursos de usuario pueden abarcar varios servidores, bastidores, centros de datos y regiones. Con Azure Stack, actualmente solo tiene la opción de implementar toda la nube en un único bastidor. Esto hace que la nube quede expuesta al riesgo de que se produzcan errores graves en el centro de datos, o bien fallos debido a errores importantes en productos. Cuando se produce un desastre, la instancia de Azure Stack queda sin conexión. Todos los datos son potencialmente irrecuperables.
 
 En función de la causa principal de la pérdida de datos, puede que tenga que reparar un solo servicio de infraestructura o que restaurar toda la instancia de Azure Stack. Incluso puede que tenga que restauran en un hardware distinto en la misma ubicación o en una ubicación diferente.
 

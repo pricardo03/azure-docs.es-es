@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820443"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236981"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -253,3 +253,6 @@ Para borrar manualmente la colección de puntos de restauración que no se han b
 
 5. Haga clic en **Eliminar** para borrar la colección de puntos de restauración.
 6. Vuelva a intentar la operación de copia de seguridad.
+
+> [!NOTE]
+ >Si el recurso (colección RP) tiene un gran número de puntos de restauración, si elimina el mismo desde el portal es posible que exceda el tiempo de expiración y se produzca un error. Este es un problema conocido de CRP, debido al cual no se eliminan todos los puntos de restauración en el tiempo establecido y la operación agota el tiempo de expiración; sin embargo, la operación de eliminación se realiza normalmente después de dos o tres reintentos.

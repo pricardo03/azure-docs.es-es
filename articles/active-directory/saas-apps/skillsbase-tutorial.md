@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Skills Base | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Skills Base | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Skills Base.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8bc0353453cf5fe689eec398f6a7d73fb356b178
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205381"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190847"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integración de Azure Active Directory con Skills Base
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: integración de Azure Active Directory con Skills Base
 
 En este tutorial, aprenderá a integrar Skills Base con Azure Active Directory (Azure AD).
 
@@ -134,7 +135,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![El inicio de sesión único](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
-    a. Haga clic en el botón **Update IdP metadata** (Actualizar metadatos de IdP) junto a la opción **Status** (Estado) y pegue el contenido del XML de metadatos que descargó de Azure Portal en el cuadro de texto especificado.
+     a. Haga clic en el botón **Update IdP metadata** (Actualizar metadatos de IdP) junto a la opción **Status** (Estado) y pegue el contenido del XML de metadatos que descargó de Azure Portal en el cuadro de texto especificado.
 
     > [!Note]
     > También puede validar los metadatos de IdP mediante la herramienta de **validador de metadatos**, como se resalta en la captura de pantalla anterior.
@@ -165,7 +166,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/skillsbase-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -215,7 +216,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Skills Base en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Skills Base.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Figma | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Figma | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Figma.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3885f579e4543f25c409010c0aae970c26d2b9c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183988"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integración de Azure Active Directory con Figma
+# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: integración de Azure Active Directory con Figma
 
 En este tutorial, aprenderá a integrar Figma con Azure Active Directory (Azure AD).
 
@@ -116,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Figma](./media/figma-tutorial/tutorial_figma_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`.
 
@@ -145,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
 
-    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![Nuevo atributo](./media/figma-tutorial/new_save_attribute.png)
 
@@ -185,9 +186,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/figma-tutorial/create_aaduser_02.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.

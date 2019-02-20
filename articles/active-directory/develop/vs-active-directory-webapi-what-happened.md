@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 04732d6541fd6132360d4c235b35979c70772922
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143178"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161939"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué le ha ocurrido a mi proyecto de WebAPI (servicio conectado de Visual Studio para Azure Active Directory)?
 
@@ -33,7 +34,7 @@ Para más información sobre cómo trabajar con el servicio conectado, consulte 
 
 Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (referencias de NuGet).
 
-| Escriba | Referencia |
+| Type | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -46,7 +47,7 @@ Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (refer
 
 Referencias adicionales si ha seleccionado la opción **Leer datos de directorio**:
 
-| Escriba | Referencia |
+| Type | Referencia |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -60,7 +61,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 
 Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visual Studio 2015):
 
-| Escriba | Referencia |
+| Type | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

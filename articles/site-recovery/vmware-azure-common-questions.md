@@ -1,19 +1,19 @@
 ---
 title: 'Preguntas comunes: recuperación ante desastres de VMware a Azure con Azure Site Recovery | Microsoft Docs'
 description: En este artículo se resumen las preguntas comunes al configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212246"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235231"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -31,8 +31,6 @@ Durante la replicación, los datos se replican en Azure Storage y no se paga nin
 - **Recuperación ante desastres**: Puede configurar la recuperación ante desastres completa. En este escenario, replica máquinas virtuales de VMware locales en Azure Storage. Luego, si la infraestructura local no está disponible, puede conmutar por error en Azure. Cuando conmuta por error, las máquinas virtuales de Azure se crean con los datos replicados. Puede acceder a aplicaciones y cargas de trabajo en las máquinas virtuales de Azure hasta que el centro de datos local vuelva a estar disponible. Luego, puede conmutar por recuperación desde Azure al sitio local.
 - **Migración**: Puede usar Site Recovery para migrar VM de VMware locales a Azure. En este escenario, replica máquinas virtuales de VMware locales en Azure Storage. Luego, conmuta por error desde el entorno local a Azure. Después de la conmutación por error, las aplicaciones y cargas de trabajo están disponibles y se ejecutan en máquinas virtuales de Azure.
 
-
-
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>¿Qué necesito tener en Azure?
 Necesita una suscripción de Azure, un almacén de Recovery Services, una cuenta de almacenamiento y una red virtual. El almacén, la cuenta de almacenamiento y la red deben estar en la misma región.
@@ -44,7 +42,33 @@ Puede usar una cuenta de almacenamiento LRS o GRS. Se recomienda GRS para que lo
 Si es administrador de una suscripción, ya tiene los permisos de replicación que necesita. Si no es así, necesita permisos para crear una máquina virtual de Azure en el grupo de recursos y en la red virtual que especifica al configurar Site Recovery, además de permisos para escribir en la cuenta de almacenamiento seleccionada. [Más información](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>¿Es posible usar la licencia de servidor de SO invitado en Azure?
-Sí, los clientes de Microsoft Software Assurance pueden usar la Ventaja híbrida de Azure para ahorrar en los costos de licencia de **máquinas Windows Server** que se migran a Azure o usar Azure para la recuperación ante desastres.
+Sí, los clientes de Microsoft Software Assurance pueden usar la [Ventaja híbrida de Azure](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) para ahorrar en los costos de licencia de **máquinas Windows Server** que se migran a Azure o usar Azure para la recuperación ante desastres.
+
+## <a name="pricing"></a>Precios
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>¿Cómo se controlan los cargos de licencia durante la replicación después de la conmutación por error?
+
+Consulte [aquí](https://aka.ms/asr_pricing_FAQ) nuestras preguntas frecuentes sobre licencias para más información.
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>¿Cómo puedo calcular los cargos aproximados durante el uso de Site Recovery?
+
+Puede usar la [calculadora de precios](https://aka.ms/asr_pricing_calculator) para calcular los costos al usar Azure Site Recovery. Para una estimación detallada de los costos, ejecute la herramienta Deployment Planner https://aka.ms/siterecovery_deployment_planner) y analice el [informe de estimación de costos](https://aka.ms/asr_DP_costreport).
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>He sido usuario de Azure Site Recovery durante más de un mes. ¿Los treinta y un primeros días serán gratuitos para cada instancia protegida?
+
+Sí, no importa el tiempo que haya estado usando Azure Site Recovery. Ninguna instancia protegida incurre en cargos por Azure Site Recovery durante los primeros 31 días. Por ejemplo, si ha tenido protegidas diez instancias durante los últimos seis meses y conecta una undécima instancia a Azure Site Recovery, esta undécima instancia no incurrirá en cargos por Azure Site Recovery durante los treinta y un primeros días. Las 10 primeras instancias continúan incurriendo en cargos por Azure Site Recovery porque han estado protegidas durante más de 31 días.
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante los primeros 31 días, ¿puedo incurrir en otros cargos de Azure?
+
+Sí, aunque Azure Site Recovery sea gratuito los primeros 31 días de una instancia protegida, puede incurrir en cargos por Azure Storage, transacciones de almacenamiento y transferencia de datos. Una máquina virtual recuperada también puede incurrir en cargos por proceso de Azure.
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>¿En qué cargos se incurre al utilizar Azure Site Recovery?
+
+Consulte nuestras [preguntas frecuentes sobre los costos incurridos](https://aka.ms/asr_pricing_FAQ) para más información.
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>¿Hay un costo asociado a exploraciones de recuperación ente desastres y pruebas de conmutación por error?
+
+No hay ningún costo independiente para exploraciones de recuperación ante desastres. Habrá cargos de proceso una vez creada la máquina virtual después de la conmutación por error de prueba.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Actualización de componentes de Azure Site Recovery
 
@@ -87,8 +111,12 @@ Los datos se replican a Azure Storage. Cuando se ejecuta una conmutación por er
 
 ## <a name="replication"></a>Replicación
 
-### <a name="what-apps-can-i-replicate"></a>¿Qué aplicaciones se pueden replicar?
+### <a name="what-applications-can-i-replicate"></a>¿Qué aplicaciones se pueden replicar?
 Puede replicar cualquier aplicación o carga de trabajo en ejecución en una máquina virtual de VMware que cumpla con los [requisitos de replicación](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery proporciona compatibilidad para la replicación compatible con aplicaciones, para que estas se puedan conmutar por error y por recuperación a un estado inteligente. Site Recovery se integra con aplicaciones de Microsoft como SharePoint, Exchange, Dynamics, SQL Server y Active Directory; además, colabora estrechamente con los principales proveedores, como Oracle, SAP, IBM y Red Hat. [Obtenga más información](site-recovery-workload.md) acerca de la protección de la carga de trabajo.
+
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>¿Puedo proteger una máquina virtual con configuración de disco Docker?
+
+No, se trata de un escenario no admitido.
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>¿Puedo replicar en Azure con una VPN de sitio a sitio?
 Site Recovery replica los datos desde el entorno local a una instancia de Azure Storage a través de un punto de conexión público o mediante el uso del emparejamiento público de ExpressRoute. No se admite la replicación a través de una red VPN de sitio a sitio.
@@ -96,11 +124,13 @@ Site Recovery replica los datos desde el entorno local a una instancia de Azure 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>¿Puedo replicar en Azure con ExpressRoute?
 Sí, puede usar ExpressRoute para replicar máquinas virtuales en Azure. Site Recovery replica los datos en una cuenta de Azure Storage a través de un punto de conexión público. Es necesario configurar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) o el [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) si se va a usar ExpressRoute para la replicación de Site Recovery. El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para la replicación. Asegúrese de que los [requisitos de red](vmware-azure-configuration-server-requirements.md#network-requirements) también se cumplen en la replicación. Una vez que las máquinas virtuales conmutan por error en una red virtual de Azure, puede acceder a ellas a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>¿Cómo se puede cambiar la cuenta de almacenamiento después de proteger la máquina?
+
+La cuenta de almacenamiento solo se puede actualizar a prémium. Si desea utilizar una cuenta de almacenamiento diferente, debe deshabilitar la replicación de su máquina de origen y volver a habilitar la protección con una nueva cuenta de almacenamiento. Aparte de esto, no hay otra forma de cambiar la cuenta de almacenamiento después de que la protección esté habilitada.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>¿Por qué no puedo replicar a través de VPN?
 
 Cuando se replica en Azure, el tráfico de replicación alcanza los puntos de conexión públicos de una cuenta de Azure Storage, por lo que solo se puede replicar a través de la red pública de Internet con ExpressRoute (emparejamiento público), y VPN no funciona.
-
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>¿Cuáles son los requisitos de las máquinas virtuales replicadas?
 
@@ -108,6 +138,9 @@ Para realizar la replicación, una máquina virtual de VMware debe ejecutar un s
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>¿Con qué frecuencia se puede replicar en Azure?
 La replicación es continua cuando se replican máquinas virtuales de VMware en Azure.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>¿Se puede conservar la dirección IP en la conmutación por error?
+Sí, se puede conservar la dirección IP en la conmutación por error. Asegúrese de mencionar la dirección IP de destino en la hoja "Proceso y red" antes de la conmutación por error. Además, asegúrese de apagar las máquinas en el momento de la conmutación por error para evitar conflictos de dirección IP en el momento de la conmutación por recuperación.
 
 ### <a name="can-i-extend-replication"></a>¿Se puede extender la replicación?
 No se admite la replicación extendida o encadenada. Solicite esta característica en el [foro de comentarios](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

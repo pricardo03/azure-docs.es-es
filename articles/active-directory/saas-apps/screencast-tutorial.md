@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 20c0acebde232bd50e6e5befed0facc96ee11b4d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040956"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutorial: integración de Azure Active Directory con Screencast-O-Matic
 
@@ -168,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/screencast-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -181,7 +182,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear una usuaria llamada Britta Simon en Screencast-O-Matic. Screencast-O-Matic admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Screencast-O-Matic, se crea un nuevo usuario, en caso de que no exista.
 
 >[!Note]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Screencast-O-Matic](mailto:support@screencast-o-matic.com).
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el  [equipo de soporte técnico de Screencast-O-Matic](mailto:support@screencast-o-matic.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -218,7 +219,7 @@ En esta sección, concederá acceso a Britta Simon a Screencast-O-Matic para que
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Screencast-O-Matic en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Screencast-O-Matic.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

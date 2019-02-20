@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699132"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175462"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -120,6 +120,34 @@ Un firewall de aplicaciones web (WAF) proporciona una capa adicional de segurida
 
 Los recursos de entrada o el equilibrador de carga continúan ejecutándose en el clúster de AKS para refinar aún más la distribución del tráfico. Application Gateway se puede administrar de manera centralizada como controlador de entrada con definición de recurso. Para empezar, [cree un controlador de entrada de Application Gateway][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Control del flujo de tráfico con directivas de red
+
+**Guía de procedimientos recomendados**: use directivas de red para permitir o denegar el tráfico a los pods. De forma predeterminada, se permite todo el tráfico entre los pods dentro de un clúster. Para mejorar la seguridad, defina reglas que limiten la comunicación del pod.
+
+La directiva de red es una característica de Kubernetes que permite controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración asignada como etiquetas, espacio de nombres o puerto de tráfico. El uso de directivas de red proporciona una manera nativa en la nube para controlar el flujo de tráfico. Como los pods se crean dinámicamente en un clúster de AKS, se pueden aplicar automáticamente las directivas de red necesarias. No use grupos de seguridad de red de Azure para controlar el tráfico de pod a pod, use las directivas de red.
+
+Para usar la directiva de red, la característica debe habilitarse al crear un clúster de AKS. No se puede habilitar la directiva de red en un clúster de AKS existente. Planee con antelación para asegurarse de que habilita las directivas de red en los clústeres y de que puede usarlas según sea necesario.
+
+Se crea una directiva de red como un recurso de Kubernetes mediante un manifiesto YAML. Las directivas se aplican a los pods definidos y, a continuación, las reglas de entrada o salida definen cómo puede fluir el tráfico. El ejemplo siguiente aplica una directiva de red a los pods que tienen la etiqueta *app: backend*. La regla de entrada solo permite el tráfico desde los pods con la etiqueta *app: frontend*:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Para empezar a usar directivas, consulte [Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Conexión segura a los nodos mediante una pasarela de aplicaciones
 
 **Guía de procedimiento recomendado**: no exponga la conectividad remota a los nodos de AKS. Cree una pasarela de aplicaciones, o host jump, en una red virtual de administración. Utilice la pasarela de aplicaciones para enrutar el tráfico de forma segura en el clúster de AKS para las tareas de administración remota.
@@ -155,5 +183,6 @@ Este artículo se centra en la conectividad de red y la seguridad. Para más inf
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

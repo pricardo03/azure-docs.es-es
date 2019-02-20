@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079977"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163009"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -66,6 +67,14 @@ El pie de página contiene la marca de empresa de Microsoft y permite que el des
 
   ![Si el destinatario no necesita canjear la invitación.](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Cómo se determina el idioma
+Las opciones siguientes determinan el idioma que el usuario invitado ve en el correo electrónico de invitación. Estas opciones de configuración se muestran en el siguiente orden de prioridad. Si una opción no está configurada, la siguiente de la lista será la que determine el idioma. 
+- La propiedad **messageLanguage** del objeto [guestUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0), si se usa la API para crear una invitación.
+-   La propiedad **preferredLanguage** especificada en el [objeto de usuario](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) del invitado.
+-   El **idioma de notificación** establecido en las propiedades del inquilino principal del usuario invitado (solo para inquilinos de Azure AD).
+-   El **idioma de notificación** establecido en las propiedades del inquilino del recurso.
+
+Si ninguna de estas opciones está configurada, el idioma se establece de forma predeterminada en inglés (EE. UU.).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

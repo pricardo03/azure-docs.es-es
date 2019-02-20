@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247653"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172406"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Incorporación de nodos de unidad de escalado adicionales en Azure Stack
 
-Los operadores de Azure Stack pueden aumentar la capacidad total de una unidad de escalado existente mediante la incorporación de un equipo físico adicional. Al equipo físico también se le conoce como nodo de unidad de escalado. Cada nuevo nodo de unidad de escalado que agregue debe ser homogéneo en cuanto al tipo de CPU, memoria y número y tamaño de discos respecto a los nodos que ya están presentes en dicha unidad.
-
-> [!NOTE]  
-Debe ejecutar Azure Stack 1807 o posterior para agregar nodos de unidad de escalado.
+Los operadores de Azure Stack pueden aumentar la capacidad total de una unidad de escalado existente mediante la incorporación de un equipo físico adicional. Al equipo físico también se le conoce como nodo de unidad de escalado. Cada nuevo nodo de unidad de escalado que agregue debe ser homogéneo en cuanto al tipo de CPU, memoria y número y tamaño de discos, respecto a los nodos que ya están presentes en dicha unidad.
 
 Para agregar un nodo de unidad de escalado, debe actuar en Azure Stack y ejecutar las herramientas de su fabricante de equipos de hardware (OEM). Las herramientas de OEM se ejecutan en el host del ciclo de vida de hardware (HLH) para asegurarse de que el equipo físico nuevo coincide con el mismo nivel de firmware que los nodos existentes.
 

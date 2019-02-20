@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691174"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210788"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones de planeamiento de implementación desconectada de Azure en sistemas integrados de Azure Stack
 Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
 
-Puede implementar y usar Azure Stack sin conexión a Internet. Sin embargo, este tipo de implementación tiene la limitación de que solo se puede usar un almacén de identidades de AD FS y el modelo de facturación por capacidad. Dado que la arquitectura multiempresa requiere el uso de Azure AD, no se admite para implementaciones desconectadas. 
+Puede implementar y usar Azure Stack sin conexión a Internet. Sin embargo, este tipo de implementación tiene la limitación de que solo se puede usar un almacén de identidades de AD FS y el modelo de facturación por capacidad. Dado que la arquitectura multiempresa requiere usar Azure Active Directory (Azure AD), esta arquitectura multiempresa no se admite para realizar implementaciones sin conexión. 
 
 Elija esta opción si:
 - Las opciones de seguridad u otras restricciones requieren que implemente Azure Stack en un entorno que no esté conectado a Internet.
@@ -34,9 +34,9 @@ Elija esta opción si:
 - Desea usar Azure Stack solo como una solución de nube privada que se implemente en la intranet corporativa y no tiene interés alguno en escenarios híbridos.
 
 > [!TIP]
-> En ocasiones, este tipo de entorno también se conoce como "escenario submarino".
+> En ocasiones, este tipo de entorno también se conoce como *escenario submarino*.
 
-Una implementación sin conexión no significa estrictamente no posteriormente no sea posible conectar una instancia Azure Stack a Azure en escenarios de máquinas virtuales de inquilino híbrido. Significa que no tiene conectividad a Azure durante la implementación o que no desea usar Azure Active Directory como almacén de identidades.
+Una implementación sin conexión no significa que posteriormente no sea posible conectar una instancia de Azure Stack a Azure en escenarios de máquinas virtuales de inquilino híbrido. Esto significa que no tiene conectividad a Azure durante la implementación o que no quiere usar Azure AD como almacén de identidades.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Características con limitaciones o que no están disponible en implementaciones desconectadas 
 Azure Stack se ha diseñado para funcionar mejor cuando se conecta a Azure, por lo que es importante tener en cuenta que hay algunas funcionalidades y características que tienen limitaciones o que no están disponibles en el modo sin conexión. 

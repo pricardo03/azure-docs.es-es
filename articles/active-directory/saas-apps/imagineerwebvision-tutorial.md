@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Imagineer WebVision | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Imagineer WebVision | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Imagineer WebVision.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d86004680bf13c9716b4ff4e7a41af73ea186f27
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047195"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202407"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: Integración de Azure Active Directory con Imagineer WebVision
+# <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: integración de Azure Active Directory con Imagineer WebVision
 
 En este tutorial, obtendrá información sobre cómo integrar Imagineer WebVision con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Imagineer WebVision](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
@@ -148,7 +149,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/imagineerwebvision-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -158,7 +159,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-an-imagineer-webvision-test-user"></a>Creación de un usuario de prueba de Imagineer WebVision
 
-En esta sección, creará el usuario Britta Simon en Imagineer WebVision. Trabaje con el [equipo de soporte técnico de Imagineer WebVision](mailto:support@itgny.com) para agregar los usuarios en la plataforma Imagineer WebVision. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en Imagineer WebVision. Trabaje con el  [equipo de soporte técnico de Imagineer WebVision](mailto:support@itgny.com) para agregar usuarios a la plataforma Imagineer WebVision. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -195,7 +196,7 @@ En esta sección, concederá acceso a Britta Simon a Imagineer WebVision para qu
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Imagineer WebVision en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Imagineer WebVision.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

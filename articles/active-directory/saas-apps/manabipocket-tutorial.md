@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Manabi Pocket | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Manabi Pocket | Microsoft Docs'
 description: Obtenga información para configurar el inicio de sesión único entre Azure Active Directory y Manabi Pocket.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430722"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198429"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integración de Azure Active Directory con Manabi Pocket
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: integración de Azure Active Directory con Manabi Pocket
 
 En este tutorial se aprende a integrar Manabi Pocket con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Manabi Pocket](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://ed-cl.com/`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://ed-cl.com/`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
@@ -148,7 +149,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/manabipocket-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -158,7 +159,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Crear un usuario de prueba de Manabi Pocket
 
-En esta sección se crea un usuario denominado Britta Simon en Manabi Pocket. Trabaje con el [equipo de soporte técnico de Manabi Pocket](mailto:info-ed-cl@ntt.com) para agregar los usuarios en la plataforma de Manabi Pocket. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección se crea un usuario denominado Britta Simon en Manabi Pocket. Trabaje con el  [equipo de soporte técnico de Manabi Pocket](mailto:info-ed-cl@ntt.com)  para agregar usuarios en la plataforma de Manabi Pocket. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -195,7 +196,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Manabi Pocket en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Manabi Pocket.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Este artículo contiene listas de las entidades precompiladas que se incluyen en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4d5ce9775e7844fcc82aa993f5b01c7cc7ae4779
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213742"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179903"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
@@ -34,6 +34,7 @@ Language Understanding (LUIS) proporciona entidades precompiladas. Cuando una en
 |Coreano|[ko-KR](#korean-entity-support)|
 |Portugués|[pt-BR (portugués de Brasil)](#portuguese-brazil-entity-support)|
 |Español|[es-ES (español de España)](#spanish-spain-entity-support), [es-MX (español de México)](#spanish-mexico-entity-support)|
+|Turco|[turco](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>Compatibilidad con la entidad china
 
@@ -51,7 +52,7 @@ Se admiten las siguientes entidades:
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Porcentaje](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Número de teléfono](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>grados Fahrenheit<br>grados Kelvin<br>grados Rankine<br>grados Delisle<br>grados centígrados   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ Se admiten las siguientes entidades:
 ------|:------:|
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
 [Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ Se admiten las siguientes entidades:
 ------|:------:|
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
 [Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ Se admiten las siguientes entidades:
 Vea las notas en [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md) (Entidades precompiladas en desuso).
 
 KeyPhrase no está disponible en todas las referencias culturales secundarias de portugués (Brasil): ```pt-BR```.
+
+## <a name="turkish-entity-support"></a>Compatibilidad con la entidad turca
+
+Se admiten las siguientes entidades:
+
+|Entidad creada previamente|```tr-tr``` |
+------|:------:|
+[Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
+[Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    -   | 
+[Correo electrónico](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Number](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Porcentaje](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Número de teléfono](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>grados Fahrenheit<br>grados Kelvin<br>grados Rankine<br>grados Delisle<br>grados centígrados   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+Vea las notas en [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md) (Entidades precompiladas en desuso).
+
+El valor de KeyPhrase no está disponible.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir a las referencias culturales de las entidades precompiladas
 Las entidades precompiladas se desarrollan en el proyecto de código abierto de Recognizers-Text. [Contribuya](https://github.com/Microsoft/Recognizers-Text) al proyecto. Este proyecto incluye ejemplos de moneda por cada referencia cultural. 

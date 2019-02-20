@@ -4,7 +4,7 @@ description: Este artículo proporciona un conjunto de procedimientos recomendad
 services: security
 documentationcenter: na
 author: TomShinder
-manager: mbaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: d89972ff0f7e3035fa20f8d9ee2863b68fa52e9f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124072"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118418"
 ---
 # <a name="azure-network-security-best-practices"></a>Procedimientos recomendados de seguridad de la red de Azure
 Puede conectar las [máquinas virtuales y los dispositivos de Azure](https://azure.microsoft.com/services/virtual-machines/) a otros dispositivos en red, colocándolos en [redes virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Esto es, puede conectar tarjetas de interfaz de red virtual a una red virtual para posibilitar las comunicaciones basadas en TCP/IP entre dispositivos habilitados para la red. Las máquinas virtuales conectadas a una red virtual de Azure pueden conectarse a dispositivos en la misma red virtual, en distintas redes virtuales, en Internet o, incluso, en sus propias redes locales.
@@ -44,10 +44,10 @@ Las redes virtuales de Azure son similares a una LAN de red local. La idea detr�
 Los procedimientos recomendados para segmentar lógicamente las subredes son:
 
 **Procedimiento recomendado**: segmentar el mayor espacio de direcciones en las subredes.   
-**Detalle**: use los principios de subred basado en [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para crear las subredes.
+**Detalles**: use los principios de subred basado en [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para crear las subredes.
 
 **Procedimiento recomendado**: crear controles de acceso de red entre subredes. El enrutamiento entre subredes se realizará automáticamente y no es necesario configurar manualmente las tablas de enrutamiento. Sin embargo, el valor predeterminado es que no hay ningún control de acceso a la red entre las subredes creadas en Azure Virtual Network.   
-**Detalle**: use un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) (NSG). Los NSG son dispositivos de inspección de paquetes con estado simple que utilizan el enfoque tupla 5 (IP de origen, puerto de origen, dirección IP de destino, puerto de destino y el protocolo de nivel 4) para crear reglas de permiso o denegación del tráfico de la red. Puede permitir o denegar el tráfico hacia y desde una sola dirección IP, hacia y desde varias direcciones IP o, incluso, hacia y desde subredes enteras.
+**Detalles**: use un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) (NSG). Los NSG son dispositivos de inspección de paquetes con estado simple que utilizan el enfoque tupla 5 (IP de origen, puerto de origen, dirección IP de destino, puerto de destino y el protocolo de nivel 4) para crear reglas de permiso o denegación del tráfico de la red. Puede permitir o denegar el tráfico hacia y desde una sola dirección IP, hacia y desde varias direcciones IP o, incluso, hacia y desde subredes enteras.
 
 Al usar NSG para controlar el acceso a la red entre subredes, puede establecer recursos que pertenezcan a la misma zona de seguridad o rol en sus propias subredes.
 
@@ -103,7 +103,7 @@ Muchas organizaciones han elegido la ruta de TI híbrida. En la TI híbrida, alg
 
 En el escenario de TI híbrida, suele haber algún tipo de conectividad entre locales. Esta conectividad entre locales permite a la empresa conectar sus redes locales con las redes virtuales de Azure. Hay dos soluciones de conectividad entre locales:
 
-* **VPN de sitio a sitio**: es una tecnología de confianza, confiable y bien establecida, pero que realiza la conexión a través de Internet. Además, el ancho de banda está limitado a un máximo de aproximadamente 200 Mbps. La VPN de sitio a sitio es una opción conveniente en algunos escenarios y se explica más en la sección [Deshabilitar el acceso RDP/SSH a las máquinas virtuales](#disable-rdpssh-access-to-virtual-machines).
+* **VPN de sitio a sitio**: es una tecnología de confianza y bien establecida, pero que realiza la conexión a través de Internet. Además, el ancho de banda está limitado a un máximo de aproximadamente 200 Mbps. La VPN de sitio a sitio es una opción conveniente en algunos escenarios y se explica más en la sección [Deshabilitar el acceso RDP/SSH a las máquinas virtuales](#disable-rdpssh-access-to-virtual-machines).
 * **Azure ExpressRoute**: se recomienda que use [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) para la conectividad entre locales. ExpressRoute es un vínculo de WAN dedicada entre su ubicación local o un proveedor de hospedaje de Exchange. Se trata de una conexión de telecomunicaciones debido a la cual los datos no viajan a través de Internet y, por tanto, no se exponen a los posibles riesgos inherentes a las comunicaciones de Internet.
 
 ## <a name="optimize-uptime-and-performance"></a>Optimización del rendimiento y el tiempo de actividad
@@ -168,14 +168,14 @@ Use los puntos de conexión del servicio Virtual Network para extender el espaci
 
 Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
-- **Seguridad mejorada para los recursos de servicio de Azure**: con los puntos de conexión de servicio, se pueden proteger los recursos del servicio de Azure en la red virtual. Si protege los recursos del servicio en una red virtual, mejorará la seguridad al quitar totalmente el acceso público a través de Internet a estos recursos y al permitir el tráfico solo desde la red virtual.
-- **Enrutamiento óptimo para el tráfico del servicio de Azure desde la red virtual**: las rutas de la red virtual que fuerzan el tráfico de Internet a las aplicaciones virtuales o locales, un proceso conocido como tunelización forzada, también fuerzan el tráfico del servicio de Azure para que realice la misma ruta que el tráfico de Internet. Los puntos de conexión de servicio proporcionan un enrutamiento óptimo al tráfico de Azure.
+- **Seguridad mejorada para los recursos de servicio de Azure**: Con los puntos de conexión de servicio, se pueden proteger los recursos del servicio de Azure para la red virtual. Si protege los recursos del servicio en una red virtual, mejorará la seguridad al quitar totalmente el acceso público a través de Internet a estos recursos y al permitir el tráfico solo desde la red virtual.
+- **Enrutamiento óptimo para el tráfico del servicio de Azure desde la red virtual**: las rutas de la red virtual que fuerzan el tráfico de Internet a las aplicaciones virtuales o locales, conocidas como tunelización forzada, también fuerzan el tráfico del servicio de Azure para realizar la misma ruta que el tráfico de Internet. Los puntos de conexión de servicio proporcionan un enrutamiento óptimo al tráfico de Azure.
 
   Los puntos de conexión siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Azure. Si mantiene el tráfico en la red troncal de Azure, podrá seguir auditando y supervisando el tráfico saliente de Internet desde las redes virtuales, a través de la tunelización forzada, sin que ello afecte al tráfico del servicio. Obtenga más información sobre las [rutas definidas por el usuario y la tunelización forzada](../virtual-network/virtual-networks-udr-overview.md).
 
-- **Fácil de configurar con menos sobrecarga de administración**: ya no es necesario tener direcciones IP públicas reservadas en las redes virtuales para proteger los recursos de Azure a través del firewall IP. No hay ningún dispositivo NAT o de puerta de enlace necesario para configurar los puntos de conexión de servicio. Los puntos de conexión de servicio se pueden configurar con un simple clic en una subred. No hay sobrecarga adicional para mantener los puntos de conexión.
+- **Fácil de configurar con menos sobrecarga de administración**: ya no necesita direcciones IP públicas y reservadas en sus redes virtuales para proteger los recursos de Azure a través de una dirección IP del firewall. No hay ningún dispositivo NAT o de puerta de enlace necesario para configurar los puntos de conexión de servicio. Los puntos de conexión de servicio se pueden configurar con un simple clic en una subred. No hay sobrecarga adicional para mantener los puntos de conexión.
 
 Para obtener más información sobre los puntos de conexión de servicio y sobre los servicios de Azure y las regiones en las que están disponibles los puntos de conexión de servicio, consulte [Puntos de conexión del servicio de Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="next-step"></a>Paso siguiente
-Consulte los [patrones y procedimientos recomendados de seguridad de Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que podrá usar cuando diseñe, implemente y administre las soluciones en la nube al usar Azure.
+Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

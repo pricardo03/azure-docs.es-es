@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057837"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199693"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Tutorial: Integración de Azure Active Directory con Kanbanize
+# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Tutorial: integración de Azure Active Directory con Kanbanize
 
 En este tutorial, aprenderá a integrar Kanbanize con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Kanbanize](./media/kanbanize-tutorial/tutorial_kanbanize_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kanbanize.com/`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kanbanize.com/`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.kanbanize.com/saml/acs`.
 
@@ -154,7 +155,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Integraciones de Kanbanize](./media/kanbanize-tutorial/tutorial_kanbanize_save.png)
 
-    a. En el cuadro de texto **IdP Entity ID** (Id. de entidad IdP), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
+     a. En el cuadro de texto **IdP Entity ID** (Id. de entidad IdP), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
 
     b. En el cuadro de texto **Idp Login Endpoint** (Punto de conexión de inicio de sesión de IdP), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
 
@@ -168,7 +169,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!Note]
     > Puede obtener estos valores mediante la combinación de valores de espacio de nombres y nombre del atributo correspondiente de la sección Atributos de usuario de Azure Portal.
 
-    g. En el Bloc de notas, abra el certificado codificado en base 64 que descargó de Azure Portal, copie su contenido (sin los marcadores de inicio y fin) y, luego, péguelo en el cuadro de texto **Idp X.509 Certificate** (Certificado X.509 de IdP).
+    g. En el Bloc de notas, abra el certificado codificado en base 64 que descargó de Azure Portal, copie su contenido (sin los marcadores de inicio y fin) y péguelo en el cuadro de texto  **Idp X.509 Certificate**  (Certificado X.509 de IdP).
 
     h. Marque **Enable login with both SSO and Kanbanize** (Habilitar el inicio de sesión con SSO y Kanbanize).
     
@@ -198,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/kanbanize-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -211,7 +212,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Kanbanize. Kanbanize admite aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Kanbanize, se crea un nuevo usuario, en caso de que no exista.
 
 >[!Note]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Kanbanize](mailto:support@ms.kanbanize.com).
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el  [equipo de soporte técnico de Kanbanize](mailto:support@ms.kanbanize.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -248,7 +249,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Kanbanize en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Kanbanize.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

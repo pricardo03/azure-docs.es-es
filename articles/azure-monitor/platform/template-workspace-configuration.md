@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232743"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235502"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -41,7 +41,7 @@ En la tabla siguiente se muestra la versión de API de los recursos usados en es
 
 | Recurso | Tipo de recurso | Versión de API |
 |:---|:---|:---|:---|
-| Área de trabajo   | áreas de trabajo    | 2017-03-15-preview |
+| Área de trabajo   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2017-03-15-preview |
 | Origen de datos | datasources   | 2015-11-01-preview |
 | Solución    | solutions     | 2015-11-01-preview |
@@ -54,9 +54,9 @@ Los siguientes parámetros establecen un valor predeterminado:
 * Ubicación: el valor predeterminado es Este de EE. UU.
 * SKU: el valor predeterminado es el nuevo plan de tarifa Por GB publicado en el modelo de precios de abril de 2018
 
->[!WARNING]
->Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**. 
->
+> [!NOTE]
+>Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**.  
+>Si puede obtener algunas suscripciones en el (modelo de precios anterior a abril de 2018) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], puede especificar el plan de tarifa **independiente** tanto para la suscripción con el modelo de precios anterior a abril de 2018 y para suscripciones que tengan los precios nuevos. Para las áreas de trabajo en las suscripciones que han adoptado el nuevo modelo de precios, el plan de tarifa se establecerá en **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Creación e implementación de una plantilla
 

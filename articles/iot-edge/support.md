@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555615"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892803"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
 
@@ -26,46 +26,70 @@ Hay varias maneras de buscar compatibilidad para el producto de Azure IoT Edge.
 
 **Solicitudes de características**: el producto Azure IoT Edge realiza un seguimiento de las solicitudes de características a través de la [página de voz del usuario](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
+## <a name="container-engines"></a>Motores de contenedor
+Azure IoT Edge necesita un motor de contenedores para iniciar los módulos desde el momento en que se implementan como contenedores. Microsoft ofrece un motor de contenedor, moby-engine, para satisfacer este requisito. Se basa en el proyecto de código abierto de Moby. Docker CE y Docker EE son otros motores de contenedores conocidos. También se basan en el proyecto de código abierto de Moby y son compatibles con Azure IoT Edge. Microsoft proporciona el mejor soporte técnico posible para los sistemas que usan esos motores de contenedores pero, sin embargo, no puede proporcionar soluciones para los problemas de ellos. Por esta razón, Microsoft recomienda el uso de moby-engine en sistemas de producción.
+
+<br>
+<center>
+![Moby como entorno de ejecución de contenedores](./media/support/only-moby-for-production.png)
+</center>
+
 ## <a name="operating-systems"></a>Sistemas operativos
 Azure IoT Edge se ejecuta en la mayoría de los sistemas operativos que pueden ejecutar contenedores. No obstante, la compatibilidad no es igual en todos. Los sistemas operativos se agrupan en niveles que representan el nivel de compatibilidad que los usuarios pueden esperar.
+* Los sistemas de nivel 1 se pueden considerar como oficialmente compatibles. Esto significa que Microsoft:
+    * tiene este sistema operativo en pruebas automatizadas
+    * proporciona paquetes de instalación para ellos
+* Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge y pueden usarse con relativa facilidad. Esto significa que:
+    * Microsoft ha realizado pruebas ad hoc en las plataformas o conoce a un asociado que ha ejecutado correctamente Azure IoT Edge en la plataforma
+    * Los paquetes de información de otras plataformas pueden funcionar en estas plataformas
+    
+La familia del sistema operativo host siempre debe coincidir con la familia del sistema operativo invitado que se utilice en el contenedor de un módulo. En otras palabras, solo se pueden usar contenedores de Linux en Linux y contenedores de Windows en Windows. En el caso de Windows, solo se pueden usar contenedores aislados de los procesos; no se admiten los contenedores aislados del hipervisor.  
+
+<br>
+<center>
+![El sistema operativo host coincide con el sistema operativo invitado](./media/support/edge-on-device.png)
+</center>
 
 ### <a name="tier-1"></a>Nivel 1
-Los sistemas de nivel 1 se pueden considerar como oficialmente compatibles. Esto significa que Microsoft:
-* tiene estos sistemas operativos en pruebas automatizadas
-* proporciona paquetes de instalación para ellos
-
 Disponibilidad general
-| Sistema operativo | AMD64 | ARM32 |
+| Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Raspbian-stretch | Sin  | SÍ|
-| Ubuntu Server 16.04 | SÍ | Sin  |
-| Ubuntu Server 18.04 | SÍ | Sin  |
+| Raspbian-stretch | Sin  | Sí|
+| Ubuntu Server 16.04 | Sí | Sin  |
+| Ubuntu Server 18.04 | Sí | Sin  |
 
 Versión preliminar pública
-| Sistema operativo | AMD64 | ARM32 |
+| Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Compilación 17763 de Windows 10 IoT Core | SÍ | Sin  |
-| Compilación 17763 de Windows 10 para contenedores de Windows<br><br>Compilación 14393 o más reciente de Windows 10 para contenedores de Linux\* | SÍ | Sin  |
-| Windows Server 2019 para contenedores de Windows<br><br>Windows Server 2016 o más reciente para contenedores de Linux\* | SÍ | Sin  |
+| Compilación 17763 de Windows 10 IoT Core | Sí | Sin  |
+| Windows 10 IoT Enterprise compilación 17763 | Sí | Sin  |
+| Windows Server 2019 | Sí | Sin  |
 
-\* Microsoft proporciona paquetes de instalación para los contenedores de Linux en los dispositivos Windows solo para desarrollo y pruebas. Esto no es una configuración admitida para su uso en producción. 
+Los sistemas operativos de Windows anteriores son obligatorios en los dispositivos que ejecutan contenedores de Windows en Windows. Es la única configuración que se permite en producción. Los paquetes de instalación de Azure IoT Edge para Windows permiten usar contenedores de Linux en Windows., aunque solo en los entornos de desarrollo y pruebas. No se permite utilizar contenedores de Linux en Windows en el entorno de producción. En este escenario de desarrollo, puede utilizarse cualquier versión de Windows 10 compilación 14393 y Windows Server 2016 o versiones posteriores.
 
 ### <a name="tier-2"></a>Nivel 2
-Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge y pueden usarse con relativa facilidad. Esto significa que:
-* Microsoft ha realizado pruebas ad hoc en las plataformas o conoce a un asociado que ha ejecutado correctamente Azure IoT Edge en la plataforma
-* Los paquetes de información de otras plataformas pueden funcionar en estas plataformas
 
-| Sistema operativo | AMD64 | ARM32 |
+| Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| CentOS 7.5 | SÍ | SÍ |
-| Debian 8 | SÍ | SÍ |
-| Debian 9 | SÍ | SÍ |
-| RHEL 7.5 | SÍ | SÍ |
-| Ubuntu 18.04 | SÍ | SÍ |
-| Ubuntu 16.04 | SÍ | SÍ |
-| Wind River 8 | SÍ | Sin  |
-| Yocto | SÍ | Sin  |
+| CentOS 7.5 | Sí | Sí |
+| Debian 8 | Sí | Sí |
+| Debian 9 | Sí | Sí |
+| RHEL 7.5 | Sí | Sí |
+| Ubuntu 18.04 | Sí | Sí |
+| Ubuntu 16.04 | Sí | Sí |
+| Wind River 8 | Sí | Sin  |
+| Yocto | Sí | Sin  |
 
-## <a name="container-engines"></a>Motores de contenedor
-Azure IoT Edge necesita un motor de contenedor para iniciar módulos, independientemente del sistema operativo en el que se esté ejecutando. Microsoft ofrece un motor de contenedor, moby-engine, para satisfacer este requisito. Se basa en el proyecto de código abierto de Moby. Docker CE y Docker EE son otros motores de contenedores conocidos. También están basados en el proyecto de código abierto de Moby y son compatibles con Azure IoT Edge. Microsoft proporciona el mejor soporte técnico posible para los sistemas que usan esos motores de contenedores pero, sin embargo, no puede proporcionar soluciones para los problemas de ellos. Por esta razón, Microsoft recomienda el uso de moby-engine en sistemas de producción.
 
+## <a name="virtual-machines"></a>Virtual Machines
+Azure IoT Edge puede ejecutarse en máquinas virtuales. Esto es algo habitual cuando los clientes desean mejorar la infraestructura existente con inteligencia perimetral. La familia del sistema operativo de la máquina virtual host debe coincidir con la familia del sistema operativo invitado que se utiliza en el contenedor de un módulo. Este requisito también se aplica cuando Azure IoT Edge se ejecuta directamente en un dispositivo. Azure IoT Edge es independiente de la tecnología de virtualización subyacente y funciona en máquinas virtuales que incorporan plataformas como Hyper-V y vSphere.
+
+<br>
+<center>
+![Azure IoT Edge en una máquina virtual](./media/support/edge-on-vm.png)
+</center>
+
+## <a name="minimum-system-requirements"></a>Requisitos mínimos del sistema
+Azure IoT Edge funciona perfectamente en dispositivos tan pequeños como Raspberry Pi3 y en hardware de nivel de servidor. Elegir el hardware adecuado para cada escenario dependerá en gran medida de las cargas de trabajo que se deseen ejecutar. Tomar la decisión final sobre el dispositivo que se va a utilizar puede resultar complicado; sin embargo, puede empezar creando un prototipo de una solución en portátiles o equipos de escritorio tradicionales.
+
+La experiencia que adquiera mientras crea ese prototipo le ayudará a realizar la selección final del dispositivo. Algunas preguntas que debe tener en cuenta son: ¿cuántos módulos componen la carga de trabajo?, ¿cuántas capas comparten los contenedores de los módulos?, ¿en qué lenguajes se han escrito los módulos?, ¿cuántos datos procesarán los módulos?, ¿los módulos van a necesitar algún tipo de hardware especial para acelerar las cargas de trabajo?, ¿qué características de rendimiento desea que tenga la solución?, ¿qué presupuesto tiene para el hardware?

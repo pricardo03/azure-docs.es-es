@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478073"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165338"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -165,7 +165,10 @@ Puesto que Azure File Sync rara vez será el único servicio en ejecución en el
 > Si establece límites demasiado bajos, el rendimiento de la sincronización y la recuperación de Azure File Sync se verá afectado.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Establecimiento de límites de red de Azure File Sync
-Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets `StorageSyncNetworkLimit`. 
+Puede limitar el uso que hace Azure File Sync de la red mediante los cmdlets `StorageSyncNetworkLimit`.
+
+> [!Note]  
+> Los límites de red no se aplican cuando se accede a un archivo en niveles o se usa el cmdlet Invoke-StorageSyncFileRecall.
 
 Por ejemplo, puede crear un nuevo límite del regulador de carga de trabajo para asegurarse de que Azure File Sync no utiliza más de 10 Mbps entre las 9 a. m. y las 5 p. m. (17:00 h) durante la semana laboral: 
 

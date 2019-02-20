@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251884"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207541"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de integración del centro de datos para sistemas integrados de Azure Stack
-Si está interesado en un sistema integrado de Azure Stack, debería comprender algunas de las principales consideraciones de planeamiento acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
+Si está interesado en un sistema integrado de Azure Stack, debe comprender algunas de las principales consideraciones de planificación acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
 
 > [!NOTE]
 > Los sistemas de varios nodos de Azure Stack solo pueden adquirirse en los proveedores de hardware autorizados. 
@@ -53,8 +53,6 @@ Cuando se necesita un mayor nivel de acceso para la solución de problemas que n
 
 ### <a name="choose-identity-provider"></a>Elegir el proveedor de identidades
 Debe tener en cuenta qué proveedor de identidades desea usar para la implementación de Azure Stack, Azure AD o AD FS. No puede cambiar los proveedores de identidades tras la implementación sin volver a implementar todo el sistema. Si no dispone de su propia cuenta de Azure AD, está utilizando una que le suministró su proveedor de servicios en la nube y decide cambiar de proveedor y usar una cuenta de Azure AD diferente, deberá ponerse en contacto con el proveedor de soluciones para que vuelva a implementar la solución, aunque tendrá que asumir los costos.
-
-
 
 Su elección del proveedor de identidades no repercute en máquinas virtuales de inquilinos, en el sistema de identidades ni en las cuentas que utilizan, en si puede unirse a un dominio de Active Directory, etc. Esto es independiente.
 
@@ -110,9 +108,9 @@ Para más información acerca de qué certificados de PKI se requieren para impl
 
 
 ## <a name="time-synchronization"></a>Sincronización de la hora
-Debe elegir un servidor de tiempo específico que va a usar para sincronizar Azure Stack.  La simbolización del tiempo es fundamental para Azure Stack y sus funciones de infraestructura, ya que se utiliza para generar incidencias de Kerberos que se usan para autenticar los servicios internos entre sí.
+Debe elegir un servidor de tiempo específico que va a usar para sincronizar Azure Stack.  La sincronización de la hora es fundamental para Azure Stack y sus roles de infraestructura, ya que se utiliza para generar incidencias de Kerberos que a su vez se usan para autenticar los servicios internos entre sí.
 
-Debe especificar una dirección IP para el servidor de sincronización de tiempo; aunque la mayoría de los componentes de la infraestructura pueden resolver una dirección URL, algunos solo admiten direcciones IP. Si está utilizando la opción de implementación Desconectado, debe especificar un servidor de tiempo en la red corporativa para estar seguro de que se puede acceder desde la red de infraestructura en Azure Stack.
+Debe especificar una dirección IP para el servidor de sincronización de tiempo; aunque la mayoría de los componentes de la infraestructura pueden resolver una dirección URL, algunos solo admiten direcciones IP. Si está usando la opción de implementación Desconectada, debe especificar un servidor de tiempo en la red corporativa para asegurarse de que se puede acceder desde la red de infraestructura en Azure Stack.
 
 ## <a name="connect-azure-stack-to-azure"></a>Conectar Azure Stack a Azure
 

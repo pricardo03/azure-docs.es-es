@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104461"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113386"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalles de configuración de red para entornos de App Service para PowerApps con Azure ExpressRoute
 
@@ -59,9 +59,9 @@ App Service Environment requiere los siguientes valores de conectividad de red p
 
 * El acceso de red entrante a los puertos requeridos para las instancias de App Service Environment debe estar permitido. Para más información, consulte [Cómo controlar el tráfico de entrada a App Service Environment][requiredports].
 
-Para cumplir los requisitos de DNS, asegúrese de que se configura y se mantiene una infraestructura DNS válida para la red virtual. Si se cambia la configuración de DNS después de haber creado una instancia de App Service Environment, los desarrolladores pueden forzar a esta para que recoja la nueva configuración de DNS. Puede desencadenar un reinicio gradual del entorno mediante el icono **Reiniciar** en la administración de App Service Environment en [Azure portal][NewPortal]. El reinicio hace que el entorno recoja la nueva configuración de DNS.
+Para cumplir los requisitos de DNS, asegúrese de que se configura y se mantiene una infraestructura DNS válida para la red virtual. Si se cambia la configuración de DNS después de haber creado una instancia de App Service Environment, los desarrolladores pueden forzar a esta para que recoja la nueva configuración de DNS. Puede desencadenar un reinicio gradual del entorno mediante el icono **Restart** (Reiniciar) en la administración de App Service Environment en [Azure Portal][NewPortal]. El reinicio hace que el entorno recoja la nueva configuración de DNS.
 
-Para cumplir los requisitos de acceso de la red entrante, configure un [grupo de seguridad de red][NetworkSecurityGroups] en la subred de App Service Environment. Este grupo permite el acceso necesario [para controlar el tráfico entrante en App Service Environment][requiredports].
+Para cumplir los requisitos de acceso de la red entrante, configure un [grupo de seguridad de red (NSG)][NetworkSecurityGroups] en la subred de App Service Environment. Este grupo permite el acceso necesario [para controlar el tráfico entrante en App Service Environment][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Conectividad de red saliente
 
@@ -148,16 +148,23 @@ Ahora ya está listo para implementar App Service Environment.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a trabajar con App Service Environment, consulte [Introducción a App Service Environment][IntroToAppServiceEnvironment].
+Para empezar a trabajar con App Service Environment para PowerApps, consulte [Introducción a App Service Environment][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
-[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
-[requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]: app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/ 
+[requiredports]: app-service-app-service-environment-control-inbound-traffic.md 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/ 
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell 
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md 
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
+[NewPortal]:  https://portal.azure.com 
 
 
 <!-- IMAGES -->

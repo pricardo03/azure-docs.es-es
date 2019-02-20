@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247761"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: integración de Azure Active Directory con My Award Points Top Sub/Top Team
 
@@ -151,7 +152,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/myawardpoints-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -161,7 +162,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>Creación de un usuario de prueba de My Award Points Top Sub/Top Team
 
-En esta sección, creará el usuario Britta Simon en My Award Points Top Sub/Top Team. Trabaje con el [equipo de soporte técnico de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com) para agregar los usuarios en la plataforma de My Award Points Top Sub/Top Team. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará el usuario Britta Simon en My Award Points Top Sub/Top Team. Trabaje con el  [equipo de soporte técnico de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com)  para agregar usuarios en la plataforma de My Award Points Top Sub/Top Team. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -198,7 +199,7 @@ En esta sección, concederá acceso a Britta Simon a My Award Points Top Sub/Top
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de My Award Points Top Sub/Top Team en el panel de acceso, debería iniciar sesión automáticamente en esta aplicación.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

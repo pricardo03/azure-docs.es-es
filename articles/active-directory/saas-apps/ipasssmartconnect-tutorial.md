@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ecfdd3fae1d394e3b57fcd325f44cad0d1a98534
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444901"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: integración de Azure Active Directory con iPass SmartConnect
 
@@ -126,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | email | user.userprincipalname | |
     | nombre de usuario | user.userprincipalname | |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/ipasssmartconnect-tutorial/tutorial_attribute_04.png)
 
@@ -174,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/ipasssmartconnect-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -184,7 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-an-ipass-smartconnect-test-user"></a>Creación de un usuario de prueba iPass SmartConnect
 
-En esta sección, creará la usuaria llamada Britta Simon en iPass SmartConnect. Colabore con el [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com) para agregar los usuarios o el dominio que deben incluirse en la lista blanca en la plataforma de iPass SmartConnect. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de iPass SmartConnect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará la usuaria llamada Britta Simon en iPass SmartConnect. Colabore con el  [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com)  para agregar los usuarios o el dominio que deben incluirse en la lista blanca en la plataforma de iPass SmartConnect. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de iPass SmartConnect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -222,7 +223,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 **Para probar la aplicación en el flujo iniciado por SP, realice los pasos siguientes:**
 
-a. Descargue el cliente iPass SmartConnect para Windows [aquí](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
+ a. Descargue el cliente iPass SmartConnect para Windows [aquí](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
 ![El vínculo de iPass SmartConnect en la lista de aplicaciones](./media/ipasssmartconnect-tutorial/testing3.png)
 
@@ -240,7 +241,7 @@ e. Tras la autenticación correcta, se iniciará la activación del cliente. Se 
 
 **Para probar la aplicación en el flujo iniciado por IdP, realice los pasos siguientes:**
 
-a. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
+ a. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 b. Haga clic en la aplicación iPass SmartConnect.
 

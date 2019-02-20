@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696870"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204379"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Vista previa: Implementación de la protección con contraseña de Azure AD
 
@@ -169,7 +170,7 @@ Se necesitan dos instaladores para la protección con contraseña de Azure AD qu
       Los ejemplos anteriores solo generarán un resultado correcto si el usuario registrado actualmente también es un administrador de dominios de Active Directory para el dominio raíz. De no ser así, debe proporcionar credenciales de dominio alternativas con el parámetro -ForestCredential.
 
    > [!NOTE]
-   > Si hay varios servidores proxy instalados en el entorno, no importa qué servidor proxy se usa para registrar el bosque.
+   > Si hay varios servidores proxy instalados en el entorno, no importa qué servidor proxy use para registrar el bosque.
 
    > [!TIP]
    > Puede haber un retraso considerable (muchos segundos) la primera vez que se ejecuta este cmdlet para un inquilino de Azure determinado antes de que finalice la ejecución del cmdlet. A menos que se notifique un error, este retraso no debería considerarse alarmante.

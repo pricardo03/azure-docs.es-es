@@ -16,24 +16,25 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092786"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234432"
 ---
 # <a name="id-tokens"></a>Tokens de identificador
 
-Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v1-protocols-openid-connect-code.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario. 
+Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v1-protocols-openid-connect-code.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
 
 ## <a name="using-the-idtoken"></a>Uso del id_token
 
-Los tokens de identificador se deben usar para validar que un usuario es quien dice ser y obtener información útil adicional sobre ellos: no deben usarse para la autorización en lugar de un [token de acceso](access-tokens.md). Las notificaciones que proporciona pueden usarse para la experiencia del usuario en la aplicación, seleccionar una base de datos y proporcionar acceso a la aplicación cliente. 
+Los tokens de identificador se deben usar para validar que un usuario es quien dice ser y obtener información útil adicional sobre ellos: no deben usarse para la autorización en lugar de un [token de acceso](access-tokens.md). Las notificaciones que proporciona pueden usarse para la experiencia del usuario en la aplicación, seleccionar una base de datos y proporcionar acceso a la aplicación cliente.
 
 ## <a name="claims-in-an-idtoken"></a>Notificaciones de un id_token
 
-Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la carga para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario solicitada por el cliente. Excepto donde se indique, todas las notificaciones que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
+Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
 
 ### <a name="v10"></a>v1.0
 

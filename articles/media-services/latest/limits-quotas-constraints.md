@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700322"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190966"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cuotas y limitaciones en Azure Media Services v3
 
@@ -37,7 +37,7 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Cuentas de Media Services en una suscripción única | 25 (fijo) |
 | Salidas en vivo con el estado En ejecución por LiveEvent |3|
 | Cuentas de almacenamiento | 100<sup>(4)</sup> (cantidad fija) |
-| Puntos de conexión de streaming con el estado En ejecución por cuenta de Media Services|2|
+| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2|
 | Directivas de streaming | 100 <sup>(3)</sup> |
 | Transformaciones por cuenta de Media Services | 100 (cantidad fija)|
 | Localizadores de streaming únicos asociados con un recurso al mismo tiempo | 100<sup>(5)</sup> (cantidad fija) |

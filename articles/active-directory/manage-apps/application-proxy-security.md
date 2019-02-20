@@ -3,8 +3,8 @@ title: Consideraciones de seguridad para el Proxy de aplicación de Azure AD | M
 description: Se tratan las consideraciones de seguridad al utilizar el Proxy de aplicación de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813830"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207235"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
@@ -147,7 +148,7 @@ Si la aplicación está configurada para usar la autenticación previa con Azure
 
 2. Una vez que hayan pasado todas las comprobaciones, el STS de Azure AD emite un token firmado para la aplicación y redirige al usuario al servicio de Proxy de aplicación.
 
-3. El Proxy de aplicación comprueba que el token se haya emitido para corregir la aplicación. También realiza otras comprobaciones como verificar que el token se firmó con Azure AD y que sigue dentro de la ventana válida.
+3. El proxy de aplicación comprueba que el token se haya emitido para corregir la aplicación. También realiza otras comprobaciones como verificar que el token se firmó con Azure AD y que sigue dentro de la ventana válida.
 
 4. El Proxy de aplicación establece una cookie de autenticación cifrada para indicar que se ha producido la autenticación para la aplicación. Esta cookie incluye una marca de tiempo de expiración basada en el token de Azure AD y otros datos, como el nombre de usuario en que se basa la autenticación. Esta cookie se cifra con una clave privada conocida solo por el servicio de Proxy de aplicación.
 

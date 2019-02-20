@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476043"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234193"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 
@@ -117,7 +117,7 @@ Suscríbase a eventos de Service Bus para responder a mensajes sin un agente de 
 | [Información general: Integración de Azure Service Bus en Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Información general de la integración de Service Bus con Event Grid. |
 | [Esquema del evento](event-schema-service-bus.md) | Muestra los campos de los eventos de Service Bus. |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 Suscríbase a eventos de Blob Storage para responder a eventos creados y eliminados del blob.
 
@@ -131,6 +131,16 @@ Suscríbase a eventos de Blob Storage para responder a eventos creados y elimina
 | [Plantilla de Resource Manager: Creación de almacenamiento y suscripción de blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa una cuenta de Azure Blob Storage y crea una suscripción a eventos de dicha cuenta. Envía eventos a un webhook. |
 | [Introducción: reacción ante eventos de Blob Storage](../storage/blobs/storage-blob-event-overview.md) | Información general de la integración de Blob Storage con Event Grid. |
 | [Esquema del evento](event-schema-blob-storage.md) | Muestra los campos de los eventos de Blob Storage. |
+
+## <a name="maps"></a>Mapas
+Suscribirse a eventos de Azure Maps para responder a eventos de la geovalla. Por ejemplo, una aplicación puede entregar una notificación por correo electrónico cada vez que un dispositivo entra o sale de una geovalla.
+
+|Título  |DESCRIPCIÓN  |
+|---------|---------|
+| [Reaccionar a eventos de Azure Maps mediante Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure Maps con Event Grid. |
+| [Tutorial: configuración de una geovalla](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial le guiará por los pasos básicos para configurar la geovalla con Azure Maps. Usará Azure Event Grid para transmitir los resultados de la geovalla y establecer una notificación basada en los resultados de esa geovalla. |
+| [Esquema del evento](event-schema-azure-maps.md) | Muestra los campos en los eventos de Azure Maps. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

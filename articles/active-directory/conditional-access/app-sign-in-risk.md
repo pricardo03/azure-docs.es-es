@@ -16,16 +16,17 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081966"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206181"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: bloqueo del acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
-Para mantener el entorno protegido, puede bloquear el inicio de sesión de cualquier usuario sospechoso. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analiza todos los inicios de sesión y calcula la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya sido el que haya realizado un intento de inicio de sesión. Dicha probabilidad (baja, media, alta) se indica en forma de un valor calculado denominado [niveles de riesgo de inicio de sesión](conditions.md#sign-in-risk). Al establecer la condición de riesgo del inicio de sesión, puede configurar una directiva de acceso condicional que responda a niveles de riesgo de inicio de sesión concretos. 
+Para mantener el entorno protegido, puede bloquear el inicio de sesión de los usuarios sospechosos. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analiza todos los inicios de sesión y calcula la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya sido el que haya realizado un intento de inicio de sesión. Dicha probabilidad (baja, media, alta) se indica en forma de un valor calculado denominado [niveles de riesgo de inicio de sesión](conditions.md#sign-in-risk). Al establecer la condición de riesgo del inicio de sesión, puede configurar una directiva de acceso condicional que responda a niveles de riesgo de inicio de sesión concretos. 
 
 En esta guía de inicio rápido se muestra cómo configurar una [directiva de acceso condicional](../active-directory-conditional-access-azure-portal.md) que bloquee un inicio de sesión cuando se haya detectado un nivel de riesgo de inicio de sesión configurado. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Workspot Control | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Workspot Control | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312193"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211162"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integración de Azure Active Directory con Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: integración de Azure Active Directory con Workspot Control
 
 En este tutorial, aprenderá a integrar Workspot Control con Azure Active Directory (Azure AD).
 
@@ -111,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<INSTANCENAME>-saml.workspot.com/saml/assertion`
 
@@ -132,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     Tenga en cuenta que en la dirección URL puede poner lo siguiente:
 
-    a. URL de inicio de sesión
+     a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -142,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 7. En otra ventana del explorador web, inicie sesión en Workspot Control como administrador de seguridad.
 
-8. En la barra de herramientas en la parte superior de la página, haga clic en **Configuración** y vaya a **SAML**.
+8. En la barra de herramientas en la parte superior de la página, haga clic en  **Setup** (Configuración) y vaya a  **SAML**.
 
     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. En el cuadro de texto **Identificador de entidad**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.   
+     a. En el cuadro de texto **Identificador de entidad**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.   
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -176,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/workspotcontrol-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -193,7 +194,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workspot Control, 
 
 1. Inicie sesión en Workspot Control como administrador de seguridad.
 
-2. En la barra de herramientas situada en la parte superior de la página, haga clic en **Usuarios** y, después, vaya a **Agregar usuario**.
+2. En la barra de herramientas de la parte superior de la página, haga clic en  **Users** (Usuarios) y vaya a  **Add user** (Agregar usuario).
 
     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -201,7 +202,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workspot Control, 
 
     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
+     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Last Name** (Apellidos), escriba los apellidos del usuario, en este caso **Simon**.
 
@@ -242,7 +243,7 @@ En esta sección, concederá acceso a Britta Simon a Workspot Control para que u
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Workspot Control en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Workspot Control.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

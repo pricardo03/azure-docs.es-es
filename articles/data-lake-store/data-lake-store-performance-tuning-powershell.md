@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123324"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235609"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Guía de ajuste del rendimiento para usar PowerShell con Azure Data Lake Storage Gen1
 
 En este artículo se enumeran las propiedades que se pueden ajustar para obtener un mejor rendimiento al usar PowerShell para trabajar con Azure Data Lake Storage Gen1:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Propiedades relacionadas con el rendimiento
 
@@ -33,13 +35,13 @@ En este artículo se enumeran las propiedades que se pueden ajustar para obtener
 
 Este comando descarga los archivos de Data Lake Storage Gen1 en la unidad local del usuario con 20 subprocesos por archivo y 100 archivos simultáneos.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>¿Cómo se determina el valor de estas propiedades?
 
 La siguiente pregunta que puede tener es cómo se determina el valor que se proporciona para las propiedades relacionadas con el rendimiento. A continuación hay algunas instrucciones que puede usar.
 
-* **Paso 1: Determinación del número total de subprocesos**: debe empezar por calcular el recuento total de subprocesos que se usará. Como norma general, debe usar seis subprocesos por cada núcleo físico.
+* **Paso 1: Determine el número total de subprocesos**: debe empezar por calcular el recuento total de subprocesos que se usará. Como norma general, debe usar seis subprocesos por cada núcleo físico.
 
         Total thread count = total physical cores * 6
 
@@ -50,7 +52,7 @@ La siguiente pregunta que puede tener es cómo se determina el valor que se prop
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **Paso 2: Cálculo de PerFileThreadCount**: calculamos nuestro PerFileThreadCount en función del tamaño de los archivos. En los archivos menores de 2,5 GB, no hay necesidad de cambiar este parámetro, ya que el valor predeterminado (10) es suficiente. En los archivos mayores de 2,5 GB, debe usar diez subprocesos como base para los primeros 2,5 GB y agregar uno por cada aumento de 256 MB en el tamaño del archivo. Si está copiando una carpeta con muchos tamaños de archivo, considere la posibilidad de agruparlos por tamaños de archivo similares. Tener tamaños de archivo diferentes puede provocar un rendimiento no óptimo. Si no es posible agrupar los archivos con un tamaño similar, debe establecer PerFileThreadCount en función del tamaño de archivo más grande.
+* **Paso 2: Cálculo de PerFileThreadCount**: calculamos el valor de PerFileThreadCount en función del tamaño de los archivos. En los archivos menores de 2,5 GB, no hay necesidad de cambiar este parámetro, ya que el valor predeterminado (10) es suficiente. En los archivos mayores de 2,5 GB, debe usar diez subprocesos como base para los primeros 2,5 GB y agregar uno por cada aumento de 256 MB en el tamaño del archivo. Si está copiando una carpeta con muchos tamaños de archivo, considere la posibilidad de agruparlos por tamaños de archivo similares. Tener tamaños de archivo diferentes puede provocar un rendimiento no óptimo. Si no es posible agrupar los archivos con un tamaño similar, debe establecer PerFileThreadCount en función del tamaño de archivo más grande.
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
@@ -60,7 +62,7 @@ La siguiente pregunta que puede tener es cómo se determina el valor que se prop
 
         PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads
 
-* **Paso 3: Cálculo de ConcurrentFilecount**: use el número total de subprocesos y PerFileThreadCount para calcular ConcurrentFileCount basado en la siguiente ecuación:
+* **Paso 3: Cálculo de ConcurrentFilecount**: use el número total de subprocesos y PerFileThreadCount para calcular ConcurrentFileCount en función de la siguiente ecuación:
 
         Total thread count = PerFileThreadCount * ConcurrentFileCount
 
@@ -86,15 +88,15 @@ Puede continuar ajustando esta configuración aumentando o reduciendo **PerFileT
 
 * **El número de archivos es menor que ConcurrentFileCount**: si el número de archivos que va a cargar es menor que el valor de **ConcurrentFileCount** que ha calculado, debería reducir **ConcurrentFileCount** para que sea igual al número de archivos. También puede utilizar los subprocesos restantes para aumentar **PerFileThreadCount**.
 
-* **Demasiados subprocesos**: si aumenta demasiado el número de subprocesos sin aumentar el tamaño del clúster, corre el riesgo de degradar el rendimiento. Puede haber problemas de contención al cambiar de contexto en la CPU.
+* **Demasiados subprocesos**: si aumenta demasiado el número de subprocesos sin aumentar a su vez el tamaño del clúster, corre el riesgo de reducir el rendimiento. Puede haber problemas de contención al cambiar de contexto en la CPU.
 
-* **Simultaneidad insuficiente**: si la simultaneidad no es suficiente, el clúster puede ser demasiado pequeño. Puede aumentar el número de nodos en el clúster, lo que proporciona más simultaneidad.
+* **Simultaneidad insuficiente**: si la simultaneidad no es suficiente, es posible que el clúster sea demasiado pequeño. Puede aumentar el número de nodos en el clúster, lo que proporciona más simultaneidad.
 
 * **Errores de limitación**: es posible que vea errores de limitación si la simultaneidad es demasiado alta. Si ve errores de limitación, reduzca la simultaneidad o póngase en contacto con nosotros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Uso de Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

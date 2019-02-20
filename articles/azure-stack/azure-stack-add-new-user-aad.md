@@ -3,7 +3,7 @@ title: Incorporación de una nueva cuenta de inquilino de Azure Stack en Azure A
 description: Después de implementar el Kit de desarrollo de Microsoft Azure Stack, tendrá que crear una cuenta de usuario de al menos un inquilino para poder explorar el portal del inquilino.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240326"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163230"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adición de una nueva cuenta de inquilino de Azure Stack en Azure Active Directory
 
@@ -56,14 +56,12 @@ Debe tener una suscripción de Azure para usar el Portal de Azure.
 7. Inicie sesión en Microsoft Azure Portal con la nueva cuenta. Cambie la contraseña cuando se le solicite.
 8. Inicie sesión en `https://portal.local.azurestack.external` con la nueva cuenta para ver el portal del inquilino.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Creación de una cuenta de inquilino de Azure Stack con PowerShell
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>Crear una cuenta de usuario de Azure Stack con PowerShell
 
 Si no tiene una suscripción de Azure, no puede usar Azure Portal para agregar una cuenta de usuario de inquilino. En este caso, puede usar el módulo Azure Active Directory para Windows PowerShell.
 
 > [!NOTE]
 > Si usa una cuenta Microsoft (Live ID) para implementar el Kit de desarrollo de Azure Stack, no se puede usar PowerShell de AAD para crear la cuenta de inquilino. 
-> 
-> 
 
 1. Instale el [Ayudante para el inicio de sesión de Microsoft Online Services para profesionales de TI (RTW)](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
 2. Instale el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) y ábralo.
@@ -85,3 +83,6 @@ Si no tiene una suscripción de Azure, no puede usar Azure Portal para agregar u
 1. Inicie sesión en Microsoft Azure con la nueva cuenta. Cambie la contraseña cuando se le solicite.
 2. Inicie sesión en `https://portal.local.azurestack.external` con la nueva cuenta para ver el portal del inquilino.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+[Agregar usuarios de Azure Stack a AD FS](azure-stack-add-users-adfs.md)

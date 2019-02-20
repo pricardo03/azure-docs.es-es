@@ -4,7 +4,7 @@ description: En este artículo se proporciona información general sobre las car
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584781"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116327"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -110,12 +110,12 @@ La protección de datos comienza con el control de acceso a los datos. El centro
 
 El servicio Azure SQL Database solo está disponible a través del puerto TCP 1433. Para obtener acceso a una instancia de SQL Database desde el equipo, asegúrese de que el firewall de equipos cliente permite la comunicación TCP saliente en el puerto TCP 1433. Si no es necesario tener conexiones internas para otras aplicaciones, bloquéelas en el puerto TCP 1433.
 
-#### <a name="authentication"></a>Autenticación
+#### <a name="authentication"></a>Authentication
 
 La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. SQL Database admite dos tipos de autenticación:
 
--   **Autenticación de SQL Server:** cuando se crea una instancia lógica de SQL, se crea también una cuenta de inicio de sesión único, que se denomina Cuenta de suscriptor de SQL Database. Esta cuenta se conecta mediante la [autenticación de SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nombre de usuario y contraseña). Esta cuenta es un administrador en la instancia del servidor lógico y en todas las bases de datos de usuario asociadas a dicha instancia. Los permisos de la cuenta del suscriptor no se pueden restringir. Solo puede existir una de estas cuentas.
--   **Autenticación de Azure Active Directory**: la [autenticación de Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) es un mecanismo de conexión a Azure SQL Database y Azure SQL Data Warehouse mediante identidades de Azure AD. Esto le permite administrar de forma centralizada las identidades de los usuarios de bases de datos.
+-   **Autenticación de SQL Server**: Cuando se crea una instancia lógica de SQL, se crea también una cuenta de inicio de sesión único, que se denomina Cuenta de suscriptor de SQL Database. Esta cuenta se conecta mediante la [autenticación de SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nombre de usuario y contraseña). Esta cuenta es un administrador en la instancia del servidor lógico y en todas las bases de datos de usuario asociadas a dicha instancia. Los permisos de la cuenta del suscriptor no se pueden restringir. Solo puede existir una de estas cuentas.
+-   **Autenticación de Azure Active Directory**: [La autenticación de Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) es un mecanismo de conexión a Azure SQL Database y Azure SQL Data Warehouse mediante identidades de Azure AD. Esto le permite administrar de forma centralizada las identidades de los usuarios de bases de datos.
 
 ![Autenticar Azure AD con SQL Database](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -176,8 +176,8 @@ Puede usar la auditoría de SQL Database para:
 
 Existen dos métodos de auditoría:
 
--   **Auditoría de blobs**: los registros se escriben en Azure Blob Storage. Este es el método de auditoría más reciente. Proporciona un mayor rendimiento, admite auditorías de nivel de objeto de mayor granularidad y es más rentable.
--   **Auditoría de tablas**: los registros se escriben en Azure Table Storage.
+-   **Auditoría de blobs**: Los registros se escriben en Azure Blob Storage. Este es el método de auditoría más reciente. Proporciona un mayor rendimiento, admite auditorías de nivel de objeto de mayor granularidad y es más rentable.
+-   **Auditoría de tablas**: Los registros se escriben en Azure Table Storage.
 
 ### <a name="threat-detection"></a>Detección de amenazas
 

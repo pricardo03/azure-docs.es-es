@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Spotinst | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Spotinst | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Spotinst.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 7edf1cbc5cc351e25a9ae7b319768376ea9968a3
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267537"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173664"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: Integración de Azure Active Directory con Spotinst
+# <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: integración de Azure Active Directory con Spotinst
 
 En este tutorial, aprenderá a integrar Spotinst con Azure Active Directory (Azure AD).
 
@@ -107,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Spotinst](./media/spotinst-tutorial/tutorial_spotinst_url1.png)
 
-    a. Active **Mostrar configuración avanzada de URL**.
+     a. Active **Mostrar configuración avanzada de URL**.
 
     b. En el cuadro de texto **Estado de la retransmisión**, escriba un valor: `<ID>`
 
@@ -128,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Nombre | user.givenname |
     | Apellidos | user.surname |
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/spotinst-tutorial/tutorial_attribute_04.png)
 
@@ -160,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Seguridad de Spotinst](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
-    a. Copie el valor de **Estado de la retransmisión** de su instancia y péguelo en el cuadro de texto **Estado de la retransmisión** de la sección **Dominio y direcciones URL de Spotinst** de Azure Portal.
+     a. Copie el valor de **Estado de la retransmisión** de su instancia y péguelo en el cuadro de texto **Estado de la retransmisión** de la sección **Dominio y direcciones URL de Spotinst** de Azure Portal.
 
     b. Haga clic en **EXAMINAR** para cargar el archivo XML de metadatos que descargó de Azure Portal.
 
@@ -190,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/spotinst-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -204,7 +205,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 1. Si ha configurado la aplicación en modo iniciado por **SP**, realice los siguientes pasos:
 
-   a. En otra ventana del explorador web, inicie sesión en Spotinst como administrador de seguridad.
+    a. En otra ventana del explorador web, inicie sesión en Spotinst como administrador de seguridad.
 
    b. Haga clic en el **icono de usuario** en la parte superior derecha de la pantalla y haga clic en **Configuración**.
 
@@ -261,7 +262,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Spotinst en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Spotinst.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

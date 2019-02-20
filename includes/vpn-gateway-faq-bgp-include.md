@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/14/2019
+ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306886"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56247137"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
 No, BGP se admite solo en las puertas de enlace VPN de Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** y **HighPerformance**. **Basic** NO se admite.
@@ -49,6 +49,9 @@ La puerta de enlace de VPN de Azure anunciará las siguientes rutas a sus dispos
 * Sus prefijos de dirección de red virtual
 * Los prefijos de dirección de todas las puertas de enlace de red local conectadas a la puerta de enlace de VPN de Azure
 * Las rutas aprendidas en otras sesión de intercambio de tráfico (peering) de BGP conectadas a la puerta de enlace de VPN de Azure, **excepto la ruta predeterminada o las rutas superpuestas con cualquier prefijo de red virtual**.
+
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>¿Cuántos prefijos se pueden anunciar en Azure VPN Gateway?
+Se admiten hasta 4000 prefijos. Si el número de prefijos supera el límite, se elimina la sesión BGP.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>¿Puedo anunciar la ruta predeterminada (0.0.0.0/0) para puertas de enlace de VPN de Azure?
 Sí.

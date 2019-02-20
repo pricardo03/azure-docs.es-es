@@ -4,7 +4,7 @@ description: En este artículo se proporciona una descripción general de la red
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114035"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116939"
 ---
 # <a name="the-azure-production-network"></a>Red de producción de Azure
 Entre los usuarios de la red de producción de Azure se incluyen clientes externos que acceden a sus propias aplicaciones de Azure, así como el personal interno del servicio de soporte técnico de Azure que administra la red de producción. En este artículo se describen los métodos de acceso de seguridad y los mecanismos de protección para establecer conexiones a la red de producción de Azure.
@@ -58,14 +58,14 @@ Azure implementa firewalls de software basados en host dentro de la red de produ
 
 Existen dos categorías de reglas que se programan aquí:
 
-- **Reglas de configuración de la máquina o la infraestructura**: de forma predeterminada, se bloquea toda la comunicación. Existen excepciones que permiten a una VM enviar y recibir comunicaciones de Protocolo de configuración dinámica de host (DHCP) e información de DNS, y enviar tráfico a la salida de Internet "pública" a otras máquinas virtuales dentro del clúster de FC y del servidor de activación de SO. Dado que la lista de destinos de salida permitidos de las máquinas virtuales no incluye subredes de enrutador de Azure y otras propiedades de Microsoft, las reglas funcionan como capa de defensa.
-- **Reglas del archivo de configuración de roles**: define las ACL de entrada según el modelo de servicio de los inquilinos. Por ejemplo, si un inquilino tiene un front-end web en el puerto 80 en una determinada VM, el puerto 80 está abierto a todas las direcciones IP. Si la VM tiene un rol de trabajo en ejecución, rol de trabajo estará abierto únicamente para la VM dentro del mismo inquilino.
+- **Reglas de infraestructura o configuración de la máquina:** De forma predeterminada, se bloquea toda comunicación. Existen excepciones que permiten a una VM enviar y recibir comunicaciones de Protocolo de configuración dinámica de host (DHCP) e información de DNS, y enviar tráfico a la salida de Internet "pública" a otras máquinas virtuales dentro del clúster de FC y del servidor de activación de SO. Dado que la lista de destinos de salida permitidos de las máquinas virtuales no incluye subredes de enrutador de Azure y otras propiedades de Microsoft, las reglas funcionan como capa de defensa.
+- **Reglas del archivo de configuración de roles:** define las ACL de entrada según el modelo de servicio de los inquilinos. Por ejemplo, si un inquilino tiene un front-end web en el puerto 80 en una determinada VM, el puerto 80 está abierto a todas las direcciones IP. Si la VM tiene un rol de trabajo en ejecución, rol de trabajo estará abierto únicamente para la VM dentro del mismo inquilino.
 
 **Firewall de host nativo**: Azure Service Fabric y Azure Storage se ejecutan en un sistema operativo nativo que no tiene hipervisor y, por tanto, el firewall de Windows se configura con los dos conjuntos de reglas anteriores.
 
 **Firewall de host**: el firewall del host protege la partición del host, que ejecuta el hipervisor. Las reglas se programan para permitir que solo el FC y los cuadros de salto se comuniquen con la partición del host en un puerto específico. Las otras excepciones son para permitir la respuesta DHCP y las respuestas DNS. Azure usa un archivo de configuración de la máquina, que tiene la plantilla de reglas de firewall para la partición del host. También existe una excepción de firewall de host que permite que las VM se comuniquen con los componentes del host, el servidor de conexión y el servidor de metadatos, a través de protocolos y puertos específicos.
 
-**Firewall de invitado**: es la parte del firewall de Windows del sistema operativo invitado, que el cliente puede configurar en las VM y en el almacenamiento del cliente.
+**Firewall de invitado**: es la parte del firewall de Windows del sistema operativo invitado, que el cliente puede configurar en las máquinas virtuales y en el almacenamiento del cliente.
 
 Las características adicionales de seguridad integradas en las funcionalidades de Azure incluyen lo siguiente:
 
@@ -80,7 +80,7 @@ Las características adicionales de seguridad integradas en las funcionalidades 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
 
-- [Azure facilities, premises, and physical security](azure-physical-security.md) (Instalaciones de Azure, locales y seguridad física)
+- [Instalaciones de Azure, entornos locales y seguridad física](azure-physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](azure-infrastructure-availability.md)
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
 - [Arquitectura de red de Azure](azure-infrastructure-network.md)

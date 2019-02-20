@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468876"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116855"
 ---
 # <a name="choose-the-right-consistency-level"></a>Selección del nivel de coherencia adecuado 
 
@@ -33,6 +33,8 @@ Tenga en cuenta los siguientes aspectos si la aplicación se compila mediante la
 - Si necesita garantías de coherencia menos estrictas que las que proporciona la coherencia de la sesión, se recomienda utilizar el nivel de coherencia de prefijo coherente.
 
 - Si necesita la máxima disponibilidad y latencia más baja, use el nivel de posible coherencia.
+
+- Si necesita obtener una mayor durabilidad de los datos sin tener que sacrificar el rendimiento, puede crear un nivel de coherencia personalizado en el nivel de aplicación. Para obtener más información, consulte [How-to implement custom synchronization in your applications](how-to-custom-synchronization.md) (Cómo implementar la sincronización personalizada en las aplicaciones).
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra, MongoDB y Gremlin API
 

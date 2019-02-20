@@ -1,6 +1,6 @@
 ---
-title: Configuración de la replicación con Instancia administrada de Azure SQL Database | Microsoft Docs
-description: Más información sobre cómo configurar la replicación transaccional en Instancia administrada de Azure SQL Database
+title: Configuración de la replicación de una base de datos de instancias administradas de Azure SQL Database | Microsoft Docs
+description: Aprenda a configurar la replicación transaccional en una base de datos de instancias administradas de Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467670"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893025"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configuración de la replicación con Instancia administrada de Azure SQL Database
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancias administradas de Azure SQL Database
 
-La replicación transaccional le permite replicar datos de las bases de datos de SQL Server o Instancia administrada de Azure SQL Database en la Instancia administrada, así como insertar los cambios realizados en las bases de datos de Instancia administrada en otra instancia de SQL Server, base de datos única o grupo elástico de SQL Database, u otra Instancia administrada. La replicación está disponible en su versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Consulte [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) (Configuraciones de replicación transaccional) para ver las configuraciones disponibles.
+La replicación transaccional permite replicar datos en una base de datos de instancias administradas de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias. También puede usar la replicación transaccional para insertar los cambios realizados en una base de datos de Instancia administrada de Azure SQL Database en una base de datos de SQL Server, en una base de datos única de Azure SQL Database o en una base de datos agrupada en un grupo elástico de Azure SQL Database. La replicación está disponible en versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar bases de datos del publicador, distribuidor y suscriptor. Consulte las [configuraciones de la replicación transaccional](sql-database-managed-instance-transactional-replication.md#common-configurations) para ver las opciones disponibles.
 
 ## <a name="requirements"></a>Requisitos
 
-Se requiere el publicador y el distribuidor en Azure SQL Database:
+Para configurar una instancia administrada de forma que funcione como un publicador o distribuidor, deben darse las siguientes condiciones:
 
-- Instancia administrada de Azure SQL Database no debe estar en la configuración de recuperación ante desastres geográfica.
+- La instancia administrada no debe participar actualmente en una relación de replicación geográfica.
 
    >[!NOTE]
-   >Las bases de datos de SQL Azure Database que no están configuradas con Instancia administrada solo pueden ser suscriptores.
+   >Las bases de datos únicas y agrupadas de Azure SQL Database solo pueden actuar como suscriptores.
 
-- Todas las instancias de SQL Server deben estar en la misma red virtual.
+- Las instancias administradas deben estar en la misma red virtual.
 
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.
 
-- El puerto 445 (salida TCP) debe estar abierto en las reglas de seguridad de la subred de Instancia administrada para obtener acceso al recurso compartido de archivos de Azure
+- El puerto 445 (salida TCP) debe estar abierto en las reglas de seguridad de la subred de la instancia administrada para tener acceso al recurso compartido de archivos de Azure
 
 ## <a name="features"></a>Características
 
 Admite:
 
-- Mezcla de replicación de instantáneas y transaccional de instancias locales y de Instancia administrada de Azure SQL Database.
-
-- Los suscriptores pueden ser bases de datos únicas y locales de Azure SQL Database, o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
-
+- Una combinación de la replicación de instantáneas y la replicación transaccional de instancias locales de SQL Server e instancias administradas de Azure SQL Database.
+- Los suscriptores pueden ser bases de datos locales de SQL Server, bases de datos únicas de Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
 - Replicación unidireccional o bidireccional.
 
-No se admiten las siguientes características:
+La siguientes características no pueden utilizarse en las instancias administradas de Azure SQL Database:
 
 - Suscripciones actualizables.
-
 - Replicación geográfica activa.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configuración del ejemplo de publicación y distribución
 
-1. [Cree una Instancia administrada de Azure SQL Database](sql-database-managed-instance-create-tutorial-portal.md) en el portal.
+1. [Cree una instancia administrada de Azure SQL Database](sql-database-managed-instance-create-tutorial-portal.md) en el portal.
 2. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo.
 
    Asegúrese de copiar las claves de almacenamiento. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Cree una base de datos para el publicador.
+3. Cree una base de datos de instancias para el publicador.
 
-   En los scripts de ejemplo siguientes, reemplace `<Publishing_DB>` por el nombre de esta base de datos.
+   En los scripts de ejemplo siguientes, reemplace `<Publishing_DB>` por el nombre de esta base de datos de instancias.
 
 4. Cree un usuario de base de datos con autenticación de SQL para el distribuidor. Utilice una contraseña segura.
 

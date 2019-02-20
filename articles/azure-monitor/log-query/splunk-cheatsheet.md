@@ -1,6 +1,6 @@
 ---
-title: Splunk en Azure Log Analytics | Microsoft Docs
-description: Ayude a los usuarios que conozcan Splunk a aprender el lenguaje de consulta de Log Analytics.
+title: Consulta de registro de Splunk en Azure Monitor | Microsoft Docs
+description: Ayuda para los usuarios que están familiarizados con Splunk a la hora de obtener información sobre las consultas de registro de Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,38 +13,38 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 61f0cff661c79f994a5b3c20646996f617a31b7e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885924"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005257"
 ---
-# <a name="splunk-to-log-analytics"></a>Splunk en Log Analytics
+# <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registro de Splunk en Azure Monitor
 
-El fin de este artículo es ayudar a los usuarios que conocen Splunk a aprender el lenguaje de consulta de Log Analytics. Se realizan comparaciones directas entre ambos para conocer las principales diferencias y similitudes donde puede aprovechar los conocimientos que posee.
+Este artículo sirve de ayuda para que los usuarios que están familiarizados con Splunk obtengan información sobre el lenguaje de consulta de Data Explorer para escribir consultas de registro en Azure Monitor. Se realizan comparaciones directas entre ambos para conocer las principales diferencias y similitudes donde puede aprovechar los conocimientos que posee.
 
 ## <a name="structure-and-concepts"></a>Estructura y conceptos
 
-En la tabla siguiente se comparan los conceptos y las estructuras de datos de Splunk y Log Analytics.
+En la tabla siguiente se comparan los conceptos y las estructuras de datos en los registros de Splunk y Azure Monitor.
 
- | Concepto  | Splunk | Log Analytics |  Comentario
+ | Concepto  | Splunk | Azure Monitor |  Comentario
  | --- | --- | --- | ---
- | Unidad de implementación  | cluster |  cluster |  Log Analytics permite consultas arbitrarias entre clústeres. Splunk no lo permite. |
+ | Unidad de implementación  | cluster |  cluster |  Azure Monitor permite consultas arbitrarias entre clústeres. Splunk no lo permite. |
  | Memorias caché de datos |  cubos  |  Directivas de retención y almacenamiento en caché |  Controla el período y el nivel de almacenamiento en caché de los datos. Este valor afecta directamente al rendimiento de las consultas y al costo de la implementación. |
  | Partición lógica de los datos  |  index  |  Base de datos  |  Permite la separación lógica de los datos. Ambas implementaciones permiten uniones y la combinación de estas particiones. |
- | Metadatos de eventos estructurados | N/D | table |  Splunk no tiene el concepto que se expone al lenguaje de búsqueda de metadatos de eventos. Log Analytics tiene el concepto de una tabla, que tiene columnas. Cada instancia de un evento se asigna a una fila. |
+ | Metadatos de eventos estructurados | N/D | table |  Splunk no tiene el concepto que se expone al lenguaje de búsqueda de metadatos de eventos. Los registros de Azure Monitor siguen el concepto de tabla, con columnas. Cada instancia de un evento se asigna a una fila. |
  | Registro de datos | event | fila |  Solo cambio de terminología. |
- | Atributo de registro de datos | campo |  columna |  En Log Analytics, se predefine como parte de la estructura de la tabla. En Splunk, cada evento tiene su propio conjunto de campos. |
- | Tipos | tipo de datos |  tipo de datos |  Los tipos de datos de Log Analytics son más explícitos, ya que se establecen en las columnas. Ambos tienen la capacidad de trabajar dinámicamente con tipos de datos y con un conjunto más o menos equivalente de tipos de datos, lo que incluye la compatibilidad con JSON. |
- | Búsqueda y consulta  | búsqueda | query |  Los conceptos son esencialmente los mismos en Log Analytics y Splunk. |
- | Tiempo de ingesta de eventos | Hora del sistema | ingestion_time() |  En Splunk, cada evento obtiene una marca de tiempo del sistema del tiempo en que el evento se indexó. En Log Analytics, se puede definir una directiva denominada ingestion_time que expone una columna del sistema a la que se puede hacer referencia a través de la función ingestion_time(). |
+ | Atributo de registro de datos | campo |  columna |  En Azure Monitor, se predefine como parte de la estructura de la tabla. En Splunk, cada evento tiene su propio conjunto de campos. |
+ | Tipos | tipo de datos |  tipo de datos |  Los tipos de datos de Azure Monitor son más explícitos, ya que se establecen en las columnas. Ambos tienen la capacidad de trabajar dinámicamente con tipos de datos y con un conjunto más o menos equivalente de tipos de datos, lo que incluye la compatibilidad con JSON. |
+ | Búsqueda y consulta  | búsqueda | query |  Los conceptos son esencialmente los mismos en Azure Monitor y Splunk. |
+ | Tiempo de ingesta de eventos | Hora del sistema | ingestion_time() |  En Splunk, cada evento obtiene una marca de tiempo del sistema del tiempo en que el evento se indexó. En Azure Monitor, se puede definir una directiva denominada ingestion_time que expone una columna del sistema a la que se puede hacer referencia a través de la función ingestion_time(). |
 
 ## <a name="functions"></a>Functions
 
-En la tabla siguiente se especifican las funciones de Log Analytics que son equivalentes a funciones de Splunk.
+En la tabla siguiente se especifican las funciones de Azure Monitor que son equivalentes a funciones de Splunk.
 
-|Splunk | Log Analytics |Comentario
+|Splunk | Azure Monitor |Comentario
 |---|---|---
 |strcat | strcat()| (1) |
 |split  | split() | (1) |
@@ -52,85 +52,85 @@ En la tabla siguiente se especifican las funciones de Log Analytics que son equi
 |tonumber | todouble()<br>tolong()<br>toint() | (1) |
 |upper<br>lower |toupper()<br>tolower()|(1) |
 | replace | replace() | (1)<br> Tenga también en cuenta que aunque `replace()` usa tres parámetros en ambos productos, los parámetros son diferentes. |
-| substr | substring() | (1)<br>Tenga en cuenta también que Splunk utiliza índices con base uno. Log Analytics usa índices con base cero. |
+| substr | substring() | (1)<br>Tenga en cuenta también que Splunk utiliza índices con base uno. Azure Monitor usa índices con base cero. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
 | match | matches regex |   (2)  |
-| regex | matches regex | En Splunk, `regex` es un operador. En Log Analytics, es un operador relacional. |
+| regex | matches regex | En Splunk, `regex` es un operador. En Azure Monitor, es un operador relacional. |
 | searchmatch | == | En Splunk, `searchmatch` permite buscar la cadena exacta.
-| random | rand()<br>rand(n) | La función de Splunk devuelve un número entre cero y 2<sup>31</sup>-1. Log Analytics devuelve un número entre 0,0 y 1,0, o si se ha proporcionado un parámetro, entre 0 y n-1.
+| random | rand()<br>rand(n) | La función de Splunk devuelve un número entre cero y 2<sup>31</sup>-1. Azure Monitor devuelve un número entre 0,0 y 1,0, o si se ha proporcionado un parámetro, entre 0 y n-1.
 | now | now() | (1)
-| relative_time | totimespan() | (1)<br>En Log Analytics, el equivalente de Splunk de relative_time (datetimeVal, offsetVal) es datetimeVal + totimespan(offsetVal).<br>Por ejemplo, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> pasa a ser <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
+| relative_time | totimespan() | (1)<br>En Azure Monitor, el equivalente de Splunk de relative_time (datetimeVal, offsetVal) es datetimeVal + totimespan(offsetVal).<br>Por ejemplo, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> pasa a ser <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
-(1) En Splunk, se invoca la función con el operador `eval`. En Log Analytics, se usa como parte de `extend` o `project`.<br>(2) En Splunk, se invoca la función con el operador `eval`. En Log Analytics, se puede usar con el operador `where`.
+(1) En Splunk, se invoca la función con el operador `eval`. En Azure Monitor, se usa como parte de `extend` o `project`.<br>(2) En Splunk, se invoca la función con el operador `eval`. En Azure Monitor, se puede usar con el operador `where`.
 
 
 ## <a name="operators"></a>Operadores
 
-En las secciones siguientes se proporcionan ejemplos del uso de distintos operadores entre Splunk y Log Analytics.
+En las secciones siguientes se proporcionan ejemplos del uso de distintos operadores entre Splunk y Azure Monitor.
 
 > [!NOTE]
-> Para el ejemplo siguiente, el campo de Splunk _rule_ se asigna a una tabla de Azure Log Analytics y la marca de tiempo predeterminada de Splunk se asigna a la columna _ingestion_time()_ de Logs Analytics.
+> Para el ejemplo siguiente, el campo de Splunk _rule_ se asigna a una tabla de Azure Monitor y la marca de tiempo predeterminada de Splunk se asigna a la columna _ingestion_time()_ de Logs Analytics.
 
 ### <a name="search"></a>Search
-En Splunk se puede omitir la palabra clave `search` y especifique una cadena sin comillas. En Azure Log Analytics todas las búsquedas deben comenzar por `find`, una cadena sin comillas es un nombre de columna y el valor de búsqueda debe ser una cadena entre comillas. 
+En Splunk se puede omitir la palabra clave `search` y especifique una cadena sin comillas. En Azure Monitor todas las consultas deben comenzar por `find`, una cadena sin comillas es un nombre de columna y el valor de búsqueda debe ser una cadena entre comillas. 
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **search** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Log Analytics | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Azure Monitor | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filtrar
-Las consultas de Azure Log Analytics comienzan en un conjunto de resultados tabulares donde se establece el filtro. En Splunk, el filtrado es la operación predeterminada del índice actual. En Splunk también se puede usar el operador `where`, pero no es aconsejable.
+Las consultas de registro de Azure Monitor comienzan en un conjunto de resultados tabulares donde se establece el filtro. En Splunk, el filtrado es la operación predeterminada del índice actual. En Splunk también se puede usar el operador `where`, pero no es aconsejable.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **search** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
-| Log Analytics | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
+| Azure Monitor | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 | | |
 
 
 ### <a name="getting-n-eventsrows-for-inspection"></a>Obtención de n eventos o filas para su inspección 
-Azure Log Analytics también admite `take` como alias de `limit`. En Splunk, si los resultados están ordenados, `head` devolverá los primeros n resultados. En Azure Log Analytics, el límite no está ordenado, pero devuelve las n primeras filas que se encuentran.
+Las consultas de registro de Azure Monitor también admiten `take` como alias para `limit`. En Splunk, si los resultados están ordenados, `head` devolverá los primeros n resultados. En Azure Monitor, el límite no está ordenado, pero devuelve las n primeras filas que se encuentran.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **head** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
-| Log Analytics | **limit** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
+| Azure Monitor | **limit** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
 
 
 ### <a name="getting-the-first-n-eventsrows-ordered-by-a-fieldcolumn"></a>Obtención de los n primeros eventos o filas ordenados por una columna o campo
-Para los resultados inferiores, en Splunk se usa `tail`. En Azure Log Analytics se puede especificar la dirección de ordenación con `asc`.
+Para los resultados inferiores, en Splunk se usa `tail`. En Azure Monitor se puede especificar la dirección de ordenación con `asc`.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **head** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
-| Log Analytics | **top** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
+| Azure Monitor | **top** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
 
 
 
 ### <a name="extending-the-result-set-with-new-fieldscolumns"></a>Extensión del conjunto de resultados con nuevos campos o columnas
-Splunk también tiene una función `eval`, que no se debe comparar con el operador `eval`. Tanto el operador `eval` de Splunk como el operador `extend` de Azure Log Analytics solo admiten operadores aritméticos y funciones escalares.
+Splunk también tiene una función `eval`, que no se debe comparar con el operador `eval`. Tanto el operador `eval` de Splunk como el operador `extend` de Azure Monitor solo admiten operadores aritméticos y funciones escalares.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **eval** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
-| Log Analytics | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
+| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 | | |
 
 
 ### <a name="rename"></a>Cambiar nombre 
-Azure Log Analytics usa el mismo operador para cambiar el nombre un nombre y para crearlo. Splunk tiene dos operadores distintos, `eval` y `rename`.
+Azure Monitor usa el mismo operador para crear un campo y volver a asignarle nombre. Splunk tiene dos operadores distintos, `eval` y `rename`.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Log Analytics | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
+| Azure Monitor | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend exception = Date_Exception</code> |
 | | |
 
 
@@ -142,18 +142,18 @@ Splunk no parece tener un operador similar a `project-away`. Puede usar la inter
 | |  | |
 |:---|:---|:---|
 | Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Log Analytics | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Azure Monitor | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
 
 ### <a name="aggregation"></a>Agregación
-Consulte [Aggregations in Log Analytics queries](aggregations.md) (Agregaciones en consultas de Log Analytics) para conocer las distintas funciones de agregación.///
+Consulte [Agregaciones en consultas de registros de Azure Monitor](aggregations.md) para conocer las distintas funciones de agregación.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
-| Log Analytics | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
+| Azure Monitor | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
@@ -164,41 +164,41 @@ En Splunk, la combinación tiene limitaciones importantes. La subconsulta tiene 
 | |  | |
 |:---|:---|:---|
 | Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Log Analytics | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 
 
 ### <a name="sort"></a>Sort
-En Splunk, para ordenar de forma ascendente es preciso usar el operador `reverse`. Azure Log Analytics también permite definir dónde se colocan valores NULL, al principio o al final.
+En Splunk, para ordenar de forma ascendente es preciso usar el operador `reverse`. Azure Monitor también permite definir dónde se colocan valores NULL, al principio o al final.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **sort** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
-| Log Analytics | **order by** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
+| Azure Monitor | **order by** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
 | | |
 
 
 
 ### <a name="multivalue-expand"></a>Expansión de varios valores
-Se trata de un operador similar en Splunk y Log Analytics.
+Se trata de un operador similar en Splunk y Azure Monitor.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **mvexpand** |  `mvexpand foo` |
-| Log Analytics | **mvexpand** | `mvexpand foo` |
+| Azure Monitor | **mvexpand** | `mvexpand foo` |
 | | |
 
 
 
 
 ### <a name="results-facets-interesting-fields"></a>Facetas de resultados, campos interesantes
-En el portal de Log Analytics, solo se expone la primera columna. Todas las columnas están disponibles a través de la API.
+En Log Analytics en Azure Portal, solo se expone la primera columna. Todas las columnas están disponibles a través de la API.
 
 | |  | |
 |:---|:---|:---|
 | Splunk | **fields** |  <code>Event.Rule=330009.2<br>&#124; fields App.Version, App.Platform</code> |
-| Log Analytics | **facets** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; facet by App_Branch, App_Version</code> |
+| Azure Monitor | **facets** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; facet by App_Branch, App_Version</code> |
 | | |
 
 
@@ -210,7 +210,7 @@ Puede usar `summarize arg_min()` en su lugar para invertir el orden en que se el
 | |  | |
 |:---|:---|:---|
 | Splunk | **dedup** |  <code>Event.Rule=330009.2<br>&#124; dedup device_id sortby -batterylife</code> |
-| Log Analytics | **summarize arg_max()** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; summarize arg_max(batterylife, *) by device_id</code> |
+| Azure Monitor | **summarize arg_max()** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; summarize arg_max(batterylife, *) by device_id</code> |
 | | |
 
 
@@ -218,4 +218,4 @@ Puede usar `summarize arg_min()` en su lugar para invertir el orden en que se el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Repase una lección sobre [la escritura de consultas en Log Analytics](get-started-queries.md).
+- Repase una lección sobre la [escritura de consultas de registro en Azure Monitor](get-started-queries.md).

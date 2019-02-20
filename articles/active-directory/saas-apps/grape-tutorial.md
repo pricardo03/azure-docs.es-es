@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Gra-Pe | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Gra-Pe | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Gra-Pe.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433546"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188536"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integración de Azure Active Directory con Gra-Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: integración de Azure Active Directory con Gra-Pe
 
 En este tutorial, aprenderá a integrar Gra-Pe con Azure Active Directory (Azure AD).
 
@@ -119,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 6. En la sección **Configurar Gra-Pe**, copie la dirección URL adecuada según sus necesidades.
 
-    a. URL de inicio de sesión
+     a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -145,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![imagen](./media/grape-tutorial/d_userproperties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -156,7 +157,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-a-gra-pe-test-user"></a>Creación de un usuario de prueba de Gra-Pe
 
-En esta sección, creará un usuario llamado Britta Simon en Gra-Pe. Trabaje con el [equipo de soporte técnico de Gra-Pe](https://www.toppantravel.com/inquiry/) para agregar los usuarios a la plataforma de Gra-Pe. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Gra-Pe. Trabaje con el  [equipo de soporte técnico de Gra-Pe](https://www.toppantravel.com/inquiry/) para agregar usuarios a la plataforma de Gra-Pe. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -187,7 +188,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Gra-Pe en el panel de acceso, iniciará sesión automáticamente en la aplicación Gra-Pe.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de Tableau Online para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configuración de Tableau Online para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Tableau Online.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345869"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194876"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configuración de Tableau Online para el aprovisionamiento automático de usuarios
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: configuración de Tableau Online para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es mostrar los pasos que se realizan en Tableau Online y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios o grupos en Tableau Online.
 
@@ -115,9 +116,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 6. Después de iniciar sesión en la cuenta administrativa de Tableau Online, los valores de **Dominio** y **Dirección URL del contenido** se pueden extraer de la dirección URL de la página de administración.
 
-    *   El valor de **Dominio** de la cuenta de Tableau Online se puede copiar de esta parte de la dirección URL: ![Aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    *   El valor de **Dominio** de la cuenta de Tableau Online se puede copiar de esta parte de la dirección URL: ![Aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png).
 
-    *   El valor de **Dirección URL del contenido** de la cuenta de Tableau Online se puede copiar de esta sección y es un valor definido durante la configuración de la cuenta. En este ejemplo, el valor es "contoso": ![Aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   El valor de **Dirección URL del contenido** de la cuenta de Tableau Online se puede copiar de esta sección y es un valor definido durante la configuración de la cuenta. En este ejemplo, el valor es "contoso": ![Aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png).
 
         > [!NOTE]
         > El valor de **Dominio** puede ser diferente del que se muestra aquí. 

@@ -4,7 +4,7 @@ description: Use este artículo para automatizar tareas comunes de Key Vault med
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822500"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115630"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
@@ -145,18 +145,18 @@ Si quiere que Azure Key Vault cree una clave protegida mediante software, utilic
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-Si tiene una clave existente en un archivo .pem, puede cargarla a Azure Key Vault. Puede optar por proteger la clave con software o HSM. Use lo siguiente para importar la clave desde el archivo .pem y protegerla con software:
+Si tiene una clave existente en un archivo .pem, puede cargarla a Azure Key Vault. Puede optar por proteger la clave con software o HSM. En este ejemplo se importa la clave desde el archivo .pem y se protege con software, mediante la contraseña "hVFkk965BuUv":
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 Ahora puede utilizar el URI para hacer referencia a la clave que creó o cargó en Azure Key Vault. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] para obtener la versión específica. Por ejemplo, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
-Agregue un secreto al almacén, que es una contraseña denominada SQLPassword con el valor Pa$$w0rd, a Azure Key Vault. 
+Agregue un secreto al almacén, que es una contraseña denominada SQLPassword y que tiene el valor "hVFkk965BuUv" en Azure Key Vault. 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 Haga referencia a esta contraseña usando su URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual, y https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] para obtener la versión específica. Por ejemplo, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -164,7 +164,7 @@ Haga referencia a esta contraseña usando su URI. Use **https://ContosoVault.vau
 Importe un certificado al almacén mediante un archivo .pem o .pfx.
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 Veamos la clave, el secreto o el certificado que ha creado:
@@ -203,7 +203,7 @@ Para obtener los pasos detallados para registrar una aplicación en Azure Active
 Para registrar una aplicación en Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 

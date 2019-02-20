@@ -12,30 +12,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246449"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207149"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integración del firewall de Azure Stack
-Se recomienda que use un dispositivo de firewall para ayudar a proteger Azure Stack. Aunque los firewalls pueden ayudar en el caso de ataques por denegación de servicio distribuido (DDOS), detección de intrusiones e inspección de contenidos, también pueden convertirse en un cuello de botella de rendimiento para servicios de almacenamiento de Azure como blobs, tablas y colas.
+Se recomienda que use un dispositivo de firewall para ayudar a proteger Azure Stack. Los firewalls pueden ayudarle a defenderse contra ataques por denegación de servicio distribuido (DDOS), a detectar intrusos y a inspeccionar el contenido que reciba. Sin embargo, también pueden convertirse en un cuello de botella en el rendimiento de los servicios de Azure Storage como blobs, tablas y colas.
 
-Según el modelo de identidad Azure Active Directory (Azure AD) o Windows Server Active Directory Federation Services (AD FS), puede que sea necesario que publique el punto de conexión de AD FS. Si se usa un modo de implementación desconectada, debe publicar el punto de conexión de AD FS. Para obtener más información, consulte el [artículo sobre la identidad de integración del centro de datos](azure-stack-integrate-identity.md).
+ Si se usa un modo de implementación desconectada, debe publicar el punto de conexión de AD FS. Para obtener más información, consulte el [artículo sobre la identidad de integración del centro de datos](azure-stack-integrate-identity.md).
 
-Los puntos de conexión de Azure Resource Manager (administrador), el portal de administrador y el almacén de claves (administrador) no requieren necesariamente publicación externa. Por ejemplo, como proveedor de servicios, podría interesarle limitar la superficie expuesta a ataques y administrar Azure Stack solo desde dentro de la red, y no desde Internet.
+Los puntos de conexión de Azure Resource Manager (administrador), el portal de administrador y el almacén de claves (administrador) no requieren necesariamente publicación externa. Por ejemplo, como proveedor de servicios, podría interesarle limitar la superficie expuesta a ataques y administrar Azure Stack solo desde la red y no desde Internet.
 
 Para organizaciones empresariales, la red externa puede ser la red corporativa existente. En este caso, debe publicar esos puntos de conexión para trabajar con Azure Stack desde la red corporativa.
 
 ### <a name="network-address-translation"></a>Traducción de direcciones de red
-La traducción de direcciones de red (NAT) es el método recomendado para permitir que la máquina virtual de implementación (DVM) acceda a los recursos externos y a Internet durante la implementación, así como a las VM de la consola de recuperación de emergencia (ERCS) o al punto de conexión con privilegios (PEP) durante el registro y la solución de problemas.
+La traducción de direcciones de red (NAT) es el método recomendado para permitir que la máquina virtual de implementación (DVM) obtenga acceso a los recursos externos y a Internet durante la implementación, así como a las máquinas virtuales de la consola de recuperación de emergencia (ERCS) o al punto de conexión con privilegios (PEP) durante el registro y la solución de problemas.
 
-NAT también puede ser una alternativa a las direcciones IP públicas de la red externa o VIP públicas. Sin embargo, no se recomienda, ya que limita la experiencia del usuario inquilino y aumenta la complejidad. Las dos opciones serían una NAT 1:1 que siga requiriendo una dirección IP pública por cada IP de usuario del grupo o una NAT varios:1 que requiera una regla NAT por cada VIP de usuario y que contenga las asociaciones con todos los puertos que podrían utilizar los usuarios.
+NAT también puede ser una alternativa a las direcciones IP públicas de la red externa o VIP públicas. Sin embargo, no se recomienda, ya que limita la experiencia del usuario inquilino y aumenta la complejidad. Una opción sería una NAT con una relación de uno a uno que siga requiriendo una dirección IP pública por cada IP de usuario del grupo. Otra opción es una NAT con una relación de varios a uno que requiera una regla NAT por cada VIP de usuario de todos los puertos que ese usuario podría usar.
 
 Algunas de las desventajas del uso de NAT para una VIP pública son:
 - NAT agrega sobrecarga al administrar las reglas de firewall, ya que los usuarios controlan sus propios puntos de conexión y sus propias reglas de publicación en la pila de redes definidas por software (SDN). Los usuarios deben ponerse en contacto con el operador de Azure Stack para que se publiquen sus VIP y para actualizar la lista de puertos.
@@ -48,7 +48,7 @@ Actualmente, se recomienda deshabilitar el descifrado SSL en todo el tráfico de
 ## <a name="edge-firewall-scenario"></a>Escenario de firewall perimetral
 En una implementación perimetral, Azure Stack se implementa directamente detrás del firewall o el enrutador perimetral. En estos casos, se admite que el firewall se encuentre por encima del borde (Escenario 1) donde se admiten configuraciones de firewall activa/activa y activa/pasiva, o que actúe como dispositivo de borde (Escenario 2) donde solo se admite la configuración de firewall activa/activa basada en varias rutas de acceso de igual costo (ECMP) con enrutamiento estático o BGP para la conmutación por error.
 
-Por lo general, las direcciones IP enrutables públicas se especifican para el grupo de VIP públicas de la red externa en el momento de la implementación. En un escenario perimetral, no se recomienda utilizar direcciones IP enrutables públicas en ninguna otra red por motivos de seguridad. Este escenario permite que un usuario disfrute de la experiencia completa en la nube autocontrolada como si se tratara de una nube pública como Azure.  
+Las direcciones IP enrutables públicas se especifican para el grupo de VIP públicas de la red externa en el momento de la implementación. En un escenario perimetral, no se recomienda utilizar direcciones IP enrutables públicas en ninguna otra red por motivos de seguridad. Este escenario permite que un usuario disfrute de la experiencia completa en la nube autocontrolada como si se tratara de una nube pública como Azure.  
 
 ![Ejemplo de firewall perimetral de Azure Stack](./media/azure-stack-firewall/firewallScenarios.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de Cisco Spark para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configuración de Cisco Spark para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente las cuentas de usuario para Cisco Spark.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346119"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211213"
 ---
-# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cisco Spark para el aprovisionamiento automático de usuarios
+# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutorial: configuración de Cisco Spark para el aprovisionamiento automático de usuarios
 
 
 El objetivo de este tutorial es mostrar los pasos que se realizan en Cisco Spark y Azure Active Directory (Azure AD) para configurar Azure AD de modo que aprovisione y desaprovisione automáticamente los usuarios en Cisco Spark.

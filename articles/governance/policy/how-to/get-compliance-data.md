@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766432"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114117"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -428,11 +428,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-Si tiene un área de trabajo de [Log Analytics](../../../log-analytics/log-analytics-overview.md) con la solución `AzureActivity` vinculada a su suscripción, también puede ver los resultados no compatibles del ciclo de evaluación mediante consultas sencillas de Azure Data Explorer y la tabla `AzureActivity`. Con los detalles de Log Analytics, se pueden configurar alertas para comprobar la no compatibilidad.
+Si tiene un área de trabajo de [Log Analytics](../../../log-analytics/log-analytics-overview.md) con la solución `AzureActivity` vinculada a su suscripción, también puede ver los resultados no compatibles del ciclo de evaluación mediante consultas sencillas de Azure Data Explorer y la tabla `AzureActivity`. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
 
-![Cumplimiento de directiva con Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
+![Cumplimiento de directivas mediante los registros de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

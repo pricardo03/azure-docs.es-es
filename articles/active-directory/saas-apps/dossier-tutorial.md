@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Dossier | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Dossier | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Dossier.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507516"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: integración de Azure Active Directory con Dossier
 
@@ -109,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Dossier](./media/dossier-tutorial/tutorial_dossier_url1.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
     
     | | |
     |-|-|
@@ -166,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/dossier-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -176,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-dossier-test-user"></a>Creación de un usuario de prueba de Dossier
 
-En esta sección, creará un usuario llamado Britta Simon en Dossier. Trabaje con el [equipo de soporte técnico de Dossier](mailto:support@intellimedia.ca) para agregar los usuarios a la plataforma de Dossier. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Dossier. Trabaje con el  [equipo de soporte técnico de Dossier](mailto:support@intellimedia.ca)  para agregar usuarios a la plataforma de Dossier. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
