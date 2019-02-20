@@ -107,7 +107,7 @@ Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS 
 - [Asignar un dominio con comodín (con un registro CNAME)](#map-a-wildcard-domain)
 
 > [!NOTE]
-> Debe utilizar registros CNAME para todos los nombres de DNS personalizados, excepto los dominios raíz (por ejemplo, `contoso.com`). Para los dominios raíz, utilice registros A.
+> Debe utilizar registros CNAME para todos los nombres de DNS personalizados, excepto en los dominios raíz (por ejemplo, `contoso.com`). Para los dominios raíz, utilice registros A.
 
 ### <a name="map-a-cname-record"></a>Asignar un registro CNAME
 
@@ -321,7 +321,7 @@ Una vez completada la operación, la aplicación debe devolver la página correc
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
+Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="azure-cli"></a>Azure CLI 
 
