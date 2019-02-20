@@ -1,6 +1,6 @@
 ---
-title: Trabajo con cadenas en consultas de Azure Log Analytics | Microsoft Docs
-description: En este artículo se proporciona un tutorial de uso del portal de Analytics para escribir consultas en Log Analytics.
+title: Trabajo con cadenas en consultas de registro de Azure Monitor | Microsoft Docs
+description: En este artículo se proporciona un tutorial para usar el análisis de registros de Azure Monitor en Azure Portal para consultar y analizar datos de registro en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263890"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993731"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Trabajo con JSON y estructuras de datos en consultas de Log Analytics
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabajo con JSON y estructuras de datos en consultas de registro de Azure Monitor
 
 > [!NOTE]
-> Debe completar la [Introducción al portal de Analytics](get-started-portal.md) y la [Introducción a las consultas en Log Analytics](get-started-queries.md) antes de completar esta lección.
+> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción a análisis de registro de Azure Monitor) y [Getting started with Azure Monitor log queries](get-started-queries.md) (Introducción a consultas de registro de Azure Monitor) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Compilación de esquema](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras lecciones para usar el lenguaje de consulta de Log Analytics:
+Consulte otras lecciones de uso de consultas de registro en Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Operaciones de fecha y hora](datetime-operations.md)

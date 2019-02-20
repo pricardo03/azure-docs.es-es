@@ -4,7 +4,7 @@ description: Este documento le ayuda a validar las alertas de seguridad en Azure
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619751"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108552"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validación de alertas en Azure Security Center
 Este documento le ayuda a comprobar si el sistema está configurado correctamente para las alertas de Azure Security Center.
@@ -32,7 +32,7 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 
 1. Copie un archivo ejecutable (por ejemplo calc.exe) en el escritorio del equipo o en otro directorio que prefiera.
 2. Cambie el nombre de este archivo por **ASC_AlertTest_662jfi039N.exe**.
-3. Abra el símbolo del sistema y ejecute este archivo con un argumento (un nombre de argumento falso), como: *ASC_AlertTest_662jfi039N.exe - foo*
+3. Abra el símbolo del sistema y ejecute este archivo con un argumento (un nombre de argumento falso), como: *ASC_AlertTest_662jfi039N.exe -foo*
 4. Espere de cinco a diez minutos y abra Alertas de Security Center. Debería encontrar una alerta similar a la siguiente:
 
     ![Validación de alertas](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)

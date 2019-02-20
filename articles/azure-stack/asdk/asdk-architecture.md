@@ -12,24 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238355"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958812"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitectura del Kit de desarrollo de Microsoft Azure Stack
-El Kit de desarrollo de Azure Stack (ASDK) es una implementación de un único nodo de Azure Stack. Todos los componentes se instalan en máquinas virtuales que se ejecutan en un solo equipo host. 
+El Kit de desarrollo de Azure Stack (ASDK) es una implementación de un único nodo de Azure Stack que se ejecuta en un único equipo host. Los componentes de enrutamiento perimetral se instalan en el equipo host para proporcionar funcionalidades NAT y VPN para Azure Stack. Los roles de infraestructura de Azure Stack se ejecutan en la capa de Hyper-V del equipo host físico.
 
-## <a name="logical-architecture-diagram"></a>Diagrama de arquitectura lógica
-El siguiente diagrama muestra la arquitectura lógica del Kit de desarrollo de Azure Stack y sus componentes.
-
-![Arquitectura de ASDK](media/asdk-architecture/image1.png)
 
 ## <a name="virtual-machine-roles"></a>Roles de máquina virtual
 El Kit de desarrollo de Azure Stack ofrece servicios a través de las siguientes máquinas virtuales hospedadas en el equipo host del kit de desarrollo:
@@ -38,7 +34,6 @@ El Kit de desarrollo de Azure Stack ofrece servicios a través de las siguientes
 | ----- | ----- |
 | **AzS-ACS01** | Servicios de almacenamiento de Azure Stack.|
 | **AzS-ADFS01** | Servicios de federación de Active Directory (AD FS).  |
-| **AzS-BGPNAT01** | Enrutador perimetral que proporciona funcionalidades de NAT y VPN para Azure Stack. |
 | **AzS-CA01** | Servicios de entidad de certificación para servicios de rol de Azure Stack.|
 | **AzS-DC01** | Servicios de Active Directory, DNS y DHCP para Microsoft Azure Stack.|
 | **AzS-ERCS01** | Máquina virtual de la consola de recuperación de emergencia. |

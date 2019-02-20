@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2018
-ms.openlocfilehash: 10d7303c4323305e177cf006b9a259a817dc695e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 280a811e943c2e81a96875e3c8ba8efdb86fbf2a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247483"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004832"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar la copia de seguridad de Azure Stack con PowerShell
 
@@ -29,8 +29,10 @@ ms.locfileid: "55247483"
 Habilite el servicio Copia de seguridad de infraestructura con Windows PowerShell para realizar copias de seguridad periódicas de:
  - Servicio de identidad interno y certificados raíz.
  - Planes de usuario, ofertas, suscripciones
- - Secretos de Key Vault
+ - Cuotas de usuario de red, almacenamiento y proceso
+ - Secretos de Key Vault de usuario
  - Directivas y roles de RBAC de usuario
+ - Cuentas de almacenamiento de usuario
 
 Puede tener acceso a los cmdlets de PowerShell para habilitar la copia de seguridad, iniciar la copia de seguridad y obtener información de la copia de seguridad a través del punto de conexión de administración del operador.
 
@@ -49,30 +51,42 @@ En la misma sesión de PowerShell, modifique el siguiente script de PowerShell a
 | $sharepath      | Escriba la ruta de acceso a la **ubicación de almacenamiento de la copia de seguridad**. Debe utilizar una cadena de convención de nomenclatura universal (UNC) para la ruta de acceso de un recurso compartido de archivos hospedado en un dispositivo independiente. Una cadena UNC especifica la ubicación de recursos como archivos compartidos o dispositivos. Para garantizar la disponibilidad de los datos de copia de seguridad, el dispositivo debe estar en una ubicación independiente. |
 | $frequencyInHours | La frecuencia en horas determina con qué frecuencia se crean las copias de seguridad. El valor predeterminado es 12. Scheduler admite un máximo de 12 y un mínimo de 4.|
 | $retentionPeriodInDays | El período de retención en días determina cuántos días de copias de seguridad se conservan en la ubicación externa. El valor predeterminado es 7. Scheduler admite un máximo de 14 y un mínimo de 2. Las copias de seguridad anteriores al período de retención se eliminan automáticamente de la ubicación externa.|
+| $encryptioncertpath | La ruta de acceso del certificado de cifrado especifica la ruta de acceso al archivo .CER con la clave pública que se usa para cifrar los datos. |
 |     |     |
 
-   ```powershell
+```powershell
     # Example username:
     $username = "domain\backupadmin"
+ 
     # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-   
-    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    
-    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
-    # Make sure to store your encryption key in a secure location after it is generated.
-    $Encryptionkey = New-AzsEncryptionKeyBase64
-    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
-   ```
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $cert = New-SelfSignedCertificate `
+        -DnsName "www.contoso.com" `
+        -CertStoreLocation "cert:\LocalMachine\My" 
+
+    New-Item -Path "C:\" -Name "Certs" -ItemType "Directory" 
+
+    #make sure to export the PFX format of the certificate with the public and private keys and then delete the certifcate from the local certificate store of the machine where you created the certificate
+    
+    Export-Certificate `
+        -Cert $cert `
+        -FilePath c:\certs\AzSIBCCert.cer 
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
+```
    
 ##  <a name="confirm-backup-settings"></a>Confirmación de la configuración de copia de seguridad
 
 En la misma sesión de PowerShell, ejecute los comandos siguientes:
 
    ```powershell
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName
+    Get-AzsBackupConfiguration | Select-Object -Property Path, UserName
    ```
 
 El resultado debe tener una apariencia similar a la del ejemplo siguiente:
@@ -90,8 +104,9 @@ En la misma sesión de PowerShell, puede actualizar los valores predeterminados 
     $frequencyInHours = 10
     $retentionPeriodInDays = 5
 
-    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
+    Set-AzsBackupConfiguration -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
+
+    Get-AzsBackupConfiguration | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
    ```
 
 El resultado debe tener una apariencia similar a la del ejemplo siguiente:
@@ -104,7 +119,15 @@ El resultado debe tener una apariencia similar a la del ejemplo siguiente:
     BackupRetentionPeriodInDays : 5
    ```
 
+###<a name="azure-stack-powershell"></a>PowerShell de Azure Stack 
+El cmdlet de PowerShell para configurar la copia de seguridad de la infraestructura es Set-AzsBackupConfiguration. En versiones anteriores, el cmdlet era Set-AzsBackupShare. Este cmdlet requiere proporcionar un certificado. Si la copia de seguridad de la infraestructura se configura con una clave de cifrado, no podrá actualizar la clave de cifrado ni ver la propiedad. Deberá usar la versión 1.6 del Administrador de PowerShell. 
+
+Si se ha configurado la copia de seguridad de la infraestructura antes de actualizar a 1901, puede usar la versión 1.6 del Administrador de PowerShell para establecer y ver la clave de cifrado. La versión 1.6 no podrá actualizar la clave de cifrado a un archivo de certificado.
+Consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md) para obtener más información acerca de cómo instalar la versión correcta del módulo. 
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
- - Aprenda a ejecutar una copia de seguridad: consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md ).  
- - Aprenda a comprobar que la copia de seguridad se ejecutó: consulte [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md ) (Confirmación de copia de seguridad completada en el portal de administración).
+Para aprender a ejecutar una copia de seguridad, consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+
+Aprenda a comprobar que la copia de seguridad se ejecutó: consulte [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md) (Confirmación de copia de seguridad completada en el portal de administración).

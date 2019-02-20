@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: La transcripción de lotes es ideal si desea transcribir una gran cantidad de audio en el almacenamiento, como los blobs de Azure. Mediante la API REST dedicada, puede apuntar a archivos de audio con un identificador URI de firma de acceso compartido (SAS) y recibir las transcripciones de forma asincrónica.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228668"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867127"
 ---
 # <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 
@@ -49,7 +49,7 @@ Transcription API de Batch admite los siguientes formatos:
 > [!NOTE]
 > Batch Transcription API requiere una clave de S0 (nivel de pago). No funciona con una clave gratuita (f0).
 
-Si se trata de secuencias de audio estéreo, Batch Transcription API divide los canales izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. En el siguiente ejemplo de JSON se muestra la salida de un canal, incluidas las propiedades para configurar el filtro de obscenidad y el modelo de puntuación.
+Si se trata de secuencias de audio estéreo, Batch Transcription API divide los canales izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. En el siguiente ejemplo de JSON se muestra una solicitud de ejemplo, incluidas las propiedades para configurar el filtro de obscenidad, el modelo de puntuación y las marcas de tiempo de nivel de palabra.
 
 ```json
 {
@@ -60,7 +60,8 @@ Si se trata de secuencias de audio estéreo, Batch Transcription API divide los 
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Actualmente, el único almacenamiento admitido es Azure Blob Storage.
 Puede encontrar el ejemplo de este artículo en [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Una transcripción de audio normalmente requiere un intervalo de tiempo igual a la duración del archivo de audio, más una sobrecarga de dos a tres minutos.
+> No proporcionamos un contrato de nivel de servicio de tiempo para las transcripciones de audio a través de lotes. Sin embargo, una vez que el trabajo de transcripción se acciona (en estado de ejecución), normalmente se procesa más rápido que en tiempo real.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817629"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242821"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -34,6 +34,10 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="february-2019"></a>Febrero de 2019
+
+Media Services v3 ya se admite en las nubes nacionales de Azure. Aún no todas las características están disponibles en todas las nubes. Para obtener más detalles, consulte [Nubes y regiones donde existe Azure Media Services v3](azure-clouds-regions.md).
+
 ## <a name="january-2019"></a>Enero de 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard y archivos MPI 
@@ -46,7 +50,7 @@ No debe modificar ni quitar el archivo MPI, así como tampoco tener ninguna depe
 
 Las actualizaciones de la versión de disponibilidad general de la API de V3 incluyen:
        
-* Las propiedades de **PresentationTimeRange** ya no son necesarias para **Assetfilter** ni para **AccountFilters**. 
+* Las propiedades de **PresentationTimeRange** ya no son necesarias para los **filtros de recursos** ni para los **filtros de cuenta**. 
 * Las opciones de la consultas $top y $skip para **Jobs** y **Transforms** se han quitado y se ha agregado $orderby. Como parte de agregar la nueva funcionalidad de ordenación, se ha detectado que las opciones $top y $skip se expusieron previamente de forma accidental aunque no se habían implementado.
 * La extensibilidad de enumeración se había activado de nuevo. Esta característica estaba habilitada en las versiones preliminares del SDK y se deshabilitó accidentalmente en la versión de disponibilidad general.
 * Se ha cambiado el nombre de dos directivas de streaming predefinidas. **SecureStreaming** es ahora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** es ahora **Predefined_MultiDrmStreaming**.
@@ -67,7 +71,7 @@ El módulo de la CLI 2.0 está ahora disponible para [Azure Media Services v3 co
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest): permite administrar unidades reservadas de multimedia
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest): permite administrar unidades reservadas de multimedia. Para más información, consulte [Escalado de unidades reservadas de multimedia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nuevas características y cambios importantes
 
@@ -141,7 +145,7 @@ Se presentan las siguientes actualizaciones de Live Encoding:
 - Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
 - Ingesta segura de RTMPS.
 
-    Al crear un objeto LiveEvent, ahora obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principales y de copia de seguridad para RTMPS. 
+    Cuando se crea un evento en directo, ahora obtiene 4 direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principales y de copia de seguridad para RTMPS. 
 - Soporte técnico de transcodificación las 24 horas. 
 - Soporte técnico de señalización de anuncios mejorado en RTMP a través de SCTE35.
 
@@ -179,11 +183,11 @@ Si creó filtros de cuenta o recurso entre el 28/09 y el 12/10 con las API o la 
 Las características siguiente están disponibles en el SDK de .NET:
 
 * **Transformaciones** y **trabajos** para codificar o analizar el contenido multimedia. Para ver ejemplos, consulte los artículos sobre [streaming de archivos](stream-files-tutorial-with-api.md) y [análisis](analyze-videos-tutorial-with-api.md).
-* **StreamingLocators** para publicar y transmitir contenido a los dispositivos de usuarios finales.
-* **StreamingPolicies** y **ContentKeyPolicies** para configurar la entrega de claves y la protección de contenido (DRM) al entregar el contenido.
-* **LiveEvents** y **LiveOutputs** para configurar la ingesta y el archivo de contenido de streaming en vivo.
+* **Localizadores de streaming** para publicar y transmitir contenido a los dispositivos de usuarios finales.
+* **Directivas de streaming** y **directivas de claves de contenido** para configurar la entrega de claves y la protección de contenido (DRM) al entregar el contenido.
+* **Eventos en directo** y **salidas de eventos** para configurar la ingesta y el archivo de contenido de streaming en vivo.
 * **Recursos** para almacenar y publicado contenido multimedia en Azure Storage. 
-* **StreamingEndpoints** para configurar y escalar el empaquetado dinámico, cifrado y streaming tanto de contenido multimedia en vivo como a petición.
+* **Puntos de conexión de streaming** para configurar y escalar el empaquetado dinámico, cifrado y streaming tanto de contenido multimedia en vivo como a petición.
 
 ### <a name="known-issues"></a>Problemas conocidos
 

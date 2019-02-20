@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda a usar las API REST de voz a texto y texto a voz. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247449"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998965"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Voz
 
@@ -27,14 +27,14 @@ Antes de usar las API REST debe saber que:
 * La API REST de voz a texto solo devuelve resultados finales. No se proporcionan resultados parciales.
 * La API REST de texto a voz requiere un encabezado de autorización. Esto significa que tiene que completar un intercambio de tokens para acceder al servicio. Para más información, consulte [Autenticación](#authentication).
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 Cada solicitud a la API REST de voz a texto o texto a voz requiere un encabezado de autorización. Esta tabla muestra qué encabezados son compatibles con cada servicio:
 
 | Encabezados de autorización compatibles | Voz a texto | Texto a voz |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | SÍ | Sin  |
-| Autorización: Portador | SÍ | SÍ |
+| Ocp-Apim-Subscription-Key | Sí | Sin  |
+| Autorización: Portador | Sí | Sí |
 
 Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que proporcione la clave de suscripción. Por ejemplo: 
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-El cuerpo de la respuesta contiene el token de acceso en formato Java Web Token (JWT).
+El cuerpo de la respuesta contiene el token de acceso en formato JSON Web Token (JWT).
 
 #### <a name="powershell-sample"></a>Ejemplo de PowerShell
 

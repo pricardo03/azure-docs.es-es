@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700730"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991368"
 ---
 # <a name="understand-role-definitions"></a>Descripción de definiciones de roles
 
@@ -147,7 +147,7 @@ Colaborador de datos de blobs de almacenamiento (versión preliminar)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Puesto que Alicia tiene una acción de carácter comodín (`*`) en un ámbito de suscripción, sus permisos se heredan para poder realizar todas las acciones de administración. Sin embargo, Alice no puede realizar operaciones de datos. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor, pero puede leer, escribir y eliminar contenedores.
+Puesto que Alicia tiene una acción de carácter comodín (`*`) en un ámbito de suscripción, sus permisos se heredan para poder realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
 
 Los permisos de Bob se restringen a solo los `Actions` y `DataActions` especificados en el rol [Colaborador de datos de blobs de almacenamiento (versión preliminar)](built-in-roles.md#storage-blob-data-contributor-preview). Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar los contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
 

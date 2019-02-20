@@ -4,18 +4,18 @@ title: Configuración de firewalls y redes virtuales de Azure Key Vault
 description: Instrucciones detalladas paso a paso para configurar los firewalls y las redes virtuales de Azule Key Vault
 services: key-vault
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423167"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108898"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Azure Key Vault
 
@@ -38,11 +38,11 @@ Así es cómo puede configurar firewalls y redes virtuales de Key Vault mediante
 
 Asimismo, puede también agregar nuevas redes virtuales y subredes y habilitar los puntos de conexión de servicio de las redes virtuales y subredes recién creadas. Para ello, haga clic en **+ Agregar nueva red virtual**. A continuación, siga las indicaciones.
 
-## <a name="use-the-azure-cli-20"></a>Uso de la CLI de Azure 2.0
+## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure 
 
-Estos son los pasos para configurar firewalls y redes virtuales de Key Vault mediante la CLI de Azure 2.0:
+Estos son los pasos para configurar firewalls y redes virtuales de Key Vault mediante la CLI de Azure
 
-1. [Instale la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inicie sesión](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inicie sesión](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 2. Se muestra la lista de reglas de redes virtuales disponibles. Si no ha establecido ninguna regla para este almacén de claves, la lista estará vacía.
    ```azurecli
@@ -77,45 +77,47 @@ Estos son los pasos para configurar firewalls y redes virtuales de Key Vault med
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Estas son las instrucciones para configurar los firewalls y las redes virtuales de Key Vault mediante PowerShell:
 
-1. Instale la última versión de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) e [inicie sesión](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Instale la última versión de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e [inicie sesión](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Se muestra la lista de reglas de redes virtuales disponibles. Si no ha establecido ninguna regla para este almacén de claves, la lista estará vacía.
    ```PowerShell
-   (Get-AzureRmKeyVault -VaultName "mykeyvault").NetworkAcls
+   (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Habilite el punto de conexión de servicio para Key Vault en una red virtual y subred existentes.
    ```PowerShell
-   Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzureRmVirtualNetwork
+   Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Agregue una regla de red para una red virtual y subred.
    ```PowerShell
-   $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
+   $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Agregue un rango de direcciones IP desde el que se va a permitir el tráfico.
    ```PowerShell
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Si cualquier servicio de confianza necesita obtener acceso a este almacén de claves, establezca la opción `bypass` en `AzureServices`.
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. Active las reglas de red estableciendo la acción predeterminada en `Deny`.
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
 ## <a name="references"></a>Referencias
 
-* Comandos de la CLI de Azure 2.0: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Cmdlets de Azure PowerShell: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule) y [Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Comandos de la CLI de Azure: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Cmdlets de Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241159"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993884"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedimientos recomendados del servicio Infrastructure Backup
 
@@ -43,9 +43,18 @@ La cadena de convención de nomenclatura universal (UNC) para la ruta de acceso 
 
 ### <a name="encryption"></a>Cifrado
 
+#### <a name="version-1901-and-newer"></a>Versión 1901 y versiones anteriores
+
+El certificado de cifrado se utiliza para cifrar los datos de copia de seguridad que se exportan a un almacenamiento externo. El certificado puede ser un certificado autofirmado, ya que el certificado se usa solo para transportar claves. Para más información sobre cómo crear un certificado, consulte New-SelfSignedCertificate.  
+La clave debe almacenarse en una ubicación segura (por ejemplo, un certificado de Azure Key Vault global). Este formato CER del certificado se usa para cifrar los datos. El formato PFX debe usarse durante la implementación de recuperación en la nube de Azure Stack para descifrar los datos de copia de seguridad.
+
+![Almacene el certificado en una ubicación segura.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 y anteriores
+
 La clave de cifrado se utiliza para cifrar los datos de copia de seguridad que se exportan a un almacenamiento externo. La clave se genera como parte de la [habilitación de la copia de seguridad de Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-La clave debe almacenarse en una ubicación segura (por ejemplo, un secreto de Azure Key Vault público). Esta clave se debe utilizar durante la reimplementación de Azure Stack. 
+La clave debe almacenarse en una ubicación segura (por ejemplo, un secreto de Azure Key Vault global). Esta clave se debe utilizar durante la reimplementación de Azure Stack. 
 
 ![Almacenamiento de la clave en una ubicación segura.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -74,7 +83,7 @@ Región: nyc
 
 La carpeta MASBackup es donde Azure Stack almacena sus datos de copia de seguridad. No debe usar esta carpeta para almacenar sus propios datos. Los OEM no deben usar tampoco esta carpeta para almacenar los datos de copia de seguridad. 
 
-Se recomienda a los OEM que almacenen los datos de copia de seguridad de sus componentes en la carpeta de la región. Cada conmutador de red, host de ciclo de vida de hardware, etc. puede almacenarse en su propia subcarpeta. Por ejemplo: 
+Se recomienda a los OEM que almacenen los datos de copia de seguridad de sus componentes en la carpeta de la región. Cada conmutador de red, host de ciclo de vida de hardware, etc., puede almacenarse en su propia subcarpeta. Por ejemplo: 
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -95,6 +104,6 @@ El sistema prevé las siguientes alertas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise el material de referencia para [el servicio Infrastructure Backup](azure-stack-backup-reference.md).
+Revise el material de referencia para el [servicio Copia de seguridad de infraestructura](azure-stack-backup-reference.md)
 
-Habilite el [servicio Infrastructure Backup](azure-stack-backup-enable-backup-console.md).
+Habilite el [servicio Copia de seguridad de infraestructura](azure-stack-backup-enable-backup-console.md)

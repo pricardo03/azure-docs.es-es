@@ -1,6 +1,6 @@
 ---
 title: Explorador de métricas de Azure Monitor
-description: Descubra las nuevas características en el Explorador de métricas de Azure Monitor
+description: Descubra las nuevas características en el explorador de métricas de Azure Monitor
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827455"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991334"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Azure Monitor
 
-El Explorador de métricas de Azure Monitor es un componente de Microsoft Azure Portal que permite trazar los gráficos, correlacionar visualmente las tendencias e investigar crestas y valles en valores de las métricas. El Explorador de métricas es un punto de partida esencial para investigar diversos problemas de rendimiento y disponibilidad en las aplicaciones e infraestructura hospedadas en Azure o supervisadas por servicios de Azure Monitor.
+El explorador de métricas de Azure Monitor es un componente de Microsoft Azure Portal que permite trazar los gráficos, correlacionar visualmente las tendencias e investigar crestas y valles en valores de las métricas. El explorador de métricas es un punto de partida esencial para investigar diversos problemas de rendimiento y disponibilidad en las aplicaciones e infraestructura hospedadas en Azure o supervisadas por servicios de Azure Monitor.
 
 ## <a name="metrics-in-azure"></a>Métricas en Azure
 
-Las métricas en Microsoft Azure son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Mientras que las métricas personalizadas se envían a Azure desde las aplicaciones mediante la [API de Application Insights para los eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Las métricas personalizadas se almacenan en los recursos de Application Insights junto con otras métricas específicas de las aplicaciones.
+Las [métricas en Azure Monitor](data-collection.md#metrics) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Mientras que las métricas personalizadas se envían a Azure desde las aplicaciones mediante la [API de Application Insights para los eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Las métricas personalizadas se almacenan en los recursos de Application Insights junto con otras métricas específicas de las aplicaciones.
 
 ## <a name="create-a-new-chart"></a>Creación de un canal
 
@@ -52,7 +52,7 @@ Las métricas en Microsoft Azure son la serie de valores medidos y recuentos que
 7. Al hacer clic en **Agregar métrica** y repetir los pasos del 3 al 6, puede agregar más métricas en el mismo gráfico.
 
    > [!NOTE]
-   > Normalmente no querrá tener en un gráfico métricas con unidades de medida diferentes (es decir, milisegundos y kilobytes) ni con una escala muy diferente. En su lugar, considere el uso de varios gráficos. Haga clic en el botón Agregar gráfico para crear varios gráficos en el Explorador de métricas.
+   > Normalmente no querrá tener en un gráfico métricas con unidades de medida diferentes (es decir, milisegundos y kilobytes) ni con una escala muy diferente. En su lugar, considere el uso de varios gráficos. Haga clic en el botón Agregar gráfico para crear varios gráficos en el explorador de métricas.
 
 ## <a name="apply-filters-to-charts"></a>Aplicación de filtros a gráficos
 

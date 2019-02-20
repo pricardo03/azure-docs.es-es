@@ -1,6 +1,6 @@
 ---
-title: Soluciones de administración en Azure Monitor | Microsoft Docs
-description: Las soluciones de administración de Azure Monitor son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas.  Este artículo proporciona información sobre la instalación y el uso de soluciones de administración.
+title: Soluciones de supervisión en Azure Monitor | Microsoft Docs
+description: Las soluciones de supervisión de Azure Monitor son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas.  En este artículo se proporciona información sobre la instalación y el uso de soluciones de supervisión.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,27 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 8a6a679aaf43e4a92eb380368f3d68704853d3a3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ff7d886d3f219d007f159167cacfed1b8ee13863
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816822"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001024"
 ---
-# <a name="management-solutions-in-azure-monitor"></a>Soluciones de administración en Azure Monitor
-Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.
+# <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
+Las soluciones de supervisión aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. En este artículo se proporciona una breve descripción de las soluciones de supervisión en Azure y los detalles sobre su uso e instalación.
 
-Las soluciones de administración suelen recopilar datos de registro y proporcionar consultas y vistas para analizar los datos recopilados. También pueden aprovechar otros servicios como Azure Automation para realizar acciones relacionadas con la aplicación o el servicio.
+> [!NOTE]
+> Las soluciones de supervisión se denominaban anteriormente soluciones de administración.
 
-Puede agregar soluciones de administración a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Suelen estar disponibles sin costo, pero la recopilación de datos puede suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
+Las soluciones de supervisión suelen recopilar datos de registro y proporcionar consultas y vistas para analizar los datos recopilados. También pueden aprovechar otros servicios como Azure Automation para realizar acciones relacionadas con la aplicación o el servicio.
 
-## <a name="use-management-solutions"></a>Uso de soluciones de administración
-Abra la página **Introducción** del área de trabajo de Log Analytics para mostrar un icono para cada solución instalada en el área de trabajo. 
+Puede agregar soluciones de supervisión a su instancia de Azure Monitor para todas las aplicaciones y los servicios que use. Suelen estar disponibles sin costo, pero la recopilación de datos puede suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="use-monitoring-solutions"></a>Uso de soluciones de supervisión
+Abra la página **Introducción** en Azure Monitor para mostrar un icono para cada solución instalada en el área de trabajo. 
 
 1. Inicie sesión en el Portal de Azure.
 1. Abra **Todos los servicios** y busque **Monitor**.
@@ -38,14 +43,14 @@ Abra la página **Introducción** del área de trabajo de Log Analytics para mos
 
 ![Información general](media/solutions/overview.png)
 
-Las soluciones de administración pueden contener varios tipos de recursos de Azure; puede ver todos los recursos que incluyen las soluciones igual que cualquier otro recurso. Por ejemplo, las consultas de registro incluidas en la solución se enumeran bajo **Consultas de solución** en [Explorador de consultas](../log-query/get-started-portal.md#load-queries). Puede usar esas consultas al llevar a cabo análisis ad hoc con Log Analytics.
+Las soluciones de supervisión pueden contener varios tipos de recursos de Azure; puede ver todos los recursos que incluyen las soluciones igual que cualquier otro recurso. Por ejemplo, las consultas de registro incluidas en la solución se enumeran en **Consultas de solución** de [Explorador de consultas](../log-query/get-started-portal.md#load-queries). Puede usar esas consultas al llevar a cabo análisis ad hoc con [consultas de registro](../log-query/log-query-overview.md).
 
-## <a name="list-installed-management-solutions"></a>Lista de soluciones de administración instaladas 
-Utilice el procedimiento siguiente para enumerar las soluciones de administración instaladas en su suscripción.
+## <a name="list-installed-monitoring-solutions"></a>Lista de soluciones de supervisión instaladas 
+Utilice el procedimiento siguiente para enumerar las soluciones de supervisión instaladas en su suscripción.
 
 1. Inicie sesión en el Portal de Azure.
 1. Abra **Todos los servicios** y busque **Soluciones**.
-4. Se mostrarán las soluciones instaladas en todas las áreas de trabajo. Al nombre de la solución le sigue el nombre del área de trabajo de Log Analytics donde está instalada.
+4. Se mostrarán las soluciones instaladas en todas las áreas de trabajo. Al nombre de la solución le sigue el nombre del área de trabajo donde está instalada.
 1. Use los cuadros de lista desplegable de la parte superior de la pantalla para filtrar por suscripción o grupo de recursos.
 
 
@@ -57,12 +62,12 @@ Haga clic en el nombre de una solución para abrir su página de resumen. Esta p
 
 
 
-## <a name="install-a-management-solution"></a>Instalación de una solución de administración
-Las soluciones de administración de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente. Al instalar una solución, debe seleccionar un [área de trabajo de Log Analytics](../platform/manage-access.md) donde se instalará la solución y se recopilarán los datos.
+## <a name="install-a-monitoring-solution"></a>Instalación de una solución de supervisión
+Las soluciones de supervisión de Microsoft y asociados están disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com). Puede buscar las soluciones disponibles e instalarlas mediante el procedimiento siguiente. Al instalar una solución, debe seleccionar un [área de trabajo de Log Analytics](../platform/manage-access.md) donde se instalará la solución y se recopilarán los datos.
 
 1. Desde la [lista de soluciones para la suscripción](#list-installed-management-solutions), haga clic en **Agregar**. 
 1. A la derecha de **Soluciones de administración de**, haga clic en **Más**. 
-1. Localice la solución de administración que quiere y lea su descripción.
+1. Localice la solución de supervisión que quiere y lea su descripción.
 1. Haga clic en **Crear** para iniciar el proceso de instalación.
 1. Cuando se inicia el proceso de instalación, se le pedirá que proporcione la configuración necesaria, que varía para cada solución.
 
@@ -81,7 +86,7 @@ Los miembros de la comunidad pueden enviar soluciones de administración a las p
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Área de trabajo de Log Analytics y cuenta de Automation
-Todas las soluciones de administración requieren un [área de trabajo de Log Analytics](../platform/manage-access.md) para almacenar los datos recopilados por la solución y para hospedar sus vistas y búsquedas de registros. Algunas soluciones también requieren una [cuenta de Automation](../../automation/automation-security-overview.md#automation-account-overview) que contenga runbooks y recursos relacionados. El área de trabajo y la cuenta deben cumplir los siguientes requisitos.
+Todas las soluciones de supervisión requieren un [área de trabajo de Log Analytics](../platform/manage-access.md) para almacenar los datos recopilados por la solución y para hospedar sus vistas y búsquedas de registros. Algunas soluciones también requieren una [cuenta de Automation](../../automation/automation-security-overview.md#automation-account-overview) que contenga runbooks y recursos relacionados. El área de trabajo y la cuenta deben cumplir los siguientes requisitos.
 
 * Cada instalación de la solución solo puede utilizar un área de trabajo de Log Analytics y una cuenta de Automation. Puede instalar la solución por separado en varias áreas de trabajo.
 * Si una solución requiere una cuenta de Automation, el área de trabajo de Log Analytics y la cuenta de Automation solución deben estar vinculadas. Un área de trabajo de Log Analytics solo puede estar vinculada a una cuenta de Automation y viceversa.
@@ -100,13 +105,11 @@ Puede comprobar el vínculo entre un área de trabajo de Log Analytics y una cue
 1. Desplácese hasta la sección **Recursos relacionados** del menú.
 1. Si el **Área de trabajo** está habilitada, esta cuenta se vincula a un área de trabajo de Log Analytics. Puede hacer clic en **Área de trabajo** para ver sus detalles.
 
-## <a name="remove-a-management-solution"></a>Eliminación de una solución de administración
-Para quitar una solución instalada, busque en la lista de soluciones instaladas. Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar**.
-
-
+## <a name="remove-a-monitoring-solution"></a>Eliminación de una solución de supervisión
+Para eliminar una solución instalada, busque en la [lista de soluciones instaladas](#list-installed-monitoring-solutions). Haga clic en el nombre de la solución para abrir su página de resumen y haga clic en **Eliminar**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga un [lista de soluciones de administración de Microsoft](solutions-inventory.md).
-* Aprenda a [crear consultas](../../azure-monitor/log-query/log-query-overview.md) para analizar los datos recopilados por las soluciones de administración.
+* Obtenga un [lista de soluciones de supervisión de Microsoft](solutions-inventory.md).
+* Aprenda a [crear consultas](../log-query/log-query-overview.md) para analizar los datos recopilados por las soluciones de supervisión.
 

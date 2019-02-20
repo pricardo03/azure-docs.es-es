@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36012c023025b8304dfaf9cc63997f600ef6cbe8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249755"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962730"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Preparación del equipo host del Kit de desarrollo de Azure Stack
-Para poder instalar ASDK en el equipo host, el entorno de ASDK se debe preparar para su instalación. Cuando el equipo host del kit de desarrollo esté preparado, se iniciará desde el disco duro de la máquina virtual CloudBuilder.vhdx para comenzar la implementación del Kit de desarrollo de Azure Stack.
+Para poder instalar ASDK en el equipo host, el host de ASDK se debe preparar para su instalación. Cuando el equipo host del kit de desarrollo esté preparado, se iniciará desde el disco duro de la máquina virtual CloudBuilder.vhdx para comenzar la implementación del Kit de desarrollo de Azure Stack.
 
 ## <a name="prepare-the-development-kit-host-computer"></a>Preparar el equipo host del kit de desarrollo
 Para poder instalar el ASDK en el equipo host, se debe preparar el entorno de este.
@@ -32,17 +32,20 @@ Para poder instalar el ASDK en el equipo host, se debe preparar el entorno de es
 2. Asegúrese de que el archivo CloudBuilder.vhdx se ha movido a la raíz de la unidad C:\ (C:\CloudBuilder.vhdx).
 3. Ejecute el script siguiente para descargar el archivo instalador del kit de desarrollo (asdk-installer.ps1) del [repositorios de herramientas de GitHub para Azure Stack](https://github.com/Azure/AzureStack-Tools) en la carpeta **C:\AzureStack_Installer** del equipo host del kit de desarrollo:
 
-  ```powershell
-  # Variables
-  $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
-  $LocalPath = 'C:\AzureStack_Installer'
-  # Create folder
-  New-Item $LocalPath -Type directory
-  # Enforce usage of TLSv1.2 to download from GitHub
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  # Download file
-  Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
-  ```
+   > [!IMPORTANT]
+   > Asegúrese de descargar el archivo asdk-installer.ps1 cada vez que instale el ASDK. Se hacen cambios frecuentes en este script y se debe usar la versión más reciente para cada implementación del ASDK. Las versiones anteriores del script podrían no funcionar con la versión más reciente.
+
+   ```powershell
+   # Variables
+   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
+   $LocalPath = 'C:\AzureStack_Installer'
+   # Create folder
+   New-Item $LocalPath -Type directory
+   # Enforce usage of TLSv1.2 to download from GitHub
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+   # Download file
+   Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
+   ```
 
 4. En una consola de PowerShell con privilegios elevados, inicie el script **C:\AzureStack_Installer\asdk-installer.ps1** y, a continuación, haga clic en **Preparar entorno**.
 
@@ -52,23 +55,23 @@ Para poder instalar el ASDK en el equipo host, se debe preparar el entorno de es
 
     ![](media/asdk-prepare-host/2.PNG)
 
-6. En la página **Configuración opcional**, especifique la información de la cuenta de administrador local para el equipo host del kit de desarrollo y haga clic en **Siguiente**. También puede especificar los valores de los siguientes ajustes opcionales:
-  - **Nombre del equipo**: esta opción permite establecer el nombre para el host del kit de desarrollo. El nombre debe cumplir los requisitos de FQDN y debe tener una longitud máxima de 15 caracteres. El valor predeterminado es un nombre de equipo aleatorio generado por Windows.
-  - **Configuración de IP estática**: hace que la implementación use una dirección IP estática. En caso contrario, cuando se reinicia el instalador en cloudbuilder.vhdx, las interfaces de red se configuran con DHCP.
+6. En la página **Configuración opcional**, especifique la información de la cuenta de administrador local para el equipo host del kit de desarrollo y haga clic en **Siguiente**.<br><br>Si no se especifican las credenciales de administrador local en este paso, se necesitará acceso directo o de KVM al host después de que el equipo se reinicie como parte de la configuración del kit de desarrollo.
 
-    ![](media/asdk-prepare-host/3.PNG)
+   ![](media/asdk-prepare-host/3.PNG)
 
-  > [!IMPORTANT]
-  > Si no se especifican las credenciales de administrador local en este paso, se necesitará acceso directo o de KVM al host después de que el equipo se reinicie como parte de la configuración del kit de desarrollo.
-
-7. Si ha elegido una configuración de IP estática en el paso anterior, ahora debe:
-    - Seleccionar un adaptador de red. Asegúrese de que puede conectarse al adaptador antes de hacer clic en **Siguiente**.
-    - Comprobar que los valores de **dirección IP**, **puerta de enlace**, y **DNS** valores son correctos y, a continuación, hacer clic en **Siguiente**.
+    También puede especificar los valores de los siguientes ajustes opcionales:
+    - **Nombre del equipo**: esta opción permite establecer el nombre para el host del kit de desarrollo. El nombre debe cumplir los requisitos de FQDN y debe tener una longitud máxima de 15 caracteres. El valor predeterminado es un nombre de equipo aleatorio generado por Windows.
+    - **Configuración de IP estática**: hace que la implementación use una dirección IP estática. En caso contrario, cuando se reinicia el instalador en cloudbuilder.vhdx, las interfaces de red se configuran con DHCP. Si decide usar una configuración de IP estática, se muestran opciones adicionales donde también debe:
+      - Seleccionar un adaptador de red. Asegúrese de que puede conectarse al adaptador antes de hacer clic en **Siguiente**.
+      - Comprobar que los valores de **Dirección IP**, **Puerta de enlace** y **DNS** que se muestran son correctos y, luego, hacer clic en **Siguiente**.
 13. Haga clic en **Siguiente** para iniciar el proceso de preparación.
 14. Cuando la preparación indique **Completado**, haga clic en **Siguiente**.
-15. Haga clic en **Reiniciar ahora** para iniciar el equipo host del kit de desarrollo en cloudbuilder.vhdx y [continuar el proceso de implementación](asdk-install.md).
 
     ![](media/asdk-prepare-host/4.PNG)
+
+15. Haga clic en **Reiniciar ahora** para iniciar el equipo host del kit de desarrollo en cloudbuilder.vhdx y [continuar el proceso de implementación](asdk-install.md).
+
+    ![](media/asdk-prepare-host/5.PNG)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

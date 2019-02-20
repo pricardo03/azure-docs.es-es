@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144569"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244936"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Protección de mensajes B2B con certificados
 
@@ -30,6 +30,8 @@ Puede usar los siguientes certificados en las aplicaciones de integración empre
 * Los [Certificados públicos](https://en.wikipedia.org/wiki/Public_key_certificate), que debe adquirir desde la [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) de una red pública de internet, pero no requieren ninguna clave. 
 
 * Los certificados privados o [ *certificados autofirmados*](https://en.wikipedia.org/wiki/Self-signed_certificate), que crea y emite usted mismo, pero que además requieren claves privadas. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Carga de un certificado público
 
@@ -67,11 +69,11 @@ Después de definir las propiedades en los [contratos](logic-apps-enterprise-int
 > [!NOTE]
 > En el caso de los certificados privados, asegúrese de añadir un certificado público correspondiente para que aparezca en las configuraciones de [contrato AS2](logic-apps-enterprise-integration-as2.md) y **envío y recepción** para la firma y el cifrado de mensajes.
 
-1. [Añada la clave privada a Azure Key Vault](../key-vault/key-vault-get-started.md#add) y especifique un **nombre de clave**.
+1. [Añada la clave privada a Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) y especifique un **nombre de clave**.
    
-2. Autorice a Azure Logic Apps para que pueda realizar operaciones en Azure Key Vault. Para conceder acceso a la entidad de seguridad de servicio de Logic Apps, use el comando de PowerShell [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), como en el ejemplo siguiente:
+2. Autorice a Azure Logic Apps para que pueda realizar operaciones en Azure Key Vault. Para conceder acceso a la entidad de seguridad de servicio de Logic Apps, use el comando de PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), como en el ejemplo siguiente:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Inicie sesión en el [Azure Portal](https://portal.azure.com). En el menú principal de Azure, seleccione **Todos los recursos**. En el cuadro de búsqueda, escriba el nombre de la cuenta de integración y, a continuación, seleccione la cuenta de integración que desee.

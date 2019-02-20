@@ -15,22 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 22a522fcde2b79d89e6084cdcfcbf64e4e5bd5ce
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914552"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977973"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager
-## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM en administración de servicios de Azure frente a Azure Resource Manager
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
-* Para ver información general sobre Azure Resource Manager, consulte este [artículo](../../azure-resource-manager/resource-group-overview.md)
-* Para conocer las diferencias entre la administración de servicios de Azure y Azure Resource Manager, consulte este [artículo](../../resource-manager-deployment-model.md)
-
-La diferencia clave en la configuración de WinRM entre las dos pilas es el modo en que se instala el certificado en la máquina virtual. En la pila de Azure Resource Manager, los certificados se modelan como recursos que se administran mediante el proveedor de recursos de Key Vault. Por lo tanto, el usuario debe proporcionar su propio certificado y cargarlo en un almacén de claves antes de usar una máquina virtual.
 
 Estos son los pasos que debe seguir para configurar una máquina virtual con conectividad de WinRM.
 
@@ -40,11 +32,13 @@ Estos son los pasos que debe seguir para configurar una máquina virtual con con
 4. Obtención de la dirección URL para el certificado autofirmado en el almacén de claves.
 5. Referencia a la dirección URL de los certificados autofirmados durante la creación de una máquina virtual
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="step-1-create-a-key-vault"></a>Paso 1: Creación de un almacén de claves
 Puede utilizar el siguiente comando para crear el almacén de claves:
 
 ```
-New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
+New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
 ## <a name="step-2-create-a-self-signed-certificate"></a>Paso 2: Creación de un certificado autofirmado
@@ -62,7 +56,7 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Paso 3: Carga del certificado autofirmado en el almacén de claves
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Paso 3: Carga del certificado autofirmado en Key Vault
 Antes de cargar el certificado en el almacén de claves que creó en el paso 1, debe convertirlo a un formato que entienda el proveedor de recursos Microsoft.Compute. El siguiente script de PowerShell le permitirá hacer eso:
 
 ```
@@ -85,7 +79,7 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Paso 4: Obtención de la dirección URL del certificado autofirmado en el almacén de claves
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Paso 4: Obtención de la dirección URL para el certificado autofirmado en el almacén de claves.
 El proveedor de recursos Microsoft.Compute necesita una dirección URL al secreto en el almacén de claves durante el aprovisionamiento de la máquina virtual. De esta manera, dicho proveedor podrá descargar el secreto y crear el certificado equivalente en la máquina virtual.
 
 > [!NOTE]
@@ -144,15 +138,15 @@ Una plantilla de ejemplo para el caso mencionado se puede encontrar aquí en [20
 El código fuente de esta plantilla está disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
-    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"
-    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+    $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>Paso 6: Conexión a la máquina virtual
+## <a name="step-6-connecting-to-the-vm"></a>Paso 6: Conexión a la VM
 Antes de poder conectarse a la máquina virtual, debe asegurarse de que el equipo esté configurado para la administración remota de WinRM. Inicie PowerShell como administrador y ejecute el siguiente comando para asegurarse de que se encuentra en el programa de instalación.
 
     Enable-PSRemoting -Force

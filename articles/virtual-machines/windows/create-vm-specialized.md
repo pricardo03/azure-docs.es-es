@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 53062ee6384113ef8c483bc9cc6b407559c35994
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406133"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982869"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
 
@@ -37,28 +37,22 @@ También puede usar Azure Portal para [crear una nueva VM a partir de un VHD esp
 
 En este artículo se muestra cómo usar los discos administrados. Si tiene una implementación heredada que requiere el uso de una cuenta de almacenamiento, vea [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md) (Creación de una máquina virtual a partir de un VHD especializado en una cuenta de almacenamiento).
 
-## <a name="before-you-begin"></a>Antes de empezar
-Para usar PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-```powershell
-Install-Module AzureRM -RequiredVersion 6.0.0
-```
-Para obtener más información, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+## <a name="option-1-use-an-existing-disk"></a>Opción 1: Uso de un disco existente
 
-## <a name="option-1-use-an-existing-disk"></a>Opción 1: usar un disco existente
-
-Si tenía una VM que ha eliminado y quiere volver a usar el disco del sistema operativo para crear una nueva VM, use [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1).
+Si tenía una VM que ha eliminado y quiere volver a usar el disco del sistema operativo para crear una nueva VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
 $osDiskName = 'myOsDisk'
-$osDisk = Get-AzureRmDisk `
+$osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
 Ahora puede adjuntar este disco como disco del sistema operativo a una [nueva VM](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>Opción 2: cargar un VHD especializado
+## <a name="option-2-upload-a-specialized-vhd"></a>Opción 2: Carga de un disco duro virtual especializado
 
 Puede cargar el VHD de una máquina virtual especializada creada con una herramienta de virtualización local, como Hyper-V, o de una máquina virtual exportada desde otra nube.
 
@@ -76,31 +70,31 @@ Necesitará una cuenta de almacenamiento de Azure para almacenar el VHD cargado.
 Muestre las cuentas de almacenamiento disponibles.
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Para usar una cuenta de almacenamiento existente, continúe con la sección [Carga del VHD](#upload-the-vhd-to-your-storage-account).
 
 Cree una cuenta de almacenamiento.
 
-1. Necesitará el nombre del grupo de recursos donde se creará la cuenta de almacenamiento. Use Get-AzureRmResourceGroup para ver todos los grupos de recursos de la suscripción.
+1. Necesitará el nombre del grupo de recursos donde se creará la cuenta de almacenamiento. Use Get-AzResourceGroup para ver todos los grupos de recursos de la suscripción.
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Cree un grupo de recursos denominado *myResourceGroup* en la región *Oeste de EE. UU*.
 
     ```powershell
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
        -Name myResourceGroup `
        -Location "West US"
     ```
 
-2. Cree una cuenta de almacenamiento denominada *mystorageaccount* en este nuevo grupo de recursos con el cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
+2. Cree una cuenta de almacenamiento denominada *mystorageaccount* en este nuevo grupo de recursos con el cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount).
    
     ```powershell
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
        -ResourceGroupName myResourceGroup `
        -Name mystorageaccount `
        -Location "West US" `
@@ -109,12 +103,12 @@ Cree una cuenta de almacenamiento.
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Carga del VHD en la cuenta de almacenamiento 
-Use el cmdlet [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) para cargar el VHD en un contenedor de su cuenta de almacenamiento. En este ejemplo se carga el archivo *myVHD.vhd* de "C:\Users\Public\Documents\Virtual hard disks\" a una cuenta de almacenamiento denominada *mystorageaccount* en el grupo de recursos *myResourceGroup*. El archivo se almacena en el contenedor llamado *mycontainer* y el nuevo nombre de archivo será *myUploadedVHD.vhd*.
+Use el cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para cargar el VHD en un contenedor de su cuenta de almacenamiento. En este ejemplo se carga el archivo *myVHD.vhd* de "C:\Users\Public\Documents\Virtual hard disks\" a una cuenta de almacenamiento denominada *mystorageaccount* en el grupo de recursos *myResourceGroup*. El archivo se almacena en el contenedor llamado *mycontainer* y el nuevo nombre de archivo será *myUploadedVHD.vhd*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+Add-AzVhd -ResourceGroupName $resourceGroupName `
    -Destination $urlOfUploadedVhd `
    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
@@ -138,13 +132,13 @@ Este comando tardará algún tiempo en completarse, dependiendo de la conexión 
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Creación de un disco administrado a partir del VHD
 
-Cree un disco administrado a partir del VHD especializado en la cuenta de almacenamiento mediante [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). En este ejemplo se utiliza *myOSDisk1* para el nombre del disco, coloca el disco en el almacenamiento *Standard_LRS* y usa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* como el URI para el disco duro virtual de origen.
+Cree un disco administrado a partir del VHD especializado en la cuenta de almacenamiento mediante [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). En este ejemplo se utiliza *myOSDisk1* para el nombre del disco, coloca el disco en el almacenamiento *Standard_LRS* y usa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* como el URI para el disco duro virtual de origen.
 
 Cree un grupo de recursos para la máquina virtual.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -153,21 +147,21 @@ Cree el disco del SO a partir del VHD cargado.
 ```powershell
 $sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
 $osDiskName = 'myOsDisk'
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Opción 3: copiar una VM de Azure existente
+## <a name="option-3-copy-an-existing-azure-vm"></a>Opción 3: Copia de una máquina virtual de Azure existente
 
 Puede crear una copia de una máquina virtual que use discos administrados mediante la realización de una instantánea de la máquina virtual, para usarla después para crear un disco administrado y una máquina virtual.
 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Realización de la instantánea del disco del SO
 
-Puede realizar una instantánea de una máquina virtual completa (incluidos todos los discos) o solo de un disco. En los pasos siguientes se describe cómo realizar una instantánea solo del disco del SO de la máquina virtual con el cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+Puede realizar una instantánea de una máquina virtual completa (incluidos todos los discos) o solo de un disco. En los pasos siguientes se describe cómo hacer una instantánea solo del disco del SO de la VM con el cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
 Primero, configure algunos parámetros. 
 
@@ -181,20 +175,20 @@ $snapshotName = 'mySnapshot'
 Obtenga el objeto de VM.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName `
+$vm = Get-AzVM -Name $vmName `
    -ResourceGroupName $resourceGroupName
 ```
 Obtenga el nombre del disco del SO.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
    -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 Cree la configuración de la instantánea. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig `
+$snapshotConfig =  New-AzSnapshotConfig `
    -SourceUri $disk.Id `
    -OsType Windows `
    -CreateOption Copy `
@@ -204,24 +198,24 @@ $snapshotConfig =  New-AzureRmSnapshotConfig `
 Tome la instantánea.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot `
+$snapShot = New-AzSnapshot `
    -Snapshot $snapshotConfig `
    -SnapshotName $snapshotName `
    -ResourceGroupName $resourceGroupName
 ```
 
 
-Para usar esta instantánea para crear una máquina virtual que precisa de un alto rendimiento, agregue el parámetro `-AccountType Premium_LRS` al comando New-AzureRmSnapshot. Este parámetro crea la instantánea para que se almacene como disco administrado Prémium. Los discos administrados Prémium son más caros que los Estándar, así que asegúrese de que necesita Prémium antes de usar este parámetro.
+Para usar esta instantánea para crear una VM que precisa de un alto rendimiento, agregue el parámetro `-AccountType Premium_LRS` al comando New-AzSnapshot. Este parámetro crea la instantánea para que se almacene como disco administrado Prémium. Los discos administrados Prémium son más caros que los Estándar, así que asegúrese de que necesita Prémium antes de usar este parámetro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Creación de un disco a partir de la instantánea
 
-Cree un disco administrado a partir de la instantánea mediante [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). Este ejemplo usa *myOSDisk* para el nombre del disco.
+Cree un disco administrado a partir de la instantánea mediante [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). Este ejemplo usa *myOSDisk* para el nombre del disco.
 
 Cree un grupo de recursos para la máquina virtual.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -234,8 +228,8 @@ $osDiskName = 'myOsDisk'
 Cree el disco administrado.
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig  -Location $location -CreateOption Copy `
     -SourceResourceId $snapshot.Id) `
     -ResourceGroupName $destinationResourceGroup
 ```
@@ -253,7 +247,7 @@ Cree la [red virtual](../../virtual-network/virtual-networks-overview.md) y la s
    
     ```powershell
     $subnetName = 'mySubNet'
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig `
        -Name $subnetName `
        -AddressPrefix 10.0.0.0/24
     ```
@@ -262,7 +256,7 @@ Cree la [red virtual](../../virtual-network/virtual-networks-overview.md) y la s
    
     ```powershell
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork `
+    $vnet = New-AzVirtualNetwork `
        -Name $vnetName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AddressPrefix 10.0.0.0/16 `
@@ -278,11 +272,11 @@ En este ejemplo se establece el nombre del grupo de seguridad de red (NSG) en *m
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $destinationResourceGroup `
    -Location $location `
    -Name $nsgName -SecurityRules $rdpRule
@@ -298,7 +292,7 @@ Para permitir la comunicación con la máquina virtual en la red virtual, necesi
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress `
+    $pip = New-AzPublicIpAddress `
        -Name $ipName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AllocationMethod Dynamic
@@ -308,7 +302,7 @@ Para permitir la comunicación con la máquina virtual en la red virtual, necesi
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName `
+    $nic = New-AzNetworkInterface -Name $nicName `
        -ResourceGroupName $destinationResourceGroup `
        -Location $location -SubnetId $vnet.Subnets[0].Id `
        -PublicIpAddressId $pip.Id `
@@ -323,31 +317,31 @@ En este ejemplo se establece el nombre de la máquina virtual como *myVM* y el t
 
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>Incorporación de la NIC
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
 
 ### <a name="add-the-os-disk"></a>Adición del disco del SO 
 
-Agregue el disco del SO a la configuración mediante [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Este ejemplo establece el tamaño del disco en *128 GB* y adjunta el disco administrado como un disco del SO *Windows*.
+Agregue el disco del SO a la configuración mediante [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). Este ejemplo establece el tamaño del disco en *128 GB* y adjunta el disco administrado como un disco del SO *Windows*.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
 ### <a name="complete-the-vm"></a>Finalización de la máquina virtual 
 
-Cree la máquina virtual mediante [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm), con las configuraciones que se acaban de crear.
+Cree la VM mediante [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) con las configuraciones que se acaban de crear.
 
 ```powershell
-New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
+New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
 Si este comando es correcto, verá un resultado similar al siguiente:
@@ -363,7 +357,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 Debería ver la máquina virtual recién creada en el [Azure Portal](https://portal.azure.com), en **Examinar** > **Máquinas virtuales** o mediante los comandos de PowerShell siguientes.
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
+$vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 

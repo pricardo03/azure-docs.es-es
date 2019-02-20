@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883779"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002122"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -83,7 +83,7 @@ En Azure Portal, puede filtrar Activity Log por estos campos:
 
 Una vez que haya definido un conjunto de filtros, puede anclar una consulta en el panel de Azure para estar siempre al tanto de eventos específicos.
 
-Para ampliar aún más las posibilidades, puede hacer clic en el icono **Registros**, que muestra los datos del registro de actividad en la [solución Activity Log Analytics de Log Analytics](../../azure-monitor/platform/collect-activity-logs.md). La hoja Log Analytics ofrece una experiencia básica de exploración/filtro en registros, pero Log Analytics le permite dinamizar, consultar y visualizar sus datos de otras formas más eficaces.
+Para ampliar aún más las posibilidades, puede hacer clic en el icono **Registros**, que muestra los datos del registro de actividad en la [solución Recopilar y analizar de Registros de actividad](../../azure-monitor/platform/collect-activity-logs.md). La hoja de registro de actividad ofrece una experiencia básica de exploración/filtro en registros, pero la característica de registros de Azure Monitor le permite dinamizar, consultar y visualizar sus datos de otras formas más eficaces.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportación del registro de actividad con perfiles de registro
 Un **perfil de registro** controla cómo se exporta el registro de actividad. Con un perfil de registro, puede configurar:
@@ -142,11 +142,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| Name |SÍ |Nombre de su perfil de registro. |
+| Name |Sí |Nombre de su perfil de registro. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
 | serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Ubicación |SÍ |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| RetentionInDays |SÍ |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
+| Ubicación |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
+| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 | Categoría |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro

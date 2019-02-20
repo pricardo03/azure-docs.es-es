@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471324"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109765"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -58,11 +58,25 @@ Las interrupciones regionales son algo habitual, y Azure Cosmos DB garantiza que
 
 ## <a name="building-highly-available-applications"></a>Compilación de aplicaciones de alta disponibilidad
 
-- Para garantizar la disponibilidad de escritura y lectura, configure la cuenta de Cosmos para abarcar al menos dos regiones con varias regiones de escritura. Esta configuración proporciona disponibilidad, latencia más baja y escalabilidad para lecturas y escrituras respaldadas por SLA. Para obtener más información, vea cómo [configurar la cuenta de Cosmos con varias regiones de escritura](tutorial-global-distribution-sql-api.md).
+- Para garantizar la disponibilidad de escritura y lectura, configure la cuenta de Cosmos para abarcar al menos dos regiones con varias regiones de escritura. Esta configuración proporciona disponibilidad, latencia más baja y escalabilidad para lecturas y escrituras respaldadas por SLA. Para obtener más información, vea cómo [configurar la cuenta de Cosmos con varias regiones de escritura](tutorial-global-distribution-sql-api.md). Para configurar la arquitectura multimaestro en las aplicaciones, vea [How to configure multi-master](how-to-multi-master.md) (Configuración de una arquitectura multimaestro).
 
 - Para cuentas de Cosmos de varias regiones que estén configuradas con una región única de escritura, [habilite la conmutación por error automática mediante la CLI de Azure o Azure Portal](how-to-manage-database-account.md#automatic-failover). Después de habilitar la conmutación automática por error, siempre que se produzca un desastre regional, Cosmos DB conmutarán por error automáticamente su cuenta.  
 
 - Incluso si su cuenta de Cosmos es de alta disponibilidad, es posible que la aplicación no se haya diseñado correctamente para seguir teniendo alta disponibilidad. Para probar la alta disponibilidad de un extremo a otro de la aplicación, invoque periódicamente la [conmutación por error manual mediante la CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover) como parte de sus pruebas de aplicaciones o de las maniobras de recuperación ante desastres (DR).
+
+
+A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como el objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO).
+
+En la tabla siguiente se muestra el RPO y el RTO para los escenarios más comunes.
+
+|Número de regiones |Configuración |Nivel de coherencia|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 minutos | < 1 semana |
+|>1     | Replicación de un solo maestro | Sesión, prefijo coherente, eventual | < 15 minutos | < 15 minutos |
+|>1     | Replicación de un solo maestro | De obsolescencia entrelazada | K & T | < 15 minutos |
+|>1     | Replicación de varios maestros | Sesión, prefijo coherente, eventual | < 15 minutos | 0 |
+|>1     | Replicación de varios maestros | De obsolescencia entrelazada | K & T | 0 |
+|>1     | * | Alta | 0 | < 15 minutos |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -72,3 +86,4 @@ En el artículo siguiente, obtendrá información acerca de cómo escalar el ren
 * [Escalado del rendimiento aprovisionado globalmente](scaling-throughput.md)
 * [Distribución global en segundo plano](global-dist-under-the-hood.md)
 * [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
+* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)

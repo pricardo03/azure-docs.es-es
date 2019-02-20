@@ -14,19 +14,22 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5ab5c769280bdd91a15e6107df8c9c6b7814571c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599917"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877293"
 ---
+> [!NOTE]
+> Cada instancia de App Service Enviornment tiene una IP virtual (VIP) que puede usarse para ponerse en contacto con App Service Environment.
+>
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment #
 
 Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos maneras de implementar una instancia de App Service Environment (ASE):
 
 - Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
-- Con la dirección VIP en una dirección IP interna, llamada a menudo instancia externa de ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB).
+- Con la dirección VIP en una dirección IP interna, llamada a menudo instancia de ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB).
 
 En este artículo se muestra cómo crear un ASE externo. Para obtener información general sobre la instancia de ASE, vea [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear una instancia de ASE con un ILB, vea [Creación y uso de una instancia de ASE con un ILB][MakeILBASE].
 

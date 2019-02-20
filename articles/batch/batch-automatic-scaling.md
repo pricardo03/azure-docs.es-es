@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730023"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869099"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula de escala automática para escalar nodos de proceso en un grupo de Batch
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Al crear un grupo habilitado para el escalado automático, no especifique el parámetro _targetDedicatedComputeNodes_ ni el parámetro _targetLowPriorityComputeNodes_ en la llamada a **CreatePool**. En su lugar, especifique las propiedades **AutoScaleEnabled** y **AutoScaleFormula** en el grupo. Los valores de estas propiedades determinan el número de destino de cada tipo de nodo. Además, para cambiar manualmente el tamaño de un grupo habilitado para el escalado automático (por ejemplo, con [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primero debe **deshabilitar** el escalado automático en el grupo y, después, cambiar su tamaño.
+> Al crear un grupo habilitado para el escalado automático, no especifique el parámetro _targetDedicatedNodes_ ni el parámetro _targetLowPriorityNodes_ en la llamada a **CreatePool**. En su lugar, especifique las propiedades **AutoScaleEnabled** y **AutoScaleFormula** en el grupo. Los valores de estas propiedades determinan el número de destino de cada tipo de nodo. Además, para cambiar manualmente el tamaño de un grupo habilitado para el escalado automático (por ejemplo, con [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primero debe **deshabilitar** el escalado automático en el grupo y, después, cambiar su tamaño.
 >
 >
 
@@ -412,7 +412,7 @@ Al habilitar el escalado automático en un grupo existente, tenga en cuenta las 
   * Si se omite la fórmula de escalado automático o el intervalo de evaluación, el servicio Batch sigue usando el valor actual de dicha configuración.
 
 > [!NOTE]
-> Si especificó valores para los parámetros *targetDedicatedComputeNodes* o *targetLowPriorityComputeNodes* del método **CreatePool** al crear el grupo en .NET, o bien para los parámetros comparables en otro lenguaje, dichos valores se omitirán cuando se evalúe la fórmula de escalado automático.
+> Si especificó valores para los parámetros *targetDedicatedNodes* o *targetLowPriorityNodes* del método **CreatePool** al crear el grupo en .NET, o bien para los parámetros comparables en otro lenguaje, dichos valores se omitirán cuando se evalúe la fórmula de escalado automático.
 >
 >
 

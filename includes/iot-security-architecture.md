@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995780"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56247138"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas (IoT)
 
@@ -225,7 +225,7 @@ Las amenazas existentes en la ruta de acceso de comunicación entre los disposit
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |
 | --- | --- | --- | --- | --- |
 | IoT Hub de dispositivo |TID |(D)TLS (PSK/RSA) para cifrar el tráfico |La interceptación o interferencia de la comunicación entre el dispositivo y la puerta de enlace |Seguridad en el nivel de protocolo. En el caso de los protocolos personalizados, debe averiguar cómo protegerlos. En la mayoría de los casos, la comunicación se establece desde el dispositivo a IoT Hub (el dispositivo inicia la conexión). |
-| Dispositivo Dispositivo |TID |(D)TLS (PSK/RSA) para cifrar el tráfico. |Lectura de los datos en tránsito entre dispositivos. Manipulación de los datos. Sobrecarga del dispositivo con nuevas conexiones |Seguridad en el nivel de protocolo (MQTT/AMQP/HTTP/CoAP). En el caso de los protocolos personalizados, debe averiguar cómo protegerlos. La mitigación de la amenaza de denegación de servicio es emparejar los dispositivos a través de una puerta de enlace de campo o en la nube, y que actúen solo como clientes hacia la red. El emparejamiento puede dar lugar a una conexión directa entre los homólogos después de que la puerta de enlace haya intermediado |
+| De dispositivo a dispositivo |TID |(D)TLS (PSK/RSA) para cifrar el tráfico. |Lectura de los datos en tránsito entre dispositivos. Manipulación de los datos. Sobrecarga del dispositivo con nuevas conexiones |Seguridad en el nivel de protocolo (MQTT/AMQP/HTTP/CoAP). En el caso de los protocolos personalizados, debe averiguar cómo protegerlos. La mitigación de la amenaza de denegación de servicio es emparejar los dispositivos a través de una puerta de enlace de campo o en la nube, y que actúen solo como clientes hacia la red. El emparejamiento puede dar lugar a una conexión directa entre los homólogos después de que la puerta de enlace haya intermediado |
 | Entidad externa Dispositivo |TID |Emparejamiento seguro de la entidad externa con el dispositivo |Interceptación de la conexión con el dispositivo. Interferencia de la comunicación con el dispositivo |Emparejamiento seguro de la entidad externa con el dispositivo LE NFC o Bluetooth. Control del panel operativo del dispositivo (físico) |
 | Puerta de enlace de campo Puerta de enlace en la nube |TID |TLS (PSK/RSA) para cifrar el tráfico. |La interceptación o interferencia de la comunicación entre el dispositivo y la puerta de enlace |Seguridad en el nivel de protocolo (MQTT/AMQP/HTTP/CoAP). En el caso de los protocolos personalizados, debe averiguar cómo protegerlos. |
 | Puerta de enlace en la nube de dispositivo |TID |TLS (PSK/RSA) para cifrar el tráfico. |La interceptación o interferencia de la comunicación entre el dispositivo y la puerta de enlace |Seguridad en el nivel de protocolo (MQTT/AMQP/HTTP/CoAP). En el caso de los protocolos personalizados, debe averiguar cómo protegerlos. |

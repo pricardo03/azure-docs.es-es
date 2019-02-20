@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901197"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980115"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
+
+> [!IMPORTANT]
+> Los detalles aquí para crear una alerta mediante una plantilla de Resource Manager están desactualizados ahora que [las alertas de Log Analytics se han ampliado a Azure Monitor](../platform/alerts-extend.md). Para más información sobre cómo crear una alerta de registro con una plantilla de Resource Manager, consulte [Administración de alertas de registro mediante la plantilla de recursos de Azure](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.
@@ -122,9 +125,9 @@ En la tabla siguiente se describen las propiedades para los recursos de programa
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Enabled       | SÍ | Especifica si la alerta está habilitada cuando se crea. |
-| interval      | SÍ | Frecuencia con la que se ejecuta la consulta en minutos. |
-| queryTimeSpan | SÍ | Período de tiempo en minutos en el que se evalúan los resultados. |
+| Enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
+| interval      | Sí | Frecuencia con la que se ejecuta la consulta en minutos. |
+| queryTimeSpan | Sí | Período de tiempo en minutos en el que se evalúan los resultados. |
 
 El recurso de programación debe depender de la búsqueda guardada para que se cree antes de la programación.
 
@@ -180,10 +183,10 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Type | SÍ | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
-| NOMBRE | SÍ | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
+| Type | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
+| NOMBRE | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
 | DESCRIPCIÓN | Sin  | Descripción opcional de la alerta. |
-| Gravedad | SÍ | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
+| Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 
 #### <a name="threshold"></a>Umbral
@@ -191,8 +194,8 @@ Esta sección es obligatoria. Define las propiedades para el umbral de alerta.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Operador | SÍ | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Valor | SÍ | Valor para comparar los resultados. |
+| Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| Valor | Sí | Valor para comparar los resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
@@ -202,9 +205,9 @@ Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| TriggerCondition | SÍ | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
-| Operador | SÍ | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Valor | SÍ | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
+| TriggerCondition | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
+| Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| Valor | Sí | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
 
 
 #### <a name="throttling"></a>Limitaciones
@@ -221,7 +224,7 @@ Para los usuarios que han extendido sus alertas a Azure, ahora una programación
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| AzNsNotification | SÍ | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
+| AzNsNotification | Sí | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
 | CustomEmailSubject | Sin  | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
 | CustomWebhookPayload | Sin  | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
 
@@ -237,8 +240,8 @@ Cada programación tiene una acción **Alert**. Esto define los detalles de la a
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Recipients | SÍ | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Asunto | SÍ | Línea del asunto del mensaje de correo electrónico. |
+| Recipients | Sí | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Asunto | Sí | Línea del asunto del mensaje de correo electrónico. |
 | Datos adjuntos | Sin  | Los datos adjuntos no son compatibles actualmente. Si este elemento está incluido, debe ser **None** (Ninguno). |
 
 ##### <a name="remediation"></a>Corrección
@@ -246,8 +249,8 @@ Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respu
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| RunbookName | SÍ | Nombre del runbook que se va a iniciar. |
-| WebhookUri | SÍ | URI del webhook para el runbook. |
+| RunbookName | Sí | Nombre del runbook que se va a iniciar. |
+| WebhookUri | Sí | URI del webhook para el runbook. |
 | Expiry | Sin  | Fecha y hora a la que expira la corrección. |
 
 ##### <a name="webhook-actions"></a>Acciones de webhook
@@ -276,9 +279,9 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Tipo | SÍ | Tipo de la acción. Es **Webhook** para las acciones de webhook. |
-| Nombre | SÍ | Nombre para mostrar de la acción. Esto no se muestra en la consola. |
-| webhookUri | SÍ | URI del webhook. |
+| Tipo | Sí | Tipo de la acción. Es **Webhook** para las acciones de webhook. |
+| Nombre | Sí | Nombre para mostrar de la acción. Esto no se muestra en la consola. |
+| webhookUri | Sí | URI del webhook. |
 | customPayload | Sin  | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
 
 ## <a name="sample"></a>Muestra

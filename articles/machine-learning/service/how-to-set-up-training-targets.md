@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756536"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981458"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo
 
@@ -47,6 +47,11 @@ Azure Machine Learning Service tiene distintas modalidades de soporte técnico e
 |[Análisis con Azure Data Lake](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[HDInsight de Azure](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Todos los destinos de proceso se pueden reutilizar para varios trabajos de entrenamiento**. Por ejemplo, una vez que se adjunta una VM remota al área de trabajo, puede reutilizarla para varios trabajos.
+
+> [!NOTE]
+> Proceso de Azure Machine Learning puede crearse como recurso persistente o crearse dinámicamente al solicitar una ejecución. La creación basada en ejecución quita el destino de proceso después de que se completa la ejecución de entrenamiento, por lo que no puede reutilizar los destinos de proceso creados de esta manera.
+
 ## <a name="whats-a-run-configuration"></a>¿En qué consiste una configuración de ejecución?
 
 Cuando se entrena, es normal comenzar en el equipo local y después ejecutar ese script de entrenamiento en un destino de proceso diferente. Con el servicio Azure Machine Learning, puede ejecutar el script en varios destinos de proceso sin tener que cambiar el script. 
@@ -73,7 +78,7 @@ El siguiente código muestra un ejemplo de un entorno administrado por el sistem
 
 #### <a name="user-managed-environment"></a>Entorno administrado por el usuario
 
-Para los entornos administrados por usuarios, es responsable de configurar el entorno e instalar todos los paquetes que necesita el script de entrenamiento en el destino de proceso. Si el entorno de entrenamiento ya está configurado (como en la máquina local), puede omitirse el paso de configuración mediante el establecimiento de `user_managed_dependencies` en True. Conda no comprobará el entorno ni instalará nada por usted.
+Para un entorno administrado por usuarios, es responsable de configurar el entorno e instalar todos los paquetes que necesita el script de entrenamiento en el destino de proceso. Si el entorno de entrenamiento ya está configurado (como en la máquina local), puede omitirse el paso de configuración mediante el establecimiento de `user_managed_dependencies` en True. Conda no comprobará el entorno ni instalará nada por usted.
 
 El código siguiente muestra un ejemplo de configuración de ejecuciones de entrenamiento para un entorno administrado por el usuario:
 
@@ -242,7 +247,7 @@ Desde Azure Portal, puede acceder a destinos de proceso que están asociados con
 
 * [Ver los destinos de proceso](#portal-view) asociados a un área de trabajo
 * [Crear un destino de proceso](#portal-create) en el área de trabajo
-* [Reutilizar destinos de proceso existentes](#portal-reuse)
+* [Adjuntar un destino de proceso](#portal-reuse) que se creó fuera del área de trabajo
 
 Después de crear un destino y de adjuntarlo al área de trabajo, lo utilizará en la configuración de ejecución con un objeto `ComputeTarget`: 
 
@@ -293,9 +298,11 @@ Siga los pasos anteriores para ver la lista de destinos de proceso. A continuaci
 
 
 
-### <a id="portal-reuse"></a>Reutilización de destinos de proceso existentes
+### <a id="portal-reuse"></a>Adjuntar destinos de proceso
 
-Siga los pasos descritos previamente para ver la lista de destinos de proceso. A continuación, siga estos pasos para reutilizar un destino de proceso: 
+Para usar destinos de proceso creados fuera del área de trabajo de Azure Machine Learning Service, debe adjuntarlos. Adjuntar un destino de proceso hace que esté disponible para el área de trabajo.
+
+Siga los pasos descritos previamente para ver la lista de destinos de proceso. Luego, siga los pasos a continuación para adjuntar un destino de proceso: 
 
 1. Haga clic en el signo más (+) para agregar un destino de proceso. 
 1. Escriba un nombre para el destino de proceso. 

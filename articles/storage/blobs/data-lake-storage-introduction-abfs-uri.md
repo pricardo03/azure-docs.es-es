@@ -1,6 +1,6 @@
 ---
-title: Uso del URI de versión preliminar de Azure Data Lake Storage Gen2
-description: Uso del URI de versión preliminar de Azure Data Lake Storage Gen2
+title: Uso del URI de Azure Data Lake Storage Gen2
+description: Uso del URI de Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243324"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878313"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Uso del URI de Azure Data Lake Storage Gen2
 
-El controlador [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html), que es compatible con la versión preliminar de Azure Data Lake Storage Gen2, se conoce por su identificador de esquema `abfs` (sistema de archivos de blob de Azure). El controlador ABFS es coherente con otros controladores del sistema de archivos de Hadoop y emplea un formato URI para dirigir archivos y directorios dentro de una cuenta compatible con Data Lake Storage Gen2.
+El controlador [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html), que es compatible con Azure Data Lake Storage Gen2, se conoce por su identificador de esquema `abfs` (sistema de archivos de blob de Azure). El controlador ABFS es coherente con otros controladores del sistema de archivos de Hadoop y emplea un formato URI para dirigir archivos y directorios dentro de una cuenta compatible con Data Lake Storage Gen2.
 
 ## <a name="uri-syntax"></a>Sintaxis de URI
 

@@ -4,14 +4,14 @@ description: Obtenga información sobre un patrón de diseño para redes sociale
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
-ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042690"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100370"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 
@@ -222,7 +222,7 @@ Otra opción disponible es usar [Azure Cognitive Services](https://www.microsoft
 
 Hay un último, pero no por ello menos importante, artículo que abordaremos: la **escalabilidad**. Al diseñar una arquitectura, cada componente debe escalarse por sí mismo. En algún momento tendrá que procesar más datos o querrá ampliar su cobertura geográfica. Afortunadamente, llevar a cabo ambas tareas es una **experiencia inmediata** con Cosmos DB.
 
-Cosmos DB admite [particiones dinámicas](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) de fábrica. Automáticamente crea particiones basadas en una **clave de partición** específica, que se define como atributo en sus documentos. Debe definir la clave de partición correcta durante el tiempo de diseño. Para obtener más información, consulte el artículo sobre cómo [elegir la clave de partición correcta](partitioning-overview.md#choose-partitionkey).
+Cosmos DB admite particiones dinámicas de fábrica. Automáticamente crea particiones basadas en una **clave de partición** específica, que se define como atributo en sus documentos. Debe definir la clave de partición correcta durante el tiempo de diseño. Para más información, consulte [Creación de particiones en Azure Cosmos DB](partitioning-overview.md).
 
 Para obtener una experiencia social, debe alinear la estrategia de creación de particiones con el modo de consulta y escritura. (Por ejemplo, es conveniente tener lecturas en la misma partición, así como evitar las "zonas activas" al propagar los procesos de escritura en varias particiones). Algunas opciones son: las particiones basadas en una clave temporal (día/mes/semana), por categoría de contenido, por región geográfica o por usuario. Todo depende de cómo va a consultar los datos y cómo va a mostrarlos en la experiencia social.
 

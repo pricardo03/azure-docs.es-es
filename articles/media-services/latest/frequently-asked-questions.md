@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756587"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875498"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Media Services v3
 
@@ -36,17 +36,7 @@ Es recomendable que envíe los trabajos mediante una dirección URL de HTTP(s) q
 
 ### <a name="how-does-pagination-work"></a>¿Cómo funciona la paginación?
 
-Media Services admite $top para los recursos que admiten OData, pero el valor pasado a $top debe ser inferior a 1000 (por ejemplo, el tamaño de página para la paginación).
-
-Esto permite obtener una pequeña muestra de los elementos usando $top (por ejemplo, los 100 elementos más recientes) o página entre todos los elementos mediante el uso de la paginación. 
-
-Media Services no admite la paginación en los datos con un tamaño de página especificado por el usuario.
-
-Para más información, consulte [Filtrado, ordenación y paginación](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>¿Cómo se recupera una entidad de Media Services v3?
-
-v3 se basa en una superficie de API unificada que expone la funcionalidad de administración y de operaciones basada en **Azure Resource Manager**. De acuerdo con **Azure Resource Manager**, los nombres de los recursos siempre son únicos. Por lo tanto, puede usar cualquier cadena de identificador único (por ejemplo, GUID) para el recurso.
+Al usar la paginación, siempre debe usar el vínculo siguiente para enumerar la colección y no tener que depender de un tamaño de página determinado. Para obtener información detallada y ejemplos, consulte [Filtrado, ordenación y paginación](entities-overview.md).
 
 ## <a name="live-streaming"></a>Streaming en directo 
 

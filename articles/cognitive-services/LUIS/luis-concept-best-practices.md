@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Obtenga información sobre los procedimientos recomendados de LUIS para conseguir los mejores resultados del modelo de la aplicación de LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/13/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6f9c559ce6fe66d4fe3df9382bc931f4a55e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209373"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243423"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
@@ -59,6 +59,12 @@ Considere las siguientes expresiones de ejemplo:
 
 "Book a flight" ("Reservar un vuelo") y "Book a hotel" ("Reservar un hotel") usan el mismo vocabulario: "book a" (“reservar un”). Este formato es el mismo, por lo que debería tratarse de la misma intención con las diferentes palabras extraídas de las entidades "flight" (“vuelo”) y "hotel". 
 
+Para obtener más información:
+* Concepto: [Conceptos sobre intenciones en una aplicación de LUIS](luis-concept-intent.md)
+* Tutorial: [Compilación de una aplicación de LUIS para determinar las intenciones del usuario](luis-quickstart-intents-only.md)
+* Procedimientos para: [Adición de intenciones para determinar la intención de las expresiones del usuario](luis-how-to-add-intents.md)
+
+
 ## <a name="do-find-sweet-spot-for-intents"></a>Buscar un punto óptimo para las intenciones
 Use datos de predicción de LUIS para determinar si las intenciones se superponen. Las intenciones que se superponen confunden a LUIS. El resultado es que la intención con mayor puntuación es demasiado cercana a otra intención. Dado que LUIS no usa exactamente la misma ruta a través de los datos para el aprendizaje todas las veces, una intención que se superpone tiene una posibilidad de ser la primera o segunda en el aprendizaje. Quiere que la puntuación de la expresión de cada intención esté más alejada para que esto no suceda. Una buena distinción de las intenciones debería dar como resultado cada vez la intención superior que se esperaba. 
  
@@ -67,6 +73,9 @@ Mantenga un conjunto de expresiones que no se use como [expresiones de ejemplo](
 
 Los desarrolladores deben tener tres conjuntos de datos. El primero incluye las expresiones de ejemplo para compilar el modelo. El segundo es para probar el modelo en el punto de conexión. El tercero incluye los datos de prueba ocultos usados en las [pruebas por lotes](luis-how-to-batch-test.md). Este último conjunto no se usa en el aprendizaje de la aplicación ni se envía al punto de conexión.  
 
+Para obtener más información:
+* Concepto: [Ciclo de creación de una aplicación de LUIS](luis-concept-app-iteration.md)
+
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Agregar listas de frases y patrones en iteraciones posteriores
 Las [listas de frases](luis-concept-feature.md) permiten definir diccionarios de palabras relacionadas con el dominio de la aplicación. Inicie la lista de frases con unas pocas palabras y después use la característica de sugerencia para que LUIS conozca más palabras en el vocabulario específicas de la aplicación. No agregue cada palabra al vocabulario, puesto que la lista de frases no es una coincidencia exacta. 
 
@@ -74,7 +83,18 @@ Las expresiones de usuarios reales del punto de conexión, muy similares entre s
 
 Use una [sintaxis opcional](luis-concept-patterns.md) del patrón para la puntuación, para que esta se pueda omitir. Use la [lista explícita](luis-concept-patterns.md#explicit-lists) para compensar los problemas de sintaxis de pattern.any. 
 
-No aplique estos procedimientos antes de que la aplicación haya recibido las solicitudes del punto de conexión, ya que esto sesga la confianza.  
+No aplique estos procedimientos antes de que la aplicación haya recibido las solicitudes del punto de conexión. Debe entender cómo se comporta la aplicación antes de agregar listas de frases y patrones. Una vez comprenda cómo se comporta sin estas características, agregue cada una de ellas a la aplicación según corresponda. 
+
+No existe ningún inconveniente en agregarlas al principio del diseño del modelo, pero es más fácil ver cómo resulta cada característica que agregarlas después al usar la aplicación con tráfico real. 
+
+No es necesario agregar estas características con cada interacción ni cambiarlas con cada versión. 
+
+Para obtener más información:
+* Concepto: [Ciclo de creación de una aplicación de LUIS](luis-concept-app-iteration.md)
+* Concepto: [Características de lista de frases en una aplicación de LUIS](luis-concept-feature.md)
+* Concepto: [Los patrones mejoran la precisión de las predicciones](luis-concept-patterns.md)
+* Procedimiento: [Uso de listas de frases para aumentar la señal de la lista de palabras](luis-how-to-add-features.md)
+* Procedimiento: [Cómo agregar patrones para mejorar la precisión de las predicciones](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>Equilibrio de las expresiones en todas las intenciones
 
@@ -86,9 +106,17 @@ Si tiene una intención con 100 expresiones de ejemplo y una intención con 20 e
 
 Esta es la intención de reserva, que indica todo lo que está fuera de la aplicación. Agregue una expresión de ejemplo en la intención None por cada 10 expresiones de ejemplo del resto de la aplicación de LUIS.
 
+Para obtener más información:
+* Concepto: [Comprender cuáles son las expresiones correctas para la aplicación de LUIS](luis-concept-utterance.md)
+
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aprovechar la característica de sugerencia para un aprendizaje activo
 
 Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](luis-how-to-review-endoint-utt.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
+
+Para obtener más información:
+* Concepto: [Conceptos para habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión](luis-concept-review-endpoint-utterances.md)
+* Tutorial: [Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión](luis-tutorial-review-endpoint-utterances.md)
+* Procedimiento: [Cómo revisar las expresiones del punto de conexión en el portal de LUIS](luis-how-to-review-endoint-utt.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Supervisar el rendimiento de la aplicación
 
@@ -133,6 +161,11 @@ Agregue 10 o 15 expresiones antes de entrenar y publicar. De esta forma, puede v
 ## <a name="do-use-versions-for-each-app-iteration"></a>Uso de versiones para cada iteración de la aplicación
 
 Cada ciclo de creación debe estar en una nueva [versión](luis-concept-version.md), clonada de una versión existente. LUIS no tiene ningún límite para las versiones. El nombre de una versión se usa como parte de la ruta de la API, por lo que es importante elegir los caracteres permitidos en una dirección URL y usar un máximo de 10 caracteres. Desarrolle una estrategia de nombres para las versiones para mantenerlas organizadas. 
+
+Para obtener más información:
+* Concepto: [Comprender cómo y cuándo usar una versión de LUIS](luis-concept-version.md)
+* Procedimiento: [Uso de versiones para realizar ediciones y pruebas sin afectar a las aplicaciones de almacenamiento provisional o producción](luis-how-to-manage-versions.md)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

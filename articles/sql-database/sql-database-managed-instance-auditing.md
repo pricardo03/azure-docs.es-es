@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729004"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894401"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database
 
@@ -154,7 +154,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
 Para información adicional:
 
-- [Diferencias de auditoría entre bases de datos únicas, grupos elásticos, e instancias administradas en Azure SQL Database y bases de datos de SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Diferencias de auditoría entre bases de datos únicas, grupos elásticos, e instancias administradas en Azure SQL Database y bases de datos de SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,7 +223,7 @@ Log Analytics proporciona conclusiones operativas en tiempo real gracias a uso d
 
 Las diferencias clave entre la auditoría en bases de datos en Azure SQL Database y bases de datos en SQL Server son las siguientes:
 
-- Con la opción de implementación de instancia administrada en Azure SQL Database, la auditoría funciona en el nivel de servidor y almacena los archivos de registro `.xel` en la cuenta de Azure Blob Storage.
+- Con la opción de implementación de instancia administrada en Azure SQL Database, la auditoría funciona en el nivel de servidor y almacena los archivos de registro `.xel` en Azure Blob Storage.
 - Con las opciones de implementación de base de datos única y grupo elástico en Azure SQL Database, la auditoría funciona en el nivel de la base de datos.
 - En las máquinas virtuales o instancias locales de SQL Server, la auditoría funciona en el nivel de servidor, pero almacena los eventos en registros de eventos de Windows o del sistema de archivos.
 

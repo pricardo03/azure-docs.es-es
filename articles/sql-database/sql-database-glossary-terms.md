@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753306"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990077"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glosario de términos de Azure SQL Database
 
@@ -28,9 +28,9 @@ ms.locfileid: "55753306"
 ||Grupo elástico|[Grupo elástico](sql-database-elastic-pool.md)|
 ||Instancia administrada|[Instancia administrada](sql-database-managed-instance.md)|
 |Objetos de servidor|Servidor de SQL Database o servidor de base de datos|[Servidor de bases de datos](sql-database-servers.md)|
-||Instancia administrada de SQL Database o instancia administrada|[Instancia administrada](sql-database-managed-instance.md)|
+||Servidor de instancia administrada de SQL Database, servidor de instancia administrada o servidor de instancia|[Instancia administrada](sql-database-managed-instance.md)|
 Objetos de base de datos|Azure SQL Database|Cualquier base de datos de Azure SQL Database|
-||Base de datos única|Base de datos que se crea como una base de datos independiente mediante la opción de implementación de base de datos única.|
+||Base de datos única|Base de datos que se crea mediante la opción de implementación de base de datos única.|
 ||Base de datos agrupada|Base de datos que se crea dentro de un grupo elástico o que se mueve a uno.|
 ||Base de datos de instancia|Base de datos que se crea dentro de una instancia administrada.|
 ||Base de datos de nivel Básico|Base de datos que se crea en el nivel de servicio básico del modelo de compras basado en DTU, o que se mueve al mismo.|
@@ -39,7 +39,7 @@ Objetos de base de datos|Azure SQL Database|Cualquier base de datos de Azure SQL
 ||Base de datos de uso general|Base de datos que se crea en el nivel de servicio de uso general del modelo de compras basado en núcleos virtuales, o que se mueve al mismo.|
 ||Base de datos de hiperescala|Base de datos que se crea en el nivel de servicio de hiperescala del modelo de compras basado en núcleos virtuales, o que se mueve al mismo.|
 ||Base de datos crítica para la empresa|Base de datos que se crea en el nivel de servicio crítico para la empresa del modelo de compras basado en núcleos virtuales, o que se mueve al mismo.|
-|[Modelos y recursos de compra](sql-database-service-tiers.md)|Modelo de compra basado en DTU|[Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)|
+|[Modelos y recursos de compra](sql-database-purchase-models.md)|Modelo de compra basado en DTU|[Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compra basado en núcleos virtuales|[Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md)|
 ||Núcleo virtual|Núcleo que el hipervisor proporciona al sistema operativo invitado.|
 ||Nivel de servicio|Nivel de servicio dentro de un modelo de compra.|

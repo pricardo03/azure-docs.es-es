@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/13/2019
+ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511841"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243836"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveles de servicio de Azure SQL Database
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres modelos de arquitectura que se usan en Azure SQL Database:
+
 - El nivel de [uso general](sql-database-service-tier-general-purpose.md) está diseñado para la mayoría de las cargas de trabajo genéricas.
 - El nivel [crítico para la empresa](sql-database-service-tier-business-critical.md) está diseñado para cargas de trabajo de baja latencia con una réplica legible.
 - El nivel de [hiperescala](sql-database-service-tier-hyperscale.md) está diseñado para bases de datos de gran tamaño (hasta 100 TB) con varias réplicas legibles.
@@ -29,7 +30,7 @@ Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL 
 En este artículo se describen consideraciones de almacenamiento y copia de seguridad para los niveles de servicio de uso general y crítico para la empresa en el modelo de compra basado en núcleos virtuales.
 
 > [!NOTE]
-> Para obtener información sobre el nivel de servicio de Hiperescalado en el modelo de compra basado en núcleos virtuales, consulte [Hyperscale service tier](sql-database-service-tier-hyperscale.md) (Nivel de servicio de Hiperescalado). Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-service-tiers.md).
+> Para obtener información sobre el nivel de servicio de Hiperescalado en el modelo de compra basado en núcleos virtuales, consulte [Hyperscale service tier](sql-database-service-tier-hyperscale.md) (Nivel de servicio de Hiperescalado). Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Almacenamiento de datos y de registro
 
@@ -40,8 +41,8 @@ Tenga en cuenta lo siguiente.
 - Cuando se configura el tamaño de base de datos única requerido (tamaño de MDF), el 30 % de almacenamiento adicional se agrega automáticamente para admitir LDF
 - El tamaño de almacenamiento en la instancia administrada debe especificarse en múltiplos de 32 GB.
 - Puede seleccionar cualquier tamaño de base de datos única entre 10 GB y el máximo admitido.
-  - Para Standard Storage, aumente o disminuya el tamaño en incrementos de 10 GB.
-  - Para Premium Storage, aumente o disminuya el tamaño en incrementos de 250 GB.
+  - En el caso del almacenamiento en niveles de servicio estándar o de uso general, aumente o disminuya el tamaño en incrementos de 10 GB.
+  - Para el almacenamiento en niveles de servicio premium o críticos para la empresa, aumente o disminuya el tamaño en incrementos de 250 GB.
 - En el nivel de servicio De uso general, `tempdb` usa una SSD asociada y este costo de almacenamiento se incluye en el precio del núcleo virtual.
 - En el nivel de servicio Crítico para la empresa, `tempdb` comparte la SSD asociada con los archivos MDF y LDF y el costo de almacenamiento de tempDB se incluye en el precio del núcleo virtual.
 

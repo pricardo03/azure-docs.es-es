@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251839"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991521"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
  Azure Media Services proporciona un conjunto de [servicios de protección de contenido](https://azure.microsoft.com/services/media-services/content-protection/) de alto diseño que abarca:
@@ -116,7 +116,7 @@ Ahora la cuenta de Media Services está configurada para entregar licencias Fair
 La compatibilidad con el modo sin conexión de FPS solo está disponible en iOS 10 y versiones posteriores. El SDK de FPS Server (versión 3.0 o posterior) contiene el documento y un ejemplo para el modo sin conexión de FPS. En concreto, el SDK de FPS Server (versión 3.0 o posterior) contiene los dos elementos siguientes relacionados con el modo sin conexión:
 
 * Documento: "Offline Playback with FairPlay Streaming and HTTP Live Streaming" ("Reproducción sin conexión con FairPlay Streaming y HTTP Live Streaming"). Apple, 14 de septiembre de 2016. En la versión 4.0 del SDK de FPS Server, este documento se combina con el documento principal de FPS.
-* Código de ejemplo: ejemplo de HLSCatalog para el modo sin conexión de FPS en \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. En la aplicación de ejemplo HLSCatalog, los archivos de código siguientes se usan para implementar las características del modo sin conexión:
+* Ejemplo de código: ejemplo de HLSCatalog para el modo sin conexión de FPS en \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. En la aplicación de ejemplo HLSCatalog, los archivos de código siguientes se usan para implementar las características del modo sin conexión:
 
     - Archivo de código AssetPersistenceManager.swift: AssetPersistenceManager es la clase principal de este ejemplo que muestra cómo:
 

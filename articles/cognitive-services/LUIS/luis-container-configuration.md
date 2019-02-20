@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: El entorno en tiempo de ejecución del contenedor de LUIS se configura mediante los argumentos del comando `docker run`. LUIS tiene varias opciones necesarias, junto con algunas opciones de configuración opcionales.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294730"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983277"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configuración de los contenedores de Docker de Language Understanding 
 
@@ -30,14 +30,14 @@ Este contenedor tiene las siguientes opciones de configuración:
 
 |Obligatorio|Configuración|Propósito|
 |--|--|--|
-|SÍ|[ApiKey](#apikey-setting)|Se usa para realizar un seguimiento de la información de facturación.|
+|Sí|[ApiKey](#apikey-setting)|Se usa para realizar un seguimiento de la información de facturación.|
 |Sin |[Application Insights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor.|
-|SÍ|[Facturación](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
-|SÍ|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
+|Sí|[Facturación](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
+|Sí|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |Sin |[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
 |Sin |[Proxy Http](#http-proxy-credentials-settings)|Configure un proxy HTTP para hacer solicitudes salientes.|
 |Sin |[Logging](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
-|SÍ|[Mounts](#mount-settings)|Leer y escribir datos desde el equipo host al contenedor y del contenedor al equipo host.|
+|Sí|[Mounts](#mount-settings)|Leer y escribir datos desde el equipo host al contenedor y del contenedor al equipo host.|
 
 > [!IMPORTANT]
 > Las opciones [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) y [`Eula`](#eula-setting) se usan en conjunto y debe proporcionar valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](luis-container-howto.md#billing).
@@ -59,7 +59,7 @@ No utilice la clave de inicio ni la clave de creación.
 
 ## <a name="billing-setting"></a>Opción de configuración Billing
 
-La opción de configuración `Billing` especifica el identificador URI del punto de conexión del recurso de _Language Understanding_ de Azure que se utiliza para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un identificador URI de punto de conexión válido para un recurso de _Language Understanding_ de Azure.
+La opción de configuración `Billing` especifica el identificador URI del punto de conexión del recurso de _Language Understanding_ de Azure que se utiliza para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un identificador URI de punto de conexión válido para un recurso de _Language Understanding_ de Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
 
 Este valor se puede encontrar en los siguientes lugares:
 
@@ -68,7 +68,7 @@ Este valor se puede encontrar en los siguientes lugares:
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|SÍ| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -100,7 +100,7 @@ En la tabla siguiente se describen las configuraciones admitidas.
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|SÍ| `Input` | string | Destino del montaje de entrada. El valor predeterminado es `/input`. Esta es la ubicación de los archivos de paquete de LUIS. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Sí| `Input` | string | Destino del montaje de entrada. El valor predeterminado es `/input`. Esta es la ubicación de los archivos de paquete de LUIS. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Sin | `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Incluye los registros de consultas de LUIS y los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>Configuración jerárquica

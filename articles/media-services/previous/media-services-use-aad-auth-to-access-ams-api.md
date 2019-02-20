@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230631"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994108"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acceso a Azure Media Services API con la autenticación de Azure AD  
  
 Azure Media Services API es una API RESTful. Puede usarla para realizar operaciones en recursos multimedia a través de una API de REST o mediante los SDK del cliente disponibles. Azure Media Services ofrece un SDK del cliente de Media Services para Microsoft .NET. Para ser autorizado a acceder a recursos de Media Services y a Media Services API, se debe autenticar primero. 
 
@@ -140,7 +140,7 @@ Si no usa el SDK del cliente para Media Services .NET, debe crear manualmente un
 
 Excepción: "El servidor remoto devolvió un error: (401) No autorizado".
 
-Solución: para que la solicitud de REST de Media Services tenga éxito, el usuario que realiza la llamada debe tener el rol de colaborador o propietario en la cuenta de Media Services a la que está intentando obtener acceso. Para más información, consulte [Control de acceso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+Solución: Para que la solicitud de REST de Media Services sea correcta, el usuario que hace la llamada debe tener el rol de colaborador o propietario en la cuenta de Media Services a la que intenta acceder. Para más información, consulte [Control de acceso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
 ## <a name="resources"></a>Recursos
 

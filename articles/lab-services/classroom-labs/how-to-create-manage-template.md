@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815258"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960197"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creación y administración de plantillas educativas en Azure Lab Services
 En un laboratorio, una plantilla es una imagen de máquina virtual base a partir de la que se crean las máquinas virtuales de todos los usuarios. Configure la máquina virtual de la plantilla de modo que esté configurada exactamente con lo que desea proporcionar a los usuarios del laboratorio. Puede proporcionar un nombre y una descripción de la plantilla que verán los usuarios del laboratorio. Luego, publique la plantilla si desea que las instancias de la plantilla de máquina virtual estén disponibles para los usuarios del laboratorio. Cuando publica una plantilla, Azure Lab Services crea las máquinas virtuales en el laboratorio mediante la plantilla. El número de máquinas virtuales creadas en este proceso es igual al número máximo de usuarios permitidos en el laboratorio, que se puede establecer en la política de uso del laboratorio. Todas las máquinas virtuales tienen la misma configuración que la plantilla.
@@ -103,7 +103,12 @@ Use los pasos siguientes para establecer el título y la descripción por primer
 1. Revise la advertencia y seleccione **Iniciar**. 
 
     ![Iniciar plantilla: advertencia](../media/how-to-create-manage-template/start-template-warning.png)
+2. Verá el estado en el icono de laboratorio en la sección **Plantilla**.
+
+    ![Iniciar plantilla: estado](../media/how-to-create-manage-template/template-start-status.png)
 1. Una vez iniciada, para conectarse a la máquina virtual, seleccione **Conectar** y siga las instrucciones. 
+
+    ![Conectar o Detener a la VM de plantilla](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Instale el software necesario para que los estudiantes puedan realizar el laboratorio (por ejemplo, Visual Studio, Explorador de Azure Storage, etc). 
 2. Desconéctese (cierre la sesión de escritorio remoto) de la plantilla de máquina virtual. 
 3. **Detenga** la plantilla de máquina virtual seleccionando **Detener**. 

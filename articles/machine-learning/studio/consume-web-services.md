@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464388"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998119"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Cómo consumir un servicio web de Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Para recuperar la clave de API para un servicio web Machine Learning clásico:
 ## <a id="connect"></a>Conexión a un servicio web Machine Learning
 Puede conectarse a un servicio web Machine Learning mediante cualquier lenguaje de programación que admita la respuesta y la solicitud HTTP. Puede ver ejemplos en C#, Python y R desde una página de ayuda de servicio web Machine Learning.
 
-**Ayuda de la API de Machine Learning** Se crea una página de ayuda de API de Machine Learning al implementar un servicio web. Vea [Tutorial de Azure Machine Learning: Implementación de un servicio web](walkthrough-5-publish-web-service.md).
+**Ayuda de la API de Machine Learning** Se crea una página de ayuda de API de Machine Learning al implementar un servicio web. Vea [Tutorial 3: Implementación del modelo de riesgo crediticio](tutorial-part3-credit-risk-deploy.md).
 La ayuda de la API de Machine Learning contiene información sobre un servicio web de predicción.
 
 1. Haga clic en el servicio web que está usando.

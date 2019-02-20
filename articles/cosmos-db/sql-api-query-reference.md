@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475200"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991436"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referencia de lenguaje SQL de Azure Cosmos DB 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**aritméticos**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Suma.<br /><br /> Resta.<br /><br /> Multiplicación.<br /><br /> División.<br /><br /> Modulación.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> AND bit a bit.<br /><br /> XOR bit a bit.<br /><br /> Desplazamiento a la izquierda.<br /><br /> Desplazamiento a la derecha.<br /><br /> Desplazamiento a la derecha con relleno de ceros.|  
-|**lógicos**|**AND**<br /><br /> **O bien**|Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.<br /><br /> Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.|  
+|**lógicos**|**AND**<br /><br /> **O bien**|Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.<br /><br /> Disyunción lógica. Devuelve **true** si algún argumento es **true**, devuelve **false** en caso contrario.|  
 |**de comparación**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devuelve **true** si ambos argumentos son iguales, en caso contrario, devuelve **false**.<br /><br /> Diferente de. Devuelve **true** si ambos argumentos no son iguales, en caso contrario, devuelve **false**.<br /><br /> Mayor que. Devuelve **true** si el primer argumento es mayor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Mayor o igual que. Devuelve **true** si el primer argumento es mayor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor que. Devuelve **true** si el primer argumento es menor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor o igual que. Devuelve **true** si el primer argumento es menor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Fusionar. Devuelve el segundo argumento si el primero es un valor **undefined**.|  
 |**String**|**&#124;&#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apóstrofo (')|U + 0027|  
 |\\"|comillas dobles (")|U + 0022|  
-|\\\|barra inclinada inversa (\\)|U + 005C|  
+|\\\ |barra inclinada inversa (\\)|U + 005C|  
 |\\/|barra inclinada (/)|U + 002F|  
 |\b|retroceso|U + 0008|  
 |\f|avance de página|U + 000C|  

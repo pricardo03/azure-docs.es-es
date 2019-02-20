@@ -11,12 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: e296606d219623c29bedca4fb0906a955a394b30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ee35c7ae1b75c6fb4d656927d7e6e4384cd76836
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013424"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003948"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles y permisos para Azure Data Factory
 
@@ -78,7 +78,7 @@ Estos son algunos ejemplos que muestran lo que se puede lograr con los roles per
   Este escenario requiere dos asignaciones de roles.
 
   1. Asigne el rol integrado **colaborador** a nivel de la factoría de datos.
-  2. Cree un rol personalizado con el permiso * Microsoft.Resources/deployments/**. Asigne este rol personalizado al usuario a nivel del grupo de recursos.
+  2. Cree un rol personalizado con el permiso **Microsoft.Resources/deployments/**. Asigne este rol personalizado al usuario a nivel del grupo de recursos.
 
 - Permitir que un usuario actualice una factoría de datos desde PowerShell o el SDK, pero no en Azure Portal.
 

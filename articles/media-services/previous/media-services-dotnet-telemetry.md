@@ -4,7 +4,7 @@ description: En este artículo se muestra cómo usar la telemetría de Azure Med
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 57b68207b5150980ce1ab9a807af40766c25c6c0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a24bf415cd575ebf62a2843207872c66bbeb021
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783054"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989883"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuración de la telemetría de Azure Media Services con .NET
+# <a name="configuring-azure-media-services-telemetry-with-net-legacy"></a>Configuración de la telemetría de Azure Media Services con .NET (heredado)
 
 En este artículo se describen los pasos generales que puede llevar a cabo al configurar la telemetría de Azure Media Services (AMS) mediante el SDK de .NET. 
 

@@ -1,6 +1,6 @@
 ---
-title: Combinaciones en consultas de Azure Log Analytics | Microsoft Docs
-description: En este artículo se incluye una lección sobre el uso de combinaciones en el lenguaje de consulta de Log Analytics.
+title: Combinaciones en consultas de registros de Azure Monitor | Microsoft Docs
+description: En este artículo se incluye una lección sobre el uso de combinaciones en consultas de registros de Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885422"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004662"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Combinaciones en consultas de Log Analytics
+# <a name="joins-in-azure-monitor-log-queries"></a>Combinaciones en consultas de registros de Azure Monitor
 
 > [!NOTE]
-> Debe completar la [Introducción al portal de Analytics](get-started-portal.md) y la [Introducción a las consultas en Log Analytics](get-started-queries.md) antes de completar esta lección.
+> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción a análisis de registro de Azure Monitor) y [Azure Monitor log queries](get-started-queries.md) (Consultas de registros de Azure Monitor) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ Tenga en cuenta los siguientes puntos para obtener un rendimiento óptimo:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras lecciones para usar el lenguaje de consulta de Log Analytics:
+Consulte otras lecciones para usar consultas de registro de Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Funciones de agregación](aggregations.md)

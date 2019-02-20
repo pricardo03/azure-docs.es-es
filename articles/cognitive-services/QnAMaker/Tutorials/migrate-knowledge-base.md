@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Mueva una base de conocimiento creada con QnA Maker a otra base de conocimiento.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809750"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245922"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
 
@@ -24,7 +24,7 @@ La migración de una base de conocimiento requiere la exportación de una base d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
+* Cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de comenzar.
 * Configurar un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md) nuevo
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migración de una base de conocimiento desde QnA Maker
@@ -56,7 +56,7 @@ La migración de una base de conocimiento requiere la exportación de una base d
     En este punto, todo el contenido de la base de conocimiento (preguntas, respuestas y metadatos) junto con los nombres de los archivos de código fuente y las direcciones URL, se importan a la base de conocimiento nueva. 
 
 ## <a name="chat-logs-and-alterations"></a>Modificaciones y registros de chat
-Las modificaciones (sinónimos) no se importan de forma automática. Use las [API de la V2](https://aka.ms/qnamaker-v2-apis) para exportar las modificaciones del conocimiento anterior y las [API de la V4](https://aka.ms/qnamaker-v4-apis) para mover las modificaciones a nueva base de conocimiento.
+Las alteraciones (sinónimos) que no distinguen mayúsculas de minúsculas no se importan de forma automática. Use las [API de la V2](https://aka.ms/qnamaker-v2-apis) para exportar las modificaciones del conocimiento anterior y las [API de la V4](https://aka.ms/qnamaker-v4-apis) para mover las modificaciones a nueva base de conocimiento.
 
 No hay forma de migrar registros de chat, ya que la base de conocimiento nueva usa Application Insights para almacenar registros de chat. 
 

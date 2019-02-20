@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249352"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995142"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET 
 
 Puede utilizar Media Encoder Standard para generar una o varias vistas en miniatura de la entrada de vídeo en formatos de archivo de imagen [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), o [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Puede enviar tareas que producen solo las imágenes o puede combinar la generación de miniaturas con la codificación. Este artículo proporciona algunos ejemplos de valores preestablecidos de miniaturas en código XML y JSON para estos escenarios. Al final del artículo, hay un [código de ejemplo](#code_sample) que muestra cómo utilizar el SDK de .NET de Media Services para realizar la tarea de codificación.
 
@@ -551,9 +551,9 @@ Se aplican las siguientes consideraciones:
 * El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
 * Los elementos Jpg/Png/BmpImage tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
   
-  * Número de marco si son enteros no negativos, por ejemplo, Start: 120
-  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, Start: 15
-  * Marca de tiempo si se expresa como formato HH:MM:SS… Por ejemplo "Start" : "00:01:00"
+  * Número de marco si son enteros no negativos, por ejemplo, "Start": "120",
+  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, "Start": "15%", o bien
+  * Marca de tiempo si se expresa como formato HH:MM:SS… Por ejemplo "Start": "00:01:00"
     
     Puede mezclar y hacer coincidir notaciones a su conveniencia.
     

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885854"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002015"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -40,7 +40,9 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 
 * Guardarlos en una [**cuenta de almacenamiento**](../../azure-monitor/platform/archive-diagnostic-logs.md) para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) usando la **configuración de diagnóstico de recursos**.
 * [Transmitirlos a **Event Hubs**](diagnostic-logs-stream-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
-* Analícelos con [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), donde los datos se escriben inmediatamente en Log Analytics sin necesidad de escribir primero los datos en el almacenamiento.  
+* Analícelos con [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), donde los datos se escriben inmediatamente en Azure Monitor sin necesidad de escribir primero los datos en el almacenamiento.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
@@ -56,7 +58,7 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs qu
 
 Los registros de diagnóstico de recursos se configuran mediante la configuración de diagnóstico de recursos. Los registros de diagnóstico de inquilino se configuran mediante la configuración de diagnóstico de inquilino. **Configuración de diagnóstico** para un control de servicio:
 
-* Dónde se envían los registros de diagnóstico y las métricas (cuenta de almacenamiento, Event Hubs o Log Analytics).
+* Dónde se envían los registros de diagnóstico y las métricas (cuenta de almacenamiento, Event Hubs o Azure Monitor).
 * Qué categorías de registro se envían y si se envían también datos de métrica.
 * Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento
     - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
@@ -235,5 +237,4 @@ Al agregar una opción de configuración de diagnóstico, se abre la vista Confi
 
 * [Transmisión de registros de diagnóstico a **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Cambio de la configuración de diagnóstico de recursos con la API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/)
-* [Análisis de registros desde Azure Storage con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Análisis de registros desde Azure Storage con Azure Monitor](collect-azure-metrics-logs.md)

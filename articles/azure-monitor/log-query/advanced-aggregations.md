@@ -1,6 +1,6 @@
 ---
-title: Agregaciones avanzadas en consultas de Azure Log Analytics | Microsoft Docs
-description: Describe algunas de las opciones de agregación más avanzadas disponibles para las consultas de Log Analytics.
+title: Agregaciones avanzadas en consultas de registros de Azure Monitor | Microsoft Docs
+description: Describe algunas de las opciones de agregación más avanzadas disponibles para las consultas de registros de Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186368"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005427"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Agregaciones avanzadas en consultas de Log Analytics
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregaciones avanzadas en consultas de registros de Azure Monitor
 
 > [!NOTE]
-> Debe completar las [Agregaciones en consultas de Log Analytics](./aggregations.md) antes de completar esta lección.
+> Debe completar las [Agregaciones en consultas de Azure Monitor](./aggregations.md) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este artículo se describen algunas de las opciones de agregación más avanzadas disponibles para las consultas de Log Analytics.
+En este artículo se describen algunas de las opciones de agregación más avanzadas disponibles para las consultas de Azure Monitor.
 
 ## <a name="generating-lists-and-sets"></a>Generación de listas y conjuntos
 Puede usar el elemento `makelist` para dinamizar los datos por el orden de los valores de una columna en particular. Por ejemplo, puede explorar el orden más común en el que los eventos se producen en los equipos. Básicamente, puede dinamizar los datos por el orden de los objetos EventID de cada máquina. 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea otras lecciones para usar el lenguaje de consulta de Log Analytics:
+Consulte otras lecciones para usar el [lenguaje de consulta de Data Explorer](/azure/kusto/query/) con datos de registro de Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Operaciones de fecha y hora](datetime-operations.md)

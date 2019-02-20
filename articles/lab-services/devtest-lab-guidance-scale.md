@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250870"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244886"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalado vertical de la infraestructura de Azure DevTest Labs
 Antes de implementar DevTest Labs a escala empresarial, hay varios puntos de decisión claves. Reconocer estos puntos de decisión a un nivel alto ayuda a las organizaciones con las decisiones de diseño en el futuro. Sin embargo, estos puntos no deben impedir que una organización empiece una prueba de concepto. Las tres áreas principales para el planeamiento del escalado vertical inicial son:
@@ -66,4 +67,4 @@ Una prueba de concepto de DevTest Labs tiene tres roles principales con responsa
 - **Usuario de DevTest Labs**: el usuario de DevTest Labs puede crear y consumir las máquinas virtuales del laboratorio. Estas personas tienen algunas funcionalidades administrativas mínimas en las máquinas virtuales que crean (iniciar, detener, eliminar y configurar sus máquinas virtuales). Los usuarios no pueden administrar máquinas virtuales de otros usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente artículo de esta serie: [Orquestación de la implementación de Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+Lea el siguiente artículo de esta serie: [Orquestación de la implementación de Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

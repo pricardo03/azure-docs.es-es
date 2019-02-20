@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889743"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>Creación de una copia de seguridad manual
 
 1. Vaya al servicio Administrador de dispositivos de StorSimple y, después, haga clic en **Dispositivos**. En la lista tabular de dispositivos, seleccione el dispositivo. Vaya a **Configuración > Administrar > Directivas de copia de seguridad**.
@@ -23,7 +21,7 @@ ms.locfileid: "50164401"
 
 3. En la hoja **Hacer una copia de seguridad ahora**, realice los pasos siguientes:
 
-    1. Elija el **tipo de instantánea** adecuado en la lista desplegable: instantánea **local** o en la **nube**. Seleccione la instantánea local para copias de seguridad o restauraciones rápidas y la instantánea en la nube para la resistencia de datos.
+    1. Elija el **tipo de instantánea** correspondiente de la lista desplegable: instantánea **local** o instantánea **de nube**. Seleccione la instantánea local para copias de seguridad o restauraciones rápidas y la instantánea en la nube para la resistencia de datos.
 
         ![Crear copia de seguridad manual](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

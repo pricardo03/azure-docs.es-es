@@ -1,30 +1,25 @@
 ---
-title: Introducción a Log Analytics en Azure Portal | Microsoft Docs
+title: Introducción a los análisis de registro de Azure Monitor | Microsoft Docs
 description: En este artículo se proporciona un tutorial de uso de Log Analytics en Azure Portal para escribir consultas.
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000045"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242114"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Introducción a Log Analytics en Azure Portal
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Introducción a los análisis de registro en Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este tutorial aprenderá a usar la página de Log Analytics en Azure Portal (actualmente en versión preliminar) para escribir consultas de Log Analytics. Le mostrará cómo:
+En este tutorial aprenderá a usar los análisis de registro de Azure Monitor en Azure Portal para escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 
 - Escribir consultas sencillas
 - Comprender el esquema de los datos
@@ -35,8 +30,8 @@ En este tutorial aprenderá a usar la página de Log Analytics en Azure Portal (
 - Exportar y compartir consultas
 
 
-## <a name="meet-the-log-analytics-page"></a>Conocer la página de Log Analytics 
-La página de Log Analytics es una herramienta web que se utiliza para escribir y ejecutar consultas de Azure Log Analytics. Para abrirla, seleccione **Registros (versión preliminar)** en el menú de Log Analytics. Se inicia con una nueva consulta en blanco.
+## <a name="meet-log-analytics"></a>Descubrir análisis de registro
+Los análisis de registro son una herramienta web que se utiliza para escribir y ejecutar consultas de registro en Azure Monitor. Seleccione **Registros** en el menú de Azure Monitor para abrirla. Se inicia con una nueva consulta en blanco.
 
 ![Página de inicio](media/get-started-portal/homepage.png)
 
@@ -83,7 +78,7 @@ Comencemos por obtener todo el contenido de la tabla _Event_.
 Event
 ```
 
-La página de Log Analytics establece automáticamente el ámbito de los resultados por:
+Los análisis de registro establecen automáticamente el ámbito de los resultados por:
 
 - Intervalo de tiempo:  de forma predeterminada, las consultas se limitan a las últimas 24 horas.
 - Número de resultados: limitado a 10 000 registros como máximo.
@@ -121,7 +116,7 @@ La tabla de resultados incluye a menudo una gran cantidad de columnas. Es posibl
 
 
 ## <a name="select-a-time-range"></a>Selección de un intervalo de tiempo
-De forma predeterminada, en la página de Log Analytics se aplica el intervalo de tiempo de _últimas 24 horas_. Para usar un intervalo diferente, seleccione otro valor mediante el selector de hora y haga clic en **Run** (Ejecutar). Además de los valores preestablecidos, puede usar la opción de _intervalo de tiempo personalizado_ para seleccionar un intervalo absoluto para la consulta.
+De manera predeterminada, en los análisis de registro se aplica el intervalo de tiempo de _últimas 24 horas_. Para usar un intervalo diferente, seleccione otro valor mediante el selector de hora y haga clic en **Run** (Ejecutar). Además de los valores preestablecidos, puede usar la opción de _intervalo de tiempo personalizado_ para seleccionar un intervalo absoluto para la consulta.
 
 ![Selector de hora](media/get-started-portal/time-picker.png)
 
@@ -175,7 +170,7 @@ Puede guardar la página de consulta completa o una sola consulta como función.
 
 ![Función Guardar](media/get-started-portal/save-function.png)
 
-Las consultas de Log Analytics se guardan siempre en un área de trabajo determinada y se comparten con otros usuarios de esa área de trabajo.
+Las consultas de análisis de registro se guardan siempre en un área de trabajo determinada y se comparten con otros usuarios de esa área de trabajo.
 
 ## <a name="load-queries"></a>Carga de consultas
 El icono de Explorador de consultas se encuentra en la parte superior derecha. Enumera todas las consultas guardadas por categoría. También permite marcar consultas específicas como favoritas para encontrarlas rápidamente en el futuro. Haga doble clic en una consulta guardada para agregarla a la ventana actual.
@@ -183,12 +178,12 @@ El icono de Explorador de consultas se encuentra en la parte superior derecha. E
 ![Explorador de consultas](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportación y vínculo compartido
-La página de Log Analytics admite varios métodos de exportación:
+Los análisis de registro admiten varios métodos de exportación:
 
 - Excel: los resultados se guardan en un archivo CSV.
-- Power BI: los resultados se exportan a Power BI. Consulte [Importación de datos de Azure Log Analytics en Power BI](../../azure-monitor/platform/powerbi.md) para los detalles.
+- Power BI: los resultados se exportan a Power BI. Consulte [Importación de datos de registro de Azure Monitor en Power BI](../../azure-monitor/platform/powerbi.md) para obtener más detalles.
 - Compartir un vínculo: la propia consulta se puede compartir como vínculo y enviárselo a otros usuarios de esa área de trabajo para que estos la ejecuten.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [escritura de consultas en Log Analytics](get-started-queries.md).
+- Más información sobre la [escritura de consultas de registro en Azure Monitor](get-started-queries.md).

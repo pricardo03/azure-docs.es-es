@@ -6,17 +6,18 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782794"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992327"
 ---
-# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creación de clips con Azure Media Clipper en el portal
+# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creación de clips con Azure Media Clipper en el portal  
+
 Puede usar Azure Media Clipper en el portal para crear clips a partir de activos de las cuentas de Media Services. Para comenzar, navegue a la cuenta de Media Services en el portal. Luego, seleccione la pestaña **Subclip**.
 
 En la pestaña **Subclip**, puede comenzar a crear clips. En el portal, Clipper carga MP4 con velocidad de bits única, MP4 con múltiples velocidades de bits y archivos activos que se publican con un localizador de streaming válido. Los activos no publicados no se cargan.
@@ -35,7 +36,7 @@ Los [filtros de manifiesto dinámico](https://azure.microsoft.com/blog/dynamic-m
 
 Para crear un filtro de manifiesto dinámico, navegue a la pestaña **Activos** y seleccione el activo deseado. Seleccione el botón **Clip secundario** para el menú superior. Seleccione el filtro de manifiesto dinámico como el modo de creación de clips desde el menú de configuración avanzada. Luego puede seguir el mismo proceso para producir un clip representado para crear el filtro. Los filtros solo se pueden producir a partir de un activo único.
 
-En la imagen siguiente se ilustra Clipper en el modo de filtro de manifiesto dinámico en Azure Portal: ![Azure Media Clipper en el modo de filtro de manifiesto dinámico en Azure Portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+La siguiente imagen ilustra Clipper en modo de filtro de manifiesto dinámico en Azure Portal: ![Azure Media Clipper en modo de filtro de manifiesto dinámico en Azure Portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Envío de trabajos de creación de clips
 Cuando termine de crear el clip, seleccione el botón para enviar el trabajo para iniciar el trabajo de creación de clips correspondiente o una llamada del manifiesto dinámico.

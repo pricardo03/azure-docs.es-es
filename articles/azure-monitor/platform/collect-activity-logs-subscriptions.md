@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580950"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984586"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Recopilación de registros de actividad de Azure en Log Analytics entre suscripciones en distintos inquilinos de Azure Active Directory
 
-En este artículo se explica un método para recopilar registros de actividad de Azure en un área de trabajo de Log Analytics mediante el conector del recopilador de datos de Azure Log Analytics para Logic Apps. Siga el proceso de este artículo si necesita enviar registros a un área de trabajo de una instancia distinta de Azure Active Directory. Por ejemplo, si es un proveedor de servicios administrados, puede que desee recopilar registros de actividad de la suscripción de un cliente y almacenarlos en un área de trabajo de Log Analytics en su propia suscripción.
+En este artículo se explica un método para recopilar registros de actividad de Azure en un área de trabajo de Log Analytics mediante el conector del recopilador de datos de Azure Log Analytics para Logic Apps. Siga el proceso de este artículo si necesita enviar registros a un área de trabajo en un inquilino distinto de Azure Active Directory. Por ejemplo, si es un proveedor de servicios administrados, puede que desee recopilar registros de actividad de la suscripción de un cliente y almacenarlos en un área de trabajo de Log Analytics en su propia suscripción.
 
 Si el área de trabajo de Log Analytics está en la misma suscripción de Azure, o bien en una suscripción diferente, pero en la misma instancia de Azure Active Directory, siga los pasos de la [solución de registro de actividad de Azure](collect-activity-logs.md) para recopilar registros de actividad de Azure.
 

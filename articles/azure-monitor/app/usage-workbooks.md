@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fecd5cf3b5a6aac1133f94b4dc220eec826392f6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056755"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993425"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
 
@@ -77,7 +77,7 @@ Las secciones de consulta son muy flexibles y pueden usarse para responder pregu
 
 * ¿Cuántas excepciones produjo el sitio durante un período de tiempo equivalente al de un declive del uso?
 * ¿Cuál fue la distribución de los tiempos de carga de página de los usuarios que vieron alguna página?
-* ¿Cuántos usuarios vieron un conjunto de páginas determinado de su sitio, pero no otro? Esto puede ser útil para comprender si tiene clústeres de usuarios que utilizan distintos subconjuntos de funcionalidad del sitio (use el operador `join` con el modificador `kind=leftanti` en el lenguaje de consulta de Log Analytics).
+* ¿Cuántos usuarios vieron un conjunto de páginas determinado de su sitio, pero no otro? Esto puede ser útil para comprender si tiene clústeres de usuarios que usan distintos subconjuntos de funcionalidad del sitio (use el operador `join` con el modificador `kind=leftanti` en el lenguaje de consulta de Data Explorer).
 
 Además, no está limitado únicamente a realizar consultas del contexto de la aplicación con la que abrió el libro, sino que puede hacer consultas en varias aplicaciones supervisadas por Application Insights, así como a las áreas de trabajo de Log Analytics siempre que tenga permiso para acceder a esos recursos.
 

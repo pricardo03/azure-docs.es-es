@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756655"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100703"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de Azure SQL Database y cómo administrarlos
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Qué es un servidor de Azure SQL Database
 
-Un servidor de SQL Database es una construcción lógica que funciona como punto de administración central para bases de datos independientes o [agrupadas](sql-database-elastic-pool.md), [inicios de sesión](sql-database-manage-logins.md), [reglas de firewall](sql-database-firewall-configure.md), [reglas de auditoría](sql-database-auditing.md), [directivas de detección de amenazas](sql-database-threat-detection.md) y [grupos de conmutación por error](sql-database-auto-failover-group.md). Asimismo, un servidor de SQL Database puede estar en otra región distinta a la del grupo de recursos. El servidor de SQL Database debe existir antes de crear la instancia de Azure SQL Database. Todas las bases de datos que administra un servidor de SQL Database se crean en la misma región que ese servidor de SQL Database.
+Un servidor de SQL Database es una construcción lógica que funciona como punto de administración central para varias bases de datos únicas o [agrupadas](sql-database-elastic-pool.md), [inicios de sesión](sql-database-manage-logins.md), [reglas de firewall](sql-database-firewall-configure.md), [reglas de auditoría](sql-database-auditing.md), [directivas de detección de amenazas](sql-database-threat-detection.md) y [grupos de conmutación por error](sql-database-auto-failover-group.md). Asimismo, un servidor de SQL Database puede estar en otra región distinta a la del grupo de recursos. El servidor de SQL Database debe existir antes de crear la instancia de Azure SQL Database. Todas las bases de datos que administra un servidor de SQL Database se crean en la misma región que ese servidor de SQL Database.
 
 Un servidor de SQL Database es diferente a una instancia de SQL Server, con la que puede estar familiarizado en el mundo de los entornos locales. En concreto, el servicio SQL Database no ofrece ninguna garantía con respecto a la ubicación de las bases de datos relacionadas con el servidor de SQL Database que las administra, y no expone ningún acceso de nivel de instancia ni características. En cambio, las bases de datos de instancia correspondientes a una instancia administrada están ubicadas de forma conjunta, imitando la manera en que SQL Server las usa en entornos locales.
 
@@ -189,5 +189,5 @@ Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, us
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-cloud-migrate.md).
+- Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-single-database-migrate.md).
 - Para obtener información sobre las características admitidas, consulte el [artículo que trata sobre dicho tema](sql-database-features.md).

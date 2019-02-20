@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302128"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883141"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de la versión preliminar de Azure Data Box Gateway
 
@@ -52,9 +52,8 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de la
 | **7.** |Actualizar | En una operación de actualización, no se conservan los permisos y las listas de control de acceso (ACL).  | |
 | **8.** |Copiar | La copia de datos produce un error con el mensaje Error:  no se pudo completar la operación solicitada por una limitación del sistema de archivos.  |Este error se produce cuando la secuencia de datos alternativa (ADS) asociada con el archivo supera los 128 KB (límite máximo de ReFS).  |
 | **9.** |Vínculos simbólicos |No se admiten los vínculos simbólicos.  |Como resultado de los vínculos simbólicos a directorios, estos nunca se marcan como sin conexión. Por este motivo, no puede ver la cruz gris que indica que los directorios están disponibles sin conexión y que todo el contenido asociado se cargó por completo en Azure. |
-| **10.** |Ayuda en línea |Los vínculos de Ayuda en Azure Portal podrían no conducir a la documentación.|Los vínculos de Ayuda funcionarán en la versión de disponibilidad general. |
-
-
+| **10.** |Recursos compartidos |La actualización de un contenedor existente con blobs en páginas en un recurso compartido de blob en bloques (o viceversa) da lugar a errores de carga en la modificación de un archivo.  |Este comportamiento se puede observar al seguir estos pasos: <li> Crear un recurso compartido de blob en bloques en el dispositivo. </li><li> Asociar el recurso compartido a un contenedor en la nube existente que tiene blobs en páginas.</li><li>Actualizar ese recurso compartido. </li><li>Modificar algunos de los archivos actualizados que ya están almacenados como blobs en páginas en la nube.</li> Se observan errores de carga. |
+| **11.** |Ayuda en línea |Los vínculos de Ayuda en Azure Portal podrían no conducir a la documentación.|Los vínculos de Ayuda funcionarán en la versión de disponibilidad general. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

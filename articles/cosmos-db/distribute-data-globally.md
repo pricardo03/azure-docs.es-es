@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 75940f9c3c8022c5445eb998b133a156dacde9b5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475064"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106875"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Introducción a la distribución de datos global con Azure Cosmos DB
 
@@ -22,6 +22,8 @@ Azure Cosmos DB es un servicio de base de datos distribuida globalmente que est�
 Puede configurar sus bases de datos para que se distribuyan de manera global y estén disponibles en cualquiera de las regiones de Azure. Para reducir la latencia, coloque los datos en la ubicación más cercana a la de los usuarios. Elegir las regiones requeridas depende del alcance global de la aplicación y de dónde se encuentran los usuarios. Azure Cosmos DB replica sin problemas los datos dentro de la cuenta a todas las regiones asociadas con la cuenta. Proporciona una sola imagen de sistema de los contenedores y la base de datos de Azure Cosmos globalmente distribuida, para que la aplicación pueda leer y escribir de manera local. 
 
 Con Azure Cosmos DB, puede agregar o quitar las regiones asociadas con su cuenta en cualquier momento. La aplicación no necesita pausarse o volver a implementarse para agregar o quitar una región. Sigue ofreciendo una alta disponibilidad en todo momento debido a las funcionalidades de hospedaje múltiple que proporciona el servicio.
+
+![Topología de implementación de alta disponibilidad](./media/distribute-data-globally/deployment-topology.png)
 
 ## <a name="key-benefits-of-global-distribution"></a>Ventajas clave de distribución global
 
@@ -50,6 +52,7 @@ Muchas aplicaciones se benefician de las mejoras de rendimiento que se incluyen 
 Lea más sobre la distribución global en estos artículos:
 
 * [Distribución global en segundo plano](global-dist-under-the-hood.md)
+* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
 * [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Creación de una directiva de resolución de conflictos personalizada para cuentas de API de SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

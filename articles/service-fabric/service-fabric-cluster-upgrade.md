@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102403"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961897"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
 
@@ -27,7 +27,7 @@ Para cualquier sistema moderno, diseñar la capacidad de actualización es clave
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Control de la versión de Service Fabric que se ejecuta en el clúster
 
-Asegúrese de que tiene siempre una versión admitida de Service Fabric en ejecución en el clúster. Cuando anunciamos el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de esa fecha. Las versiones nuevas se anuncian en el blog del equipo de Service Fabric. La nueva versión estará disponible para su elección a partir de ese momento.
+Asegúrese de que tiene siempre una versión [admitida de Service Fabric](service-fabric-versions.md) en ejecución en el clúster. Cuando anunciamos el lanzamiento de una nueva versión de Service Fabric, se marca la versión anterior para que finalice el soporte después de un mínimo de 60 días a partir de esa fecha. Las versiones nuevas se anuncian en el blog del equipo de Service Fabric. La nueva versión estará disponible para su elección a partir de ese momento.
 
 14 días antes de la expiración de la versión que se está ejecutando en el clúster, se genera un evento de mantenimiento que coloca el clúster en un estado de mantenimiento de advertencia. El clúster permanece en un estado de advertencia hasta que actualiza a una versión compatible de Service Fabric.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082647"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106468"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitación del registro de diagnóstico en Azure Traffic Manager
 
@@ -26,29 +26,31 @@ Los registros de diagnóstico de Azure Traffic Manager pueden proporcionar concl
 
 ## <a name="enable-diagnostic-logging"></a>Activación del registro de diagnóstico
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.13.1 o posterior. Puede ejecutar `Get-Module -ListAvailable AzureRM` para encontrar la versión instalada. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo Azure PowerShell, versión 1.0.0 o posterior. Puede ejecutar `Get-Module -ListAvailable Az` para encontrar la versión instalada. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzAccount` para iniciar sesión en Azure.
 
 1. **Recupere el perfil de Traffic Manager:**
 
-    Para habilitar el registro de diagnóstico, necesita el identificador de un perfil de Traffic Manager. Recupere el perfil de Traffic Manager para el que quiere habilitar el registro de diagnóstico con [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). La salida incluye la información del identificador del perfil de Traffic Manager.
+    Para habilitar el registro de diagnóstico, necesita el identificador de un perfil de Traffic Manager. Recupere el perfil de Traffic Manager para el que quiere habilitar el registro de diagnóstico con [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). La salida incluye la información del identificador del perfil de Traffic Manager.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Habilite el registro de diagnóstico para el perfil de Traffic Manager:**
 
-    Habilite el registro de diagnóstico para el perfil de Traffic Manager con el identificador obtenido en el paso anterior con [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). El comando siguiente almacena los registros detallados del perfil de Traffic Manager en una cuenta de Azure Storage especificada. 
+    Habilite el registro de diagnóstico para el perfil de Traffic Manager con el identificador obtenido en el paso anterior con [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). El comando siguiente almacena los registros detallados del perfil de Traffic Manager en una cuenta de Azure Storage especificada. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Compruebe la configuración de diagnóstico:**
 
-      Compruebe la configuración de diagnóstico del perfil de Traffic Manager mediante [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). El siguiente comando muestra las categorías que se registran para un recurso.
+      Compruebe la configuración de diagnóstico del perfil de Traffic Manager mediante [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). El siguiente comando muestra las categorías que se registran para un recurso.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Asegúrese de que todas las categorías de registro asociadas con el recurso del perfil de Traffic Manager se muestran como habilitadas. También, compruebe que la cuenta de almacenamiento está configurada correctamente.
 

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117459"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965365"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -195,6 +195,63 @@ Cuando [configure las páginas web para Application Insights](../../azure-monito
 Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero.  Actualmente el muestreo no es compatible con otros valores.
 
 Si también habilita el muestreo de frecuencia fija en el servidor, los clientes y el servidor se sincronizarán de modo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
+
+## <a name="aspnet-core-sampling"></a>Muestreo de ASP.NET Core
+
+El muestreo adaptable está habilitado de forma predeterminada para todas las aplicaciones de ASP.NET Core. Puede deshabilitar o personalizar el comportamiento de muestreo.
+
+### <a name="turning-off-adaptive-sampling"></a>Desactivación del muestreo adaptable
+
+La característica predeterminada de muestreo se puede deshabilitar al agregar el servicio de Application Insights, en el método ```ConfigureServices``` con ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+El código anterior deshabilitará la característica de muestreo. Siga los pasos a continuación para agregar el muestreo con más opciones de personalización.
+
+### <a name="configure-sampling-settings"></a>Configuración de las opciones de muestreo
+
+Use los métodos de extensión de ```TelemetryProcessorChainBuilder``` como se muestra a continuación para personalizar el comportamiento de muestreo.
+
+> [!IMPORTANT]
+> Si usa este método para configurar el muestreo, asegúrese de usar la opción aiOptions.EnableAdaptiveSampling = false; con AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Si usa el método anterior para configurar el muestreo, asegúrese de usar la opción ```aiOptions.EnableAdaptiveSampling = false;``` con AddApplicationInsightsTelemetry().**
+
+Sin esto, habrá varios procesadores de muestreo en la cadena TelemetryProcessor, lo que da lugar a consecuencias no deseadas.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Muestreo de frecuencia fija para sitios web ASP.NET y Java
 El muestreo de frecuencia fija reduce el tráfico enviado desde el servidor web y los exploradores web. A diferencia del muestreo adaptable, reduce la telemetría a una tasa fija que usted decide. También sincroniza el muestreo del cliente y del servidor para que los elementos relacionados se conserven; por ejemplo, cuando mira una vista de página en Búsqueda, puede encontrar su solicitud relacionada.

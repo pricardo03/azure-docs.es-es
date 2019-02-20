@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: beb86284256d42c119e551a18d9900f0dad61b7f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d23aab91df2d69850e8c3b80a1c12f49f2e7fcaa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247500"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965178"
 ---
 # <a name="azure-stack-1808-update"></a>Actualización de Azure Stack 1808
 
@@ -130,9 +130,9 @@ Esta actualización también contiene la mitigación de la vulnerabilidad de can
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Antes de aplicar la actualización de Azure Stack 1808, instale la [actualización 1807](azure-stack-update-1807.md). 
+- Antes de aplicar la actualización de Azure Stack 1808, instale la actualización 1807. 
 
-- Instale la [actualización o revisión para la versión 1807](azure-stack-update-1807.md#post-update-steps) más reciente disponible.  
+- Instale la actualización o revisión para la versión 1807 más reciente disponible.  
   > [!TIP]  
   > Suscríbase a las siguientes fuentes *RRS* o *Atom* para mantenerse al día con las revisiones de Azure Stack:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -246,7 +246,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
    - NOMBRE: error de comunicación interna del servicio Storage  
    - GRAVEDAD: Crítico  
-   - COMPONENTE: Storage  
+   - COMPONENTE: Almacenamiento  
    - DESCRIPCIÓN: se produjo un error de comunicación interna del servicio Storage al enviar solicitudes a los nodos siguientes.  
 
     La alerta puede omitirse sin riesgos, pero deberá cerrarla manualmente.

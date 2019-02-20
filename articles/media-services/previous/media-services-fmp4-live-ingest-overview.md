@@ -4,7 +4,7 @@ description: En esta especificación se describe el protocolo y el formato para 
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228885"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984841"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Especificación de la introducción en vivo de MP4 fragmentado de Azure Media Services (heredado)
+
 En esta especificación se describe el protocolo y el formato para ingesta de streaming en vivo basada en MP4 fragmentado para Azure Media Services. Azure Media Services proporciona un servicio de streaming en vivo que los clientes pueden utilizar para la transmisión de eventos en directo y la difusión de contenido en tiempo real mediante el uso de Azure como plataforma en la nube. Este documento también describe las prácticas recomendadas para crear mecanismos de ingesta en vivo sólidos y de alta redundancia.
 
 ## <a name="1-conformance-notation"></a>1. Notación de cumplimiento
@@ -82,7 +83,7 @@ Vídeo: 3000 kbps, 1500 kbps, 750 kbps
 
 Audio: 128 kbps
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Opción 1: todas las pistas de una secuencia
+### <a name="option-1-all-tracks-in-one-stream"></a>Opción 1: Todas las pistas de una secuencia
 En esta opción, un único codificador genera todas las pistas de audio y vídeo y, a continuación, las agrupa en una secuencia de bits MP4 fragmentada. La secuencia de bits MP4 fragmentada, a continuación, se envía a través de una sola conexión HTTP POST. En este ejemplo, solo hay una secuencia para esta presentación en directo.
 
 ![Secuencias: una pista][image2]
@@ -111,7 +112,7 @@ En esta sección, trataremos los escenarios de conmutación por error del servic
 1. Se recomienda que el codificador NO limite el número de reintentos para establecer una conexión ni reanude el streaming cuando se produce un error TCP.
 1. Después de un error TCP:
   
-    a. Se DEBE cerrar la conexión actual y se DEBE crear una nueva conexión para una nueva solicitud HTTP POST.
+     a. Se DEBE cerrar la conexión actual y se DEBE crear una nueva conexión para una nueva solicitud HTTP POST.
 
     b. La nueva URL HTTP POST DEBE ser la misma que la URL de POST inicial.
   
@@ -161,7 +162,7 @@ Los pasos siguientes reflejan una implementación recomendada para la ingestión
 1. En el cuadro **Live Server Manifest Box**, el valor de **manifestOutput** DEBE establecerse en **true**.
 1. Dada la naturaleza dispersa del evento de señalización, se recomienda lo siguiente:
    
-    a. Al principio del evento en directo, el codificador envía los cuadros de encabezados iniciales al servicio, lo que permite que el servicio registre la pista dispersa en el manifiesto del cliente.
+     a. Al principio del evento en directo, el codificador envía los cuadros de encabezados iniciales al servicio, lo que permite que el servicio registre la pista dispersa en el manifiesto del cliente.
    
     b. El codificador DEBERÍA finalizar la solicitud HTTP POST cuando no se están enviando datos. Una solicitud HTTP POST de larga duración que no envía datos puede impedir que Media Services se desconecte rápidamente del codificador en el caso de una actualización del servicio o reinicio del servidor. En estos casos, el servidor multimedia está bloqueado temporalmente en una operación de recepción en el socket.
    

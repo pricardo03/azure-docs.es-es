@@ -4,17 +4,19 @@ description: Muestra los tipos de recursos de Azure que admiten etiquetas. Propo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509922"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246058"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md).
+
+Para obtener los mismos datos como un archivo de valores separados por comas, descargue [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo de recurso | Compatible con las etiquetas |
@@ -1123,13 +1125,14 @@ En este artículo se describe si un tipo de recurso admite [etiquetas](resource-
 | servers/communicationLinks | Sin  | 
 | servers/databases | Sí (vea la nota siguiente) | 
 | servers/encryptionProtector | Sin  | 
+| servers/firewallRules | Sin  | 
 | servers/keys | Sin  | 
 | servers/restorableDroppedDatabases | Sin  | 
 | servers/serviceobjectives | Sin  | 
 | servers/tdeCertificates | Sin  | 
 
 > [!NOTE]
-> La base de datos maestra no admite etiquetas, pero otras bases de datos sí lo hacen.
+> La base de datos maestra no admite etiquetas, pero otras bases de datos, incluidas las de almacenamiento de datos, sí lo hacen.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

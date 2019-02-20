@@ -2,7 +2,7 @@
 title: Desarrollo de aplicaciones para reproductor de vídeo
 description: El tema también proporciona vínculos a Player Framework y complementos que puede usar para desarrollar sus propias aplicaciones cliente que pueden consumir contenido multimedia en streaming desde Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237050"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004849"
 ---
 # <a name="develop-video-player-applications"></a>Desarrollo de aplicaciones para reproductor de vídeo
 ## <a name="overview"></a>Información general
@@ -46,14 +46,14 @@ También puede usar algunos de los SDK siguientes:
 
 * [SDK de cliente de Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Aplicación de la Tienda Windows de Smooth Streaming](media-services-build-smooth-streaming-apps.md)
-* [Plataforma multimedia de Microsoft: Player Framework](http://playerframework.codeplex.com/) 
+* [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 * [Documentación de HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](https://aka.ms/sspk) 
 * [Desarrollo de aplicaciones de vídeo de XBOX](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Publicidad
-Azure Media Services admite la inserción de anuncios mediante Plataforma multimedia de Microsoft: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:
+Azure Media Services admite la inserción de anuncios mediante la plataforma de Windows Media: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:
 
 Lineales: anuncios en un marco completo que pausan el vídeo principal
 

@@ -4,7 +4,7 @@ description: En este tema se proporciona información general de streaming en vi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382137"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998015"
 ---
-# <a name="overview-of-live-streaming-using-azure-media-services"></a>Información general de streaming en vivo con Azure Media Services
+# <a name="overview-of-live-streaming-using-media-services"></a>Información general de streaming en vivo con Media Services
 
 > [!NOTE]
 > A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
@@ -69,16 +69,16 @@ La tabla siguiente proporciona a una guía para comparar los dos tipos de canal 
 
 | Característica | Canal de paso a través | Canal estándar |
 | --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
+| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |Sí |
 | Resolución máxima, número de capas |1080p, 8 capas, 60+fps |720p, 6 capas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Precio |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo" |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tiempo de ejecución máximo |24x7 |8 horas |
-| Compatibilidad con inserción de tabletas táctiles |Sin  |SÍ |
-| Compatibilidad con señalización de anuncios |Sin  |SÍ |
-| Títulos CEA 608/708 de paso a través |SÍ |SÍ |
-| Compatibilidad con GOP de entrada no uniformes |SÍ |No: la entrada debe ser GOP de 2 s fijos |
-| Compatibilidad con la entrada de la velocidad de fotogramas variable |SÍ |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
+| Compatibilidad con inserción de tabletas táctiles |Sin  |Sí |
+| Compatibilidad con señalización de anuncios |Sin  |Sí |
+| Títulos CEA 608/708 de paso a través |Sí |Sí |
+| Compatibilidad con GOP de entrada no uniformes |Sí |No: la entrada debe ser GOP de 2 s fijos |
+| Compatibilidad con la entrada de la velocidad de fotogramas variable |Sí |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
 | Apagado automático de canales cuando se pierde la fuente de entrada |Sin  |Después de 12 horas, si no hay ningún programa en ejecución |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales (paso a través)

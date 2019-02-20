@@ -3,20 +3,20 @@ title: Aumento de la cuota de punto de conexión
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves).
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491729"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997913"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 
@@ -362,6 +362,9 @@ La respuesta correcta con el punto de conexión de LUIS es:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Usar el perfil primario de Traffic Manager
 Para administrar el tráfico a través de los puntos de conexión, debe insertar una llamada al DNS de Traffic Manager para buscar el punto de conexión de LUIS. Esta llamada se realiza para cada solicitud de punto de conexión de LUIS y tiene que simular la ubicación geográfica del usuario de la aplicación cliente de LUIS. Agregue el código de respuesta de DNS entre la aplicación cliente de LUIS y la solicitud a LUIS para la predicción del punto de conexión. 
 
+## <a name="resolving-a-degraded-state"></a>Resolver un estado degradado
+
+Habilite los [registros de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) para Traffic Manager para ver por qué el estado del punto de conexión es degradado.
 
 ## <a name="clean-up"></a>Limpieza
 Quite las dos claves de punto de conexión de LUIS, los tres perfiles de Traffic Manager y el grupo de recursos que contenía estos cinco recursos. Para ello, se usa Azure Portal. Elimine los cinco recursos de la lista de recursos y después elimine el grupo de recursos. 

@@ -2,19 +2,19 @@
 title: Guía del desarrollador de Azure Key Vault
 description: Los desarrolladores pueden usar Azure Key Vault para administrar las claves criptográficas en el entorno de Microsoft Azure.
 services: key-vault
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 02/11/2019
+ms.author: mbaldwin
+ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237543"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106496"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -23,7 +23,7 @@ Key Vault le permite acceder de forma segura a información confidencial desde s
 - Las claves y los secretos están protegidos sin tener que escribir el código manualmente, y puede usarlos fácilmente en sus aplicaciones.
 - Sus clientes pueden poseer y administrar sus propias claves para que pueda centrarse en proporcionar las características de software fundamentales. De este modo, las aplicaciones no serán responsables de las claves y secretos del inquilino de sus clientes.
 - La aplicación puede usar claves para firma y cifrado y aun así que la administración de claves sea externa a la aplicación, lo que le permite ser adecuada como aplicación distribuida geográficamente.
-- A partir de la versión de septiembre de 2016 de Key Vault, las aplicaciones ahora pueden administrar los certificados de Key Vault. Para más información, consulte el artículo [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates) (Claves, secretos y certificados).
+- A partir de la versión de septiembre de 2016 de Key Vault, las aplicaciones ahora pueden administrar los certificados de Key Vault. Para más información, consulte el artículo [About keys, secrets, and certificates](/rest/api/keyvault/about-keys--secrets-and-certificates) (Claves, secretos y certificados).
 
 Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Vault?](key-vault-whatis.md)
 
@@ -36,7 +36,7 @@ Periódicamente se publica una versión preliminar pública de una nueva caracte
 >[!NOTE]
 >En esta actualización de Azure Key Vault, la única característica en versión preliminar es **Claves de cuenta de almacenamiento**.
 
-Esta versión preliminar incluye nuestra nueva característica Claves de cuenta de almacenamiento, disponible a través de estas interfaces; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) y [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+Esta versión preliminar incluye nuestra nueva característica Claves de cuenta de almacenamiento, disponible a través de estas interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) y [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
 
 Para más información sobre la nueva característica Claves de cuenta de almacenamiento, vea [Introducción a las claves de cuenta de almacenamiento de Azure Key Vault](key-vault-ovw-storage-keys.md).
 
@@ -55,14 +55,14 @@ Recursos mencionados en el vídeo anterior:
 
 Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Las identidades administradas par recursos de Azure facilita la resolución de este problema, al ofrecer a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticar cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de tener credenciales en el código. 
 
-Para más información sobre las identidades administradas para recursos de Azure, consulte la [introducción a las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md). Para más información sobre cómo trabajar con AAD, consulte [Integración de aplicaciones con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Para más información sobre las identidades administradas para recursos de Azure, consulte la [introducción a las identidades administradas](../active-directory/managed-identities-azure-resources/overview.md). Para más información sobre cómo trabajar con AAD, consulte [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 Antes de trabajar con claves, secretos o certificados en el almacén de claves, podrá crear y administrar su almacén de claves a través de la CLI, PowerShell, plantillas de Resource Manager o REST, tal y como se describe en los siguientes artículos:
 
 - [Creación y administración de almacenes claves con la CLI](key-vault-manage-with-cli2.md)
-- [Creación y administración de almacenes claves con PowerShell](key-vault-get-started.md)
+- [Creación y administración de almacenes claves con PowerShell](key-vault-overview.md)
 - [Creación de un almacén de claves e incorporación de un secreto mediante una plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-template-keyvault.md)
-- [Creación y administración de almacenes de claves con REST](https://docs.microsoft.com/rest/api/keyvault/)
+- [Creación y administración de almacenes de claves con REST](/rest/api/keyvault/)
 
 
 ## <a name="coding-with-key-vault"></a>Codificación con Key Vault
@@ -75,35 +75,35 @@ El sistema de administración de Key Vault para los programadores está compuest
 
 Mediante la interfaz REST se puede acceder a todos los recursos de Key Vault: almacenes, claves, secretos, etc. 
 
-[Referencia de la API de REST de Key Vault](https://docs.microsoft.com/rest/api/keyvault/). 
+[Referencia de la API de REST de Key Vault](/rest/api/keyvault/).
 
 #### <a name="net"></a>.NET
 
-[Referencia de API de .NET para Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[Referencia de API de .NET para Key Vault](/dotnet/api/microsoft.azure.keyvault).
 
 Para más información sobre la versión 2.x de SDK de .NET, consulte las [notas de la versión](key-vault-dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
-[SDK de Java para Key Vault](https://docs.microsoft.com/java/api/overview/azure/keyvault)
+[SDK de Java para Key Vault](/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
 En Node.js, la API de administración y la API de objetos de Key Vault son independientes. El siguiente artículo de introducción proporciona acceso a ambos. 
 
-[Módulos de Azure Key Vault para Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
+[Módulos de Azure Key Vault para Node.js](/nodejs/api/overview/azure/key-vault)
 
 #### <a name="python"></a>Python
 
-[Bibliotecas de Azure Key Vault para Python](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+[Bibliotecas de Azure Key Vault para Python](/python/api/overview/azure/key-vault)
 
 #### <a name="azure-cli-2"></a>CLI de Azure 2
 
-[CLI de Azure para Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+[CLI de Azure para Key Vault](/cli/azure/keyvault)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell para Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
+[Azure PowerShell para Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
 ### <a name="quick-start-guides"></a>Guías de inicio rápido
 
@@ -139,7 +139,7 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 En estos artículos se describen otros escenarios y servicios que usan Key Vault o se integran en este servicio.
 
 - [Azure Disk Encryption](../security/azure-security-disk-encryption.md) aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con Azure Key Vaultpara ayudarle a controlar y administrar las claves y secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en Azure Storage.
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) proporciona la opción para el cifrado de datos que se almacenan en la cuenta. Para la administración de claves, Data Lake Store ofrece dos modos de administrar las claves de cifrado maestras (MEK) que son necesarias para descifrar los datos que se almacenan en Data Lake Store. Se puede dejar que Data Lake Store administre las MEK en su lugar o decidir conservar la propiedad de estas mediante su cuenta de Azure Key Vault. Puede especificar el modo de administración de claves durante la creación de una cuenta de Data Lake Store. 
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) proporciona la opción para el cifrado de datos que se almacenan en la cuenta. Para la administración de claves, Data Lake Store ofrece dos modos de administrar las claves de cifrado maestras (MEK) que son necesarias para descifrar los datos que se almacenan en Data Lake Store. Se puede dejar que Data Lake Store administre las MEK en su lugar o decidir conservar la propiedad de estas mediante su cuenta de Azure Key Vault. Puede especificar el modo de administración de claves durante la creación de una cuenta de Data Lake Store.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) le permite administrar su propia clave de inquilino. Por ejemplo, en lugar de que Microsoft administre su clave de inquilino (la opción predeterminada), puede administrar su propia clave de inquilino para cumplir con las normas específicas que se aplican a su organización. La administración de su propia clave de inquilino también se conoce como "aportar su propia clave", o BYOK.
 
 ## <a name="key-vault-overviews-and-concepts"></a>Conceptos y datos globales de Key Vault
@@ -158,5 +158,3 @@ En estos artículos se describen otros escenarios y servicios que usan Key Vault
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) (biblioteca principal Microsoft Azure Key Vault) proporciona las interfaces **IKey** e **IKeyResolver** para localizar las claves de los identificadores y realizar operaciones con ellas.
 - [Las extensiones de Microsoft Azure Key Vault](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) proporcionan capacidades ampliadas para Azure Key Vault.
-
-

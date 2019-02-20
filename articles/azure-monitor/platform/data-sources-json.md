@@ -1,6 +1,6 @@
 ---
 title: Recopilación de datos JSON personalizados en Azure Monitor | Microsoft Docs
-description: Los orígenes de datos JSON personalizados se pueden recopilar en Log Analytics mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como curl o uno de los más de 300 complementos de FluentD. En este artículo se describe la configuración necesaria para esta recopilación de datos.
+description: Los orígenes de datos JSON personalizados se pueden recopilar en Azure Monitor mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como curl o uno de los más de 300 complementos de FluentD. En este artículo se describe la configuración necesaria para esta recopilación de datos.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 36f914109d8d3879d23511cb37055d20db4d670c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8b03d6838e9d942da766e0c7aa4c2c2e161a6b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105226"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990128"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recopilación de orígenes de datos JSON personalizados con el agente de Log Analytics para Linux en Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Los orígenes de datos JSON personalizados se pueden recopilar en [Log Analytics](data-collection.md) mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](http://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
+Los orígenes de datos JSON personalizados se pueden recopilar en [Azure Monitor](data-collection.md) mediante el agente de Log Analytics para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](http://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
 
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Los orígenes de datos JSON personalizados se pueden recopilar en [Log Analytics
 
 ### <a name="configure-input-plugin"></a>Configuración del complemento de entrada
 
-Para recopilar datos JSON en Log Analytics, agregue `oms.api.` al principio de una etiqueta de FluentD en un complemento de entrada.
+Para recopilar datos JSON en Azure Monitor, agregue `oms.api.` al principio de una etiqueta de FluentD en un complemento de entrada.
 
 Por ejemplo, el siguiente es un archivo de configuración independiente `exec-json.conf` en `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Este archivo usa el complemento `exec` de FuentD para ejecutar un comando de curl cada 30 segundos.  La salida de este comando se recopila mediante el complemento de salida JSON.
 
@@ -87,9 +87,9 @@ Reinicie el servicio del agente de Log Analytics para Linux con el siguiente com
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Salida
-Los datos se recopilarán en Log Analytics con un tipo de registro de `<FLUENTD_TAG>_CL`.
+Los datos se recopilarán en Azure Monitor con un tipo de registro de `<FLUENTD_TAG>_CL`.
 
-Por ejemplo, la etiqueta personalizada `tag oms.api.tomcat` en Log Analytics con un tipo de registro de `tomcat_CL`.  Podría recuperar todos los registros de este tipo con la consulta de registros siguiente.
+Por ejemplo, la etiqueta personalizada `tag oms.api.tomcat` en Azure Monitor con un tipo de registro de `tomcat_CL`.  Podría recuperar todos los registros de este tipo con la consulta de registros siguiente.
 
     Type=tomcat_CL
 
@@ -106,4 +106,4 @@ Se admiten datos JSON anidados, pero se indexan en función del campo principal.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [consultas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 

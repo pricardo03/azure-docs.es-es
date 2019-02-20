@@ -4,7 +4,7 @@ description: Gracias al OCR (reconocimiento óptico de caracteres) de Análisis 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4a7a31b4e0069d2c94a4f109248d7b02c0b03faa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785904"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005138"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital  
 ## <a name="overview"></a>Información general
 Si necesita extraer el contenido de texto de los archivos de vídeo y generar un texto digital que se pueda editar y en el que se pueda buscar, utilice OCR (reconocimiento óptico de caracteres) de Análisis multimedia de Azure. Este procesador multimedia de Azure detecta contenido de texto en los archivos de vídeo y genera archivos de texto para su uso. El OCR le permite automatizar la extracción de metadatos significativos a partir de la señal de vídeo de los elementos multimedia.
 
@@ -45,7 +45,7 @@ Configuración de tareas (valor predeterminado) Cuando se crea una tarea con **A
 | Nombre del atributo | DESCRIPCIÓN |
 | --- | --- |
 |AdvancedOutput| Si establece AdvancedOutput en true, la salida JSON contendrá datos posicionales para cada palabra única (además de frases y regiones). Si no desea ver estos detalles, establezca la marca en false. El valor predeterminado es false. Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Idioma |(Opcional) Describe el idioma del texto que desea buscar. Está disponible en los idiomas siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
+| Idioma |(Opcional) Describe el idioma del texto que desea buscar. Uno de los siguientes: Detección automática (predeterminado), alemán, árabe, chino (simplificado y tradicional), checo, coreano, danés, español, finés, francés, griego, húngaro, inglés, italiano, japonés, neerlandés, noruego, polaco, portugués, rumano, ruso, serbio cirílico, serbio latino, eslovaco, sueco, turco. |
 | TextOrientation |(Opcional) Describe la orientación del texto que desea buscar.  "Izquierda" significa que la parte superior de todas las letras apunta a la izquierda.  El texto predeterminado (similar al que se encuentra en un libro) se puede denominar orientado "hacia arriba".  Uno de los siguientes: detección automática (valor predeterminado), arriba, derecha, abajo, izquierda. |
 | TimeInterval |(Opcional) Describe la frecuencia de muestreo.  El valor predeterminado es cada 1/2 segundo.<br/>Formato JSON: HH:mm:ss.SSS (predeterminado 00:00:00.500)<br/>Formato XML – primitiva de duración W3C XSD (valor predeterminado PT0.5) |
 | DetectRegions |(Opcional) Una matriz de objetos DetectRegion que especifica regiones dentro del marco de vídeo en el que se va a detectar el texto.<br/>Un objeto DetectRegion consta de los siguientes cuatro valores enteros:<br/>Izquierda: píxeles desde el margen izquierdo<br/>Parte superior: píxeles desde el margen superior<br/>Ancho: ancho de la región en píxeles<br/>Alto: el alto de la región en píxeles |

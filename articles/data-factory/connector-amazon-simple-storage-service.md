@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: cd07343e056493369d2093651ecf7c466595f412
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16d0002ec8e42eec92895aaf582a8c2b3df2c3a6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656590"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895268"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon S3:
 | Tipo | La propiedad type debe establecerse en: **AmazonS3**. | Sí |
 | accessKeyId | Id. de la clave de acceso secreta. |Sí |
 | secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| serviceUrl | Especifique el punto de conexión personalizado S3 si va a copiar datos desde un proveedor de almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial. Por ejemplo, para [copiar datos de Google Cloud Storage](#copy-from-google-cloud-storage), especifique `https://storage.googleapis.com`. | Sin  |
+| serviceUrl | Especifique el punto de conexión personalizado S3 si va a copiar datos desde un proveedor de almacenamiento compatible con S3 distinto al servicio Amazon S3 oficial. Por ejemplo, para copiar datos de Google Cloud Storage, especifique `https://storage.googleapis.com`. | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!TIP]

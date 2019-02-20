@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 31e6fa596bb053ee8cd19f641349f02ee169b6eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6b168efc2314e21f381d55f6ac79cda8b426e66d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472344"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110309"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflicto y directivas de resolución de conflictos
 
@@ -50,6 +50,7 @@ Azure Cosmos DB ofrece un mecanismo flexible controlado por directivas para reso
 
 Obtenga información sobre cómo configurar directivas de resolución de conflictos. Consulte los artículos siguientes:
 
+* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
 * [Uso de la directiva de resolución de conflictos LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Uso de la directiva de resolución de conflictos personalizada](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Uso de la fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed)

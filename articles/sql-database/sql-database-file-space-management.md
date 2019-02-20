@@ -1,6 +1,6 @@
 ---
-title: Administración del espacio de archivo de Azure SQL Database | Microsoft Docs
-description: En esta página se describe cómo administrar el espacio de archivo con Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos y cómo hacerlo.
+title: Administración del espacio de archivo de bases de datos únicas o agrupadas de Azure SQL Database | Microsoft Docs
+description: En esta página se describe cómo administrar el espacio de archivo con bases de datos únicas o agrupadas de Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos única o agrupadas y cómo hacerlo.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,20 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468638"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110156"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
-En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Administración del espacio de archivo para bases de datos agrupadas y únicas en Azure SQL Database
+
+En este artículo se describen los diferentes tipos de espacio de almacenamiento para bases de datos agrupadas y únicas de Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
+
+> [!NOTE]
+> Este artículo no es válido para la opción de implementación de instancias administradas de Azure SQL Database.
 
 ## <a name="overview"></a>Información general
 
-En Azure SQL Database, hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan. Esta condición puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos. El motivo es que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.
+Con bases de datos únicas o agrupadas de Azure SQL Database, hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan. Esta condición puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos. El motivo es que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.
 
 Es posible que sea necesario supervisar el uso del espacio de archivo y reducir los archivos de datos en los escenarios siguientes:
 
@@ -33,17 +37,20 @@ Es posible que sea necesario supervisar el uso del espacio de archivo y reducir 
 - Permitir cambiar una instancia única de base de datos o grupo elástico a un nivel de servicio o un nivel de rendimiento diferente con un tamaño máximo inferior.
 
 ### <a name="monitoring-file-space-usage"></a>Supervisión del uso del espacio de archivo
+
 La mayoría de las métricas de espacio de almacenamiento que aparecen en Azure Portal y en las API siguientes solo miden el tamaño de las páginas de datos que se usan:
+
 - API de métricas basadas en Azure Resource Manager, como [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) de PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Sin embargo, las siguientes API también miden el tamaño del espacio asignado para las bases de datos y los grupos elásticos:
+
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Reducción de los archivos de datos
 
-El servicio SQL DB no reduce automáticamente los archivos de datos para reclamar el espacio asignado sin usar debido a las posibles repercusiones en el rendimiento de la base de datos.  Sin embargo, los clientes pueden reducir los archivos de datos a través de un autoservicio en el momento que estimen oportuno siguiendo los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space). 
+El servicio SQL Database no reduce automáticamente los archivos de datos para reclamar el espacio asignado sin usar debido a las posibles repercusiones en el rendimiento de la base de datos.  Sin embargo, los clientes pueden reducir los archivos de datos a través de un autoservicio en el momento que estimen oportuno siguiendo los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > A diferencia de los archivos de datos, el servicio SQL Database reduce automáticamente los archivos de registro, ya que esa operación no afecta al rendimiento de la base de datos. 
@@ -62,13 +69,14 @@ Comprender las cantidades de espacio de almacenamiento siguientes es importante 
 
 En el siguiente diagrama se ilustra la relación entre los diferentes tipos de espacio de almacenamiento para una base de datos.
 
-![tipos de espacio de almacenamiento y relaciones](./media/sql-database-file-space-management/storage-types.png) 
+![tipos de espacio de almacenamiento y relaciones](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Consulta de la información de espacio de almacenamiento en una base de datos
+## <a name="query-a-single-database-for-storage-space-information"></a>Consulta de la información de espacio de almacenamiento en una base de datos única
 
-Las consultas siguientes pueden utilizarse para determinar las cantidades de espacio de almacenamiento para una base de datos.  
+Las consultas siguientes pueden utilizarse para determinar las cantidades de espacio de almacenamiento para una base de datos única.  
 
 ### <a name="database-data-space-used"></a>Espacio de datos de la base de datos usado
+
 Modifique la siguiente consulta para devolver la cantidad de espacio de datos de base de datos usado.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
@@ -81,6 +89,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espacio de datos de base de datos asignado y espacio asignado sin usar
+
 Use la siguiente consulta para devolver la cantidad de espacio de datos de base de datos asignado y la cantidad de espacio asignado sin usar.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
@@ -94,6 +103,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Tamaño máximo de datos de base de datos
+
 Modifique la siguiente consulta para devolver el tamaño máximo de datos de la base de datos.  Las unidades del resultado de la consulta están en bytes.
 
 ```sql
@@ -137,7 +147,7 @@ Modifique el siguiente script de PowerShell para devolver una tabla que muestre 
 
 Los resultados de la consulta para determinar el espacio asignado para cada base de datos del grupo se pueden agregar juntos para determinar el espacio total asignado para el grupo elástico. El espacio de grupo elástico asignado no puede exceder el tamaño máximo del grupo elástico.  
 
-El script de PowerShell requiere el módulo SQL Server PowerShell, consulte el artículo de [descarga del módulo de PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) para la instalación.
+El script de PowerShell requiere el módulo SQL Server PowerShell, consulte el artículo de [descarga del módulo de PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para la instalación.
 
 ```powershell
 # Resource group name
@@ -218,7 +228,7 @@ Para más información sobre este comando, consulte [SHRINKDATABASE](https://doc
 
 ### <a name="auto-shrink"></a>Reducción automática
 
-Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que SHRINKDATABASE o SHRINKFILE.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz al reclamar espacio de archivo que con SHRINKDATABASE y SHRINKFILE.
+Como alternativa, la reducción automática puede habilitarse para una base de datos.  La reducción automática reduce la complejidad de la administración de archivos y afecta menos al rendimiento de la base de datos que `SHRINKDATABASE` o `SHRINKFILE`.  La reducción automática puede resultar especialmente útil para administrar grupos elásticos con muchas bases de datos.  Sin embargo, la reducción automática es menos eficaz al reclamar espacio de archivo que `SHRINKDATABASE` y `SHRINKFILE`.
 Para habilitar la reducción automática, modifique el nombre de la base de datos en el siguiente comando.
 
 

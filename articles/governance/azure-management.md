@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088143"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112224"
 ---
 # <a name="management-in-azure"></a>Administración en Azure
 
@@ -24,7 +24,7 @@ El siguiente diagrama muestra las diferentes áreas de administración necesaria
 
 ![Disciplinas de administración](../monitoring/media/management-overview/management-capabilities.png)
 
-No hay ningún servicio único de Azure que cumpla íntegramente con los requisitos de un área de administración determinada. En vez de eso, son varios los servicios que los satisfacen, trabajando en conjunto. Algunos servicios, como Application Insights, proporcionan una funcionalidad de supervisión dirigida para las aplicaciones web. Otros, como Log Analytics, almacenan datos de administración para otros servicios. Esta característica permite analizar datos de tipos diferentes recopilados por distintos servicios.
+No hay ningún servicio único de Azure que cumpla íntegramente con los requisitos de un área de administración determinada. En vez de eso, son varios los servicios que los satisfacen, trabajando en conjunto. Algunos servicios, como Application Insights, proporcionan una funcionalidad de supervisión dirigida para las aplicaciones web. Otros, como los registros de Azure Monitor, almacenan datos de administración para otros servicios. Esta característica permite analizar datos de tipos diferentes recopilados por distintos servicios.
 
 En las secciones siguientes se describen sucintamente las distintas áreas de administración y se proporcionan vínculos a información detallada acerca de los principales servicios de Azure diseñados para trabajar en ellas.
 

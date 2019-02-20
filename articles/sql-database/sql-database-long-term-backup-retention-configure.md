@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/07/2019
-ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3657844d5dd4c4dcf9b9729aaeea6c9af3ed6519
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567186"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894892"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 
-En Azure SQL Database, puede configurar una base de datos sola o agrupada con una directiva de [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) (LTR) para retener automáticamente copias de seguridad en Azure Blob Storage hasta durante 10 años. Posteriormente, puede recuperar una base de datos mediante esas copias de seguridad con Azure Portal o PowerShell.
+En Azure SQL Database, puede configurar una base de datos única o agrupada con una directiva de [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md) (LTR) para retener automáticamente copias de seguridad en Azure Blob Storage hasta durante 10 años. Posteriormente, puede recuperar una base de datos mediante esas copias de seguridad con Azure Portal o PowerShell.
 
 > [!IMPORTANT]
 > [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md) no admite actualmente la retención de copias de seguridad a largo plazo.

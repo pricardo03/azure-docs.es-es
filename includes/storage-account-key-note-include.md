@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f9e5f54c262280f39c05aafd873195210533fb6b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45738457"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247158"
 ---
 > [!IMPORTANT]
 > La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger la clave de la cuenta. Evite distribuirla a otros usuarios, codificarla de forma rígida o guardarla en un archivo de texto al que puedan acceder otros usuarios. Vuelva a generar la clave de la cuenta mediante el Azure Portal si cree que puede verse comprometida.
 > 
-> Microsoft recomienda usar la autenticación de Azure Active Directory (Azure AD) para las aplicaciones de Blob Storage y Queue Storage (versión preliminar) cuando sea posible para mejorar la seguridad. Para obtener más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory (versión preliminar)](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 
+> Los tokens de SAS (Firma de acceso compartido) son fundamentales para proteger, al igual que las claves de acceso de la cuenta. A la vez que proporciona granularidad, SAS concede a los clientes acceso a los recursos de la cuenta de almacenamiento, por lo que no debe compartirse públicamente. Cuando sea necesario compartirla para solucionar problemas, considere la posibilidad de usar una versión censurada de los archivos de registro o eliminar los tokens de SAS (si existen) de dichos archivos, y asegúrese de que las capturas de pantalla tampoco incluyan información de SAS.
+> 
+> Microsoft recomienda usar la autenticación de Azure Active Directory (Azure AD) para las aplicaciones de Blob Storage y Queue Storage (versión preliminar) cuando sea posible para mejorar la seguridad. Para obtener más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory (versión preliminar)](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).

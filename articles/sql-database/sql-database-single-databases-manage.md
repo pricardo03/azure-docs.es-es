@@ -3,7 +3,7 @@ title: Creación y administración de servidores y bases de datos únicas de Azu
 description: Obtenga información sobre cómo crear y administrar servidores y bases de datos únicas de SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: 0a43414ef446beb3f5d6c8e357390363a95ac31c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751198"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099350"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores y bases de datos únicas de SQL Database en Azure SQL Database
 
@@ -57,7 +57,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Administración de servidores y bases de datos únicas de SQL Database
 
-Para crear y administrar servidores de Azure SQL Database, bases de datos independientes y agrupadas y firewalls de servidor de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
+Para crear y administrar servidores de Azure SQL Database, bases de datos únicas y agrupadas y firewalls de servidor de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
 > Por scripts de PowerShell de ejemplo, consulte [Uso de PowerShell para crear una instancia única de Azure SQL Database y configurar una regla de firewall](scripts/sql-database-create-and-configure-database-powershell.md) y [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -160,5 +160,5 @@ Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, us
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-cloud-migrate.md).
+- Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-single-database-migrate.md).
 - Para obtener información sobre las características admitidas, consulte el [artículo que trata sobre dicho tema](sql-database-features.md).

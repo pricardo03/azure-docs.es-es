@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488550"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997012"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
@@ -74,7 +74,7 @@ Hay seis columnas en la tabla de resultados. Las cuatro columnas de la izquierda
 
 **Publicación de servicios web**
 
-Una vez comprendidos los resultados de la predicción, el experimento puede publicarse como un servicio web, de forma que pueda implementarlo en diversas aplicaciones y llamarlo para que obtenga las predicciones de clase en cualquier flor de iris nueva. Para obtener información sobre cómo cambiar un experimento de entrenamiento a un experimento de puntuación y publicarlo como un servicio web, consulte [Publicar el servicio web Azure Machine Learning](walkthrough-5-publish-web-service.md). Este procedimiento proporciona un experimento de puntuación, como muestra la figura 3.
+Una vez comprendidos los resultados de la predicción, el experimento puede publicarse como un servicio web, de forma que pueda implementarlo en diversas aplicaciones y llamarlo para que obtenga las predicciones de clase en cualquier flor de iris nueva. Para obtener información sobre cómo cambiar un experimento de entrenamiento a un experimento de puntuación y publicarlo como un servicio web, consulte [Tutorial 3: Implementación del modelo de riesgo crediticio](tutorial-part3-credit-risk-deploy.md). Este procedimiento proporciona un experimento de puntuación, como muestra la figura 3.
 
 ![Captura de pantalla del experimento de puntuación](./media/interpret-model-results/3.png)
 

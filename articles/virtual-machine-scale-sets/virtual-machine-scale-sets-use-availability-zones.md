@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816244"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981407"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -117,12 +117,12 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
-Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible. Agregue el parámetro `-Zone` al comando [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) y especifique qué zona se usará (como la zona *1*, *2* o *3*).
+Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible. Agregue el parámetro `-Zone` al comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) y especifique qué zona se usará (como la zona *1*, *2* o *3*).
 
 En el ejemplo siguiente se crea un conjunto de escalado de una sola zona denominado *myScaleSet* en *Este de EE. UU. 2* zona *1*. Los recursos de red de Azure para una red virtual, una dirección IP pública y un equilibrador de carga se crean automáticamente. Cuando se le solicite, proporcione sus propias credenciales administrativas para las instancias de máquina virtual en el conjunto de escalado:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `
@@ -139,7 +139,7 @@ New-AzureRmVmss `
 Para crear un conjunto de escalado con redundancia de zona, especifique varias zonas con el parámetro `-Zone`. En el ejemplo siguiente se crea un conjunto de escalado con redundancia de zona denominado *myScaleSet* en *Este de EE. UU. 2* zonas *1, 2, 3*. Los recursos de red de Azure con redundancia de zona para una red virtual, una dirección IP pública y un equilibrador de carga se crean automáticamente. Cuando se le solicite, proporcione sus propias credenciales administrativas para las instancias de máquina virtual en el conjunto de escalado:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `

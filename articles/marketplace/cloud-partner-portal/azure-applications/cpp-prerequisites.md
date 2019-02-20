@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196269"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097797"
 ---
 # <a name="azure-application-prerequisites"></a>Requisitos previos de la aplicación de Azure
 
-En este artículo se describen los requisitos previos técnicos y empresariales para la publicación de una oferta de aplicación administrada en Azure Marketplace.
+En este artículo se describen los requisitos previos técnicos y empresariales para la publicación de una oferta de aplicación administrada en Azure Marketplace.  Si todavía no lo ha hecho, le recomendamos ver el vídeo [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creación de plantillas de soluciones y aplicaciones administradas para Azure Marketplace).
+
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -36,6 +37,7 @@ Entre los requisitos técnicos se incluyen los siguientes:
   * [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Este repositorio contiene todas las plantillas de Azure Resource Manager disponibles actualmente aportadas por la comunidad. Un índice de plantillas que admite búsquedas se mantiene en https://azure.microsoft.com/en-us/documentation/templates/.
 * Crear definición de UI<br>
 Para más información, consulte [Creación de la interfaz de usuario de Azure Portal para una aplicación administrada](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). En este artículo se presentan los conceptos principales del archivo createUiDefinition.json. Azure Portal usa este archivo para generar la interfaz de usuario para crear una aplicación administrada.
+
 
 ## <a name="business-requirements"></a>Requisitos empresariales
 
@@ -54,6 +56,7 @@ Los requisitos empresariales incluyen las siguientes obligaciones contractuales,
 * Debe aceptar los términos de las Directivas de Participación de Microsoft Azure Marketplace y del Acuerdo del publicador.
 * También debe cumplir los Términos de Uso del Sitio Web de Microsoft Azure, la Declaración de privacidad de Microsoft y el Contrato del Programa Microsoft Azure Certified.
 
+
 ## <a name="publishing-requirements"></a>Requisitos de publicación
 
 Para publicar una nueva oferta de aplicación de Azure, debe cumplir los siguientes requisitos previos:
@@ -62,10 +65,12 @@ Para publicar una nueva oferta de aplicación de Azure, debe cumplir los siguien
   * Un título
   * Una descripción (en formato HTML)
   * Una imagen de logotipo (en formato PNG) y en estos tamaños de imagen fijos: 40 x 40 píxeles, 90 x 90 píxeles, 115 x 115 píxeles y 255 x 115 píxeles.
-* Términos de uso y directiva de privacidad
+* *Términos de uso* y *directiva de privacidad*
 * Documentación
 * Contactos de soporte técnico
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una oferta de aplicación de Azure](./cpp-create-offer.md) 
+Una vez cumplidos todos los requisitos, estará todo listo para [crear una oferta de aplicación de Azure](./cpp-create-offer.md). 
+ 

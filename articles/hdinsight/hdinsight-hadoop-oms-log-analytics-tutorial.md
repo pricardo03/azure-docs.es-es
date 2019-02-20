@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: cd129ea68315223516ac1cd3e7577b5ee4bf92e5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386461"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005121"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Uso de Azure Log Analytics para supervisar clústeres de Azure HDInsight
 
@@ -46,9 +46,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En esta sección, configurará un clúster de HDInsight Hadoop existente para usar un área de trabajo de Azure Log Analytics para supervisar trabajos, depurar registros, etc.
 
-1. Abra un clúster de HDInsight en Azure Portal.
-2. En el panel izquierdo, seleccione **Supervisión**.
-3. En el panel derecho, seleccione **Habilitar**, elija un área de trabajo de Log Analytics existente y seleccione **Guardar**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+
+2. En el menú izquierdo, seleccione **Todos los servicios**.
+
+3. Seleccione **Clústeres de HDInsight** en **ANALYTICS**.
+
+4. Desde la izquierda, en **Supervisión**, seleccione **Operations Management Suite**.
+
+5. En la vista principal, en **Supervisión de OMS**, seleccione **Habilitar**.
+
+6. En la lista desplegable **Seleccionar un área de trabajo**, seleccione un área de trabajo de Log Analytics existente.
+
+7. Seleccione **Guardar**.
 
     ![Habilitar la supervisión para clústeres de HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 
@@ -91,7 +101,7 @@ Estas son las soluciones de HDInsight disponibles:
 * Supervisión de HDInsight Spark
 * Supervisión de HDInsight Storm
 
-Para instrucciones para instalar una solución de administración, consulte [Soluciones de administración en Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). Para experimentar, instale una solución de supervisión de HDInsight Hadoop. Cuando termine, verá un icono **HDInsightHadoop** en **Resumen**. Seleccione el icono **HDInsightHadoop**. La solución HDInsightHadoop tiene el siguiente aspecto:
+Para instrucciones para instalar una solución de administración, consulte [Soluciones de administración en Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Para experimentar, instale una solución de supervisión de HDInsight Hadoop. Cuando termine, verá un icono **HDInsightHadoop** en **Resumen**. Seleccione el icono **HDInsightHadoop**. La solución HDInsightHadoop tiene el siguiente aspecto:
 
 ![Vista de solución de supervisión de HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856390"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005002"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>¿Qué es Azure Monitor para VM (versión preliminar)?
 
@@ -41,7 +41,7 @@ Las características se organizan en tres perspectivas:
 >[!NOTE]
 >Actualmente, solo se ofrece la característica de mantenimiento para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales de Azure. Las características de Rendimiento y Asignación son compatibles con VM de Azure y con máquinas virtuales hospedadas en su entorno o en otro proveedor de la nube.
 
-La integración con Log Analytics ofrece agregación y filtrado eficaces, y puede analizar la tendencias de los datos a lo largo del tiempo. Dicha supervisión integral de las cargas de trabajo no se puede lograr únicamente con Azure Monitor, Service Map o Log Analytics.  
+La integración con los registros de Azure Monitor ofrece agregación y filtrado eficaces, y puede analizar la tendencias de los datos a lo largo del tiempo. Dicha supervisión integral de las cargas de trabajo no se puede lograr únicamente con Azure Monitor o Service Map.  
 
 Puede ver estos datos directamente en una sola VM desde la máquina virtual, o puede usar a Azure Monitor para ofrecer una vista agregada de las VM. Esta vista se basa en la perspectiva de la característica:
 

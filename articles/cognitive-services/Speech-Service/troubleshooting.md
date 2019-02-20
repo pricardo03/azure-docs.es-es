@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: En este artículo se proporciona información para ayudarle a resolver los problemas que pueden surgir al usar el SDK del servicio Voz.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217185"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859324"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Solución de problemas del SDK del servicio Voz
 
@@ -67,6 +67,8 @@ Para comprobar si tiene una clave de suscripción válida, ejecute uno de los co
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+Si escribió una clave de suscripción válida, el comando devuelve un token de autorización; de lo contrario, se devuelve un error.
+
 ### <a name="validate-an-authorization-token"></a>Validar un token de autorización
 
 Si usa un token de autorización para la autenticación, ejecute uno de los siguientes comandos para comprobar que el token de autorización sigue siendo válido. Los tokens son válidos durante 10 minutos.
@@ -101,6 +103,8 @@ Si usa un token de autorización para la autenticación, ejecute uno de los sigu
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+Si escribió un token de autorización válido, el comando devuelve la transcripción del archivo de audio; de lo contrario, se devuelve un error.
 
 ---
 

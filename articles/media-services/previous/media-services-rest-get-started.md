@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237611"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991250"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Esta guía de inicio rápido le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) mediante API de REST de Azure Media Services (AMS).
@@ -268,7 +269,7 @@ Una dirección URL de SAS tiene el formato siguiente:
 Se aplican algunas consideraciones:
 
 * No puede tener más de cinco localizadores únicos asociados a un recurso determinado a la vez. 
-* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Media Services. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").    
+* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Media Services. Además, el valor de StartTime debe estar en el siguiente formato de fecha/hora: AAAA-MM-DDTHH (por ejemplo, "2014-05-23T17:53:50Z").    
 * Puede haber un retraso de 30 a 40 segundos desde el momento en que se crea un localizador hasta que este está disponible para su uso. Este problema afecta a la [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) y a los localizadores de origen.
 
 En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL de SAS, tal como se define en la propiedad Type del cuerpo de solicitud ("1" para un localizador de SAS y "2" para un localizador de origen bajo demanda). La propiedad **Path** devuelta contiene la dirección URL que debe usar para cargar el archivo.
@@ -407,7 +408,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
 
 Después de introducir los recursos en Media Services, los elementos multimedia se pueden codificar, transmultiplexar, agregar una marca de agua, entre otras opciones, antes de entregarse a los clientes. Estas actividades se programan y se ejecutan en varias instancias de rol en segundo plano para garantizar la disponibilidad y alto rendimiento. Estas actividades se denominan trabajos y cada trabajo está compuesto de tareas atómicas que realizan el trabajo real en el archivo del recurso (para más información, consulte las descripciones de [trabajo](https://docs.microsoft.com/rest/api/media/operations/job) y [tarea](https://docs.microsoft.com/rest/api/media/operations/task)).
 
-Como se ha indicado antes, cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es ofrecer streaming de velocidad de bits adaptable a los clientes. Media Services puede empaquetar de manera dinámica un conjunto de archivos MP4 de velocidad de bits adaptable en uno de los siguientes formatos: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH.
+Como se ha indicado antes, cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es ofrecer streaming de velocidad de bits adaptable a los clientes. Media Services puede empaquetar de manera dinámica un conjunto de archivos MP4 de velocidad de bits adaptable en uno de los siguientes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 En la sección siguiente se muestra cómo crear un trabajo que contiene una tarea de codificación. La tarea especifica la transcodificación del archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable con **Codificador multimedia estándar**. La sección también muestra cómo supervisar el progreso del procesamiento de trabajo. Una vez finalizado el trabajo, podría crear los localizadores necesarios para acceder a los recursos.
 
@@ -458,7 +459,7 @@ El código siguiente solicita el identificador del codificador.
     }
 
 ### <a name="create-a-job"></a>Creación de un trabajo
-Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: las tareas se pueden definir en línea a través de la propiedad de navegación Tasks en entidades Job o de procesamiento por lotes de OData. El SDK de Media Services usa el procesamiento por lotes. Sin embargo, para que sea fácil entender los ejemplos de código de este artículo, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: Las tareas se pueden definir en línea mediante la propiedad de navegación de las tareas en entidades de trabajo o a través del procesamiento por lotes de OData. El SDK de Media Services usa el procesamiento por lotes. Sin embargo, para que sea fácil entender los ejemplos de código de este artículo, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](https://msdn.microsoft.com/library/mt269960) admitidos por el procesador de Codificador multimedia estándar.  
 
@@ -692,7 +693,7 @@ En el código siguiente se muestra cómo solicitar el identificador del recurso 
 
 ## <a id="publish_get_urls"></a>Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
 
-Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Media Services admite dos tipos de localizadores: OnDemandOrigin, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia. 
+Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Media Services admite dos tipos de localizadores: OnDemandOrigin, usados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia. 
 
 Una vez que se crean los localizadores, puede generar las direcciones URL que se utilizan para transmitir o descargar los archivos.
 
@@ -742,7 +743,7 @@ En el ejemplo siguiente se muestra cómo especificar AccessPolicy para los permi
 Si se realiza correctamente, se devuelve un código de correcto 201 que describe la entidad AccessPolicy que ha creado. A continuación, usará AccessPolicy Id junto con Asset Id del recurso que contiene el archivo que desea entregar (por ejemplo, un recurso de salida) para crear la entidad Locator.
 
 > [!NOTE]
-> Este flujo de trabajo básico es el mismo que la carga de un archivo al ingerir un recurso (como se explicó anteriormente en este tema). Además, como en la carga de archivos, si usted (o sus clientes) necesitan tener acceso a los archivos inmediatamente, establezca el valor StartTime en cinco minutos antes de la hora actual. Esta acción es necesaria porque puede haber un desplazamiento de reloj entre el cliente y Media Services. El valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").
+> Este flujo de trabajo básico es el mismo que la carga de un archivo al ingerir un recurso (como se explicó anteriormente en este tema). Además, como en la carga de archivos, si usted (o sus clientes) necesitan tener acceso a los archivos inmediatamente, establezca el valor StartTime en cinco minutos antes de la hora actual. Esta acción es necesaria porque puede haber un desplazamiento de reloj entre el cliente y Media Services. Además, el valor de StartTime debe estar en el siguiente formato de fecha/hora: AAAA-MM-DDTHH (por ejemplo, "2014-05-23T17:53:50Z").
 >
 >
 
@@ -915,7 +916,7 @@ Para transmitir vídeo, use [Reproductor de Azure Media Services](http://amsplay
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Pasos siguientes: Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810293"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108779"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -28,7 +28,7 @@ Tanto el grupo de origen como el grupo de destino se bloquean durante la operaci
 Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. La operación de traslado no puede cambiar la ubicación del recurso. El nuevo grupo de recursos puede tener una ubicación diferente, pero eso no cambia la ubicación del recurso.
 
 > [!NOTE]
-> En este artículo se describe cómo mover los recursos de una oferta de cuenta de Azure. Si desea cambiar la oferta de cuentas de Azure (por ejemplo, para actualizar de gratuita a de pago por uso) deberá convertir su suscripción.
+> En este artículo se describe cómo mover los recursos entre las distintas suscripciones de Azure. Si quiere actualizar la suscripción de Azure (por ejemplo, para cambiar de gratuita a de pago por uso) deberá convertir su suscripción.
 > * Para actualizar a una evaluación gratuita, consulte [Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso](..//billing/billing-upgrade-azure-subscription.md).
 > * Para cambiar a una cuenta de pago por uso, consulte [Cambie la suscripción de pago por uso de Azure a otra oferta](../billing/billing-how-to-switch-azure-offer.md).
 > * Si no puede convertir la suscripción, [cree una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md). Seleccione **Administración de suscripciones** para el tipo de problema.
@@ -102,7 +102,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Paneles del portal
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
-* Almacén de Recovery Services: inscríbase en una [versión preliminar privada](#recovery-services-limitations).
+* Almacén de Recovery Services: inscríbase en una [versión preliminar](#recovery-services-limitations).
 * Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
@@ -310,7 +310,7 @@ Es posible que esta operación tarde varios minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitaciones de Recovery Services
 
- Para trasladar un almacén de Recovery Services, debe inscribirse en una versión preliminar privada. Para probarlo, escriba a AskAzureBackupTeam@microsoft.com.
+ Para trasladar un almacén de Recovery Services, debe inscribirse en una [versión preliminar pública limitada](../backup/backup-azure-move-recovery-services-vault.md).
 
 Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS.
 

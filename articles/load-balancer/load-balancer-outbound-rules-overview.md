@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439109"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243610"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -34,7 +34,7 @@ Las reglas de salida permiten controlar:
 - qué máquinas virtuales se deben traducir para qué direcciones IP públicas. 
 - cómo se deben asignar los [puertos de SNAT de salida](load-balancer-outbound-connections.md#snat).
 - para qué protocolos se proporciona traducción de salida.
-- qué duración se debe usar para el tiempo de espera de inactividad de conexión.
+- qué duración se debe usar para el tiempo de espera de inactividad de conexión (de 4 a 120 minutos).
 - si quiere enviar un restablecimiento de TCP en caso de tiempo de espera de inactividad (en versión preliminar pública). 
 
 Las reglas de salida expanden el [escenario 2](load-balancer-outbound-connections.md#lb) que se describe en el artículo [Conexiones salientes en Azure](load-balancer-outbound-connections.md) y la precedencia del escenario permanece igual.
@@ -90,7 +90,7 @@ Puede volver a la [asignación de puertos SNAT automática basada en el tamaño 
 
 ### <a name="idletimeout"></a> Tiempo de espera de inactividad de flujo de salida de control
 
-Las reglas de salida proporcionan un parámetro de configuración para controlar el tiempo de espera de inactividad del flujo de salida y que se corresponda con las necesidades de su aplicación.  El tiempo de espera de inactividad de salida predeterminado es de 4 minutos.  El parámetro acepta un valor de 4 a 66 para especificar el número de minutos del tiempo de espera de inactividad para los flujos que coincidan con esta regla concreta.
+Las reglas de salida proporcionan un parámetro de configuración para controlar el tiempo de espera de inactividad del flujo de salida y que se corresponda con las necesidades de su aplicación.  El tiempo de espera de inactividad de salida predeterminado es de 4 minutos.  El parámetro acepta un valor de 4 a 120 para especificar el número de minutos del tiempo de espera de inactividad para los flujos que coincidan con esta regla concreta.
 
 Use el parámetro siguiente para establecer el tiempo de espera de inactividad de salida como 1 hora:
 
@@ -205,7 +205,7 @@ Cuando se usa una instancia de Standard Load Balancer, la NAT de salida no está
 ## <a name="limitations"></a>Limitaciones
 
 - El número máximo de puertos efímeros posibles por dirección IP de front-end es 51 200.
-- El intervalo de tiempo de espera de inactividad de salida que puede configurar oscila entre 4 y 66 minutos (de 240 a 4000 segundos).
+- El intervalo de tiempo de espera de inactividad de salida que puede configurar oscila entre 4 y 120 minutos (de 240 a 7200 segundos).
 - Load Balancer no es compatible con ICMP para NAT de salida.
 - El portal no se puede usar para configurar ni para ver reglas de salida.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
 - Las reglas de salida solo se pueden aplicar a la NIC principal y a la configuración de IP principal.

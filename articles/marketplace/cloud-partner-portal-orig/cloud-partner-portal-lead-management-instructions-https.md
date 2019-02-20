@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073776"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964260"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuración de la administración de clientes potenciales mediante un punto de conexión HTTPS
 
@@ -65,7 +65,7 @@ Puede usar un punto de conexión HTTPS para administrar clientes potenciales de 
 
     ![Selección de clientes potenciales](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow muestra un formulario para proporcionar información sobre clientes potenciales. Puede asignar elementos de la solicitud de entrada y elige agregar contenido dinámico. La captura de pantalla siguiente muestra **LeadTitle** como ejemplo.
+4. Flow muestra un formulario para proporcionar información sobre clientes potenciales. Puede asignar elementos de la solicitud de entrada y elige agregar contenido dinámico. La captura de pantalla siguiente muestra **OfferTitle** como ejemplo.
 
     ![Incorporación de contenido dinámico](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

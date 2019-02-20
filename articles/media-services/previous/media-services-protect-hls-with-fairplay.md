@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368238"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993984"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady
 Azure Media Services permite cifrar dinámicamente el contenido HTTP Live Streaming (HLS) usando los siguientes formatos:  
@@ -54,7 +54,7 @@ Cuando se usa Media Services para proporcionar HLS cifrado con FairPlay y entreg
 
 En la entrega de claves de Media Services se debe establecer lo siguiente:
 
-  * **Certificado de la aplicación (CA)**: se trata de un archivo .pfx que contiene la clave privada. Puede crear este archivo y cifrarlo con una contraseña.
+  * **Certificado de aplicación (CA)**: Se trata de un archivo .pfx que contiene la clave privada. Puede crear este archivo y cifrarlo con una contraseña.
 
        Cuando configure la directiva de entrega de claves, tiene que proporcionar esa contraseña y el archivo .pfx en formato Base64.
 
@@ -69,15 +69,15 @@ En la entrega de claves de Media Services se debe establecer lo siguiente:
     3. Ejecute el siguiente comando desde la línea de comando. Esto convierte el archivo .pem a un archivo .pfx con la clave privada. A continuación, OpenSSL pide la contraseña para el archivo .pfx.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * **Contraseña de certificado de la aplicación**: la contraseña para crear el archivo .pfx.
-  * **Identificador de la contraseña de certificado de la aplicación**: tiene que cargar la contraseña de forma similar a como cargan otras claves de Media Services. Use el valor de enumeración **ContentKeyType.FairPlayPfxPassword** para obtener el identificador de Media Services. Esto es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
-  * **iv**: se trata de un valor aleatorio de 16 bytes. Tiene que coincidir con el iv de la directiva de entrega de recursos. El cliente genera el iv y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves.
-  * **ASK**: esta clave se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibe una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Necesita configurar la ASK como FairPlayAsk en Media Services más adelante.
-  * **Identificador de ASK**: este identificador se obtiene cuando se carga la ASK en Media Services. Tiene que cargar la ASK mediante el valor de enumeración **ContentKeyType.FairPlayAsk**. Como resultado, se obtiene el identificador de Media Services, que debe utilizarse al establecer la opción de directiva de entrega de claves.
+  * **Contraseña de certificado de la aplicación**: La contraseña para crear el archivo .pfx.
+  * **Identificador de la contraseña de certificado de la aplicación**: Tiene que cargar la contraseña de forma similar a como carga otras claves de Media Services. Use el valor de enumeración **ContentKeyType.FairPlayPfxPassword** para obtener el identificador de Media Services. Esto es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
+  * **iv**: Se trata de un valor aleatorio de 16 bytes. Tiene que coincidir con el iv de la directiva de entrega de recursos. El cliente genera el iv y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves.
+  * **ASK**: Esta clave se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibe una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Necesita configurar la ASK como FairPlayAsk en Media Services más adelante.
+  * **Identificador de ASK**: Este identificador se obtiene cuando se carga la ASK en Media Services. Tiene que cargar la ASK mediante el valor de enumeración **ContentKeyType.FairPlayAsk**. Como resultado, se obtiene el identificador de Media Services, que debe utilizarse al establecer la opción de directiva de entrega de claves.
 
 En el lado cliente FPS se debe establecer lo siguiente:
 
-  * **Certificado de aplicación (CA)**: se trata de un archivo .cer/.der que contiene la clave pública que el sistema operativo usa para cifrar alguna carga útil. Media Services necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
+  * **Certificado de aplicación (CA)**: Se trata de un archivo .cer/.der que contiene la clave pública que el sistema operativo usa para cifrar alguna carga útil. Media Services necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
 
 Para reproducir una transmisión cifrada FairPlay, obtenga primero la ASK real y luego genere un certificado real. Este proceso crea todas las tres partes:
 
@@ -138,9 +138,9 @@ Se aplican las siguientes consideraciones:
 * El tipo de cifrado no tiene que especificarse en la dirección URL si solo se aplicó un cifrado al recurso.
 * El tipo de cifrado distingue mayúsculas de minúsculas.
 * Se pueden especificar los siguientes tipos de cifrado:  
-  * **cenc**: cifrado común (PlayReady o Widevine)
+  * **cenc**:  Cifrado común (PlayReady o Widevine)
   * **cbcs-aapl**: FairPlay
-  * **cbc**: cifrado de sobre AES
+  * **cbc**: Cifrado de sobre AES
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
 
@@ -550,7 +550,7 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="next-steps-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Pasos siguientes: Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

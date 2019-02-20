@@ -64,7 +64,7 @@ items:
     - name: Uso de datos de instancias locales de SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: Creación y entrenamiento de modelos
+  - name: Entrenamiento de modelos
     items:
     - name: Administración del ciclo de vida de experimentos
       href: version-control.md
@@ -87,6 +87,12 @@ items:
         href: interpret-model-results.md
       - name: Depurar
         href: debug-models.md
+    - name: Reciclaje de modelos
+      items:
+      - name: "\"Nuevos\" servicios web"
+        href: retrain-machine-learning-model.md
+      - name: Servicios web clásicos
+        href: retrain-classic-web-service.md
     - name: Uso de R y Python
       items:
       - name: Introducción a R
@@ -132,12 +138,6 @@ items:
     - name: Creación de puntos de conexión
       displayName: scale, scaling
       href: create-endpoint.md
-  - name: Reciclaje de modelos
-    items:
-    - name: Volver a entrenar e implementar un nuevo servicio web
-      href: retrain-machine-learning-model.md
-    - name: Volver a entrenar e implementar un servicio web clásico
-      href: retrain-classic-web-service.md
   - name: Consumo de modelos
     items:
     - name: Información general
@@ -146,11 +146,9 @@ items:
       href: consuming-from-excel.md
     - name: Uso del complemento de Excel
       href: excel-add-in-for-web-services.md
-    - name: Uso de una plantilla de aplicaciones web
-      href: consume-web-service-with-web-app-template.md
     - name: Uso del grupo de Batch
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Ejemplos
+  - name: Casos de uso
     items:
     - name: Abandono de clientes
       href: azure-ml-customer-churn-scenario.md
@@ -158,12 +156,14 @@ items:
       href: text-analytics-module-tutorial.md
     - name: Migración de análisis de Excel a Studio
       href: linear-regression-in-azure.md
-  - name: Visualización y eliminación de los datos de Studio
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: Visualización y eliminación de los datos de la galería
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md
+  - name: Eliminación y exportación de los datos del cliente
+    items:
+    - name: Datos de Studio
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: Datos de la galería
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md
 - name: Referencia
   items:
   - name: Referencia de módulos y algoritmos
@@ -188,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Redes neuronales personalizadas (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6649d1c39bdb0a66018feff73f9e9d2b39064155
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327687"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430240"

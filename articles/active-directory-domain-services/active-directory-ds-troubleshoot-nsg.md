@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181901"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112503"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Solución de problemas de configuración de red no válida para el dominio administrado
 Este artículo le ayuda a solucionar problemas y resolver errores de configuración relacionados con la red que generan el mensaje de alerta siguiente:
@@ -36,7 +36,7 @@ Las configuraciones de NSG no válidas son la causa más común de los errores d
 2. En la tabla, elija el NSG asociado con la subred en que está habilitado el dominio administrado.
 3. En **Configuración** en el panel de la izquierda, haga clic en **Reglas de seguridad de entrada**.
 4. Revise las reglas vigentes e identifique las que bloquean el acceso a [estos puertos](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Edite el grupo de seguridad de red para garantizar su cumplimiento mediante la eliminación de la regla, la incorporación de otra o la creación de un grupo de seguridad de red totalmente nuevo. Los pasos para [agregar una regla](#add-a-rule-to-a-network-security-group-using-the-azure-portal) o [crear un grupo de seguridad de red conforme](#create-a-nsg-for-azure-ad-domain-services-using-powershell) se encuentran a continuación.
+5. Edite el grupo de seguridad de red para garantizar su cumplimiento mediante la eliminación de la regla, la incorporación de otra o la creación de un grupo de seguridad de red totalmente nuevo. Los pasos para [agregar una regla](#add-a-rule-to-a-network-security-group-using-the-azure-portal) o crear un grupo de seguridad de red conforme se encuentran a continuación.
 
 ## <a name="sample-nsg"></a>NSG de ejemplo
 En la tabla siguiente se muestra un NSG de ejemplo que mantendría protegido el dominio administrado al permitir que Microsoft supervise, administre y actualice la información.

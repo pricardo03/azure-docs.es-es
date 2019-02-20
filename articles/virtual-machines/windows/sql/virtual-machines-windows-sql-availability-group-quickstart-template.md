@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814544"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981934"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Uso de plantillas de inicio rápido de Azure para crear un clúster WSFC y una escucha y configurar ILB para un grupo de disponibilidad Always On en una VM con SQL Server
 En este artículo se describe cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para SQL Server Virtual Machines en Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso. 
@@ -153,8 +153,8 @@ El fragmento de código siguiente elimina la escucha de grupo de disponibilidad 
 
 ```PowerShell
 # Remove the AG listener
-# example: Remove-AzureRmResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
-Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
+# example: Remove-AzResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
+Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
 ## <a name="common-errors"></a>Errores comunes
@@ -166,7 +166,7 @@ El grupo de disponibilidad seleccionado usado en la plantilla de inicio rápido 
 ### <a name="connection-only-works-from-primary-replica"></a>La conexión solo funciona desde la réplica principal
 Este comportamiento puede deberse a una implementación incorrecta de la plantilla **101-sql-vm-aglistener-setup** que deja la configuración del ILB en un estado incoherente. Compruebe que el grupo de servidores back-end muestra el conjunto de disponibilidad y que existen reglas para el sondeo de estado y el equilibrio de carga. Si falta algo, la configuración del ILB se queda en un estado incoherente. 
 
-Para resolver este comportamiento, quite la escucha mediante [PowerShell](#remove-availability-group-listener), elimine la instancia de Load Balancer interno mediante Azure Portal y comience de nuevo en el [paso 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
+Para resolver este comportamiento, quite la escucha mediante [PowerShell](#remove-availability-group-listener), elimine la instancia de Load Balancer interno mediante Azure Portal y comience de nuevo en el paso 3. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest: solo se puede actualizar la lista de máquinas virtuales de SQL
 Este error puede producirse al implementar la plantilla **101-sql-vm-aglistener-setup** si la escucha se eliminó mediante SQL Server Management Studio (SSMS), pero no se ha eliminado del proveedor de recursos de máquina virtual de SQL. Al eliminar la escucha mediante SSMS, no se quitan sus metadatos del proveedor de recursos de máquina virtual de SQL; para ello, es necesario usar [PowerShell](#remove-availability-group-listener). 

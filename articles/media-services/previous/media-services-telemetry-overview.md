@@ -4,7 +4,7 @@ description: Este artículo proporciona información general de la telemetría d
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 97df0876afd8b7258f985ab375b14f4aabde6e22
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786144"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005189"
 ---
-# <a name="azure-media-services-telemetry"></a>Sistema de telemetría de Azure Media Services
+# <a name="azure-media-services-telemetry"></a>Sistema de telemetría de Azure Media Services  
 
 Gracias a Azure Media Services (AMS), podrá acceder a los datos de telemetría y métricas de dicha plataforma. La versión actual de AMS permite recopilar datos de telemetría de entidades activas **StreamingEndpoint**, **Channel** y **Archive**. 
 
@@ -75,7 +75,7 @@ Propiedad|Valor|Ejemplos y notas
 PartitionKey|{IDdeCuenta}_{IDdeEntidad}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>El identificador de cuenta se incluye en la clave de partición para simplificar los flujos de trabajo, donde se crearán varias cuentas de Media Services en la misma cuenta de almacenamiento.
 RowKey|{segundosParaLaMedianoche}_{valorAleatorio}|01688_00199<br/><br/>La clave de fila comienza con el número de segundos para la medianoche con el fin de que puedan realizarse N consultas de estilo superiores en una partición. Para obtener más información, consulte [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artículo. 
 Timestamp|Fecha y hora|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Escriba|El tipo de la entidad que proporciona los datos de telemetría|Channel, StreamingEndpoint y Archive<br/><br/>El tipo de evento es un valor de cadena.
+Type|El tipo de la entidad que proporciona los datos de telemetría|Channel, StreamingEndpoint y Archive<br/><br/>El tipo de evento es un valor de cadena.
 NOMBRE|El nombre del evento de telemetría|ChannelHeartbeat y StreamingEndpointRequestLog
 ObservedTime|La hora a la que se produjo el evento de telemetría (UTC)|2016-09-09T22:42:36.924Z<br/><br/>La entidad que envía los datos de telemetría (por ejemplo, un canal) proporciona la hora observada. Puede haber problemas de sincronización en los componentes, así que este valor es aproximado.
 ServiceID|{IDdeServicio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -85,9 +85,9 @@ Propiedades específicas de la entidad|Tal y como se define en el evento|StreamN
 
 Hay tres tipos específicos de entradas de datos de telemetría específicas de la entidad que se insertan con la siguiente frecuencia:
 
-- Puntos de conexión de streaming: cada 30 segundos
-- Canales activos: cada minuto
-- Archivo activo: cada minuto
+- Puntos de conexión de streaming: Cada 30 segundos
+- Canales en vivo: Cada minuto
+- Archivo activo: Cada minuto
 
 **Punto de conexión de streaming**
 
@@ -96,7 +96,7 @@ Propiedad|Valor|Ejemplos
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Escriba|Escriba|StreamingEndpoint
+Type|Type|StreamingEndpoint
 NOMBRE|NOMBRE|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Identificador de servicio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -115,7 +115,7 @@ Propiedad|Valor|Ejemplos y notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Escriba|Escriba|Canal
+Type|Type|Canal
 NOMBRE|NOMBRE|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Identificador de servicio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -140,7 +140,7 @@ Propiedad|Valor|Ejemplos y notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Escriba|Escriba|Archivar
+Type|Type|Archivar
 NOMBRE|NOMBRE|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Identificador de servicio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103119"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994823"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlación de los datos de Application Insights con orígenes de datos personalizados
 
@@ -28,19 +28,19 @@ Algunas situaciones en las que es posible que desee usar datos personalizados in
 
 - Enriquecimiento de datos o tablas de búsqueda: complementar, por ejemplo, un nombre de servidor con el propietario del servidor y la ubicación del laboratorio en el que se puede encontrar. 
 - Correlación con orígenes de datos que no son de Application Insights: por ejemplo, correlacionar datos sobre una compra en una tienda web con la información del servicio de entrega de compras para determinar el grado de precisión de las estimaciones de la hora de envío. 
-- Datos completamente personalizados: a muchos de nuestros clientes les encantan el lenguaje de consulta y el rendimiento de la plataforma de datos de Log Analytics que hay detrás de Application Insights, y desean usarlos para consultar datos que no están relacionados con Application Insights. Por ejemplo, para supervisar el rendimiento de un panel solar como parte de una instalación doméstica inteligente como se describe [aquí]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Datos completamente personalizados: a muchos de nuestros clientes les encantan el lenguaje de consulta y el rendimiento de la plataforma de registro de Azure Monitor que hay detrás de Application Insights, y quieren aprovecharlos para consultar datos que no están relacionados con Application Insights. Por ejemplo, para supervisar el rendimiento de un panel solar como parte de una instalación doméstica inteligente como se describe [aquí]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Correlación de datos personalizados con datos de Application Insights 
 
-Puesto que Application Insights está respaldado por la eficaz plataforma de datos de Log Analytics, se puede usar toda la potencia de Log Analytics para la ingesta de datos. De este modo, se escriben consultas con el operador "join" que establecen una correlación de estos datos personalizados con los datos disponibles en Log Analytics. 
+Puesto que Application Insights está respaldado por la eficaz plataforma de registro de Azure Monitor, se puede usar toda la potencia de Azure Monitor para la ingesta de datos. De este modo, se escriben consultas con el operador "join" que establecen una correlación de estos datos personalizados con los datos disponibles en Azure Monitor. 
 
 ## <a name="ingesting-data"></a>Ingesta de datos
 
-En esta sección, revisamos cómo ingerir los datos en Log Analytics.
+En esta sección, revisamos cómo ingerir los datos en registros de Azure Monitor.
 
-Si aún no tiene una, aprovisione una nueva área de trabajo de Log Analytics siguiendo [estas instrucciones]( https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm), incluido el paso "Creación de un área de trabajo".
+Si aún no tiene una, aprovisione una nueva área de trabajo de Log Analytics siguiendo [estas instrucciones](../learn/quick-collect-azurevm.md), incluido el paso "Creación de un área de trabajo".
 
-Para empezar a enviar datos a Log Analytics. Existen varias opciones:
+Para empezar a enviar datos de registro a Azure Monitor. Existen varias opciones:
 
 - Para un mecanismo sincrónico, puede llamar directamente a [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) o usar el conector de Logic Apps; simplemente busque "Azure Log Analytics" y elija la opción "Enviar datos":
 
@@ -50,9 +50,9 @@ Para empezar a enviar datos a Log Analytics. Existen varias opciones:
 
 ## <a name="correlating-data"></a>Correlación de datos
 
-Application Insights se basa en la plataforma de datos de Log Analytics. Por lo tanto, podemos usar [combinaciones entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar cualquier dato que se ingiera en Log Analytics con los datos de Application Insights.
+Application Insights se basa en la plataforma de registro de Azure Monitor. Por lo tanto, podemos usar [combinaciones entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar cualquier dato que se ingiera en Azure Monitor con los datos de Application Insights.
 
-Por ejemplo, podemos ingerir el inventario y las ubicaciones del laboratorio en una tabla llamada "LabLocations_CL" en un área de trabajo de Log Analytics llamada "myLA". A continuación, si quisiéramos revisar las solicitudes de la aplicación de Application Insights llamada "myAI" y correlacionar los nombres de equipo que atienden las solicitudes con las ubicaciones de estos equipos almacenados en la tabla personalizada mencionada anteriormente, podemos ejecutar la siguiente consulta en el contexto de Application Insights o de Log Analytics:
+Por ejemplo, podemos ingerir el inventario y las ubicaciones del laboratorio en una tabla llamada "LabLocations_CL" en un área de trabajo de Log Analytics llamada "myLA". A continuación, si quisiéramos revisar las solicitudes de la aplicación de Application Insights llamada "myAI" y correlacionar los nombres de equipo que atienden las solicitudes con las ubicaciones de estos equipos almacenados en la tabla personalizada mencionada anteriormente, podemos ejecutar la siguiente consulta en el contexto de Application Insights o de Azure Monitor:
 
 ```
 app('myAI').requests

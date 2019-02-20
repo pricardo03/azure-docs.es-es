@@ -1,6 +1,6 @@
 ---
-title: Agregaciones en consultas de Azure Log Analytics | Microsoft Docs
-description: Describe funciones de agregación en consultas de Log Analytics que ofrecen maneras útiles de analizar los datos.
+title: Agregaciones en consultas de registros de Azure Monitor | Microsoft Docs
+description: Describe funciones de agregación en consultas de registro de Azure Monitor que ofrecen maneras útiles de analizar los datos.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185756"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000854"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Agregaciones en consultas de Log Analytics
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregaciones en consultas de registros de Azure Monitor
 
 > [!NOTE]
 > Debe completar la [Introducción al portal de Analytics](get-started-portal.md) y la [Introducción a las consultas en Log Analytics](get-started-queries.md) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este artículo se describen las funciones de agregación en consultas de Log Analytics que ofrecen maneras útiles de analizar los datos. Estas funciones usan el operador `summarize` que genera una tabla con resultados agregados de la tabla de entrada.
+En este artículo se describen las funciones de agregación en consultas de registro de Azure Monitor que ofrecen maneras útiles de analizar los datos. Estas funciones usan el operador `summarize` que genera una tabla con resultados agregados de la tabla de entrada.
 
 ## <a name="counts"></a>Recuentos
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Vea otras lecciones para usar el lenguaje de consulta de Log Analytics:
+Consulte otras lecciones para usar el [lenguaje de consulta de Data Explorer](/azure/kusto/query/) con datos de registro de Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Operaciones de fecha y hora](datetime-operations.md)

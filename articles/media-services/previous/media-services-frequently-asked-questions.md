@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d1a7ae1e66caaaf17e3c4a38b09eaa2d900604b3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685725"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004492"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -32,7 +32,7 @@ R: Agregue la ruta de acceso "(format=m3u8-aapl)" a la parte "/Manifest" de la d
 
 P: ¿Cómo se escala la indización?
 
-R: las unidades reservadas son las mismas para las tareas de Encoding y de indización. Siga las instrucciones de [Escalado de unidades reservadas de Encoding](media-services-scale-media-processing-overview.md). **Tenga en cuenta** que el rendimiento del indexador no se ve afectado por el tipo de unidad reservada.
+R: Las unidades reservadas son las mismas para las tareas de Encoding y de indización. Siga las instrucciones de [Escalado de unidades reservadas de Encoding](media-services-scale-media-processing-overview.md). **Tenga en cuenta** que el rendimiento del indexador no se ve afectado por el tipo de unidad reservada.
 
 P: He cargado, codificado y publicado un vídeo. ¿Cuál es el motivo por el que el vídeo no se reproduce cuando intento transmitirlo?
 
@@ -40,7 +40,7 @@ R: Uno de los motivos más habituales es que no tiene el punto de conexión de s
 
 P: ¿Puedo realizar una composición en una secuencia en directo?
 
-R: no se ofrece actualmente la composición en secuencias en vivo en Azure Media Services, por lo que tendrá que realizar una composición previa en el equipo.
+R: No se ofrece actualmente la composición en secuencias en vivo en Azure Media Services, por lo que tendrá que realizar una composición previa en el equipo.
 
 P: ¿Puedo usar Azure CDN con secuencia en directo?
 
@@ -48,7 +48,7 @@ R: Media Services admite la integración con Azure CDN (para obtener más inform
 
 P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
 
-R: si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Azure Blob Storage. No supone una ventaja si se colocan en la cuenta de Media Services a menos que desee mantenerlas asociadas a los recursos de vídeo o audio. O bien, si puede tener la necesidad de usar las imágenes como superposiciones en el codificador de vídeo, el Estándar de codificador multimedia admite la superposición de las imágenes encima de los vídeos, por eso muestra JPEG y PNG como formatos de entrada admitidos. Para obtener más información, consulte [Creación de superposiciones](media-services-advanced-encoding-with-mes.md#overlay).
+R: Si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Azure Blob Storage. No supone una ventaja si se colocan en la cuenta de Media Services a menos que desee mantenerlas asociadas a los recursos de vídeo o audio. O bien, si puede tener la necesidad de usar las imágenes como superposiciones en el codificador de vídeo, el Estándar de codificador multimedia admite la superposición de las imágenes encima de los vídeos, por eso muestra JPEG y PNG como formatos de entrada admitidos. Para obtener más información, consulte [Creación de superposiciones](media-services-advanced-encoding-with-mes.md#overlay).
 
 P: ¿Cómo puedo copiar recursos de una cuenta de Media Services a otra?
 
@@ -56,15 +56,15 @@ R: Para copiar recursos de una cuenta de Media Services a otra mediante .NET, us
 
 P: ¿Cuáles son los caracteres admitidos para nombrar los archivos cuando se trabaja con AMS?
 
-R: Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
+R: Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un "." Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 P: ¿Cómo se realiza la conexión con REST?
 
-R: Para más información sobre cómo conectarse a la API de Azure Media Services, vea [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+R: Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 P: ¿Cómo puedo girar un vídeo durante el proceso de codificación?
 
-R: [Media Encoder Estándar](media-services-dotnet-encode-with-media-encoder-standard.md) admite ángulos de rotación de 90, 180 o 270. El comportamiento predeterminado es "Auto", en el que se intentan detectar los metadatos de rotación del archivo MP4 o MOV entrante y la compensación. Incluya el siguiente elemento **Sources** en uno de los valores preestablecidos JSON definidos [aquí](media-services-mes-presets-overview.md):
+R: [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) admite ángulos de rotación de 90, 180 o 270 grados. El comportamiento predeterminado es "Auto", en el que se intentan detectar los metadatos de rotación del archivo MP4 o MOV entrante y la compensación. Incluya el siguiente elemento **Sources** en uno de los valores preestablecidos JSON definidos [aquí](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [

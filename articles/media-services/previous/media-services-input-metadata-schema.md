@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 42e3464a190f296675b544e0087b664ff256f2fa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994279"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003251"
 ---
-# <a name="input-metadata"></a>Metadatos de entrada
+# <a name="input-metadata-legacy"></a>Metadatos de entrada (heredados)
 
 Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación.  Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas, un manifiesto, etc. El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: &lt;id_de_recurso&gt;_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), donde &lt;id_de_recurso&gt; es el valor AssetId del recurso de entrada.  
 
@@ -48,7 +48,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
  Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Nombre**<br /><br /> Obligatorio |**xs:string** |Nombre del archivo de recursos. |
 | **Tamaño**<br /><br /> Obligatorio |**xs:long** |Tamaño del archivo de recursos en bytes. |
@@ -65,7 +65,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 > 
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Programs**<br /><br /> minOccurs="0" | |Colección de todos los [elementos Programs](media-services-input-metadata-schema.md#Programs) cuando el archivo de recursos está en formato MPEG-TS. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Cada archivo de recursos físico puede contener cero o más pistas de vídeos intercaladas en un formato de contenedor adecuado. Este elemento contiene una colección de todos los [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) que forman parte del archivo de recursos. |
@@ -76,7 +76,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Id**<br /><br /> Obligatorio |**xs:int** |Índice de base cero de esta pista de audio o vídeo.<br /><br /> No es necesariamente un elemento TrackID como se usa en un archivo MP4. |
 | **Codec** |**xs:string** |Cadena de códec de pista de vídeo. |
@@ -92,7 +92,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 > 
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Contiene información de presentación (por ejemplo, si una determinada pista de audio es para espectadores con discapacidad visual). |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Cadenas genéricas de clave-valor que sirven para almacenar información de diversa índole. Por ejemplo, key=”language” y value=”eng”. |
@@ -105,7 +105,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
  Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |Formato de ejemplo. |
 | **ChannelLayout** |**xs: string** |Distribución de canales. |
@@ -122,7 +122,7 @@ El tipo representa una determinada pista de vídeo en el archivo de recursos.
 Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **FourCC**<br /><br /> Obligatorio |**xs:string** |Código FourCC de códec de vídeo. |
 | **Perfil** |**xs: string** |Perfil de la pista de vídeo. |
@@ -146,7 +146,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **key**<br /><br /> Obligatorio |**xs:string** |La clave del par clave-valor. |
 | **value**<br /><br /> Obligatorio |**xs:string** |El valor del par clave-valor. |
@@ -155,7 +155,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 **ProgramType** es un tipo complejo global que describe un programa.  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **ProgramId**<br /><br /> Obligatorio |**xs:int** |Id. del programa. |
 | **NumberOfPrograms**<br /><br /> Obligatorio |**xs:int** |Número de programas. |
@@ -170,7 +170,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Valor predeterminado**<br /><br /> Obligatorio |**xs: int** |Establezca este atributo en 1 para indicar que se trata de la presentación predeterminada. |
 | **Dub**<br /><br /> Obligatorio |**xs:int** |Establezca este atributo en 1 para indicar que se trata de la presentación doblada. |
@@ -188,7 +188,7 @@ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-se
 Elemento contenedor con varios elementos **Program**.  
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Para los archivos de recursos que están en formato MPEG-TS, contiene información acerca de los programas en el archivo de recursos. |
 
@@ -198,7 +198,7 @@ Elemento contenedor con varios elementos **Program**.
  Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (hereda de TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Contiene información sobre las pistas de vídeo en el archivo de recursos. |
 
@@ -208,7 +208,7 @@ Elemento contenedor con varios elementos **Program**.
  Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>Elementos
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (hereda de TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Contiene información sobre las pistas de audio en el archivo de recursos. |
 

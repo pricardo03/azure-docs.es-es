@@ -4,7 +4,7 @@ description: Obtenga información sobre los procedimientos recomendados de segur
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451874"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108932"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedimientos recomendados para proteger aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger las aplicaciones web y móviles PaaS (plataforma como servicio). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
 
 Azure permite implementar y usar el almacenamiento de formas inauditas con un entorno local. Gracias a Azure Storage, se pueden alcanzar altos niveles de escalabilidad y disponibilidad con relativamente poco esfuerzo. Azure Storage no solo constituye la base de Azure Virtual Machines con Windows y Linux, sino que también puede admitir aplicaciones distribuidas de gran tamaño.
 
-Azure Storage proporciona los cuatro servicios siguientes: Blob Storage, Table Storage, Queue Storage y File Storage. Para obtener más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
+Azure Storage proporciona los cuatro servicios siguientes: Blob storage, Table storage, Queue storage y File storage. Para obtener más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
 
 La [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) es una excelente fuente para obtener información detallada sobre Azure Storage y la seguridad. Este artículo de procedimientos recomendados aborda de forma resumida algunos de los conceptos de la guía de seguridad. Además, se ofrecen vínculos a dicha guía y otras fuentes de información.
 

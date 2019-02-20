@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: deb8eacb1e9c55feba6b356eedc61ba57c3a6566
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299068"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110327"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importación de un archivo de certificados a un contenedor que se ejecuta en Service Fabric
 
-Puede proteger los servicios de contenedor especificando un certificado. Service Fabric proporciona un mecanismo para los servicios dentro de un contenedor para acceder a un certificado que está instalado en los nodos de un clúster de Windows o Linux (versión 5.7 o superior). Este certificado debe instalarse en LocalMachine en todos los nodos del clúster. La información del certificado se proporciona en el manifiesto de aplicación en la etiqueta `ContainerHostPolicies` como se muestra en el siguiente fragmento de código:
+Puede proteger los servicios de contenedor especificando un certificado. Service Fabric proporciona un mecanismo para los servicios dentro de un contenedor para acceder a un certificado que está instalado en los nodos de un clúster de Windows o Linux (versión 5.7 o superior). Este certificado debe instalarse en un almacén de certificados en LocalMachine en todos los nodos del clúster. La clave privada correspondiente al certificado debe estar disponible, ser accesible y, en Windows, exportable. La información del certificado se proporciona en el manifiesto de aplicación en la etiqueta `ContainerHostPolicies` como se muestra en el siguiente fragmento de código:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ Puede proteger los servicios de contenedor especificando un certificado. Service
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Para clústeres Windows, al iniciar la aplicación, el entorno en tiempo de ejecución lee los certificados y genera un archivo PFX y una contraseña para cada certificado. Se puede acceder a este archivo PFX y a la contraseña dentro del contenedor mediante las siguientes variables de entorno: 
+Para los clústeres de Windows, al iniciar la aplicación, el tiempo de ejecución exporta cada certificado al que se hace referencia y su correspondiente clave privada en un archivo PFX protegido con una contraseña generada de forma aleatoria. Se puede acceder a los archivos de contraseña y de PFX, respectivamente, desde el contenedor mediante las siguientes variables de entorno: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

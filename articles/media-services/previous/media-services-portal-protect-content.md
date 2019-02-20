@@ -4,7 +4,7 @@ description: En este artículo se muestra cómo usar Azure Portal para configura
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423566"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996974"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configuración de directivas de protección de contenido mediante Azure Portal
  Con Azure Media Services, puede proteger su contenido multimedia desde el momento en que deja el equipo a través de almacenamiento, procesamiento y entrega. Puede usar Media Services para entregar el contenido cifrado de forma dinámica con el Estándar de cifrado avanzado (AES) mediante claves de cifrado de 128 bits. También puede usarlo con el cifrado común (CENC) mediante el uso de PlayReady o administración de derechos digitales (DRM) Widevine y Apple FairPlay. 
@@ -100,7 +100,7 @@ El cifrado de claves sin cifrado AES se habilita en todos los protocolos de stre
 #### <a name="drm"></a>DRM
 1. Al seleccionar **DRM**, verá distintas directivas de protección de contenido (que se deben configurar según este punto) y un conjunto de protocolos de streaming:
 
-    a. **PlayReady y Widevine con MPEG-DASH**: cifra dinámicamente su transmisión MPEG-DASH con DRM de PlayReady y Widevine.
+     a. **PlayReady y Widevine con MPEG-DASH**: cifra dinámicamente su transmisión MPEG-DASH con DRM de PlayReady y Widevine.
 
     b. **PlayReady y Widevine con MPEG-DASH más FairPlay con HLS**: cifra dinámicamente su transmisión MPEG-DASH con DRM de PlayReady y Widevine. Esta opción también cifra las transmisiones HLS con FairPlay.
 

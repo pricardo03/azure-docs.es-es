@@ -1,6 +1,6 @@
 ---
-title: Expresión app() en una consulta de Azure Log Analytics | Microsoft Docs
-description: La expresión app se usa en una consulta de Log Analytics para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción.
+title: Expresión app() de las consultas de registros de Azure Monitor | Microsoft Docs
+description: La expresión app se usa en una consulta de registro de Azure Monitor para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104667"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998542"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>Expresión app() en una consulta de Log Analytics
+# <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
-La expresión `app` se usa en una consulta de Log Analytics para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción. Resulta útil para incluir datos de aplicación en una consulta de Application Insights y para consultar datos a través de varias aplicaciones en una consulta de Application Insights.
+La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos de una aplicación de Application Insights específica en el mismo grupo de recursos, en otro grupo de recursos o en otra suscripción. Resulta útil para incluir datos de aplicación en una consulta de registros de Azure Monitor y para consultar datos a través de varias aplicaciones en una consulta de Application Insights.
 
 
 
@@ -79,4 +79,5 @@ union
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte la [expresión workspace](workspace-expression.md) para hacer referencia al área de trabajo de Log Analytics.
-- Obtenga información acerca de cómo se almacenan los [datos de Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+- Obtenga información sobre cómo se almacenan los [datos de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+- Obtenga acceso a toda la documentación del [lenguaje de consulta de Data Explorer](/azure/kusto/query/).

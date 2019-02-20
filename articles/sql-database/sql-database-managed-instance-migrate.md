@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732760"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098365"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
-En este artículo se describen los métodos para migrar una instancia de SQL Server 2005 o versiones posteriores a [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
+En este artículo se describen los métodos para migrar una instancia de SQL Server 2005 o versiones posteriores a [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Para obtener información sobre cómo migrar a una base de datos única o a un grupo elástico, consulte [Migración a una base de datos única o a una base de datos agrupada](sql-database-cloud-migrate.md). Para obtener información sobre la migración desde otras plataformas, vea [Guía de Azure Database Migration](https://datamigration.microsoft.com/).
 
 En un nivel alto, el proceso de migración de la base de datos es parecido a este:
 
@@ -34,7 +34,7 @@ En un nivel alto, el proceso de migración de la base de datos es parecido a est
 - [Supervisión de aplicaciones](#monitor-applications)
 
 > [!NOTE]
-> Para migrar una única base de datos a una sola base de datos o a un grupo elástico, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).
+> Para migrar una única base de datos a una sola base de datos o a un grupo elástico, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Evaluación de la compatibilidad de Instancia administrada
 
@@ -47,7 +47,7 @@ Si se ha notificado algún problema de bloqueo que no se haya eliminado con la o
 - Si necesita acceso directo al sistema operativo o al sistema de archivos, por ejemplo, para instalar agentes personalizados o de otros fabricantes en la misma máquina virtual con SQL Server.
 - Si las características tienen dependencias estrictas que aún no se admiten, por ejemplo, FileStream o FileTable, PolyBase y transacciones entre instancias.
 - Si es imprescindible que permanezca en una versión específica de SQL Server (2012, por ejemplo).
-- Si los requisitos de proceso son mucho menores que los que Instancia administrada ofrece en su versión preliminar pública (un núcleo virtual, por ejemplo) y la consolidación de la base de datos no es una opción aceptable.
+- Si los requisitos de proceso son mucho menores que los que la instancia administrada ofrece (un núcleo virtual, por ejemplo) y la consolidación de la base de datos no es una opción aceptable.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementación en una instancia administrada con tamaño óptimo
 

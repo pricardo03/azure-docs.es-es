@@ -11,19 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/13/2019
+ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657780"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245990"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
 En este artículo se muestra cómo configurar la [replicación geográfica activa para bases de datos únicas y agrupadas](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) en Azure SQL Database mediante [Azure Portal](http://portal.azure.com) y cómo iniciar la conmutación por error.
 
-Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools) (Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas). Para información sobre los grupos de conmutación por error automática con instancias administradas (versión preliminar), consulte [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances) (Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas).
+Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools) (Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas). Para información sobre los grupos de conmutación por error automática con instancias administradas (versión preliminar), consulte [Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

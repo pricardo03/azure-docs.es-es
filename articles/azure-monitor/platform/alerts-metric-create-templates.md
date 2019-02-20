@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448235"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112604"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
 En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [nuevas alertas de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de métrica más recientes están disponibles en [este conjunto de tipos de recursos](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> La plantilla de Resource Manager especificada para la alerta de métrica no funcionará para el tipo de recurso: Microsoft.OperationalInsights/workspaces; como soporte técnico para las métricas de Log Analytics está en versión preliminar. Los usuarios interesados en usar la funcionalidad de la versión preliminar con la plantilla de recursos, pueden ponerse en contacto con el equipo de [comentarios de Azure Alerts](mailto:azurealertsfeedback@microsoft.com)
+> Plantilla de recursos para la creación de alertas de métricas para el tipo de recurso: El área de trabajo de Azure Log Analytics (es decir, `Microsoft.OperationalInsights/workspaces`) requiere pasos adicionales. Para obtener más información, consulte el artículo sobre [Plantilla de recursos para las alertas de métricas de registros](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Los pasos básicos son los siguientes:
 

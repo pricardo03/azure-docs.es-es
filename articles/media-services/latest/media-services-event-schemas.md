@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789236"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243992"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
@@ -24,15 +24,13 @@ En este artículo se proporcionan los esquemas y las propiedades para los evento
 
 Para obtener una lista de scripts de ejemplo y los tutoriales, consulte [Orígenes de eventos de Media Services](../../event-grid/event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Tipos de eventos disponibles
-
-### <a name="job-related-event-types"></a>Tipos de eventos relacionados con el trabajo
+## <a name="job-related-event-types"></a>Tipos de eventos relacionados con el trabajo
 
 Media Services emite los tipos de eventos relacionados con el **trabajo** que se describen a continuación. Existen dos categorías para los eventos relacionados con el **trabajo**: "supervisión de cambios de estado de trabajo" y "supervisión de cambios de estado de salida de trabajo". 
 
 Para registrarse para todos los eventos, puede suscribirse al evento JobStateChange. O bien, puede suscribirse solo a eventos específicos (por ejemplo, estados finales como JobErrored, JobFinished y JobCanceled). 
 
-#### <a name="monitoring-job-state-changes"></a>Supervisión de cambios de estado de trabajo
+### <a name="monitoring-job-state-changes"></a>Supervisión de cambios de estado de trabajo
 
 | Tipo de evento | DESCRIPCIÓN |
 | ---------- | ----------- |
@@ -44,7 +42,9 @@ Para registrarse para todos los eventos, puede suscribirse al evento JobStateCha
 | Microsoft.Media.JobCanceled| Permite obtener un evento cuando el trabajo realiza la transición al estado cancelado. Se trata de un estado final que incluye las salidas del trabajo.|
 | Microsoft.Media.JobErrored| Permite obtener un evento cuando el trabajo realiza la transición al estado de error. Se trata de un estado final que incluye las salidas del trabajo.|
 
-#### <a name="monitoring-job-output-state-changes"></a>Supervisión de cambios de estado de salida de trabajo
+Siga los [ejemplos de esquemas](#event-schema-examples).
+
+### <a name="monitoring-job-output-state-changes"></a>Supervisión de cambios de estado de salida de trabajo
 
 | Tipo de evento | DESCRIPCIÓN |
 | ---------- | ----------- |
@@ -56,11 +56,13 @@ Para registrarse para todos los eventos, puede suscribirse al evento JobStateCha
 | Microsoft.Media.JobOutputCanceled| Permite obtener un evento cuando la salida del trabajo realiza la transición al estado cancelado.|
 | Microsoft.Media.JobOutputErrored| Permite obtener un evento cuando la salida del trabajo realiza la transición al estado de error.|
 
-### <a name="live-event-types"></a>Tipos de eventos en directo
+Siga los [ejemplos de esquemas](#event-schema-examples).
+
+## <a name="live-event-types"></a>Tipos de eventos en directo
 
 Media Services emite los tipos de eventos **en directo** que se describen a continuación. Existen dos categorías para los eventos en **directo**: eventos a nivel de transmisión y eventos a nivel de pista. 
 
-#### <a name="stream-level-events"></a>Eventos de nivel de transmisión
+### <a name="stream-level-events"></a>Eventos de nivel de transmisión
 
 Los eventos de nivel de transmisión se generan en función de la transmisión o conexión. Cada evento tiene un parámetro `StreamId` que identifica la conexión o la transmisión. Cada transmisión o conexión tiene una o más pistas de diferentes tipos. Por ejemplo, una conexión de un codificador puede tener una pista de audio y cuatro pistas de vídeo. Los tipos de evento de transmisión son:
 
@@ -70,7 +72,9 @@ Los eventos de nivel de transmisión se generan en función de la transmisión o
 | Microsoft.Media.LiveEventEncoderConnected | El codificador se conectó al evento en directo. |
 | Microsoft.Media.LiveEventEncoderDisconnected | El codificador se desconecta. |
 
-#### <a name="track-level-events"></a>Eventos de nivel de seguimiento
+Siga los [ejemplos de esquemas](#event-schema-examples).
+
+### <a name="track-level-events"></a>Eventos de nivel de seguimiento
 
 Los eventos de nivel de seguimiento se generan por pista. Los tipos de evento de pista son:
 
@@ -83,7 +87,9 @@ Los eventos de nivel de seguimiento se generan por pista. Los tipos de evento de
 | Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | El servidor multimedia detecta una discontinuidad en la pista entrante. |
 
-## <a name="event-schemas-and-properties"></a>Propiedades y esquemas de eventos
+Siga los [ejemplos de esquemas](#event-schema-examples).
+
+## <a name="event-schema-examples"></a>Ejemplos de esquema de eventos
 
 ### <a name="jobstatechange"></a>JobStateChange
 

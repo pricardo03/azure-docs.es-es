@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50a5c8d515e27db7c2c65b484cdecad8ff00baf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889709"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-connect-through-the-serial-console"></a>Para conectarse a través de la consola serie
 1. Conecte el cable serie al dispositivo (directamente o a través de un adaptador USB-serie).
 2. Abra el **Panel de control** y, a continuación, abra el **Administrador de dispositivos**.
@@ -23,13 +21,13 @@ ms.locfileid: "50165139"
 5. En el panel derecho, cambie el **Tipo de conexión** a **Serie**.
 6. En el panel derecho, escriba el puerto COM adecuado. Asegúrese de que los parámetros de configuración en serie se establecen como sigue:
    
-   * Velocidad: 115.200
+   * Velocidad: 115 200
    * Bits de datos: 8
    * Bits de parada: 1
-   * Paridad: ninguno
-   * Control de flujo: ninguno
+   * Paridad: None
+   * Control de flujo: None
      
-     Esta configuración se muestra en la siguiente ilustración.
+      Esta configuración se muestra en la siguiente ilustración.
      
      ![Configuración de PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
      

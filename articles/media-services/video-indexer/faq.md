@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567288"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002364"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -66,7 +66,7 @@ En el portal web de Video Indexer puede cargar un archivo multimedia mediante el
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>¿Cuánto tiempo tarda Video Indexer en extraer información de los archivos multimedia?
 
-El tiempo necesario para indexar un archivo de audio o vídeo, tanto mediante Video Indexer API como mediante la interfaz web, depende de varios parámetros, como la longitud del archivo y su calidad, la cantidad de información que se encuentra en él, el número de [unidades reservadas](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibles y si el [punto de conexión de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) está habilitado o no. Para la mayoría de tipos de contenido, si se presupone que hay 10 unidades reservadas de tipo S3 habilitadas, se prevé que la indexación tarde de un tercio a un medio de la duración del archivo de audio o vídeo (es decir, con un vídeo de origen de 10 minutos tardaría de 3,5 a 5 minutos). Con todo, recomendamos que ejecute algunos archivos de prueba con su propio contenido y tome un promedio para obtener una idea más clara.
+El tiempo necesario para indexar un archivo de audio o vídeo, tanto mediante Video Indexer API como mediante la interfaz web, depende de varios parámetros, como la longitud del archivo y su calidad, la cantidad de información que se encuentra en él, el número de [unidades reservadas](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibles y si el [punto de conexión de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) está habilitado o no. Recomendamos que ejecute algunos archivos de prueba con su propio contenido y tome un promedio para obtener una idea más clara.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>¿Puedo crear flujos de trabajo personalizados para automatizar los procesos con Video Indexer?
 

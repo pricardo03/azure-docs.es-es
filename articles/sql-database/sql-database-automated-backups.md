@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477818"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997143"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -63,7 +63,7 @@ El período de retención predeterminado de una base de datos creada mediante el
 
 #### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
 
-Si va a usar el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), el período de retención de copia de seguridad predeterminado es de 7 días (para bases de datos únicas, agrupadas y de instancia). Para todas las bases de datos de Azure SQL (únicas, agrupadas y de instancia) puede [cambiar el período de retención de copia de seguridad hasta 35 días](#how-to-change-the-pitr-backup-retention-period).
+Si va a usar el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), el período de retención de copia de seguridad predeterminado es de 7 días (para bases de datos únicas, agrupadas y de instancia). Para todas las bases de datos Azure SQL (únicas, agrupadas y de instancia) puede [cambiar el período de retención de copia de seguridad hasta 35 días](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Si reduce el período de retención actual, todas las copias de seguridad existentes anteriores al período de retención nuevo dejan de estar disponibles. Si aumenta el período de retención actual, SQL Database mantendrá las copias de seguridad existentes hasta que se alcance el nuevo período de retención.

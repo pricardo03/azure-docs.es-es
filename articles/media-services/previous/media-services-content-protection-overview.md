@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249939"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992253"
 ---
-# <a name="content-protection-overview"></a>Introducción a la protección de contenido
- Puede usar Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo y pasa a través del almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
+# <a name="content-protection-overview"></a>Introducción a la protección de contenido 
+
+ Puede usar Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo y pasa a través del almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
 
 En la siguiente imagen se ilustra el flujo de trabajo de protección de contenido de Media Services: 
 
@@ -80,9 +81,9 @@ Se aplican las siguientes consideraciones:
 * El tipo de cifrado no tiene que especificarse en la dirección URL si solo se aplicó un cifrado al recurso.
 * El tipo de cifrado distingue mayúsculas de minúsculas.
 * Se pueden especificar los siguientes tipos de cifrado:
-  * **cenc**: para PlayReady o Widevine (cifrado común)
-  * **cbcs-aapl**: para FairPlay (cifrado AES-CBC)
-  * **cbc**: para cifrado de sobre AES
+  * **cenc**: Para PlayReady o Widevine (cifrado común)
+  * **cbcs-aapl**: Para FairPlay (cifrado AES-CBC)
+  * **cbc**: Cifrado de sobre AES
 
 ## <a name="next-steps"></a>Pasos siguientes
 En los próximos artículos se describen los siguientes pasos para empezar con la protección de contenido:

@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467465"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243661"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -29,7 +29,7 @@ En Azure Portal, puede ver el estado del servidor registrado, el estado del punt
 
 ### <a name="storage-sync-service"></a>Servicio de sincronización de almacenamiento
 
-Para ver el estado del servidor registrado y el punto de conexión del servidor, vaya al servicio de sincronización de almacenamiento en Azure Portal. El estado del servidor registrado se puede ver en la hoja Servidores registrados. El estado de punto de conexión del servidor se puede ver en la hoja Grupos de sincronización.
+Para ver el estado del servidor registrado y del punto de conexión del servidor, así como las métricas, vaya al servicio de sincronización de almacenamiento en Azure Portal. El estado del servidor registrado se puede ver en la hoja Servidores registrados. El estado de punto de conexión del servidor se puede ver en la hoja Grupos de sincronización.
 
 Estado del servidor registrado
 - Si el estado de Servidor registrado es En línea, el servidor se está comunicando correctamente con el servicio.
@@ -38,6 +38,23 @@ Estado del servidor registrado
 Estado del punto de conexión del servidor
 - El estado de punto de conexión del servidor en el portal se basa en los eventos de sincronización que se registran en el registro de eventos de telemetría en el servidor (Id. 9102 y 9302). Si se produce un error en una sesión de sincronización debido a un error transitorio (por ejemplo, error cancelado), puede que la sincronización siga mostrando un estado correcto en el portal, siempre y cuando la sesión de sincronización actual esté progresando (el id. de evento 9302 se usa para determinar si se están aplicando los archivos). Para más información, consulte la siguiente documentación: [Estado de sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Progreso de sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Si el portal muestra un error de sincronización debido a que la sincronización no avanza, compruebe la [documentación de solución de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obtener instrucciones.
+
+Métricas
+- Las siguientes métricas están visibles en el portal del servicio de sincronización de almacenamiento:
+
+  | Nombre de métrica | DESCRIPCIÓN | Hojas del portal | 
+  |-|-|-|
+  | Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga) | Grupo de sincronización,punto de conexión de servidor |
+  | Recuperación de niveles de la nube | Tamaño de los datos que se recuperan | Servidores registrados |
+  | Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar | Punto de conexión de servidor |
+  | Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga) | Grupo de sincronización,punto de conexión de servidor |
+  | Estado en línea del servidor | Recuento de latidos recibido del servidor | Servidores registrados |
+
+- Para obtener más información, consulte la sección [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor). 
+
+  > [!Note]  
+  > Los gráficos del portal del servicio de sincronización de almacenamiento tienen un intervalo de tiempo de 24 horas. Para ver los diferentes intervalos de tiempo o dimensiones, use Azure Monitor.
+
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
@@ -52,8 +69,8 @@ Las siguientes métricas para Azure File Sync están disponibles en Azure Monito
 | Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga).<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 | Recuperación de niveles de la nube | Tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensión aplicable: Nombre del servidor |
 | Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar.<br><br>Unidad: Recuento<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
-| Archivos sincronizados | Recuento de archivos cargados y descargados.<br><br>Unidad: Recuento<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
-| Latido de servidor | Recuento de latidos recibido del servidor.<br><br>Unidad: Recuento<br>Tipo de agregación: Máxima<br>Dimensión aplicable: Nombre del servidor |
+| Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga).<br><br>Unidad: Recuento<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
+| Estado en línea del servidor | Recuento de latidos recibido del servidor.<br><br>Unidad: Recuento<br>Tipo de agregación: Máxima<br>Dimensión aplicable: Nombre del servidor |
 | Sync session result (Resultado de la sesión de sincronización) | Resultado de la sesión de sincronización (1 = sesión de sincronización correcta; 0 = sesión de sincronización con errores)<br><br>Unidad: Recuento<br>Tipos de agregación: Máxima<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 
 ## <a name="windows-server"></a>Windows Server

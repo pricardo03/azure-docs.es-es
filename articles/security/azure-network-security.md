@@ -4,7 +4,7 @@ description: Obtenga información acerca de los servicios de computación en la 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405980"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111295"
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -88,7 +88,7 @@ Las redes virtuales de Azure son similares a las redes virtuales que usa de form
 
 Puede conectar redes virtuales entre sí, habilitar recursos conectados a cualquier red virtual para que se comuniquen entre sí a través de redes virtuales. Puede utilizar una o ambas de las siguientes opciones para conectar redes virtuales entre sí:
 
-- **Emparejamiento:** permite que los recursos se conecten a distintas redes virtuales de Azure en la misma ubicación de Azure para comunicarse entre sí. El ancho de banda y la latencia en las redes virtuales son los mismos que si los recursos estuvieran conectados a la misma red virtual. Para más información sobre emparejamiento, consulte [Emparejamiento de redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Emparejamiento**: permite que los recursos se conecten a distintas redes virtuales de Azure en la misma ubicación de Azure para comunicarse entre sí. El ancho de banda y la latencia en las redes virtuales son los mismos que si los recursos estuvieran conectados a la misma red virtual. Para más información sobre emparejamiento, consulte [Emparejamiento de redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Emparejamiento](media/azure-network-security/azure-network-security-fig-3.png)
 
@@ -151,7 +151,7 @@ Las [redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-n
 
 Puede conectar redes virtuales entre sí, habilitar recursos conectados a cualquier red virtual para que se comuniquen entre sí a través de redes virtuales. Puede utilizar una o ambas de las siguientes opciones para conectar redes virtuales entre sí:
 
-- **Emparejamiento:** permite que los recursos se conecten a distintas redes virtuales de Azure en la misma ubicación de Azure para comunicarse entre sí. El ancho de banda y la latencia en las redes virtuales son los mismos que si los recursos estuvieran conectados a la misma red virtual. Para más información sobre el emparejamiento, consulte [Emparejamiento de redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Emparejamiento**: permite que los recursos se conecten a distintas redes virtuales de Azure en la misma ubicación de Azure para comunicarse entre sí. El ancho de banda y la latencia en las redes virtuales son los mismos que si los recursos estuvieran conectados a la misma red virtual. Para más información sobre el emparejamiento, consulte [Emparejamiento de redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 - **Conexión de red virtual a red virtual:** permite recursos conectados a la red virtual de Azure diferentes dentro de las mismas ubicaciones de Azure, o diferentes. A diferencia del emparejamiento, el ancho de banda es limitado entre las redes virtuales porque el tráfico debe pasar a través de una instancia de Azure VPN Gateway. Más información sobre cómo conectar redes virtuales con una conexión de red virtual a red virtual. Para más información, lea el artículo [Configuración de una conexión de red virtual a red virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -161,11 +161,11 @@ Las redes virtuales se pueden conectar a redes [locales](https://docs.microsoft.
 
 Puede conectar su red local a una red virtual mediante cualquier combinación de las siguientes opciones:
 
-- **Red privada virtual (VPN) de punto a sitio:** establecido entre un único equipo conectado a la red y a la red virtual. Este tipo de conexión es muy útil cuando se está comenzando con Azure, o para los desarrolladores, porque requiere poco o ningún cambio en la red existente. La conexión utiliza el protocolo SSTP para proporcionar comunicación cifrada a través de Internet entre el equipo y la red virtual. La latencia de una VPN de punto a sitio es imprevisible, ya que el tráfico atraviesa Internet.
+- **Red privada virtual (VPN) de punto a sitio**: establecido entre un único equipo conectado a la red y a la red virtual. Este tipo de conexión es muy útil cuando se está comenzando con Azure, o para los desarrolladores, porque requiere poco o ningún cambio en la red existente. La conexión utiliza el protocolo SSTP para proporcionar comunicación cifrada a través de Internet entre el equipo y la red virtual. La latencia de una VPN de punto a sitio es imprevisible, ya que el tráfico atraviesa Internet.
 
-- **VPN de sitio a sitio:** se establece entre el dispositivo VPN y una instancia de Azure VPN Gateway. Este tipo de conexión permite cualquier recurso local que autoriza a acceder a una red virtual. La conexión es una VPN de IPSec/IKE que proporciona comunicación cifrada por Internet entre el dispositivo local y la instancia de Azure VPN Gateway. La latencia de una conexión de sitio a sitio es imprevisible, ya que el tráfico atraviesa Internet.
+- **VPN de sitio a sitio**: se establece entre el dispositivo VPN y una instancia de Azure VPN Gateway. Este tipo de conexión permite cualquier recurso local que autoriza a acceder a una red virtual. La conexión es una VPN de IPSec/IKE que proporciona comunicación cifrada por Internet entre el dispositivo local y la instancia de Azure VPN Gateway. La latencia de una conexión de sitio a sitio es imprevisible, ya que el tráfico atraviesa Internet.
 
-- **Azure ExpressRoute:** establecida entre la red y Azure, a través de un asociado de ExpressRoute. Esta conexión es privada. El tráfico no atraviesa Internet. La latencia de una conexión ExpressRoute es predecible, ya que el tráfico no atraviesa Internet. Para más información acerca de todas las opciones de la conexión anterior, consulte [Diagramas de topología de conexión](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** se establece entre la red y Azure, mediante un asociado de ExpressRoute. Esta conexión es privada. El tráfico no atraviesa Internet. La latencia de una conexión ExpressRoute es predecible, ya que el tráfico no atraviesa Internet. Para más información acerca de todas las opciones de la conexión anterior, consulte [Diagramas de topología de conexión](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Filtrado de tráfico**
 
@@ -173,7 +173,7 @@ El [tráfico de red](https://docs.microsoft.com/azure/virtual-network/virtual-ne
 
 Puede filtrar el tráfico de red entre subredes mediante una o ambas de las siguientes opciones:
 
-- **Grupos de seguridad de red:** cada grupo de seguridad de red puede contener varias reglas de seguridad entrante y saliente, que le permiten filtrar el tráfico por dirección IP, puerto y protocolo de origen y destino. Puede aplicar un grupo de seguridad de red a cada NIC de una máquina virtual. También puede aplicar un grupo de seguridad de red a la subred de una NIC u otro recurso de Azure, a la que está conectado. Consulte [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) para más información sobre estos.
+- **Grupos de seguridad de red (NSG):** cada grupo de seguridad de red puede contener varias reglas de seguridad entrante y saliente, que le permiten filtrar el tráfico por dirección IP, puerto y protocolo de origen y destino. Puede aplicar un grupo de seguridad de red a cada NIC de una máquina virtual. También puede aplicar un grupo de seguridad de red a la subred de una NIC u otro recurso de Azure, a la que está conectado. Consulte [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) para más información sobre estos.
 
 - **Aplicaciones de red virtual:** una aplicación de red virtual es una máquina virtual que ejecuta software que realiza una función de red, como un firewall. Consulte una lista de dispositivos virtuales de red disponibles en Azure Marketplace. Los dispositivos virtuales de red también están disponibles para proporcionar la optimización de la WAN y otras funciones de tráfico de red. Los dispositivos virtuales de red normalmente se usan con rutas BGP o definidas por el usuario. También puede utilizar un dispositivo virtual de red para filtrar el tráfico entre redes virtuales.
 
@@ -183,11 +183,11 @@ Opcionalmente, puede invalidar el enrutamiento predeterminado de Azure mediante 
 
 Azure crea tablas de rutas que permiten a los recursos conectados a una subred de cualquier red virtual se comuniquen entre sí, de forma predeterminada. Puede implementar una o ambas de las siguientes opciones para reemplazar las rutas predeterminadas que crea Azure:
 
-- **Rutas definidas por el usuario:** puede crear tablas de rutas personalizadas con las rutas que controlan a dónde se enruta el tráfico para cada subred. Para aprender más sobre las rutas definidas por el usuario, consulte [Rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Rutas definidas por el usuario**: puede crear tablas de ruta personalizadas con las rutas que controlan a dónde se enruta el tráfico para cada subred. Para aprender más sobre las rutas definidas por el usuario, consulte [Rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- **Rutas BGP:** si conecta la red local a su red local mediante una conexión de Azure VPN Gateway o ExpressRoute, puede propagar las rutas BGP a sus redes virtuales.
+- **Rutas BGP:** si conecta la red virtual a la red local mediante una conexión de Azure VPN Gateway o ExpressRoute, puede propagar las rutas BGP a las redes virtuales.
 
-### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Conectividad híbrida a Internet: Conexión a una red local
+### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Conectividad híbrida de Internet: conexión a una red local
 Puede conectar su red local a una red virtual mediante cualquier combinación de las siguientes opciones:
 
 -   Conectividad de Internet
@@ -282,13 +282,13 @@ Esto significa que puede controlar el acceso entre una sola máquina virtual y u
 
 Un grupo de seguridad de red incluye algunas reglas integradas que debe tener en cuenta. Dichos componentes son:
 
--   **Permitir todo el tráfico dentro de una red virtual específica:** todas las máquinas virtuales de la misma instancia de Azure Virtual Network se pueden comunicar entre sí.
+-   **Permitir todo el tráfico de una red virtual específica:** todas las VM en la misma instancia de Azure Virtual Network pueden comunicarse entre sí.
 
 -   **Permitir el equilibrio de carga entrante de Azure:** Esta regla permite el tráfico desde cualquier dirección de origen a cualquier dirección de destino para el equilibrador de carga de Azure.
 
 -   **Denegar todo el tráfico entrante:** Esta regla bloquea todo el tráfico procedente de Internet que haya permitido explícitamente.
 
--   **Permitir todo el tráfico saliente a Internet:** Esta regla permite a las máquinas virtuales iniciar conexiones a Internet. Si no desea que se inicien estas conexiones, debe crear una regla para bloquearlas o aplicar la tunelización forzada.
+-   **Permitir todo el tráfico saliente a Internet:** esta regla permite que las VM inicien conexiones a Internet. Si no desea que se inicien estas conexiones, debe crear una regla para bloquearlas o aplicar la tunelización forzada.
 
 #### <a name="system-routes-and-user-defined-routes"></a>Rutas de sistema y rutas definidas por el usuario
 
@@ -320,11 +320,11 @@ La sección siguiente muestra la limitación actual de la tabla de enrutamiento 
 
 -   Cada subred de la red virtual tiene una tabla de enrutamiento del sistema integrada. La tabla de enrutamiento del sistema tiene los siguientes tres grupos de rutas:
 
- -  **Rutas de redes virtuales locales** : directamente a las máquinas virtuales de destino en la misma red virtual.
+ -  **Rutas de red virtual local**: directamente a las máquinas virtuales de destino en la misma red virtual.
 
- - **Rutas locales** : a la puerta de enlace de VPN.
+ - **Rutas locales:** a la instancia de Azure VPN Gateway.
 
- -  **Ruta predeterminada** : directamente a Internet. Los paquetes destinados a las direcciones IP privadas que no están cubiertos por las dos rutas anteriores se anularán.
+ -  **Ruta predeterminada:** directamente a Internet. Los paquetes destinados a las direcciones IP privadas que no están cubiertos por las dos rutas anteriores se anularán.
 
 -   Con la liberación de las rutas definidas por el usuario, puede crear una tabla de enrutamiento para agregar una ruta predeterminada y, después, asociar la tabla de enrutamiento a las subredes de la red virtual para habilitar la tunelización forzada en esas subredes.
 
@@ -647,7 +647,7 @@ Para los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-n
 
 - **NetworkSecurityGroupEvent:** contiene entradas para las que se aplican reglas de NSG a las máquinas virtuales y a los roles de instancia en función de la dirección MAC. El estado de estas reglas se recopila cada 60 segundos.
 
-- **NetworkSecurityGroupRuleCounter:** contiene entradas para el número de veces que se aplica cada regla de NSG para denegar o permitir el tráfico.
+- **NetworkSecurityGroupRuleCounter:** contiene entradas para el número de veces que se aplica cada regla NSG para denegar o permitir el tráfico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtener más información acerca de la seguridad con la lectura de algunos de nuestros detallados temas de seguridad:
@@ -656,7 +656,7 @@ Obtener más información acerca de la seguridad con la lectura de algunos de nu
 
 -   [Innovaciones en las redes que permiten controlar las interrupciones en la nube](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 
--   [SONiC: El software de cambio de redes que incluye Microsoft Global Cloud](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
+-   [SONiC: el software de cambio de redes que incluye Microsoft Global Cloud](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
 
 -   [Cómo crea Microsoft su red global rápida y confiable](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 

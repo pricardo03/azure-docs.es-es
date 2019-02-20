@@ -4,7 +4,7 @@ description: En este tema se muestra cómo configurar el codificador Flash Media
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665892"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003744"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador FMLE para enviar una transmisión por secuencias en directo de velocidad de bits única
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Uso del codificador FMLE para enviar una transmisión por secuencias en directo de velocidad de bits única (heredado)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -47,7 +47,7 @@ En este tutorial se describe el uso de AAC. Sin embargo, FMLE no es compatible c
 * Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 
 ## <a name="create-a-channel"></a>Crear un canal
-1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
+1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...**  en el menú.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
@@ -76,42 +76,42 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 **Vídeo**:
 
-* Codec (Códec): H.264
-* Profile (Perfil): High (Level 4.0) (Alto [Nivel 4.0])
-* Bitrate (Velocidad de bits): 5000 kbps
-* Keyframe (Fotograma clave): 2 seconds (60 seconds) (2 segundos [60 segundos])
-* Frame Rate (Velocidad de fotogramas): 30
+* Códec: H.264
+* Perfil: alto (nivel 4.0)
+* Velocidad de bits: 5000 Kbps
+* Fotograma clave: 2 segundos (60 segundos)
+* Velocidad de fotogramas: 30
 
 **Audio**:
 
-* Codec (Códec): AAC (LC)
-* Bitrate (Velocidad de bits): 192 kbps
-* Sample Rate (Frecuencia de muestreo): 44,1 kHz
+* Códec: AAC (LC)
+* Velocidad de bits: 192 Kbps
+* Velocidad de muestreo: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Pasos de configuración
 1. Vaya a la interfaz de Flash Media Live Encoder (FMLE) en el equipo que esté usando.
 
     La interfaz es una página principal de configuración. Tome nota de la siguiente configuración recomendada para empezar a trabajar con streaming mediante FMLE.
 
-   * Format (Formato): H.264, Frame Rate (Velocidad de fotogramas): 30.00
-   * Input Size (Tamaño de entrada): 1280 x 720
-   * Bit Rate (Velocidad de bits): 5000 kbps (se puede ajustar en función de las limitaciones de red)  
+   * Formato: H.264. Velocidad de fotogramas: 30.00
+   * Tamaño de entrada: 1280 x 720
+   * Velocidad de bits: 5000 kbps (se puede ajustar en función de las limitaciones de red)  
 
      ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
      Al usar orígenes entrelazados, marque la opción "Deinterlace" (Desentrelazar).
 2. Seleccione el icono de llave junto a Format (Formato). Estas opciones de configuración adicionales deben ser:
 
-   * Profile (Perfil): Main (Principal)
-   * Level (Nivel): 4.0
-   * Keyframe Frequency (Frecuencia de fotogramas clave): 2 seconds (2 segundos)
+   * Perfil: Principal
+   * Nivel: 4.0
+   * Frecuencia de fotogramas clave: 2 segundos
 
      ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 3. Establezca la siguiente configuración de audio importante:
 
-   * Format (Formato): AAC
-   * Sample Rate (Frecuencia de muestreo): 44100 kHz
-   * Bitrate (Velocidad de bits): 192 kbps
+   * Formato: AAC
+   * Velocidad de muestreo: 44100 Hz
+   * Velocidad de bits: 192 Kbps
 
      ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. Obtenga la dirección URL de entrada del canal para asignarla al **punto de conexión de RTMP**de FMLE.

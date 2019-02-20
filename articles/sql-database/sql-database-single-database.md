@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754989"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099333"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
 
-La opción de implementación de una base de datos única crea una base de datos independiente en Azure SQL Database con su propio conjunto de recursos y se administra a través de un servidor de SQL Database. Con una base de datos única, cada base de datos está aislada de las demás y es portátil, ya que cada una tiene su propio nivel de servicio dentro del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) y un tamaño de proceso garantizado.
+La opción de implementación de una base de datos única crea una base de datos en Azure SQL Database con su propio conjunto de recursos y se administra a través de un servidor de SQL Database. Con una base de datos única, cada base de datos está aislada de las demás y es portátil, ya que cada una tiene su propio nivel de servicio dentro del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) y un tamaño de proceso garantizado.
 
 > [!IMPORTANT]
 > La base de datos única es una de las tres opciones de implementación de Azure SQL Database. Las otras dos son los [grupos elásticos](sql-database-elastic-pool.md) y la [instancia administrada](sql-database-managed-instance.md).
@@ -58,5 +58,5 @@ SQL Database proporciona varias [características integradas de seguridad y cump
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener una introducción rápida a las bases de datos únicas, comience por la [guía de inicio rápido](sql-database-single-database-quickstart-guide.md).
-- Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-cloud-migrate.md).
+- Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-single-database-migrate.md).
 - Para obtener información sobre las características admitidas, consulte el [artículo que trata sobre dicho tema](sql-database-features.md).

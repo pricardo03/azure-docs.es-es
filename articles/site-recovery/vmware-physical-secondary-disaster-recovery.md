@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105192"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895846"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
@@ -218,7 +218,7 @@ La actualización 5 de Scout es una actualización acumulativa. Contiene todas l
 
 #### <a name="new-platform-support"></a>Nueva compatibilidad con plataformas
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
-* **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** de SLES 11 SP4 de 64 bits se incluye con el paquete base de Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Descargue el paquete de GA del portal, como se describe en el artículo sobre la [creación de un almacén](#create-a-vault).
+* **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** de SLES 11 SP4 de 64 bits se incluye con el paquete base de Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Descargue el paquete de GA del portal, como se describe en el artículo sobre la creación de un almacén.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Mejoras y correcciones de errores
@@ -252,7 +252,7 @@ La actualización 4 de Scout es una actualización acumulativa. Incluye todas la
   * CentOS 6.8
 
 > [!NOTE]
-> **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** de RHEL/CentOS 7 de 64 bits se incluye con el paquete base de Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Descargue el paquete de Scout GA del portal, como se describe en el artículo sobre la [creación de un almacén](#create-a-vault).
+> **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** de RHEL/CentOS 7 de 64 bits se incluye con el paquete base de Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Descargue el paquete de Scout GA del portal, como se describe en el artículo sobre la creación de un almacén.
 
 #### <a name="bug-fixes-and-enhancements"></a>Mejoras y correcciones de errores
 

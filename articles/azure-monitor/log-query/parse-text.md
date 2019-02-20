@@ -1,6 +1,6 @@
 ---
-title: Análisis de datos de texto en Azure Log Analytics | Microsoft Docs
-description: Se describen distintas opciones para analizar los datos en los registros de Log Analytics cuando estos se ingieren y cuando se recuperan en una consulta, y se comparan las ventajas relativas para cada uno.
+title: Análisis de datos de texto en registros de Azure Monitor | Microsoft Docs
+description: Se describen distintas opciones para analizar los datos de los registros de Azure Monitor cuando estos se ingieren y cuando se recuperan en una consulta, y se comparan las ventajas relativas para cada uno.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214137"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002237"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Análisis de los datos en Log Analytics
-Algunos datos recopilados por Log Analytics incluyen varios fragmentos de información en una sola propiedad. El análisis de estos datos en varias propiedades facilita su uso en las consultas. Un ejemplo común es un [registro personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que recopila una entrada de registro completo con varios valores en una sola propiedad. Al crear propiedades independientes para los distintos valores, puede buscar y agregar en cada uno.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Análisis de datos de texto en registros de Azure Monitor
+Algunos datos de registro recopilados por Azure Monitor incluyen varios fragmentos de información en una sola propiedad. El análisis de estos datos en varias propiedades facilita su uso en las consultas. Un ejemplo común es un [registro personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que recopila una entrada de registro completo con varios valores en una sola propiedad. Al crear propiedades independientes para los distintos valores, puede buscar y agregar en cada uno.
 
-En este artículo se describen distintas opciones para analizar los datos en los registros de Log Analytics cuando estos se ingieren y cuando se recuperan en una consulta, y se comparan las ventajas relativas para cada uno.
+En este artículo se describen distintas opciones para analizar los datos de Azure Monitor cuando estos se ingieren y cuando se recuperan en una consulta, y se comparan las ventajas relativas para cada uno.
 
 
 ## <a name="parsing-methods"></a>Análisis de métodos
@@ -60,7 +60,7 @@ Las desventajas que presenta este método son, entre otras:
 - Puede crear una sobrecarga al ejecutar una lógica compleja en conjuntos de registros muy grandes (miles de millones).
 
 ## <a name="parse-data-as-its-collected"></a>Los datos se analizan a medida que se recopilan.
-Consulte [Creación de campos personalizados en Log Analytics](../../log-analytics/log-analytics-custom-fields.md) para obtener más información sobre el análisis de datos a medida que se recopilan. De esta forma se crean propiedades personalizadas en la tabla que las consultas pueden usar como cualquier otra propiedad.
+Consulte [Creación de campos personalizados en Azure Monitor](../platform/custom-fields.md) para obtener más información sobre el análisis de datos a medida que se recopilan. De esta forma se crean propiedades personalizadas en la tabla que las consultas pueden usar como cualquier otra propiedad.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Análisis de los datos en consultas con patrones
 Cuando los datos que desea analizar pueden identificarse mediante un patrón que se repite en todos los registros, puede usar distintos operadores en el [lenguaje de consulta del Explorador de datos](/azure/kusto/query/) para extraer un dato específico de una o varias propiedades nuevas.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-Para habilitar un análisis eficiente a gran escala, Log Analytics utiliza la versión re2 de Expresiones regulares, que es similar, pero no idéntica a algunas de las otras variantes de las expresiones regulares. Consulte la [sintaxis de las expresiones re2](https://aka.ms/kql_re2syntax) para obtener más información.
+Para habilitar un análisis eficiente a gran escala, Azure Monitor utiliza la versión re2 de Expresiones regulares, que es similar, pero no idéntica a algunas de las otras variantes de las expresiones regulares. Consulte la [sintaxis de las expresiones re2](https://aka.ms/kql_re2syntax) para obtener más información.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>Análisis de datos delimitados en una consulta

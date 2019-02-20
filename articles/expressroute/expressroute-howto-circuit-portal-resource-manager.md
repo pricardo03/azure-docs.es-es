@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091534"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894724"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Desde un explorador, navegue al [Portal de Azure](http://portal.azure.com) e ini
   ![Configuración del nivel SKU y medición de datos](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **Nivel** determina si está habilitado un complemento estándar o premium de ExpressRoute. Puede especificar **Estándar** para obtener la SKU estándar o **Premium** si quiere el complemento Premium.
-  * **Medición de datos** determina el tipo de facturación. Puede especificar **Metered** (Limitado) para un plan de datos limitado y **Unlimited** (Ilimitado) para un plan de datos ilimitado. Tenga en cuenta que puede cambiar el tipo de facturación de **Metered** (Limitado) a **Unlimited** (Ilimitado), pero no de **Unlimited** (Ilimitado) a **Metered** (Limitado).
+  * **Medición de datos** determina el tipo de facturación. Puede especificar **Metered** (Limitado) para un plan de datos limitado y **Unlimited** (Ilimitado) para un plan de datos ilimitado. Tenga en cuenta que puede cambiar el tipo de facturación de **Uso medido** a **Sin límite**.
+    > [!IMPORTANT] No se puede cambiar el tipo de **Sin límite** a **Uso medido**.
   * La **ubicación de emparejamiento** es la ubicación física de emparejamiento con Microsoft.
 
     > [!IMPORTANT]
@@ -117,10 +118,11 @@ Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar
 Puede realizar las siguientes tareas sin experimentar tiempo de inactividad:
 
 * Habilitar o deshabilitar un complemento ExpressRoute Premium en su circuito ExpressRoute.
-* Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. No se admite la degradación del ancho de banda de un circuito. 
-* Cambie el plan de medición de *Datos limitados* a *Datos ilimitados*. No se admite cambiar el plan de medición de datos ilimitados a datos limitados.
+* Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto.
+  > [!IMPORTANT] No se admite la degradación del ancho de banda de un circuito. 
+* Cambie el plan de medición de *Datos limitados* a *Datos ilimitados*.
+  > [!IMPORTANT] No se admite cambiar el plan de medición de datos ilimitados a datos limitados.
 * Puede habilitar y deshabilitar *Allow Classic Operations*(Permitir operaciones clásicas).
-
 > [!IMPORTANT]
 > Si el puerto existente no tiene la capacidad adecuada, tendrá que volver a crear el circuito ExpressRoute. El circuito no se puede actualizar si no hay más capacidad disponible en la ubicación.
 >

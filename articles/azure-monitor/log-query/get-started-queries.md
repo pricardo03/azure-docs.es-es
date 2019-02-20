@@ -1,6 +1,6 @@
 ---
-title: Introducción a las consultas en Azure Log Analytics | Microsoft Docs
-description: Este artículo proporciona un tutorial de introducción a la escritura de consultas en Log Analytics.
+title: Introducción a las consultas de registro en Azure Monitor | Microsoft Docs
+description: En este artículo se proporciona un tutorial de introducción a la escritura de consultas de registro en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885503"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994894"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Introducción a las consultas en Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Introducción a las consultas de registro en Azure Monitor
 
 
 > [!NOTE]
-> Debe completar el artículo [Get started with the Analytics portal](get-started-portal.md) (Introducción al portal de Analytics) antes de completar este tutorial.
+> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción al análisis de registros en Azure Monitor) antes de completar este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este tutorial aprenderá a escribir consultas en Azure Log Analytics. Le mostrará cómo:
+En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. Le mostrará cómo:
 
 - Comprender la estructura de las consultas
 - Ordenar los resultados de la consulta
@@ -43,10 +43,10 @@ En este tutorial aprenderá a escribir consultas en Azure Log Analytics. Le most
 Las consultas pueden comenzar por un nombre de tabla o el comando *search*. Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.
 
 > [!NOTE]
-> El lenguaje de consulta de Azure Log Analytics distingue entre mayúsculas y minúsculas. Las palabras clave del lenguaje se suelen escribir en minúsculas. Al usar nombres de tablas o columnas en una consulta, asegúrese de usar las mayúsculas y minúsculas correctas, tal como se muestra en el panel de esquema.
+> El lenguaje de consulta de Data Explorer que usa Azure Monitor distingue entre mayúsculas y minúsculas. Las palabras clave del lenguaje se suelen escribir en minúsculas. Al usar nombres de tablas o columnas en una consulta, asegúrese de usar las mayúsculas y minúsculas correctas, tal como se muestra en el panel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas basadas en tablas
-Azure Log Analytics organiza los datos en tablas, compuestas de varias columnas. Todas las tablas y columnas se muestran en el panel de esquema en el portal de Analytics. Identifique una tabla que le interese y observe algunos datos:
+Azure Monitor organiza los datos de registro en tablas, compuestas de varias columnas. Todas las tablas y columnas se muestran en el panel de esquema en Log Analytics en el portal de Analytics. Identifique una tabla que le interese y observe algunos datos:
 
 ```Kusto
 SecurityEvent
@@ -164,7 +164,7 @@ SecurityEvent
 
 En el ejemplo anterior se genera esta salida:
 
-![Resultados de project en Log Analytics](media/get-started-queries/project.png)
+![Resultados del proyecto de consulta](media/get-started-queries/project.png)
 
 También puede usar **project** para cambiar el nombre de las columnas y definir otras nuevas. En el ejemplo siguiente se utiliza project para hacer lo siguiente:
 
@@ -236,7 +236,7 @@ Perf
 
 Para que la salida sea más clara, elija mostrarla como gráfico de tiempo, que muestre la memoria disponible a lo largo del tiempo:
 
-![Memoria de Log Analytics a lo largo del tiempo](media/get-started-queries/chart.png)
+![Consulta de memoria a lo largo del tiempo](media/get-started-queries/chart.png)
 
 
 

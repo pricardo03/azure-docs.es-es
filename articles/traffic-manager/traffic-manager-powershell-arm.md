@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816227"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003591"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso de PowerShell para administrar Traffic Manager
 
@@ -32,6 +32,8 @@ Cada perfil de Traffic Manager se representa mediante un recurso de tipo "Traffi
 
 ## <a name="setting-up-azure-powershell"></a>Configuración de Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 En estas instrucciones se usa PowerShell para Microsoft Azure. En el siguiente artículo se explica cómo instalar y configurar Azure PowerShell.
 
 * [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview)
@@ -39,7 +41,7 @@ En estas instrucciones se usa PowerShell para Microsoft Azure. En el siguiente a
 En los ejemplos de este artículo se da por supuesto que ya tiene un grupo de recursos. Puede crear uno mediante el siguiente comando:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyRG -Location "West US"
+New-AzResourceGroup -Name MyRG -Location "West US"
 ```
 
 > [!NOTE]
@@ -47,10 +49,10 @@ New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
 ## <a name="create-a-traffic-manager-profile"></a>Creación de un perfil del Administrador de tráfico
 
-Para crear un perfil de Traffic Manager, use el cmdlet `New-AzureRmTrafficManagerProfile`:
+Para crear un perfil de Traffic Manager, use el cmdlet `New-AzTrafficManagerProfile`:
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 ```
 
 En la siguiente tabla se describen los parámetros:
@@ -70,10 +72,10 @@ El cmdlet crea un perfil de Traffic Manager en Azure y devuelve un objeto de per
 
 ## <a name="get-a-traffic-manager-profile"></a>Obtención de un perfil del Administrador de tráfico
 
-Para recuperar un objeto del perfil de Traffic Manager existente, use el cmdlet `Get-AzureRmTrafficManagerProfle`:
+Para recuperar un objeto del perfil de Traffic Manager existente, use el cmdlet `Get-AzTrafficManagerProfle`:
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 ```
 
 Este cmdlet devuelve un objeto del perfil del Administrador de tráfico.
@@ -82,18 +84,18 @@ Este cmdlet devuelve un objeto del perfil del Administrador de tráfico.
 
 Para modificar perfiles de Traffic Manager, se sigue un proceso de tres pasos:
 
-1. Recupere el perfil mediante `Get-AzureRmTrafficManagerProfile` o use el devuelto por `New-AzureRmTrafficManagerProfile`.
+1. Recupere el perfil mediante `Get-AzTrafficManagerProfile` o use el devuelto por `New-AzTrafficManagerProfile`.
 2. Modifique el perfil. Puede agregar y quitar puntos de conexión o cambiar los parámetros del perfil o el punto de conexión. Estos cambios son operaciones fuera de línea. Solo cambia el objeto el objeto local en memoria que representa el perfil.
-3. Confirme los cambios mediante el cmdlet `Set-AzureRmTrafficManagerProfile`.
+3. Confirme los cambios mediante el cmdlet `Set-AzTrafficManagerProfile`.
 
 Se pueden cambiar todas las propiedades del perfil, excepto RelativeDnsName para el perfil. Para cambiar RelativeDnsName, debe eliminar el perfil y crear uno con un nombre diferente.
 
 En el ejemplo siguiente se muestra cómo cambiar el TTL del perfil:
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 $profile.Ttl = 300
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
 Existen tres tipos de puntos de conexión de Administrador de tráfico:
@@ -105,7 +107,7 @@ Existen tres tipos de puntos de conexión de Administrador de tráfico:
 En los tres casos, se pueden agregar puntos de conexión de dos maneras:
 
 1. Mediante el proceso de tres pasos descrito antes. La ventaja de este método es que se pueden realizar varios cambios en el punto de conexión en una sola actualización.
-2. Con el cmdlet New-AzureRmTrafficManagerEndpoint. Este cmdlet agrega un punto de conexión a un perfil de Traffic Manager existente en una sola operación.
+2. Con el cmdlet New-AzTrafficManagerEndpoint. Este cmdlet agrega un punto de conexión a un perfil de Traffic Manager existente en una sola operación.
 
 ## <a name="adding-azure-endpoints"></a>Adición de puntos de conexión de Azure
 
@@ -116,35 +118,35 @@ Los puntos de conexión de Azure hacen referencia a servicios hospedados en Azur
 
 En cada caso:
 
-* El servicio se especifica mediante el parámetro '"targetResourceId" de `Add-AzureRmTrafficManagerEndpointConfig` o `New-AzureRmTrafficManagerEndpoint`.
+* El servicio se especifica mediante el parámetro '"targetResourceId" de `Add-AzTrafficManagerEndpointConfig` o `New-AzTrafficManagerEndpoint`.
 * Los parámetros "Target" y "EndpointLocation" están implícitos en TargetResourceId.
 * Especificar el valor de 'Weight' es opcional. La ponderación solo se usa si el perfil está configurado para usar el método de enrutamiento del tráfico "Weighted". En caso contrario, se pasan por alto. Si se especifica, el valor debe ser un número entre 1 y 1000. El valor predeterminado es 1.
 * Especificar el valor de 'Priority' es opcional. Las prioridades solo se usan si el perfil está configurado para usar el método de enrutamiento del tráfico "Priority". En caso contrario, se pasan por alto. Los valores válidos son de 1 a 1000; los valores más bajos indican una prioridad más alta. Si se especifica para un punto de conexión, se debe especificar para todos los puntos de conexión. Si se omite, se aplican los valores predeterminados a partir de "1" en el orden en que se indican los puntos de conexión.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Ejemplo 1: Adición de puntos de conexión de App Service mediante `Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Ejemplo 1: Adición de puntos de conexión de App Service mediante `Add-AzTrafficManagerEndpointConfig`
 
-En este ejemplo, vamos a crear un perfil de Traffic Manager y a agregar dos puntos de conexión de App Service utilizando el cmdlet `Add-AzureRmTrafficManagerEndpointConfig`.
+En este ejemplo, vamos a crear un perfil de Traffic Manager y a agregar dos puntos de conexión de App Service utilizando el cmdlet `Add-AzTrafficManagerEndpointConfig`.
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-$webapp1 = Get-AzureRMWebApp -Name webapp1
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
-$webapp2 = Get-AzureRMWebApp -Name webapp2
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$webapp1 = Get-AzWebApp -Name webapp1
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+$webapp2 = Get-AzWebApp -Name webapp2
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Ejemplo 2: Adición de un punto de conexión de publicIpAddress mediante `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Ejemplo 2: Adición de un punto de conexión de publicIpAddress mediante `New-AzTrafficManagerEndpoint`
 
 En este ejemplo, se agrega un recurso de dirección IP pública al perfil de Traffic Manager. La dirección IP pública debe tener un nombre DNS configurado y puede enlazarse a la NIC de una máquina virtual o a un equilibrador de carga.
 
 ```powershell
-$ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
-New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+$ip = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
+New-AzTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="adding-external-endpoints"></a>Adición de puntos de conexión externos
 
-Administrador de tráfico usa los puntos de conexión externos para dirigir el tráfico a los servicios hospedados fuera de Azure. Al igual que en el caso de los puntos de conexión de Azure, los puntos de conexión externos se pueden agregar mediante `Add-AzureRmTrafficManagerEndpointConfig` seguido de `Set-AzureRmTrafficManagerProfile` o `New-AzureRMTrafficManagerEndpoint`.
+Administrador de tráfico usa los puntos de conexión externos para dirigir el tráfico a los servicios hospedados fuera de Azure. Al igual que en el caso de los puntos de conexión de Azure, los puntos de conexión externos se pueden agregar mediante `Add-AzTrafficManagerEndpointConfig` seguido de `Set-AzTrafficManagerProfile` o `New-AzTrafficManagerEndpoint`.
 
 Cuando se especifican puntos de conexión externos:
 
@@ -152,23 +154,23 @@ Cuando se especifican puntos de conexión externos:
 * Si se usa el método de enrutamiento del tráfico "Performance", se necesita "EndpointLocation". De lo contrario, es opcional. El valor debe ser un [nombre de región de Azure válido](https://azure.microsoft.com/regions/).
 * Los parámetros "Weight" y "Priority" son opcionales.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Ejemplo 1: Adición de puntos de conexión externos mediante `Add-AzureRmTrafficManagerEndpointConfig` y `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Ejemplo 1: Adición de puntos de conexión externos mediante `Add-AzTrafficManagerEndpointConfig` y `Set-AzTrafficManagerProfile`
 
 En este ejemplo, se crea un perfil de Traffic Manager, se agregan dos puntos de conexión externos y se confirman los cambios.
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
+Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Ejemplo 2: Adición de puntos de conexión externos mediante `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Ejemplo 2: Adición de puntos de conexión externos mediante `New-AzTrafficManagerEndpoint`
 
 En este ejemplo, se agrega un punto de conexión externo a un perfil existente. El perfil se especifica mediante los nombres del grupo de recursos y del perfil.
 
 ```powershell
-New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
 ```
 
 ## <a name="adding-nested-endpoints"></a>Adición de puntos de conexión "Anidados"
@@ -182,26 +184,26 @@ Los puntos de conexión anidados se configuran en el perfil primario, utilizando
 * Los parámetros Weight y Priority son opcionales en cuanto a los puntos de conexión de Azure.
 * El parámetro "MinChildEndpoints" es opcional. El valor predeterminado es 1. Si el número de puntos de conexión disponibles se encuentra por debajo de este umbral, el perfil primario considera que dicho perfil está "degradado" y desvía el tráfico a los demás puntos de conexión del perfil primario.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Ejemplo 1: Adición de puntos de conexión anidados mediante `Add-AzureRmTrafficManagerEndpointConfig` y `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Ejemplo 1: Adición de puntos de conexión anidados mediante `Add-AzTrafficManagerEndpointConfig` y `Set-AzTrafficManagerProfile`
 
 En este ejemplo, se crean un perfil primario y otro secundario de Traffic Manager, se agrega el secundario como punto de conexión anidado al primario y se confirman los cambios.
 
 ```powershell
-$child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-$parent = New-AzureRmTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$child = New-AzTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$parent = New-AzTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
 Por brevedad, en este ejemplo, no se han agregado otros puntos de conexión al perfil primario ni al secundario.
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Ejemplo 2: Adición de puntos de conexión anidados mediante `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Ejemplo 2: Adición de puntos de conexión anidados mediante `New-AzTrafficManagerEndpoint`
 
 En este ejemplo, agregamos un perfil secundario existente como punto de conexión anidado a un perfil primario existente. El perfil se especifica mediante los nombres del grupo de recursos y del perfil.
 
 ```powershell
-$child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
-New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+$child = Get-AzTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
+New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
 ```
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Adición de puntos de conexión desde otra suscripción
@@ -209,39 +211,39 @@ New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -Reso
 Traffic Manager puede trabajar con puntos de conexión procedentes de distintas suscripciones. Debe cambiar a la suscripción con el punto de conexión que se va a agregar para recuperar la entrada necesaria para Traffic Manager. A continuación, debe cambiar a la suscripción con el perfil de Traffic Manager y agregarle el punto de conexión. En el ejemplo siguiente se muestra cómo llevar a cabo este procedimiento con una dirección IP pública.
 
 ```powershell
-Set-AzureRmContext -SubscriptionId $EndpointSubscription
-$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+Set-AzContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
 
-Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
-New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+Set-AzContext -SubscriptionId $trafficmanagerSubscription
+New-AzTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>Actualización de un punto de conexión de Administrador de tráfico
 
 Hay dos maneras de actualizar un punto de conexión del Administrador de tráfico existente:
 
-1. Obtenga el perfil de Traffic Manager mediante `Get-AzureRmTrafficManagerProfile`, actualice las propiedades de punto de conexión en el perfil y confirme los cambios con `Set-AzureRmTrafficManagerProfile`. Este método tiene la ventaja de poder actualizar más de un punto de conexión en una sola operación.
-2. Obtenga el perfil de Traffic Manager mediante `Get-AzureRmTrafficManagerEndpoint`, actualice las propiedades de punto de conexión y confirme los cambios con `Set-AzureRmTrafficManagerEndpoint`. Este método es más sencillo, ya que no requiere la indexación de la matriz de puntos de conexión en el perfil.
+1. Obtenga el perfil de Traffic Manager mediante `Get-AzTrafficManagerProfile`, actualice las propiedades de punto de conexión en el perfil y confirme los cambios con `Set-AzTrafficManagerProfile`. Este método tiene la ventaja de poder actualizar más de un punto de conexión en una sola operación.
+2. Obtenga el perfil de Traffic Manager mediante `Get-AzTrafficManagerEndpoint`, actualice las propiedades de punto de conexión y confirme los cambios con `Set-AzTrafficManagerEndpoint`. Este método es más sencillo, ya que no requiere la indexación de la matriz de puntos de conexión en el perfil.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Ejemplo 1: Actualización de puntos de conexión mediante `Get-AzureRmTrafficManagerProfile` y `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>Ejemplo 1: Actualización de puntos de conexión mediante `Get-AzTrafficManagerProfile` y `Set-AzTrafficManagerProfile`
 
 En este ejemplo, se va a modificar la prioridad de dos puntos de conexión en un perfil existente.
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
 $profile.Endpoints[0].Priority = 2
 $profile.Endpoints[1].Priority = 1
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Ejemplo 2: Actualización de un punto de conexión mediante `Get-AzureRmTrafficManagerEndpoint` y `Set-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Ejemplo 2: Actualización de un punto de conexión mediante `Get-AzTrafficManagerEndpoint` y `Set-AzTrafficManagerEndpoint`
 
 En este ejemplo, se modifica la ponderación de un solo punto de conexión en un perfil existente.
 
 ```powershell
-$endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
+$endpoint = Get-AzTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
 $endpoint.Weight = 20
-Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 ```
 
 ## <a name="enabling-and-disabling-endpoints-and-profiles"></a>Habilitación y deshabilitación de puntos de conexión y perfiles
@@ -260,10 +262,10 @@ Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourc
 Para deshabilitar un perfil de Traffic Manager:
 
 ```powershell
-Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-El cmdlet Disable-AzureRmTrafficManagerProfile solicita confirmación. Se puede suprimir este mensaje con el parámetro "-Force".
+El cmdlet Disable-AzTrafficManagerProfile solicita confirmación. Se puede suprimir este mensaje con el parámetro "-Force".
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Ejemplo 2: Habilitación y deshabilitación de un punto de conexión de Traffic Manager
 
@@ -279,27 +281,27 @@ Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -Prof
 De forma similar, para deshabilitar un punto de conexión de Administrador de tráfico:
 
 ```powershell
-Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+Disable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 ```
 
-Al igual que con `Disable-AzureRmTrafficManagerProfile`, el cmdlet `Disable-AzureRmTrafficManagerEndpoint` solicita confirmación. Se puede suprimir este mensaje con el parámetro "-Force".
+Al igual que con `Disable-AzTrafficManagerProfile`, el cmdlet `Disable-AzTrafficManagerEndpoint` solicita confirmación. Se puede suprimir este mensaje con el parámetro "-Force".
 
 ## <a name="delete-a-traffic-manager-endpoint"></a>Eliminación de un punto de conexión de Administrador de tráfico
 
-Para quitar puntos de conexión individuales, use el cmdlet `Remove-AzureRmTrafficManagerEndpoint`:
+Para quitar puntos de conexión individuales, use el cmdlet `Remove-AzTrafficManagerEndpoint`:
 
 ```powershell
-Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 Este cmdlet solicita confirmación. Se puede suprimir este mensaje con el parámetro "-Force".
 
 ## <a name="delete-a-traffic-manager-profile"></a>Eliminación de un perfil del Administrador de tráfico
 
-Para eliminar un perfil de Traffic Manager, use el cmdlet `Remove-AzureRmTrafficManagerProfile`, especificando el nombre del perfil y el del grupo de recursos:
+Para eliminar un perfil de Traffic Manager, use el cmdlet `Remove-AzTrafficManagerProfile`, especificando el nombre del perfil y el del grupo de recursos:
 
 ```powershell
-Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
+Remove-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
 ```
 
 Este cmdlet solicita confirmación. Se puede suprimir este mensaje con el parámetro "-Force".
@@ -307,14 +309,14 @@ Este cmdlet solicita confirmación. Se puede suprimir este mensaje con el parám
 El perfil que se va a eliminar también se puede especificar con un objeto de perfil:
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
 ```
 
 Se puede canalizar igualmente esta secuencia:
 
 ```powershell
-Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzTrafficManagerProfile [-Force]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

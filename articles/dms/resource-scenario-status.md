@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/11/2019
+ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904087"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993170"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 Azure Database Migration Service está diseñado para admitir una serie de escenarios de migración (pares de origen/destino) para las migraciones sin conexión (de un solo uso) y en línea (sincronización continua). Azure Database Migration Service proporciona una cobertura de escenarios que amplían constantemente. Nos encargamos de agregar nuevos escenarios de forma regular. En este artículo se identifican los escenarios de migración que actualmente son compatibles con Azure Database Migration Service y el estado (versión preliminar privada [o limitada], versión preliminar pública o disponibilidad general) de cada escenario.
@@ -50,7 +50,7 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Azure Cosmos DB**  | MongoDB | ✔ |
 | **Azure DB para MySQL**  | MySQL |  |
 |   | MySQL de RDS  |  |
-| **Azure DB para PostgresSQL**  | PostgreSQL |  |
+| **Azure DB para PostgreSQL**  | PostgreSQL |  |
 |  | PostgreSQL de RDS  |  |
 
 ### <a name="online-continuous-sync-migration-support"></a>Compatibilidad con la migración en línea (sincronización continua)
@@ -69,7 +69,7 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **Azure DB para MySQL**  | MySQL | ✔ |
 |   | MySQL de RDS  | ✔ |
-| **Azure DB para PostgresSQL**  | PostgreSQL | ✔ |
+| **Azure DB para PostgreSQL**  | PostgreSQL | ✔ |
 |  | PostgreSQL de RDS  | ✔ |
 
 ## <a name="next-steps"></a>Pasos siguientes

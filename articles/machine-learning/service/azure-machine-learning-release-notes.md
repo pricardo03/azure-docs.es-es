@@ -11,18 +11,40 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564347"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100183"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
 En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener una descripción completa de cada SDK, consulte los documentos de referencia de:
 + El [**SDK principal de Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
 + El [**SDK de preparación de datos de Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-11"></a>2019-02-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>SDK de Azure Machine Learning para Python v1.0.15
+
++ **Nuevas características:**
+  + Azure Machine Learning Pipelines agregó las funcionalidades AzureBatchStep ([bloc de notas](https://aka.ms/pl-azbatch)), HyperDriveStep ([bloc de notas](https://aka.ms/pl-hyperdrive)) y programación basada en tiempo ([bloc de notas](https://aka.ms/pl-schedule)).
+  +  La funcionalidad DataTranferStep se actualizó para funcionar con Azure Database para PostgreSQL ([bloc de notas](https://aka.ms/pl-data-trans)).
+
++ **Cambios**
+  + Entra en desuso `PublishedPipeline.get_published_pipeline` en favor de `PublishedPipeline.get`.
+  + Entra en desuso `Schedule.get_schedule` en favor de `Schedule.get`.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>SDK de preparación de datos de Azure Machine Learning v1.0.12
+
++ **Nuevas características:**
+  + La preparación de los datos admite la lectura desde una instancia de Azure SQL Database con Almacén de datos.
+ 
++ **Cambios**
+  + Se mejoró considerablemente el rendimiento de la memoria de determinadas operaciones en datos de gran tamaño.
+  + La opción `read_pandas_dataframe()` requiere que se especifique `temp_folder`.
+  + La propiedad `name` en `ColumnProfile` está en desuso, use `column_name` en su lugar.
 
 ## <a name="2019-01-28"></a>28-01-2019
 

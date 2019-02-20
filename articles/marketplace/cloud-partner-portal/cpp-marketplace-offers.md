@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658715"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100903"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -32,6 +32,18 @@ En el siguiente vídeo se presentan las diversas funcionalidades y diferentes ti
 **Creación de aplicaciones y servicios para Azure Marketplace y AppSource: Build 2018**
 
 Para obtener más información sobre los Marketplace, consulte la [guía de publicación de Azure Marketplace y AppSource](../marketplace-publishers-guide.md).
+
+
+## <a name="common-offer-operations"></a>Operaciones comunes de las ofertas
+
+El proceso de creación de una nueva oferta difiere en gran medida de los tipos de oferta, por ejemplo entre una [oferta de aplicación de Azure](./azure-applications/cpp-azure-app-offer.md) y una [oferta de servicio de consultoría](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  En cambio, muchas de las demás operaciones que realiza en una oferta del [Cloud Partner Portal](https://cloudpartner.azure.com) están bastante estandarizadas en los tipos de oferta.  Estas operaciones comunes, incluidas publicar, ver estado, actualizar y eliminar, se tratan en la sección [Administrar ofertas](./manage-offers/cpp-manage-offers.md)
+
+
+## <a name="test-drive"></a>Versión de prueba
+
+*Versión de prueba* es una característica de Marketplace que proporciona a los clientes una opción de demostración "probar antes de comprar" para determinadas ofertas.  La capacidad de la versión de prueba se limita al siguiente subconjunto de tipos de oferta: [Aplicaciones de Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [aplicaciones SaaS](./saas-app/cpp-saas-offer.md) y [máquinas virtuales](./virtual-machine/cpp-virtual-machine-offer.md).  Esta funcionalidad requiere que el publicador cree una plantilla Versión de prueba personalizada para su oferta.  Para más información, consulte la sección [Versión de prueba](../cloud-partner-portal-orig/what-is-test-drive.md).
+
+Puede examinar las ofertas de Marketplace existentes que tienen las demostraciones de la Versión de prueba mediante el uso del [filtro de versión de prueba](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Tipos de oferta de Azure Marketplace y AppSource

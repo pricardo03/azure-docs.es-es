@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 752be8270f3eb0bcc018cfcb7f87f30f5afbc60a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753102"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245191"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -178,7 +178,7 @@ Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco
 **Componente** | **Soporte técnico** | **Detalles**
 --- | --- | ---
 Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) sobre discos de máquina virtual.
-Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No guarde los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Tamaño máximo del disco de datos | 4095 GB |
 Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/windows/sizes.md) sobre tamaños de máquina virtual.
 Tasa de cambio de disco de datos | Máximo de 10 MBps por disco para el almacenamiento Premium. Máximo de 2 MBps por disco para el almacenamiento Estándar. | Si la tasa media de cambio de los datos en el disco sobrepasa el máximo continuamente, la replicación no mantendrá el ritmo.<br/><br/>  Sin embargo, si se supera el máximo esporádicamente, la replicación podrá mantenerlo, aunque podría ver puntos de recuperación ligeramente retrasados.

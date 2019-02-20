@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587513"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997030"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
 
@@ -93,9 +93,9 @@ Aparecen varios cuadros **Editar** cerca de los diversos elementos del libro. Se
 
 ![Captura de pantalla de los cuadros de edición](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Esto revela la consulta subyacente de Log Analytics que está administrando la visualización de la tabla.
+Esto revela la consulta de registro subyacente que está administrando la visualización de la tabla.
 
- ![Captura de pantalla de la ventana de consulta de Log Analytics](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Captura de pantalla de la ventana de consulta de registro](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Puede modificar la consulta directamente. O puede usarla como referencia y tomarla prestado cuando diseñe su propio libro de parámetros personalizado.
 

@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037505"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994961"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services con .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services con .NET (heredado)
+
 Al ejecutar trabajos de codificación, muchas veces se requiere una forma de hacer un seguimiento del progreso del trabajo. Puede configurar Media Services para entregar notificaciones a [Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md). Puede supervisar el progreso del trabajo obteniendo notificaciones desde Queue Storage. 
 
 Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería de Queue Storage es fiable y altamente escalable. El sondeo de mensajes en Queue Storage es preferible a otros métodos.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-El ejemplo anterior generó el siguiente resultado, pero sus valores variarán.
+El ejemplo anterior genera el siguiente resultado: Los valores variarán.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

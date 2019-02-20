@@ -1,6 +1,6 @@
 ---
-title: Carga de datos en Azure Data Lake Storage Gen2 (versión preliminar) con Azure Data Factory
-description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Storage Gen2 (versión preliminar)
+title: Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory
+description: Uso de Azure Data Factory para copiar datos en Azure Data Lake Storage Gen2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6b03e08200c4d20a64fad329abda71c5c7edab26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680861"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876086"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 (versión preliminar) con Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory
 
-Azure Data Lake Storage Gen2 (versión preliminar) es un conjunto de funcionalidades dedicadas al análisis de macrodatos, creadas en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos.
+‎Azure Data Lake Storage Gen2 es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos.
 
 Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar el lago con datos de un amplio conjunto de almacenes de datos locales y basados en la nube y ahorrar tiempo al crear las soluciones de análisis. Para una lista detallada de conectores admitidos, consulte la tabla de [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -92,7 +92,7 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
 
     ![Especificación de carpeta de salida](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. En la página **Destination data store** (Almacén de datos de destino), haga clic en **+ Create new connection** (Crear nueva conexión) y, a continuación, seleccione **Azure Data Lake Storage Gen2 (Preview)** y seleccione **Continue**  (Continuar):
+7. En la página **Almacén de datos de destino**, haga clic en **+Crear nueva conexión** y después seleccione **Azure Data Lake Storage Gen2** y **Continuar**:
 
     ![Página Destination data store (Almacén de datos de destino)](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 

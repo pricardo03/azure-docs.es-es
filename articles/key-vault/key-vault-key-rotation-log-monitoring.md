@@ -4,7 +4,7 @@ description: Utilice este tutorial para establecer la configuración con rotaci�
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077715"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106127"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 
 ## <a name="introduction"></a>Introducción
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Cuando disponga de un almacén de claves, puede empezar a usarlo para almacenar claves y secretos. Ya no será necesario que las claves y los secretos se guarden en las aplicaciones, sino que estas los solicitarán al almacén cuando sea preciso. De este modo, puede actualizar las claves y los secretos sin que esto afecte al rendimiento de la aplicación, lo que brinda un amplio abanico de posibilidades en lo que respecta a la administración de las claves y los secretos.
 
@@ -36,7 +38,7 @@ Este artículo ofrece lo siguiente:
 - Se explica cómo supervisar los registros de auditoría del almacén de claves y cómo generar alertas cuando se realizan solicitudes inesperadas.
 
 > [!NOTE]
-> En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener información, consulte [Introducción a Azure Key Vault](key-vault-get-started.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración de Key Vault mediante la CLI](key-vault-manage-with-cli2.md).
+> En este tutorial no se explica en detalle la configuración inicial del almacén de claves. Para obtener más información, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md). Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [Administración de Key Vault mediante la CLI](key-vault-manage-with-cli2.md).
 >
 >
 
@@ -45,7 +47,7 @@ Este artículo ofrece lo siguiente:
 Para que una aplicación pueda recuperar un secreto de Key Vault, primero debe crear el secreto y guardarlo en el almacén. Para ello, abra una sesión de Azure PowerShell e inicie sesión en su cuenta de Azure con el siguiente comando:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. PowerShell obtendrá todas las suscripciones asociadas a esta cuenta. PowerShell utiliza la primera de forma predeterminada.
@@ -53,19 +55,19 @@ En la ventana emergente del explorador, escriba el nombre de usuario y la contra
 Si tiene varias suscripciones, es posible que deba especificar la que se usó para crear el almacén de claves. Escriba lo siguiente para ver las suscripciones de su cuenta:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Para especificar la suscripción asociada al almacén de claves que registrará, escriba:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Dado que en este artículo se explica cómo se guarda una clave de cuenta de almacenamiento como un secreto, debe obtener dicha clave.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 Una vez recuperado el secreto (en este caso, la clave de la cuenta de almacenamiento), debe convertir la clave en una cadena segura y crear un secreto con ese valor en el almacén de claves.
@@ -73,13 +75,13 @@ Una vez recuperado el secreto (en este caso, la clave de la cuenta de almacenami
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 A continuación, obtenga el identificador URI para el secreto que creó. Este se utilizará en un paso posterior, cuando llame al almacén de claves para recuperar el secreto. Ejecute el siguiente comando de PowerShell y anote el valor de identificación, que es el URI del secreto:
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configuración de la aplicación
@@ -110,7 +112,7 @@ A continuación, genere una clave para su aplicación para que pueda interactuar
 Antes de definir en el almacén de claves las llamadas que se realizarán desde la aplicación, debe proporcionar al almacén de claves los datos de la aplicación y sus permisos. El comando siguiente toma el nombre del almacén y el identificador de la aplicación de Azure Active Directory y concede a la aplicación el permiso **Get** para acceder al almacén de claves.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 Llegados a este punto, ya tiene todo listo para empezar a crear las llamadas a la aplicación. En primer lugar, deberá instalar en la aplicación los paquetes NuGet necesarios para poder interactuar con Azure Key Vault y Azure Active Directory. En la Consola del Administrador de paquetes de Visual Studio, escriba los siguientes comandos. Cuando se redactó este artículo, la versión más reciente del paquete de Azure Active Directory era la 3.10.305231913; por tanto, debe confirmar que se trata de la última versión y actualizar en caso necesario.
@@ -188,7 +190,7 @@ En **Recursos**, elija **Módulos**. En **Módulos**, seleccione **Galería** y,
 Una vez que haya recuperado el identificador de aplicación de la conexión de Azure Automation, debe notificar al almacén de claves que la aplicación tiene acceso para actualizar los secretos del almacén. Para ello, puede utilizar el siguiente comando de PowerShell:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 A continuación, seleccione **Runbooks** en la instancia de Azure Automation y, después, seleccione **Agregar un runbook**. Seleccione **Creación rápida**. Asigne un nombre al runbook y seleccione **PowerShell** como tipo del runbook. Tiene la opción de agregar una descripción. Por último, haga clic en **Crear**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Si desea probar el script, seleccione **Panel de prueba**. Una vez que el script se ejecuta sin errores, puede seleccionar **Publicar** y aplicar después una programación para el runbook desde el panel de configuración.
@@ -246,9 +248,9 @@ Cuando configure un almacén de claves, puede habilitar la auditoría para que s
 En primer lugar, debe habilitar los registros en el almacén de claves. Para ello, puede utilizar los siguientes comandos de PowerShell (consulte una explicación detallada en [key-vault-logging](key-vault-logging.md)):
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 Una vez habilitado, comenzarán a recopilarse registros de auditoría en la cuenta de almacenamiento designada. Estos registros incluirán eventos acerca de qué usuario, cómo y cuándo ha obtenido acceso a los almacenes de claves.

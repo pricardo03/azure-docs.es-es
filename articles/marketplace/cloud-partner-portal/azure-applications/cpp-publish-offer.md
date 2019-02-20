@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177039"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098228"
 ---
 # <a name="publish-azure-application-offer"></a>Publicación de una oferta de aplicación de Azure
 
@@ -46,7 +46,6 @@ En la siguiente tabla se enumera y se describe cada paso de publicación, y se i
 | En vivo                           | <1 día | La oferta se lanza, se replica en las regiones especificadas y se pone a disposición del público. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 Puede supervisar el proceso de publicación en la pestaña **Status** (Estado) de la oferta en Cloud Partner Portal.
 
 ![Pestaña de estado de una oferta de aplicación de Azure](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ Puede supervisar el proceso de publicación en la pestaña **Status** (Estado) d
 Cuando termina el proceso de publicación, la oferta se mostrará en la [categoría de aplicaciones de Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
-
 ## <a name="errors-and-review-feedback"></a>Errores y comentarios de revisión
 
-Además de mostrar el estado de publicación de la oferta, la pestaña **Status** (Estado) también muestra los mensajes de error y los comentarios del paso de **revisión de Microsoft**.  Normalmente, a los problemas de revisión se hace referencia con solicitudes de incorporación de cambios (PR).  Cada solicitud de incorporación de cambios está vinculada a un elemento en línea de Visual Studio Team Services (VSTS, que ahora se llama [Azure DevOps](https://azure.microsoft.com/services/devops/)) con los detalles sobre el problema.  En la siguiente imagen se muestra un ejemplo de una referencia de solicitud de incorporación de cambios de revisión.  Para situaciones más complejas, los equipos de revisión y soporte técnico pueden escribir por correo electrónico. 
-
-![Pestaña Status (Estado) con los comentarios de revisión](./media/status-tab-ms-review.png)
-
-Para que la oferta pueda continuar el proceso de publicación, debe resolver todos los problemas notificados.  En el siguiente diagrama se ilustra cómo se relacionan estos comentarios con la publicación.
-
-![Pasos de publicación con comentarios de VSTS](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>Acceso a VSTS
-
-Para ver los elementos de VSTS a los que se hace referencia en los comentarios de revisión, los publicadores deben tener la autorización pertinente.  De lo contrario, los publicadores nuevos reciben una página de respuesta de tipo `401 - Not Authorized`.  Para solicitar acceso al sistema de VSTS de revisión de ofertas, realice los siguientes pasos:
-
-1. Recopile la siguiente información:
-    - El nombre y el identificador del publicador
-    - Tipo de oferta (aplicación de Azure), nombre de la oferta e identificador de la SKU
-    - Vínculo de la solicitud de incorporación de cambios, por ejemplo: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>` Esta dirección URL se puede recuperar del mensaje de notificación o de la dirección de la página de respuesta de tipo 401.
-    - Direcciones de correo electrónico de las personas de su organización de publicación a las que desea conceder acceso.  Estas deben incluir las direcciones del propietario que proporcionó al registrarse como publicador en Cloud Partner Portal.
-2. Cree una incidencia de soporte técnico.  En la barra de título de Cloud Partner Portal, seleccione el botón **Help** (Ayuda) y elija **Support** (Soporte técnico) en el menú.  El navegador web predeterminado debe iniciar la página de Microsoft con el nuevo incidente de soporte técnico e ir a ella.  (Es posible que deba iniciar sesión).
-3. Especifique **Problem type** (Tipo de problema) como **Marketplace Onboarding** (Incorporación a Marketplace) y **Category** (Categoría) como **Access problem** (Problema de acceso), y seleccione **Start request** (Iniciar solicitud).
-
-    ![Categoría de la incidencia de soporte técnico](./media/support-incident1.png)
-
-4. En la página **Step 1 of 2** (Paso 1 de 2), proporcione la información de contacto y seleccione **Continue** (Continuar).
-5. En la página **Step 2 of 2** (Paso 2 de 2), especifique un título de incidente (por ejemplo, `Request VSTS access`) y proporcione la información recopilada en el primer paso (arriba).  Lea y acepte el contrato y seleccione **Send** (Enviar).
-
-Si el incidente se creó correctamente, se mostrará una página de confirmación.  Guarde la información de confirmación para consultarla en el futuro.  El servicio de soporte técnico de Microsoft debe responder a la solicitud de acceso en unos días hábiles.
+Además de mostrar el estado de publicación de la oferta, la pestaña **Status** (Estado) también muestra los mensajes de error y los comentarios de los pasos de publicación en los que se encontró un problema.  Si el problema es crítico, se cancelará la publicación.  A continuación, debe corregir los problemas notificados y volver a publicar la oferta.  Dado que el paso de **revisión de Microsoft** representa una revisión extensiva de la oferta y sus recursos técnicos asociados (especialmente la plantilla de Azure Resource Manager), los problemas normalmente aparecen como vínculos de solicitud de incorporación de cambios.  Para obtener una explicación sobre cómo ver y responder a estas solicitudes de incorporación de cambios, consulte [Administración de la revisión de comentarios](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez publicada una aplicación de Azure, puede [actualizar la oferta existente](./cpp-update-existing-offer.md) para reflejar cambios empresariales o de los requisitos técnicos. 
+Si encontró errores en uno o varios de los pasos de la publicación, debe corregirlos y volver a publicar su oferta.  Si se detectan problemas críticos en el paso de **revisión de Microsoft**, debe [controlar los comentarios de revisión](./cpp-handling-review-feedback.md) mediante el acceso al repositorio de Azure DevOps del equipo de revisión de Microsoft.
+
+Una vez publicada correctamente una aplicación de Azure, puede [actualizar la oferta existente](./cpp-update-existing-offer.md) para reflejar cambios empresariales o de los requisitos técnicos. 

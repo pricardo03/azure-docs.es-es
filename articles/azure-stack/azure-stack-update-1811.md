@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766102"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099146"
 ---
 # <a name="azure-stack-1811-update"></a>Actualización de Azure Stack 1811
 
@@ -118,6 +118,18 @@ Esta actualización incluye las siguientes nuevas características y correccione
 - Managed Disks ahora está habilitado de forma predeterminada al crear máquinas virtuales mediante el portal de Azure Stack. Vea la sección [problemas conocidos](#known-issues-post-installation) para conocer los pasos adicionales necesarios para que Managed Disks evite errores de creación de máquina virtual.
 
 - Esta versión presenta acciones de **Reparación** de alerta para el operador de Azure Stack. Algunas alertas en 1811 proporcionan un botón **Reparación** en la alerta en el que se puede hacer clic para resolver el problema. Para obtener más información, vea [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md).
+
+- Actualizaciones en la experiencia de actualización de Azure Stack. Las mejoras de esta actualización incluyen: 
+    - Pestañas que dividen las actualizaciones del historial de actualizaciones para realizar un mejor seguimiento de las actualizaciones en curso y las completadas.
+    - Visualizaciones de estado mejoradas en la sección Essentials con nuevos iconos y diseño para las versiones actuales y de OEM, así como la última fecha de actualización.
+    - El vínculo **Ver** de la columna de notas de la versión lleva al usuario directamente a la documentación específica para esa actualización en lugar de a la página de actualizaciones genérica.
+    - La pestaña **Historial de actualizaciones** que se usa para determinar los tiempos de ejecución para cada una de las actualizaciones, así como funcionalidades de filtrado mejoradas.  
+    - Las unidades de escalado de Azure Stack que están conectadas seguirán recibiendo automáticamente las **actualizaciones disponibles** conforme estén disponibles.
+    - Las unidades de escalado de Azure Stack que no están conectadas pueden importar las actualizaciones al igual que antes. 
+    - No hay ningún cambio en el proceso para descargar los registros JSON desde el portal. Los operadores de Azure Stack verán los pasos de expansión que expresan el progreso.
+
+    Para más información, consulte [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Problemas corregidos
 

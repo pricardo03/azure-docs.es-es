@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251306"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097392"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Copia de seguridad y recuperación de datos para Azure Stack con el servicio Infrastructure Backup
 
@@ -52,12 +52,16 @@ Los servicios contienen las características siguientes.
   Necesita un recurso compartido de archivos accesible desde Azure Stack que pueda contener siete copias de seguridad. Cada copia de seguridad ocupa aproximadamente 10 GB. El recurso compartido debe ser capaz de almacenar 140 GB de copias de seguridad. Para obtener más información acerca de cómo seleccionar una ubicación de almacenamiento para el servicio Infrastructure Backup de Azure Stack, consulte [Backup Controller requirements](azure-stack-backup-reference.md#backup-controller-requirements) (Requisitos de Backup Controller).
 - **Credenciales**  
   Se necesita una cuenta de usuario de dominio y credenciales, por ejemplo, puede utilizar las credenciales de administrador de Azure Stack.
-- **Clave de cifrado**  
-  Los archivos de copia de seguridad se cifran mediante esta clave. Asegúrese de almacenar esta clave en una ubicación segura. Una vez que configure esta clave por primera vez o la rote en el futuro, no podrá verla desde esta interfaz. Para obtener más instrucciones sobre cómo generar una clave precompartida, siga los scripts de [Habilitación de la copia de seguridad para Azure Stack con PowerShell ](azure-stack-backup-enable-backup-powershell.md).
+- **Certificado de cifrado**  
+  Los archivos de copia de seguridad se cifran mediante la clave pública del certificado. Asegúrese de almacenar este certificado en una ubicación segura. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Habilitación de la copia de seguridad de Azure Stack desde el portal de administración](azure-stack-backup-enable-backup-console.md).
-- Consulte [Habilitación de la copia de seguridad de Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Consulte [Recover from catastrophic data loss](azure-stack-backup-recover-data.md) (Recuperación después de una pérdida de datos grave).
+Consulte [Habilitación de la copia de seguridad de Azure Stack desde el portal de administración](azure-stack-backup-enable-backup-console.md).
+
+Consulte [Habilitación de la copia de seguridad de Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+Consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+
+Consulte [Recover from catastrophic data loss](azure-stack-backup-recover-data.md) (Recuperación después de una pérdida de datos grave).

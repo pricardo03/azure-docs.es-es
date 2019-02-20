@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546868"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981424"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
+
 
 Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el rendimiento y la seguridad de la infraestructura host de las máquinas virtuales (VM). Las actualizaciones podrían incluir la aplicación de revisiones en el entorno de hospedaje o la actualización y la retirada de hardware. La mayoría de las actualizaciones no afectan a las máquinas virtuales hospedadas. Sin embargo, sí afectan a las máquinas virtuales en estos escenarios:
 
@@ -38,10 +39,8 @@ El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola
 
 El objetivo de tener dos ventanas es proporcionar tiempo suficiente para que pueda iniciar el mantenimiento y reiniciar la máquina virtual sabiendo cuándo iniciará Azure el mantenimiento automáticamente.
 
-
 Puede usar Azure Portal, PowerShell, la API REST y la CLI de Azure para consultar las ventanas de mantenimiento de las máquinas virtuales del conjunto de escalado de máquinas virtuales e iniciar el mantenimiento de autoservicio.
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>¿Debe comenzar el mantenimiento durante la ventana de autoservicio?  
 
 Las directrices siguientes pueden ayudarlo a decidir si iniciar el mantenimiento a una hora que elija.
@@ -89,7 +88,7 @@ La columna **Mantenimiento de autoservicio** aparece ahora en la lista de conjun
 
 | Valor | DESCRIPCIÓN |
 |-------|-------------|
-| SÍ | Al menos una máquina virtual del conjunto de escalado de máquinas virtuales está en una ventana de autoservicio. Puede iniciar el mantenimiento en cualquier momento durante esta ventana de autoservicio. | 
+| Sí | Al menos una máquina virtual del conjunto de escalado de máquinas virtuales está en una ventana de autoservicio. Puede iniciar el mantenimiento en cualquier momento durante esta ventana de autoservicio. | 
 | Sin  | No hay ninguna máquina virtual en una ventana de autoservicio en el conjunto de escalado de máquinas virtuales afectado. | 
 | - | Los conjuntos de escalado de máquinas virtuales no forman parte de una ola de mantenimiento planeado.| 
 
@@ -118,12 +117,12 @@ Una vez que comience el mantenimiento, las máquinas virtuales afectadas del con
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Comprobación del estado de mantenimiento con PowerShell
 
-Puede usar Azure PowerShell para ver cuándo está programado el mantenimiento de las máquinas virtuales de sus conjuntos de escalado. La información de mantenimiento planeado está disponible mediante el cmdlet [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cuando se usa el parámetro `-InstanceView`.
+Puede usar Azure PowerShell para ver cuándo está programado el mantenimiento de las máquinas virtuales de sus conjuntos de escalado. La información de mantenimiento planeado está disponible mediante el cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cuando se usa el parámetro `-InstanceView`.
  
 La información de mantenimiento se devuelve solo si hay mantenimiento planeado. Si no está programado ningún mantenimiento que afecte a la instancia de la máquina virtual, el cmdlet no devuelve ninguna información de mantenimiento. 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus**: 
@@ -140,10 +139,10 @@ Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus**:
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Inicio del mantenimiento en la instancia de máquina virtual mediante PowerShell
 
-Puede iniciar el mantenimiento en una máquina virtual si **IsCustomerInitiatedMaintenanceAllowed** está establecido en **true**. Use el cmdlet [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) con el parámetro `-PerformMaintenance`.
+Puede iniciar el mantenimiento en una máquina virtual si **IsCustomerInitiatedMaintenanceAllowed** está establecido en **true**. Use el cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) con el parámetro `-PerformMaintenance`.
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Comprobación del estado de mantenimiento mediante la CLI

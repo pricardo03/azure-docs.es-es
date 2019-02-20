@@ -1,6 +1,6 @@
 ---
-title: 'Cómo configurar Azure SQL Database: base de datos independiente | Microsoft Docs'
-description: 'Aprenda a configurar y administrar Azure SQL Database: base de datos independiente'
+title: 'Cómo configurar Azure SQL Database: base de datos única | Microsoft Docs'
+description: 'Aprenda cómo configurar y administrar Azure SQL Database: base de datos única.'
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 613b4b700be580c2a0847881e64eedbeedee0c65
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: c85a7106e9567859c34345528c6549bcd752f1c6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510545"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100472"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Cómo usar una base de datos única en Azure SQL Database
 
@@ -25,7 +25,7 @@ En esta sección puede encontrar diferentes guías, scripts y explicaciones que 
 
 ## <a name="migrate"></a>Migrar
 
-- [Migración a SQL Database](sql-database-cloud-migrate.md): obtenga información sobre el proceso de migración y las herramientas que se recomiendan para la migración a una instancia administrada.
+- [Migración a SQL Database](sql-database-single-database-migrate.md): obtenga información sobre el proceso de migración y las herramientas que se recomiendan para la migración a una instancia administrada.
 - Aprenda cómo [administrar SQL Database después de la migración](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configuración de características

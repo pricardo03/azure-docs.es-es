@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450190"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005529"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
-Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [registros populares de Log Analytics convertidos en métricas](../../azure-monitor/platform/alerts-metric-logs.md) y métricas estándar de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen un estado, solo envían notificaciones cuando cambia ese estado.
+Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [registros populares de Azure Monitor convertidos en métricas](../../azure-monitor/platform/alerts-metric-logs.md) y métricas estándar de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen un estado, solo envían notificaciones cuando cambia ese estado.
 
 ## <a name="how-do-metric-alerts-work"></a>Cómo funcionan las alertas de métricas
 
@@ -147,34 +147,34 @@ Si ya utiliza alertas de métricas clásicas y desea ver si las alertas de métr
 
 |Tipo de recurso compatible con alertas de métricas clásicas | Compatible con alertas de métricas |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | SÍ |
-| Microsoft.Batch/batchAccounts| SÍ|
-|Microsoft.Cache/redis| SÍ
+| Microsoft.ApiManagement/service | Sí |
+| Microsoft.Batch/batchAccounts| Sí|
+|Microsoft.Cache/redis| Sí
 |Microsoft.ClassicCompute/virtualMachines | Sin  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Sin |
 |Microsoft.CognitiveServices/accounts | Sin  |
-|Microsoft.Compute/virtualMachines | SÍ|
-|Microsoft.Compute/virtualMachineScaleSets| SÍ|
+|Microsoft.Compute/virtualMachines | Sí|
+|Microsoft.Compute/virtualMachineScaleSets| Sí|
 |Microsoft.ClassicStorage/storageAccounts| Sin  |
-|Microsoft.DataFactory/datafactories | SÍ|
-|Microsoft.DBforMySQL/servers| SÍ|
-|Microsoft.DBforPostgreSQL/servers| SÍ|
+|Microsoft.DataFactory/datafactories | Sí|
+|Microsoft.DBforMySQL/servers| Sí|
+|Microsoft.DBforPostgreSQL/servers| Sí|
 |Microsoft.Devices/IotHubs | Sin |
 |Microsoft.DocumentDB/databaseAccounts| Sin |
-|Microsoft.EventHub/namespaces | SÍ|
-|Microsoft.Logic/workflows | SÍ|
-|Microsoft.Network/loadBalancers |SÍ|
-|Microsoft.Network/publicIPAddresses| SÍ|
-|Microsoft.Network/applicationGateways| SÍ|
-|Microsoft.Network/expressRouteCircuits| SÍ|
-|Microsoft.Network/trafficManagerProfiles | SÍ|
+|Microsoft.EventHub/namespaces | Sí|
+|Microsoft.Logic/workflows | Sí|
+|Microsoft.Network/loadBalancers |Sí|
+|Microsoft.Network/publicIPAddresses| Sí|
+|Microsoft.Network/applicationGateways| Sí|
+|Microsoft.Network/expressRouteCircuits| Sí|
+|Microsoft.Network/trafficManagerProfiles | Sí|
 |Microsoft.Search/searchServices | Sin |
 |Microsoft.ServiceBus/namespaces| Sin |
-|Microsoft.Storage/storageAccounts | SÍ|
-|Microsoft.StreamAnalytics/streamingjobs| SÍ|
-|Microsoft.TimeSeriesInsights/environments | SÍ|
-|Microsoft. Web/serverfarms | SÍ |
-|Microsoft. Web/sites (se excluyen funciones) | SÍ|
+|Microsoft.Storage/storageAccounts | Sí|
+|Microsoft.StreamAnalytics/streamingjobs| Sí|
+|Microsoft.TimeSeriesInsights/environments | Sí|
+|Microsoft. Web/serverfarms | Sí |
+|Microsoft. Web/sites (se excluyen funciones) | Sí|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Sin |
 |Microsoft. Web/hostingEnvironments/workerPools| Sin 
 |Microsoft.SQL/Servers | Sin |

@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434996"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980880"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en máquinas virtuales Linux
 
 Si desea impedir el uso o la instalación de determinadas extensiones en las máquinas virtuales Windows, puede crear una directiva de Azure mediante PowerShell para restringir las extensiones de las máquinas virtuales dentro de un grupo de recursos. 
 
-En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza constantemente a la versión más reciente. Si decide instalar y usar PowerShell de forma local, para este tutorial necesitará la versión 3.6 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza constantemente a la versión más reciente. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>Creación de un archivo de reglas
 
@@ -97,13 +99,13 @@ Cuando haya terminado, presione **Ctrl + O** y, a continuación, **Entrar** para
 
 ## <a name="create-the-policy"></a>Creación de la directiva
 
-Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree una definición de directiva mediante el cmdlet [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree una definición de directiva mediante el cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
 
  Las reglas y los parámetros de la directiva son los archivos creados y almacenados como archivos .json en Cloud Shell.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Asignación de la directiva
 
-En este ejemplo se asigna la directiva a un grupo de recursos mediante [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar las extensiones de agente de acceso de máquina virtual o de script personalizado. 
+En este ejemplo se asigna la directiva a un grupo de recursos mediante [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar las extensiones de agente de acceso de máquina virtual o de script personalizado. 
 
-Use el cmdlet [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) para obtener el identificador de suscripción y usarlo para sustituir al del ejemplo.
+Use el cmdlet [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) para obtener el identificador de suscripción y usarlo para sustituir al del ejemplo.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>Prueba de la directiva
 
-Para probar la directiva, intente usar la extensión de acceso de máquina virtual. Se producirá un error con el mensaje "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy" (Set-AzureRmVMAccessExtension: la directiva no permitió el recurso "myVMAccess").
+Para probar la directiva, intente usar la extensión de acceso de máquina virtual. Se producirá un error con el mensaje "Set-AzVMAccessExtension: Resource 'myVMAccess' was disallowed by policy" (Set-AzVMAccessExtension: la directiva no permitió el recurso "myVMAccess").
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ En el portal, el cambio de contraseña generará un error con el mensaje "The te
 ## <a name="remove-the-assignment"></a>Eliminación de la asignación
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>Eliminación de la directiva
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Pasos siguientes

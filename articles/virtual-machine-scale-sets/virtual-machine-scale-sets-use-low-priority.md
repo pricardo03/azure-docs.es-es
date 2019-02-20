@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811110"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978143"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Máquinas virtuales de prioridad baja en conjuntos de escalado (versión preliminar)
 
@@ -69,10 +69,10 @@ az vmss create \
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
 El proceso para crear un conjunto de escalado con máquinas virtuales de prioridad baja es igual al que se detalla en el [artículo de introducción](quick-create-powershell.md).
-Basta con que agregue el parámetro "--Priority" a [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) y lo establezca en *Baja*, como se muestra en el ejemplo siguiente:
+Basta con que agregue el parámetro "-Priority" a [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) y lo establezca en *Low*, como se muestra en el ejemplo siguiente:
 
 ```powershell
-$vmssConfig = New-AzureRmVmssConfig `
+$vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `

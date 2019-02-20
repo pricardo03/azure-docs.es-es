@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258857"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892242"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 
@@ -94,7 +94,7 @@ Esto concluye todo el trabajo que debe hacerse en Power BI Desktop, pero hay una
 * **username** (opcional): se utiliza con RLS y es una cadena que puede usarse para ayudar a identificar el usuario cuando se aplican las reglas RLS. Consulte el uso de la seguridad de nivel de fila con Power BI Embedded
 * **roles** : una cadena que contiene las funciones que seleccione al aplicar las reglas de seguridad de nivel de fila. Si se pasa más de un rol, se deben pasar como una matriz de cadenas.
 
-El token se crea con el método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Si la propiedad username está presente, también debe pasar al menos un valor en los roles.
+El token se crea con el método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Si la propiedad username está presente, también debe pasar al menos un valor en los roles.
 
 Por ejemplo, puede cambiar EmbedSample. La línea 55 de DashboardController se puede actualizar desde
 

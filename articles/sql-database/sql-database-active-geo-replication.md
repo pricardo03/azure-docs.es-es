@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468281"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995075"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Creación de bases de datos secundarias legibles mediante la replicación geográfica activa
 
@@ -46,6 +46,14 @@ Con la replicación geográfica activa puede administrar la replicación y la co
 Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
 La replicación geográfica activa aprovecha la tecnología [AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server para replicar de forma asincrónica las transacciones confirmadas en la base de datos principal a una base de datos secundaria mediante aislamiento instantáneo de instantáneas. Los grupos de conmutación por error automática proporcionan la semántica de grupo sobre la replicación geográfica activa, pero se usa el mismo mecanismo de replicación asincrónico. Mientras que, en cualquier momento dado, la base de datos secundaria puede ir ligeramente por detrás de la base de datos principal, se garantiza que los datos secundarios nunca tengan transacciones parciales. La redundancia entre regiones permite que las aplicaciones se recuperen rápidamente de la pérdida permanente de todo un centro de datos, o de partes de él, causada por desastres naturales, errores humanos catastróficos o actos malintencionados. Los datos específicos de RPO se encuentran en [Introducción a la continuidad empresarial](sql-database-business-continuity.md).
+
+> [!NOTE]
+> Si se produce un error de conexión entre dos regiones, intentamos volver a establecer las conexiones cada 10 segundos.
+> [!IMPORTANT]
+> Para garantizar que un cambio importante en la base de datos principal se replique en una secundaria antes de la conmutación por error, puede forzar la sincronización para garantizar la replicación de cambios importantes (por ejemplo, las actualizaciones de contraseñas). La sincronización forzada afecta al rendimiento al bloquear el subproceso de llamada hasta que todas las transacciones confirmadas se replican. Para más información, consulte [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para supervisar el retraso de replicación entre la base de datos principal y la base de datos secundaria geográficamente, consulte [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+
+
+
 
 En la siguiente ilustración, se muestra un ejemplo de replicación geográfica activa configurada con una principal en la región centro-norte de EE. UU. y una secundaria en la región centro-sur de EE. UU.
 
@@ -94,7 +102,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Tamaño de proceso configurable de la base de datos secundaria**
 
-  Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Una base de datos secundaria con un tamaño de proceso inferior corre el riesgo de sufrir mayor retraso en la replicación o posible no disponibilidad y, por consiguiente, corre el riesgo de pérdida de datos considerable después de una conmutación por error. Como resultado, el RPO publicado de 5 s no se puede garantizar. El otro riesgo es que después de la conmutación por error, el rendimiento de la aplicación se verá afectado debido a una falta de capacidad de proceso de la nueva base de datos principal hasta que se actualice a un tamaño de proceso superior. El tiempo de la actualización depende del tamaño de la base de datos. Además, actualmente, dicha actualización requiere que tanto la base de datos principal como la secundaria estén en línea y, por lo tanto, no se puede completar hasta que se reduzca la interrupción. Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](sql-database-service-tiers.md)
+  Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. También se recomienda que la base de datos secundaria se cree con el mismo tamaño de proceso (unidades de transacción de base de datos o núcleos virtuales) que la principal. Una base de datos secundaria con un tamaño de proceso inferior corre el riesgo de sufrir mayor retraso en la replicación o posible no disponibilidad y, por consiguiente, corre el riesgo de pérdida de datos considerable después de una conmutación por error. Como resultado, el RPO publicado de 5 s no se puede garantizar. El otro riesgo es que después de la conmutación por error, el rendimiento de la aplicación se verá afectado debido a una falta de capacidad de proceso de la nueva base de datos principal hasta que se actualice a un tamaño de proceso superior. El tiempo de la actualización depende del tamaño de la base de datos. Además, actualmente, dicha actualización requiere que tanto la base de datos principal como la secundaria estén en línea y, por lo tanto, no se puede completar hasta que se reduzca la interrupción. Si decide crear la base de datos secundaria con un tamaño de proceso más bajo, el gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el tamaño de proceso mínimo de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](sql-database-purchase-models.md)
 
 - **Conmutación por error y conmutación por recuperación controladas por el usuario**
 
@@ -122,7 +130,7 @@ Debido a la elevada latencia de las redes de área extensa, la copia continua us
 
 Como se dijo antes, la replicación geográfica activa también puede administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Administración de la conmutación por error de bases de datos independientes y agrupadas
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Administración de la conmutación por error de bases de datos únicas y agrupadas
 
 > [!IMPORTANT]
 > Estos comandos de Transact-SQL solo se aplican a la replicación geográfica activa, no a los grupos de conmutación por error. Por lo tanto, tampoco se aplican a las instancias administradas, ya que solo admiten grupos de conmutación por error.
@@ -138,7 +146,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |Hace que la aplicación espere a que se repliquen todas las transacciones confirmadas y a que las reconozca la base de datos secundaria activa. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Administración de la conmutación por error de bases de datos independientes y agrupadas
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Administración de la conmutación por error de bases de datos únicas y agrupadas
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
@@ -152,7 +160,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 > [!IMPORTANT]
 > Si desea scripts de ejemplo, consulte [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) y [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>API REST: Administración de la conmutación por error de bases de datos independientes y agrupadas
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: Administración de la conmutación por error de bases de datos únicas y agrupadas
 
 | API | DESCRIPCIÓN |
 | --- | --- |

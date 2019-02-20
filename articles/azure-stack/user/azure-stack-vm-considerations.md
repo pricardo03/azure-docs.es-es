@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245980"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962254"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Consideraciones sobre el uso de máquinas virtuales en Azure Stack
 
@@ -41,8 +41,9 @@ Las máquinas virtuales de Azure Stack proporcionan recursos informáticos escal
 | Rendimiento de los discos de la máquina virtual | Depende del tamaño y tipo de disco. | En función del tamaño de la máquina virtual a la cual se asocian los discos, consulte el artículo [Tamaños de máquinas virtuales admitidos en Azure Stack](azure-stack-vm-sizes.md).
 | Versiones de API | Azure tiene siempre las últimas versiones de API para todas las características de la máquina virtual. | Azure Stack es compatible con servicios específicos de Azure y versiones de API específicas para estos servicios. Para ver la lista de versiones de API compatibles, consulte la sección [versiones de API](#api-versions) de este artículo. |
 | Servicio de metadatos de instancia de Azure | El servicio de metadatos de instancia de Azure proporciona información sobre instancias de máquina virtual en ejecución que pueden usarse para administrar y configurar las máquinas virtuales.  | Instance Metadata Service no es compatible con Azure Stack. |
-|Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización<br>Compatible con el disco administrado|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización (hasta 20)<br>No compatible con el disco administrado|
-|Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell.
+| Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización (hasta 20)|
+| Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell. |
+| Diagnóstico de máquina virtual | Diagnósticos de VM Linux | No se admite el diagnóstico de VM Linux en Azure Stack. Si implementa una máquina virtual Linux con diagnósticos de máquina virtual habilitado, se producirá un error en la implementación. Tampoco se podrá realizar la implementación si habilita las métricas básicas de máquina virtual Linux a través de la configuración de diagnóstico.
 
 ## <a name="virtual-machine-sizes"></a>Tamaños de máquina virtual
 
@@ -71,7 +72,7 @@ Los tamaños de máquina virtual y sus cantidades de recursos asociados son cohe
 
 ## <a name="virtual-machine-extensions"></a>Extensiones de máquina virtual
 
- Azure Stack incluye un pequeño conjunto de extensiones. Las actualizaciones y las extensiones adicionales están disponibles a través de la redifusión de Marketplace.
+Azure Stack incluye un pequeño conjunto de extensiones. Las actualizaciones y las extensiones adicionales están disponibles a través de la redifusión de Marketplace.
 
 Use el siguiente script de PowerShell para obtener la lista de extensiones de máquinas virtuales que están disponibles en su entorno de Azure Stack:
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Si aprovisionar una extensión en una implementación de VM tarda demasiado tiempo, deje que se agote el tiempo de espera de aprovisionamiento en lugar de intentar detener el proceso para desasignar o eliminar la VM.
 
 ## <a name="api-versions"></a>Versiones de API
 

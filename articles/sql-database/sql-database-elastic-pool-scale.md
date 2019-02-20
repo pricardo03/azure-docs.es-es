@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455106"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868127"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 
@@ -27,8 +27,8 @@ En este artículo se describe cómo escalar los recursos de proceso y almacenami
 
 - Se puede aprovisionar el almacenamiento hasta el límite de tamaño máximo:
 
-  - Para Standard Storage, aumente o disminuya el tamaño en incrementos de 10 GB.
-  - Para Premium Storage, aumente o disminuya el tamaño en incrementos de 250 GB.
+  - En el caso del almacenamiento en niveles de servicio estándar o de uso general, aumente o disminuya el tamaño en incrementos de 10 GB.
+  - Para el almacenamiento en niveles de servicio premium o críticos para la empresa, aumente o disminuya el tamaño en incrementos de 250 GB.
 - El almacenamiento de un grupo elástico se puede aprovisionar aumentando o reduciendo su tamaño máximo.
 - El precio del almacenamiento para un grupo elástico es la cantidad de almacenamiento multiplicada por el precio de la unidad de almacenamiento del nivel de servicio. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 

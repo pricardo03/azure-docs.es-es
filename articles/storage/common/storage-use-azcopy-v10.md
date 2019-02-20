@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467125"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244613"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferencia de datos con AzCopy v10 (versión preliminar)
 
@@ -54,8 +54,11 @@ AzCopy v10 no requiere instalación. Abra una aplicación de línea de comandos 
 ## <a name="authentication-options"></a>Opciones de autenticación
 
 AzCopy v10 permite usar las siguientes opciones al autenticarse en Azure Storage:
-- **Azure Active Directory [Tipos admitidos en blob y ADLS Gen2]**. Use ```.\azcopy login``` para iniciar sesión con Azure Active Directory.  El usuario debe tener [asignado el rol "Colaborador de datos de blobs de almacenamiento"](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) para escribir en el almacenamiento de blobs mediante la autenticación de Azure Active Directory.
-- **Tokens de SAS [admitidos en Blob service y File service]**. Anexe el token de SAS a la ruta de acceso de blob en la línea de comandos para usarlo. Puede generar el token de SAS mediante Azure Portal, el [Explorador de Azure Storage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) u otras herramientas que prefiera. Para más información, consulte los [ejemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Azure Active Directory [admitidos en servicios de blob y ADLS Gen2]**. Use ```.\azcopy login``` para iniciar sesión con Azure Active Directory.  El usuario debe tener [asignado el rol "Colaborador de datos de blobs de almacenamiento"](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) para escribir en el almacenamiento de blobs mediante la autenticación de Azure Active Directory.
+- **Tokens de SAS [admitidos en servicios de blob y archivo]**. Anexe el token de SAS a la ruta de acceso de blob en la línea de comandos para usarlo. Puede generar el token de SAS mediante Azure Portal, el [Explorador de Azure Storage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) u otras herramientas que prefiera. Para más información, consulte los [ejemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+
+> [!IMPORTANT]
+> Al enviar una solicitud de soporte técnico a Soporte técnico de Microsoft (o al solucionar un problema que implique a un tercero), comparta la versión censurada del comando que está intentando ejecutar para garantizar que SAS no se comparta con nadie por accidente. Puede encontrar la versión censurada al principio del archivo de registro. Revise la sección de solución de problemas más adelante en este artículo para obtener más detalles.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -206,11 +209,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-AzCopy v10 crea archivos de registro y archivos de plan para todos los trabajos. Puede usar los registros para investigar y solucionar los problemas potenciales. Los registros contendrá el estado de error (UPLOADFAILED, COPYFAILED y DOWNLOADFAILED), la ruta de acceso completa y el motivo del error. Los registros de trabajos y los archivos de plan se encuentran en la carpeta %USERPROFILE\\.azcopy.
+AzCopy v10 crea archivos de registro y archivos de plan para todos los trabajos. Puede usar los registros para investigar y solucionar los problemas potenciales. Los registros contendrá el estado de error (UPLOADFAILED, COPYFAILED y DOWNLOADFAILED), la ruta de acceso completa y el motivo del error. Los registros de trabajo y los archivos del plan se encuentran en la carpeta %USERPROFILE\\.azcopy en Windows o $HOME\\.azcopy en Mac y Linux.
+
+> [!IMPORTANT]
+> Al enviar una solicitud de soporte técnico a Soporte técnico de Microsoft (o al solucionar un problema que implique a un tercero), comparta la versión censurada del comando que está intentando ejecutar para garantizar que SAS no se comparta con nadie por accidente. Puede encontrar la versión censurada al principio del archivo de registro.
+
+### <a name="change-the-location-of-the-log-files"></a>Cambie la ubicación del archivo de registro.
+
+Puede cambiar la ubicación de los archivos de registro si es necesario o para evitar llenar el disco del sistema operativo.
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>Revisión de los registros en busca errores
 

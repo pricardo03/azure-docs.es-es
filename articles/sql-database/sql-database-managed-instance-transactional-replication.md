@@ -1,6 +1,6 @@
 ---
 title: Replicación transaccional con Azure SQL Database | Microsoft Docs
-description: Aprenda a usar la replicación transaccional de SQL Server con bases de datos independientes, agrupadas y de instancia en Azure SQL Database.
+description: Aprenda a usar la replicación transaccional de SQL Server con bases de datos únicas, agrupadas y de instancia en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814119"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993816"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos independientes, agrupadas y de instancia en Azure SQL Database
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicación transaccional con bases de datos únicas, agrupadas y de instancia en Azure SQL Database
 
 La replicación transaccional es una característica de Azure SQL Database y SQL Server que permite replicar datos de una tabla de Azure SQL Database o SQL Server en tablas de bases de datos remotas. Esta característica permite sincronizar varias tablas en bases de datos diferentes.
 
@@ -37,22 +37,21 @@ Los componentes clave de la replicación transaccional se muestran en la siguien
 
 ![replicación con SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 El **publicador** es una instancia o un servidor que publica los cambios realizados en algunas tablas (artículos) mediante el envío de las actualizaciones al distribuidor. La publicación en instancias de Azure SQL Database por parte de servidores de SQL Server locales se admite en las siguientes versiones de SQL Server:
 
-   - SQL Server 2019 (versión preliminar)
-   - SQL Server 2016 a SQL 2017
-   - SQL Server 2014 SP1 CU3 o superior (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 o superior (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - Para otras versiones de SQL Server que no admiten la publicación en los objetos de Azure e puede utilizar el método de [volver a publicar datos](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover datos a versiones más recientes de SQL Server. 
+- SQL Server 2019 (versión preliminar)
+- SQL Server 2016 a SQL 2017
+- SQL Server 2014 SP1 CU3 o superior (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 o superior (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- Para otras versiones de SQL Server que no admiten la publicación en los objetos de Azure e puede utilizar el método de [volver a publicar datos](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover datos a versiones más recientes de SQL Server. 
 
 El **distribuidor** es una instancia o un servidor que recopila los cambios en los artículos de un publicador y los distribuye a los suscriptores. El distribuidor puede ser la Instancia administrada de Azure SQL Database o SQL Server (cualquier versión, siempre que sea igual o superior que la versión del publicador). 
 
-El **suscriptor** es una instancia o un servidor que recibe los cambios realizados en el publicador. Los suscriptores pueden ser bases de datos independientes, agrupadas o de instancia en bases de datos de Azure SQL Database o SQL Server. Un suscriptor en una base de datos independiente o de sondeo debe configurarse como suscriptor de inserción. 
+El **suscriptor** es una instancia o un servidor que recibe los cambios realizados en el publicador. Los suscriptores pueden ser bases de datos únicas, agrupadas o de instancia en bases de datos de Azure SQL Database o SQL Server. Un suscriptor en una base de datos única o agrupada debe configurarse como suscriptor de inserción. 
 
-| Rol | Bases de datos independiente y agrupadas | Bases de datos de instancia |
+| Rol | Bases de datos únicas y agrupadas | Bases de datos de instancia |
 | :----| :------------- | :--------------- |
 | **Publicador** | Sin  | Sí | 
 | **Distribuidor** | Sin  | Sí|
@@ -63,7 +62,7 @@ El **suscriptor** es una instancia o un servidor que recibe los cambios realizad
 Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
-| Replicación | Bases de datos independiente y agrupadas | Bases de datos de instancia|
+| Replicación | Bases de datos únicas y agrupadas | Bases de datos de instancia|
 | :----| :------------- | :--------------- |
 | [**Transaccional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sí (solo como suscriptor) | Sí | 
 | [**Instantánea**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sí (solo como suscriptor) | Sí|
@@ -107,11 +106,11 @@ El publicador y el distribuidor se configuran en dos instancias administradas. E
 - Las dos instancias administradas están en la misma ubicación.
 - Las instancias administradas que hospedan bases de datos de publicador y distribuidor no se pueden [replicar geográficamente mediante grupos de conmutación por error automática](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>Publicador y distribuidor locales con un suscriptor en una base de datos independiente, agrupada o de instancia 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Publicador y distribuidor locales con un suscriptor en una base de datos única, agrupada o de instancia 
 
 ![Base de datos de Azure SQL como suscriptor](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-En esta configuración, el suscriptor es una instancia de Azure SQL Database (base de datos independiente, agrupada o de instancia). Esta configuración admite la migración desde el entorno local a Azure. Si un suscriptor está en una base de datos independiente o agrupada, debe estar en modo de inserción.  
+En esta configuración, el suscriptor es una instancia de Azure SQL Database (base de datos única, agrupada o de instancia). Esta configuración admite la migración desde el entorno local a Azure. Si un suscriptor está en una base de datos única o agrupada, debe estar en modo de inserción.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

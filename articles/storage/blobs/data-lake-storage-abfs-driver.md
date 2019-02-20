@@ -1,5 +1,5 @@
 ---
-title: El controlador Azure Blob Filesystem para Azure Data Lake Storage Gen2 (versión preliminar)
+title: El controlador Azure Blob Filesystem para Azure Data Lake Storage Gen2
 description: El controlador ABFS Hadoop FileSystem
 services: storage
 author: jamesbak
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240886"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962441"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Controlador del sistema de archivos de Azure Blob (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
-Uno de los principales métodos de acceso para los datos en Azure Data Lake Storage Gen2 (versión preliminar) es mediante [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 permite a los usuarios de Azure Blob Storage obtener acceso a un nuevo controlador, el controlador del sistema de archivos de blob de Azure o `ABFS`. ABFS forma parte de Apache Hadoop y se incluye en muchas de las distribuciones comerciales de Hadoop. Con este controlador, muchas aplicaciones y plataformas pueden acceder a datos de Azure Blob Storage sin código que haga referencia explícita a Data Lake Storage Gen2.
+Uno de los principales métodos de acceso para los datos en Azure Data Lake Storage Gen2 es mediante [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 permite a los usuarios de Azure Blob Storage obtener acceso a un nuevo controlador, el controlador del sistema de archivos de blob de Azure o `ABFS`. ABFS forma parte de Apache Hadoop y se incluye en muchas de las distribuciones comerciales de Hadoop. Con este controlador, muchas aplicaciones y plataformas pueden acceder a datos de Azure Blob Storage sin código que haga referencia explícita a Data Lake Storage Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funcionalidad anterior: el controlador Azure Storage Blob para Windows
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internamente, el controlador ABFS convierte los recursos especificados en el URI en archivos y directorios y realiza llamadas a la API REST de Azure Data Lake Storage con esas referencias.
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 
 El controlador ABFS admite dos formas de autenticación, de modo que la aplicación de Hadoop puede acceder de forma segura a los recursos contenidos en la cuenta compatible de Data Lake Storage Gen2. Se proporcionan detalles completos de los esquemas de autenticación disponibles en la [guía de seguridad de Azure Storage](../common/storage-security-guide.md). Son las siguientes:
 
@@ -62,6 +62,5 @@ El controlador ABFS está completamente documentado en la [documentación oficia
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de clústeres de HDInsight](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 - [Creación de un clúster de Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md) (Uso del URI de Azure Data Lake Storage Gen2).

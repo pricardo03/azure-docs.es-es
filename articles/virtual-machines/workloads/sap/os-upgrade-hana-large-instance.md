@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114599"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100761"
 ---
 # <a name="operating-system-upgrade"></a>Actualización del sistema operativo
 Este documento describe los detalles acerca de las actualizaciones del sistema operativo en las instancias grandes HANA.
@@ -30,6 +30,15 @@ Este documento describe los detalles acerca de las actualizaciones del sistema o
 En el momento del aprovisionamiento de la unidad HLI, el equipo de operaciones de Microsoft instala el sistema operativo. Con el tiempo, se le pide realizar mantenimiento al sistema operativo (por ejemplo: aplicación de revisiones, optimizaciones, actualizaciones, etc.) en la unidad HLI.
 
 Además, debe abrir una incidencia de soporte técnico para ponerse en contacto con el equipo de operaciones de Microsoft y consultar con ellos antes de realizar cambios importantes en el sistema operativo (por ejemplo, la actualización de SP1 a SP2).
+
+Incluya en su incidencia:
+
+* El id. de suscripción de HLI.
+* El nombre del servidor.
+* El nivel de revisión que se va a aplicar.
+* La fecha en la que está planeando este cambio. 
+
+Recomendamos que abra esta incidencia al menos una semana antes de la fecha de actualización deseada para que el equipo de Operaciones pueda comprobar si es necesaria una actualización de firmware en la hoja del servidor.
 
 
 Para la matriz de compatibilidad de las distintas versiones de SAP HANA con las diferentes versiones de Linux, consulte la [Nota de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).

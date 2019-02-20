@@ -1,6 +1,6 @@
 ---
-title: Creación de gráficos y diagramas de las consultas de Azure Log Analytics | Microsoft Docs
-description: Describe las distintas visualizaciones en Azure Log Analytics para mostrar los datos de distintas maneras.
+title: Creación de gráficos y diagramas a partir de consultas de Azure Monitor | Microsoft Docs
+description: Describe las distintas visualizaciones en Azure Monitor para mostrar los datos de registro de distintas maneras.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186232"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993006"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Creación de gráficos y diagramas de las consultas de Log Analytics
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Creación de gráficos y diagramas a partir de consultas de Azure Monitor
 
 > [!NOTE]
-> Debe completar la lección [Agregaciones avanzadas en consultas de Log Analytics](advanced-aggregations.md) antes de completar esta lección.
+> Debe completar [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md) (Agregaciones avanzadas en consultas de registro de Azure Monitor) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-En este artículo se escriben las distintas visualizaciones en Azure Log Analytics para mostrar los datos de distintas maneras.
+En este artículo, se describen las distintas visualizaciones en Azure Monitor para mostrar los datos de registro de distintas maneras.
 
 ## <a name="charting-the-results"></a>Crear gráficos de los resultados
 Comience por revisar cuántos equipos hay por sistema operativo, durante la última hora:
@@ -93,7 +93,7 @@ Para cambiar, seleccione la lista desplegable con el nombre de la columna.
 ![AccountType del gráfico de barras](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras lecciones para usar el lenguaje de consulta de Log Analytics:
+Consulte otras lecciones para usar el [lenguaje de consulta de Data Explorer](/azure/kusto/query/) con datos de registro de Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Operaciones de fecha y hora](datetime-operations.md)

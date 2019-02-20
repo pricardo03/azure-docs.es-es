@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721570"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108745"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -43,7 +43,7 @@ En algunos escenarios de consumo elevado de memoria, es probable que la aplicaci
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>¿Cómo se puede automatizar App Service Web Apps mediante PowerShell?
 
-Puede usar los cmdlets de PowerShell para administrar y mantener App Service Web Apps. En nuestra entrada de blog [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/) (Automatización de aplicaciones web hospedadas en Azure App Service mediante PowerShell), se describe cómo usar los cmdlets de PowerShell basada en Azure Resource Manager para automatizar tareas comunes. La entrada de blog también incluye código de ejemplo para diversas tareas de administración de aplicaciones web. Para obtener descripciones y sintaxis de todos los cmdlets de App Service Web Apps, consulte [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+Puede usar los cmdlets de PowerShell para administrar y mantener App Service Web Apps. En nuestra entrada de blog [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/) (Automatización de aplicaciones web hospedadas en Azure App Service mediante PowerShell), se describe cómo usar los cmdlets de PowerShell basada en Azure Resource Manager para automatizar tareas comunes. La entrada de blog también incluye código de ejemplo para diversas tareas de administración de aplicaciones web. Para obtener descripciones y sintaxis de todos los cmdlets de App Service Web Apps, consulte [Az.Websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>¿Cómo se pueden ver los registros de eventos de mi aplicación web?
 

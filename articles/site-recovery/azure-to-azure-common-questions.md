@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770493"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860414"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
 
@@ -33,6 +33,10 @@ En este artículo se resumen las preguntas comunes al configurar la recuperació
 
 ### <a name="how-is-site-recovery-priced"></a>¿Cómo se fija el precio de Site Recovery?
 Consulte los detalles de los [precios de Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>¿Cómo funciona el nivel Gratis de Azure Site Recovery?
+Todas las instancias protegidas con Azure Site Recovery son gratuitas los primeros 31 días de protección. A partir del 32º día, la protección de la instancia se factura conforme a las tarifas que se indican.
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante los primeros 31 días, ¿puedo incurrir en otros cargos de Azure?
+Sí, aunque Azure Site Recovery sea gratuito los primeros 31 días de una instancia protegida, puede incurrir en cargos por Azure Storage, transacciones de almacenamiento y transferencia de datos. Una máquina virtual recuperada también puede incurrir en cargos por proceso de Azure. Obtenga detalles completos sobre los precios [aquí](https://azure.microsoft.com/pricing/details/site-recovery).
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>¿Cuáles son los procedimientos recomendados para la configuración de Site Recovery en máquinas virtuales de Azure?
 1. [Descripción de la arquitectura de Azure a Azure](azure-to-azure-architecture.md)
@@ -70,6 +74,10 @@ Con Site Recovery, puede replicar y recuperar máquinas virtuales entre dos regi
 
 No, Site Recovery no requiere conectividad a Internet. Pero sí requiere acceso a los intervalos IP y direcciones URL de Site Recovery, como se menciona en [este artículo](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>¿Puedo replicar la aplicación con grupos de recursos independientes para niveles independientes? 
+Sí, puede replicar la aplicación y mantener también la configuración de recuperación ante desastres en un grupo de recursos independiente.
+Por ejemplo, si tiene una aplicación con los niveles de aplicación, base de datos y web en grupos de recursos independientes, debe hacer clic tres veces en el [asistente para replicación](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) para proteger todos los niveles. ASR replicará estos tres niveles en tres grupos de recursos diferentes.
+
 ## <a name="replication-policy"></a>Directiva de replicación
 
 ### <a name="what-is-a-replication-policy"></a>¿Qué es una directiva de replicación?
@@ -89,9 +97,12 @@ Hoy en día, la mayoría de las aplicaciones se pueden recuperar bien a partir d
 Site Recovery crea un punto de recuperación coherente con los bloqueos cada 5 minutos.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con la aplicación? 
-Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Las instantáneas coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, con la adición de todos los datos en memoria y todas las transacciones en curso. 
+Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Los puntos de recuperación coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, con la adición de todos los datos en memoria y todas las transacciones en curso. 
 
 Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan en ejecutarse. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>¿Cómo afectan los puntos de recuperación coherentes con la aplicación en el rendimiento de la aplicación?
+Teniendo en cuenta que los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso, se requiere un marco de trabajo como VSS en las ventanas para poner la aplicación en modo inactivo. Si esto se hace con mucha frecuencia, puede afectar al rendimiento si la carga de trabajo ya está muy ocupada. Normalmente, se recomienda no utilizar una frecuencia baja para los puntos de recuperación coherentes con la aplicación para las cargas de trabajo que no sean de la base de datos e, incluso para este tipo de carga de trabajo, una hora es suficiente. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>¿Cuál es la frecuencia mínima de generación de puntos de recuperación coherentes frente a la aplicación?
 Site Recovery puede crear un punto de recuperación coherente frente a la aplicación con una frecuencia mínima de 1 hora.

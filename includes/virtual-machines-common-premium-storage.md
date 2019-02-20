@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572728"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247157"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 
@@ -51,7 +51,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede seleccionar entre ocho tamaños de disco de GA: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2048 GiB) y P50 (4095 GiB). También cuenta con tres tamaños de disco de versión preliminar: P60 de 8192 GiB (8 TiB), P70 de 16 348 GiB (16 TiB) y P80 de 32 767 GiB (32 TiB). Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Tendrá la opción de ocho tamaños de discos GA:  P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1,024 GiB), P40 (2,048 GiB) y P50 (4,095 GiB). Así como vista previa de tres tamaños de disco: P60 8,192 GiB (8 TiB), P70 16,348 GiB (16 TiB) y P80 32,767 GiB (32 TiB). Los tamaños de disco P4, P6, P15, P60, P70 y P80 solo se admiten actualmente para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
@@ -67,7 +67,7 @@ Aquí se muestran algunas de las características de Premium Storage:
     - [CLI de Azure para Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp) (para implementaciones de Azure Resource Manager) o una de las bibliotecas cliente del proveedor de recursos de Azure Storage
 
-    Para más información sobre los límites de la cuenta de Premium Storage en la siguiente sección, vea [Objetivos de rendimiento y escalabilidad de Premium Storage](#premium-storage-scalability-and-performance-targets).
+    Para más información sobre los límites de la cuenta de Premium Storage en la siguiente sección, vea Objetivos de rendimiento y escalabilidad de Premium Storage.
 
 * **Premium Storage con redundancia local**
 
@@ -149,7 +149,7 @@ Para más información, consulte [Objetivos de escalabilidad y rendimiento de Az
 Si usa cuentas de Premium Storage para los discos no administrados y la aplicación supera los objetivos de escalabilidad de una cuenta de almacenamiento individual, es posible que quiera migrar a Managed Disks. Si no desea migrar a Managed Disks, compile la aplicación para que use varias cuentas de almacenamiento. A continuación, divida los datos en esas cuentas de almacenamiento. Por ejemplo, si desea asociar discos de 51 TB entre varias VM, distribúyalos entre dos cuentas de almacenamiento. 35 TB es el límite de una cuenta de Premium Storage única. Asegúrese de que una sola cuenta de Premium Storage nunca tenga más de 35 TB de discos aprovisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
-Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos GA de Premium Storage: P4 (solo discos administrados), P6 (solo discos administrados), P10, P15 (solo discos administrados), P20, P30, P40 y P50. Así como vista previa de tres tamaños de disco: P60 P70 y P80. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
+Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos GA de Premium Storage: P4 (solo discos administrados), P6 (solo discos administrados), P10, P15 (solo discos administrados), P20, P30, P40 y P50. Así como vista previa de tres tamaños de disco: P60, P70 y P80. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
 Los tamaños marcados con un asterisco están actualmente en versión preliminar.
 
@@ -160,7 +160,7 @@ Los tamaños marcados con un asterisco están actualmente en versión preliminar
 | Rendimiento de disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
-> Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](#premium-storage-supported-vms). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
+> Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
 > Azure ha diseñado la plataforma Premium Storage para ser enormemente paralela. Diseñar la aplicación para que sea multiproceso le ayudará a alcanzar el objetivo de alto rendimiento que ofrecen los tamaños de disco más grandes.
 
 Estos son algunos aspectos importantes que debe conocer sobre los objetivos de escalabilidad y rendimiento de Premium Storage:
@@ -294,7 +294,7 @@ Al usar Premium Storage, se aplican las siguientes consideraciones de facturaci�
 
 * **Tamaño de disco y blob de Premium Storage**
 
-    La facturación de un disco de Premium Storage o blog depende del tamaño aprovisionado del disco o blob. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Premium Storage más cercana. Para más información, consulte la tabla en [Objetivos de escalabilidad y rendimiento de Storage](#premium-storage-scalability-and-performance-targets). Cada disco se asigna a un tamaño de disco aprovisionado compatible y se factura según corresponda. La facturación de cualquier disco aprovisionado se prorratea cada hora con el precio mensual de la oferta de Premium Storage. Por ejemplo, si se aprovisiona un disco P10 y se elimina después de 20 horas, se factura la oferta P10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco o del rendimiento y E/S por segundo usados.
+    La facturación de un disco de Premium Storage o blog depende del tamaño aprovisionado del disco o blob. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Premium Storage más cercana. Para más información, consulte la tabla en [Objetivos de escalabilidad y rendimiento de Storage](). Cada disco se asigna a un tamaño de disco aprovisionado compatible y se factura según corresponda. La facturación de cualquier disco aprovisionado se prorratea cada hora con el precio mensual de la oferta de Premium Storage. Por ejemplo, si se aprovisiona un disco P10 y se elimina después de 20 horas, se factura la oferta P10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco o del rendimiento y E/S por segundo usados.
 
 * **Instantáneas de Unmanaged Disks premium**
 

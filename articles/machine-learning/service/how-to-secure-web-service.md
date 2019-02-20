@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769328"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098109"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Uso de SSL para proteger servicios web con Azure Machine Learning Service
 
@@ -82,6 +82,16 @@ Para implementar (o volver a implementar) el servicio con el protocolo SSL habil
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Implementación en matrices de puertas programables por campo (FPGA)**
+
+  Al implementar en FPGA, proporcione valores para los parámetros relacionados con SSL, tal como se muestra en el fragmento de código:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Actualización del DNS
 
 Después, debe actualizar el DNS para que apunte al servicio web.
@@ -97,10 +107,6 @@ Después, debe actualizar el DNS para que apunte al servicio web.
   Actualice el DNS en la pestaña "Configuración" de la "Dirección IP pública" del clúster de AKS, tal como se muestra en la imagen. Puede encontrar la dirección IP pública como uno de los tipos de recurso creados bajo el grupo de recursos que contiene los nodos del agente de AKS y otros recursos de red.
 
   ![Azure Machine Learning Service: protección de servicios web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **Para FPGA**:
-
-Actualmente no se admite el uso de SSL con los servicios implementados en FPGA.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo:

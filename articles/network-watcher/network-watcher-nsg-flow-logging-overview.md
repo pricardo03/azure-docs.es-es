@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332309"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097655"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -65,7 +65,7 @@ Los registros de flujo incluyen las siguientes propiedades:
                     * **Protocol**: el protocolo del flujo. Los valores válidos son **T** para TCP y **U** para UDP
                     * **Traffic Flow**: la dirección del flujo de tráfico. Los valores válidos son **I** para el correo entrante y **O** para el saliente.
                     * **Decisión de tráfico**: indica si el tráfico se permitió o se denegó. Los valores válidos son **A** para permitido y **D** para denegado.
-                    * **Estado de flujo, solo versión 2**: captura el estado del flujo. Los estados posibles son**B**: inicio, cuando se crea el flujo. No se proporcionan las estadísticas. **C**: continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: final, cuando termina el flujo. Se proporcionan las estadísticas.
+                    * **Estado de flujo, solo versión 2**: captura el estado del flujo. Los estados posibles son**B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan las estadísticas. **C**: Continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas.
                     * **Paquetes: origen a destino, solo versión 2** El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización.
                     * **Bytes enviados: origen a destino, solo versión 2** El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.
                     * **Paquetes: destino a origen, solo versión 2** El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización.
@@ -287,5 +287,6 @@ El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay va
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para saber cómo habilitar los registros de flujo, consulte [Habilitación del registro de flujo de NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para obtener información sobre cómo leer los registros del flujo, consulte [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md).
 - Para saber más sobre el registro de NSG, consulte [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Para determinar si el tráfico se permite o deniega en una máquina virtual, consulte [Diagnóstico de problemas al filtrar el tráfico de red de una máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).
