@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 26268c892b0e900c410cd669454b8b6f02ee8886
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211909"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102482"
 ---
 # <a name="azure-managed-disks-overview"></a>Introducción a Azure Managed Disks
 
@@ -63,7 +63,7 @@ Al usar Managed Disks, se aplican las siguientes consideraciones de facturación
 
 Veamos estas opciones más detalladamente.
 
-**Storage type** (Tipo de almacenamiento): Managed Disks ofrece tres nivel de rendimiento: [HDD estándar](../articles/virtual-machines/windows/standard-storage.md), [SSD estándar](../articles/virtual-machines/windows/disks-standard-ssd.md) y [Prémium](../articles/virtual-machines/windows/premium-storage.md). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
+**Storage type** (Tipo de almacenamiento): Managed Disks ofrece tres nivel de rendimiento: [HDD estándar](../articles/virtual-machines/windows/standard-storage.md), [SSD estándar](../articles/virtual-machines/windows/standard-storage.md) y [Prémium](../articles/virtual-machines/windows/premium-storage.md). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
 
 **Tamaño del disco**: la facturación de los discos administrados depende del tamaño aprovisionado del disco. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Managed Disks más cercana, como se especifica en las tablas siguientes. Cada disco administrado se asigna a uno de los tamaños aprovisionados admitidos y se factura según corresponda. Por ejemplo, si crea un disco administrado estándar y especifica un tamaño aprovisionado de 200 GB, se le facturará según los precios del tipo de disco S15.
 
@@ -75,9 +75,9 @@ Estos son los tamaños de disco disponibles para un disco administrado premium; 
 
 Estos son los tamaños de disco disponibles para un disco administrado SSD estándar; los tamaños que se indican con un asterisco están actualmente en versión preliminar:
 
-| **Tipo de disco<br> administrado SSD estándar** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Tamaño del disco        | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB) | 16 384 GiB (16 TiB) | 32 767 GiB (TiB) |
+| **Tipo de disco<br> administrado SSD estándar** | **E4** | **E6** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Tamaño del disco        | 32 GiB | 64 GiB | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB) | 16 384 GiB (16 TiB) | 32 767 GiB (TiB) |
 
 Estos son los tamaños de disco disponibles para un disco administrado HDD estándar; los tamaños que se indican con un asterisco están actualmente en versión preliminar:
 
