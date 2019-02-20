@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55825112"
+ms.locfileid: "55875610"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning Services (con R) en Azure SQL Database (versión preliminar)
 
 Machine Learning Services es una característica de Azure SQL Database que se usa para ejecutar scripts de R en bases de datos. Incluye paquetes de R de Microsoft para el análisis predictivos de alto rendimiento y el aprendizaje automático. Los datos relacionales pueden usarse en scripts de R mediante procedimientos almacenados, scripts de T-SQL que contienen instrucciones en R o código R que contiene T-SQL.
 
-> [!NOTE]
-> Machine Learning Services (con R) en Azure SQL Database se encuentra actualmente en versión preliminar pública. [Suscríbase a la versión preliminar](#signup) a continuación.
+> [!IMPORTANT]
+> Machine Learning Services (con R) en Azure SQL Database está actualmente en versión preliminar pública para las bases de datos únicas y los grupos elásticos que usan modelos de compra basados en núcleos virtuales de los niveles de servicio **de uso general** y **crítico para la empresa**. En esta versión preliminar pública inicial, no se admiten ni el nivel de servicio **hiperescala** ni la opción de implementación de **instancia administrada**. Actualmente, R es el único lenguaje que se admite. En este momento no hay ninguna compatibilidad con Python. 
+>
+> La versión preliminar está disponible actualmente en las siguientes regiones: Europa Occidental, Europa del Norte, Oeste de EE. UU. 2, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Centro de Canadá, Sudeste Asiático, India del Sur y Sudeste de Australia. 
+>
+> [Suscríbase a la versión preliminar](#signup) a continuación.
 
 ## <a name="what-you-can-do-with-r"></a>Qué puede hacer con R
 
@@ -55,10 +59,6 @@ Siga los pasos a continuación para registrarse para participar en la versión p
 2. Envíe un correo electrónico a Microsoft en [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) para registrarse en la versión preliminar pública. De forma predeterminada, la versión preliminar pública de Machine Learning Services (con R) en SQL Database no está habilitada.
 
 Cuando ya esté inscrito en el programa, Microsoft lo incorporará a la versión preliminar pública y habilitará R para su base de datos existente o para una nueva.
-
-Machine Learning Services (con R) en SQL Database actualmente solo está disponible en el modelo de compra basado en núcleos virtuales de los niveles de servicio **de uso general** y **Crítico para la empresa** para las opciones de implementación independientes y de grupo elástico. En esta versión preliminar pública inicial, no se admiten ni el nivel de servicio **hiperescala** ni la opción de implementación de **Instancia administrada**.
-
-Actualmente, R es el único lenguaje que se admite. En este momento no hay ninguna compatibilidad con Python. La versión preliminar está disponible inicialmente en las siguientes regiones: Europa Occidental, Europa del Norte, Oeste de EE. UU. 2, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Centro de Canadá, Sudeste Asiático, India del Sur y Sudeste de Australia. Más adelante se agregarán más regiones.
 
 No use Machine Learning Services con R para cargas de trabajo de producción durante la versión preliminar pública.
 

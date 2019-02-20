@@ -1,6 +1,6 @@
 ---
-title: Consultas avanzadas en Azure Log Analytics | Microsoft Docs
-description: En este artículo se proporciona un tutorial de uso del portal de Analytics para escribir consultas en Log Analytics.
+title: Consultas avanzadas en Azure Monitor | Microsoft Docs
+description: En este artículo se proporciona un tutorial de uso del portal de Analytics para escribir consultas en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191553"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993221"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Escribir consultas avanzadas en Log Analytics
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Escritura de consultas avanzadas en Azure Monitor
 
 > [!NOTE]
-> Debe completar la [Introducción al portal de Analytics](get-started-portal.md) y la [Introducción a las consultas en Log Analytics](get-started-queries.md) antes de completar esta lección.
+> Debe completar [Get started with Azure Monitor log analytics](get-started-portal.md) (Introducción a análisis de registro de Azure Monitor) y [Getting started with Azure Monitor log queries](get-started-queries.md) (Introducción a consultas de registro de Azure Monitor) antes de completar esta lección.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras lecciones para usar el lenguaje de consulta de Log Analytics:
+Consulte otras lecciones para usar el [lenguaje de consulta de Data Explorer](/azure/kusto/query/) con datos de registro de Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Operaciones de fecha y hora](datetime-operations.md)

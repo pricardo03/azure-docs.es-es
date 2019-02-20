@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786054"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002112"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
+# <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android  
 
 Además de proteger el contenido del streaming en línea, la suscripción de contenido multimedia y los servicios de alquiler ofrecen contenido descargable que funciona cuando no hay conexión a Internet. Tendrá que descargar el contenido en su teléfono o tableta para reproducirlo en modo de avión al volar sin conexión a la red. Estos son otros escenarios en los que la descarga de contenido podría resultarle útil:
 
@@ -45,7 +45,7 @@ Antes de implementar DRM para Widevine en dispositivos Android, debe hacer lo si
 
 - Familiarizarse con los conceptos presentados para la protección de contenido en línea con Widevine DRM. Este tema se trata con detalle en los siguientes documentos y ejemplos:
     - [Uso de Azure Media Services para entregar licencias de DRM a claves de AES](media-services-deliver-keys-and-licenses.md)
-    - [CENC con varios DRM y Access Control: diseño e implementación de referencia en Azure y Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
+    - [CENC with Multi-DRM and Access Control (CENC con DRM múltiple y Control de acceso): Un diseño y una implementación de referencia en Azure y Azure Media Services](media-services-cenc-with-multidrm-access-control.md)
     - [Using PlayReady and/or Widevine Dynamic Common Encryption with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/) (Uso de cifrado dinámico común de PlayReady o Widevine con .NET)
     - [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/) (Uso de Azure Media Services para ofrecer licencias de PlayReady o Widevine con .NET)
 - Familiarícese con el SDK de ExoPlayer de Google para Android, un SDK de reproductor de vídeo de código abierto que admite la reproducción de Widevine DRM sin conexión. 
@@ -134,7 +134,7 @@ Puede encontrar enlaces de Xamarin para ExoPlayer con los siguientes vínculos:
 - [Xamarin bindings library for the Google ExoPlayer library](https://github.com/martijn00/ExoPlayerXamarin) (Biblioteca de enlaces de Xamarin para la biblioteca de ExoPlayer de Google)
 - [Xamarin bindings for ExoPlayer NuGet](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/) (Enlaces de Xamarin para NuGet de ExoPlayer)
 
-Además, vea el siguiente hilo: [Xamarin binding](https://github.com/martijn00/ExoPlayerXamarin/pull/57) (enlace de Xamarin). 
+Vea también el siguiente subproceso: [Enlace Xamarin](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
 
 ## <a name="chrome-player-apps-for-android"></a>Aplicaciones de reproductor de Chrome para Android
 
@@ -149,8 +149,8 @@ Si actualiza el explorador Chrome móvil a la versión 62 (o posterior) en un te
 
 La aplicación de PWA de código abierto anterior se creó en Node.js. Si desea hospedar su propia versión en un servidor de Ubuntu, tenga en cuenta los siguientes problemas habituales que pueden impedir la reproducción:
 
-1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado "acceso-control-permitir-origen" en el recurso solicitado). Así pues, el origen "https://13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
-2. Problema de certificado: a partir de la versión 58 de Chrome, EME para Widevine requiere HTTPS. Por lo tanto, debe hospedar la aplicación de ejemplo a través de HTTPS con un certificado X509. Un certificado de prueba habitual no funciona debido a lo que se especifica a continuación. Debe obtener un certificado que cumpla los siguientes requisitos mínimos:
+1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado 'Access-Control-Allow-Origin' en el recurso solicitado). Así pues, el origen "https://13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
+2. Problema de certificado: a partir de la versión 58 de Chrome, EME para Widevine requiere HTTPS. Por lo tanto, debe hospedar la aplicación de ejemplo a través de HTTPS con un certificado X509. Un certificado de prueba habitual no funciona debido a los siguientes requisitos: Es necesario obtener un certificado que cumpla con los siguientes requisitos mínimos:
     - Chrome y Firefox requieren que existan los parámetros de SAN (nombre alternativo del firmante) en el certificado
     - El certificado debe tener una entidad de certificación de confianza y un certificado de desarrollo autofirmado no sirve para ello
     - El certificado debe tener un CN que coincida con el nombre de DNS del servidor web o de la puerta de enlace
@@ -180,7 +180,7 @@ En el caso de niveles de seguridad de Widevine, en el documento [Widevine DRM Ar
 En el documento [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) (Información general de la arquitectura de Widevine DRM) de Google se definen los tres siguientes niveles de seguridad:
 
 1.  Nivel de seguridad 1: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.
-2.  Seguridad de nivel 2: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.
+2.  Nivel de seguridad 2: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.
 3.  Nivel de seguridad 3: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad.
 
 Al mismo tiempo, en la [documentación de Azure Media Services sobre la plantilla de licencia de Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), la propiedad security_level de content_key_specs puede tener los siguientes cinco valores diferentes (requisitos de solidez de cliente para la reproducción):
@@ -195,9 +195,9 @@ Los dos niveles de seguridad se definen mediante Google Widevine. La diferencia 
 
 | **Niveles de seguridad definidos en la arquitectura de Widevine** |**Niveles de seguridad utilizados en la API de Widevine**|
 |---|---| 
-| **Nivel de seguridad 1**: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.|**security_level=5**: la criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de TEE con respaldo de hardware.<br/><br/>**security_level=4**: la criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
-**Seguridad de nivel 2**: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.| **security_level=3**: las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
-| **Nivel de seguridad 3**: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2**: se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1**: se requiere criptografía white-box basada en software.|
+| **Nivel de seguridad 1**: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad puede realizarse en chips diferentes.|**security_level=5**: La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de TEE con respaldo de hardware.<br/><br/>**security_level=4**: La criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
+**Nivel de seguridad 2**: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.| **security_level=3**: Las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
+| **Nivel de seguridad 3**: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2**: Se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1**: Se requiere criptografía white-box basada en software.|
 
 ### <a name="question"></a>Pregunta
 

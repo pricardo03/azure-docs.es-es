@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1664e19f3a238b2986af4669c3853a54d7c7e328
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6825524667c473496b62cecbce54f6e249742bae
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250830"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977718"
 ---
 # <a name="azure-stack-servicing-policy"></a>Directiva de mantenimiento de Azure Stack
 
@@ -52,11 +52,10 @@ Microsoft espera lanzar actualizaciones de software a un ritmo mensual. Sin emba
 Busque documentación sobre cómo planear y administrar actualizaciones y cómo determinar la versión actual en [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md).
 
 Para obtener información sobre una actualización concreta, incluido cómo descargarla, vea las notas de versión de la actualización:
-
+- [Actualización de Azure Stack 1901](azure-stack-update-1901.md)
 - [Actualización de Azure Stack 1811](azure-stack-update-1811.md)
 - [Actualización de Azure Stack 1809](azure-stack-update-1809.md)
 - [Actualización de Azure Stack 1808](azure-stack-update-1808.md)
-- [Actualización de Azure Stack 1807](azure-stack-update-1807.md)
 
 ## <a name="hotfixes"></a>Revisiones
 

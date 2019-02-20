@@ -4,7 +4,7 @@ description: En este artículo se describe cómo puede usar Azure Media Services
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 02/08/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: aff5b94840e63176358d64a535c9cc0dd9ec617a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783194"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003217"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de castLabs para entregar licencias de Widevine a Azure Media Services
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de castLabs para entregar licencias de Widevine a Azure Media Services 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -29,6 +29,7 @@ ms.locfileid: "33783194"
 > 
 
 ## <a name="overview"></a>Información general
+
 En este artículo se describe cómo puede usar Azure Media Services (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias de PlayReady de Media Services y la licencia de Widevine se entrega por el servidor de licencias **castLabs** .
 
 Para la reproducción de contenido en streaming protegido por CENC (PlayReady o Widevine), puede usar [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Consulte el [documento AMP](http://amp.azure.net/libs/amp/latest/docs/) para obtener información detallada.
@@ -38,6 +39,7 @@ En el siguiente diagrama se muestra una arquitectura de integración de castLabs
 ![integración](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ## <a name="typical-system-set-up"></a>Configuración de sistema típico
+
 * El contenido multimedia se almacena en AMS.
 * Los id. de clave de claves de contenido se almacenan en castLabs y AMS.
 * Tanto castLabs como AMS tienen la autenticación de tokens integrada. En las secciones siguientes se analizan los tokens de autenticación. 
@@ -46,9 +48,11 @@ En el siguiente diagrama se muestra una arquitectura de integración de castLabs
 * El reproductor multimedia decide automáticamente qué licencia capturar basándose en la capacidad de la plataforma del cliente. 
 
 ## <a name="authentication-token-generation-for-getting-a-license"></a>Generación de tokens de autenticación para obtener una licencia
+
 Tanto castLabs como AMS admiten el formato de token JWT (token web JSON) usado para autorizar una licencia. 
 
 ### <a name="jwt-token-in-ams"></a>Token JWT en AMS
+
 En la tabla siguiente se describen los tokens JWT en AMS. 
 
 | Emisor | Cadena de emisor desde el servicio de tokens seguro (STS) elegido |
@@ -60,6 +64,7 @@ En la tabla siguiente se describen los tokens JWT en AMS.
 | SigningCredentials |La clave que se comparte entre el servidor de licencias de PlayReady, el servidor de licencias de castLabs y STS; podría ser una clave simétrica o asimétrica. |
 
 ### <a name="jwt-token-in-castlabs"></a>Token JWT en castLabs
+
 En la tabla siguiente se describen los tokens JWT en castLabs. 
 
 | NOMBRE | DESCRIPCIÓN |
@@ -69,7 +74,8 @@ En la tabla siguiente se describen los tokens JWT en castLabs.
 | iat |La fecha y hora actual en la época. |
 | jti |Identificador único sobre este token (cada token solo puede usarse una vez en el sistema castLabs). |
 
-## <a name="sample-solution-set-up"></a>Configuración de soluciones de ejemplo
+## <a name="sample-solution-setup"></a>Configuración de soluciones de ejemplo
+
 La [solución de ejemplo](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) consta de dos proyectos:
 
 * Una aplicación de consola que puede usarse para establecer restricciones de DRM en un activo ya introducido, tanto para PlayReady como para Widevine.
@@ -94,6 +100,7 @@ Para usar la aplicación web (STS):
 3. Vaya al sitio web.
 
 ## <a name="playing-back-a-video"></a>Reproducir un vídeo
+
 Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), puede usar [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Cuando se ejecuta la aplicación de consola, se reflejan el id. de clave de contenido y la dirección URL del manifiesto.
 
 1. Abra una nueva pestaña e inicie STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].

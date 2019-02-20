@@ -4,7 +4,7 @@ description: Aprenda a descargar recursos en el equipo. Los ejemplos de código 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782804"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993119"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Entrega de un recurso mediante descarga
+# <a name="how-to-deliver-an-asset-by-download"></a>Procedimientos para: Entrega de un recurso mediante descarga  
 En este artículo se analizan las opciones para entregar recursos multimedia cargados en Media Services. Puede entregar contenido de Media Services en diversos escenarios de aplicaciones. Después de la codificación, descargue los recursos multimedia generados, o bien acceda a ellos mediante un localizador de streaming. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una instancia de Content Delivery Network (CDN).
 
 En este ejemplo se muestra cómo descargar recursos multimedia desde los Media Services en el equipo local. El código consulta los trabajos asociados con la cuenta de Media Services por identificador de trabajo y tiene acceso a su colección **OutputMediaAssets** (que es el conjunto de uno o más recursos multimedia de salida que resultan de la ejecución de un trabajo). Este ejemplo muestra cómo descargar recursos multimedia de salida desde un trabajo, pero puede aplicar el mismo enfoque para descargar otros recursos.

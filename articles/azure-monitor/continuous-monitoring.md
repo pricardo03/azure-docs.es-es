@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452826"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994030"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -64,7 +64,7 @@ Tanto la integración continua como la implementación continua le permite integ
 
 - Use [Azure Pipelines](/azure/devops/pipelines) para implementar la implementación continua y automatizar todo su proceso desde la confirmación del código hasta la producción en función de sus pruebas de CI/CD.
 - Use [puertas de calidad](/azure/devops/pipelines/release/approvals/gates) para integrar la supervisión en su implementación anterior o posterior. Esto garantiza su cumplimiento de las métricas de mantenimiento o rendimiento clave (KPI), ya que sus aplicaciones abarcan desde el desarrollo hasta la producción, y ninguna diferencia en el entorno de infraestructura o escala afecta negativamente a sus KPI.
-- [Mantenga instancias de supervisión independientes](../azure-monitor/app/separate-resources.md) entre sus diferentes entornos de implementación, por ejemplo desarrollo, prueba, valor controlado y producto. Esto garantiza que los datos recopilados sean pertinentes en las aplicaciones e infraestructura asociadas. Si debe poner datos en correlación entre entornos, puede usar [gráficos de varios recursos en el Explorador de métricas](../azure-monitor/platform/metrics-charts.md) o crear [consultas de recursos cruzados en Log Analytics](log-query/cross-workspace-query.md).
+- [Mantenga instancias de supervisión independientes](../azure-monitor/app/separate-resources.md) entre sus diferentes entornos de implementación, por ejemplo desarrollo, prueba, valor controlado y producto. Esto garantiza que los datos recopilados sean pertinentes en las aplicaciones e infraestructura asociadas. Si debe poner datos en correlación entre entornos, puede usar [gráficos de varios recursos en el Explorador de métricas](../azure-monitor/platform/metrics-charts.md) o crear [consultas entre recursos en Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Creación de alertas accionables con acciones

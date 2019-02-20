@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564143"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994904"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 
@@ -142,7 +142,7 @@ Si opta por dejar de proteger una máquina virtual, se le pregunta si desea cons
 
 Dejar los puntos de recuperación almacenados conlleva un costo. Sin embargo, la ventaja de dejarlos es que puede restaurar la máquina virtual más adelante, si lo desea. Para más información acerca del costo de dejar los puntos de recuperación, consulte la [información sobre precios](https://azure.microsoft.com/pricing/details/backup/). Si opta por eliminar todos los puntos de recuperación, no podrá restaurar la máquina virtual.
 
-Cada vez que detenga la copia de seguridad con datos de retención, los puntos de recuperación expirarán según la directiva de retención, pero Azure Backup siempre conservará el último punto de recuperación hasta que se eliminen explícitamente los datos de la copia de seguridad. De igual forma, si elimina un origen de datos sin realizar Detener copia de seguridad, las copias de seguridad nuevas comenzarán a generar errores y los puntos de recuperación antiguos expirarán debido a la directiva de retención, pero siempre se conservará un último punto de recuperación hasta que realice Detener copia de seguridad con eliminación de datos.
+El punto de recuperación se conservará indefinidamente hasta que el elemento de copia de seguridad se pueda volver a proteger con una directiva de retención o se detenga la protección con Eliminar datos. En el caso de la reprotección, la nueva directiva que se está asociando determinará la retención de puntos de recuperación. De igual forma, si elimina un origen de datos sin realizar Detener copia de seguridad, las copias de seguridad nuevas comenzarán a generar errores y los puntos de recuperación antiguos expirarán debido a la directiva de retención, pero siempre se conservará un último punto de recuperación hasta que realice Detener copia de seguridad con eliminación de datos.
 
 Para detener la protección de una máquina virtual:
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561406"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858287"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error
 
@@ -32,6 +32,9 @@ El principal inconveniente es que la administración del proceso de recuperació
 ## <a name="how-to-configure-logins-and-users"></a>Configuración de inicios de sesión y de usuarios
 
 Si usa inicios de sesión y usuarios (en lugar de usuarios contenidos), debe realizar pasos adicionales para asegurarse de que existan los mismos inicios de sesión en la base de datos maestra. En las secciones siguientes, se describen los pasos necesarios y otras consideraciones.
+
+  >[!NOTE]
+  > También es posible usar inicios de sesión de Azure Active Directory (AAD) para administrar las bases de datos. Para más información, consulte [Inicios de sesión y usuarios de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configuración del acceso de usuario a una base de datos secundaria o recuperada
 

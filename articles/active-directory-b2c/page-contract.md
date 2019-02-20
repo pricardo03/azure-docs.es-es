@@ -10,18 +10,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 637cdb338496764e64c18a887673808ef4e8415a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203460"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003149"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selección de un contrato de página en Azure Active Directory B2C con directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Puede seleccionar un contrato de página en Azure Active Directory (Azure AD) B2C mediante su configuración en una [directiva personalizada](active-directory-b2c-overview-custom.md). Un contrato de página es una asociación de elementos que proporciona Azure AD B2C y el contenido que proporciona el usuario. Si piensa usar [JavaScript](javascript-samples.md), deberá definir una versión del contrato de la página para todas las definiciones de contenido de la directiva personalizada.
+Puede habilitar el código de JavaScript del lado cliente en las directivas de Azure Active Directory (Azure AD) B2C, independientemente de si usa flujos de usuario o directivas personalizadas. En este artículo se trata cómo seleccionar un contrato de página en Azure AD B2C mediante su configuración en una [directiva personalizada](active-directory-b2c-overview-custom.md). Un contrato de página es una asociación de elementos que proporciona Azure AD B2C y el contenido que proporciona el usuario. Si piensa usar [JavaScript](javascript-samples.md), deberá definir una versión del contrato de la página para todas las definiciones de contenido de la directiva personalizada.
+
+> [!NOTE]
+> Si quiere habilitar JavaScript para los flujos de usuario, consulte [About using JavaScript and page contract versions in a user flow](user-flow-javascript-overview.md) (Acerca del uso de las versiones del contrato de página y de JavaScript en un flujo de usuario).
 
 ## <a name="replace-datauri-values"></a>Reemplazo de los valores de DataUri
 

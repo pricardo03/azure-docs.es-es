@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264417"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990179"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
 
 Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones. Según la herramienta que utilice, es posible que también tenga la opción de compartir visualizaciones con otros usuarios dentro y fuera de su organización.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="azure-dashboards"></a>Paneles de Azure
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
@@ -30,9 +32,9 @@ Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnol
 ![panel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Ventajas
-- Integración profunda en Azure. Las visualizaciones se pueden anclar a los paneles en varias páginas de Azure, incluidos el análisis de métricas, el análisis de registros y Application Insights.
+- Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, incluidos el explorador de métricas, Log Analytics y Application Insights.
 - Es compatible con las métricas y los registros.
-- Puede combinar datos de varios orígenes, incluidos los resultados de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), las [consultas de Log Analytics](../azure-monitor/log-query/log-query-overview.md) y los [mapas](../azure-monitor/app/app-map.md) y la disponibilidad de Application Insights.
+- Puede combinar datos de varios orígenes, incluidos los resultados del [explorador de métricas](platform/metrics-charts.md), las [consultas del registro](log-query/log-query-overview.md) y los [mapas](app/app-map.md) y la [disponibilidad]() de Application Insights.
 - Opción de paneles personales o compartidos. Integrado con la [autenticación basada en roles (RBAC)](../role-based-access-control/overview.md) de Azure.
 - Actualización automática. Las métricas se actualizan según el intervalo de tiempo con un mínimo de cinco minutos. Los registros se actualizan cada minuto.
 - Paneles de métricas parametrizadas con marca de tiempo y parámetros personalizados.
@@ -49,14 +51,14 @@ Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnol
 - Exploración en profundidad contextual limitada.
 
 ## <a name="azure-monitor-views"></a>Vistas de Azure Monitor
-Las [vistas de Azure Monitor](../log-analytics/log-analytics-view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro. Las [soluciones de supervisión](insights/solutions.md) las utilizan para presentar los datos recopilados.
+Las [vistas de Azure Monitor](platform/view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro. Las [soluciones de supervisión](insights/solutions.md) las utilizan para presentar los datos recopilados.
 
 ![Ver](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Ventajas
 - Visualizaciones enriquecidas para datos de registro.
 - Exporte e importe las vistas para transferirlas a otros grupos de recursos y suscripciones.
-- Se integran en el modelo de administración de Log Analytics con áreas de trabajo y soluciones de supervisión.
+- Se integran en el modelo de administración de Azure Monitor con áreas de trabajo y soluciones de supervisión.
 - [Filtran](platform/view-designer-filters.md) los parámetros personalizados.
 - Interactivas, admiten varios niveles de obtención de detalles (vista que explora otra vista)
 
@@ -71,7 +73,7 @@ Las [vistas de Azure Monitor](../log-analytics/log-analytics-view-designer.md) l
 
 
 ## <a name="application-insights-workbooks"></a>Libros de Application Insights
-Los [libros](../azure-monitor/app/usage-workbooks.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
+Los [libros](../application-insights/app-insights-usage-workbooks.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
 
 ![Libro](media/visualizations/workbook.png)
 
@@ -89,7 +91,7 @@ Los [libros](../azure-monitor/app/usage-workbooks.md) son documentos interactivo
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es particularmente útil para crear informes y paneles centrados en los negocios, así como informes de análisis de tendencias de KPI a largo plazo. Puede [importar los resultados de una consulta de registro](../log-analytics/log-analytics-powerbi.md) en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en la web y los dispositivos móviles.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es particularmente útil para crear informes y paneles centrados en los negocios, así como informes de análisis de tendencias de KPI a largo plazo. Puede [importar los resultados de una consulta de registro](platform/powerbi.md) en un conjunto de datos de Power BI para poder beneficiarse de sus características, como la combinación de datos de diferentes orígenes y el uso compartido de informes en la web y los dispositivos móviles.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +111,7 @@ Los [libros](../azure-monitor/app/usage-workbooks.md) son documentos interactivo
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) es una plataforma abierta que sobresale en paneles operativos. Resulta especialmente útil para detectar, aislar y priorizar los incidentes operativos. Puede agregar el [complemento de origen de datos de Azure Monitor en Grafana](../azure-monitor/platform/grafana-plugin.md) a su suscripción de Azure para visualizar los datos de métricas de Azure.
+[Grafana](https://grafana.com/) es una plataforma abierta que sobresale en paneles operativos. Resulta especialmente útil para detectar, aislar y priorizar los incidentes operativos. Puede agregar el [complemento de origen de datos de Azure Monitor en Grafana](platform/grafana-plugin.md) a su suscripción de Azure para visualizar los datos de métricas de Azure.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -140,7 +142,6 @@ Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante 
 - Obtenga información sobre los [datos que Azure Monitor recopila](platform/data-collection.md).
 - Obtenga información sobre los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).
 - Obtenga información sobre las [vistas de Azure Monitor](platform/view-designer.md).
-- Obtenga información sobre los [libros de Application Insights](../azure-monitor/app/usage-workbooks.md).
-- Obtenga información sobre cómo [importar datos de registro en Power BI](../azure-monitor/platform/powerbi.md).
-- Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](../azure-monitor/platform/grafana-plugin.md).
-
+- Obtenga información sobre los [libros de Application Insights](app/usage-workbooks.md).
+- Obtenga información sobre cómo [importar datos de registro en Power BI](platform/powerbi.md).
+- Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](platform/grafana-plugin.md).

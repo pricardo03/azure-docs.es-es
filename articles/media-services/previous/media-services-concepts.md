@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353712"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993918"
 ---
-# <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
+# <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services 
+
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Recursos y almacenamiento
@@ -74,7 +75,7 @@ Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los 
 ### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 Los [localizador](https://docs.microsoft.com/rest/api/media/operations/locator)es proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Se usa una directiva de acceso para definir los permisos y la duración en que un cliente tiene acceso a un recurso determinado. Los localizadores pueden tener de varias a una relación con una directiva de acceso, de manera tal que distintos localizadores pueden proporcionar distintas horas de inicio y tipos de conexión a distintos clientes, mientras que todos usan la misma configuración de permiso y duración; sin embargo, debido a una restricción en la directiva de acceso compartido definida por los servicios de almacenamiento de Azure, no puede tener más de cinco localizadores únicos asociados con un recurso determinado a la vez. 
 
-Media Services admite dos tipos de localizadores: los localizadores OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargar elementos  multimedia de manera progresiva, y los localizadores SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde Azure Storage. 
+Media Services admite dos tipos de localizadores: OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargar elementos multimedia de manera progresiva; y SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde Azure Storage. 
 
 >[!NOTE]
 >El permiso de lista (AccessPermissions.List) no se debe usar al crear un localizador OnDemandOrigin. 
@@ -107,8 +108,8 @@ Para obtener información acerca de los codificadores compatibles, consulte [Cod
 ## <a name="live-streaming"></a>Streaming en directo
 En Azure Media Services, un canal representa una canalización para procesar contenido de streaming en directo. Los canales reciben el flujo de entrada en directo de dos maneras posibles:
 
-* Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision y Tricaster. Las secuencias recopiladas pasan a través de canales sin más procesamiento ni codificación. Cuando se solicita, Media Services entrega la secuencia a los clientes.
-* Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado)) se envía al canal habilitado para realizar la codificación en directo con Media Services. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision y Tricaster. Las secuencias recopiladas pasan a través de canales sin más procesamiento ni codificación. Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Una secuencia de velocidad de bits única (en uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado)) se envía al canal habilitado para realizar la codificación en directo con Media Services. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
 ### <a name="channel"></a>Canal
 En Media Services, los [canal](https://docs.microsoft.com/rest/api/media/operations/channel)es son los responsables de procesar el contenido de streaming en vivo. Un canal proporciona un extremo de entrada (dirección URL de introducción) que luego se brinda a un transcodificador en vivo. El canal recibe flujos de entrada en vivo desde el transcodificador en vivo y las deja a disposición del streaming a través de uno o más StreamingEndpoints. Los canales también proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de mayor procesamiento y entrega.

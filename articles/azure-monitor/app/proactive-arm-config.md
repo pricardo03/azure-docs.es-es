@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881603"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962237"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -31,6 +31,7 @@ Puede configurar los siguientes valores en una regla de detección inteligente:
 - Si la regla se habilita (el valor predeterminado es **true**).
 - Si deben enviarse correos electrónicos a los lectores, colaboradores y propietarios de la suscripción cuando se encuentra una detección (el valor predeterminado es **true**).
 - Los destinatarios de correo electrónico adicionales que deben recibir una notificación cuando se encuentra una detección.
+- * La configuración de correo electrónico no está disponible para las reglas de detección inteligente marcadas como _Versión preliminar_.
 
 Para permitir la configuración de los valores de regla a través de Azure Resource Manager, la configuración de reglas de detección inteligente ahora está disponible como recurso interno en el recurso de Application Insights denominado **ProactiveDetectionConfigs**.
 Para obtener la máxima flexibilidad, cada regla de detección inteligente puede configurarse con valores de notificación únicos.

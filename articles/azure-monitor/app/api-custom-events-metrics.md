@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814425"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895999"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -572,6 +572,20 @@ telemetry.trackTrace({
     properties: properties
 });
 ```
+
+*JavaScript del lado cliente/explorador*
+
+```javascript
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+```
+
+Registre un evento de diagnóstico, como la entrada o la salida de un método.
+
+ Parámetro | DESCRIPCIÓN
+---|---
+`message` | Datos de diagnóstico. Puede ser mucho más largo que un nombre.
+`properties` | Asignación de cadena a cadena: Datos adicionales que se usan para [filtrar excepciones](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) en el portal. El valor predeterminado es vacío.
+`severityLevel` | Valores admitidos: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de propiedad) no puede filtrar por él.
 

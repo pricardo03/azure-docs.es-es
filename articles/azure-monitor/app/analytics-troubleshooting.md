@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189939"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960690"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Solución de problemas de Analytics en Application Insights
 ¿Problemas con [Analytics de Application Insights](analytics.md)? Comience aquí. Analytics es la herramienta eficaz de búsqueda de Application Insights.
@@ -36,7 +36,7 @@ Deshabilite la extensión o use un explorador diferente.
 
 Error interno durante el tiempo de ejecución del portal: excepción no controlada.
 
-* Limpie la caché del explorador. 
+* Limpie la caché del explorador.
 
 ## <a name="e-b"></a>403... intente volver a cargar
 ![403... intente volver a cargar](media/analytics-troubleshooting/020.png)

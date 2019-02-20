@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 8bb48044fc827cd0d1dbc11ef3ec72ca1bdcb11a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351459"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997540"
 ---
-# <a name="troubleshooting-guide-for-live-streaming"></a>Guía de solución de problemas para el streaming en vivo
+# <a name="troubleshooting-guide-for-live-streaming"></a>Guía de solución de problemas para el streaming en vivo  
+
 En este artículo se ofrecen sugerencias sobre cómo solucionar algunos problemas del streaming en vivo.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Problemas relacionados con los codificadores locales
 Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionados con codificadores locales que están configurados para enviar una secuencia de velocidad de bits única a los canales de AMS que están habilitados para la codificación en directo.
 
-### <a name="problem-would-like-to-see-logs"></a>Problema: le gustaría ver registros
+### <a name="problem-would-like-to-see-logs"></a>Problema: Le gustaría ver registros
 * **Posible problema**: no puede encontrar los registros del codificador que podrían ayudar en los problemas de depuración.
   
   * **Telestream Wirecast**: normalmente encontrará los registros en C:\Users\{username}\AppData\Roaming\Wirecast\ 
@@ -44,10 +45,10 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
     **Pasos para solucionar problemas**: asegúrese de que el codificador ya no está insertando en AMS, detenga y restablezca el canal. Cuando se vuelva a ejecutar, intente conectar su codificador con la nueva configuración. Si esto sigue sin solucionar el problema, intente crear un nuevo canal por completo; a veces, los canales se pueden dañar tras varios intentos con error.  
 * **Posible problema**: la configuración del fotograma clave o el tamaño de GOP no son óptimos. 
   
-    **Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de dos segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo: cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.  
+    **Pasos para solucionar problemas**: el intervalo de fotogramas clave o el tamaño de GOP recomendado es de dos segundos. Algunos codificadores calculan esta configuración en el número de fotogramas, mientras que otros usan segundos. Por ejemplo:  cuando se envían 30 fps, el tamaño de GOP sería de 60 fotogramas, lo que equivale a 2 segundos.  
 * **Posible problema**: los puertos cerrados están bloqueando la secuencia. 
   
-    **Pasos para solucionar problemas**: al hacer el streaming mediante RTMP, compruebe la configuración del firewall o del proxy para confirmar que los puertos salientes 1935 y 1936 están abiertos. 
+    **Pasos para solucionar problemas**: Al hacer el streaming mediante RTMP, compruebe la configuración del firewall o del proxy para confirmar que los puertos salientes 1935 y 1936 están abiertos. 
 
 > [!NOTE]
 > Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante Azure Portal.

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811747"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989072"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementación de streaming de conmutación por error con Azure Media Services
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>Implementación de streaming de conmutación por error con Media Services (heredado)
 
 En este tutorial se muestra cómo copiar contenido (blobs) de un recurso a otro con el fin de controlar la redundancia de streaming a petición. Este escenario es útil si desea configurar Azure Content Delivery Network para que conmute por error entre dos centros de datos, en el caso de se produzca una interrupción en uno de ellos. En este tutorial se usa el SDK de Azure Media Services, la API de REST de Azure Media Services y el SDK de Azure Storage para demostrar las siguientes tareas:
 

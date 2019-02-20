@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870345"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858270"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -26,8 +26,12 @@ Un registro con replicación geográfica le proporciona las siguientes ventajas:
 * No hay tarifas de salida adicionales, ya que las imágenes se extraen de un registro replicado local que está en la misma región que el host de contenedor.
 * Administración única de un registro en varias regiones.
 
+> [!NOTE]
+> Si necesita mantener copias de las imágenes de contenedor en más de un registro de contenedor de Azure, Azure Container Registry también admite la [importación de imágenes](container-registry-import-images.md). Por ejemplo, en un flujo de trabajo de DevOps, puede importar una imagen desde un registro de desarrollo a un registro de producción, sin necesidad de usar comandos de Docker.
+>
+
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
-Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de Kubernetes de [Azure Container Service](/azure/container-service/kubernetes/) (ACS) en el Este y Oeste de EE. UU, Canadá central y Europa Occidental. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
+Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de [Azure Kubernetes Service](/azure/aks/) (AKS) en el Este y Oeste de EE. UU, Centro de Canadá y Europa Occidental. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
 
 El equipo de desarrollo que está ubicado en Seattle (WA) usará el centro de datos del Oeste de EE. UU.
 

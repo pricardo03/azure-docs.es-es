@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: f41d54f97861a4df7d50cb3b4f0f99970de354cc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4a1ea364180d389ffdbfc7cedd740a0e493070b3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121505"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999001"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -104,7 +104,7 @@ En el portal, haga clic en cualquier icono para ver su contenido con mayor detal
 ## <a name="step-4-publish-your-app"></a>Paso 4: Publicación de la aplicación
 Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
 
-La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](../../azure-monitor/app/app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguage) para analizar el uso y el rendimiento o para buscar eventos concretos.
+La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](../../azure-monitor/app/app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Data Explorer](https://aka.ms/LogAnalyticsLanguage) para analizar el uso y el rendimiento o para buscar eventos concretos.
 
 También puede seguir analizando la telemetría en [Visual Studio](../../azure-monitor/app/visual-studio.md) con herramientas como búsqueda de diagnóstico y las [tendencias](../../azure-monitor/app/visual-studio-trends.md).
 

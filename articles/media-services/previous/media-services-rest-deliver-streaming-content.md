@@ -2,7 +2,7 @@
 title: Publicación de contenido de Azure Media Services con REST
 description: Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. El código usa API de REST.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8385dedd494c0cef968cb869ded3e92ce213da5e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 185e047bb1877d5ee4660653c0e7b6b32f273a0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785864"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991606"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Azure Media Services con REST
+# <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Azure Media Services con REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -163,7 +163,7 @@ ejemplo:
 ### <a name="build-progressive-download-urls"></a>Creación de direcciones URL de descarga progresiva
 Use el valor **Path** devuelto después de la creación del localizador para generar la dirección URL de descarga progresiva.   
 
-URL: **Path** + nombre del archivo mp4 de recursos
+Dirección URL: **Path** + nombre del archivo mp4 de recursos
 
 ejemplo:
 

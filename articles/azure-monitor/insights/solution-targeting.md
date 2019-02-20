@@ -1,6 +1,6 @@
 ---
-title: Selección de destino de las soluciones de administración en Azure | Microsoft Docs
-description: La selección de destino de las soluciones de administración permite limitar las soluciones de administración a un conjunto específico de agentes.  En este artículo se describe cómo crear una configuración de ámbito y aplicarla a una solución.
+title: Soluciones de supervisión como destino en Azure Monitor | Microsoft Docs
+description: La selección de destino de las soluciones de supervisión permite limitar las soluciones de supervisión a un conjunto específico de agentes.  En este artículo se describe cómo crear una configuración de ámbito y aplicarla a una solución.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192760"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989192"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Selección de destino de las soluciones de administración en Azure (versión preliminar)
-Cuando se agrega una solución de administración a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluciones de supervisión como destino en Azure Monitor (versión preliminar)
+Cuando se agrega una solución de supervisión a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Cómo seleccionar un destino para una solución
 Hay tres pasos para seleccionar un destino para una solución, tal como se describe en las secciones siguientes. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Crear un grupo de equipos
-Especifique los equipos que se van a incluir en un ámbito mediante la creación de un [grupo de equipos](../../azure-monitor/platform/computer-groups.md) en Log Analytics.  El grupo de equipos puede basarse en una búsqueda de registros o importarse desde otros orígenes, como los grupos de Active Directory o WSUS. Como [se describe a continuación](#solutions-and-agents-that-cant-be-targeted), solo los equipos que están conectados directamente a Log Analytics se incluirán en el ámbito.
+Especifique los equipos que se van a incluir en un ámbito mediante la creación de un [grupo de equipos](../platform/computer-groups.md) en Azure Monitor.  El grupo de equipos puede basarse en una consulta de registros o importarse desde otros orígenes, como los grupos de Active Directory o WSUS. Como [se describe a continuación](#solutions-and-agents-that-cant-be-targeted), solo los equipos que están conectados directamente a Azure Monitor se incluirán en el ámbito.
 
 Una vez se haya creado el grupo de equipos en el área de trabajo, deberá incluirlo en una configuración de ámbito que se pueda aplicar a una o varias soluciones.
  
@@ -38,7 +40,7 @@ Una vez se haya creado el grupo de equipos en el área de trabajo, deberá inclu
  
  Cree una configuración de ámbito mediante el proceso siguiente.  
 
- 1. En Azure Portal, vaya a **Log Analytics** y seleccione su área de trabajo.
+ 1. En Azure Portal, vaya a las **áreas de trabajo de Log Analytics** y seleccione su área de trabajo.
  2. En las propiedades del área de trabajo en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
  3. Haga clic en **Agregar** para crear una nueva configuración de ámbito.
  4. Escriba un **nombre** para la configuración de ámbito.
@@ -52,7 +54,7 @@ Una vez que tenga una configuración de ámbito, puede aplicarla a una o varias 
 
 Aplique una configuración de ámbito mediante el proceso siguiente.  
 
- 1. En Azure Portal, vaya a **Log Analytics** y seleccione su área de trabajo.
+ 1. En Azure Portal, vaya a las **áreas de trabajo de Log Analytics** y seleccione su área de trabajo.
  2. En las propiedades del área de trabajo seleccione **Soluciones**.
  3. Haga clic en la solución cuyo ámbito desea establecer.
  4. En las propiedades de la solución en **Orígenes de datos del área de trabajo**, seleccione **Selección de destino de solución**.  Si la opción no está disponible, [no es posible establecer el destino de esta solución](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ A continuación se muestran los criterios para agentes y soluciones que no se pu
 
 - La selección de destino de solución solo se aplica a soluciones que se implementan en agentes.
 - La selección de destino de solución solo se aplica a soluciones proporcionadas por Microsoft.  No se aplica a las soluciones [creadas por usted o sus socios](solutions-creating.md).
-- Solo puede filtrar los agentes que se conectan directamente a Log Analytics.  Las soluciones se implementarán automáticamente en los agentes que forman parte de un grupo de administración de Operations Manager conectado o no están incluidos en una configuración de ámbito.
+- Solo puede filtrar los agentes que se conectan directamente a Azure Monitor.  Las soluciones se implementarán automáticamente en los agentes que forman parte de un grupo de administración de Operations Manager conectado o no están incluidos en una configuración de ámbito.
 
 ### <a name="exceptions"></a>Excepciones
 La selección de destino de solución no se puede utilizar con las soluciones siguientes, incluso si cumplen con los criterios establecidos.
@@ -73,5 +75,5 @@ La selección de destino de solución no se puede utilizar con las soluciones si
 - Evaluación de estado del agente
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre las soluciones de administración, incluidas las soluciones que están disponibles para instalar en su entorno, en [Adición de soluciones de administración de Azure Log Analytics al área de trabajo](solutions.md).
-- Para obtener más información sobre la creación de grupos de equipos, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../../azure-monitor/platform/computer-groups.md).
+- Obtenga más información sobre las soluciones de supervisión, incluidas las soluciones que están disponibles para instalar en su entorno, en [Add Azure Log Analytics monitoring solutions to your workspace](solutions.md) (Adición de soluciones de supervisión de Azure Log Analytics al área de trabajo).
+- Para más información sobre la creación de grupos de equipos, consulte [Computer groups in Azure Monitor log queries](../platform/computer-groups.md) (Grupos de equipos en búsquedas de registros de Azure Monitor).

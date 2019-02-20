@@ -1,6 +1,6 @@
 ---
-title: 'Niveles de servicio de Azure SQL Database: DTU | Microsoft Docs'
-description: Obtenga información acerca de los niveles de servicio para las bases de datos de grupo y únicas a fin de proporcionar los tamaños de proceso y de almacenamiento.
+title: 'Niveles de servicio de Azure SQL Database: modelo de compra basado en DTU | Microsoft Docs'
+description: Obtenga información acerca de los niveles de servicio en el modelo de compra basado en DTU para las bases de datos únicas y agrupadas para proporcionar los tamaños de proceso y de almacenamiento.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507661"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993612"
 ---
-# <a name="dtu-based-service-tiers"></a>Niveles de servicio basados en DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
-Los niveles de servicio basados en DTU se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio proporcionan la flexibilidad de cambiar los tamaños de proceso sin tiempo de inactividad. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
+Los niveles de servicio en el modelo de compra basado en DTU se diferencian por una variedad de tamaños de proceso con una cantidad fija de almacenamiento incluido, un período de retención fijo para copias de seguridad y un precio fijo. Todos los niveles de servicio en el modelo de compra basado en DTU proporcionan la flexibilidad de cambiar los tamaños de proceso sin tiempo de inactividad. Las bases de datos únicas y los grupos elásticos se facturan por horas en función del nivel de servicio y el tamaño de proceso.
 
 > [!IMPORTANT]
-> Instancia administrada de Azure SQL Database, actualmente en versión preliminar pública, no admite un modelo de compra basado en DTU. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
+> Instancia administrada de SQL Database no admite un modelo de compra basado en DTU. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
 > [!NOTE]
-> Para obtener información sobre los niveles de servicio basados en núcleos virtuales, consulte el artículo sobre [niveles de servicio basados en núcleos virtuales](sql-database-service-tiers-vcore.md). Para obtener información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-service-tiers.md).
+> Para obtener información sobre los niveles de servicio basados en núcleos virtuales, consulte el artículo sobre [niveles de servicio basados en núcleos virtuales](sql-database-service-tiers-vcore.md). Para obtener información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Comparación de los niveles de servicio basados en DTU
 
@@ -34,8 +34,8 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 
 ||Básica|Estándar|Premium|
 | :-- | --: |--:| --:| --:|
-|Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción||
-|Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|N/D en versión preliminar|
+|Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción|
+|Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|
 |Retención de copias de seguridad|7 días|35 días|35 días|
 |CPU|Bajo|Bajo, medio, alto|Medio, alto|
 |Rendimiento de E/S (aproximado) |2,5 IOPS por DTU| 2,5 IOPS por DTU | 48 IOPS por DTU|
@@ -49,12 +49,12 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Límites de DTU de una sola base de datos y almacenamiento
 
-Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para obtener más información sobre DTU y eDTU, consulte [Modelo de compra basado en DTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
+Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para obtener más información sobre DTU y eDTU, consulte [Modelo de compra basado en DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Básica|Estándar|Premium|
 | :-- | --: | --: | --: | --: |
 | Tamaño máximo de almacenamiento | 2 GB | 1 TB | 4 TB  |
-| Cantidad máxima de DTU | 5 | 3000 | 4000 | |
+| Cantidad máxima de DTU | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Los tamaños de proceso se expresan como unidades de transacción de base de dat
 ||||||
 
 > [!IMPORTANT]
-> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), Suroeste de USGov, USGov Iowa, Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones, excepto las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), Suroeste de USGov, USGov Iowa, Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
@@ -88,7 +88,7 @@ La prueba comparativa y su metodología se describen a continuación de forma m�
 
 ### <a name="benchmark-summary"></a>Resumen de la prueba comparativa
 
-El ASDB mide el rendimiento de una mezcla de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Aunque la prueba comparativa está diseñada teniendo en cuenta la computación en la nube, el esquema de la base de datos, el rellenado de datos y las transacciones se diseñaron para representar ampliamente los elementos básicos usados con mayor frecuencia en las cargas de trabajo OLTP.
+La prueba comparativa mide el rendimiento de una mezcla de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Aunque la prueba comparativa está diseñada teniendo en cuenta la computación en la nube, el esquema de la base de datos, el rellenado de datos y las transacciones se diseñaron para representar ampliamente los elementos básicos usados con mayor frecuencia en las cargas de trabajo OLTP.
 
 ### <a name="schema"></a>Esquema
 

@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543502"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893823"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquitecturas de referencia para la representación de Azure
 
@@ -27,9 +27,9 @@ El siguiente diagrama muestra un escenario híbrido que incluye los siguientes s
 
 * **Red**: local: Azure ExpressRoute o VPN. Azure: red virtual de Azure.
 
-* **Almacenamiento**: archivos de entrada y salida: NFS o CFS que usan VM de Azure, sincronizados con el almacenamiento local mediante Azure File Sync o RSync.
+* **Almacenamiento**: archivos de entrada y salida: NFS o CFS que usan VM de Azure, sincronizados con el almacenamiento local mediante Azure File Sync o RSync. O bien: Avere vFXT para archivos de entrada o salida desde dispositivos NAS locales mediante NFS.
 
-  ![Ampliación a la nube: híbrido con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![Ampliación a la nube: híbrido con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Híbrido con Blobfuse
 
@@ -51,9 +51,9 @@ El siguiente diagrama muestra un escenario híbrido completamente conectado de p
 
 * **Red**: local: Azure ExpressRoute o VPN. Azure: red virtual de Azure.
 
-* **Almacenamiento**: entre locales: Avere vFXT. Archivado opcional de archivos locales a través de Azure Data Box en Blob Storage.
+* **Almacenamiento**: entre locales: Avere vFXT. Archivado opcional de archivos locales a través de Azure Data Box en Blob Storage, o instancia local de Avere FXT para aceleración NAS.
 
-  ![Ampliación en la nube: proceso y almacenamiento híbrido](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![Ampliación en la nube: proceso y almacenamiento híbrido](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

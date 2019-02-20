@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250774"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998712"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES 
 
@@ -238,9 +238,9 @@ Se aplican las siguientes consideraciones:
 * El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
 * Los elementos Jpg/Png/BmpImage tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
 
-  * Número de marco si son enteros no negativos, por ejemplo, Start: 120
-  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, Start: 15
-  * Marca de tiempo si se por ejemplo, "Start" : "00:01:00"
+  * Número de marco si son enteros no negativos, por ejemplo, "Start": "120",
+  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, "Start": "15%", o bien
+  * Marca de tiempo si se por ejemplo, "Start": "00:01:00"
 
     Puede mezclar y hacer coincidir notaciones a su conveniencia.
 
@@ -752,7 +752,7 @@ Puede desactivar la anulación de entrelazado automática. Esta opción nos e re
 
 
 ## <a id="audio_only"></a>Valores preestablecidos de solo audio
-Esta sección muestra dos valores preestablecidos de MES de solo audio: Audio AAC y Audio AAC de buena calidad.
+En esta sección se muestran dos valores preestablecidos de MES de solo audio: AAC Audio y Audio AAC de buena calidad.
 
 ### <a name="aac-audio"></a>Audio AAC
     {

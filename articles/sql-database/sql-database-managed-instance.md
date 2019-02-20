@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751555"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964158"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Uso de Advanced Data Security en SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -93,8 +93,8 @@ Ambos niveles de servicio garantizan una disponibilidad del 99,99 % y le permite
 La siguiente lista describe las principales características del nivel de servicio de uso general:
 
 - Diseño de la mayoría de las aplicaciones empresariales con requisitos típicos de alto rendimiento
-- Premium Storage de alto rendimiento (8 TB)
-- [Alta disponibilidad](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) integrada basada en los servicios de alta confiabilidad Azure Premium Storage y [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Azure Blob Storage de alto rendimiento (8 TB)
+- [Alta disponibilidad](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) integrada basada en los servicios confiables Azure Blob Storage y [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Para más información, vea [Storage layer in General purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) (Capa de almacenamiento en el nivel de uso general) y [Storage performance best practices and considerations for Azure SQL DB Managed Instance (General Purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/) [Procedimientos recomendados y consideraciones de rendimiento de almacenamiento para instancias administradas (uso general)].
 
@@ -107,7 +107,7 @@ El nivel de servicio Crítico para la empresa se ha creado para las aplicaciones
 La siguiente lista describe las principales características del nivel de servicio Crítico para la empresa:
 
 - Diseñado para aplicaciones empresariales con mayor rendimiento y requisitos de alta disponibilidad
-- Incluye almacenamiento SSD extremadamente rápido (hasta 1 TB en Gen 4 y hasta 4 TB en Gen 5)
+- Incluye almacenamiento local SSD extremadamente rápido (hasta 1 TB en Gen 4 y hasta 4 TB en Gen 5)
 - [Alta disponibilidad](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) integrada basada en los [Grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) y [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - [Réplica de base de datos de solo lectura](sql-database-read-scale-out.md) adicional integrada que se puede usar para informes y otras cargas de trabajo de solo lectura.
 - [OLTP en memoria](sql-database-in-memory.md), que se puede usar para la carga de trabajo con requisitos de alto rendimiento.  

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765490"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997109"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adición de Kubernetes a Marketplace de Azure Stack
 
@@ -65,15 +65,15 @@ Cree un plan, una oferta y una suscripción para el elemento de Marketplace de K
 
 Si usa Active Directory Federated Services (AD FS) para el servicio de administración de identidades, deberá crear una entidad de servicio para que los usuarios implementen un clúster de Kubernetes.
 
-1. Cree y exporte el certificado que se usará para crear la entidad de servicio. El siguiente fragmento de código muestra cómo crear un certificado autofirmado. 
+1. Cree y exporte un certificado autofirmado que se usará para crear la entidad de servicio. 
 
     - Necesita la siguiente información:
 
        | Valor | DESCRIPCIÓN |
        | ---   | ---         |
-       | Contraseña | Contraseña del certificado. |
-       | Ruta de acceso del certificado | Nombre de archivo y ruta de acceso del certificado. Por ejemplo: `path\certfilename.pfx` |
-       | Nombre del certificado | Nombre del certificado. |
+       | Contraseña | Escriba una nueva contraseña para el certificado. |
+       | Ruta de acceso del certificado | Escriba la ruta de acceso y el nombre de archivo del certificado. Por ejemplo: `c:\certfilename.pfx` |
+       | Nombre del certificado | Escriba el nombre del certificado. |
        | Ubicación del almacén de certificados |  Por ejemplo: `Cert:\LocalMachine\My` |
 
     - Abra PowerShell con un símbolo del sistema con privilegios elevados. Ejecute el siguiente script con los parámetros actualizados para coincidir con sus valores:
@@ -82,8 +82,7 @@ Si usa Active Directory Federated Services (AD FS) para el servicio de administ
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ Si usa Active Directory Federated Services (AD FS) para el servicio de administ
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Cree una entidad de servicio con el certificado.
+2.  Tome nota del nuevo identificador del certificado que aparece en la sesión de PowerShell, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. El ID se usará para crear la entidad de servicio.
+
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. Cree una entidad de servicio con el certificado.
 
     - Necesita la siguiente información:
 
        | Valor | DESCRIPCIÓN                     |
        | ---   | ---                             |
        | IP de ERCS | En el ASDK, el punto de conexión con privilegios es normalmente `AzS-ERCS01`. |
-       | Nombre de la aplicación | Nombre sencillo para la entidad de servicio de aplicación. |
-       | Ubicación del almacén de certificados | La ruta de acceso en el equipo en el que ha almacenado el certificado. Por ejemplo: `Cert:\LocalMachine\My\<someuid>` |
+       | Nombre de la aplicación | Escriba un nombre sencillo para la entidad de servicio de la aplicación. |
+       | Ubicación del almacén de certificados | La ruta de acceso en el equipo en el que ha almacenado el certificado. Esto se indica mediante la ubicación del almacén y el identificador del certificado generado en el primer paso. Por ejemplo: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - Abra PowerShell con un símbolo del sistema con privilegios elevados. Ejecute el siguiente script con los parámetros actualizados para coincidir con sus valores:
+       Cuando se le solicite, use las siguientes credenciales para conectarse al punto de conexión con privilegios. 
+        - Nombre de usuario: especifique la cuenta CloudAdmin con el formato <Azure Stack domain>\cloudadmin. (Para ASDK, el nombre de usuario es azurestack\cloudadmin.)
+        - Contraseña: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
+
+    - Ejecute el siguiente script con los parámetros actualizados para coincidir con sus valores:
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ Agregue la siguiente imagen de Ubuntu Server en Marketplace:
 
 1. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
 
-1. Escriba `UbuntuServer`.
+1. Escriba `Ubuntu Server`.
 
 1. Seleccione la versión más reciente del servidor. Compruebe la versión completa y asegúrese de que tiene instalada la versión más reciente:
     - **Publicador**: Canonical

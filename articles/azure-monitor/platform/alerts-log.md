@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751487"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990452"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -106,8 +106,7 @@ A continuación, se muestra una guía paso a paso acerca de cómo usar las alert
 
     En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
 
-Los usuarios también pueden finalizar la consulta de análisis en la [página Log Analytics de Azure Portal](../../azure-monitor/log-query/portals.md#log-analytics-page
-) e insertarla para crear una alerta a través del botón "+Nueva regla de alertas " y, después, seguir las instrucciones del paso 6 en adelante del tutorial anterior.
+Los usuarios también pueden finalizar la consulta de análisis en [Log Analytics](../log-query/portals.md) e insertarla para crear una alerta a través del botón "Establecer alerta" y, a continuación, seguir las instrucciones del paso 6 en adelante del tutorial anterior.
 
  ![Log Analytics: Establecer alerta](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -317,12 +316,12 @@ El JSON del ejemplo anterior puede guardarse como (digamos) sampleScheduledQuery
 > Las alertas de registro de Log Analytics también se puede administrar mediante [Alert API de Log Analytics](../../azure-monitor/platform/api-alerts.md) y las plantillas heredadas de [búsquedas y alertas guardadas de Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) también. Para más información acerca del uso de la nueva API de Reglas de consulta programadas detallada aquí de forma predeterminada, consulte [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md) (Cambio a una API nueva de alertas de Log Analytics).
 
 
-Actualmente, las alertas de registro no tienen comandos de PowerShell o la CLI dedicados; pero como se muestra a continuación se pueden usar mediante el cmdlet de PowerShell de Azure Resource Manager para la plantilla de recursos de ejemplo que se mostró anteriormente (sampleScheduledQueryRule.json) en la [sección Plantilla de recursos](#azure-resource-template-for-application-insights):
+Actualmente, las alertas de registro no tienen comandos de PowerShell o la CLI dedicados; pero, como se muestra a continuación, se pueden usar mediante el cmdlet de PowerShell de Azure Resource Manager para la plantilla de recursos de ejemplo que se mostró anteriormente (sampleScheduledQueryRule.json) en la sección Plantilla de recursos:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Seguidamente se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleScheduledQueryRule.json), mediante el comando de Azure Resource Manager de la CLI de Azure en la [sección Plantilla de recursos](#azure-resource-template-for-application-insights):
+Seguidamente se muestra cómo se usa la plantilla de recursos de ejemplo que se mostró anteriormente (sampleScheduledQueryRule.json), mediante el comando de Azure Resource Manager de la CLI de Azure en la sección Plantilla de recursos:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

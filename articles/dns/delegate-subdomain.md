@@ -5,24 +5,27 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/22/2019
+ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452724"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895487"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegación de un subdominio de Azure DNS
 
 Puede usar Azure Portal para delegar un subdominio DNS. Por ejemplo, si es propietario del dominio contoso.com, puede delegar un subdominio llamado *ingeniería* a otra zona independiente que se puede administrar por separado respecto de la zona contoso.com.
 
+Si lo prefiere, puede delegar un subdominio usando [Azure PowerShell](delegate-subdomain-ps.md).
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para delegar un subdominio de Azure DNS, primero debe delegar el dominio público en Azure DNS. Consulte [Delegación de un dominio en Azure DNS](./dns-delegate-domain-azure-dns.md) para obtener instrucciones sobre cómo configurar los servidores de nombres para su delegación. Una vez que el dominio se delega a la zona de Azure DNS, puede delegar el subdominio.
 
-En los ejemplos de este artículo se usa el dominio contoso.com. Al usar estos procedimientos debe sustituirlos por su propio dominio.
+> [!NOTE]
+> Contoso.com se usa como ejemplo en todo este artículo. Sustituya su propio nombre de dominio por contoso.com.
 
 ## <a name="create-a-zone-for-your-subdomain"></a>Creación de una zona para el subdominio
 
@@ -38,10 +41,13 @@ En primer lugar, cree la zona para el subdominio **ingeniería**.
 
 ## <a name="note-the-name-servers"></a>Observación de los servidores de nombres
 
-A continuación, copie los cuatro servidores de nombres del subdominio.
+A continuación, anote los cuatro servidores de nombres para el subdominio de ingeniería.
 
-1. En el panel de la zona **ingeniería**, observe los cuatro servidores de nombres para la zona. Estos servidores de nombres se utilizarán más adelante.
-2. Cree un registro **D** que se usará para las pruebas. Por ejemplo, cree un registro D **www** y configúrelo con una dirección IP **10.10.10.10**.
+En el panel de la zona **ingeniería**, observe los cuatro servidores de nombres para la zona. Estos servidores de nombres se utilizarán más adelante.
+
+## <a name="create-a-test-record"></a>Creación de un registro de prueba
+
+Cree un registro **D** que se usará para las pruebas. Por ejemplo, cree un registro D **www** y configúrelo con una dirección IP **10.10.10.10**.
 
 ## <a name="create-an-ns-record"></a>Creación de un registro NS
 
@@ -59,10 +65,8 @@ A continuación, cree un registro de servidor de nombres para la zona **ingenier
 Utilice nslookup para probar la delegación.
 
 1. Abra una ventana de PowerShell.
-2. En el símbolo del sistema, escriba `nslookup www.engineering.<your domain name>.`.
+2. En el símbolo del sistema, escriba `nslookup www.engineering.contoso.com.`.
 3. Debería recibir una respuesta no autoritativa que muestra la dirección **10.10.10.10**.
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,17 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817342"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981271"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure
 La conexión de Protocolo de escritorio remoto (RDP) a la máquina virtual (VM) de Azure basada en Windows puede presentar errores por varios motivos que le impedirán acceder a la máquina virtual. El problema puede originar en el servicio de Escritorio remoto de la máquina virtual, la conexión de red o el cliente de Escritorio remoto en el equipo host. Este artículo le guía por algunos de los métodos más comunes para resolver problemas de conexión de RDP. 
 
 Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 <a id="quickfixrdp"></a>
 
@@ -107,7 +109,7 @@ Si aún no lo ha hecho, [instale y configure la última versión de Azure PowerS
 Los ejemplos siguientes usan variables como `myResourceGroup`, `myVM` y `myVMAccessExtension`. Reemplace estos nombres de variables y las ubicaciones por sus propios valores.
 
 > [!NOTE]
-> Restablecerá las credenciales de usuario y la configuración de RDP mediante el cmdlet [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) de PowerShell. En los ejemplos siguientes, `myVMAccessExtension` es un nombre que ha especificado como parte del proceso. Si ha trabajado previamente con VMAccessAgent, use `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Para ver el nombre, busque en la sección "Extensiones" de la salida.
+> Restablezca las credenciales de usuario y la configuración de RDP mediante el cmdlet [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) de PowerShell. En los ejemplos siguientes, `myVMAccessExtension` es un nombre que ha especificado como parte del proceso. Si ha trabajado previamente con VMAccessAgent, use `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` para obtener el nombre de la extensión existente y comprobar las propiedades de la máquina virtual. Para ver el nombre, busque en la sección "Extensiones" de la salida.
 
 Después de cada paso de solución de problemas, intente conectarse de nuevo a la máquina virtual. Si sigue sin poder conectarse, pruebe el paso siguiente.
 
@@ -116,7 +118,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     En el ejemplo siguiente se restablece la conexión RDP en una máquina virtual denominada `myVM` en la ubicación `WestUS` y en el grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
 2. **Compruebe las reglas del grupo de seguridad de red**. En este paso para solucionar problemas se comprueba que dispone de una regla en el grupo de seguridad de red para permitir el tráfico RDP. El puerto predeterminado para RDP es el puerto TCP 3389. No se creará automáticamente una regla que permita el tráfico RDP cuando se crea la máquina virtual.
@@ -124,7 +126,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     En primer lugar, asigne todos los datos de configuración para el grupo de seguridad de red a la variable `$rules`. En el ejemplo siguiente se obtiene información sobre el grupo de seguridad de red denominado `myNetworkSecurityGroup` en el grupo de recursos denominado `myResourceGroup`:
    
     ```powershell
-    $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
+    $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
@@ -164,7 +166,7 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     Ahora, actualice las credenciales en la máquina virtual. En el ejemplo siguiente se actualizan las credenciales en una máquina virtual denominada `myVM` en la ubicación `WestUS` y en el grupo de recursos `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
@@ -174,14 +176,14 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     En el ejemplo siguiente se reinicia la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
    
     ```powershell
-    Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Vuelva a implementar la máquina virtual**. En este paso para solucionar problemas se vuelve a implementar la máquina virtual en otro host dentro de Azure para corregir cualquier problema de red o de plataforma subyacente.
    
     En el ejemplo siguiente se vuelve a implementar la máquina virtual denominada `myVM` en la ubicación `WestUS` y en el grupo de recursos `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 6. **Compruebe el enrutamiento**. Use la funcionalidad [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher para confirmar que una ruta no impide que el tráfico se enrute hacia una máquina virtual o desde esta. También puede revisar las rutas efectivas para ver todas las rutas efectivas de una interfaz de red. Para más información, consulte [Uso de rutas eficaces para solucionar problemas de flujo de tráfico de máquinas virtuales](../../virtual-network/diagnose-network-routing-problem.md).

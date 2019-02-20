@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7445496154d9fc2ca59e19059a87a794a1361b14
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.date: 02/08/2019
+ms.openlocfilehash: c2a1cbd75bb3ff0b936d8dd801572e5783ab5260
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747414"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100931"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de características: Azure SQL Database frente a SQL Server
 
@@ -35,7 +35,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | **Característica de SQL** | **Compatible en bases de datos únicas y grupos elásticos** | **Compatible con Azure SQL Database/instancia administrada** |
 | --- | --- | --- |
 | [Replicación geográfica activa](sql-database-active-geo-replication.md) | Sí; solo Niveles de servicio de uso general y críticos para la empresa| No, consulte [Grupos de conmutación por error automática](sql-database-auto-failover-group.md). |
-| [Grupos de conmutación por error automática](sql-database-auto-failover-group.md) | Sí; solo Niveles de servicio de uso general y críticos para la empresa| [Sí (versión preliminar)](sql-database-auto-failover-group.md)|
+| [Grupos de conmutación por error automática](sql-database-auto-failover-group.md) | Sí; solo Niveles de servicio de uso general y críticos para la empresa| Sí, [en versión preliminar pública](sql-database-auto-failover-group.md)|
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sí; consulte los artículos sobre el [almacén de certificados](sql-database-always-encrypted.md) y el [almacén de claves](sql-database-always-encrypted-azure-key-vault.md). | Sí; consulte los artículos sobre el [almacén de certificados](sql-database-always-encrypted.md) y el [almacén de claves](sql-database-always-encrypted-azure-key-vault.md). |
 | [Grupos de disponibilidad AlwaysOn (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |
 | [Conectar una base de datos](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Sin  | Sin  |
@@ -52,7 +52,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Captura de datos modificados](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Sin  | Sí |
 | [Seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sí |Sí |
 | [Intercalación: base de datos](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Sí | Sí |
-| [Intercalación: servidor/instancia](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Sin  | [Sí (versión preliminar)](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| [Intercalación: servidor/instancia](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Sin  | Sí, [en versión preliminar pública](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [nivel Premium, nivel Estándar - S3 y superior, nivel De uso general y nivel Crítico para la empresa](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Sin  | Sí; consulte el artículo sobre las [diferencias de CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sí | Sí |
@@ -110,7 +110,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Administración basada en directivas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Sin  | Sin  |
 | [Predicados](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Sí | Sí |
 | [Notificaciones de consulta](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Sin  | Sí |
-| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versión preliminar; consulte el artículo [What's new in machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services) (Novedades del aprendizaje automático).  | Sin  |
+| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sí, [en versión preliminar pública](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Sin  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Sin  | Sí |
 | [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Sin  | Sí; consulte el artículo sobre [diferencias de restauración](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Restaurar la base de datos a partir de una copia de seguridad](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo a partir de copias de seguridad automatizadas; consulte el artículo sobre [recuperación de SQL Database](sql-database-recovery-using-backups.md) | Desde copias de seguridad automatizadas (consulte el artículo sobre [recuperación de SQL Database](sql-database-recovery-using-backups.md)) y desde copias de seguridad completas (consulte el artículo sobre [diferencias de copia de seguridad](sql-database-managed-instance-transact-sql-information.md#backup)) |
@@ -131,7 +131,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sí | Sí |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sí | Sí |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No; consulte el artículo sobre [eventos extendidos](sql-database-xevent-db-diff-from-svr.md). | Sí |
-| [Replicación de SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-cloud-migrate.md) | Sí (versión preliminar pública); [Replicación con Instancia administrada de SQL Database](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replicación de SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-single-database-migrate.md) | Sí, [en versión preliminar pública](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) |
 | [procedimientos almacenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sí | Sí |
 | [Funciones almacenadas del sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | La mayoría; consulte las funciones. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

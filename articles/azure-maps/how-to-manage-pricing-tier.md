@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065331"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107708"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Administración del plan de tarifa de la cuenta de Azure Maps
 
@@ -34,7 +34,7 @@ Después de crear la cuenta de Azure Maps, puede actualizar o degradar su plan d
 ![Cambio de un plan de tarifa](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> No es necesario generar nuevas claves de suscripción si actualiza o degrada el plan de tarifa de la cuenta de Azure Maps.
+> No es necesario generar nuevas claves de suscripción ni id. de cliente (para la autenticación de Azure AD) si actualiza o degrada el plan de tarifa de la cuenta de Azure Maps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
