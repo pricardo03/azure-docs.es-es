@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/07/2019
 ms.author: celested
-ms.reviewer: hirsin, jesakowi, justhu
+ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a8cb5f0764ac1ed7330fb75131d3084d804f1e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091967"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204428"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 
@@ -52,19 +53,19 @@ Ocurre lo mismo con cualquier recurso de terceros integrado en la plataforma de 
 
 Mediante la definición de estos tipos de permisos, el recurso tiene control específico sobre sus datos y el modo en que la funcionalidad de la API se expone. Una aplicación de terceros puede solicitar estos permisos a los usuarios y administradores, quienes deben aprobar la solicitud para que la aplicación pueda acceder a los datos o actuar en nombre de un usuario. Al fragmentar la funcionalidad del recurso en conjuntos de permisos más pequeños, se pueden crear aplicaciones de terceros para solicitar solo los permisos concretos que necesitan para realizar sus tareas. Los usuarios y administradores pueden conocer exactamente el modo en que la aplicación accede a sus datos y estar más seguros de que no se comporta de forma malintencionada. Los desarrolladores deben cumplir siempre con el concepto del mínimo privilegio y pedir solo los permisos que necesitan para que sus aplicaciones funcionen.
 
-En OAuth, estos tipos de permisos se denominan *ámbitos*. A menudo simplemente se hará referencia a ellos como *permisos*. Un permiso se representa en la plataforma de identidad de Microsoft como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito cadena para cada permiso es:
+En OAuth 2.0, estos tipos de permisos se denominan *ámbitos*. A menudo simplemente se hará referencia a ellos como *permisos*. Un permiso se representa en la plataforma de identidad de Microsoft como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito cadena para cada permiso es:
 
 * Leer el calendario de un usuario mediante `Calendars.Read`
 * Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
 * Enviar correo electrónico con un usuario mediante `Mail.Send`
 
-Una aplicación suele solicitar estos permisos especificando los ámbitos en las solicitudes al punto de conexión de la autorización v2.0. Sin embargo, ciertos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador y por lo general se solicitan o conceden con el [punto de conexión de consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Siga leyendo para obtener más información.
+Una aplicación suele solicitar estos permisos especificando los ámbitos en las solicitudes al punto de conexión de la autorización v2.0. Sin embargo, ciertos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador y por lo general se solicitan o conceden con el [punto de conexión de consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Siga leyendo para obtener más información.
 
 ## <a name="permission-types"></a>Tipos de permisos
 
 La plataforma de identidad de Microsoft admite dos tipos de permisos: **permisos delegados** y **permisos de aplicación**.
 
-* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -77,7 +78,7 @@ _Los permisos efectivos_ son los que la aplicación tendrá al realizar solicitu
 
 ## <a name="openid-connect-scopes"></a>Ámbitos de OpenID Connect
 
-La implementación v2.0 de OpenID Connect tiene unos cuantos ámbitos bien definidos que no se aplican a ningún recurso determinado: `openid`, `email`, `profile` y `offline_access`.
+La implementación v2.0 de OpenID Connect tiene unos cuantos ámbitos bien definidos que no se aplican a ningún recurso determinado: `openid`, `email`, `profile` y `offline_access`. Los ámbitos de OpenID Connect `address` y `phone` no son compatibles.
 
 ### <a name="openid"></a>openid
 
@@ -93,9 +94,9 @@ El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Prop
 
 ### <a name="offlineaccess"></a>offline_access
 
-El ámbito [`offline_access` ](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento de la cuenta profesional, este ámbito aparecerá como el permiso "Acceder a sus datos en cualquier momento". En la página de consentimiento de la cuenta personal de Microsoft, aparece como el permiso "Obtener acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token v2.0. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
+El ámbito [`offline_access` ](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento, este ámbito aparece como el permiso "Mantener el acceso a los datos a los que le ha dado acceso". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token v2.0. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
 
-Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
+Si la aplicación no solicita explícitamente el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.  Tenga en cuenta que, aunque el servidor solicita automáticamente el ámbito `offline_access`, el cliente debe solicitarlo también para poder recibir los tokens de actualización. 
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulte la [referencia del protocolo v2.0](active-directory-v2-protocols.md).
 
@@ -118,6 +119,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 El parámetro `scope` es una lista separada por espacios que incluye los permisos delegados que la aplicación solicita. Cada permiso se indica anexando el valor del permiso al identificador del recurso (URI del identificador de aplicación). En la solicitud de ejemplo, la aplicación necesita permiso para leer el calendario del usuario y enviar correo electrónico en nombre del usuario.
 
 Después de que el usuario escribe sus credenciales, el punto de conexión v2.0 busca un registro que coincida con el *consentimiento del usuario*. Si el usuario no dio su consentimiento para alguno de los permisos solicitados en el pasado, ni ningún administrador ha otorgado su consentimiento a estos permisos en nombre de toda la organización, el punto de conexión v2.0 solicita al usuario que conceda los permisos solicitados.
+
+> [!NOTE]
+> En este momento, los permisos `offline_access` ("Mantener el acceso a los datos a los que le ha dado acceso") y `user.read` ("Iniciar sesión y leer su perfil") se incluyen automáticamente en el consentimiento inicial para una aplicación.  Estos permisos suelen ser necesarios para que la aplicación funcione correctamente: `offline_access` da acceso a la aplicación a los tokens de actualización, críticos para aplicaciones nativas y web, mientras que `user.read` da acceso a la notificación `sub`, lo que permite al cliente o a la aplicación identificar correctamente al usuario con el tiempo y acceder a información de usuario rudimentaria.  
 
 ![Consentimiento de la cuenta de trabajo](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -164,11 +168,11 @@ Para configurar la lista de permisos solicitados estáticamente para una aplicac
 2. Busque la sección de **permisos de Microsoft Graph** y agregue los permisos que necesite la aplicación.
 3. **Guarde** el registro de aplicaciones.
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>Se recomienda: Inicie la sesión del usuario en la aplicación
+### <a name="recommended-sign-the-user-into-your-app"></a>Se recomienda: Iniciar la sesión del usuario en la aplicación
 
 Normalmente, cuando se compila una aplicación que usa el punto de conexión de consentimiento del administrador, la aplicación necesita una página o una vista en la que el administrador pueda aprobar los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
-Cuando inicia la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el administrador antes de pedirle que apruebe los permisos necesarios. Aunque no es estrictamente necesario, puede ayudarle a crear una experiencia más intuitiva para los usuarios de la organización. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
+Al iniciar la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el administrador antes de pedirle que apruebe los permisos necesarios. Aunque no es estrictamente necesario, puede ayudarle a crear una experiencia más intuitiva para los usuarios de la organización. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
 
@@ -193,8 +197,8 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parámetro | Condición | DESCRIPCIÓN |
 | --- | --- | --- |
-| `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, o puede hacerse referencia genéricamente con "common", como se muestra en el ejemplo. |
-| `client_id` | Obligatorio | El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
+| `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, O puede hacerse referencia genéricamente con `common`, como se muestra en el ejemplo. |
+| `client_id` | Obligatorio | El identificador de la aplicación (cliente) que el [Portal de registros de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o el nuevo [portal de registros de aplicaciones (versión preliminar)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ha asignado a la aplicación. |
 | `redirect_uri` | Obligatorio |El URI de redirección adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
 | `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
 
@@ -212,7 +216,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- | --- |
 | `tenant` | El inquilino del directorio que concedió los permisos solicitados, en formato GUID. |
 | `state` | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
-| `admin_consent` | Se establecerá en **true**. |
+| `admin_consent` | Se establecerá en `True`. |
 
 #### <a name="error-response"></a>Respuesta de error
 
@@ -224,8 +228,8 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- | --- |
-| `error` |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
-| `error_description` |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error. |
+| `error` | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
+| `error_description` | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error. |
 
 Cuando haya recibido una respuesta correcta del punto de conexión de consentimiento del administrador, la aplicación habrá obtenido los permisos solicitados. Ahora puede solicitar un token para el recurso que desee.
 
@@ -252,6 +256,52 @@ Puede usar el token de acceso resultante en las solicitudes HTTP al recurso. Dic
 
 Para más información sobre el protocolo OAuth 2.0 y cómo obtener tokens de acceso, consulte la [referencia de protocolo del punto de conexión v2.0](active-directory-v2-protocols.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="the-default-scope"></a>Ámbito /.default
+
+Puede usar el ámbito `/.default` para ayudar a migrar las aplicaciones del punto de conexión v1.0 al punto de conexión v2.0. Se trata de un ámbito integrado para todas las aplicaciones, que hace referencia a la lista estática de permisos configurados en el registro de aplicación. Un valor `scope` de `https://graph.microsoft.com/.default` tiene exactamente la misma funcionalidad que los puntos de conexión v1.0 `resource=https://graph.microsoft.com`; es decir, solicita un token con los ámbitos en Microsoft Graph que la aplicación ha registrado en Azure Portal.
+
+El ámbito /.default se puede utilizar en cualquier flujo de OAuth 2.0, pero es particularmente necesario en el [flujo con derechos delegados](v2-oauth2-on-behalf-of-flow .md) y en el [flujo de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md).  
+
+> [!NOTE]
+> Los clientes no pueden combinar el consentimiento estático (`/.default`) y dinámico en una única solicitud. Por tanto, `scope=https://graph.microsoft.com/.default+mail.read` generará un error debido a la combinación de los tipos de ámbitos.
+
+### <a name="default-and-consent"></a>/.default y consentimiento
+
+El ámbito `/.default` también desencadena el comportamiento del punto de conexión v1.0 para `prompt=consent`. Solicita el consentimiento para todos los permisos registrados por la aplicación, con independencia del recurso. Si se incluye como parte de la solicitud, el ámbito `/.default` devuelve un token que contiene los ámbitos para el recurso solicitado específicamente.
+
+### <a name="default-when-the-user-has-already-given-consent"></a>/.default cuando el usuario ya ha dado el consentimiento
+
+Dado que `/.default` tiene exactamente la misma funcionalidad que el comportamiento del punto de conexión v1.0 basado en `resource`, también aporta el comportamiento de consentimiento del punto de conexión v1.0. Esto quiere decir que `/.default` solo desencadena una petición de consentimiento si el usuario no ha concedido ningún permiso entre el cliente y el recurso. Si existe tal consentimiento, se devolverá un token que contendrá todos los ámbitos concedidos por el usuario para dicho recurso. Sin embargo, si no se ha concedido ningún permiso o si se ha proporcionado el parámetro `prompt=consent`, se mostrará una petición de consentimiento para todos los ámbitos registrados por la aplicación cliente. 
+
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Ejemplo 1: El usuario o administrador de inquilinos han concedido permisos
+
+El usuario o un administrador de inquilinos han concedido al cliente los permisos de Microsoft Graph `mail.read` y `user.read`. Si el cliente realiza una solicitud de `scope=https://graph.microsoft.com/.default`, no se mostrará ninguna petición de consentimiento independientemente del contenido de los permisos registrados por las aplicaciones cliente para Microsoft Graph. Se devolvería un token que incluiría los ámbitos `mail.read` y `user.read`.
+
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Ejemplo 2: El usuario no ha concedido permisos entre el cliente y el recurso
+
+No existe ningún consentimiento para el usuario entre el cliente y Microsoft Graph. El cliente se ha registrado en los permisos `user.read` y `contacts.read`, así como en el ámbito `https://vault.azure.net/user_impersonation`. de Azure Key Vault. Cuando el cliente solicita un token para `scope=https://graph.microsoft.com/.default`, el usuario verá una pantalla de consentimiento para `user.read`, `contacts.read` y los ámbitos `user_impersonation` de Key Vault. El token devuelto solo contendrán los ámbitos `user.read` y `contacts.read`.
+
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Ejemplo 3: El usuario ha dado su consentimiento y el cliente solicita ámbitos adicionales
+
+El usuario ya ha dado su consentimiento a `mail.read` para el cliente. El cliente se ha registrado en el ámbito `contacts.read` en su registro. Cuando el cliente realiza una solicitud para un token con `scope=https://graph.microsoft.com/.default` y solicita el consentimiento mediante `prompt=consent`, el usuario verá una pantalla de consentimiento para todos los permisos registrados por la aplicación. `contacts.read` aparecerá en la pantalla de consentimiento, pero `mail.read` no se mostrará. El token devuelto será para Microsoft Graph y contendrá `mail.read` y `contacts.read`.
+
+### <a name="using-the-default-scope-with-the-client"></a>Uso del ámbito /.default con el cliente
+
+Existe un caso especial del ámbito `/.default` en el que un cliente solicita su propio ámbito `/.default`. En el siguiente ejemplo se muestra este escenario.
+
+```
+// Line breaks are for legibility only.
+
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+response_type=token            //code or a hybrid flow is also possible here
+&client_id=9ada6f8a-6d83-41bc-b169-a306c21527a5
+&scope=9ada6f8a-6d83-41bc-b169-a306c21527a5/.default
+&redirect_uri=https%3A%2F%2Flocalhost
+&state=1234
+```
+
+Se abre una pantalla de consentimiento para todos los permisos registrados (si es aplicable en función de las descripciones anteriores de consentimiento y `/.default`); a continuación, se devuelve un token de identificación en lugar de un token de acceso.  Este comportamiento se da para determinados clientes heredados que migran de ADAL a MSAL, pero no deben usarlos los nuevos clientes que tienen como destino el punto de conexión v2.0.  
+
+## <a name="troubleshooting-permissions-and-consent"></a>Solución de problemas con permisos y consentimientos
 
 Si usted o los usuarios de su aplicación observan errores inesperados durante el proceso de consentimiento, consulte en este artículo los pasos para solucionar el problema: [Error inesperado al otorgar consentimiento a una aplicación](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
