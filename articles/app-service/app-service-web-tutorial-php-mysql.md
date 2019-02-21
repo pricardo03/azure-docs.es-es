@@ -123,7 +123,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obtener información acerca de la forma en que Laravel el archivo _.env_, consulte [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuración del entorno de Laravel).
+Para obtener información sobre la forma en que Laravel usa el archivo _.env_, consulte [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuración del entorno de Laravel).
 
 ### <a name="run-the-sample-locally"></a>Ejecución local del código
 
