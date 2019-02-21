@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d84fe768170cffd433b18a1a3dacb1a9c2be7e9f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507780"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329991"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -169,7 +169,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 * [Biblioteca de cliente de movimiento de datos de Storage para .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Herramientas y utilidades
-* [Cmdlets de Azure PowerShell para Storage](https://docs.microsoft.com/powershell/module/azure.storage)
+* [Cmdlets de Azure PowerShell para Storage](https://docs.microsoft.com/powershell/module/az.storage)
 * [Cmdlets de la CLI de Azure para Storage](https://docs.microsoft.com/cli/azure/storage)
 * [Utilidad de línea de comandos AzCopy](https://aka.ms/downloadazcopy)
 * El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

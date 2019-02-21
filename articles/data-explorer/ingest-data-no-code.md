@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 39019c4b11d055aa8f550928bd677e4ce33d6252
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885349"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447504"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingesta de datos en Azure Data Explorer sin una línea de código
 
@@ -173,16 +173,7 @@ Puesto que la estructura de los registros de actividad no es tabular, tendrá qu
 Para asignar los datos a la tabla, utilice la siguiente consulta:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
-{"column":"Timestamp","path":"$.time"},
-{"column":"ResourceId","path":"$.resourceId"},
-{"column":"MetricName","path":"$.metricName"},
-{"column":"Count","path":"$.count"},
-{"column":"Total","path":"$.total"},
-{"column":"Minimum","path":"$.minimum"},
-{"column":"Maximum","path":"$.maximum"},
-{"column":"Average","path":"$.average"},
-{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
 #### <a name="activity-logs-table-mapping"></a>Asignación de la tabla de registros de actividad
@@ -190,8 +181,7 @@ Para asignar los datos a la tabla, utilice la siguiente consulta:
 Para asignar los datos a la tabla, utilice la siguiente consulta:
 
 ```kusto
-.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
-{"column":"Records","path":"$.records"}]'
+.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 ### <a name="create-update-policy"></a>Creación de la directiva de actualización
@@ -210,8 +200,8 @@ Para asignar los datos a la tabla, utilice la siguiente consulta:
             ResultType = tostring(events["resultType"]),
             ResultSignature = tostring(events["resultSignature"]),
             DurationMs = toint(events["durationMs"]),
-            IdentityAuthorization = events["identity.authorization"],
-            IdentityClaims = events["identity.claims"],
+            IdentityAuthorization = events.identity.authorization,
+            IdentityClaims = events.identity.claims,
             Location = tostring(events["location"]),
             Level = tostring(events["level"])
     }
@@ -220,7 +210,7 @@ Para asignar los datos a la tabla, utilice la siguiente consulta:
 2. Agregue una [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Se ejecutará automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *ActivityLogsRawRecords* e ingerirá sus resultados en la tabla *ActivityLogsRecords*:
 
     ```kusto
-    .alter table ActivityLogRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-event-hub-namespace"></a>Creación de un espacio de nombres del centro de eventos

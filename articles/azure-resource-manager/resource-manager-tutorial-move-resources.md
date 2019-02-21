@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107827"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267707"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Tutorial: Traslado de recursos de Azure a otro grupo de recursos o a otra suscripción
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Aprenda a trasladar recursos de Azure desde un grupo de recursos a otro. También puede trasladar recursos de Azure desde una suscripción de Azure a otra. En este tutorial usará una plantilla de Resource Manager para implementar dos grupos de recursos y una cuenta de almacenamiento. Posteriormente, trasladará la cuenta de almacenamiento de un grupo de recursos a otro.
 
@@ -37,8 +35,6 @@ En este tutorial se describen las tareas siguientes:
 > * Limpieza de recursos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>Preparación de los recursos
 
@@ -98,6 +94,8 @@ La operación de validación del traslado le permite probar el escenario de tras
 ## <a name="move-the-resource"></a>Traslado del recurso
 
 La cuenta de almacenamiento está dentro del grupo de recursos de origen (rg1). Ejecute el siguiente script de PowerShell para mover el recurso al grupo de recursos de destino (rg2). Asegúrese de usar el mismo nombre de proyecto que utilizó al implementar los recursos.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

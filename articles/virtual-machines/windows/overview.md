@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 37bb0dcc2b9848d3fd3d49c78b52adbcd2dcc046
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f4c9e256c3b3f2f5df8ef49f26c927250f376421
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106411"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327058"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
@@ -74,7 +74,7 @@ Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/vir
 Su suscripción tiene [límites de cuota](../../azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, [cree una incidencia de soporte técnico y solicite un aumento](../../azure-supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Imágenes y discos del sistema operativo
-Las máquinas virtuales usan [discos duros virtuales (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 
+Las máquinas virtuales usan [discos duros virtuales (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 
 
 Azure proporciona muchas [imágenes de Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) que se pueden usar con diversas versiones y tipos de sistemas operativos Windows Server. Las imágenes de Marketplace se identifican mediante el publicador de la imagen, la oferta, la SKU y la versión (normalmente, la versión se especifica como la más reciente). Solo se admiten los sistemas operativos de 64 bits. Para más información sobre los sistemas operativos invitados admitidos, roles y características, consulte [Soporte de software de servidor de Microsoft para las máquinas virtuales de Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 

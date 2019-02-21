@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a15d37615ec6052ab63457a7814f70433be68c87
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509565"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311178"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service
 
@@ -280,7 +280,7 @@ parser.add_argument('--data-folder', type=str, dest='data_folder', help='data fo
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
 args = parser.parse_args()
 
-data_folder = os.path.join(args.data_folder, 'mnist')
+data_folder = args.data_folder
 print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
@@ -340,13 +340,13 @@ Un objeto estimador se usa para enviar la ejecución. Para crear el estimador, e
 * Los parámetros necesarios del script de entrenamiento. 
 * Los paquetes de Python necesarios para el entrenamiento.
 
-En este tutorial, este destino es AmlCompute. Todos los archivos de la carpeta del script se cargan en los nodos del clúster para su ejecución. La carpeta de datos (**data_folder**) se establece para usar el almacén de datos, `ds.as_mount()`:
+En este tutorial, este destino es AmlCompute. Todos los archivos de la carpeta del script se cargan en los nodos del clúster para su ejecución. La carpeta de datos (**data_folder**) se establece para usar el almacén de datos, `ds.path('mnist').as_mount()`:
 
 ```python
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    '--data-folder': ds.path('mnist').as_mount(),
     '--regularization': 0.8
 }
 
