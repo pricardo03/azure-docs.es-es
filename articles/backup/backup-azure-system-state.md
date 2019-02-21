@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255871"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268730"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
 En este artículo se explica cómo realizar copias de seguridad del estado del sistema de Windows Server en Azure. Es un tutorial diseñado para guiarle por los aspectos básicos.
 
-Si desea más información acerca de Azure Backup, lea esta [introducción](backup-introduction-to-azure-backup.md).
+Si desea más información acerca de Azure Backup, lea esta [introducción](backup-overview.md).
 
 Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
@@ -131,7 +131,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> Las credenciales del almacén deben guardarse únicamente en una ubicación que sea local en Windows Server en la que vaya a usar el agente. 
+> Las credenciales del almacén deben guardarse únicamente en una ubicación que sea local en Windows Server en la que vaya a usar el agente.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
 Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
-## <a name="back-up-windows-server-system-state"></a>Copia de seguridad del estado del sistema de Windows Server 
+## <a name="back-up-windows-server-system-state"></a>Copia de seguridad del estado del sistema de Windows Server
 La copia de seguridad inicial incluye dos tareas:
 
 * Programación de la copia de seguridad
@@ -194,7 +194,7 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
 
 6. Haga clic en **Next**.
 
-7. Seleccione la frecuencia de copia de seguridad necesaria y la directiva de retención para las copias de seguridad de estado del sistema en las páginas siguientes. 
+7. Seleccione la frecuencia de copia de seguridad necesaria y la directiva de retención para las copias de seguridad de estado del sistema en las páginas siguientes.
 
 8. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 

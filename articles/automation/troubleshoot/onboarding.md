@@ -8,12 +8,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228787"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342735"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
@@ -73,7 +73,7 @@ Para implementar correctamente la solución, debe considerar modificar la direct
   * Cambiar el destino de la directiva por un recurso concreto (por ejemplo, por una cuenta de Automation específica).
   * Revisar el conjunto de recursos para los que se configuró en la directiva denegar el acceso.
 
-Compruebe las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación con errores. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Compruebe las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación con errores. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Errores de extensión MMA
 

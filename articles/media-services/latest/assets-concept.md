@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746003"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447317"
 ---
 # <a name="assets"></a>Recursos
 
@@ -48,8 +48,7 @@ Uno de los flujos de trabajo más comunes de Media Services es cargar, codificar
 4. Use las API de Media Services v3 para crear una transformación y un trabajo para procesar el recurso de "entrada". Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md).
 5. Haga streaming del contenido del recurso de "salida".
 
-> [!TIP]
-> Para obtener un ejemplo de .NET completo que muestre cómo crear el recurso, obtener una dirección URL de SAS que se pueda escribir en el contenedor del recurso de almacenamiento, cargar el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS, consulte [Creación de una entrada de trabajo a partir de un archivo local](job-input-from-local-file-how-to.md).
+Para obtener un ejemplo de .NET completo que muestre cómo crear el recurso, obtener una dirección URL de SAS que se pueda escribir en el contenedor del recurso de almacenamiento, cargar el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS, consulte [Creación de una entrada de trabajo a partir de un archivo local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Crear un recurso nuevo
 

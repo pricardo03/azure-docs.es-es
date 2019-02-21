@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765693"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301900"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Azure Log Analytics
 
@@ -78,10 +78,10 @@ A continuación se muestra la información de configuración de proxy y firewall
 
 |Recurso del agente|Puertos |Dirección |Omitir inspección de HTTPS|
 |------|---------|--------|--------|   
-|* .ods.opinsights.azure.com |Puerto 443 |Entrada y salida|Sí |  
-|* .oms.opinsights.azure.com |Puerto 443 |Entrada y salida|Sí |  
-|* .blob.core.windows.net |Puerto 443 |Entrada y salida|Sí |  
-|* .azure-automation.net |Puerto 443 |Entrada y salida|Sí |  
+|* .ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
+|* .oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
+|* .blob.core.windows.net |Puerto 443 |Salida|Sí |  
+|* .azure-automation.net |Puerto 443 |Salida|Sí |  
 
 
 Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 

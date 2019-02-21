@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116511"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341223"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
@@ -39,7 +39,7 @@ Los procedimientos recomendados se basan en un consenso de opinión y son válid
 El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan configurar nuevas máquinas virtuales y obtener acceso a ellas.
 
 **Procedimiento recomendado**: Control de acceso a las máquinas virtuales.   
-**Detalles**: Use [directivas de Azure](../azure-policy/azure-policy-introduction.md) para establecer convenciones para los recursos de la organización y crear directivas personalizadas. Aplique estas directivas a los recursos, como los [grupos de recursos](../azure-resource-manager/resource-group-overview.md). Las máquinas virtuales que pertenecen a un grupo de recursos heredan sus directivas.
+**Detalles**: Use [directivas de Azure](../governance/policy/overview.md) para establecer convenciones para los recursos de la organización y crear directivas personalizadas. Aplique estas directivas a los recursos, como los [grupos de recursos](../azure-resource-manager/resource-group-overview.md). Las máquinas virtuales que pertenecen a un grupo de recursos heredan sus directivas.
 
 Si su organización tiene varias suscripciones, podría necesitar una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los [grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md) proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en grupos de administración (contenedores) y aplican sus condiciones de gobierno a dichos grupos. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
 

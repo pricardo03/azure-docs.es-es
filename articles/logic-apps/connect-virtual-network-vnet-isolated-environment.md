@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176210"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311909"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -67,9 +67,10 @@ Para controlar el tráfico entrante y saliente en las subredes de la red virtual
 | Comunicación con Azure Logic Apps <br>Comunicación desde Azure Logic Apps | Entrada <br>Salida | * <br>80 y 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Salida | * <br>80 y 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Dependencia de Azure Storage | Salida | * <br>80 y 443 | VIRTUAL_NETWORK <br>Almacenamiento |
+| Historial de ejecución de su aplicación lógica | Entrada | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Administración de conexiones | Salida | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Publicación de las métricas y registros de diagnóstico | Salida | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Diseñador de Logic Apps: propiedades dinámicas <br>Historial de ejecución de su aplicación lógica <br>Implementación del conector <br>Punto de conexión del desencadenador de solicitud | Entrada | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Diseñador de Logic Apps: propiedades dinámicas <br>Implementación del conector <br>Punto de conexión del desencadenador de solicitud | Entrada | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | Dependencia de administración de App Service | Entrada | * <br>454 y 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API Management: punto de conexión de administración | Entrada | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Dependencia de la directiva de registro en el centro de eventos y agente de supervisión | Salida | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |

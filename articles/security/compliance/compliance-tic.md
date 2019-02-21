@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751929"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341731"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
 
@@ -198,7 +198,7 @@ Azure proporciona herramientas nativas de la nube para ayudarle a garantizar que
 
 ### <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) es un servicio de Azure que proporciona a su organización una mejor capacidad de auditar y aplicar las iniciativas de cumplimiento. Azure Policy está disponible actualmente en versión preliminar pública en los servicios de Azure que están disponibles comercialmente. Azure Policy aún no está disponible en Azure Government. Los clientes pueden planear y probar sus reglas de Azure Policy ahora para asegurar el futuro cumplimiento de TIC. 
+[Azure Policy](../../governance/policy/overview.md) es un servicio de Azure que proporciona a su organización una mejor capacidad de auditar y aplicar las iniciativas de cumplimiento. Los clientes pueden planear y probar sus reglas de Azure Policy ahora para asegurar el futuro cumplimiento de TIC.
 
 Azure Policy está dirigido al nivel de suscripción. El servicio proporciona una interfaz centralizada en la que puede realizar tareas de cumplimiento, incluidas:
 - Administración de iniciativas
@@ -213,13 +213,13 @@ Las siguientes directivas de ejemplo se pueden utilizar para escenarios de cumpl
 
 |Directiva  |Escenario de ejemplo  |Plantilla  |
 |---------|---------|---------|
-|Aplicar tabla de rutas definida por el usuario. | Asegúrese de que la ruta predeterminada de todas las redes virtuales apunta a una puerta de enlace de red virtual aprobada para el enrutamiento al entorno local.    | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Auditar si Network Watcher no está habilitado para una región  | Asegúrese de que Network Watcher está habilitado para todas las regiones utilizadas.  | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG en cada subred.  | Asegúrese de que un grupo de seguridad de red (o un conjunto de grupos de seguridad de red aprobados) con el tráfico de Internet bloqueado se aplica a todas las subredes de cada red virtual. | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG en cada NIC. | Asegúrese de que un grupo de seguridad de red con el tráfico de Internet bloqueado se aplica a todas las NIC de todas las máquinas virtuales. | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Use una red virtual aprobada para las interfaces de red de máquina virtual.  | Asegúrese de que todas las NIC están en una red virtual aprobada. | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Ubicaciones permitidas. | Asegúrese de que todos los recursos se implementan en regiones con configuración de Network Watcher y redes virtuales compatibles.  | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Tipos de recursos no permitidos, como **direcciones IP públicas**. | Prohíba la implementación de tipos de recursos que no tengan un plan de cumplimiento. Utilice esta directiva para prohibir la implementación de recursos de direcciones IP públicas. Aunque se pueden usar reglas de grupos de seguridad de red para bloquear el tráfico entrante de Internet eficazmente, impedir el uso de direcciones IP públicas reduce aún más la superficie expuesta a ataques.   | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Aplicar tabla de rutas definida por el usuario. | Asegúrese de que la ruta predeterminada de todas las redes virtuales apunta a una puerta de enlace de red virtual aprobada para el enrutamiento al entorno local.    | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Auditar si Network Watcher no está habilitado para una región  | Asegúrese de que Network Watcher está habilitado para todas las regiones utilizadas.  | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG en cada subred.  | Asegúrese de que un grupo de seguridad de red (o un conjunto de grupos de seguridad de red aprobados) con el tráfico de Internet bloqueado se aplica a todas las subredes de cada red virtual. | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG en cada NIC. | Asegúrese de que un grupo de seguridad de red con el tráfico de Internet bloqueado se aplica a todas las NIC de todas las máquinas virtuales. | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/nsg-on-nic.md). |
+|Use una red virtual aprobada para las interfaces de red de máquina virtual.  | Asegúrese de que todas las NIC están en una red virtual aprobada. | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Ubicaciones permitidas. | Asegúrese de que todos los recursos se implementan en regiones con configuración de Network Watcher y redes virtuales compatibles.  | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/allowed-locations.md). |
+|Tipos de recursos no permitidos, como **direcciones IP públicas**. | Prohíba la implementación de tipos de recursos que no tengan un plan de cumplimiento. Utilice esta directiva para prohibir la implementación de recursos de direcciones IP públicas. Aunque se pueden usar reglas de grupos de seguridad de red para bloquear el tráfico entrante de Internet eficazmente, impedir el uso de direcciones IP públicas reduce aún más la superficie expuesta a ataques.   | Puede empezar a trabajar con esta [plantilla](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Análisis de tráfico de Network Watcher
 
@@ -264,10 +264,10 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 | Base de datos | Azure SQL Data Warehouse | | | Sí |
 | Base de datos | Azure Cosmos DB | | | Sí |
 | Base de datos | Azure Cache for Redis | | Sí | |
-| Storage | Azure Blob Storage | Sí | | |
-| Storage | Archivos de Azure | Sí | | |
-| Storage | Azure Queue Storage | Sí | | |
-| Storage | Almacenamiento de tablas de Azure | Sí | | |
-| Storage | Azure Disk Storage | Sí | | |
+| Almacenamiento | Azure Blob Storage | Sí | | |
+| Almacenamiento | Archivos de Azure | Sí | | |
+| Almacenamiento | Azure Queue Storage | Sí | | |
+| Almacenamiento | Almacenamiento de tablas de Azure | Sí | | |
+| Almacenamiento | Azure Disk Storage | Sí | | |
 
 \* Versión preliminar pública en Azure Government con fecha de mayo de 2018

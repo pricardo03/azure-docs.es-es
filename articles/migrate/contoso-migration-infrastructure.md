@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726991"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340134"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso: implementar una infraestructura de migración
 
@@ -30,7 +30,7 @@ Este artículo forma parte de una serie que documenta cómo la compañía fictic
 [Artículo 1: Introducción](contoso-migration-overview.md) | Información general de la serie de artículos, la estrategia de migración de Contoso y las aplicaciones de ejemplo que se usan en esta serie. | Disponible
 Artículo 2: Implementación de una infraestructura de Azure | Contoso prepara la infraestructura local y la infraestructura de Azure para la migración. Se usa la misma infraestructura en todos los artículos de la serie sobre migración. | Este artículo
 [Artículo 3: Valoración de los recursos locales para migrarse a Azure](contoso-migration-assessment.md)  | Contoso ejecuta una valoración de su aplicación local SmartHotel360 que se ejecuta en VMware. Contoso evalúa las máquinas virtuales de la aplicación mediante el servicio Azure Migrate, y la base de datos SQL Server de la aplicación con Data Migration Assistant. | Disponible
-[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración mediante lift-and-shift a Azure para su aplicación SmartHotel360 local. Contoso migra la máquina virtual de front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
+[Artículo 4: rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración mediante lift-and-shift a Azure para su aplicación SmartHotel360 local. Contoso migra la máquina virtual de front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
 [Artículo 5: Rehospedaje de una aplicación en máquinas virtuales de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel360 a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
 [Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en el grupo de disponibilidad Always On de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación usando Site Recovery para migrar las VM de la aplicación, y Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server protegido por un grupo de disponibilidad Always On. | Disponible
 [Artículo 7: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante "lift-and-shift" de su aplicación osTicket de Linux a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
@@ -646,7 +646,7 @@ A medida que Contoso configura la identidad y el control de acceso, ya ha comenz
 
 El servicio de Azure Policy evalúa los recursos, para detectar los que no son compatibles con las definiciones de directivas definidas. Por ejemplo, podría tener una directiva que solo permite determinados tipos de máquinas virtuales o que requiere recursos que tengan una etiqueta específica. 
 
-Las directivas de Azure especifican una definición de directiva, mientras que una asignación de directiva especifica el ámbito en el que se debe aplicar una directiva. El ámbito puede ir desde un grupo de administración a un grupo de recursos. [Obtenga información](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) acerca de cómo crear y administrar directivas.
+Las directivas de Azure especifican una definición de directiva, mientras que una asignación de directiva especifica el ámbito en el que se debe aplicar una directiva. El ámbito puede ir desde un grupo de administración a un grupo de recursos. [Obtenga información](../governance/policy/tutorials/create-and-manage.md) acerca de cómo crear y administrar directivas.
 
 Contoso quiere empezar a trabajar con un par de directivas:
 

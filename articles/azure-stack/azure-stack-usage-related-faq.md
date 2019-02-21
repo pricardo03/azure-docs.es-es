@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 0e5d799a5128f578900e4fa326b2e129964d0873
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243790"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429560"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Preguntas frecuentes sobre la API de uso de Azure Stack
 
@@ -41,7 +41,7 @@ Se informa del uso para los siguientes proveedores de recursos:
 **Unidad**: Direcciones IP  
 **Notas**: Número de direcciones IP usadas. Si llama a la API de uso con una granularidad diaria, el medidor devuelve la dirección IP multiplicada por el número de horas.  
   
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
   
 **Id. de medidor**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Nombre de medidor:**: TableCapacity  

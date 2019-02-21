@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169979"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447433"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -221,8 +221,6 @@ El tráfico de red en instancias de Azure Virtual Network se puede controlar med
 
 Como un servicio administrado, HDInsight requiere acceso sin restricciones a los servicios de administración y mantenimiento de HDInsight para el tráfico entrante y saliente de la red virtual. Al usar grupos de seguridad de red y rutas definidas por el usuario, debe asegurarse de que estos servicios pueden seguir comunicándose con el clúster de HDInsight.
 
-HDInsight expone servicios en varios puertos. Cuando se usa un firewall de dispositivo virtual, debe permitir el tráfico en los puertos usados para estos servicios. Para más información, vea la sección [Puertos obligatorios].
-
 ### <a id="hdinsight-ip"></a> HDInsight con grupos de seguridad de red y rutas definidas por el usuario
 
 Si planea usar **grupos de seguridad de red** o **rutas definidas por el usuario** para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
@@ -305,8 +303,6 @@ Si usa grupos de seguridad de red, debe permitir que el tráfico de los servicio
 3. También debe permitir el acceso desde __168.63.129.16__. Esta es la dirección de la resolución recursiva de Azure. Para más información, vea el documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Para más información, vea la sección [Control del tráfico de red](#networktraffic).
-
-En cuanto a las reglas NSG salientes, permita que el tráfico de cualquier origen de la red virtual obtenga acceso a las direcciones anteriores como "Direcciones IP de destino".
 
 Si está usando rutas definidas por el usuario (UDR), debe especificar una ruta y permitir el tráfico saliente desde la red virtual a las IP anteriores, con el siguiente salto configurado en "Internet".
     

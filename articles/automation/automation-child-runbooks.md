@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422975"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417438"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en Azure Automation
 
@@ -28,7 +28,7 @@ Al invocar un runbook en línea, este se ejecuta en el mismo trabajo que el runb
 
 Cuando se publica un runbook, cualquier runbook secundario al que llame deberá estar ya estar publicado. Esto es así porque Azure Automation crea una asociación con los runbooks secundarios cuando se compila un runbook. En caso contrario, parece que el runbook primario se publica correctamente, pero generará una excepción cuando se inicie. Si esto sucediera, puede volver a publicar el runbook primario para que haga referencia correctamente a los runbooks secundarios. No es necesario que vuelva a publicar el runbook primario si cambia uno de los runbooks secundarios, porque ya se habrá creado la asociación.
 
-Los parámetros de un runbook secundario llamado insertado pueden ser de cualquier tipo de datos (incluidos objetos complejos). No hay ninguna [serialización JSON](automation-starting-a-runbook.md#runbook-parameters) como sucede cuando se inicia el runbook mediante Azure Portal o mediante el cmdlet Start-AzureRmAutomationRunbook.
+Los parámetros de un runbook secundario llamado insertado pueden ser de cualquier tipo de datos (incluidos objetos complejos). No hay ninguna [serialización JSON](start-runbooks.md#runbook-parameters) como sucede cuando se inicia el runbook mediante Azure Portal o mediante el cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbook
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Si invoca un runbook secundario con el cmdlet `Start-AzureRmAutomationRunbook` con el conmutador `-Wait` y el resultado del runbook secundario es un objeto, puede que encuentre errores. Para solucionar el error, consulte [Runbooks secundarios con salida de objetos](troubleshoot/runbooks.md#child-runbook-object) para aprender a implementar la lógica de sondeo en busca de resultados y a usar el cmdlet [Get AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-Puede utilizar el cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) para iniciar un runbook, tal como se describe en [To start a runbook with Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) (Inicio de un runbook con Windows PowerShell). Existen dos modos de usar este cmdlet.  En un modo, el cmdlet devuelve el identificador del trabajo cuando se crea el trabajo secundario del runbook secundario.  En el otro, que se habilita mediante la especificación del parámetro **-wait**, el cmdlet espera a que finalice el trabajo secundario y devuelve los resultados del runbook secundario.
+Puede utilizar el cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) para iniciar un runbook, tal como se describe en [To start a runbook with Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell) (Inicio de un runbook con Windows PowerShell). Existen dos modos de usar este cmdlet.  En un modo, el cmdlet devuelve el identificador del trabajo cuando se crea el trabajo secundario del runbook secundario.  En el otro, que se habilita mediante la especificación del parámetro **-wait**, el cmdlet espera a que finalice el trabajo secundario y devuelve los resultados del runbook secundario.
 
 Si inició el trabajo de un runbook secundario con un cmdlet, este se ejecuta en un trabajo independiente al runbook primario. Como resultado de este comportamiento, habrá más trabajos que cuando se inicia el runbook insertado, por lo que realizar un seguimiento será más difícil. Asimismo, el primario puede iniciar varios runbooks secundarios de forma asincrónica sin tener que esperar a que se complete cada uno de ellos. Para realizar este mismo tipo de ejecución en paralelo, al llamar a los runbooks secundarios en línea, el runbook primario necesitará usar la [palabra clave parallel](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ La salida de los runbooks secundarios no se devuelve al runbook primario de form
 
 Si no quiere bloquear el runbook primario durante la espera, puede iniciar el runbook secundario mediante el cmdlet `Start-AzureRmAutomationRunbook` sin el modificador `-Wait`. Luego tendría que usar `Get-AzureRmAutomationJob` para esperar a que se complete el trabajo y `Get-AzureRmAutomationJobOutput` y `Get-AzureRmAutomationJobOutputRecord` para recuperar los resultados.
 
-Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, tal y como se describe en [Parámetros de runbook](automation-starting-a-runbook.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
+Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, tal y como se describe en [Parámetros de runbook](start-runbooks.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
 
 Es posible que se pierda el contexto de suscripción cuando inicia runbooks secundarios como trabajos individuales. Para que el runbook secundario ejecute los cmdlet de Azure RM en una suscripción de Azure específica, el runbook secundario debe autenticarse en esta suscripción de forma independiente al runbook primario.
 
@@ -120,6 +120,6 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md)
+* [Inicio de un runbook en Azure Automation](start-runbooks.md)
 * [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
 

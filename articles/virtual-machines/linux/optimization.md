@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728527"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327380"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([
 Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal (**/dev/sda**) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adición de discos para objetivos de rendimiento y tamaño
-En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para Standard Storage y de hasta 5000 IOPS por disco para Premium Storage.  Para más información sobre discos Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para VM de Azure](../windows/premium-storage.md).
+En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para Standard Storage y de hasta 5000 IOPS por disco para Premium Storage.
 
 Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None**, debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Premium Storage de copia de seguridad son duraderas para esta configuración de caché.
 
@@ -131,9 +131,8 @@ Si las cargas de trabajo necesitan más IOPS de lo que puede proporcionar un ún
 ## <a name="next-steps"></a>Pasos siguientes
 Recuerde que, como en todos los debates sobre optimización, debe realizar pruebas antes y después de cada cambio para cuantificar el impacto que tienen dichos cambios.  La optimización es un proceso paso a paso que tiene resultados diferentes en las distintas máquinas en su entorno.  Lo que funciona para una configuración puede no funcionar para otras.
 
-Algunos vínculos útiles a recursos adicionales: 
+Algunos vínculos útiles a recursos adicionales:
 
-* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md)
 * [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md)
 * [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](classic/optimize-mysql.md)
 * [Configuración del software RAID en Linux](configure-raid.md)

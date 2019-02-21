@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820800"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339523"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -113,7 +113,7 @@ Azure usa el [control de acceso basado en roles](../role-based-access-control/ov
 
 Azure Policy le permite crear, asignar y administrar las definiciones de directivas. Las definiciones de directivas aplican distintas reglas en los recursos, para que estos sigan siendo compatibles con los estándares de la organización y los contratos de nivel de servicio. Azure Policy ejecuta una evaluación de los recursos, para detectar los que no son compatibles con las definiciones de directivas que tiene. Por ejemplo, puede definir y aplicar una directiva que permita la creación de redes virtuales en un solo grupo de recursos o región específicos. Otra directiva puede requerir que cada subred tenga un grupo de seguridad de red asociado a ella. Estas directivas se evalúan al crear y actualizar los recursos.
 
-Las directivas se aplican a la siguiente jerarquía: suscripción, grupo de administración y grupo de recursos. Obtenga más información sobre la [directiva de Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunos ejemplos de [plantillas de directivas](policy-samples.md) de redes virtuales.
+Las directivas se aplican a la siguiente jerarquía: suscripción, grupo de administración y grupo de recursos. Obtenga más información sobre la [directiva de Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunos ejemplos de [plantillas de directivas](policy-samples.md) de redes virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

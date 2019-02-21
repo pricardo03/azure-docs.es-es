@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 81e0e89a8ad17c92a707bae001d2861404cd0d10
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238846"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328697"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
@@ -109,7 +109,7 @@ Los métodos disponibles para implementar el contenido en un contenedor de almac
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Extensión de Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 En todos los casos, asegúrese de copiar los archivos en el contenedor *$web*.

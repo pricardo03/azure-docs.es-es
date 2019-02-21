@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987465"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343262"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar directivas a máquinas virtuales con Windows con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describimos cómo puede usar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.
 
-Si desea una introducción a las directivas, consulte [¿Qué es Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+Si desea una introducción a las directivas, consulte [¿Qué es Azure Policy?](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Máquinas virtuales permitidas
 Para asegurarse de que las máquinas virtuales de la organización son compatibles con una aplicación, puede restringir los sistemas operativos permitidos. En el ejemplo de directiva siguiente, solo se permite que se creen máquinas virtuales de Windows Server 2012 R2 Datacenter:
@@ -251,6 +251,6 @@ Si tiene una licencia local, puede ahorrarse la tarifa de la licencia en sus má
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para asignar directivas, consulte [Uso de Azure Portal para asignar y administrar directivas de recursos](../../azure-policy/assign-policy-definition.md), [Uso de PowerShell para asignar directivas](../../azure-policy/assign-policy-definition-ps.md) o [Uso de la CLI de Azure para asignar directivas](../../azure-policy/assign-policy-definition-cli.md).
-* Si desea una introducción a las directivas de recursos, consulte [¿Qué es Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+* Después de definir una regla de directiva (como se muestra en los ejemplos anteriores), debe crear la definición de directiva y asignarla a un ámbito. El ámbito puede ser una suscripción, un grupo de recursos o un recurso. Para asignar directivas, consulte [Uso de Azure Portal para asignar y administrar directivas de recursos](../../governance/policy/assign-policy-portal.md), [Uso de PowerShell para asignar directivas](../../governance/policy/assign-policy-powershell.md) o [Uso de la CLI de Azure para asignar directivas](../../governance/policy/assign-policy-azurecli.md).
+* Si desea una introducción a las directivas de recursos, consulte [¿Qué es Azure Policy?](../../governance/policy/overview.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 9c5f998470d3bf2a66d7de43bd54d5da4db57608
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221759"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329224"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -78,9 +78,6 @@ Configure una [cuenta de almacenamiento de Azure](../storage/common/storage-quic
 
 - Site Recovery replica máquinas virtuales locales en Azure Storage. Las máquinas virtuales de Azure se crean en el almacenamiento después de producirse la conmutación por error.
 - La cuenta de almacenamiento debe estar en la misma región que el almacén de Recovery Services.
-- La cuenta de almacenamiento puede ser estándar o [premium](../virtual-machines/windows/premium-storage.md).
-- Si configura una cuenta de premium, también necesitará una cuenta estándar adicional para los datos de registro.
-
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Preparación de una cuenta para la instalación de Mobility Service

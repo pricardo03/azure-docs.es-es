@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 337e7a848b6aa141ecf4f96cd4f8f391be35a619
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b216242b5c1c093c5f508adce04ef7b4bec4d1e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475540"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453195"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Usar los parámetros de servicio web de Azure Machine Learning Studio
 Se crea un servicio web de Azure Machine Learning mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten realizar esta tarea. 
@@ -57,7 +57,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
 
 3. Haga clic en el icono situado a la derecha de la **ruta de acceso que comienza con el parámetro de contenedor de blobs**. Su aspecto es similar a este:
    
-   ![Icono de parámetro del servicio web][icon]
+   ![Icono de parámetro del servicio web](./media/web-service-parameters/icon.png)
    
    Seleccione "Establecer como parámetro del servicio web".
    
@@ -65,7 +65,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
 4. Para cambiar el nombre del parámetro del servicio web, haga clic en el nombre, escriba "Ruta de acceso de blobs" y presione la tecla **Intro** . 
 5. Para proporcionar un valor predeterminado para el parámetro del servicio web, haga clic en el icono a la derecha del nombre, seleccione "Proporcionar valor predeterminado", escriba un valor (por ejemplo, "container1/output1.csv") y presione la tecla **Intro** .
    
-   ![Parámetro del servicio web][parameter]
+   ![Parámetro del servicio web](./media/web-service-parameters/parameter.png)
 6. Haga clic en **Ejecutar**. 
 7. Haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar un servicio web [clásico]) o **Deploy Web Service [New]** (Implementar un servicio web [nuevo]) para actualizar el servicio web.
 
@@ -78,11 +78,6 @@ El usuario del servicio web puede especificar ahora un nuevo destino para el mó
 Para obtener un ejemplo más detallado, vea la entrada [Parámetros del servicio web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) en el [Blog de Machine Learning](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Para más información sobre el acceso a un servicio web Machine Learning, consulte [Cómo consumir un servicio web Azure Machine Learning](consume-web-services.md).
-
-<!-- Images -->
-[icon]: ./media/web-service-parameters/icon.png
-[parameter]: ./media/web-service-parameters/parameter.png
-
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

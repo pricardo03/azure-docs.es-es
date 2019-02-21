@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743657"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446518"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)
 
@@ -45,7 +45,7 @@ Durante la versión preliminar, no hay ningún cargo. Se le cobrarán los recurs
 |Problema|Detalles|
 |--|--|
 |Certificado de autenticación|No compatible.<br>Para más información, consulte [Introducción a SSL de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Combinación de Application Gateway Standard y Standard_v2 en la misma subred|No compatible.<br>Además, si está habilitado el escalado automático, una subred puede tener solo una puerta de enlace de aplicaciones.|
+|Combinación de Application Gateway Standard y Standard_v2 en la misma subred|No compatible|
 |Ruta definida por el usuario (UDR) en la subred de Application Gateway|No compatible|
 |NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registros de rendimiento en Azure Diagnostics|No compatible.<br>Se deben usar las métricas de Azure.|

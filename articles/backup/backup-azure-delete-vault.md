@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492290"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310973"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
@@ -31,7 +31,7 @@ Si ya tiene abierto el almacén de Recovery Services, vaya al segundo paso.
 
    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Se muestra la lista de almacenes de Recovery Services. 
+   Se muestra la lista de almacenes de Recovery Services.
 
    ![elegir el almacén en la lista](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Si ya tiene abierto el almacén de Recovery Services, vaya al segundo paso.
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Eliminación del almacén de Recovery Services a la fuerza
 
-Puede usar PowerShell para eliminar un almacén de Recovery Services a la fuerza. Esto significa que se eliminarán permanentemente el almacén de Recovery Services y todos los datos de copia de seguridad asociados. 
+Puede usar PowerShell para eliminar un almacén de Recovery Services a la fuerza. Esto significa que se eliminarán permanentemente el almacén de Recovery Services y todos los datos de copia de seguridad asociados.
 
 > [!Warning]
 > Al usar PowerShell para eliminar un almacén de Recovery Services, asegúrese de que quiere eliminar permanentemente todos los datos de copia de seguridad del almacén.
@@ -95,7 +95,7 @@ Para eliminar un almacén de Recovery Services:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Inicie sesión en su suscripción en Azure Portal y compruebe si se eliminó el almacén.
 
 
@@ -106,7 +106,6 @@ Para quitar manualmente las dependencias del almacén, elimine la configuración
 * Copias de seguridad de Azure Storage (Azure Files)
 * Copias de seguridad de SQL Server en VM de Azure
 * Copias de seguridad de máquinas virtuales de Azure
-* Copias de seguridad del agente de Microsoft Azure Recovery Services
 
 Use el menú **Infraestructura de copia de seguridad** (consulte la imagen) para:
 
@@ -125,7 +124,7 @@ Use el menú **Infraestructura de copia de seguridad** (consulte la imagen) para
 
 1. Para todos los elementos de la lista, haga clic con el botón derecho en el elemento y, en el menú contextual, seleccione **Detener copia de seguridad**.
 
-    ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     Se abre el menú Detener copia de seguridad.
 
@@ -154,9 +153,9 @@ Use el menú **Infraestructura de copia de seguridad** (consulte la imagen) para
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Quitar Azure Backup Server o DPM
 
-1. En el menú del panel del almacén, desplácese hacia abajo hasta la sección Administrar y haga clic en **Infraestructura de Backup**. 
+1. En el menú del panel del almacén, desplácese hacia abajo hasta la sección Administrar y haga clic en **Infraestructura de Backup**.
 
-1. En el submenú, haga clic en **Servidores de administración de Backup** para ver los servidores de Azure Backup Server y System Center DPM. Puede detener y eliminar máquinas virtuales de Azure, servidores SQL Server de VM de Azure y servidores Azure Files. 
+1. En el submenú, haga clic en **Servidores de administración de Backup** para ver los servidores de Azure Backup Server y System Center DPM. Puede detener y eliminar máquinas virtuales de Azure, servidores SQL Server de VM de Azure y servidores Azure Files.
 
     ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

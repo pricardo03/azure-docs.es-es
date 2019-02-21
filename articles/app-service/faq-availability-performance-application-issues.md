@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108745"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268386"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -113,7 +113,7 @@ Para activar el seguimiento de solicitudes con error:
 10. Seleccione **Web.config**.
 11. En system.webServer, agregue esta configuración (para capturar una dirección URL específica):
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -129,7 +129,7 @@ Para activar el seguimiento de solicitudes con error:
     </tracing>
     ```
 12. Para solucionar problemas de rendimiento lento, agregue esta configuración (si la solicitud de captura está tardando más de 30 segundos):
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />

@@ -1,7 +1,7 @@
 ---
 title: 'Solución de problemas del SDK de Voz: servicios de Voz'
 titleSuffix: Azure Cognitive Services
-description: En este artículo se proporciona información para ayudarle a resolver los problemas que pueden surgir al usar el SDK del servicio Voz.
+description: En este artículo se proporciona información para ayudarle a resolver los problemas que pueden surgir al usar el SDK de Voz.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859324"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446535"
 ---
-# <a name="troubleshoot-the-speech-service-sdk"></a>Solución de problemas del SDK del servicio Voz
+# <a name="troubleshoot-the-speech-sdk"></a>Solución de problemas del SDK de voz
 
-En este artículo se proporciona información para ayudarle a resolver los problemas que pueden surgir al usar el SDK del servicio Voz.
+En este artículo se proporciona información para ayudarle a resolver los problemas que pueden surgir al usar el SDK de Voz.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Error: Error de actualización de WebSocket con un error de autenticación (403)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269709"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309768"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -39,7 +39,7 @@ De forma predeterminada, Azure Backup Server se comunica con los servidores de V
 
 ### <a name="before-you-start"></a>Antes de comenzar
 
-- Si no desea usar HTTPS puede [deshabilitar la configuración predeterminada](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol).
+- Si no desea usar HTTPS puede [deshabilitar la configuración predeterminada](backup-azure-backup-server-vmware.md).
 - Normalmente se usa un explorador de la máquina de Azure Backup Server para conectarse al servidor de vCenter o ESXi mediante el cliente web de vSphere. La primera vez que lo haga, la conexión no es segura y se mostrará lo siguiente.
 - Es importante entender cómo Azure Backup Server administra las copias de seguridad.
     - Como primer paso, Azure Backup Server realiza una copia de seguridad de los datos en el espacio de almacenamiento del disco local. Azure Backup Server usa un grupo de almacenamiento, un conjunto de discos y volúmenes en los que Azure Backup Server almacenará los datos protegidos en los puntos de recuperación del disco. El grupo de almacenamiento puede ser almacenamiento conectado directamente (DAS), una red de área de almacenamiento de canal de fibra o un dispositivo de almacenamiento o una red de área de almacenamiento iSCI. Es importante asegurarse de que tiene suficiente espacio de almacenamiento para la copia de seguridad local de los datos de la máquina virtual de VMware.

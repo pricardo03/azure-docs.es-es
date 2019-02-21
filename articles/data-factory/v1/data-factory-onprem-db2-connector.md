@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816737"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311535"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -116,7 +116,7 @@ Este ejemplo proporciona definiciones JSON de ejemplo que puede usar para crear 
 
 El ejemplo consta de las siguientes entidades de Data Factory:
 
-- Un servicio vinculado DB2 de tipo [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties).
+- Un servicio vinculado DB2 de tipo [OnPremisesDb2](data-factory-onprem-db2-connector.md).
 - Un servicio vinculado de Azure Blob Storage de tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 - Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties).
 - Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).

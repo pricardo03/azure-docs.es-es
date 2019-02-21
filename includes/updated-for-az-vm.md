@@ -2,19 +2,16 @@
 author: cynthn
 ms.author: cynthn
 manager: jeconnoc
-ms.date: 02/04/2018
+ms.date: 02/15/2018
 ms.topic: include
-ms.openlocfilehash: 052bd610fd061504b8a4695fbb26df7ca062fbe8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 731cb69bd719800fcf9bd0e611d538d602f48fc2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984960"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334055"
 ---
 > [!NOTE]
 >
-> Este artículo se ha actualizado para usar el nuevo [módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az). AzureRM seguirá recibiendo actualizaciones de correcciones críticas, pero las características nuevas solo estarán en el módulo Az.
-> * El módulo Az ya está disponible en Cloud Shell, con la compatibilidad con AzureRM habilitada.
-> * Para instalar el módulo Az localmente, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
-> * Si instala el módulo de Az localmente, puede habilitar la compatibilidad de AzureRM ejecutando `Enable-AzureRmAlias`.
+> Este artículo se ha actualizado para usar el nuevo módulo Az de Azure PowerShell. Para más información acerca del nuevo módulo Az y la compatibilidad con AzureRM, consulte [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az) (Presentación del nuevo módulo Az de Azure PowerShell). Para obtener instrucciones sobre la instalación, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps).
 

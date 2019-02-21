@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980880"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341664"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en máquinas virtuales Linux
 
@@ -30,7 +30,7 @@ En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza
 
 ## <a name="create-a-rules-file"></a>Creación de un archivo de reglas
 
-Para restringir qué extensiones se pueden instalar, debe tener una [regla](/azure/azure-policy/policy-definition#policy-rule) que proporcione la lógica para identificar la extensión.
+Para restringir qué extensiones se pueden instalar, debe tener una [regla](../../governance/policy/concepts/definition-structure.md#policy-rule) que proporcione la lógica para identificar la extensión.
 
 En este ejemplo se muestra cómo denegar las extensiones publicadas por "Microsoft.OSTCExtensions" mediante la creación de un archivo de reglas en Azure Cloud Shell. Sin embargo, si está trabajando en PowerShell localmente, también puede crear un archivo local y reemplazar la ruta de acceso ($home/clouddrive) por la del archivo local en su máquina.
 
@@ -70,7 +70,7 @@ Cuando haya terminado, presione **Ctrl + O** y, a continuación, **Entrar** para
 
 ## <a name="create-a-parameters-file"></a>Creación de un archivo de parámetros
 
-También necesita un archivo de [parámetros](/azure/azure-policy/policy-definition#parameters) que cree una estructura que pueda usar para pasar una lista de las extensiones que se van a bloquear. 
+También necesita un archivo de [parámetros](../../governance/policy/concepts/definition-structure.md#parameters) que cree una estructura que pueda usar para pasar una lista de las extensiones que se van a bloquear. 
 
 En este ejemplo se muestra cómo crear un archivo de parámetros para máquinas virtuales en Cloud Shell. Sin embargo, si está trabajando en PowerShell localmente, también puede crear un archivo local y reemplazar la ruta de acceso ($home/clouddrive) por la del archivo local en su máquina.
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+Para más información, consulte [Azure Policy](../../governance/policy/overview.md).

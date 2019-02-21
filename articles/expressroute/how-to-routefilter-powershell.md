@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096303"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415303"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "53096303"
 
 Los filtros de ruta son una forma de consumir un subconjunto de servicios admitidos mediante el emparejamiento de Microsoft. Los pasos que se describen en este artículo le ayudan a configurar y administrar filtros de ruta para circuitos ExpressRoute.
 
-A través del emparejamiento de Microsoft se puede acceder a los servicios de Dynamics 365, a los servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial, y a los servicios públicos de Azure como Storage y SQL DB. Los servicios públicos de Azure se pueden seleccionar región a región y no se pueden definir por servicio público. 
+A través del emparejamiento de Microsoft se puede acceder a los servicios de Dynamics 365, a los servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial, y a los servicios públicos de Azure como Storage y SQL DB. Los servicios públicos de Azure se pueden seleccionar región a región y no se pueden definir por servicio público.
 
 Cuando se configura el emparejamiento de Microsoft en un circuito ExpressRoute y se anexa un filtro de ruta, todos los prefijos seleccionados para estos servicios se anuncian mediante las sesiones BGP establecidas. A cada prefijo se asocia un valor de la comunidad de BGP para identificar el servicio que se ofrece mediante el prefijo en cuestión. Para ver una lista de valores de la comunidad de BGP y los servicios a los que se asignan, consulte [Comunidades de BGP](expressroute-routing.md#bgp).
 

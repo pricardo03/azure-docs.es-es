@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 17a55e84dcbec00eced290ec76c3201784075201
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a45ed3ad5360f613a4949799c60ec09f4a30afb9
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462586"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427775"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partners de inteligencia empresarial de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector.  En este artículo se destacan las empresas asociadas de Microsoft con soluciones de inteligencia empresarial compatibles con Azure SQL Data Warehouse.
@@ -64,7 +64,7 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 <!--Website links -->
 [birst_website]:https://www.birst.com/
 [clearstory_website]:http://www.clearstorydata.com/
-[dell_statistica_website]:http://software.dell.com/MSFT_Stat_ref/
+[dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
 [dundas_bi_website]:http://www.dundas.com/dundas-bi
 [jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]:http://www.logianalytics.com/
@@ -105,18 +105,14 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 
 <!--[clearstory_marketplace]:-->
 
-[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
-
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 
 <!--[jinfonet_marketplace]:-->
 
-[logianalytics_marketplace]:https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
 
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 
-[sisense_marketplace]:https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
 [yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
@@ -149,7 +145,6 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 [birst_youtube]:https://www.youtube.com/user/BirstBI
 
 [clearstory_youtube]:https://www.youtube.com/user/ClearStoryData
-[dell_statistica_youtube]:https://www.youtube.com/user/DellSoftwareVideo
 [dundas_bi_youtube]:https://www.youtube.com/user/dundasdv
 [jinfonet_youtube]:https://www.youtube.com/user/JinfonetSoftware
 [logianalytics_youtube]:https://www.youtube.com/user/LogiXMLblog

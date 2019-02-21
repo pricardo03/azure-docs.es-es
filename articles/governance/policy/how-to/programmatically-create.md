@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510840"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340151"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
@@ -139,7 +139,7 @@ Use el procedimiento siguiente para crear una definición de directiva.
 
 1. Cree la definición de directiva con una de las llamadas siguientes:
 
-   ```
+   ```console
    # For defining a policy in a subscription
    armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
 
@@ -169,7 +169,7 @@ Utilice el procedimiento siguiente para crear una asignación de directiva y asi
 
 1. Cree la asignación de directiva con la llamada siguiente:
 
-   ```
+   ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
@@ -239,7 +239,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 El identificador de definición de directiva para la definición de directiva que ha creado debe parecerse al ejemplo siguiente:
 
-```
+```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 

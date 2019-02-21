@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 886c41f669d0b0363f4484b24ba3b9975904d9f7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492222"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310174"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 
@@ -42,7 +42,7 @@ Para abrir la hoja Alertas de copias de seguridad desde la sección Alertas y ev
 
     ![Detalle de evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    Para personalizar los atributos mostrados en la lista, consulte [Visualización de atributos adicionales de eventos](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    Para personalizar los atributos mostrados en la lista, consulte [Visualización de atributos adicionales de eventos](backup-azure-monitor-vms.md)
 
 ## <a name="configure-notifications"></a>Configuración de notificaciones
 

@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f7d82b8cb609b390275617509946d640720f2dda
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248485"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456952"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versiones de API del proveedor de recursos compatibles con perfiles en Azure Stack
 
@@ -57,28 +57,6 @@ Para obtener una explicación de los perfiles de API y el ritmo de lanzamientos 
 | Suscripciones | 2016-10-01 |
 
 Para obtener una lista más completa de las versiones de cada tipo de recursos de los proveedores del perfil de API, vea el perfil [Details for the 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) (Detalles de 2018-03-01-hybrid).
-
-## <a name="overview-of-2018-03-01-hybrid"></a>Información general de 2018-03-01-hybrid
-
-| Proveedor de recursos | Versión de API |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (plano de datos) | 2015-04-05  |
-| Microsoft.Storage (plano de control) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(sin cambios) |
-| Microsoft.Resources<br>(el propio Azure Resource Manager) | 2016-02-01 |
-| Microsoft.Authorization<Br>(operaciones de directiva) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Directiva | 2015-10-01-preview |
-| Recursos | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Suscripciones | 2016-06-1 |
-
-Para una lista de las versiones de cada tipo de recursos de los proveedores del perfil de API, consulte la siguiente sección.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details for the 2018-03-01-hybrid (Detalles de 2018-03-01-hybrid)
 

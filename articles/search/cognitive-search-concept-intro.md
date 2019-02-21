@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808211"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447334"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>¿Qué es la "búsqueda cognitiva" en Azure Search?
 
@@ -96,18 +96,24 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 
 + Centro occidental de EE.UU.
 + Centro-Sur de EE. UU
++ Centro-Norte de EE. UU
 + Este de EE. UU
 + Este de EE. UU. 2
 + Oeste de EE. UU.
 + Oeste de EE. UU. 2
++ Centro de EE. UU.
 + Centro de Canadá
 + Europa occidental
-+ Sur de Reino Unido 2
 + Europa del Norte
++ Sur de Reino Unido 2
++ Centro de Francia
 + Sur de Brasil
 + Asia oriental
 + Sudeste asiático
 + India Central
++ Oeste de Japón
++ Este de Japón
++ Corea Central
 + Este de Australia
 
 **Paso 2: Experiencia práctica para dominar el flujo de trabajo**

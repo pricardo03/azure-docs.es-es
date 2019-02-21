@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 1b58401a6697cdc80acc9badaf018923c5a9a980
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660296"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416123"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificaciones por correo electrónico para el ajuste automático
 
@@ -73,7 +73,7 @@ El siguiente paso consiste en crear un runbook en Azure Automation en el que se 
 Para crear un nuevo runbook de Azure Automation, siga estos pasos:
 
 - Acceda a la cuenta de Azure Automation que creó en el paso anterior.
-- Una vez esté en el panel de la cuenta de automatización, haga clic en el elemento de menú "**Runbooks**" en el lado izquierdo para crear un nuevo runbook de Azure Automation con el script de PowerShell. Para obtener más información sobre la creación de runbooks de automatización, consulte [Creación de un runbook](../automation/automation-creating-importing-runbook.md).
+- Una vez esté en el panel de la cuenta de automatización, haga clic en el elemento de menú "**Runbooks**" en el lado izquierdo para crear un nuevo runbook de Azure Automation con el script de PowerShell. Para obtener más información sobre la creación de runbooks de automatización, consulte [Creación de un runbook](../automation/manage-runbooks.md#create-a-runbook).
 - Para agregar un runbook nuevo, haga clic en la opción de menú "**+Agregar un runbook**" y, a continuación, haga clic en "**Creación rápida: Crear un runbook nuevo**".
 - En el panel Runbook, escriba el nombre de su runbook (en este ejemplo, se usa "**AutomaticTuningEmailAutomation**"), seleccione el tipo de runbook como **PowerShell** y escriba una descripción de este runbook para indicar su finalidad.
 - Haga clic en el botón **Crear** para terminar de crear un runbook.

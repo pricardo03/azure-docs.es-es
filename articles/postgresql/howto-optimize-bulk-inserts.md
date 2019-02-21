@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810249"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310298"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Optimización de las inserciones masivas y uso de datos transitorios en un servidor de Azure Database for PostgreSQL 
 En este artículo se describe cómo puede optimizar las operaciones de inserción masiva y usar datos transitorios en un servidor de Azure Database for PostgreSQL.
@@ -25,9 +25,9 @@ Realizar inserciones en tablas sin registrar significa que PostgreSQL las realiz
 
 Para crear una tabla sin registrar, utilice las siguientes opciones:
 - Cree una tabla sin registrar con la sintaxis `CREATE UNLOGGED TABLE <tableName>`.
-- Convierta una tabla registrada existente en una tabla sin registrar con la sintaxis `ALTER <tableName> SET UNLOGGED`.  
+- Convierta una tabla registrada existente en una tabla sin registrar con la sintaxis `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Para invertir el proceso, use la sintaxis `ALTER <tableName> SET LOGGED`.
+Para invertir el proceso, use la sintaxis `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Concesiones de las tablas sin registrar
 Las tablas sin registrar no están protegidas contra bloqueos. Una tabla sin registrar se trunca automáticamente después de un bloqueo o está sujeta a un apagado no limpio. Además, el contenido de una tabla sin registrar no se replica en los servidores en espera. Los índices creados en una tabla sin registrar también se quitan del registro automáticamente. Una vez que se complete la operación de inserción, convierta la tabla en registrada para que la inserción sea duradera.

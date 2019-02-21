@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 205e61634a902ef052f665c65f2b67a66e6fe598
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2bb1a9c3922f435b6be78614aacff6e85bf475ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728234"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454249"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introducción a App Service Environment v1
 
 > [!NOTE]
 > Este artículo trata sobre App Service Environment v1.  Hay una versión más reciente de App Service Environment que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](intro.md).
-> 
 
 ## <a name="overview"></a>Información general
+
 Un entorno de App Service Environment es una opción de plan de servicio [Premium][PremiumTier] de [Azure App Service](../overview.md) que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones de Azure App Service a gran escala, lo que incluye Web Apps, Mobile Apps y API Apps.  
 
 Los entornos de App Service son ideales para cargas de trabajo de aplicaciones que requieren:
@@ -46,16 +46,17 @@ Para profundizar en el escalado horizontal con varios entornos de App Service, c
 
 Para ver cómo se ha configurado la arquitectura de seguridad mostrada en la inmersión en AzureCon, consulte el artículo sobre la implementación de una [arquitectura de seguridad en capas](app-service-app-service-environment-layered-security.md) con entornos de App Service.
 
-Las aplicaciones que se ejecutan en entornos de aplicación de servicio pueden tener su acceso validado por dispositivos de subida como firewalls de aplicación web (WAF).  En el artículo sobre la [configuración de un WAF para entornos de aplicación de servicio](app-service-app-service-environment-web-application-firewall.md) se trata este escenario. 
+Las aplicaciones que se ejecutan en entornos de aplicación de servicio pueden tener su acceso validado por dispositivos de subida como firewalls de aplicación web (WAF).  En el artículo sobre la [configuración de un WAF para entornos de aplicación de servicio](app-service-app-service-environment-web-application-firewall.md) se trata este escenario.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>Recursos de proceso dedicados
+
 Todos los recursos de proceso de un entorno de App Service están dedicados exclusivamente a una sola suscripción, y se puede configurar un entorno de App Service con hasta cincuenta recursos de proceso (50) para uso exclusivo de una única aplicación.
 
-Un entorno de este tipo se compone de un grupo de recursos de proceso front-end y de entre uno a tres grupos de recursos de proceso de trabajo. 
+Un entorno de este tipo se compone de un grupo de recursos de proceso front-end y de entre uno a tres grupos de recursos de proceso de trabajo.
 
-El grupo de servidores front-end contiene los recursos de proceso responsables de la terminación SSL y del equilibrio de carga automático de las solicitudes de aplicación dentro de un entorno de App Service. 
+El grupo de servidores front-end contiene los recursos de proceso responsables de la terminación SSL y del equilibrio de carga automático de las solicitudes de aplicación dentro de un entorno de App Service.
 
 Cada grupo de trabajo contiene recursos de proceso asignados a [Planes de App Service][AppServicePlan] que, a su vez, contienen una o más aplicaciones de Azure App Service.  Como en un entorno de App Service puede haber hasta tres grupos de trabajo distintos, tiene la flexibilidad de elegir diferentes recursos de proceso para cada grupo de trabajo.  
 
@@ -66,6 +67,7 @@ Para obtener más detalles sobre la cantidad de recursos de proceso disponibles 
 Para obtener más detalles sobre los tamaños de los recursos de proceso disponibles admitidos en un entorno de App Service, consulte la página de [precios de App Service][AppServicePricing] y revise las opciones disponibles para este tipo de entornos en el plan de tarifa Premium.
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales
+
 Puede crearse un entorno de App Service **en** una red virtual de Azure Resource Manager **o** en una del modelo de implementación clásica ([obtenga más información sobre las redes virtuales][MoreInfoOnVirtualNetworks]).  Puesto que los entornos de este tipo residen siempre en una red virtual y, más concretamente, en una subred de una red virtual, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.  
 
 Una instancia de App Service Environment puede tener conexión a Internet con una dirección IP pública, o tener una conexión interna solo con la dirección de un equilibrador de carga interno (ILB) de Azure.
@@ -77,6 +79,7 @@ Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como 
 Para obtener más detalles sobre cómo funcionan los entornos de App Service con redes virtuales y locales, consulte los siguientes artículos sobre [información general sobre la arquitectura de red de los entornos de App Service][NetworkArchitectureOverview], de [cómo controlar el tráfico de entrada a un entorno de App Service][ControllingInboundTraffic] y sobre [conexión segura a los recursos de back-end desde un entorno de App Service][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Introducción
+
 Para empezar a trabajar con los entornos de App Service, consulte el artículo sobre [creación de un entorno de App Service][HowToCreateAnAppServiceEnvironment].
 
 Para obtener información general sobre la arquitectura de red del entorno de App Service, consulte el artículo de [información general sobre la arquitectura de red de los entornos de App Service][NetworkArchitectureOverview].
@@ -104,5 +107,3 @@ Para obtener información detallada sobre el uso de un entorno de App Service co
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
-
-
