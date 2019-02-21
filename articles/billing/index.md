@@ -1,24 +1,19 @@
 ---
 layout: LandingPage
 title: Documentación de administración de costos y facturación de Azure | Microsoft Docs
-description: Obtenga información acerca de la facturación de Azure, administre y supervise el uso y los costos, y administre la cuenta y las suscripciones.
+description: 'Obtenga información acerca de la facturación de Azure, administre y supervise el uso y los costos, y administre la cuenta y las suscripciones.'
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: ''
+ms.assetid: null
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/24/2018
-ms.author: cwatson
-ms.openlocfilehash: ed792b03a79d2dcbb77142a51ae2641c8d0bd3ad
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583337"
+ms.date: 02/19/2019
+ms.author: banders
 ---
+
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentación de administración de costos y facturación de Azure
 
 Obtenga información acerca de la facturación de Azure, supervise el uso y los costos, y administre la cuenta y las suscripciones.
@@ -50,9 +45,9 @@ Obtenga información acerca de la facturación de Azure, supervise el uso y los 
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevención de costes inesperados</a><br/>
                         <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Uso de etiquetas de recurso</a><br/>
-                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Inicio del análisis de costos: solo EA</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Creación y administración de presupuestos: solo EA</a><br/>
-                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimización de recomendaciones: solo EA</a>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Inicio del análisis de costos</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Creación y administración de presupuestos</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimización de recomendaciones</a>
                         </p>
                     </div>
                 </div>
@@ -184,5 +179,5 @@ Obtenga información acerca de la facturación de Azure, supervise el uso y los 
             </div>
         </div>
     </li>
-    
+
 </ul>

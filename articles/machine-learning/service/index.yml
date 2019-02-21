@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 372d3d88c0a160c1f294f07e58c5e11dbf5eac5e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311462"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456612"
 documentType: LandingData
 title: Documentación sobre el servicio Azure Machine Learning
 metadata:
   title: 'Documentación sobre el servicio Azure Machine Learning: tutoriales y referencia de API | Microsoft Docs'
-  description: El servicio Azure Machine Learning proporciona un entorno basado en la nube que puede utilizar para desarrollar, entrenar, probar, implementar, administrar y realizar un seguimiento de los modelos de aprendizaje automático. Azure Machine Learning Service es totalmente compatible con tecnologías de código abierto como Scikit-learn, Tensorflow, Pytorch o cualquier otra plataforma basada en Python. Aprenda a usar Azure Machine Learning Service para sus flujos de trabajo de aprendizaje automático con los inicios rápidos y los tutoriales.
+  description: Azure Machine Learning Service proporciona SDK y servicios para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Mejore la productividad y reduzca los costos con el proceso y las canalizaciones de escalado automático. Use estas funcionalidades con plataformas de Python de código abierto, como PyTorch, TensorFlow y scikit-learn. Empiece por los tutoriales e inicios rápidos.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,12 +17,21 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/15/2019
+  ms.date: 2/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning Service proporciona un entorno en la nube para preparar datos, entrenar e implementar los modelos de Machine Learning. Use el aprendizaje automático para identificar los algoritmos y ajustar los hiperparámetros con más rapidez. Mejore la productividad y reduzca los costos con el proceso y las canalizaciones de escalado automático. Acceda a estas funcionalidades con plataformas de Python de código abierto, como PyTorch, TensorFlow y scikit-learn y con los SDK de servicio. Empiece por los tutoriales e inicios rápidos.
+  description: Azure Machine Learning Service proporciona SDK y servicios para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Mejore la productividad y los costos con el proceso y las canalizaciones de escalado automático. Use estas funcionalidades con plataformas de Python de código abierto, como PyTorch, TensorFlow y scikit-learn. Empiece por los tutoriales e inicios rápidos.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: Ver el vídeo (9:58)
+    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    width: 250
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
@@ -51,9 +60,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/aml-sdk">SDK principal (Python)</a>
-    - html: <a href="https://aka.ms/data-prep-sdk">SDK de preparación de datos (Python)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">SDK de supervisión (Python)</a>
+    - html: '<a href="https://aka.ms/aml-sdk">SDK principal de Python</a>: funcionalidad principal, aprendizaje automático, canalizaciones, etc'
+    - html: '<a href="https://aka.ms/data-prep-sdk">Preparación de datos</a> SDK de Python: preparación y transformación de los datos'
+    - html: '<a href="https://aka.ms/aml-monitoring-sdk">Supervisión</a> SDK de Python: recopilación de datos en los servicios web implementados'
 - title: Otras tecnologías de Azure Machine Learning
   items:
   - type: list

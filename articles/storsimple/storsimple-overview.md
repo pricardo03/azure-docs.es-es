@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038512"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326933"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 ## <a name="overview"></a>Información general
@@ -29,7 +29,7 @@ StorSimple usa [niveles de almacenamiento](#automatic-storage-tiering) para admi
 
 Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
 
-![icono de vídeo](./media/storsimple-overview/video_icon.png) Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
+![icono de vídeo](./media/storsimple-overview/video_icon.png)  Vea el vídeo para acceder a una introducción rápida a Microsoft Azure StorSimple.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -92,7 +92,7 @@ La aplicación en la nube tiene las siguientes características:
 * Puede crear un número ilimitado de aplicaciones en la nube y activarlas y desactivarlas según sea necesario.
 * Puede ayudar a simular entornos locales en escenarios de recuperación ante desastres, desarrollo y pruebas, además de facilitar la recuperación de nivel de elemento a partir de copias de seguridad.
 
-StorSimple Cloud Appliance está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (En niveles locales, el almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium. Para obtener más información sobre Azure Premium Storage, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../virtual-machines/windows/premium-storage.md).
+StorSimple Cloud Appliance está disponible en dos modelos: el dispositivo 8010 (anteriormente conocido como el modelo 1100) y el 8020. El dispositivo 8010 tiene una capacidad máxima de 30 TB. El dispositivo 8020, que aprovecha las ventajas de almacenamiento premium de Azure, tiene una capacidad máxima de 64 TB. (En niveles locales, el almacenamiento premium de Azure almacena datos en SSD, mientras que el estándar los almacena en HDD). Tenga en cuenta que debe tener una cuenta de almacenamiento premium de Azure para usar el almacenamiento premium.
 
 Para más información sobre StorSimple Cloud Appliance, consulte [Deploy and manage a StorSimple Cloud Appliance in Azure](storsimple-8000-cloud-appliance-u2.md) (Implementar y administrar StorSimple Cloud Appliance en Azure).
 
@@ -207,10 +207,10 @@ A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 
 | Escenario | Carga de trabajo | Compatible | Restricciones | Versión |
 | --- | --- | --- | --- | --- |
-| Colaboración |Uso compartido de archivos |SÍ | |Todas las versiones |
-| Colaboración |Uso compartido de archivos distribuidos |SÍ | |Todas las versiones |
+| Colaboración |Uso compartido de archivos |Sí | |Todas las versiones |
+| Colaboración |Uso compartido de archivos distribuidos |Sí | |Todas las versiones |
 | Colaboración |SharePoint |Sí* |Solo compatible con volúmenes localmente anclados |Actualización 2 y posterior |
-| Archivado |Archivado de archivos sencillo |SÍ | |Todas las versiones |
+| Archivado |Archivado de archivos sencillo |Sí | |Todas las versiones |
 | Virtualización |Máquinas virtuales |Sí* |Solo compatible con volúmenes localmente anclados |Actualización 2 y posterior |
 | Base de datos |SQL |Sí* |Solo compatible con volúmenes localmente anclados |Actualización 2 y posterior |
 | Vigilancia de vídeo |Vigilancia de vídeo |Sí* |Compatible cuando el dispositivo StorSimple se emplea en exclusiva para esta carga de trabajo |Actualización 2 y posterior |
@@ -234,11 +234,11 @@ A continuación, se muestra una lista de los componentes de infraestructura comp
 
 | Escenario | Carga de trabajo | Compatible | Restricciones | Versión |
 | --- | --- | --- | --- | --- |
-| General |ExpressRoute |SÍ | |Todas las versiones |
+| General |ExpressRoute |Sí | |Todas las versiones |
 | General |DataCore FC |Sí* |Compatible con DataCore SANsymphony |Todas las versiones |
 | General |DFSR |Sí* |Solo compatible con volúmenes localmente anclados |Todas las versiones |
 | General |Indización |Sí* |Para volúmenes en capas, solo se admite la indización de metadatos (sin datos).<br>Para volúmenes anclados localmente, se admite la indización completa. |Todas las versiones |
-| General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br> Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
+| General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br>  Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
 
 *Sí&#42;. Se deben aplicar las restricciones y directrices de la solución.*
 

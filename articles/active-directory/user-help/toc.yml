@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Restablecimiento de la contraseña
     href: user-help-reset-password.md
-- name: Ayuda sobre la información de seguridad (versión preliminar)
-  items:
-  - name: Información general
-    href: user-help-security-info-overview.md
-  - name: Configuración de una aplicación autenticadora
-    href: security-info-setup-auth-app.md
-  - name: Configuración de mensajería de texto
-    href: security-info-setup-text-msg.md
-  - name: Configuración de llamadas telefónicas
-    href: security-info-setup-phone-number.md
-  - name: Configuración del correo electrónico
-    href: security-info-setup-email.md
-  - name: Configuración de preguntas de seguridad
-    href: security-info-setup-questions.md
-  - name: Administración de las contraseñas de aplicación
-    href: security-info-app-passwords.md
-  - name: Administración de la información de seguridad
-    href: security-info-manage-settings.md
-  - name: Inicio de sesión
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Ayuda de la aplicación Microsoft Authenticator
   items:
   - name: Información general
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Incorporación manual de una cuenta
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Inicio de sesión con la aplicación Microsoft Authenticator
     href: user-help-auth-app-sign-in.md
   - name: Copia de seguridad y recuperación de las cuentas
     href: user-help-auth-app-backup-recovery.md
   - name: Preguntas más frecuentes
     href: user-help-auth-app-faq.md
-- name: Ayuda del portal Mis aplicaciones
+- name: Ayuda del portal Mi Perfil (versión preliminar)
   items:
   - name: Información general
-    href: user-help-my-apps-overview.md
-  - name: ¿Qué es el portal Mis aplicaciones?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Solución de problemas
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Administración de la información de seguridad
+    href: user-help-security-info-overview.md
+  - name: Ver actividad de inicio de sesión
+    href: myprofile-portal-recent-activity-page.md
+  - name: Administración de las organizaciones
+    href: myprofile-portal-organizations-page.md
+  - name: Administración de los dispositivos conectados
+    href: myprofile-portal-devices-page.md
+  - name: Ver la información de privacidad
+    href: myprofile-portal-privacy-page.md
+- name: Ayuda sobre la información de seguridad (versión preliminar)
+  items:
+  - name: Información general
+    href: user-help-security-info-overview.md
+  - name: Incorporación de la información de seguridad durante el inicio de sesión
+    href: security-info-setup-signin.md
+  - name: Introducción a la incorporación o actualización de los métodos de información de seguridad
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Configuración de una aplicación autenticadora
+      href: security-info-setup-auth-app.md
+    - name: Configuración de mensajería de texto
+      href: security-info-setup-text-msg.md
+    - name: Configuración de llamadas telefónicas
+      href: security-info-setup-phone-number.md
+    - name: Configuración del correo electrónico
+      href: security-info-setup-email.md
+    - name: Configuración de preguntas de seguridad
+      href: security-info-setup-questions.md
+  - name: Administración de las contraseñas de aplicación
+    href: security-info-app-passwords.md
+  - name: Inicio de sesión
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Ayuda para la administración de dispositivos
   items:
   - name: Información general
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: Solución de problemas relacionados con el mensaje "You can't get there" (No puede acceder)
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Ayuda del portal Mis aplicaciones
+  items:
+  - name: Información general
+    href: user-help-my-apps-overview.md
+  - name: ¿Qué es el portal Mis aplicaciones?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Solución de problemas
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816057"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452581"

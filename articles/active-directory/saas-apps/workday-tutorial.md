@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184540"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integración de Azure Active Directory con Workday
 
@@ -113,7 +113,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Workday](./media/workday-tutorial/tutorial_workday_url.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml2.htmld`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml2.flex`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://www.workday.com`
 
@@ -166,7 +166,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     >[!NOTE]
     > El valor del atributo Entorno está vinculado con el valor de la URL del inquilino:  
-    >-Si el nombre de dominio de la dirección URL de inquilino de Workday empieza por impl (por ejemplo, *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), el atributo **Entorno** tiene que establecerse en Implementación.  
+    >-Si el nombre de dominio de la dirección URL de inquilino de Workday empieza por impl (por ejemplo, *https://impl.workday.com/\<tenant\>/login-saml2.flex*), el atributo **Entorno** tiene que establecerse en Implementación.  
     >Si el nombre de dominio empieza por otra cosa, deberá ponerse en contacto con el [equipo de soporte técnico de Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obtener el valor de **Entorno** coincidente.
 
 12. En la sección **Configuración de SAML** , realice los pasos siguientes:

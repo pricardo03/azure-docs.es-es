@@ -5,7 +5,7 @@ items:
   items:
   - name: Descripción de la factura
     href: billing-understand-your-bill.md
-  - name: 'Descripción de la factura: solo EA'
+  - name: Descripción de la factura del contrato Enterprise
     href: billing-understand-your-bill-ea.md
   - name: Obtención de factura y datos de uso
     href: billing-download-azure-invoice-daily-usage-date.md
@@ -24,11 +24,11 @@ items:
     href: billing-ea-pricing.md
   - name: Uso de etiquetas de recurso
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
-  - name: 'Inicio del análisis de costos: solo EA'
+  - name: Inicio del análisis de costos
     href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
-  - name: 'Creación y administración de presupuestos: solo EA'
+  - name: Creación y administración de presupuestos
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
-  - name: 'Optimización de recomendaciones: solo EA'
+  - name: Optimización de recomendaciones
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
   - name: Cálculo del precio
     href: https://azure.microsoft.com/pricing/calculator/
@@ -190,9 +190,9 @@ items:
     items:
     - name: Enterprise Reporting REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: f5c025a8425a8b0b07a2b1bb2be69e2ec8e769ca
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257327"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447708"
