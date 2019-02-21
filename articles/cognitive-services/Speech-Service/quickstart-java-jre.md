@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881516"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447589"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo creará una aplicación de consola Java mediante el [SDK de Speech Service](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits o Ubuntu Linux 16.04/18.04 de 64 bits. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+En este artículo creará una aplicación de consola Java mediante el [SDK de Voz](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits o Ubuntu Linux 16.04/18.04 de 64 bits. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 > [!NOTE]
 > Para el SDK de dispositivos de Voz y el dispositivo Roobo, consulte [SDK de dispositivos de voz](speech-devices-sdk.md).
@@ -39,7 +39,7 @@ Si ejecuta Ubuntu 16.04/18.04, asegúrese de que estén instaladas estas depende
 
 ```console
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Si está ejecutando Windows (64 bits) asegúrese de que ha instalado Microsoft Visual C++ Redistributable para la plataforma.

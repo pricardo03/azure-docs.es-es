@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731281"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267757"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guía de inicio rápido: Creación de un salón de chat con SignalR Service
 
@@ -79,7 +79,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
 
 1. Para agregar una referencia al paquete de NuGet `Microsoft.Azure.SignalR`, ejecute el comando siguiente:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
+        dotnet add package Microsoft.Azure.SignalR
 
 2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto.
 
@@ -92,7 +92,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
     Secret Manager solo se usará para probar la aplicación web mientras se hospeda localmente. En un tutorial posterior, se implementará la aplicación web de chat en Azure. Una vez que la aplicación web se haya implementado en Azure, usará una configuración de la aplicación en lugar de almacenar la cadena de conexión con Secret Manager.
