@@ -22,7 +22,7 @@ Como _generador_, usará la interfaz de usuario de Azure IoT Central para defini
 
 Vaya a la página [Application Manager](https://aka.ms/iotcentral) (Administrador de aplicaciones) de Azure IoT Central. Tendrá que iniciar sesión con una cuenta Microsoft personal, profesional o educativa.
 
-Para empezar a crear una nueva aplicación de Azure IoT Central, seleccione **New Application** (Nueva aplicación). De este modo, ira a la página **Create Application** (Create Application).
+Para empezar a crear una nueva aplicación de Azure IoT Central, seleccione **New Application** (Nueva aplicación). De este modo, ira a la página **Create Application** (Crear Aplicación).
 
 ![Página de creación de una aplicación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
 
