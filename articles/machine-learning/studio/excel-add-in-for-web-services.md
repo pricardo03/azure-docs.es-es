@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 14e631edb21c43ccde04a536760c2793ead40e90
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997089"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454705"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning Studio
 Excel facilita la llamada a servicios web directamente sin necesidad de escribir ningún código.
@@ -29,13 +29,13 @@ Excel facilita la llamada a servicios web directamente sin necesidad de escribir
 
 2. Elija el servicio web haciendo clic en él, "Predictor de supervivientes del Titanic (complemento de Excel de ejemplo) [puntuación]" en este ejemplo.
    
-    ![Seleccionar un servicio web][01]
+    ![Seleccionar un servicio web](./media/excel-add-in-for-web-services/image1.png)
 3. Esto le lleva a la sección **Predicción**.  Este libro ya contiene datos de ejemplo, pero para un libro en blanco también puede seleccionar una celda en Excel y hacer clic en **Usar datos de ejemplo**.
 4. Seleccione los datos con encabezados y haga clic en el icono del intervalo de datos de entrada.  Asegúrese de que está activada la casilla "Mis datos tienen encabezados".
 5. En **Resultado**, escriba el número de la celda donde desea que se muestre el resultado, por ejemplo, "H1" aquí.
 6. Haga clic en **Predicción**. Si selecciona la casilla "predicción automática", cualquier cambio en las áreas seleccionadas (las especificadas como entradas) desencadenará una solicitud y una actualización de las celdas de salida sin necesidad de presionar el botón de predicción.
    
-    ![Sección Predicción][02]
+    ![Sección Predicción](./media/excel-add-in-for-web-services/image1.png)
 
 Implemente un servicio web o use uno existente. Para más información sobre la implementación de un servicio web, consulte el [Tutorial 3: Implementación del modelo de riesgo crediticio](tutorial-part3-credit-risk-deploy.md).
 
@@ -45,10 +45,10 @@ Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u 
 
 1. En Machine Learning Studio, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y, luego, seleccione el servicio web.
    
-    ![Seleccionar un servicio web de Studio][04]
+    ![Seleccionar un servicio web de Studio](./media/excel-add-in-for-web-services/image4.png)
 2. Copie la clave de API del servicio web.
    
-    ![Clave de API de Studio][05]
+    ![Clave de API de Studio](./media/excel-add-in-for-web-services/image5.png)
 3. En la pestaña **PANEL** del servicio web, haga clic en el vínculo **SOLICITUD-RESPUESTA**.
 4. Busque la sección **URI de solicitud** .  Copie y guarde la URL.
 
@@ -70,23 +70,16 @@ Obtenga la clave de API del servicio web. Realizará esta acción en un sitio u 
 3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde la **clave principal** y la URL de **solicitud-respuesta**.
 4. En Excel, vaya a la sección **Servicios web** (si se encuentra en la sección **Predicción**, haga clic en la flecha Atrás para ir a la lista de servicios web).
    
-    ![Ir a la selección de servicios web][03]
+    ![Ir a la selección de servicios web](./media/excel-add-in-for-web-services/image3.png)
 5. Haga clic en **Agregar servicio web**.
 6. Pegue la URL en el cuadro de texto de complemento de Excel denominado " **URL**".
 7. Pegue la clave principal o de API en el cuadro de texto denominado **Clave de API**.
 8. Haga clic en **Agregar**.
    
-    ![Dirección URL y clave de API y de un servicio web clásico.][06]
+    ![Dirección URL y clave de API y de un servicio web clásico.](./media/excel-add-in-for-web-services/image6.png)
 9. Para usar el servicio web, siga las instrucciones anteriores, "Pasos para usar un servicio web existente".
 
 ## <a name="sharing-your-workbook"></a>Compartir el libro
 Si guarda el libro, también se guardarán la clave principal o de API de los servicios web que también ha guardado. Esto significa que solo debe compartir el libro con personas de confianza.
 
 Plantee cualquier pregunta que le surja en la sección de comentarios a continuación o en nuestro [foro](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
-
-[01]: ./media/excel-add-in-for-web-services/image1.png
-[02]: ./media/excel-add-in-for-web-services/image2.png
-[03]: ./media/excel-add-in-for-web-services/image3.png
-[04]: ./media/excel-add-in-for-web-services/image4.png
-[05]: ./media/excel-add-in-for-web-services/image5.png
-[06]: ./media/excel-add-in-for-web-services/image6.png

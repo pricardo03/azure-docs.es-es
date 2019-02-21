@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488453"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454315"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Administrar iteraciones de experimentos en Azure Machine Learning Studio
 El desarrollo de un modelo de análisis predictivo es un proceso iterativo: a medida que se modifican las diversas funciones y los parámetros de su experimento, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo. La clave de este proceso es realizar un seguimiento de las iteraciones de los parámetros de su experimento y sus configuraciones.
@@ -48,7 +48,7 @@ Por ejemplo, suponga que crea un experimento con el módulo [Regresión lineal][
 
 Si hace clic en **VER HISTORIAL DE EJECUCIONES**, verá una lista de todas estas ejecuciones:
 
-![Historial de ejecución de ejemplo][runhistory]
+![Historial de ejecución de ejemplo](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 Haga clic en cualquiera de estas ejecuciones para ver una instantánea del experimento en el momento en que se ejecutó. La configuración, los valores de parámetro, los comentarios y los resultados se conservan para darle un registro completo de esa ejecución del experimento.
 
@@ -73,10 +73,6 @@ Por ejemplo, suponga que el historial de ejecución del experimento se muestra e
 5. Haga clic en **EJECUTAR**.
 
 Ahora puede continuar para modificar y ejecutar esta versión del experimento, creando un historial de ejecución nuevo para registrar su trabajo.
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
