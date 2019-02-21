@@ -3,21 +3,21 @@ title: Formato de datos GeoJSON de geovalla en Azure Maps | Microsoft Docs
 description: Más información sobre el formato de datos GeoJSON de geovalla en Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007493"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339641"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
 
-Las API [GET Geofence](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) y [POST Geofence](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) de Azure Maps le permiten recuperar la proximidad de una coordenada en relación a una geovalla o conjunto de vallas proporcionados. En este artículo se describe cómo preparar los datos de la geovalla para que se usen en las API GET y POST de Azure Maps.
+Las API [GET Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) y [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) de Azure Maps le permiten recuperar la proximidad de una coordenada en relación a una geovalla o conjunto de vallas proporcionados. En este artículo se describe cómo preparar los datos de la geovalla para que se usen en las API GET y POST de Azure Maps.
 
 Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` y el objeto `FeatureCollection` en formato `GeoJSON`, que se define en [rfc7946](https://tools.ietf.org/html/rfc7946). Además de esto:
 

@@ -46,7 +46,7 @@ Para calcular la aserción, puede usar una de las muchas bibliotecas de [JSON We
 
 | Parámetro |  Comentarios |
 | --- | --- |
-| `aud` | Audience: Debe ser **https://login.microsoftonline.com/*tenant_Id* /oauth2/token** |
+| `aud` | Audience: Debe ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Fecha de expiración: la fecha en que el token expira. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
 | `iss` | Emisor: debe ser el valor de client_id (identificador de la aplicación del servicio de cliente) |
 | `jti` | GUID: el identificador de JWT |
