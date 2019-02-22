@@ -1553,7 +1553,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                         <li>
                                             <a href="/azure/security/azure-threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Protección contra amenazas avanzada de Azure</p>
+                                                <p>Azure Advanced Threat Protection</p>
                                             </a>
                                         </li>
                                         <li>
@@ -4613,7 +4613,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Protección contra amenazas avanzada de Azure</h3>
+                                                    <h3>Azure Advanced Threat Protection</h3>
                                                     <p>Protección de la empresa frente a amenazas en la nube y locales</p>
                                                 </div>
                                             </div>

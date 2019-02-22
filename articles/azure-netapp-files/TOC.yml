@@ -9,18 +9,8 @@ items:
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Guías de inicio rápido
   items:
-  - name: Registro de Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Creación de una cuenta de NetApp
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Configuración de un grupo de capacidad
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Delegación de una subred en Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Creación de un volumen de Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Configuración de la directiva de exportación para un volumen (opcional)
-    href: azure-netapp-files-configure-export-policy.md
+  - name: Configuración de Azure NetApp Files y creación de un volumen
+    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Conceptos
   items:
   - name: Niveles de servicio para Azure NetApp Files
@@ -31,6 +21,18 @@ items:
     href: azure-netapp-files-metrics.md
 - name: Guías de procedimientos
   items:
+  - name: Registro en Azure NetApp Files
+    href: azure-netapp-files-register.md
+  - name: Creación de una cuenta de NetApp
+    href: azure-netapp-files-create-netapp-account.md
+  - name: Configuración de un grupo de capacidad
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Delegación de una subred en Azure NetApp Files
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Creación de un volumen de Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Configuración de la directiva de exportación para un volumen
+    href: azure-netapp-files-configure-export-policy.md
   - name: Administración de volúmenes
     href: azure-netapp-files-manage-volumes.md
   - name: Instalación o desinstalación de un volumen para máquinas virtuales
@@ -49,9 +51,9 @@ items:
     href: https://docs.microsoft.com/rest/api/netapp/
   - name: Plantilla de Resource Manager
     href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 3da297718a3369604feda971cd8c2499a2454b72
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 99091c5e5e9a991508c9eb915c8003de60404ae8
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430155"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587419"

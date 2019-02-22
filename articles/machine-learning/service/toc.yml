@@ -6,15 +6,9 @@ items:
   - name: ¿Qué es el servicio Azure Machine Learning?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: Funcionamiento del servicio
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
   - name: ¿Qué le ha ocurrido a Workbench?
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
-  - name: Notas de la versión
-    displayName: what's new issues bugs
-    href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Guías de inicio rápido
   items:
@@ -46,6 +40,9 @@ items:
   href: samples-notebooks.md
 - name: Conceptos
   items:
+  - name: Funcionamiento del servicio
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
   - name: Automated Machine Learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -64,6 +61,8 @@ items:
       href: how-to-manage-workspace.md
     - name: Usar una plantilla de Resource Manager
       href: how-to-create-workspace-template.md
+    - name: Administración de usuarios y roles
+      href: how-to-assign-roles.md
   - name: Configuración del entorno de desarrollo 
     items:
     - name: Configuración de entornos de desarrollo
@@ -97,7 +96,7 @@ items:
       href: how-to-train-ml-models.md
     - name: Uso de PyTorch
       href: how-to-train-pytorch.md
-    - name: Uso de TensorFlow
+    - name: Uso de TensorFlow y Keras
       href: how-to-train-tensorflow.md
     - name: Ajuste de hiperparámetros
       displayName: parameter
@@ -172,6 +171,9 @@ items:
     href: https://aka.ms/aml-monitoring-sdk
 - name: Recursos
   items:
+  - name: Notas de la versión
+    displayName: what's new issues bugs
+    href: azure-machine-learning-release-notes.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Precios
@@ -185,9 +187,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparación entre nuestros productos de aprendizaje automático
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5743da7a23f53fee32f1fe81ecc09212fccab7c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338100"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650094"
