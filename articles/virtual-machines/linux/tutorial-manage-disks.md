@@ -29,13 +29,13 @@ ms.locfileid: "55459210"
 Las máquinas virtuales (VM) de Azure usan discos para almacenar el sistema operativo, las aplicaciones y los datos. Cuando se crea una máquina virtual es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. En este tutorial se muestra cómo implementar y administrar los discos de una máquina virtual. Aprenderá sobre los siguientes temas:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
-> * Conectar y preparar los discos de datos
-> * Cambiar el tamaño de los discos
-> * Instantáneas de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
+> * Conectar y preparar los discos de datos.
+> * Cambiar el tamaño de los discos.
+> * Instantáneas de disco.
 
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
@@ -54,7 +54,7 @@ Para instalar aplicaciones y almacenar datos, se pueden agregar más discos de d
 
 ## <a name="vm-disk-types"></a>Tipos de disco de máquina virtual
 
-Azure proporciona dos tipos de discos, Estándar y Premium.
+Azure proporciona dos tipos de discos: Estándar y Premium.
 
 ### <a name="standard-disk"></a>Disco estándar
 
@@ -70,7 +70,7 @@ Los discos Premium están respaldados por un disco de latencia reducida y alto r
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Tamaño del disco (redondeo hacia arriba) | 32 GiB | 64 GiB | 128 GB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB)
 | Máximo de IOPS por disco | 120 | 240 | 500 | 2,300 | 5.000 | 7500 | 7500 | 12 500 |
-Rendimiento de disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+Rendimiento de disco. | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
 
 Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtener un mayor nivel de rendimiento dividiendo varios discos de datos. Por ejemplo, una máquina virtual Standard_GS5 puede conseguir 80 000 IOPS como máximo. Para más información sobre el número máximo de IOPS por máquina virtual, consulte los [tamaños de máquinas virtuales Linux](sizes.md).
 
@@ -271,13 +271,13 @@ az vm disk attach \
 En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
-> * Conectar y preparar los discos de datos
-> * Cambiar el tamaño de los discos
-> * Instantáneas de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
+> * Conectar y preparar los discos de datos.
+> * Cambiar el tamaño de los discos.
+> * Instantáneas de disco.
 
 Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
 

@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: 'Documentación sobre Azure Active Directory: tutoriales y referencia de API | Microsoft Docs'
-description: Azure Active Directory (Azure AD) es un servicio multiinquilino de Microsoft de administración de identidades y de directorios basado en la nube que combina los servicios de directorio principales, la administración del acceso de las aplicaciones y la protección de identidades en una única solución.
+description: 'Azure Active Directory (Azure AD) es un servicio multiinquilino de Microsoft de administración de identidades y de directorios basado en la nube que combina los servicios de directorio principales, la administración del acceso de las aplicaciones y la protección de identidades en una única solución.'
 services: active-directory
 author: barbkess
 manager: daveba
@@ -11,13 +11,8 @@ ms.topic: landing-page
 ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ae193bbb5bdd3de3e26a48fd38705ef8ca7082
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204566"
 ---
+
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentación de Azure Active Directory</h1>
@@ -278,7 +273,7 @@ ms.locfileid: "56204566"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="privileged-identity-management/index.yml">Identidades administradas para recursos de Azure</a></h3>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identidades administradas para recursos de Azure</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Uso de una máquina virtual Windows para acceder a Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Uso de una máquina virtual de Azure para la adquisición de tokens</a><br>

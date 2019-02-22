@@ -1,21 +1,16 @@
 ---
 layout: HubPage
 title: Documentación de Azure Cognitive Services
-description: Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo usar las API.
+description: 'Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo usar las API.'
 services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/15/2019
+ms.date: 02/21/2019
 ms.topic: hub-page
-ms.openlocfilehash: 12957121d386afdc911bb0be954c0066d580e83e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338043"
 ---
+
 <h1>Documentación de Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar y comprender las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo hacerlo.</p>
 
@@ -77,7 +72,6 @@ ms.locfileid: "56338043"
                 </div>
             </a>
         </li>
-
         <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
@@ -117,7 +111,7 @@ ms.locfileid: "56338043"
             </a>
         </li>
 </ul>
-<h2>Inicios rápidos en 5 minutos</h2>
+<h2>Inicio rápido en 5 minutos</h2>
 <ul class="cardsF panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
         <div class="cardSize">
@@ -133,7 +127,7 @@ ms.locfileid: "56338043"
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">Uso de C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Uso de Java</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Uso de Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk#analyze-an-image">Uso de Python</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk">Uso de Python</a></p>
                     </div>
                 </div>
             </div>
@@ -151,10 +145,9 @@ ms.locfileid: "56338043"
                     <div class="cardText">
                         <h3>Reconocimiento de voz mediante el servicio Voz</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Uso de C#</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Uso de Java</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Uso de Objective-C</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Uso de JavaScript</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Uso de C++</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-python">Uso de Python</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Uso de Java</a></p>
                     </div>
                 </div>
             </div>
@@ -214,7 +207,7 @@ ms.locfileid: "56338043"
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/csharp">Uso de C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/java">Uso de Java</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/nodejs">Uso de Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/python">Uso de Python</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/web-sdk-python-quickstart">Uso de Python</a></p>
                     </div>
                 </div>
             </div>
@@ -234,7 +227,7 @@ ms.locfileid: "56338043"
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/csharp">Uso de C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/java">Uso de Java</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/nodejs">Uso de Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/python">Uso de Python</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/image-sdk-python-quickstart">Uso de Python</a></p>
                     </div>
                 </div>
             </div>

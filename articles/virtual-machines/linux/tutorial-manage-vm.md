@@ -28,11 +28,11 @@ ms.locfileid: "55749149"
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual
-> * Seleccionar y usar imágenes de máquinas virtuales
-> * Ver y usar tamaños de una máquina virtual específicos
-> * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Crear y conectar elementos a una máquina virtual.
+> * Seleccionar y usar imágenes de máquinas virtuales.
+> * Ver y usar tamaños de una máquina virtual específicos.
+> * Cambiar el tamaño de una máquina virtual.
+> * Ver y entender el estado de las máquinas virtuales.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -209,7 +209,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
+### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual.
 
 Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos. El tamaño actual de una máquina virtual se puede ver con [az vm show](/cli/azure/vm):
 
@@ -318,11 +318,11 @@ az group delete --name myResourceGroupVM --no-wait --yes
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual
-> * Seleccionar y usar imágenes de máquinas virtuales
-> * Ver y usar tamaños de una máquina virtual específicos
-> * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Crear y conectar elementos a una máquina virtual.
+> * Seleccionar y usar imágenes de máquinas virtuales.
+> * Ver y usar tamaños de una máquina virtual específicos.
+> * Cambiar el tamaño de una máquina virtual.
+> * Ver y entender el estado de las máquinas virtuales.
 
 Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
 
