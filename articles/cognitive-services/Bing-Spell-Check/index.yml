@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 03294bc4c949716b9f22d8678436b2e90ec59c53
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28172ed2309c1e97fe6dafa46cf055862a894cee
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203478"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730348"
 documentType: LandingData
 title: Documentación de Bing Spell Check API
 metadata:
@@ -24,7 +24,7 @@ metadata:
 abstract:
   description: Bing Spell Check API permite comprobar la gramática y la ortografía en contexto. Bing ha desarrollado corrector ortográfico basado en web que aprovecha el aprendizaje automático y la traducción automática estadística para entrenar dinámicamente a un algoritmo en constante evolución y altamente contextual. El corrector ortográfico se basa en un gran cuerpo de documentos y búsquedas web. Aprenda a analizar el contenido de varias maneras con nuestros inicios rápidos, tutoriales y ejemplos.
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: 'Empiece a trabajar con Bing Spell Search API al realizar una consulta y ver la respuesta JSON:'
@@ -83,6 +83,6 @@ sections:
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable">Java</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">CLI de Azure</a></p>
