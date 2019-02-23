@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd13a8178fd74f54ffa6fa5d9d8c23d214965dca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866975"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731844"
 documentType: LandingData
 title: Documentación sobre Translator Text
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/06/18
+  ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
   description: Translator Text es un servicio de traducción automática basado en la nube que puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. La API usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Custom Translator es una extensión de Translator Text API que le permite compilar sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Translator Text API o con los <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">servicios de voz de Microsoft</a>. Para obtener la lista de los idiomas admitidos, tanto para traducción neuronal como para traducción estadística, consulte <a href="languages.md">Idiomas admitidos</a>.
@@ -43,7 +43,7 @@ sections:
       image:
         src: ../media/index/i_get-started.svg
       title: Guía de inicio rápido de Custom Translator
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: 'Introducción al uso de Translator Text API:'
