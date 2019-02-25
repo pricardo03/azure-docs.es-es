@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8762449fbc9254bd3dc6548e74234e1f34c00355
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 086a425be743772b6419a9473ad497a310d94842
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770340"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671954"
 documentType: LandingData
 title: Documentación sobre Azure Database Migration Service
 metadata:
@@ -31,7 +31,7 @@ abstract:
     href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
     width: 250
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: 'Aprenda a migrar instancias locales de SQL Server a Azure SQL Database mediante Azure Database Migration Service:'
@@ -53,9 +53,11 @@ sections:
     - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migración de SQL Server a Azure SQL Database en línea mediante DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migración de SQL Server a Instancia administrada de Azure SQL Database sin conexión mediante DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migración de SQL Server a Instancia administrada de Azure SQL Database en línea mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migración de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database en línea mediante DMS</a>
     - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migración de MySQL a Azure Database for MySQL en línea mediante DMS</a>
     - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS</a>
     - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migración de MongoDB a la API de Mongo de Azure Cosmos DB sin conexión mediante DMS</a>
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migración de MongoDB a la API de Mongo de Azure Cosmos DB en línea mediante DMS</a>
 - title: Ejemplos
   items:
   - type: list
