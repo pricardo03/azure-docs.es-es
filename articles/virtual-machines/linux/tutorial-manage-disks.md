@@ -33,7 +33,7 @@ Las máquinas virtuales (VM) de Azure usan discos para almacenar el sistema oper
 > * Discos de datos.
 > * Discos Estándar y Premium.
 > * Rendimiento de disco.
-> * Conectar y preparar los discos de datos.
+> * Conectar y preparar los discos de datos
 > * Cambiar el tamaño de los discos.
 > * Instantáneas de disco.
 
@@ -275,7 +275,7 @@ En este tutorial, ha aprendido sobre temas relacionados con los discos de máqui
 > * Discos de datos.
 > * Discos Estándar y Premium.
 > * Rendimiento de disco.
-> * Conectar y preparar los discos de datos.
+> * Conectar y preparar los discos de datos
 > * Cambiar el tamaño de los discos.
 > * Instantáneas de disco.
 
