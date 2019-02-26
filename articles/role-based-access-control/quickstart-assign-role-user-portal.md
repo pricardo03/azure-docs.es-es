@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure Portal | Microsoft Docs'
-description: Use el control de acceso basado en rol (RBAC) para conceder permisos a un usuario mediante la asignación de un rol en Azure Portal.
+title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal | Microsoft Docs'
+description: Aprenda a conceder acceso de usuario a los recursos de Azure con el control de acceso basado en rol (RBAC) en Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634479"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341307"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure Portal
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. En este tutorial, se concede acceso a un usuario para crear y administrar máquinas virtuales en un grupo de recursos.
+El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este tutorial, se concede acceso a un usuario para crear y administrar máquinas virtuales en un grupo de recursos.
 
 En este tutorial, aprenderá a:
 
@@ -113,5 +113,5 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Concesión de acceso a un usuario mediante RBAC y PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 

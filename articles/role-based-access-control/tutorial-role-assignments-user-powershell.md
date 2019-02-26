@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure PowerShell | Microsoft Docs'
-description: Utilice el control de acceso basado en rol (RBAC) para conceder a un usuario acceso para ver todos los elementos de una suscripción y administrar todo el contenido de un grupo de recursos mediante Azure PowerShell.
+title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell | Microsoft Docs'
+description: Aprenda a conceder acceso de usuario a los recursos de Azure con el control de acceso basado en rol (RBAC) y Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109034"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343483"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. En este tutorial se concede a un usuario acceso para ver todos los elementos de una suscripción y administrar todo el contenido de un grupo de recursos mediante Azure PowerShell.
+El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este tutorial se concede a un usuario acceso para ver todos los elementos de una suscripción y administrar todo el contenido de un grupo de recursos mediante Azure PowerShell.
 
 En este tutorial, aprenderá a:
 
@@ -279,4 +279,4 @@ Para limpiar los recursos creados por este tutorial puede eliminar tanto el usua
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Administración de acceso mediante RBAC y PowerShell](role-assignments-powershell.md)
+> [Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell](role-assignments-powershell.md)

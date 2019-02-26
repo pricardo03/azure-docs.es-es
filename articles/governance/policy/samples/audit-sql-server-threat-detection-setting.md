@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Auditar la configuración de detección de amenazas en el nivel de servidor'
-description: Esta directiva de ejemplo audita las directivas de alertas de seguridad de SQL Database si no están establecidas en el estado especificado.
+description: Esta definición de directiva de ejemplo audita las directivas de alertas de seguridad de SQL Server si no están establecidas en el estado especificado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242182"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341375"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>Auditar la configuración de detección de amenazas en el nivel de servidor
+# <a name="sample---audit-server-level-threat-detection-setting"></a>Ejemplo: Auditar la configuración de detección de amenazas en el nivel de servidor
 
-Esta directiva audita las directivas de alertas de seguridad de SQL Database si no están establecidas en el estado especificado. Se especifica un valor que indica si la detección de amenazas está habilitada o deshabilitada.
+Esta directiva audita las directivas de alertas de seguridad de SQL Server si no están establecidas en el estado especificado. Se especifica un valor que indica si la detección de amenazas está habilitada o deshabilitada.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

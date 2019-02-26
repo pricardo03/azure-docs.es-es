@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: No hay ningún emparejamiento con la red de ExpressRoute'
-description: Esta directiva de ejemplo de JSON prohíbe asociar un emparejamiento de red con una red de un grupo de recursos especificado.
+description: Esta definición de directiva de ejemplo de JSON prohíbe asociar un emparejamiento de red con una red de un grupo de recursos especificado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dbd7494b5104482624448fc0525a58d68138a833
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c06e750c19227d245fcf8eaeb077691ef2c8a675
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245650"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337618"
 ---
-# <a name="no-network-peering-to-express-route-network"></a>No hay ningún emparejamiento con la red de ExpressRoute
+# <a name="sample---no-network-peering-to-express-route-network"></a>Ejemplo: No hay ningún emparejamiento con la red de ExpressRoute
 
 Esta directiva prohíbe que se asocie un emparejamiento de red con una red de un grupo de recursos especificado. Se usa para evitar la conexión con la infraestructura de red administrada central. Se especifica el nombre del grupo de recursos para evitar la asociación.
 

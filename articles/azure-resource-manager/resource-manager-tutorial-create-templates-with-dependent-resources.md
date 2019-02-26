@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234414"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267536"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
 
@@ -34,8 +34,6 @@ En este tutorial se describen las tareas siguientes:
 > * Implementación de la plantilla
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -156,6 +154,9 @@ Existen muchos métodos para la implementación de plantillas.  En este tutorial
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
+    > [!NOTE]
+    > Hay un problema de E/S de archivos con el uso de Azure PowerShell en Cloud Shell.  El mensaje de error es *No se puede recuperar los parámetros dinámicos para el cmdlet. No se encuentra la ruta de acceso 'Azure:/azuredeploy.json' porque no existe.*  Una solución alternativa temporal consiste en no incluir el parámetro **-TemplateFile** en el comando `New-AzResourceGroupDeploy`. El comando le solicitará que escriba el nombre de archivo.
 
 8. Ejecute el siguiente comando de PowerShell para que aparezca la máquina virtual recién creada:
 

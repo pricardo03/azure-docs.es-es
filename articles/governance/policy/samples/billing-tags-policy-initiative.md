@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Iniciativa de directiva de etiquetas de facturación'
-description: Este conjunto de directivas de ejemplo requiere valores de etiqueta especificados para el nombre de producto y el centro de costos.
+description: Este conjunto de definiciones de directivas de ejemplo requiere valores de etiqueta especificados para el nombre de producto y el centro de costos.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242862"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337612"
 ---
-# <a name="billing-tags-policy-initiative"></a>Iniciativa de directiva de etiquetas de facturación
+# <a name="sample---billing-tags-policy-initiative"></a>Ejemplo: Iniciativa de directiva de etiquetas de facturación
 
 Este conjunto de directivas requiere valores de etiqueta especificados para el nombre de producto y el centro de costos. Usa directivas integradas para aplicar las etiquetas requeridas. Se especifican los valores requeridos para las etiquetas.
 

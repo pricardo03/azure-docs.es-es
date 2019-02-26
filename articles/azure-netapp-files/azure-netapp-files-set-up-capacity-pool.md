@@ -12,26 +12,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: af3738849382317eeddf8bce3d2f87e38e0fb583
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412918"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427804"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configuración de un grupo de capacidad
+
 Configurar un grupo de capacidad le permite crear volúmenes en él.  
 
 ## <a name="before-you-begin"></a>Antes de empezar 
+
 Debe haber creado ya una cuenta de NetApp.   
 
 [Creación de una cuenta de NetApp](azure-netapp-files-create-netapp-account.md)
 
 ## <a name="steps"></a>Pasos 
 
-1. Vaya a la hoja de administración de su cuenta de NetApp y, a continuación, en el panel de navegación, seleccione **Grupos de capacidad**.
+1. Vaya a la hoja de administración de su cuenta de NetApp y, luego, en el panel de navegación, seleccione **Capacity pools** (Grupos de capacidad).  
+    
+    ![Ir al grupo de capacidad](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
 2. Haga clic en **+ Agregar grupos** para crear un nuevo grupo de capacidad.   
     Aparecerá el cuadro de diálogo Nuevo grupo de capacidad.
@@ -43,18 +47,18 @@ Debe haber creado ya una cuenta de NetApp.
 
   * **Nivel de servicio**   
     Este campo muestra el rendimiento de destino para el grupo de capacidad.  
-    Actualmente, solo está disponible el nivel de servicio Premium. 
+    Especifique el nivel de servicio del grupo de capacidad: [**Premium**](azure-netapp-files-service-levels.md#Premium) o [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-  *  **Tamaño**     
-      Especifique el tamaño del grupo de capacidad que va a adquirir.        
-      El tamaño mínimo del grupo de capacidad es de 4 TiB. Puede crear un grupo con un tamaño que sea múltiplo de 4 TiB.   
+  * **Tamaño**     
+    Especifique el tamaño del grupo de capacidad que va a adquirir.        
+    El tamaño mínimo del grupo de capacidad es de 4 TiB. Puede crear un grupo con un tamaño que sea múltiplo de 4 TiB.   
       
-      ![Nuevo grupo de capacidad](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+    ![Nuevo grupo de capacidad](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Haga clic en **OK**.
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-[Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
-
-
+- [Niveles de servicio para Azure NetApp Files](azure-netapp-files-service-levels.md)
+- Consulte la [página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para conocer el precio de los diferentes niveles de servicio
+- [Delegación de una subred en Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

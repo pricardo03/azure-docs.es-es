@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180528"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429237"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guía de inicio rápido: diagnóstico de problemas al filtrar el tráfico de las máquinas virtuales con Azure Portal
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Inicio rápido: Diagnóstico de problemas al filtrar el tráfico de red de las máquinas virtuales con Azure Portal
 
 En esta guía de inicio rápido, va a implementar una máquina virtual y a comprobar las comunicaciones entre una dirección IP y una dirección URL u otra dirección IP. Además, va a determinar la causa de un error de comunicación y cómo puede resolverlo.
 
@@ -37,7 +37,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 ## <a name="create-a-vm"></a>Crear una VM
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute** y **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
+2. Seleccione **Proceso** y, luego, **Windows Server 2016 Datacenter** o una versión de **Ubuntu Server**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
     |Configuración|Valor|
@@ -45,13 +45,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |NOMBRE|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |La suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Ubicación| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Configuración**, acepte todos los valores predeterminados y seleccione **Aceptar**.
-6. En **Crear** de la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual. La maquina virtual tarda unos minutos en implementarse. Espere a que la máquina virtual finalice la implementación antes de continuar con los pasos restantes.
+6. En **Crear** de la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual. La maquina virtual tarda unos minutos en implementarse. Espere a que la VM finalice la implementación antes de continuar con los pasos restantes.
 
 ## <a name="test-network-communication"></a>Prueba de la comunicación de red
 
@@ -62,7 +62,7 @@ Para probar la comunicación de red con Network Watcher, primero se habilita un 
 Si ya dispone de un monitor de red habilitado en al menos una región, vaya a la sección [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify).
 
 1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
-2. Habilite un monitor de red en la región Este de EE. UU., porque esa es la región de la máquina virtual que se implementó en un paso anterior. Seleccione **Regiones**, para expandirla y **...**  a la derecha de la opción **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
+2. Habilite un monitor de red en la región Este de EE. UU., porque esa es la región de la máquina virtual que se implementó en un paso anterior. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
 
     ![Habilitación de Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -124,6 +124,6 @@ Cuando ya no sea necesario, elimine el grupo de recursos y todos los recursos qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una máquina virtual y diagnosticado los filtros del tráfico de entrada y de salida. Ha aprendido que las reglas de grupo de seguridad de red permiten o deniegan el tráfico de entrada y salida de una máquina virtual. Más información sobre las [reglas de seguridad](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) y [cómo crearlas](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+En esta guía de inicio rápido, ha creado una máquina virtual y diagnosticado los filtros del tráfico de entrada y de salida. Ha aprendido que las reglas de grupo de seguridad de red permiten o deniegan el tráfico de entrada y salida de una máquina virtual. Más información acerca de las [reglas de seguridad](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) y [cómo crearlas](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Incluso con la aplicación de los filtros de tráfico adecuados, la comunicación con una máquina virtual puede seguir experimentando errores debido a la configuración del enrutamiento. Para más información acerca de cómo diagnosticar los problemas de enrutamiento de red de la máquina virtual, consulte [Diagnose VM routing problems](diagnose-vm-network-routing-problem.md) (Diagnóstico de problemas de enrutamiento de máquina virtual). Para diagnosticar problemas con los filtros de tráfico, la latencia o el enrutamiento de salida mediante una herramienta, consulte [Solución de problemas de conexiones](network-watcher-connectivity-portal.md).

@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal | Microsoft Docs'
-description: Obtenga información sobre cómo ver los permisos del control de acceso basado en rol (RBAC) asignados a un usuario, grupo, entidad de servicio o identidad administrada mediante Azure Portal.
+title: 'Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure | Microsoft Docs'
+description: Aprenda a ver el acceso de un usuario u otra entidad de seguridad a los recursos de Azure mediante el control de acceso basado en rol (RBAC) y Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b755dd6223c21084cafea82a1c8857f9f54b03b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641872"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337952"
 ---
-# <a name="quickstart-view-roles-assigned-to-a-user-using-the-azure-portal"></a>Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure
 
-Puede usar la hoja **Control de acceso (IAM)** de [Control de acceso basado en rol (RBAC)](overview.md) para ver las asignaciones de roles para varios usuarios, grupos, entidades de servicio y identidades administradas, pero a veces basta con ver rápidamente las asignaciones de roles para un solo usuario, grupo, entidad de servicio o identidad administrada. La manera más fácil de hacerlo es usar la característica **Comprobar acceso** en Azure Portal.
+Puede usar la hoja de **control de acceso (IAM)** en el [control de acceso basado en rol (RBAC)](overview.md) para ver el acceso de un usuario u otra entidad de seguridad a los recursos de Azure. Sin embargo, a veces basta ver rápidamente el acceso de un único usuario o de otra entidad de seguridad. La manera más fácil de hacerlo es usar la característica **Comprobar acceso** en Azure Portal.
 
 ## <a name="view-role-assignments"></a>Visualización de asignaciones de roles
 
-Siga estos pasos para ver las asignaciones de roles de un solo usuario, grupo, entidad de servicio o identidad administrada en el ámbito de la suscripción.
+ La forma de ver el acceso de un usuario es para enumerar las asignaciones de roles. Siga estos pasos para ver las asignaciones de roles de un solo usuario, grupo, entidad de servicio o identidad administrada en el ámbito de la suscripción.
 
 1. En Azure Portal, haga clic en **Todos los servicios** y luego en **Suscripciones**.
 
@@ -54,4 +54,4 @@ Siga estos pasos para ver las asignaciones de roles de un solo usuario, grupo, e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
+> [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)

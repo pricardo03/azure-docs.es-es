@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd9429ade750810138335c522d68df5cd595f320
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869337"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310990"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Inicio rápido: Extracción de texto manuscrito mediante la API REST y C# en Computer Vision
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Inicio rápido: Extracción de texto manuscrito mediante la API REST y C# en Computer Vision
 
-En esta guía de inicio rápido, extraerá texto manuscrito de una imagen mediante la API de REST Computer Vision. Con los métodos [Reconocer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) y [Obtener resultado de la operación de reconocimiento de texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), puede detectar texto escrito a mano en una imagen y extraer los caracteres reconocidos en una secuencia de caracteres que pueda usar una máquina.
+En este inicio rápido, extraerá texto manuscrito de una imagen mediante la API REST de Computer Vision. Con los métodos [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) y [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), puede detectar texto escrito a mano en una imagen y extraer los caracteres reconocidos en una secuencia de caracteres legibles por una máquina.
 
 > [!IMPORTANT]
 > A diferencia del método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), el método [Reconocer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Reconocer texto devuelve un URI en el valor del campo del encabezado de respuesta `Operation-Content`. A continuación, puede llamar a este URI, que representa el método [Obtener resultado de la operación de reconocimiento de texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), para comprobar el estado y la devolución de los resultados de la llamada al método Reconocer texto.
@@ -425,7 +425,7 @@ Cuando ya no la necesite, elimine la solución de Visual Studio. Para ello, abra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore una aplicación básica de Windows que usa Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas con recorte inteligente, y detectar, clasificar, etiquetar y describir características visuales, como caras, en una imagen. Para experimentar rápidamente con las versiones de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore una aplicación básica de Windows que utiliza Computer Vision para realizar el reconocimiento óptico de caracteres (OCR). Cree miniaturas de recorte inteligente; además de detectar, clasificar, etiquetar y describir las características visuales de una imagen, incluidas las caras.
 
 > [!div class="nextstepaction"]
-> [Tutorial de Computer Vision API para C#](../Tutorials/CSharpTutorial.md)
+> [Tutorial de C# de Computer Vision API](../Tutorials/CSharpTutorial.md)

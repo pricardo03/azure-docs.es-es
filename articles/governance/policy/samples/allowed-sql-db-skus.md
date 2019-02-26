@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: SKU permitidas de SQL DB'
-description: Esta directiva de ejemplo requiere que las bases de datos de SQL Database usen una SKU aprobada.
+description: Esta definición de directiva de ejemplo requiere que las bases de datos de SQL Database usen una SKU aprobada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc9d068bab17c2780d81c5626620228fd8fc6469
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5506821dd7c3061594b9e4365980677f8322139e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242658"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341273"
 ---
-# <a name="allowed-sql-db-skus"></a>SKU permitidas de SQL DB
+# <a name="sample---allowed-sql-db-skus"></a>Ejemplo: SKU permitidas de SQL DB
 
 Esta directiva requiere que las bases de datos de SQL Database usen una SKU aprobada. Se especifica una matriz de los identificadores de las SKU permitidas o una matriz de los nombres de las SKU que se permiten.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Aplicar una etiqueta y su valor'
-description: Esta directiva de ejemplo requiere la especificación de un nombre y un valor de etiqueta.
+description: Esta definición de directiva de ejemplo requiere un nombre de etiqueta y un valor, cada uno como un parámetro.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 952f932d850806553b6e7e2f9efad2643a2ecdf3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0524c0e9e67cd477b8aa8ba8005cf8ebcce3f1da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242641"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337866"
 ---
-# <a name="enforce-tag-and-its-value"></a>Enforce tag and its value (Forzar una etiqueta y su valor)
+# <a name="sample---enforce-tag-and-its-value"></a>Ejemplo: Aplicar una etiqueta y su valor
 
 Esta directiva de JSON requiere el valor y el nombre de la etiqueta especificada. Se especifica el valor y el nombre de la etiqueta que se va a aplicar.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure'
+title: 'Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster y la base de datos del Explorador de datos de Azure, y a ingerir (cargar) datos.
 services: data-explorer
 author: orspod
@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214824"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408840"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guía de inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos muy escalable y rápido para datos de telemetría y registro. Para usar el Explorador de datos de Azure, cree primero un *clúster* y una o varias *bases de datos* en ese clúster. A continuación, *ingerirá* (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En esta guía de inicio rápido, creará un clúster y una base de datos. En artículos siguientes, le mostramos cómo ingerir datos.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Para usar el Explorador de datos de Azure, cree primero un *clúster* y una o varias *bases de datos* en ese clúster. A continuación, *ingerirá* (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En esta guía de inicio rápido, creará un clúster y una base de datos. En artículos siguientes, le mostramos cómo ingerir datos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -50,7 +50,7 @@ Creará un clúster del Explorador de datos de Azure en un grupo de recursos de 
     | Nombre del clúster | Un nombre de clúster único | Elija un nombre único que identifique el clúster. Por ejemplo, *miclusterdeprueba*. El nombre de dominio *[region].kusto.windows.net* se anexa al nombre del clúster que proporcione. El nombre solo puede contener letras minúsculas y números. Debe contener entre 3 y 22 caracteres.
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el servidor.|
     | Grupos de recursos | *test-resource-group* | Cree un nuevo grupo de recursos. |
-    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor cubra sus necesidades.
+    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades.
     | Especificaciones de Compute | *D13_v2* | Seleccione la especificación de precio más bajo para esta guía de inicio rápido. En un sistema de producción, seleccione la especificación que mejor se adapte a sus necesidades.
     | | |
 
@@ -77,8 +77,8 @@ Ahora está preparado para el segundo paso del proceso: la creación de la base 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Nombre de la base de datos | *TestDatabase* | El nombre de la base de datos debe ser único dentro del clúster.
-    | Período de retención | *3650* | El intervalo de tiempo para el que se garantiza que los datos se mantengan disponibles para consultarlos. El intervalo de tiempo se mide desde el momento en que se ingieren los datos.
-    | Período de caché | *31* | El intervalo de tiempo durante el que los datos consultados con frecuencia se van a mantener disponibles en el almacenamiento SSD o en la RAM, en lugar de en el almacenamiento a largo plazo.
+    | Período de retención | *3650* | El intervalo de tiempo (en días) para el que se garantiza que los datos se mantengan disponibles para consultarlos. El intervalo de tiempo se mide desde el momento en que se ingieren los datos.
+    | Período de caché | *31* | El intervalo de tiempo (en días) durante el que los datos consultados con frecuencia se van a mantener disponibles en el almacenamiento SSD o en la RAM, en lugar de en el almacenamiento a largo plazo.
     | | | |
 
 1. Seleccione **Guardar** para crear la base de datos. Normalmente se tarda menos de un minuto. Una vez completado el proceso, vuelve a la pestaña **Información general** del clúster.
@@ -130,6 +130,6 @@ Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserv
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md)
+> [Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md).
 
 

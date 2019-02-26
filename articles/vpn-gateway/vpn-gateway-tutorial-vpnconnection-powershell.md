@@ -2,28 +2,20 @@
 title: Creación y administración de conexiones VPN de sitio a sitio de Azure mediante PowerShell | Microsoft Docs
 description: 'Tutorial: Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell'
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a9ca626ecf026736617ba495422ed957d03b2b37
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509480"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414607"
 ---
-# <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell
+# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutorial: Creación y administración de conexiones VPN S2S mediante PowerShell
 
 Las conexiones VPN de sitio a sitio de Azure proporcionan conectividad segura entre locales entre el entorno local del cliente y Azure. Este tutorial le guía a través de los ciclos de conexión VPN de sitio a sitio de IPsec, como la creación y administración de una conexión VPN de sitio a sitio. Aprenderá a:
 
@@ -33,22 +25,26 @@ Las conexiones VPN de sitio a sitio de Azure proporcionan conectividad segura en
 > * Agregar más conexiones VPN.
 > * Eliminar una conexión VPN.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 El siguiente diagrama muestra la topología de este tutorial:
 
 ![Diagrama de conexiones VPN de sitio a sitio](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
-
 ## <a name="requirements"></a>Requisitos
 
-Complete el primer tutorial: "[Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) para crear los siguientes recursos:
+Complete el primer tutorial: [Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) para crear los siguientes recursos:
 
 1. Grupo de recursos (TestRG1), red virtual (VNet1) y GatewaySubnet
 2. VPN Gateway (VNet1GW)
 
-A continuación, se muestran los valores de los parámetros de la red virtual. Tenga en cuenta los valores adicionales de la puerta de enlace de red local para representar su red local. Cambie los valores en función de la configuración de red y el entorno.
+A continuación, se muestran los valores de los parámetros de la red virtual. Observe los valores adicionales de la puerta de enlace de red local que representan su red local. Cambie los valores siguientes, según la configuración de su entorno y red y, luego, copie y pegue las variables correspondientes a este tutorial para definirlas. Si la sesión de Cloud Shell agota el tiempo de espera o debe usar una ventana de PowerShell diferente, copie y pegue las variables en la nueva sesión y siga con el tutorial.
+
+>[!NOTE]
+> Si este procedimiento lo usa para realizar una conexión, asegúrese de cambiar los valores para que coincidan con la red local. Si solo ejecuta estos pasos a modo de tutorial, no es necesario realizar cambios, pero la conexión no funcionará.
+>
 
 ```azurepowershell-interactive
 # Virtual network
@@ -59,11 +55,11 @@ $VNet1Prefix = "10.1.0.0/16"
 $VNet1ASN    = 65010
 $Gw1         = "VNet1GW"
 
-# On-premises network
+# On-premises network - LNGIP1 is the VPN device public IP address
 $LNG1        = "VPNsite1"
 $LNGprefix1  = "10.101.0.0/24"
 $LNGprefix2  = "10.101.1.0/24"
-$LNGIP1      = "YourDevicePublicIP"
+$LNGIP1      = "5.4.3.2"
 
 # Optional - on-premises BGP properties
 $LNGASN1     = 65011
@@ -86,22 +82,22 @@ Una puerta de enlace de red local representa su red local. Puede especificar las
 * Espacio de direcciones local
 * (Opcional) Atributos BGP (dirección IP del par BGP y número de AS)
 
-Cree una puerta de enlace de red local con el comando [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Cree una puerta de enlace de red local con el comando [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
-New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
+New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
   -Location 'East US' -GatewayIpAddress $LNGIP1 -AddressPrefix $LNGprefix1,$LNGprefix2
 ```
 
 ## <a name="create-a-s2s-vpn-connection"></a>Creación de una conexión VPN de sitio a sitio
 
-A continuación, cree una conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN con el comando [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1). Observe que el valor de "-ConnectionType" para la VPN de sitio a sitio es *IPsec*.
+A continuación, cree una conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN con el comando [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1). Observe que el valor de "-ConnectionType" para la VPN de sitio a sitio es *IPsec*.
 
 ```azurepowershell-interactive
-$vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
-$lng1 = Get-AzureRmLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
+$vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
+$lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
 
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng1 `
   -ConnectionType IPsec -SharedKey "Azure@!b2C3"
 ```
@@ -112,7 +108,7 @@ Agregue la propiedad "**- EnableBGP $True**" opcional para habilitar BGP para la
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Ver y actualizar la clave precompartida
 
-La conexión VPN de sitio a sitio de Azure usa una clave precompartida (secreto) para la autenticación entre el dispositivo VPN local y Azure VPN Gateway. Puede ver y actualizar la clave precompartida para una conexión con [Get AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) y [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
+La conexión VPN de sitio a sitio de Azure usa una clave precompartida (secreto) para la autenticación entre el dispositivo VPN local y Azure VPN Gateway. Puede ver y actualizar la clave precompartida para una conexión con [Get AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) y [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
 
 > [!IMPORTANT]
 > La clave precompartida es una cadena de **caracteres ASCII imprimibles** de 128 caracteres de longitud como máximo.
@@ -120,14 +116,14 @@ La conexión VPN de sitio a sitio de Azure usa una clave precompartida (secreto)
 Este comando muestra la clave precompartida para la conexión:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnectionSharedKey `
+Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
 La salida será "**Azure@!b2C3**" siguiendo el ejemplo anterior. Utilice el comando siguiente para cambiar el valor de la clave precompartida para "**Azure@!_b2=C3**":
 
 ```azurepowershell-interactive
-Set-AzureRmVirtualNetworkGatewayConnectionSharedKey `
+Set-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1 `
   -Value "Azure@!_b2=C3"
 ```
@@ -140,24 +136,26 @@ Azure VPN Gateway admite el protocolo de enrutamiento dinámico de BGP. Puede ha
 * ASN de puerta de enlace de red local
 * Dirección IP del par BGP de la puerta de enlace de red local
 
-Si no ha configurado las propiedades de BGP, use los siguientes comandos para agregar estas propiedades a VPN Gateway y a la puerta de enlace de red local: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) y [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Si no ha configurado las propiedades de BGP, los siguientes comandos agregan estas propiedades a la puerta de enlace de VPN y a la puerta de enlace de red local: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) y [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+
+Para configurar las propiedades de BGP, use el siguiente ejemplo:
 
 ```azurepowershell-interactive
-$vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
-Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $vng1 -Asn $VNet1ASN
+$vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $vng1 -Asn $VNet1ASN
 
-$lng1 = Get-AzureRmLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $lng1 `
+$lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
+Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-Habilite BGP con [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
+Habilite BGP con [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection `
+$connection = Get-AzVirtualNetworkGatewayConnection `
   -Name $Connection1 -ResourceGroupName $RG1
 
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
   -EnableBGP $True
 ```
 
@@ -171,14 +169,14 @@ Puede aplicar una directiva de IPsec o IKE opcional para especificar la combinac
 * IPsec: AES128, SHA1, PFS14, vigencia de SA de 14 400 segundos y 102 400 000 KB
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `
+$connection = Get-AzVirtualNetworkGatewayConnection -Name $Connection1 `
                 -ResourceGroupName $RG1
-$newpolicy  = New-AzureRmIpsecPolicy `
+$newpolicy  = New-AzIpsecPolicy `
                 -IkeEncryption AES256 -IkeIntegrity SHA256 -DhGroup DHGroup14 `
                 -IpsecEncryption AES128 -IpsecIntegrity SHA1 -PfsGroup PFS2048 `
                 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
   -IpsecPolicies $newpolicy
 ```
 
@@ -186,24 +184,24 @@ Consulte el tema sobre la [directiva de IPsec o IKE para conexiones VPN de sitio
 
 ## <a name="add-another-s2s-vpn-connection"></a>Agregar otra conexión VPN de sitio a sitio
 
-Para agregar una conexión VPN de sitio a sitio adicional a la instancia de VPN Gateway, cree otra puerta de enlace de red local y una nueva conexión entre la nueva puerta de enlace de red local y la instancia de VPN Gateway. Para ello, siga el ejemplo de este artículo.
+Agregue una conexión VPN S2S adicional a la misma puerta de enlace de VPN, cree otra puerta de enlace de red local y una conexión entre la nueva puerta de enlace de red local y la puerta de enlace de VPN. Use los siguientes ejemplos y asegúrese de modificar las variables para que reflejen su propia configuración de red.
 
 ```azurepowershell-interactive
-# On-premises network
+# On-premises network - LNGIP2 is the VPN device public IP address
 $LNG2        = "VPNsite2"
 $Location2   = "West US"
 $LNGprefix21 = "10.102.0.0/24"
 $LNGprefix22 = "10.102.1.0/24"
-$LNGIP2      = "YourDevicePublicIP"
+$LNGIP2      = "4.3.2.1"
 $Connection2 = "VNet1ToSite2"
 
-New-AzureRmLocalNetworkGateway -Name $LNG2 -ResourceGroupName $RG1 `
+New-AzLocalNetworkGateway -Name $LNG2 -ResourceGroupName $RG1 `
   -Location $Location2 -GatewayIpAddress $LNGIP2 -AddressPrefix $LNGprefix21,$LNGprefix22
 
-$vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
-$lng2 = Get-AzureRmLocalNetworkGateway   -Name $LNG2 -ResourceGroupName $RG1
+$vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
+$lng2 = Get-AzLocalNetworkGateway   -Name $LNG2 -ResourceGroupName $RG1
 
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng2 `
   -ConnectionType IPsec -SharedKey "AzureA1%b2_C3+"
 ```
@@ -214,16 +212,24 @@ Ahora hay dos conexiones VPN de sitio a sitio para Azure VPN Gateway.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Eliminar una conexión VPN de sitio a sitio
 
-Eliminar una conexión VPN de sitio a sitio con [Remove-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
+Elimine una conexión VPN S2S con [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
-Remove-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
+Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
 ```
 
 Elimine la puerta de enlace de red local si ya no la necesita. No puede eliminar una puerta de enlace de red local si tiene otras conexiones asociadas.
 
 ```azurepowershell-interactive
-Remove-AzureRmVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si esta configuración es parte de un prototipo, una evaluación o una prueba de concepto de implementación, puede usar el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos, la puerta de enlace de VPN y todos los recursos relacionados.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

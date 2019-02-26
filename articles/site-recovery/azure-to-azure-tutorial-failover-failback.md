@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787858"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340542"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Conmutación por error y por recuperación de máquinas virtuales de Azure entre regiones de Azure
 
@@ -70,6 +70,16 @@ Después de la conmutación por error de la máquina virtual, debe volver a prot
 3. Revise la información de **Grupo de recursos, red, almacenamiento y conjuntos de disponibilidad**. Los recursos marcados (nuevos) se crean como parte de la operación de repetición de la protección.
 4. Haga clic en **Aceptar** para desencadenar un trabajo de repetición de la protección. Este trabajo inicializa el sitio de destino con los datos más recientes. A continuación, replica las diferencias en la región principal. La máquina virtual está ahora en un estado protegido.
 
+> [!NOTE]
+> Consulte la [sección de procedimientos](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) para más detalles sobre el flujo de trabajo de reprotección y lo que sucede durante esta.
+
+
 ## <a name="fail-back-to-the-primary-region"></a>Conmutación por recuperación a la región principal
 
-Tras volver a proteger las máquinas virtuales, puede conmutar por recuperación a la región principal, si es preciso. Para ello, configurar una conmutación por error de la región secundaria a la primaria, como se describe en este artículo.
+Tras volver a proteger las máquinas virtuales, puede conmutar por recuperación a la región primaria, si es preciso. Para ello, configure una conmutación por error de la región secundaria a la primaria, como se describe en este artículo.
+
+![Haga clic con el botón derecho para volver a proteger](./media/azure-to-azure-tutorial-failover-failback/failback.png)
+
+Si ve la captura de pantalla anterior, la máquina virtual "ContosoWin2016" conmuta por error del Centro de EE. UU. al Este de EE. UU. y por recuperación del Este de EE. UU. al Centro de EE. UU.
+
+La conmutación por error apaga la máquina virtual en la región secundaria, es decir, la región de recuperación ante desastres, y se crea y arranca la máquina virtual en la región primaria. **Recuerde** que las máquinas virtuales de recuperación ante desastres permanecerán en estado apagado y desasignado, como se muestra anteriormente. Este comportamiento se ha diseñado así porque Azure Site Recovery guarda la información de la máquina virtual, que puede resultar útil para la conmutación por error de la región primaria a la secundaria posteriormente. No se cobra por las máquinas virtuales desasignadas, por lo que deben conservarse tal cual.

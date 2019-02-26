@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Aplicación del patrón Like'
-description: Esta directiva de ejemplo requiere que los recursos cumplan el patrón Like para las convenciones de nomenclatura.
+description: Esta definición de directiva de ejemplo requiere que los recursos cumplan el patrón Like para las convenciones de nomenclatura.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243053"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338485"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>Aplicación del patrón Like para las convenciones de nomenclatura
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Ejemplo: aplicación del patrón Like para las convenciones de nomenclatura
 
 Requiere que los nombres de recursos cumplan un patrón Like para las convenciones de nomenclatura. Especifique el patrón Like permitido como parámetro.
 

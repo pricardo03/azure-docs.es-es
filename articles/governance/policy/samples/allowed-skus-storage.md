@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: SKU permitidas para cuentas de almacenamiento y máquinas virtuales'
-description: La directiva de ejemplo requiere que las cuentas de almacenamiento y las máquinas virtuales usen las SKU aprobadas.
+description: La definición de directiva de ejemplo requiere que las cuentas de almacenamiento y las máquinas virtuales usen las SKU aprobadas.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242080"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339913"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>SKU permitidas para cuentas de almacenamiento y máquinas virtuales
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Ejemplo: SKU permitidas para cuentas de almacenamiento y máquinas virtuales
 
 Esta directiva requiere que las cuentas de almacenamiento y las máquinas virtuales usen las SKU aprobadas. Se usan directivas integradas para garantizar SKU aprobadas. Se especifica una matriz de las SKU de máquinas virtuales aprobadas y una matriz de las SKU de cuentas de almacenamiento aprobadas.
 

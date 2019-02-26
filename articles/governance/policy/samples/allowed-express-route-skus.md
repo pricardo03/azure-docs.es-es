@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: SKU de ExpressRoute permitidas'
-description: Esta directiva de ejemplo requiere que ExpressRoute use una SKU aprobada.
+description: Esta definición de directiva de ejemplo requiere que ExpressRoute use una SKU aprobada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/29/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2e1ab0696cc89502715ae176ee58f73449095c79
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 818bb1c0aeac49daf2564c67bf095837b00853e5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242828"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337635"
 ---
-# <a name="allowed-expressroute-skus"></a>SKU de ExpressRoute permitidas
+# <a name="sample---allowed-expressroute-skus"></a>Ejemplo: SKU de ExpressRoute permitidas
 
 Esta directiva requiere que ExpressRoute use una SKU aprobada. Se especifica una matriz de las SKU permitidas.
 

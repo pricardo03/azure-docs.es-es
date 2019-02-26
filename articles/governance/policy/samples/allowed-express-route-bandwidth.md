@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Ancho de banda permitido de ExpressRoute'
-description: Esta directiva de ejemplo requiere que ExpressRoute use un conjunto de anchos de banda especificados.
+description: Esta definición de directiva de ejemplo requiere que ExpressRoute use un conjunto de anchos de banda especificados.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc98e9085844749153ee6f45466cc367eef2ffff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eacd2dd7ddecba47d00ea09cb45f99e991bfd2dc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244754"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341613"
 ---
-# <a name="allowed-expressroute-bandwidth"></a>Ancho de banda permitido de ExpressRoute
+# <a name="sample---allowed-expressroute-bandwidth"></a>Ejemplo: Ancho de banda permitido de ExpressRoute
 
 Esta directiva requiere que ExpressRoute use un conjunto de anchos de banda especificados. Se especifica una matriz de las SKU que se pueden especificar para ExpressRoute.
 

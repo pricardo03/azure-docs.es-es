@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891664"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452615"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark
 
@@ -38,6 +38,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * Instale AzCopy v10. Consulte [Transferencia de datos con AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+*  Crear una entidad de servicio. Consulte [Configuración de los portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
+
+   :heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar el rol de **Colaborador de datos de blobs de almacenamiento** a la entidad de servicio.
+
+   > [!IMPORTANT]
+   > Asegúrese de asignar el rol en el ámbito de la cuenta de almacenamiento de Data Lake Storage Gen2. Puede asignar un rol al grupo de recursos o suscripción primario, pero recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
+
+   :heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
+
 ### <a name="download-the-flight-data"></a>Descarga de los datos de vuelo
 
 Este tutorial se utilizan datos de vuelo de Bureau of Transportation Statistics para demostrar cómo realizar una operación de ETL. Debe descargar estos datos para completar el tutorial.
@@ -49,24 +60,6 @@ Este tutorial se utilizan datos de vuelo de Bureau of Transportation Statistics 
 3. Seleccione el botón **Download** (Descargar) y guarde los resultados en el equipo. 
 
 4. Descomprima el contenido del archivo comprimido y anote el nombre y la ruta de acceso del archivo. Necesitará esta información en pasos posteriores.
-
-## <a name="get-your-storage-account-name"></a>Obtención del nombre de la cuenta de almacenamiento
-
-Necesitará el nombre de la cuenta de almacenamiento. Para obtenerlo, inicie sesión en [Azure Portal](https://portal.azure.com/), elija **Todos los servicios** y filtre por el término *almacenamiento*. Luego, seleccione **Cuentas de almacenamiento** y localice su cuenta de almacenamiento.
-
-Pegue el nombre en un archivo de texto. Lo necesitará pronto.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
-
-Cree a una entidad de servicio siguiendo la guía de este tema: [Uso de portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
-
-:heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar la aplicación al **rol de colaborador de Blob Storage**.
-
-:heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
 
 ## <a name="create-an-azure-databricks-service"></a>Creación de un servicio de Azure Databricks
 
@@ -112,7 +105,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
     * Para este artículo, cree un clúster con el entorno de ejecución **5.1**.
 
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
+    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de ____ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
 
     * Seleccione **Create cluster** (Crear clúster). Después de ejecutar el clúster, puede asociarle cuadernos y ejecutar trabajos de Spark.
 
@@ -145,9 +138,16 @@ En esta sección, va a crear un sistema de archivos y una carpeta en la cuenta d
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. En este bloque de código, reemplace los valores `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` del marcador de posición de este bloque de código por los valores que recopiló al completar los pasos de las secciones Reserva de la configuración de la cuenta de almacenamiento y [Creación de una entidad de servicio](#service-principal) de este artículo. Reemplace el marcador de posición `file-system-name` por cualquier nombre que desee asignar al sistema de archivos.
 
-19. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque. 
+18. En este bloque de código, reemplace los valores de marcador de posición `application-id`, `authentication-id`, `tenant-id` y `storage-account-name` por los valores que recopiló al completar los requisitos previos de este tutorial. Reemplace el valor del marcador de posición `file-system-name` por el nombre que desea dar al sistema de archivos.
+
+   * `application-id` y `authentication-id` proceden de la aplicación que registró con Active Directory como parte de la creación de una entidad de servicio.
+
+   * `tenant-id` procede de su suscripción.
+
+   * `storage-account-name` es el nombre de la cuenta de almacenamiento de Azure Data Lake Storage Gen2.
+
+19. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 
     Mantenga este cuaderno abierto ya que le agregará comandos más tarde.
 

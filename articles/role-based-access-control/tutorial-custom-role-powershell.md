@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado con Azure PowerShell | Microsoft Docs'
-description: Introducción a la creación de un rol personalizado con Azure PowerShell.
+title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell | Microsoft Docs'
+description: Introducción a la creación de un rol personalizado para los recursos de Azure con Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106436"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339165"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado mediante Azure PowerShell
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell
 
-Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con Azure PowerShell. El rol personalizado permite al usuario ver todo el contenido de la suscripción y también abrir incidencias de soporte técnico.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con Azure PowerShell. El rol personalizado permite al usuario ver todo el contenido de la suscripción y también abrir incidencias de soporte técnico.
 
 En este tutorial, aprenderá a:
 
@@ -277,4 +277,4 @@ Para actualizar el rol personalizado, puede actualizar el archivo JSON o usar el
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de roles personalizados con PowerShell](custom-roles-powershell.md)
+> [Creación de roles personalizados para los recursos de Azure con Azure PowerShell](custom-roles-powershell.md)

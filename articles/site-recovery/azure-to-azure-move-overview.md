@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112553"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309869"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -51,7 +51,7 @@ El traslado de máquinas virtuales implica los pasos siguientes:
 > Actualmente Azure Site Recovery permite trasladar máquinas virtuales de una región a otra y no admite el traslado dentro de una región. 
 
 > [!NOTE]
-> En la documentación de cada uno de los escenarios se ofrece una guía detallada de estos pasos, tal como se menciona a continuación
+> En la documentación de cada uno de los escenarios se ofrece una guía detallada de estos pasos, tal como se menciona [a continuación](#next-steps).
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Arquitecturas típicas para una implementación de varios niveles
 A continuación se describen las arquitecturas de implementación más comunes que adoptan los clientes para una aplicación de varios niveles en Azure. El ejemplo que estamos viendo aquí es de una aplicación de tres niveles con una IP pública. Cada uno de los niveles (web, aplicación y base de Datos) tienen dos máquinas virtuales cada uno, y están conectados por un equilibrador de carga a los otros niveles. El nivel de base de datos tiene replicación SQL Always ON entre las máquinas virtuales para alta disponibilidad.

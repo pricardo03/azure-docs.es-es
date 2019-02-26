@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41771db4ff674b2f0df941286358d3154034ea1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e6f1174351f0907ce2bef21324c7ba81c81498b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194366"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266720"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>¿Qué es el acceso condicional en Azure Active Directory?
 
@@ -109,11 +109,7 @@ Para usar el acceso condicional, se necesita una licencia de Azure AD Premium. P
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber más sobre:
-    - Condiciones, consulte [Conditions in Azure Active Directory conditional access](conditions.md) (Condiciones en el acceso condicional de Azure Active Directory).
+Para aprender cómo implementar el acceso condicional en un entorno, consulte [Plan de la implementación del acceso condicional a Azure Active Directory](plan-conditional-access.md).
 
-    - Controles de acceso, consulte [Controles de acceso en el acceso condicional de Azure Active Directory](controls.md).
 
-- Si quiere obtener algo más de experiencia con la configuración de directivas de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con el acceso condicional de Azure Active Directory](app-based-mfa.md).
 
-- Si desea consultar un plan de implementación detallado con directivas recomendadas, vea el [plan de implementación de acceso condicional](https://aka.ms/conditionalaccessdeploymentplan)

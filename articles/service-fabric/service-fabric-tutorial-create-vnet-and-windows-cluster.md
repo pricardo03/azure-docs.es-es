@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/27/2018
+ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 590e1e5853ccf4a525477f194c78f1fd8ce679ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435386"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453076"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
 
@@ -33,6 +33,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Crear una red virtual en Azure mediante PowerShell
 > * Creación de un almacén de claves y carga de un certificado
+> * Configuración de la autenticación de Azure Active Directory
 > * Crear un clúster de Service Fabric seguro en Azure PowerShell
 > * Protección del clúster con un certificado X.509
 > * Conexión a un clúster con PowerShell
@@ -52,30 +53,9 @@ Antes de empezar este tutorial:
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale el [SDK de Service Fabric y el módulo de PowerShell](service-fabric-get-started.md).
 * Instale la [versión 4.1 o superior del módulo de Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
+* Repase los conceptos clave sobre [clústeres de Azure](service-fabric-azure-clusters-overview.md)
 
-Los siguientes procedimientos crean un clúster de Service Fabric de cinco nodos. Para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure, use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
-
-## <a name="key-concepts"></a>Conceptos clave
-
-Un [clúster de Service Fabric](service-fabric-deploy-anywhere.md) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Los clústeres pueden escalar a miles de equipos. Cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan nodo. A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación.
-
-Un tipo de nodo define el tamaño, el número y las propiedades de un conjunto de máquinas virtuales en el clúster. Cada tipo de nodo definido se configura como un [conjunto de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/), un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Los tipos de nodo se utilizan para definir los roles para un conjunto de nodos de clúster, por ejemplo, "front-end" o "back-end".  El clúster puede tener más de un tipo de nodo, pero el tipo de nodo principal debe tener al menos cinco máquinas virtuales para los clústeres de producción (o al menos tres máquinas virtuales en clústeres de prueba).  [Los servicios del sistema de Service Fabric](service-fabric-technical-overview.md#system-services) se colocan en los dos del tipo de nodo principal.
-
-El clúster está protegido mediante un certificado de clúster. Un certificado de clúster es un certificado X.509 que se usa para proteger la comunicación de nodo a nodo y autenticar los puntos de conexión de administración del clúster en un cliente de administración.  El certificado de clúster también proporciona SSL para la API de administración de HTTPS y para Service Fabric Explorer a través de HTTPS. Los certificados autofirmados son útiles para clústeres de prueba.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster.
-
-El certificado de clúster debe:
-
-* contener una clave privada.
-* crearse para el intercambio de claves, que se pueda exportar a un archivo Personal Information Exchange (.pfx).
-* tener un nombre de sujeto que coincida con el dominio que se usa para acceder al clúster de Service Fabric. Esta coincidencia es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio .cloudapp.azure.com. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado del clúster.
-
-Azure Key Vault se usa para administrar certificados para clústeres de Service Fabric en Azure.  Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados de Key Vault y los instala en las máquinas virtuales del clúster.
-
-Este tutorial implementa un clúster de cinco nodos en un tipo de nodo único. No obstante, en cualquier implementación del clúster de producción, el [planeamiento de la capacidad](service-fabric-cluster-capacity.md) es un paso importante. Esto es algo que hay que tener en cuenta como parte de ese proceso.
-
-* El número de nodos y de tipos de nodo que necesita el clúster
-* Propiedades de cada tipo de nodo (por ejemplo, tamaño, principal, accesible desde Internet, número de máquinas virtuales)
-* Características de confiabilidad y durabilidad del clúster
+Los siguientes procedimientos crean un clúster de Service Fabric de siete nodos. Para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure, use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="download-and-explore-the-template"></a>Descarga y exploración de la plantilla
 
@@ -84,14 +64,14 @@ Descargue los siguientes archivos de plantilla de Resource Manager:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-Esta plantilla implementa un clúster seguro de cinco máquinas virtuales, un tipo de nodo único en una red virtual y un grupo de seguridad de red.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  El archivo [azuredeploy.json][template] permite implementar varios recursos, como los siguientes.
+Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres tipos de nodo en una red virtual y un grupo de seguridad de red.  Se pueden encontrar otras plantillas de ejemplo en [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  El archivo [azuredeploy.json][template] permite implementar varios recursos, como los siguientes.
 
 ### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
 
 En el recurso **Microsoft.ServiceFabric/clusters**, un clúster de Windows está configurado con las siguientes características:
 
-* un tipo de nodo único
-* cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla)
+* tres tipos de nodo
+* cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla), cada nodo está presente en los otros dos tipos de nodo
 * Sistema operativo: Windows Server 2016 Datacenter con Containers (configurable en los parámetros de la plantilla)
 * protección con certificado (configurable en los parámetros de la plantilla)
 * se habilita el [proxy inverso](service-fabric-reverseproxy.md)
@@ -133,6 +113,35 @@ Las siguientes reglas de tráfico de entrada están habilitadas en el recurso **
 
 Si se necesitan otros puertos de aplicación, debe ajustar el recurso **Microsoft.Network/loadBalancers** y el recurso **Microsoft.Network/networkSecurityGroups** para permitir el tráfico de entrada.
 
+### <a name="windows-defender"></a>Windows Defender
+De forma predeterminada, el [antivirus Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) está instalado y operativo en Windows Server 2016. La interfaz de usuario está instalada de forma predeterminada en algunas SKU, pero no es necesaria.  En cada tipo de nodo o conjunto de escalado de máquinas virtuales que se declara en la plantilla, se usa la [extensión de antimalware para máquinas virtuales de Azure](/azure/virtual-machines/extensions/iaas-antimalware-windows) para excluir los directorios y procesos de Service Fabric:
+
+```json
+{
+"name": "[concat('VMIaaSAntimalware','_vmNodeType0Name')]",
+"properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "type": "IaaSAntimalware",
+        "typeHandlerVersion": "1.5",
+        "settings": {
+        "AntimalwareEnabled": "true",
+        "Exclusions": {
+                "Paths": "D:\\SvcFab;D:\\SvcFab\\Log;C:\\Program Files\\Microsoft Service Fabric",
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+        },
+        "RealtimeProtectionEnabled": "true",
+        "ScheduledScanSettings": {
+                "isEnabled": "true",
+                "scanType": "Quick",
+                "day": "7",
+                "time": "120"
+        }
+        },
+        "protectedSettings": null
+}
+}
+```
+
 ## <a name="set-template-parameters"></a>Configuración de los parámetros de plantilla
 
 El archivo de parámetros [azuredeploy.parameters.json][parameters] permite declarar muchos valores que se usan para implementar el clúster y los recursos asociados. Estos son algunos de los parámetros que debe modificar para su implementación:
@@ -147,11 +156,123 @@ El archivo de parámetros [azuredeploy.parameters.json][parameters] permite decl
 |certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados. </p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique el valor del almacén de claves de origen. Por ejemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
+## <a name="set-up-azure-active-directory-client-authentication"></a>Configuración de la autenticación de cliente de Azure Active Directory
+Para los clústeres de Service Fabric implementados en una red pública hospedada en Azure, la recomendación para la autenticación mutua de cliente a nodo consiste en:
+* Usar Azure Active Directory para la identidad del cliente
+* Un certificado para la identidad del servidor y el cifrado SSL de la comunicación HTTP
+
+La configuración de Azure AD para autenticar a los clientes de un clúster de Service Fabric se debe realizar antes de [crear el clúster](#createvaultandcert).  Azure AD permite a las organizaciones (conocidas como inquilinos) administrar el acceso de los usuarios a las aplicaciones. 
+
+Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalidad de administración, como [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) y [Visual Studio](service-fabric-manage-application-in-visual-studio.md) basados en web. Como consecuencia, creará dos aplicaciones de Azure AD para controlar el acceso al clúster: una aplicación web y una aplicación nativa.  Una vez creadas las aplicaciones, debe asignar usuarios a los roles de solo lectura y administrador.
+
+> [!NOTE]
+> Debe realizar los pasos siguientes antes de crear el clúster. Dado que los scripts esperan los puntos de conexión y los nombres de los clústeres, los valores deben planearse y no se pueden usar los que ya haya creado.
+
+En este artículo se supone que ya ha creado un inquilino. En caso de que no lo haya hecho, lea [Obtención de un inquilino de Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
+
+Para simplificar algunos de los pasos necesarios para configurar Azure AD con un clúster de Service Fabric, hemos creado un conjunto de scripts de Windows PowerShell. [Descargue los scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) en el equipo.
+
+### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Creación de aplicaciones de Azure AD y asignación de usuarios a roles
+Cree dos aplicaciones de Azure AD para controlar el acceso al clúster: una aplicación web y una aplicación nativa. Una vez que haya creado las aplicaciones para representar el clúster, debe asignar los usuarios a los [roles compatibles con Service Fabric](service-fabric-cluster-security-roles.md): solo lectura y administrador.
+
+Ejecute `SetupApplications.ps1` y proporcione el identificador de inquilino, el nombre del clúster y la dirección URL de respuesta de la aplicación web como parámetros.  Especifique también los nombres de usuario y las contraseñas para los usuarios.  Por ejemplo: 
+
+```PowerShell
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
+```
+
+> [!NOTE]
+> Para las nubes nacionales (por ejemplo, Azure Government, Azure China, Azure Alemania), también debe especificar el parámetro `-Location`.
+
+Puede encontrar el identificador *TenantId* o el identificador de directorio en [Azure Portal](https://portal.azure.com). Seleccione **Azure Active Directory -> Propiedades** y copie el valor del **identificador de directorio**.
+
+El valor de *ClusterName* se usa como prefijo en las aplicaciones de Azure AD que crea el script. No es necesario que coincida exactamente con el nombre del clúster real. Está diseñado solo para facilitar la asignación de artefactos de Azure AD al clúster de Service Fabric con el que se utilizan.
+
+El valor de *WebApplicationReplyUrl* es el punto de conexión predeterminado al que Azure AD devuelve a los usuarios cuando terminan el inicio de sesión. Establézcalo como el punto de conexión de Service Fabric Explorer para el clúster, que de manera predeterminada es el siguiente:
+
+https://&lt;cluster_domain&gt;:19080/Explorer
+
+Se le pedirá que inicie sesión en una cuenta con privilegios administrativos para el inquilino de Azure AD. Una vez iniciada la sesión, el script creará las aplicaciones web y nativa para representar el clúster de Service Fabric. Si examina las aplicaciones del inquilino en [Azure Portal](https://portal.azure.com), debería ver dos entradas nuevas:
+
+   * *ClusterName*\_Clúster
+   * *ClusterName*\_Cliente
+
+El script imprimirá el código JSON que necesita la plantilla de Azure Resource Manager al crear el clúster, por lo que es buena idea mantener abierta la ventana de PowerShell.
+
+```json
+"azureActiveDirectory": {
+  "tenantId":"<guid>",
+  "clusterApplication":"<guid>",
+  "clientApplication":"<guid>"
+},
+```
+
+### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adición de la configuración de Azure AD para usar Azure AD para el acceso de cliente
+En [azuredeploy.json][template], configure Azure AD en la sección **Microsoft.ServiceFabric/clusters**.  Agregue parámetros para el identificador de inquilino, el identificador de la aplicación del clúster y el identificador de la aplicación cliente.  
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    ...
+
+    "aadTenantId": {
+      "type": "string",
+      "defaultValue": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+    },
+    "aadClusterApplicationId": {
+      "type": "string",
+      "defaultValue": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+    },
+    "aadClientApplicationId": {
+      "type": "string",
+      "defaultValue": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+    }
+  },
+
+...
+
+{
+  "apiVersion": "2018-02-01",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  ...
+  "properties": {
+    ...
+    "azureActiveDirectory": {
+      "tenantId": "[parameters('aadTenantId')]",
+      "clusterApplication": "[parameters('aadClusterApplicationId')]",
+      "clientApplication": "[parameters('aadClientApplicationId')]"
+    },
+    ...
+  }
+}
+```
+
+Agregue los valores de los parámetros en el archivo de parámetros [azuredeploy.parameters.json][parameters].  Por ejemplo: 
+
+```json
+"aadTenantId": {
+"value": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+},
+"aadClusterApplicationId": {
+"value": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+},
+"aadClientApplicationId": {
+"value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implementación de la red virtual y el clúster
 
 A continuación, configure la topología de red e implemente el clúster de Service Fabric. La plantilla de Resource Manager [azuredeploy.json][template] permite crear una red virtual (VNET) y también una subred y un grupo de seguridad de red (NSG) para Service Fabric. La plantilla permite también implementar un clúster con seguridad mediante certificados habilitada.  Para los clústeres de producción, use un certificado de una entidad de certificación (CA) como certificado del clúster. Un certificado autofirmado se puede usar para proteger los clústeres de prueba.
+
+La plantilla de este artículo implementa un clúster que usa la huella digital para identificar el certificado del clúster.  No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la administración de certificados. Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados.  Para más información sobre cómo actualizar el clúster para que use nombres comunes del certificado para la administración de certificados, consulte cómo [cambiar el clúster a administración de nombre común del certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creación de un clúster mediante un certificado existente
 
@@ -230,6 +351,15 @@ Ahora está listo para conectarse a su clúster seguro.
 
 El módulo PowerShell de **Service Fabric** proporciona muchos cmdlets para administrar clústeres, aplicaciones y servicios de Service Fabric.  Use el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para conectarse al clúster seguro. Los detalles de la huella digital SHA1 del certificado y del punto de conexión se encuentran en la salida del paso anterior.
 
+Si anteriormente configuró la autenticación de cliente de AAD, ejecute lo siguiente: 
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
+        -KeepAliveIntervalInSec 10 `
+        -AzureActiveDirectory `
+        -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
+```
+
+En caso contrario, ejecute lo siguiente:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -255,6 +385,7 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Crear una red virtual en Azure mediante PowerShell
 > * Creación de un almacén de claves y carga de un certificado
+> * Configuración de la autenticación de Azure Active Directory
 > * Creación de un clúster de Service Fabric en Azure mediante PowerShell
 > * Protección del clúster con un certificado X.509
 > * Conexión a un clúster con PowerShell
@@ -264,5 +395,5 @@ Luego, avance hasta el tutorial siguiente para obtener información sobre cómo 
 > [!div class="nextstepaction"]
 > [Escalado de un clúster](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

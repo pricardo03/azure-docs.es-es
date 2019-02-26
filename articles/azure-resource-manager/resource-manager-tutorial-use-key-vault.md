@@ -14,16 +14,14 @@ ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 979867e7630c21b0bd724967dbc79c5f8155ca5e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237185"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270222"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Aprenda a recuperar los secretos de Azure Key Vault y a usarlos como parámetros durante la implementación de Resource Manager. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
 
@@ -192,6 +190,9 @@ New-AzResourceGroupDeployment `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
+
+> [!NOTE]
+> Hay un problema de E/S de archivos con el uso de Azure PowerShell en Cloud Shell.  El mensaje de error es *No se puede recuperar los parámetros dinámicos para el cmdlet. No se encuentra la ruta de acceso 'Azure:/azuredeploy.json' porque no existe.*  Una solución alternativa temporal consiste en no incluir los parámetros **-TemplateFile** ni **TemplateParameterFile** en el comando `New-AzResourceGroupDeploy`. El comando le solicitará que escriba el nombre de archivo.
 
 Al implementar la plantilla, use el mismo grupo de recursos que el almacén de claves. Esto facilita la limpieza de los recursos. Solo hay que eliminar un grupo de recursos, en lugar de dos.
 

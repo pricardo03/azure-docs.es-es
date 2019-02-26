@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994059"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429424"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)
 
@@ -403,9 +403,7 @@ El script establece ```"maxFailedItems"``` en -1, que indica al motor de indexac
 
 Observe también la instrucción ```"dataToExtract":"contentAndMetadata"``` en los parámetros de configuración. Esta instrucción indica al indexador que extraiga automáticamente el contenido de diferentes formatos de archivo, así como los metadatos relacionados con cada archivo. 
 
-Una vez extraído el contenido, puede establecer ```ImageAction``` para que se extraiga el texto de las imágenes que se encuentran en el origen de datos. ```"ImageAction":"generateNormalizedImages"``` indica al indexador que extraiga el texto de las imágenes (por ejemplo, la palabra "stop" de una señal de Stop) y lo incruste como parte del campo de contenido. Este comportamiento se aplica a las imágenes incrustadas en los documentos (piense en una imagen de un archivo PDF), así como a las imágenes que se encuentran en el origen de datos, como un archivo JPG.
-
-En esta versión preliminar, ```"generateNormalizedImages"``` es el único valor válido para ```"ImageAction"```.
+Una vez extraído el contenido, puede establecer ```imageAction``` para que se extraiga el texto de las imágenes que se encuentran en el origen de datos. La configuración de ```"imageAction":"generateNormalizedImages"```, en combinación con OCR Skill y Text Merge Skill, le dice al indexador que extraiga texto de las imágenes (por ejemplo, la palabra "stop" de una señal de Stop de tráfico) y lo inserte como parte del campo de contenido. Este comportamiento se aplica a las imágenes incrustadas en los documentos (piense en una imagen de un archivo PDF), así como a las imágenes que se encuentran en el origen de datos, como un archivo JPG.
 
 ## <a name="check-indexer-status"></a>Comprobación del estado del indexador
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado con la CLI de Azure | Microsoft Docs'
-description: Introducción a la creación de un rol personalizado con la CLI de Azure.
+title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure | Microsoft Docs'
+description: Introducción a la creación de un rol personalizado para los recursos de Azure con la CLI de Azure.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698026"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340219"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Tutorial: Creación de un rol personalizado con la CLI de Azure
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure
 
-Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo el contenido de la suscripción y también abrir incidencias de soporte técnico.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo el contenido de la suscripción y también abrir incidencias de soporte técnico.
 
 En este tutorial, aprenderá a:
 
@@ -269,4 +269,4 @@ Para actualizar el rol personalizado, actualice el archivo JSON y, a continuaci�
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de roles personalizados con la CLI de Azure](custom-roles-cli.md)
+> [Creación de roles personalizados para los recursos de Azure con la CLI de Azure](custom-roles-cli.md)

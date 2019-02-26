@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Auditar la configuración de detección de amenazas en el nivel de base de datos'
-description: Esta directiva de ejemplo audita las directivas de alertas de seguridad de SQL Database si no están establecidas en el estado especificado.
+description: Esta definición de directiva de ejemplo audita las directivas de alertas de seguridad de SQL Database si no están establecidas en el estado especificado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2ef0e83f73a30b0510ec728cd5c2a88845821dc9
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73f9300d2948337b8e397f544e1dde2d5d09ed0b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241672"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342362"
 ---
-# <a name="audit-db-level-threat-detection-setting"></a>Auditar la configuración de detección de amenazas en el nivel de base de datos
+# <a name="sample---audit-db-level-threat-detection-setting"></a>Ejemplo: Auditar la configuración de detección de amenazas en el nivel de base de datos
 
 Esta directiva audita las directivas de alertas de seguridad de SQL Database si no están establecidas en el estado especificado. Se especifica un valor que indica si la detección de amenazas está habilitada o deshabilitada.
 

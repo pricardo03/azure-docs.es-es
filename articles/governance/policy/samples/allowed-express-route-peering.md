@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Ubicaciones permitidas de emparejamiento de ExpressRoute'
-description: Esta directiva requiere que ExpressRoute use ubicaciones de emparejamiento especificadas.
+description: Esta definición de directiva de ejemplo requiere que ExpressRoute use ubicaciones de emparejamiento especificadas.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 10e2ccb6d19872413a94dceb1438319afe57976a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3c0fd08e5b01776454e1f4bbf1c4e837ce35e0d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246007"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339063"
 ---
-# <a name="allowed-peering-location-for-expressroute"></a>Ubicación de emparejamiento permitida para ExpressRoute
+# <a name="sample---allowed-peering-location-for-expressroute"></a>Ejemplo: ubicación de emparejamiento permitida para ExpressRoute
 
 Esta directiva requiere que ExpressRoute use ubicaciones de emparejamiento especificadas. Se especifica una matriz de ubicaciones de emparejamiento permitidas.
 

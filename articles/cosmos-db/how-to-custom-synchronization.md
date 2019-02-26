@@ -6,24 +6,24 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9033a7502919c8dc05053048272f3fa62f81b31d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 43cb73784806358bccb9758be2923d3df5e9badd
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118873"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414888"
 ---
 # <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementación de la sincronización personalizada para optimizar la disponibilidad y el rendimiento
 
-Azure Cosmos DB ofrece cinco niveles de coherencia bien definidos entre los que elegir para buscar el equilibrio entre coherencia, rendimiento y disponibilidad. Una fuerte coherencia garantiza que los datos se replican sincrónicamente y se mantiene su durabilidad en todas las regiones con las que está configurada la cuenta de Cosmos. Sin embargo, esta configuración proporciona el nivel más alto de durabilidad a costa de rendimiento y disponibilidad. Si una aplicación quiere controlar o relajar la durabilidad de los datos en función de sus necesidades sin poner en peligro la disponibilidad, puede emplear la sincronización personalizada en la capa de la aplicación para lograr el nivel deseado de durabilidad.
+Azure Cosmos DB ofrece cinco niveles de coherencia bien definidos entre los que elegir para buscar el equilibrio entre coherencia, rendimiento y disponibilidad. Una fuerte coherencia garantiza que los datos se replican sincrónicamente y se mantiene su durabilidad en todas las regiones donde está disponible Azure Cosmos. Sin embargo, esta configuración proporciona el nivel más alto de durabilidad a costa de rendimiento y disponibilidad. Si una aplicación quiere controlar o relajar la durabilidad de los datos en función de sus necesidades sin poner en peligro la disponibilidad, puede emplear la sincronización personalizada en la capa de la aplicación para lograr el nivel deseado de durabilidad.
 
 El siguiente diagrama representa visualmente el modelo de sincronización personalizada.
 
 ![Sincronización personalizada](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-En este escenario, un contenedor de Cosmos se replica globalmente entre varias regiones en muchos continentes. El uso de una fuerte coherencia en todas las regiones de este escenario podría afectar al rendimiento. Para garantizar un mayor nivel de durabilidad de los datos sin poner en peligro la latencia de escritura, la aplicación puede usar dos clientes que comparten el mismo token de sesión.
+En este escenario, un contenedor de Azure Cosmos se replica globalmente entre varias regiones en muchos continentes. El uso de una fuerte coherencia en todas las regiones de este escenario podría afectar al rendimiento. Para garantizar un mayor nivel de durabilidad de los datos sin poner en peligro la latencia de escritura, la aplicación puede usar dos clientes que comparten el mismo token de sesión.
 
-El primer cliente puede escribir datos en la región local (p. ej., oeste de EE. UU.). El segundo cliente (por ejemplo, en el este de EE. UU.) es un cliente de lectura que se usa para garantizar la sincronización. Como el token de sesión fluye desde la respuesta de escritura hasta la siguiente lectura, la lectura garantiza la sincronización de las escrituras con el este de EE. UU. Azure Cosmos DB garantiza que al menos una región ve las escrituras y que estas sobreviven a una interrupción regional si la región de escritura original deja de funcionar. En este escenario, cada escritura se sincroniza con el este de EE. UU., lo que reduce la latencia de emplear una coherencia fuerte en todas las regiones. En un escenario de arquitectura multimaestro, donde se producen escrituras en todas las regiones, este modelo puede ampliarse para la sincronización con varias regiones en paralelo.
+El primer cliente puede escribir datos en la región local (por ejemplo, oeste de EE. UU.). El segundo cliente (por ejemplo, en el este de EE. UU.) es un cliente de lectura que se usa para garantizar la sincronización. Como el token de sesión fluye desde la respuesta de escritura hasta la siguiente lectura, la lectura garantiza la sincronización de las escrituras con el este de EE. UU. Azure Cosmos DB garantiza que al menos una región ve las escrituras y que estas sobreviven a una interrupción regional si la región de escritura original deja de funcionar. En este escenario, cada escritura se sincroniza con el este de EE. UU., lo que reduce la latencia de emplear una coherencia fuerte en todas las regiones. En un escenario de arquitectura multimaestro, donde se producen escrituras en todas las regiones, este modelo puede ampliarse para la sincronización con varias regiones en paralelo.
 
 ## <a name="configure-the-clients"></a>Configuración de los clientes
 

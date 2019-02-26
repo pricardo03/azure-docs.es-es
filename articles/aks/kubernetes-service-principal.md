@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435402"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308761"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de servicio con Azure Kubernetes Service (AKS)
 
@@ -105,7 +105,7 @@ Puede usar redes avanzadas en las que la red virtual y la subred o las direccion
   - *Microsoft.Network/publicIPAddresses/join/action*
 - O bien, asigne el rol integrado [Colaborador de la red][rbac-network-contributor] en la subred dentro de la red virtual
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 Es posible que necesite acceder a los recursos de disco existentes en otro grupo de recursos. Asigne uno de los siguientes conjuntos de permisos de rol:
 
@@ -128,11 +128,10 @@ Cuando use entidades de servicio de AKS y Azure AD, tenga en cuenta lo siguiente
 - En las máquinas virtuales principal y nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
 - Cuando use el comando [az aks create][az-aks-create] para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/aksServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
 - Al eliminar un clúster de AKS creado mediante [az aks create][az-aks-create], no se elimina la entidad de servicio que se creó automáticamente.
-    - Para eliminar la entidad de servicio, primero hay que obtener el identificador para el servicio principal con [az ad app list][az-ad-app-list]. En el ejemplo siguiente se consulta el clúster denominado *myAKSCluster* y, a continuación, se elimina el identificador de aplicación con [az ad app delete][az-ad-app-delete]. Reemplace estos nombres con sus propios valores:
+    - Para eliminar la entidad de servicio, consulte el clúster *servicePrincipalProfile.clientId* y, a continuación, elimínelo con [az ad app delete][az-ad-app-delete]. Reemplace los nombres de clúster y del grupo de recursos siguientes con los suyos propios.
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>Pasos siguientes

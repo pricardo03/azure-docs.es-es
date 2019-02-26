@@ -2,33 +2,36 @@
 title: ¿Qué es Face API?
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar el servicio Face para detectar y analizar las caras en imágenes.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861059"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455983"
 ---
 # <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
 Azure Face API es un servicio de Cognitive Services que proporciona algoritmos para detectar, reconocer y analizar las caras humanas en imágenes. La capacidad de procesar rostros de personas es muy importante en muchos escenarios de software diferentes, por ejemplo, en la seguridad, la interfaz de usuario natural, el análisis y la administración de contenido de las imágenes, las aplicaciones móviles y la robótica.
 
-Face API proporciona varias funciones distintas, que se describen en las secciones siguientes. Siga leyendo para obtener más información sobre cada una y para determinar si se adaptan a sus necesidades.
+Face API proporciona varias funciones distintas, que se describen en las secciones siguientes. Siga leyendo para obtener más información acerca de cada una de ellas.
 
 ## <a name="face-detection"></a>Detección de caras
 
-Face API puede detectar caras humanas en una imagen y devolver las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales como la postura, el sexo, la edad, la posición de la cabeza, el vello facial y las gafas.
+Face API puede detectar caras humanas en una imagen y devolver las coordenadas del rectángulo de sus ubicaciones. Si lo desea, la detección de caras puede extraer una serie de atributos faciales como la postura, la posición de la cabeza, el género, la edad, las emociones, el vello facial y las gafas.
 
 ![Una imagen de una mujer y un hombre, con rectángulos dibujados en torno a sus caras y edad y sexo](./Images/Face.detection.jpg)
 
-La característica de detección facial también está disponible mediante [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), pero, si desea realizar más operaciones con datos de caras, debe usar Face API (este servicio). Para más información acerca de la detección facial, consulte [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+> [!NOTE] 
+> La característica de detección facial también está disponible mediante [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), pero, si desea realizar más operaciones con datos de caras, debe usar Face API (este servicio). 
+
+Para más información acerca de la detección facial, consulte [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Verificación de caras
 

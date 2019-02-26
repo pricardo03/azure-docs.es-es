@@ -15,12 +15,12 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633289"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339097"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
@@ -73,7 +73,7 @@ RBAC de Azure es un sistema de autorización basado en [Azure Resource Manager](
 | [Lector](built-in-roles.md#reader) | <ul><li>Ver recursos de Azure</li></ul> | Se aplica a todos los tipos de recursos. |
 | [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) | <ul><li>Administrar el acceso de usuarios a los recursos de Azure</li></ul> |  |
 
-El resto de los roles integrados permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de [colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) permite al usuario crear y administrar máquinas virtuales. Para obtener una lista de todos los roles integrados, consulte [Roles integrados](built-in-roles.md).
+El resto de los roles integrados permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de [colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) permite al usuario crear y administrar máquinas virtuales. Para una lista de todos los roles integrados, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
 
 RBAC de Azure solo es compatible con Azure Portal y las API de Azure Resource Manager. Los usuarios, los grupos y las aplicaciones a los que se asignan roles de RBAC no pueden usar las [API del modelo de implementación clásica de Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -95,7 +95,7 @@ Los roles de administrador de Azure AD se utilizan para administrar los recursos
 | [Administrador de usuarios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Crear y administrar todos los aspectos de usuarios y grupos</li><li>Administrar incidencias de soporte técnico</li><li>Supervisar el estado del servicio</li><li>Cambiar las contraseñas de los usuarios, de los administradores del departamento de soporte técnico y de otros administradores de usuario</li></ul> |  |
 | [Administrador de facturación](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Realizar compras</li><li>Administrar suscripciones</li><li>Administrar incidencias de soporte técnico</li><li>Supervisa el mantenimiento del servicio</li></ul> |  |
 
-Para ver una lista de todos los roles de administrador de Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Para una lista de todos los roles de administrador de Azure AD, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 En Azure Portal, puede ver la lista de roles de administrador de Azure AD en la hoja **Roles y administradores**.
 
@@ -122,6 +122,6 @@ Varios roles de administrador de Azure AD abarcan Azure AD y Microsoft Office 36
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el control de acceso basado en rol (RBAC)?](overview.md)
-- [Asignación de roles de administrador en Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Adición o cambio de los administradores de la suscripción de Azure](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](overview.md)
+- [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Adición o cambio de los administradores de la suscripción de Azure](../billing/billing-add-change-azure-subscription-administrator.md)

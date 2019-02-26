@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo: Auditoría de almacenes de Key Vault que no tienen puntos de conexión de red virtual'
-description: Esta directiva de ejemplo audita los almacenes de Key Vault para detectar instancias que no tienen ningún punto de conexión de red virtual.
+title: 'Ejemplo: auditoría de Key Vault sin puntos de conexión de red virtual'
+description: Esta definición de directiva de ejemplo audita los almacenes de Key Vault para detectar instancias que no tienen ningún punto de conexión de servicio de red virtual.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c9a5359303c1feecfbc905099a1bed2fc10fa52d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6b53c94787cfcabae1072f9879f14e0d890e967c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245803"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341538"
 ---
-# <a name="key-vault-vaults-with-no-virtual-network-endpoints"></a>Almacenes de Key Vault sin ningún punto de conexión de red virtual
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Ejemplo: almacenes de Key Vault sin ningún punto de conexión de red virtual
 
 Esta directiva audita almacenes de Key Vault que no tienen ningún punto de conexión de red virtual. Utilice esta opción para aplicar los requisitos de seguridad. Para más información, consulte [Puntos de conexión de servicio de Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md).
 

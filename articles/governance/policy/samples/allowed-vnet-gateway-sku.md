@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: SKU permitidas de puerta de enlace de red virtual'
-description: Esta directiva de ejemplo requiere que las puertas de enlace de red virtual usen un tipo de puerta de enlace y SKU aprobadas.
+description: Esta definición de directiva de ejemplo requiere que las puertas de enlace de red virtual usen un tipo de puerta de enlace y SKU aprobadas.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1a9f536f57db0de205a4782c21af2ec4892bbceb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b8df07d2ebb58cbdd290452a3a1297f49da95f1c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241944"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342650"
 ---
-# <a name="allowed-virtual-network-gateway-skus"></a>SKU permitidas de Puerta de enlace de red virtual
+# <a name="sample---allowed-virtual-network-gateway-skus"></a>Ejemplo: SKU permitidas de puerta de enlace de red virtual
 
 Esta directiva requiere que las puertas de enlace de red virtual usen un tipo de puerta de enlace y SKU aprobadas. Se especifica una matriz de SKU aprobadas y una matriz de tipos de puertas de enlace aprobados.
 

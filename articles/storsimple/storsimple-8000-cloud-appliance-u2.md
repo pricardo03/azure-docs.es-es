@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387692"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330603"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -45,7 +45,7 @@ StorSimple Cloud Appliance está disponible en dos modelos, el 8010 estándar (a
 | **Capacidad máxima** |30 TB |64 TB |
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria)| Standard_DS3 (4 núcleos, 14 GB de memoria)|
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver si las dos opciones **Virtual Machines > Serie DS** y **Storage > Almacenamiento en disco** están disponibles en su región. |
-| **Tipo de almacenamiento** |Azure Standard Storage para discos locales <br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../virtual-machines/windows/premium-storage.md) |
+| **Tipo de almacenamiento** |Azure Standard Storage para discos locales <br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br> |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas de la nube <br></br>Baja latencia y cargas de trabajo de rendimiento más elevado<br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup>*Anteriormente conocido como 1100*.
@@ -63,7 +63,7 @@ En la tabla siguiente se muestran algunas diferencias clave entre StorSimple Clo
 |  | Dispositivo físico | Dispositivo de nube |
 | --- | --- | --- |
 | **Ubicación** |Se encuentra en el centro de datos. |Se ejecuta en Azure. |
-| **Interfaces de red** |Tiene seis interfaces de red: de DATA 0 a DATA 5. |Solo tiene una interfaz de red: DATA 0. |
+| **Interfaces de red** |Tiene seis interfaces de red: DATA 0 a DATA 5. |Solo tiene una interfaz de red: DATA 0. |
 | **Registro** |Se registra durante el paso de configuración inicial. |Registrado a través de una tarea independiente. |
 | **Clave de cifrado de datos de servicio** |Se regenera en el dispositivo físico y luego actualiza el dispositivo de nube con la nueva clave. |No se puede regenerar desde el dispositivo de nube. |
 | **Tipos de volúmenes admitidos** |Admite volúmenes conectados localmente y por niveles. |Admite solo volúmenes por niveles. |
@@ -94,7 +94,7 @@ Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes prepa
 Realice las siguientes actualizaciones de su servicio StorSimple Device Manager antes de crear un dispositivo de nube:
 
 * Agregue [registros de control de acceso](storsimple-8000-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores host para el dispositivo de nube.
-* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de Standard Storage o Premium Storage con el dispositivo de nube. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../virtual-machines/windows/premium-storage.md).
+* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de Standard Storage o Premium Storage con el dispositivo de nube. Más información sobre cómo crear una [cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md).
 * Use una cuenta de almacenamiento diferente para la creación del dispositivo de nube a partir de la que ha usado para sus datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:
@@ -108,7 +108,7 @@ Antes de realizar estos procedimientos, asegúrese de que cumple los [requisitos
 
 Para crear una instancia de StorSimple Cloud Appliance, siga estos pasos:
 
-### <a name="step-1-create-a-cloud-appliance"></a>Paso 1: Creación de un dispositivo de nube
+### <a name="step-1-create-a-cloud-appliance"></a>Paso 1: Creación de un dispositivo en la nube
 
 Para crear la instancia de StorSimple Cloud Appliance, realice los siguientes pasos:
 
@@ -116,7 +116,7 @@ Para crear la instancia de StorSimple Cloud Appliance, realice los siguientes pa
 
 Si se produce un error en este paso durante la creación del dispositivo de nube, quizás no tenga conexión a Internet. Para más información, vaya a la [solución de problemas de conexión a Internet](#troubleshoot-internet-connectivity-errors) al crear un dispositivo de nube.
 
-### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Paso 2: Configuración y registro del dispositivo de nube
+### <a name="step-2-configure-and-register-the-cloud-appliance"></a>Paso 2: Configuración y registro del dispositivo en la nube
 
 Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la clave de cifrado de datos del servicio. Esta clave se crea cuando se registra el primer dispositivo físico de StorSimple con el servicio StorSimple Device Manager. Se le pidió que la guardara en una ubicación segura. Si no tiene una copia de la clave de cifrado de datos del servicio, debe ponerse en contacto con Microsoft Support para obtener ayuda.
 
@@ -166,7 +166,7 @@ Para configurar la administración remota para su instancia de StorSimple Cloud 
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Paso 2: Acceso remoto al dispositivo de nube
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Paso 2: Acceso remoto al dispositivo en la nube
 
 Después de habilitar la administración remota en el dispositivo de nube, use la comunicación remota de Windows PowerShell para conectarse al dispositivo desde otra máquina virtual dentro de la misma red virtual. Por ejemplo, puede conectarse desde la máquina virtual host que configuró y usó para la conexión iSCSI. En la mayoría de las implementaciones, abrirá un punto de conexión público para acceder a su máquina virtual host que se puede usar para acceder al dispositivo de nube.
 

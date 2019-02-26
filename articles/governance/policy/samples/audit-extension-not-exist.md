@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Auditar si la extensión no existe'
-description: Esta directiva de ejemplo audita si una extensión no se implementa con una máquina virtual.
+description: Esta definición de directiva de ejemplo audita si una extensión no se implementa con una máquina virtual.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7e5f396bb4acfdef0d49d38019b6c4d19661d9ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0c0f41c01d33add81508d828259ddcdd48d0cbc8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244188"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340882"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>Auditar si la extensión no existe
+# <a name="sample---audit-if-extension-does-not-exist"></a>Ejemplo: Auditar si la extensión no existe
 
 Esta directiva audita si una extensión no se implementa con una máquina virtual. Se especifica el tipo y el publicador de la extensión para comprobar si se implementó.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Usar una subred aprobada para las interfaces de red de máquinas virtuales'
-description: Esta directiva de ejemplo requiere que las interfaces de red usen una subred aprobada.
+description: Esta definición de directiva de ejemplo requiere que las interfaces de red usen una subred aprobada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d4f27b98581f7ea2adbbb69d6041e6ad190cc0e7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 854dbb6d3743c0e8af8a267a425286624453b688
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242751"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341120"
 ---
-# <a name="use-approved-subnet-for-vm-network-interfaces"></a>Usar subred aprobada para las interfaces de red de máquinas virtuales
+# <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>Ejemplo: Usar una subred aprobada para las interfaces de red de máquinas virtuales
 
 Esta directiva requiere que las interfaces de red usen una subred aprobada. Se especifica el identificador de la subred aprobada.
 

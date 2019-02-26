@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191118"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326746"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 
@@ -36,26 +36,20 @@ En esta sección, se utiliza la CLI de Azure para implementar la imagen integrad
 
 ### <a name="get-registry-credentials"></a>Obtención de las credenciales del registro
 
-Al implementar una imagen que se hospeda en un registro de contenedor privado como el que se creó en el [segundo tutorial](container-instances-tutorial-prepare-acr.md), debe proporcionar las credenciales del registro.
+Al implementar una imagen que se hospeda en un registro de contenedor privado como el que se creó en el [segundo tutorial](container-instances-tutorial-prepare-acr.md), debe proporcionar las credenciales de acceso al registro. Como se muestra en [Authenticate with Azure Container Registry from Azure Container Instances](../container-registry/container-registry-auth-aci.md) (Autenticación con Azure Container Registry de Azure Container Instances), un procedimiento recomendado para muchos escenarios es crear y configurar una entidad de servicio de Azure Active Directory con permisos *pull* en el registro. En ese artículo encontrará scripts de ejemplo para crear una entidad de servicio con los permisos necesarios. Tome nota del identificador y de la contraseña de la entidad de servicio. Use estas credenciales al implementar el contenedor.
 
-En primer lugar, obtenga el nombre completo del servidor de inicio de sesión del registro de contenedor (reemplace `<acrName>` por el nombre del registro):
+También necesita el nombre completo del servidor de inicio de sesión del registro de contenedor (reemplace `<acrName>` por el nombre del registro):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-A continuación, obtenga la contraseña del registro de contenedor:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>Implementación de un contenedor
 
-Ahora, utilice comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores. Reemplace `<acrName>` con el nombre de su registro de contenedor y `<aciDnsLabel>` con el nombre de DNS que prefiera.
+Ahora, utilice comando [az container create][az-container-create] para implementar el contenedor. Reemplace `<acrLoginServer>` por el valor obtenido con el comando anterior. Reemplace `<service-principal-ID>` y `<service-principal-password>` por el identificador de la entidad de servicio y la contraseña que creó para acceder al registro. Reemplace `<aciDnsLabel>` por el nombre de DNS que desee.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Al cabo de unos segundos, debe recibir una respuesta inicial de Azure. El valor `--dns-name-label` debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. Modifique el valor del comando anterior si recibe un mensaje de error de **etiqueta de nombre DNS** al ejecutar el comando.

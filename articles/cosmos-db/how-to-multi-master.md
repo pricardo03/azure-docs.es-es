@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118863"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312147"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones de Azure Cosmos DB
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
 
-Para usar las características de la arquitectura multimaestro en las aplicaciones, debe habilitar las escrituras de varias regiones en la aplicación y configurar la funcionalidad de hospedaje múltiple mediante el establecimiento de la región actual en la que está implementada la aplicación.
+Para usar las características de la arquitectura multimaestro en las aplicaciones, deberá habilitar la escritura de varias regiones y configurar la funcionalidad de host múltiple. El hospedaje múltiple se configura mediante el establecimiento de la región actual donde se implementa la aplicación.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `UseMultipleWriteLocations` en true y configure `SetCurrentLocation` para la región en la que se va a implementar la aplicación y se replica Cosmos DB.
+Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `UseMultipleWriteLocations` en true y configure `SetCurrentLocation` para la región en la que se va a implementar la aplicación y se replica Azure Cosmos DB.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

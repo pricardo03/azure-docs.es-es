@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Aplicar una etiqueta y su valor en grupos de recursos'
-description: Esta directiva de ejemplo requiere una etiqueta y un valor en un grupo de recursos.
+description: Esta definición de directiva de ejemplo requiere una etiqueta y un valor en un grupo de recursos.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8fd9ba2e6e5eae43476102c8928c67d6015ec2eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73990de30525dff4e3a0981ebca96368f56845fe
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245667"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339080"
 ---
-# <a name="enforce-tag-and-its-value-on-resource-groups"></a>Aplicar etiqueta y su valor en grupos de recursos
+# <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Ejemplo: Aplicar una etiqueta y su valor en grupos de recursos
 
 Esta directiva requiere una etiqueta y un valor en un grupo de recursos. Se especifica el valor y el nombre de etiqueta que se requieren.
 

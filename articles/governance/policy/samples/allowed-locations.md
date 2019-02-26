@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: ubicaciones permitidas'
-description: Esta directiva de ejemplo requiere que todos los recursos se implementen en las ubicaciones aprobadas.
+description: Esta definición de directiva de ejemplo requiere que todos los recursos se implementen en las ubicaciones aprobadas.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243559"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341358"
 ---
-# <a name="allowed-locations"></a>Ubicaciones permitidas
+# <a name="sample---allowed-region-locations"></a>Ejemplo: ubicaciones de región permitidas
 
 Esta directiva permite restringir las ubicaciones que la organización puede especificar al implementar los recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica. Excluye los grupos de recursos, Microsoft.AzureActiveDirectory/b2cDirectories, y recursos que usan la región "global". Se especifica una matriz de ubicaciones permitidas.
 

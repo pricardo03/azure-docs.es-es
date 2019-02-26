@@ -1,21 +1,21 @@
 ---
 title: Tutorial de inicio rápido de consulta e indexación con Azure portal - Azure Search
-description: En este tutorial de inicio rápido, utilice Azure Portal y datos de ejemplo integrados para generar un índice en Azure Search. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más.
+description: Obtenga información sobre cómo crear y consultar el primer índice en Azure Search con datos de ejemplo integrados y el Asistente para la importación de datos en Azure Portal.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991317"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270341"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
 
@@ -94,15 +94,17 @@ Los campos tienen tipos de datos y atributos. Las casillas de la parte superior 
 
 Los requisitos de almacenamiento no varían como resultado de la selección. Por ejemplo, si establece el atributo **Retrievable** en varios campos, los requisitos de almacenamiento no aumentan.
 
-De forma predeterminada, el asistente busca en el origen de datos identificadores únicos como base para el campo de clave. Las cadenas se atribuyen como que se pueden recuperar y permiten realizar búsquedas. Los enteros se atribuyen como que se pueden recuperar, filtrar, ordenar y clasificar.
+De forma predeterminada, el asistente busca en el origen de datos identificadores únicos como base para el campo de clave. Las *cadenas* tienen los atributos **Recuperable** y **Permite búsquedas**. Los *enteros* tienen los atributos **Recuperable**, **Filterable**, **Ordenable** y **Clasificable**.
 
-1. Acepte todos los valores predeterminados.
+1. Acepte los valores predeterminados. 
 
-  ![Índice realestate generado](media/search-get-started-portal/realestateindex2.png)
+   Si vuelve a ejecutar el asistente con un origen de datos de realestate existente, el índice no se configurará con los atributos predeterminados. En las siguientes importaciones tendrá que seleccionar los atributos manualmente.
+
+   ![Índice de realestate generado](media/search-get-started-portal/realestateindex2.png)
 
 2. Continúe en la siguiente página.
 
-  ![Creación de un indexador de página siguiente](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Creación de un indexador de página siguiente](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Paso 4: Configuración del indexador
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 9c0255382e2cfe09683931408d25ffb3f60419d1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 4441797eb41dc909a98be3c42931140e71e36f80
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508903"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270358"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Creación de una aplicación de consola de Node.js con el SDK de JavaScript para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -72,7 +72,10 @@ Antes de empezar a escribir código para compilar la aplicación, puede compilar
      * ```touch app.js```
      * ```touch config.js```
 
-4. Instale el módulo @azure/cosmos mediante npm. Use el comando siguiente:
+4. Cree e inicialice un archivo `package.json`. Use el comando siguiente:
+   * ```npm init -y```
+
+5. Instale el módulo @azure/cosmos mediante npm. Use el comando siguiente:
    * ```npm install @azure/cosmos --save```
 
 ## <a id="Config"></a>Configuración de las opciones de la aplicación
@@ -190,13 +193,12 @@ Ahora que existe la aplicación, se debe asegurar de que se puede comunicar con 
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
    ```
 
 1. Copie y pegue el código para usar las propiedades ```config.endpoint``` y ```config.primaryKey``` que guardó anteriormente para crear un nuevo CosmosClient.
 
    ```javascript
-   const url = require('url');
+   const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
@@ -280,7 +282,6 @@ Ahora que tiene el código necesario para inicializar el cliente de Azure Cosmos
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
 
    const endpoint = config.endpoint;
    const masterKey = config.primaryKey;
@@ -382,7 +383,6 @@ Para crear un contenedor se pueden usar las funciones `createIfNotExists` o crea
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
 
    const endpoint = config.endpoint;
    const masterKey = config.primaryKey;
@@ -695,7 +695,6 @@ En conjunto, el código debe ser similar a este:
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
 const config = require('./config');
-const url = require('url');
 
 const endpoint = config.endpoint;
 const masterKey = config.primaryKey;
@@ -889,9 +888,9 @@ Para ejecutar la solución de introducción que contiene todo el código de este
 * Una [cuenta de Azure Cosmos DB][create-account]. 
 * La solución [Getting Started](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) disponible en GitHub. 
 
-Instale el módulo **@azure/cosmos** mediante npm. Use el comando siguiente: 
+Instale las dependencias del proyecto mediante npm. Use el comando siguiente: 
 
-* ```npm install @azure/cosmos --save``` 
+* ```npm install``` 
 
 Después, en el archivo ```config.js```, actualice los valores de config.endpoint y config.primaryKey tal como se describe en el [Paso 3: Configuración de las opciones de la aplicación](#Config).  
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872653"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453059"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -45,17 +45,17 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 
 ## <a name="extract-text-from-images"></a>Extracción de texto en las imágenes
 
-Puede usar Computer Vision para [extraer mediante OCR el texto ](concept-extracting-text-ocr.md) de una imagen en una secuencia de caracteres de lectura mecánica. Si es necesario, OCR corrige el giro del texto reconocido, en grados, alrededor del eje horizontal de la imagen y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto extraído.
+Puede usar Computer Vision para [extraer el texto mediante el reconocimiento óptico de caracteres (OCR)](concept-extracting-text-ocr.md) de una imagen en una secuencia de caracteres de lectura mecánica. Si es necesario, OCR corrige el giro del texto reconocido y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto reconocido.
 
-También puede [reconocer tanto el texto impreso como el manuscrito](concept-recognizing-text.md) de una imagen. Computer Vision puede detectar y extraer texto impreso y manuscrito de imágenes de diversos objetos con diferentes superficies y fondos, como recibos, pósteres, tarjetas de visita, letras y pizarras. En la actualidad, el reconocimiento de texto impreso y manuscrito está en versión preliminar, y el inglés es el único lenguaje que se admite.  
+También puede [reconocer tanto texto impreso como manuscrito](concept-recognizing-text.md) de una imagen. Computer Vision puede detectar y extraer texto impreso y manuscrito de imágenes de diversos objetos con diferentes superficies y fondos, como recibos, pósteres, tarjetas de visita, letras y pizarras. En la actualidad, el reconocimiento de texto impreso y manuscrito está en versión preliminar, y el inglés es el único lenguaje que se admite. 
 
 ## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 
-Computer Vision se puede usar para [detectar contenido explícito y para adultos](concept-detecting-adult-content.md) en una imagen, para lo que valora la probabilidad de que la imagen contenga este tipo de contenido y genera una puntuación relativa a la confianza de todo él. El filtro para la detección de contenido explícito y para adultos se puede establecer en una escala deslizando, con el fin de que pueda ajustarlo a sus preferencias.
+Puede usar Computer Vision para [detectar contenido para adultos y subido de tono](concept-detecting-adult-content.md) en una imagen y devolver una puntuación de confianza para ambos. El filtro para la detección de contenido explícito y para adultos se puede establecer en una escala deslizando, con el fin de que pueda ajustarlo a sus preferencias.
 
 ## <a name="use-containers"></a>Uso de contenedores
 
-[Use contenedores de Computer Vision](computer-vision-how-to-install-containers.md) para reconocer texto impreso y escrito a mano localmente, mediante la instalación de un contenedor de Docker estándar más cercano a los datos.
+[Use contenedores de Computer Vision](computer-vision-how-to-install-containers.md) para reconocer texto impreso y manuscrito localmente, mediante la instalación de un contenedor de Docker estándar más cercano a los datos.
 
 ## <a name="image-requirements"></a>Requisitos de imagen
 

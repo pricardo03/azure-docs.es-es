@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Aplicar el patrón de coincidencia'
-description: Esta directiva de ejemplo requiere que los recursos cumplan el patrón de coincidencia para las convenciones de nomenclatura.
+description: Esta definición de directiva de ejemplo requiere que los recursos cumplan el patrón de coincidencia para las convenciones de nomenclatura.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4a001316afb489c7147153b5a2de076a5a425c93
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8fdbd6bc319a85c240eddcc5513c8e900329870b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241816"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341392"
 ---
-# <a name="enforce-match-pattern-for-naming-conventions"></a>Aplicación del patrón de coincidencia para las convenciones de nomenclatura
+# <a name="sample---enforce-match-pattern-for-naming-conventions"></a>Ejemplo: aplicación del patrón de coincidencia para las convenciones de nomenclatura
 
 Requiere que los nombres de recursos cumplan un patrón Like para las convenciones de nomenclatura. Especifique el patrón de coincidencia permitido como parámetro.
 

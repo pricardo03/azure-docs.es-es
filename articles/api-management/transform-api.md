@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413679"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417337"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformación y protección de una API 
 
@@ -41,8 +41,8 @@ En este tutorial, aprenderá a:
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -126,9 +126,10 @@ En esta sección se explica cómo agregar protección para la API de back-end co
 1. Seleccione **Demo Conference API** (API de conferencia de demostración).
 2. Seleccione **Todas las operaciones**.
 3. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
-4. En la sección **Procesamiento de entrada**, haga clic en el icono **</>**. Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
-5. En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
-6. Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>**) por el código siguiente:
+4. En la sección **Procesamiento de entrada**, haga clic en el icono **</>**.
+5. Coloque el cursor dentro del elemento**&lt;inbound&gt;**.
+6. En la ventana de la derecha, bajo **Access restriction policies** (Directivas de restricción de acceso), haga clic en **+ Limit call rate per key** (+ Limitar la tasa de llamadas por clave).
+7. Modifique el código **rate-limit-by-key** (en el elemento **\<inbound\>**) por el código siguiente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

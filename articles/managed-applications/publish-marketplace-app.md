@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989794"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343968"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
@@ -64,8 +64,8 @@ Una oferta de aplicación administrada se corresponde con una clase de oferta de
 
 Los campos del formulario **Configuración de la oferta** son:
 
-* **Id. de oferta**: se trata del identificador único que identifica la oferta en un perfil del publicador. Este identificador se muestra en las direcciones URL de producto, las plantillas de Resource Manager y los informes de facturación. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador no puede terminar con un guión. Está limitado a un máximo de 50 caracteres. En cuanto se lanza una oferta, este campo se bloquea.
-* **Id. de publicador**: use esta lista desplegable para elegir el perfil del publicador en el que quiere publicar esta oferta. En cuanto se lanza una oferta, este campo se bloquea.
+* **Id. de oferta**: se trata del identificador único que identifica la oferta en un perfil del anunciante. Este identificador se muestra en las direcciones URL de producto, las plantillas de Resource Manager y los informes de facturación. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). El identificador no puede terminar con un guión. Está limitado a un máximo de 50 caracteres. En cuanto se lanza una oferta, este campo se bloquea.
+* **Id. del anunciante**: use esta lista desplegable para elegir el perfil del anunciante en el que quiere que se publique esta oferta. En cuanto se lanza una oferta, este campo se bloquea.
 * **Nombre**: este nombre para mostrar para su oferta aparece en Marketplace y en el portal. Puede tener un máximo de 50 caracteres. Incluya un nombre de marca que identifique el producto. No incluya aquí el nombre de su empresa a menos que sea así como se comercializa. Si comercializa esta oferta en su propio sitio web, asegúrese de que el nombre sea exactamente el mismo que aparece en él.
 
 Al acabar, seleccione **Guardar** para guardar lo que ha hecho hasta ahora.
@@ -90,11 +90,11 @@ La SKU aparece debajo de la oferta principal en Marketplace. como una entidad de
 
    Rellene los siguientes campos:
 
-   * **Título**: escriba un título para esta SKU. Este título aparece en la galería para este elemento.
+   * **Título**: especifique un título para esta SKU. Este título aparece en la galería para este elemento.
    * **Resumen**: proporcione un breve resumen de esta SKU. Este texto aparece debajo del título.
    * **Descripción**: escriba una descripción detallada de la SKU.
    * **Tipo de SKU**: los valores permitidos son *Aplicación administrada* y *Plantillas de solución*. En este caso, seleccione *Aplicación administrada*.
-   * **Disponibilidad de país o región**: seleccione los países donde la aplicación administrada está disponible.
+   * **Country/Region availability** (Disponibilidad de país o región): seleccione los países donde la aplicación administrada está disponible.
    * **Precios**: proporcione un precio para la administración de la aplicación. Seleccione los países disponibles antes de establecer el precio.
 
 1. Agregue un nuevo paquete. Rellene la sección de **detalles del paquete** en el formulario siguiente:
@@ -102,10 +102,10 @@ La SKU aparece debajo de la oferta principal en Marketplace. como una entidad de
    Rellene los siguientes campos:
 
    * **Versión**: escriba una versión para el paquete que vaya a cargar. Debe tener este formato: `{number}.{number}.{number}{number}`.
-   * **Archivo de paquete (.zip)**: este paquete contiene dos archivos necesarios comprimidos en un archivo .zip. Un archivo es una plantilla de Resource Manager que define los recursos que va a implementar en la aplicación administrada. El otro archivo define la [interfaz de usuario](create-uidefinition-overview.md) para que los consumidores implementen la aplicación administrada mediante el portal. En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
-   * **PrincipalId**: esta propiedad es el identificador de Azure Active Directory de un usuario, de un grupo de usuarios o de una aplicación al que se han concedido acceso a los recursos de la suscripción de los clientes. La definición de rol describe los permisos.
-   * **Role Definition**: esta propiedad es una lista de todos los roles de control de acceso basado en roles (RBAC) integrados que proporciona Azure AD. Puede seleccionar el rol que resulte más adecuado para administrar los recursos en nombre del cliente.
-   * **Configuración de directiva**: aplique una directiva de [Azure Policy](../azure-policy/azure-policy-introduction.md) a la aplicación administrada para especificar los requisitos de cumplimiento para las soluciones implementadas. Entre las opciones disponibles, seleccione las directivas que se van a aplicar. En **Parámetros de directiva**, proporcione una cadena JSON con los valores del parámetro. Para las definiciones de directiva y el formato de los valores de parámetro, consulte [ejemplos de Azure Policy](../azure-policy/json-samples.md).
+   * **Package file (.zip)** (Archivo del paquete [.zip]): este paquete contiene dos archivos necesarios comprimidos en uno .zip. Un archivo es una plantilla de Resource Manager que define los recursos que va a implementar en la aplicación administrada. El otro archivo define la [interfaz de usuario](create-uidefinition-overview.md) para que los consumidores implementen la aplicación administrada mediante el portal. En la interfaz de usuario, puede especificar los elementos que permiten a los consumidores proporcionar los valores de los parámetros.
+   * **PrincipalId**: esta propiedad es el identificador de Azure Active Directory de un usuario, de un grupo de usuarios o de una aplicación a quienes se haya concedido acceso a los recursos de la suscripción de los clientes. La definición de rol describe los permisos.
+   * **Role Definition**: esta propiedad es una lista de todos los roles de control de acceso basado en rol (RBAC) integrados que proporciona Azure AD. Puede seleccionar el rol que resulte más adecuado para administrar los recursos en nombre del cliente.
+   * **Configuración de directivas**: aplique una directiva de [Azure Policy](../governance/policy/overview.md) a la aplicación administrada para especificar los requisitos de cumplimiento para las soluciones implementadas. Entre las opciones disponibles, seleccione las directivas que se van a aplicar. En **Parámetros de directiva**, proporcione una cadena JSON con los valores del parámetro. Para las definiciones de directiva y el formato de los valores de parámetro, consulte [ejemplos de Azure Policy](../governance/policy/samples/index.md).
 
 Puede agregar varias autorizaciones. Se recomienda que cree un grupo de usuarios de AD y especifique su identificador en **PrincipalId**. De esta manera, puede agregar más usuarios al grupo de usuarios sin necesidad de actualizar la SKU.
 

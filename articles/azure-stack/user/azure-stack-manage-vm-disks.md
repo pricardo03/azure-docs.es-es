@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961410"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326517"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Creación de almacenamiento en discos de máquina virtual en Azure Stack
 
@@ -32,9 +32,9 @@ En este artículo se describe cómo crear almacenamiento en disco de máquina vi
 
 Empezando por la versión 1808, Azure Stack admite el uso de discos administrados y no administrados en máquinas virtuales, que pueden ser tanto discos del sistema operativo (SO) como disco de datos. Con las versiones anteriores a la 1808 solo se pueden usar discos no administrados. 
 
-Los **[discos administrados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplifican la administración de discos para las máquinas virtuales de Azure IaaS, ya que administran las cuentas de almacenamiento asociadas a los discos de la máquina virtual. Solo tiene que especificar el tamaño del disco que necesita y Azure Stack creará y administrará el disco automáticamente.
+Los **[discos administrados](../../virtual-machines/windows/managed-disks-overview.md)** simplifican la administración de discos para las máquinas virtuales de Azure IaaS, ya que administran las cuentas de almacenamiento asociadas a los discos de la máquina virtual. Solo tiene que especificar el tamaño del disco que necesita y Azure Stack creará y administrará el disco automáticamente.
 
-Para usar los **[discos no administrados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)** necesita una [cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para almacenarlos. Los discos creados se conocen como discos de máquina virtual y se almacenan en los contenedores de la cuenta de almacenamiento.
+Para usar los discos no administrados necesita una cuenta de almacenamiento para almacenarlos. Los discos creados se conocen como discos de máquina virtual y se almacenan en los contenedores de la cuenta de almacenamiento.
 
 ### <a name="best-practice-guidelines"></a>Guías de procedimientos recomendados
 

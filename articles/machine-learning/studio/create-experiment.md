@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f5b24b21c4511b535509421aaa35ba3498e9f6a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246024"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453178"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Inicio rápido: Crear el primer experimento de ciencia de datos en Azure Machine Learning Studio
 
@@ -29,7 +29,7 @@ En este inicio rápido se sigue el flujo de trabajo predeterminada para un exper
     - [Obtener los datos]
     - [Preparar los datos]
     - [Definir las características]
-1. **Entrenar el modelo**
+1. **Entrenamiento del modelo**
     - [Elegir y aplicar un algoritmo]
 1. **Puntuar y probar el modelo**
     - [Predecir los precios de los automóviles nuevos]
@@ -57,15 +57,15 @@ Aquí se muestra cómo obtener el conjunto de datos en el experimento.
 
 1. El experimento recibe un nombre predeterminado que puede ver en la parte superior del lienzo. Seleccione este texto y cambie su nombre por algo significativo, por ejemplo, **predicción de precios de automóviles**. No es necesario que el nombre sea único.
 
-    ![Renombrar el experimento][rename-experiment]
+    ![Renombrar el experimento](./media/create-experiment/rename-experiment.png)
 
 1. A la izquierda del lienzo de experimentos, hay una paleta de conjuntos de datos y módulos. Escriba **automobile** en el cuadro de búsqueda de la parte superior de esta paleta para encontrar el conjunto de datos llamado **Automobile price data (Raw)** (Datos de precios de automóviles [sin formato]). Arrastre este conjunto de datos al lienzo del experimento.
 
-    ![Buscar el conjunto de datos de automóvil y arrastrarlo hasta el lienzo del experimento][type-automobile]
+    ![Buscar el conjunto de datos de automóvil y arrastrarlo hasta el lienzo del experimento](./media/create-experiment/type-automobile.png)
 
 Para ver la apariencia de estos datos, haga clic en el puerto de salida, en la parte inferior del conjunto de datos de automóvil y, después, seleccione **Visualizar**.
 
-![Hacer clic en el puerto de salida y seleccionar "Visualizar"][select-visualize]
+![Hacer clic en el puerto de salida y seleccionar "Visualizar"](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > Los conjuntos de datos y los módulos tienen puertos de entrada y de salida representados por pequeños círculos: los puertos de entrada arriba y los puertos de salida abajo.
@@ -74,7 +74,7 @@ En cualquier momento, puede hacer clic en el puerto de salida de un conjunto de 
 
 En este conjunto de datos, cada fila representa un automóvil y las variables asociadas a cada automóvil aparecen como columnas. Vamos a predecir el precio de la columna del extremo derecho (columna 26, llamada "precio") con las variables para un automóvil específico.
 
-![Ver los datos de automóviles en la ventana de visualización de datos][visualize-auto-data]
+![Ver los datos de automóviles en la ventana de visualización de datos](./media/create-experiment/visualize-auto-data.png)
 
 Cierre la ventana de visualización haciendo clic en la "**x**" en la esquina superior derecha.
 
@@ -89,9 +89,9 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
 
 1. Escriba **seleccionar columnas** en el cuadro de búsqueda de la parte superior de la paleta de módulos, y busque el módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas en el conjunto de datos). Después, arrastre este módulo al lienzo del experimento. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
 
-1. Conecte el puerto de salida del conjunto de datos **Automobile price data (Raw)** al puerto de entrada del módulo [Select Columns in Dataset][select-columns].
+1. Conecte el puerto de salida del conjunto de datos **Automobile price data (Raw)** al puerto de entrada del módulo Select Columns in Dataset.
 
-    ![Agregar el módulo "Seleccionar columnas en el conjunto de datos" al lienzo del experimento y conectarlo][type-select-columns]
+    ![Agregar el módulo "Seleccionar columnas en el conjunto de datos" al lienzo del experimento y conectarlo](./media/create-experiment/type-select-columns.png)
 
 1. Haga clic en el módulo [Select Columns in Dataset][select-columns] y haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades**.
 
@@ -100,26 +100,26 @@ Primero, se agrega un módulo que quita completamente la columna **normalized-lo
     - En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses**; se agregará al cuadro de texto.
     - Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas (en la esquina inferior derecha).
 
-    ![Inicio del selector de columnas y excluir la columna "normalized-losses"][launch-column-selector]
+    ![Inicio del selector de columnas y excluir la columna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
 
     Ahora el panel de propiedades de **Select Columns in Dataset** (Seleccionar columnas en el conjunto de datos) indica que se pasará por todas las columnas del conjunto de datos excepto **normalized-losses**.
 
-    ![El panel de propiedades muestra que la columna "normalized-losses" se ha excluido][showing-excluded-column]
+    ![El panel de propiedades muestra que la columna "normalized-losses" se ha excluido](./media/create-experiment/showing-excluded-column.png)
 
     > [!TIP] 
     > Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Select Columns in Dataset][select-columns] y escriba el comentario "Excluir normalized-losses".
 
-    ![Hacer doble clic en un módulo para agregar un comentario][add-comment]
+    ![Hacer doble clic en un módulo para agregar un comentario](./media/create-experiment/add-comment.png)
 
 1. Arrastre el módulo [Clean Missing Data][clean-missing-data] al lienzo del experimento y conéctelo con el módulo [Select Columns in Dataset][select-columns]. En el panel **Propiedades**, seleccione **Remove entire row** (Quitar la fila entera) en **Cleaning mode** (Modo de limpieza). Estas opciones indican a [Clean Missing Data][clean-missing-data] (Limpiar los datos que faltan) que limpie los datos quitando las filas con valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
-    ![Establecimiento del modo de limpieza en Remove entire row (Quitar la fila entera) para el módulo Clean Missing Data (Limpiar los datos que faltan)][set-remove-entire-row]
+    ![Establecimiento del modo de limpieza en Remove entire row (Quitar la fila entera) para el módulo Clean Missing Data (Limpiar los datos que faltan)](./media/create-experiment/set-remove-entire-row.png)
 
 1. Ejecute el experimento haciendo clic en **EJECUTAR** en la parte inferior de la página.
 
     Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han completado correctamente. Observe también el estado **Ejecución finalizada** en la esquina superior derecha.
 
-    ![Después de ejecutarlo, el experimento debe tener un aspecto similar al siguiente:][early-experiment-run]
+    ![Después de ejecutarlo, el experimento debe tener un aspecto similar al siguiente:](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > ¿Por qué ejecutamos el experimento ahora? Al ejecutar el experimento, las definiciones de columna de nuestros datos pasan desde el conjunto de datos hasta los módulos [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] y [Clean Missing Data] (Limpiar los datos que faltan) [clean-missing-data]. Esto significa que los módulos que conectamos a [Clean Missing Data][clean-missing-data] tendrán también esta misma información.
@@ -140,7 +140,7 @@ Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de
 
 1. Arrastre otro módulo [Select Columns in Dataset] (Seleccionar columnas en el conjunto de datos) [select-columns] al lienzo del experimento. Conecte el puerto de salida izquierdo del módulo [Clean Missing Data][clean-missing-data] a la entrada del módulo [Select Columns in Dataset][select-columns].
 
-    ![Conexión del módulo "Seleccionar columnas en el conjunto de datos" al módulo "Limpiar los datos que faltan"][connect-clean-to-select]
+    ![Conexión del módulo "Seleccionar columnas en el conjunto de datos" al módulo "Limpiar los datos que faltan"](./media/create-experiment/connect-clean-to-select.png)
 
 1. Haga doble clic en el módulo y escriba "Seleccionar funciones para la predicción".
 
@@ -152,7 +152,7 @@ Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de
 
 1. Haga clic en el botón de marca de verificación (Aceptar).
 
-    ![Seleccionar las columnas (características) que se incluirán en la predicción][select-columns-to-include]
+    ![Seleccionar las columnas (características) que se incluirán en la predicción](./media/create-experiment/select-columns-to-include.png)
 
 Este módulo genera un conjunto de datos filtrado que contiene solo las características que queremos pasar al algoritmo de aprendizaje que usaremos en el siguiente paso. Posteriormente puede volver e intentarlo de nuevo con una selección diferente de características.
 
@@ -174,7 +174,7 @@ Usaremos nuestros datos para entrenar el modelo y probarlo, para lo cual los div
 
 1. Haga clic en el módulo [Split Data][split] (Dividir datos) para seleccionarlo. Busque **Fraction of rows in the first output dataset** (Fracción de filas del primer conjunto de datos de salida) (en el panel **Propiedades** a la derecha de lienzo) y establézcalo en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
 
-    ![Establecer la fracción de división del módulo "Dividir datos" en 0,75][set-split-data-percentage]
+    ![Establecer la fracción de división del módulo "Dividir datos" en 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > Al cambiar el parámetro **Valor de inicialización aleatorio** , puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
@@ -185,19 +185,19 @@ Usaremos nuestros datos para entrenar el modelo y probarlo, para lo cual los div
 
 1. Busque y arrastre el módulo [Train Model][train-model] (Entrenar modelo) al lienzo del experimento. Conecte la salida del módulo [Linear Regression][linear-regression] (Regresión lineal) a la entrada izquierda del módulo [Train Model][train-model] (Entrenar modelo), y conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo [Split Data][split] (Dividir datos) a la entrada derecha del módulo [Train Model][train-model].
 
-    ![Conexión del módulo "Entrenar modelo" a los módulos "Regresión lineal" y "Dividir datos"][connect-train-model]
+    ![Conexión del módulo "Entrenar modelo" a los módulos "Regresión lineal" y "Dividir datos"](./media/create-experiment/connect-train-model.png)
 
 1. Haga clic en el módulo [Train Model][train-model] (Entrenar modelo), haga clic en **Launch column selector** (Iniciar el selector de columnas) en el panel **Propiedades** y, luego, seleccione la columna **price** (precio). El **precio** es el valor que nuestro modelo va a predecir.
 
     Para seleccionar la columna **precio** en el selector de columnas, muévala de la lista **Columnas disponibles** a la lista **Columnas seleccionadas**.
 
-    ![Selección de la columna precio del módulo "Entrenar modelo"][select-price-column]
+    ![Selección de la columna precio del módulo "Entrenar modelo"](./media/create-experiment/select-price-column.png)
 
 1. Ejecute el experimento.
 
 Ahora tenemos un modelo de regresión entrenado que puede usarse para puntuar nuevos datos de automóviles para realizar predicciones de precios.
 
-![Tras la ejecución, el experimento debe tener este aspecto:][second-experiment-run]
+![Tras la ejecución, el experimento debe tener este aspecto:](./media/create-experiment/second-experiment-run.png)
 
 ## <a name="predict-new-automobile-prices"></a>Predecir los precios de los automóviles nuevos
 
@@ -205,21 +205,21 @@ Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos us
 
 1. Busque y arrastre el módulo [Score Model] (Puntuar modelo) [score-model] al lienzo del experimento. Conecte la salida del módulo [Train Model][train-model] al puerto de entrada izquierdo de [Score Model][score-model]. Conecte la salida de datos de prueba (puerto derecho) del módulo [Split Data][split] al puerto de entrada derecho de [Score Model][score-model].
 
-    ![Conexión del módulo "Puntuar modelo" a los módulos "Entrenar modelo" y "Dividir datos"][connect-score-model]
+    ![Conexión del módulo "Puntuar modelo" a los módulos "Entrenar modelo" y "Dividir datos"](./media/create-experiment/connect-score-model.png)
 
 1. Para ejecutar el experimento y ver la salida desde el módulo [Score Model][score-model] (Puntuar modelo), haga clic en el puerto de salida de [Score Model][score-model] y seleccione **Visualizar**. La salida muestra los valores previstos para el precio y los valores conocidos de los datos de prueba.  
 
-    ![Salida del módulo "Puntuar modelo"][score-model-output]
+    ![Salida del módulo "Puntuar modelo"](./media/create-experiment/score-model-output.png)
 
 1. Por último, probamos la calidad de los resultados. Seleccione y arrastre el módulo [Evaluate Model][evaluate-model] al lienzo del experimento y conecte la salida del módulo [Score Model][score-model]  a la entrada izquierda del módulo [Evaluate Model][evaluate-model]. El experimento final debe tener un aspecto similar a este:
 
-    ![El experimento final][complete-linear-regression-experiment]
+    ![El experimento final](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Ejecute el experimento.
 
 Para ver la salida del módulo [Evaluate Model][evaluate-model] (Evaluar modelo), haga clic en el puerto de salida y seleccione **Visualize** (Visualizar).
 
-![Resultados de evaluación del experimento][evaluation-results]
+![Resultados de evaluación del experimento](./media/create-experiment/evaluation-results.png)
 
 Se muestran las siguientes estadísticas para nuestro modelo:
 
@@ -241,35 +241,6 @@ En este inicio rápido, ha creado un experimento sencillo con un conjunto de dat
 
 > [!div class="nextstepaction"]
 > [Tutorial: Desarrollo de una solución predictiva en Studio](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

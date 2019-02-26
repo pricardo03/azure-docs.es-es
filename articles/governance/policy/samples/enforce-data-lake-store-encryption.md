@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Requerir el cifrado de Data Lake Store'
-description: Esta directiva de ejemplo requiere el cifrado de Data Lake Store.
+description: Esta definición de directiva de ejemplo requiere que el cifrado de Data Lake Store esté habilitado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 557198fcdc2c191986cedf4b384e0bf117dfa86d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e4de4c78bec9f4ffa6c4e2711a2d4260279ca559
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241689"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340610"
 ---
-# <a name="require-data-lake-store-encryption"></a>Requerir cifrado de Data Lake Store
+# <a name="sample---require-data-lake-store-encryption"></a>Ejemplo: requerir cifrado de Data Lake Store
 
 Esta directiva integrada deniega las cuentas de Data Lake Store que no tengan el cifrado habilitado.
 
