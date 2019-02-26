@@ -35,13 +35,16 @@
 ## Configuración para alta disponibilidad
 ### [Uso de Azure Storage para la copia de seguridad y la restauración](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Grupos de disponibilidad AlwaysOn
-#### [Uso de una plantilla de Azure Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Uso de plantillas de inicio rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [Manualmente: requisitos previos](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manualmente: tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Equilibrador de carga: Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Equilibrador de carga: Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [CLI de la máquina virtual de Azure SQL](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Plantilla de Azure Portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Plantillas de inicio rápido de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Varias regiones](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Configuración manual    
+##### [Requisitos previos](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Equilibrador de carga: Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Equilibrador de carga: Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Instancia de clúster de conmutación por error
 #### [Configuración](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
