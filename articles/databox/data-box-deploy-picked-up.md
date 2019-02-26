@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243015"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341596"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box y comprobación de la carga de datos en Azure
 
@@ -42,9 +42,7 @@ Antes de comenzar, asegúrese de que:
 ## <a name="ship-data-box-back"></a>Devolución de Data Box
 
 1. Asegúrese de que el dispositivo está apagado y de que se han eliminado los cables. Enrolle y coloque de forma segura el cable de alimentación que se proporcionó junto con el dispositivo en la parte posterior del mismo.
-2. Si el dispositivo se vende en Estados Unidos, asegúrese de que la etiqueta de envío aparezca en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada o se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con el soporte técnico de Microsoft. Solo si el soporte técnico lo sugiere, vaya a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo.
-
-    Si el dispositivo se vende en Europa, la pantalla de tinta electrónica no muestra la etiqueta de envío. En su lugar, la etiqueta de envío de devolución se incluye en el bolsillo transparente bajo la etiqueta de reenvío. Retire la etiqueta de envío anterior y asegúrese de que la etiqueta de envío sea claramente visible.
+2. Asegúrese de que la etiqueta de envío aparece en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada, se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con el servicio de soporte técnico de Microsoft. Si el soporte técnico lo sugiere, puede ir a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo.
     
 3. Programe una recogida con UPS si está devolviendo el dispositivo. Para programar una recogida, llame a UPS local (número gratuito específico del país) o entregue Data Box en el lugar más cercano de entrega.
 

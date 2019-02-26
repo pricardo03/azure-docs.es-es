@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800951"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341963"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -73,11 +73,11 @@ Cuando el consumidor elimina la aplicación administrada, también se elimina el
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Puede aplicar una directiva de [Azure Policy](../azure-policy/azure-policy-introduction.md) a la aplicación administrada. Las directivas se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con datos confidenciales, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Office 365, aplique una directiva para asegurarse de que está habilitado el cifrado de datos.
+Puede aplicar una directiva de [Azure Policy](../governance/policy/overview.md) a la aplicación administrada. Las directivas se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con datos confidenciales, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Office 365, aplique una directiva para asegurarse de que está habilitado el cifrado de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, ha aprendido acerca de las ventajas de uso de las aplicaciones administradas. Vaya al siguiente artículo para crear una definición de aplicación administrada.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Publicación de una definición de aplicación administrada de Azure](publish-managed-app-definition-quickstart.md)
+> [Inicio rápido: Publicación de una definición de aplicación administrada de Azure](publish-managed-app-definition-quickstart.md)

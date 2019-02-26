@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487887"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447368"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -33,7 +33,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 * El almacenamiento con redundancia local (LRS) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
 
-* El almacenamiento con redundancia geográfica (GRS) es el valor predeterminado y la opción de replicación recomienda. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, incluso si hay una interrupción regional.
+* El almacenamiento con redundancia geográfica (GRS) es el valor predeterminado y la opción de replicación recomienda. GRS replica los datos en una región secundaria que forma parte de [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md) (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, incluso si hay una interrupción regional.
 
 **Transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren. Tampoco cobra por los datos que se transfieren. Sin embargo, si usa el servicio Azure Import/Export para importar grandes cantidades de datos, existe un costo asociado con los datos de entrada. Para más información sobre este costo, consulte [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md). Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
 
@@ -44,7 +44,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 **Retención a largo plazo**: los almacenes de Recovery Services se pueden usar para la retención de datos tanto a corto como a largo plazo. Azure no limita el tiempo que los datos pueden permanecer en un almacén de Recovery Services. Los datos se pueden conservar en un almacén tanto tiempo como se desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. Consulte la sección [Copia de seguridad y retención](backup-introduction-to-azure-backup.md#backup-and-retention) de este artículo para obtener una explicación de la forma en que este límite puede afectar a sus necesidades de copia de seguridad.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>¿Qué componentes de Azure Backup debo usar?
-Use la siguiente tabla para obtener información acerca de lo que se puede proteger con cada componente de Azure Backup. 
+Use la siguiente tabla para obtener información acerca de lo que se puede proteger con cada componente de Azure Backup.
 
 | Componente | Ventajas | límites | ¿Qué se protege? | ¿Dónde se almacenan las copias de seguridad? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Use la siguiente tabla para obtener información acerca de lo que se puede prote
 | Copia de seguridad de máquina virtual de IaaS de Azure |<p>**Sí**</p><p>Parte del tejido de Azure</p><p>Especializado para [copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS) de Azure](backup-azure-vms-introduction.md).</p> |<p>**No**</p> <p>Use System Center DPM para hacer copias de seguridad de máquinas virtuales en su centro de datos.</p> |<p>Almacén de Recovery Services</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>¿De qué aplicaciones y cargas de trabajo puedo hacer copias de seguridad?
-En la tabla siguiente se proporciona una matriz de los datos y las cargas de trabajo que se pueden proteger mediante Azure Backup. La columna de la solución de Azure Backup tiene vínculos a la documentación de implementación para esa solución. 
+En la tabla siguiente se proporciona una matriz de los datos y las cargas de trabajo que se pueden proteger mediante Azure Backup. La columna de la solución de Azure Backup tiene vínculos a la documentación de implementación para esa solución.
 
 | Datos o carga de trabajo | Entorno de origen | Solución de Azure Backup |
 | --- | --- | --- |
@@ -81,17 +81,17 @@ En la tabla siguiente se proporciona una matriz de los datos y las cargas de tra
 En la siguiente tabla se muestran los componentes de Azure Backup que son compatibles con Linux.  
 
 **Componente** | **Linux (reconocido por Azure)**
---- | --- 
-Agente de Azure Backup (MARS) | No (solo agente basado en Windows) 
+--- | ---
+Agente de Azure Backup (MARS) | No (solo agente basado en Windows)
 System Center DPM | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
-Servidor de Azure Backup | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure 
+Servidor de Azure Backup | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
 Copia de seguridad de máquina virtual de IaaS de Azure | Copia de seguridad coherente con la aplicación mediante un [plataforma de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperación de nivel de archivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Creación de una máquina virtual a partir de discos restaurados](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Creación de una máquina virtual a partir de un punto de recuperación](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso de máquinas virtuales de Premium Storage con Azure Backup
-Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de la máquina virtual de Azure](../virtual-machines/windows/premium-storage.md).
+Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage y otros tipos de disco, consulte el artículo [Selección de un tipo de disco](../virtual-machines/windows/disks-types.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Copia de seguridad de máquinas virtuales de Premium Storage
-Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de ensayo temporal, llamada "AzureBackup-" en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte las [limitaciones de Premium Storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de almacenamiento provisional, llamada "AzureBackup-", en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte el artículo sobre los [objetivos de escalabilidad de almacenamiento de Azure](../storage/common/storage-scalability-targets.md). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > No modifique ni edite la ubicación de ensayo.
@@ -113,7 +113,7 @@ Azure Backup le permite restaurar una máquina virtual completa con discos admin
 ## <a name="what-are-the-features-of-each-backup-component"></a>¿Cuáles son las características de cada componente de Backup?
 En las secciones siguientes se proporcionan tablas que resumen la disponibilidad o la compatibilidad de diversas características de cada componente de Azure Backup. Consulte la siguiente información de cada tabla para obtener ayuda o información adicional.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
 | Almacén de Recovery Services |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9dbe641c5e22129f7db3d3f3b886fea4501300b0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150400"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416146"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutorial: Análisis de vídeos con Media Services v3 mediante .NET
 
@@ -125,6 +125,11 @@ Event Grid está diseñado para una alta disponibilidad, un rendimiento consiste
 El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
+
+
+### <a name="job-error-codes"></a>Códigos de error de trabajo
+
+Consulte [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Descarga del resultado del trabajo
 

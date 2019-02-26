@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443124"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454811"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -40,8 +40,8 @@ En el vídeo siguiente se muestra cómo supervisar API Management con Azure Moni
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ Para configurar registros de diagnóstico:
 
     ![registros de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Haga clic en **Activar diagnóstico**. Los registros de diagnóstico se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a Log Analytics. 
+3. Haga clic en **Activar diagnóstico**. Los registros de diagnóstico se pueden archivar junto con las métricas en una cuenta de almacenamiento, transmitirlos en secuencias a un centro de eventos o enviarlos a los registros de Azure Monitor. 
 
 Actualmente, API Management proporciona registros de diagnóstico (de los que se crean lotes cada hora) de una solicitud de API individual con cada entrada que tenga el esquema siguiente:
 
@@ -183,7 +183,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | callerIpAddress | string | Dirección IP del llamador inmediato de la puerta de enlace (puede ser un intermediario) |
 | correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
 | location | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
-| httpStatusCodeCategory | string | Categoría del código de estado de la respuesta http: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
+| httpStatusCodeCategory | string | Categoría del código de estado de respuesta HTTP: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
 | ResourceId | string | "Identificador del recurso de API Management/SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<grupoDeRecursos>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | propiedades | objeto | Propiedades de la solicitud actual |
 | estático | string | Método HTTP de la solicitud entrante |

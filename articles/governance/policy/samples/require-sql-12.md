@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo: Requerir SQL Server versión 12.0'
-description: Esta directiva de JSON requiere que los servidores de SQL Server usen la versión 12.0.
+description: Esta definición de directiva de ejemplo requiere que los servidores SQL Server ejecuten la versión 12.0.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d00ff3554666ddbe6915882baa423da319b9f54a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 33fb78ed99bff0ccf035f68cfc2d23552a822df7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244222"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340627"
 ---
-# <a name="require-sql-server-version-120"></a>Requisito de la versión 12.0 de SQL Server
+# <a name="sample---require-sql-server-version-120"></a>Ejemplo: Requerir SQL Server versión 12.0
 
 Esta directiva requiere que los servidores de SQL Server usen la versión 12.0.
 

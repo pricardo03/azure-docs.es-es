@@ -10,25 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c2684c7373d9ee4536b248650c7012c261166b81
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235400"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270256"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Obtenga información sobre cómo usar el código de Visual Studio y la extensión de herramientas de Azure Resource Manager para crear y modificar las plantillas de Azure Resource Manager. Puede crear plantillas de Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,6 +50,7 @@ La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Seleccione **Abrir** para abrir el archivo.
 4. Seleccione **Archivo**>**Guardar como** para guardar el archivo como **azuredeploy.json** en el equipo local.
 
@@ -94,6 +91,9 @@ Para experimentar cómo se edita una plantilla mediante Visual Studio Code, agre
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Existen muchos métodos para la implementación de plantillas.  En esta guía de inicio rápido, va a utilizar Azure Cloud Shell. Cloud Shell es una aplicación web que no requiere ninguna configuración. Es compatible tanto con la CLI de Azure como con Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 1. Inicio de sesión en [Azure Cloud Shell](https://shell.azure.com)
 
@@ -148,7 +148,10 @@ Existen muchos métodos para la implementación de plantillas.  En esta guía de
     
     ---
 
-    Actualice el nombre del archivo de plantilla si guarda el archivo en un nombre distinto a **azuredeploy.json**.
+    > [!NOTE]
+    > Hay un problema de E/S de archivos con el uso de Azure PowerShell en Cloud Shell.  El mensaje de error es *No se puede recuperar los parámetros dinámicos para el cmdlet. No se encuentra la ruta de acceso 'Azure:/azuredeploy.json' porque no existe.*  Una solución alternativa temporal consiste en no incluir el parámetro **-TemplateFile** en el comando `New-AzResourceGroupDeploy`. El comando le solicitará que escriba el nombre de archivo.
+
+    Actualice el nombre del archivo de plantilla si guarda el archivo en un nombre distinto a **azuredeploy.json**. 
 
     En la captura de pantalla siguiente se muestra una implementación de ejemplo:
 

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed159decb51d71e8c0beddb285f6c01ae264ed2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206674"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416775"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Inicio rápido: Proteger una API web con Azure Active Directory
 
@@ -45,21 +45,20 @@ Para empezar, agregue el código siguiente en un archivo denominado `package.jso
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-Una vez que se haya creado `package.json`, ejecute `npm install` en el símbolo del sistema para instalar las dependencias de paquetes. 
+Una vez que se haya creado `package.json`, ejecute `npm install` en el símbolo del sistema para instalar las dependencias de paquetes.
 
 #### <a name="configure-the-project-to-use-active-directory"></a>Configuración del proyecto que va a usar Active Directory
 
@@ -116,7 +115,7 @@ Cree un nuevo archivo denominado `app.js` y pegue el texto siguiente:
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -127,7 +126,7 @@ const
 
 En esta sección de código:
 
-- Se hace referencia a los módulos `restify` y `restify-plugins` para configurar un servidor Restify.
+- Se hace referencia a los módulos `restify` y de complementos para configurar un servidor Restify.
 - Los módulos `passport` y `passport-azure-ad` son responsables de la comunicación con Azure AD.
 - La variable `config` se inicializa con los valores del archivo `config.js` que se creó en el paso anterior.
 - Se crea una matriz para `authenticatedUserTokens` para almacenar los tokens de usuario que se pasan a los puntos de conexión seguros.

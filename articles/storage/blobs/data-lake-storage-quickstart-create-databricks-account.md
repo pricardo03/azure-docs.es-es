@@ -7,13 +7,13 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/24/2019
-ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/15/2019
+ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895812"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453033"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Inicio rápido: Análisis de datos en Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -25,27 +25,20 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Creación de una cuenta de almacenamiento con Data Lake Storage Gen2 habilitado](data-lake-storage-quickstart-create-account.md)
+* Cree una cuenta de almacenamiento de Data Lake Gen2. Consulte [Quickstart: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 
-<a id="config"/>
+  Pegue el nombre de la cuenta de almacenamiento en un archivo de texto. Lo necesitará pronto.
 
-## <a name="get-the-name-of-your-storage-account"></a>Obtención del nombre de la cuenta de almacenamiento
+*  Crear una entidad de servicio. Consulte [Configuración de los portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Para obtener el nombre de la cuenta de almacenamiento en Azure Portal, elija **Todos los servicios** y filtre por el término *almacenamiento*. Luego, seleccione **Cuentas de almacenamiento** y localice su cuenta de almacenamiento.
+   Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
 
-Pegue ese nombre en un archivo de texto. Lo necesitará pronto.
+   :heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar el rol de **Colaborador de datos de blobs de almacenamiento** a la entidad de servicio.
 
-<a id="service-principal"/>
+   > [!IMPORTANT]
+   > Asegúrese de asignar el rol en el ámbito de la cuenta de almacenamiento de Data Lake Storage Gen2. Puede asignar un rol al grupo de recursos o suscripción primario, pero recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
 
-## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
-
-Cree a una entidad de servicio siguiendo la guía de este tema: [Uso de portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Hay un par de cosas que tendrá que hacer cuando realice los pasos de este artículo.
-
-:heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar la aplicación al **rol de colaborador de Blob Storage**.
-
-:heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
+   :heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creación de un área de trabajo de Azure Databricks
 
@@ -126,11 +119,11 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
- 
+
     > [!NOTE]
     > Dicho bloque de código accede directamente al punto de conexión de Data Lake Gen2 mediante OAuth, pero hay otras maneras de conectarse el área de trabajo de Databricks con su cuenta de Data Lake Storage Gen2. Por ejemplo, podría montar el sistema de archivos mediante OAuth, o bien usar un acceso directo con una clave compartida. <br>Para ver ejemplos de estos métodos, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio web de Azure Databricks.
 
-5. En este bloque de código, reemplace los valores de marcador de posición `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` de este bloque de código por los valores que recopiló cuando realizó los pasos de las secciones [Obtención del nombre de la cuenta de almacenamiento](#config) y [Creación de una entidad de servicio](#service-principal) de este artículo.  Establezca el valor del marcador `file-system-name` en el nombre que desea dar el sistema de archivos.
+5. En este bloque de código, reemplace los valores de marcador de posición `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` por los valores que recopiló cuando creó la entidad de servicio. Establezca el valor del marcador `file-system-name` en el nombre que desea dar el sistema de archivos.
 
 6. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 
@@ -208,7 +201,7 @@ Cuando haya finalizado con este artículo, puede terminar el clúster. En el ár
 
 ![Detener un clúster de Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. Si establece esta opción, el clúster se detendrá después de haber estado inactivo durante la cantidad de tiempo designada.
+Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de __ minutos de inactividad) al crear el clúster. Si establece esta opción, el clúster se detendrá después de haber estado inactivo durante la cantidad de tiempo designada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

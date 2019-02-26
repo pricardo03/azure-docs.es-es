@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243861"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429441"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -61,9 +61,9 @@ Este nivel es para aplicaciones de producción críticas que requieren concurren
 
 |Plan  |QPU  |Memoria (GB)  |
 |---------|---------|---------|
-|S1    |    40     |    10     |
-|S2    |    100     |    25     |
-|S3    |    200     |    50     |
+|S0    |    40     |    10     |
+|S1    |    100     |    25     |
+|S2    |    200     |    50     |
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
@@ -217,7 +217,7 @@ Las modernas herramientas de exploración y visualización de datos como Power B
 
 ## <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
 
-Azure Analysis Services se integra con las métricas de Azure, lo que proporciona un elevado número de métricas específicas de recursos para ayudarle a supervisar el rendimiento y el estado de los servidores. Para más información, vea [Supervisión de las métricas del servidor](analysis-services-monitor.md). Registre métricas con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md). Supervise y envíe registros a [Azure Storage](https://azure.microsoft.com/services/storage/), difúndalos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y expórtelos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), un servicio de [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para más información, consulte [Configuración del registro de diagnóstico](analysis-services-logging.md).
+Azure Analysis Services se integra con las métricas de Azure, lo que proporciona un elevado número de métricas específicas de recursos para ayudarle a supervisar el rendimiento y el estado de los servidores. Para más información, vea [Supervisión de las métricas del servidor](analysis-services-monitor.md). Registre métricas con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md). Supervise y envíe registros a [Azure Storage](https://azure.microsoft.com/services/storage/), transmítalos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y expórtelos a [registros de Azure Monitor](https://azure.microsoft.com/services/log-analytics/), un servicio de [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para más información, consulte [Configuración del registro de diagnóstico](analysis-services-logging.md).
 
 Azure Analysis Services también admite el uso de [vistas de administración dinámica (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). En función de la sintaxis SQL, las DMV hacen de interfaz de los conjuntos de filas del esquema que devuelven metadatos e información de supervisión acerca de la instancia del servidor.
 
