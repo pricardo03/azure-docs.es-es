@@ -22,7 +22,7 @@ ms.locfileid: "55982274"
 ---
 # <a name="what-is-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database?
 
-SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece un rendimiento escalable de modo dinámico dentro de dos diferentes modelos de compra: un modelo de compra basado en núcleos virtuales y un modelo de compra basado en DTU. SQL Database también proporciona opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para un análisis analítico extremo, y [OLTP en memoria](sql-database-in-memory.md) para un procesamiento de transacciones extremo. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente.
+SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece un rendimiento escalable de modo dinámico dentro de dos modelos de compra diferentes: un modelo de compra basado en núcleos virtuales y un modelo de compra basado en DTU. SQL Database también proporciona opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para un análisis analítico extremo, y [OLTP en memoria](sql-database-in-memory.md) para un procesamiento de transacciones extremo. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente.
 
 > [!NOTE]
 > Para obtener un glosario de términos en Azure SQL Database, consulte el [glosario de términos para SQL Database](sql-database-glossary-terms.md).
@@ -105,7 +105,7 @@ El contrato de nivel de servicio [(SLA)](https://azure.microsoft.com/support/leg
 
 - **[Copias de seguridad automáticas](sql-database-automated-backups.md)**:
 
-  SQL Database realiza automáticamente copias de seguridad de registros de transacciones completas y diferenciales de las bases de datos SQL de Azure para permitirle hacer una restauración en cualquier momento dado. En el caso de las bases de datos únicas y las bases de datos agrupadas, puede configurar SQL Database para almacenar copias de seguridad de bases de datos completas en el almacenamiento de Azure para la retención de copias de seguridad a largo plazo. Para las instancias administradas, también puede realizar copias de seguridad solo de copia para la retención de copias de seguridad a largo plazo.
+  SQL Database realiza automáticamente copias de seguridad de registros de transacciones completas y diferenciales de las bases de datos SQL de Azure para permitirle hacer una restauración a cualquier momento dado. En el caso de las bases de datos únicas y las bases de datos agrupadas, puede configurar SQL Database para almacenar copias de seguridad de bases de datos completas en el almacenamiento de Azure para la retención de copias de seguridad a largo plazo. Para las instancias administradas, también puede realizar copias de seguridad solo de copia para la retención de copias de seguridad a largo plazo.
 
 - **[Restauraciones a un momento dado](sql-database-recovery-using-backups.md)**:
 
