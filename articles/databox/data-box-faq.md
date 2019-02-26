@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077462"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268403"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -70,7 +70,7 @@ A.  Para obtener Azure Data Box, inicie sesión en Azure Portal y cree un pedido
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>P: No pude hacer un pedido de Data Box en Azure Portal. ¿Por qué?
 A. Si no pudo pedir Data Box, es que hay un problema con su tipo de suscripción o con el acceso. 
 
-Compruebe su suscripción. Data Box solo está disponible para Contratos Enterprise (EA), el Proveedor de soluciones en la nube (CSP) o las ofertas de suscripción de pago por uso. Si su suscripción no se encuentra entre ninguno de los tipos anteriores, póngase en contacto con el soporte técnico de Microsoft para actualizar la suscripción.
+Compruebe su suscripción. Data Box solo está disponible para las ofertas de suscripción de Contratos Enterprise (EA) y del Proveedor de soluciones en la nube (CSP). Si su suscripción no se encuentra entre ninguno de los tipos anteriores, póngase en contacto con el soporte técnico de Microsoft para actualizar la suscripción.
 
 Si tiene un tipo de oferta compatible para la suscripción, compruebe el nivel de acceso de la suscripción. Debe ser un colaborador o propietario de la suscripción para poder realizar un pedido.
 

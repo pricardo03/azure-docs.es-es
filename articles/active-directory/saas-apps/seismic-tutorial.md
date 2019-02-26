@@ -1,34 +1,33 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Capriza Platform | Microsoft Docs'
-description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Capriza Platform.
+title: 'Tutorial: Integración de Azure Active Directory con Seismic | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Seismic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: aaaaaaaaaaaaaaaaaaaaa
+ms.assetid: 56014c05-e37f-4f85-bcfa-5115dda2d678
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9fe36b70fb39d0ccdc6d0bd065b1caa80f7e18
+ms.openlocfilehash: f2fbca8a87044efc9e9b625247fd0f1271892e96
 ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309597"
+ms.locfileid: "56318996"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Tutorial: Integración de Azure Active Directory con Capriza Platform
+# <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Tutorial: Integración de Azure Active Directory con Seismic
 
-En este tutorial, obtendrá información sobre cómo integrar Capriza Platform con Azure Active Directory (Azure AD).
-La integración de Capriza Platform con Azure AD proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar Seismic con Azure Active Directory (Azure AD).
+La integración de Seismic con Azure AD le proporciona las siguientes ventajas:
 
-* En Azure AD puede controlar quién tiene acceso a Capriza Platform.
-* Puede permitir que los usuarios inicien sesión automáticamente en Capriza Platform (inicio de sesión único) con su cuenta de Azure AD.
+* En Azure AD se puede controlar quién tiene acceso a Seismic.
+* Puede permitir que los usuarios inicien sesión automáticamente en Seismic (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,23 +35,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Capriza Platform, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Seismic, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción que permita el inicio de sesión único en Capriza Platform
+* Una suscripción habilitada para el inicio de sesión único en Seismic
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Capriza Platform admite el inicio de sesión único iniciado por **SP**
-* Capriza Platform admite el aprovisionamiento de usuarios **Just-In-Time**
+* Seismic admite el inicio de sesión único iniciado por **SP**
 
-## <a name="adding-capriza-platform-from-the-gallery"></a>Incorporación de Capriza Platform desde la galería
+## <a name="adding-seismic-from-the-gallery"></a>Incorporación de Seismic desde la galería
 
-Para configurar la integración de Capriza Platform en Azure AD, deberá agregar Capriza Platform desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de Seismic en Azure AD, deberá agregar Seismic desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Capriza Platform desde la galería, realice los pasos siguientes:**
+**Para agregar Seismic desde la galería, realice los siguientes pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -66,31 +64,31 @@ Para configurar la integración de Capriza Platform en Azure AD, deberá agregar
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Platform**, seleccione **Capriza Platform** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Seismic**, seleccione **Seismic** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Capriza Platform en la lista de resultados](common/search-new-app.png)
+     ![Seismic en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Capriza Platform con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Capriza Platform.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Seismic con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Seismic.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Capriza Platform, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Seismic, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Capriza Platform](#configure-capriza-platform-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en Seismic](#configure-seismic-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Capriza Platform](#create-capriza-platform-test-user)**: para tener un homólogo de Britta Simon en Capriza Platform que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Seismic](#create-seismic-test-user)**: para tener un homólogo de Britta Simon en Seismic vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Capriza Platform, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con Seismic, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Capriza Platform**, seleccione **Inicio de sesión único**.
+1. En la página de integración de la aplicación [Seismic](https://portal.azure.com/) de **Azure Portal**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -104,18 +102,20 @@ Para configurar el inicio de sesión único de Azure AD con Capriza Platform, re
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Capriza Platform](common/sp-signonurl.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Seismic](common/sp-identifier.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.capriza.com/<tenantid>`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com`
+
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.seismic.com`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de Capriza Platform](mailto:support@capriza.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico para clientes de Seismic](mailto:support@seismic.com) para obtener estos valores. También puede cargar los **metadatos del proveedor de servicios** para que se rellene automáticamente el valor del identificador. Para más información sobre los **metadatos del proveedor de servicios**, póngase en contacto con el [equipo de soporte técnico para clientes de Seismic](mailto:support@seismic.com).
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Configuración de Capriza Platform**, copie las direcciones URL que necesite.
+6. En la sección **Set up Seismic** (Configurar Seismic), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -125,9 +125,9 @@ Para configurar el inicio de sesión único de Azure AD con Capriza Platform, re
 
     c. URL de cierre de sesión
 
-### <a name="configure-capriza-platform-single-sign-on"></a>Configuración del inicio de sesión único en Capriza Platform
+### <a name="configure-seismic-single-sign-on"></a>Configuración del inicio de sesión único en Seismic
 
-Para configurar el inicio de sesión único en **Platform**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Capriza Platform](mailto:support@capriza.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Seismic**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de Seismic](mailto:support@seismic.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -156,15 +156,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Capriza Platform.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Seismic.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Capriza Platform**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Seismic**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Capriza Platform**.
+2. En la lista de aplicaciones, seleccione **Seismic**.
 
-    ![Vínculo a Capriza Platform en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a Seismic en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -180,17 +180,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-capriza-platform-test-user"></a>Creación de un usuario de prueba de Capriza Platform
+### <a name="create-seismic-test-user"></a>Creación del usuario de prueba de Seismic
 
-El objetivo de esta sección es crear un usuario llamado Britta Simon en Capriza. Capriza admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. **Asegúrese de que el nombre de dominio está configurado con Capriza Platform para el aprovisionamiento de usuarios. Después de eso solo el aprovisionamiento de usuarios Just-In-Time funcionará.**
-
-No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Capriza se creará un nuevo usuario, en caso de que no exista.
+En esta sección, creará un usuario llamado Britta Simon en Seismic. Colabore con el  [equipo de soporte técnico de Seismic](mailto:support@seismic.com) para agregar usuarios en la plataforma Seismic. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Capriza Platform del panel de acceso, debería iniciar sesión automáticamente en la aplicación Capriza Platform para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Seismic en el panel de acceso, debería iniciar sesión automáticamente en la versión de Seismic para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -3,40 +3,40 @@ title: ¿Qué es Azure Custom Vision?
 titlesuffix: Azure Cognitive Services
 description: Aprenda a usar Custom Vision Service para crear clasificadores personalizados de imágenes en la nube de Azure.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 01/10/2019
-ms.author: anroth
-ms.openlocfilehash: cc60166b4105cf38d3c1f73bdb558af7a9a7c831
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 6cbc6e351147ed5b4c31463b5cf319417f34da34
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857488"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456782"
 ---
 # <a name="what-is-azure-custom-vision"></a>¿Qué es Azure Custom Vision?
 
-La API de Azure Custom Vision es un servicio de Azure Cognitive Services que le permite crear, implementar y mejorar clasificadores personalizados de imágenes. Un clasificador de imágenes es un servicio de IA que clasifica las imágenes en clases (etiquetas) de acuerdo con ciertas características. A diferencia de [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) Service, Custom Vision le permite crear sus propias clasificaciones.
+Azure Custom Vision es un servicio cognitivo que permite crear, implementar y mejorar los clasificadores de imágenes propios. Un clasificador de imágenes es un servicio de inteligencia artificial que aplica etiquetas (que representan _clases_) a las imágenes, en función de sus características visuales. A diferencia del servicio [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), Custom Vision permite determinar las etiquetas que se van a aplicar.
 
 ## <a name="what-it-does"></a>Qué hace
 
-Custom Vision Service usa un algoritmo de aprendizaje automático para clasificar las imágenes. Como desarrollador debe enviar los grupos de imágenes que presenten y carezcan de las clasificaciones en cuestión. Especifique las etiquetas correctas de las imágenes en el momento del envío. Luego, el algoritmo se entrena en estos datos y calcula su propia precisión probándose a sí mismo en esos mismos datos. Cuando se entrena el modelo, puede probarlo, volver a entrenarlo y finalmente usarlo para clasificar nuevas imágenes en función de las necesidades de la aplicación. También puede exportar el mismo modelo para su uso sin conexión.
+Custom Vision Service usa un algoritmo de aprendizaje automático para aplicar etiquetas a las imágenes. El desarrollador debe enviar los grupos de imágenes que presenten y carezcan de las características en cuestión. Las imágenes las etiqueta el propio usuario en el momento del envío. Luego, el algoritmo se entrena con estos datos y calcula su propia precisión probándose a sí mismo en esas mismas imágenes. Una vez que el algoritmo se ha entrenado, puede probarlo, volver a entrenarlo y, por último, usarlo para clasificar las imágenes nuevas en función de las necesidades de la aplicación. También puede exportar el mismo modelo para su uso sin conexión.
 
-### <a name="classification-and-object-detection"></a>Clasificación y detección de objetos
+## <a name="classification-and-object-detection"></a>Clasificación y detección de objetos
 
-La funcionalidad de Custom Vision puede dividirse en dos características. **Clasificación de imágenes**: asigna una distribución de las clasificaciones a cada imagen. Se admiten tanto los modelos de clasificación de varias clases (una etiqueta por imagen) como de varias etiquetas (un número cualquiera de etiquetas por imagen). La **detección de objetos** es similar a la clasificación de varias etiquetas, pero también devuelve las coordenadas de la imagen donde se pueden encontrar las etiquetas aplicadas.
+La funcionalidad de Custom Vision puede dividirse en dos características. La **clasificación de las imágenes** aplica una o varias etiquetas a una imagen. La **detección de objetos** es similar, pero también devuelve las coordenadas de la imagen donde pueden encontrarse las etiquetas aplicadas.
 
-### <a name="optimization"></a>Optimización
+## <a name="optimization"></a>Optimización
 
-En general, los métodos que Custom Vision Service se concentran en las diferencias, lo que permite comenzar la creación de prototipos con tan pocos datos. 50 imágenes por etiqueta suelen ser un buen comienzo. Esto significa, sin embargo, que el servicio no es óptimo para detectar diferencias sutiles en las imágenes (por ejemplo, detectar grietas menores o abolladuras en escenarios de control de calidad).
+El servicio Custom Vision está optimizado para reconocer rápidamente las principales diferencias entre imágenes. Esto permite iniciar la creación de prototipos de un modelo con una pequeña cantidad de datos. Cincuenta imágenes por etiqueta suele ser un buen comienzo. Esto significa, sin embargo, que el servicio no es óptimo para detectar diferencias sutiles en las imágenes (por ejemplo, detectar grietas menores o abolladuras en escenarios de control de calidad).
 
-Además, puede elegir entre diversas variedades del algoritmo de Custom Vision que están optimizadas para cierto material temático&mdash;, por ejemplo, puntos de referencia o artículos de venta. Para más información, consulte la guía [Compilación de un clasificador](getting-started-build-a-classifier.md).
+Además, puede elegir entre distintas variedades del algoritmo de Custom Vision que están optimizadas para imágenes con cierto material temático&mdash;, por ejemplo, puntos de referencia o artículos en venta. Para más información, consulte la guía [Compilación de un clasificador](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>Qué incluye
-Custom Vision Service está disponible como un conjunto de SDK nativos, así como mediante una interfaz basada en web en la [página principal de Custom Vision](https://customvision.ai/). Puede crear, probar y entrenar un modelo mediante una de las interfaces, o ambas.
+Custom Vision Service está disponible como un conjunto de SDK nativos, así como mediante una interfaz basada en web en la [página principal de Custom Vision](https://customvision.ai/). Puede crear, probar y entrenar un modelo mediante cualquiera de las interfaces, o usar ambas.
 
 ![Página principal de Custom Vision en una ventana del explorador Chrome](media/browser-home.png)
 
@@ -46,4 +46,4 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga la guía para [crear un clasificador](getting-started-build-a-classifier.md) para empezar a usar Custom Vision en la web o complete un [tutorial de clasificación de imágenes](csharp-tutorial.md) para implementar el escenario en el código.
+Siga la guía para [crear un clasificador](getting-started-build-a-classifier.md) para empezar a usar Custom Vision en la web, o bien complete un [tutorial de clasificación de imágenes](csharp-tutorial.md) para implementar el escenario básico en el código.

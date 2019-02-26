@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194945"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integración de Azure Active Directory con Workplace by Facebook
 
@@ -143,31 +143,38 @@ Para configurar el inicio de sesión único de Azure AD con Workplace by Faceboo
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de empresa de Workplace by Facebook como administrador.
   
-   > [!NOTE]
-   > Como parte del proceso de autenticación SAML, es posible que Workplace use cadenas de consulta de hasta 2,5 kilobytes de tamaño para pasar parámetros a Azure AD.
+    > [!NOTE]
+    > Como parte del proceso de autenticación SAML, es posible que Workplace use cadenas de consulta de hasta 2,5 kilobytes de tamaño para pasar parámetros a Azure AD.
 
-2. En el **panel de administración**, vaya a la pestaña **Seguridad** y, a continuación, a **Autenticación**.
+2. En el **panel de administración**, vaya a la pestaña **Seguridad**.
 
-3. En **Autenticación SAML**, seleccione **Solo SSO** en la lista desplegable.
+    ![Panel de administración](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Escriba los valores copiados de la sección **Configuración de Workplace by Facebook** de Azure Portal en los campos correspondientes:
+3. En la pestaña **Autenticación**, seleccione **Inicio de sesión único (SSO)** y realice los pasos siguientes:
 
-    * En el cuadro de texto **Dirección URL de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
-    * En el cuadro de texto **SAML Issuer URL** (Dirección URL del emisor de SAML), pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
-    * En el cuadro de texto **Logout URL SAML** (Dirección URL de cierre de sesión de SAML), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
-    * Abra el **certificado codificado en Base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado SAML**.
+    ![Pestaña Autenticación](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. Es posible que sea necesario escribir la dirección URL del público, la dirección URL del destinatario y la dirección URL de ACS (Servicio de consumidor de aserciones) que aparecen en la sección **Configuración básica de SAML**.
+     a. En el cuadro de texto **Dirección URL de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-6. Desplácese hasta la parte inferior de la sección y haga clic en el botón **Probar SSO**. Como resultado aparece una ventana emergente en la que se muestra la página de inicio de sesión de Azure AD. Escriba las credenciales de la forma habitual para autenticarse.
+    b. En el cuadro de texto **SAML Issuer URI** (URI del emisor de SAML), pegue el valor del **identificador de Azure AD** que ha copiado de Azure Portal.
+
+    c. En el cuadro de texto **Logout URL SAML** (Dirección URL de cierre de sesión de SAML), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
+
+    d. Abra el **certificado codificado en Base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado SAML**.
+
+    e. Copie el valor de **Audience URL** (URL de público) de su instancia y péguela en el cuadro de texto  **Identifier (Entity ID)** [Identificador (Id. de entidad)] de la sección  **Configuración de SAML básica**  de Azure Portal.
+
+    f. Copie el valor de **Recipient URL** (URL de destinatario) y péguelo en el cuadro de texto  **URL de inicio de sesión** de la sección  **Configuración básica de SAML**  en Azure Portal.
+
+    g. Desplácese hasta la parte inferior de la sección y haga clic en el botón **Probar SSO**. Como resultado aparece una ventana emergente en la que se muestra la página de inicio de sesión de Azure AD. Escriba las credenciales de la forma habitual para autenticarse.
 
     **Solución de problemas:** Asegúrese de que la dirección de correo electrónico que se devuelve desde Azure AD es la misma que la cuenta de Workplace con la que ha iniciado sesión.
 
-7. Una vez que la prueba se ha realizado correctamente, desplácese hasta la parte inferior de la página y haga clic en el botón **Guardar**.
+    h. Una vez que la prueba se ha realizado correctamente, desplácese hasta la parte inferior de la página y haga clic en el botón **Guardar**.
 
-8. Ahora se presentará a todos los usuarios de Workplace la página de inicio de sesión de Azure AD para la autenticación.
+    i. Ahora se presentará a todos los usuarios de Workplace la página de inicio de sesión de Azure AD para la autenticación.
 
-9. **Redirigir el cierre de sesión de SAML (opcional)** -
+4. **Redirigir el cierre de sesión de SAML (opcional)** -
 
     Puede optar por configurar una dirección URL de cierre de sesión de SAML que puede usarse para apuntar a la página de cierre de sesión de Azure AD. Si esta opción está habilitada y configurada, ya no se dirige al usuario a la página de cierre de sesión de Workplace, sino que se le redirige a la dirección URL agregada en la opción Redirigir el cierre de sesión de SAML.
 

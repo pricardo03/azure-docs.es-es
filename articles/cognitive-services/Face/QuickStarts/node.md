@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858882"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312777"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Node.js
 
@@ -26,12 +26,21 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>Creación del script de Node.js
+## <a name="set-up-the-node-environment"></a>Configuración del entorno de nodo
 
-El código siguiente llamará a Face API para obtener los datos de los atributos de las caras de una imagen. En primer lugar, copie el código en un editor de texto; deberá realizar algunos cambios antes de su ejecución.
+Vaya a la carpeta donde desea crear el proyecto y cree un nuevo archivo, *facedetection.js*. A continuación, instale el módulo `requests`para este proyecto. De este modo, permite que los scripts realicen solicitudes HTTP.
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>Escritura del script de Node.js
+
+Pegue el siguiente código en el archivo *facedetection.js*. Estos campos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). Es posible que desee cambiar el campo `imageUrl` para que apunte a su propia imagen de entrada.
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+Después, agregue el código siguiente para llamar a Face API y obtener los datos de los atributos de una imagen de entrada. El campo `returnFaceAttributes` especifica qué atributos de cara recuperar. Es posible que desee cambiar esta cadena según su uso previsto.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>Subscription key
-Reemplace `<Subscription Key>` por una clave de suscripción de Face API válida.
-
-### <a name="face-endpoint-url"></a>Dirección URL del punto de conexión de Face
-
-La dirección URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica el punto de conexión de Azure Face para las consultas. Deberá cambiar la primera parte de esta dirección URL para que coincida con la región que corresponde a la clave de suscripción (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones).
-
-### <a name="url-query-string"></a>Cadena de consulta de URL
-
-El campo `returnFaceAttributes` especifica qué atributos de cara recuperar. Es posible que desee cambiar esta cadena según su uso previsto.
-
-### <a name="image-source-url"></a>Dirección URL del origen de la imagen
-El campo `imageUrl` indica la imagen que se usará como entrada. Puede cambiarlo para apuntar a cualquier imagen que desee analizar.
-
 ## <a name="save-and-run-the-script"></a>Guardado y ejecución del script
 
-Una vez realizados los cambios, guarde el archivo como un script de JavaScript (.js). A continuación, abra un símbolo del sistema y ejecútelo con el comando `node`.
+Una vez realizados los cambios, abra un símbolo del sistema y ejecute el archivo con el comando `node`.
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 Debería ver la información de la cara mostrada como datos JSON en la ventana de la consola. Por ejemplo: 
@@ -281,7 +281,7 @@ Debería ver la información de la cara mostrada como datos JSON en la ventana d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha escrito un comando de cURL que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
+En este inicio rápido, ha escrito un script de Node.js que llama a Azure Face API para detectar caras en una imagen y devolver sus atributos. A continuación, explore la documentación de referencia de Face API para más información.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

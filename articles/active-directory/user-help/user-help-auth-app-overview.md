@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217452"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301186"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>¿Qué es la aplicación Microsoft Authenticator?
 La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos fases. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
@@ -59,11 +59,11 @@ Si usa un PIN para completar el proceso de autenticación, puede configurar la a
 ## <a name="who-decides-if-you-use-this-feature"></a>¿Quién decide si usa esta característica?
 En función del tipo de cuenta, la organización puede decidir que se debe usar una comprobación en dos fases o el usuario puede decidir por sí mismo si se usa o no.
 
-- **Cuenta profesional o educativa.** Si se usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la organización es la que decide si se debe usar una comprobación en dos fases, junto con los métodos de comprobación concretos. Para más información acerca de cómo agregar una cuenta profesional o educativa a la aplicación Microsoft Authenticator, consulte [Adición de una cuenta profesional o educativa](microsoft-authenticator-app-add-work-account.md).
+- **Cuenta profesional o educativa.** Si se usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la organización es la que decide si se debe usar una comprobación en dos fases, junto con los métodos de comprobación concretos. Para más información acerca de cómo agregar una cuenta profesional o educativa a la aplicación Microsoft Authenticator, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
 
-- **Cuenta personal de Microsoft.** Se puede elegir configurar una comprobación en dos fases para las cuentas personales de Microsoft (por ejemplo, alain@outlook.com). Para más información acerca de cómo agregar una cuenta Microsoft personal, consulte 
+- **Cuenta personal de Microsoft.** Se puede elegir configurar una comprobación en dos fases para las cuentas personales de Microsoft (por ejemplo, alain@outlook.com). Para más información acerca de cómo agregar una cuenta Microsoft personal, consulte [Adición de cuentas personales de Microsoft](user-help-auth-app-add-personal-ms-account.md).
 
-- **Cuenta que no es de Microsoft.** Puede elegir configurar una verificación en dos pasos para sus cuentas que no sean de Microsoft (por ejemplo, alain@gmail.com). Es posible que las cuentas que no sean de Microsoft no usen el término comprobación en dos fases, pero la característica debería encontrarse dentro de la configuración de **Seguridad** o **Inicio de sesión**. La aplicación Microsoft Authenticator funciona con todas las cuentas compatibles con los estándares TOTP.
+- **Cuenta que no es de Microsoft.** Puede elegir configurar una verificación en dos pasos para sus cuentas que no sean de Microsoft (por ejemplo, alain@gmail.com). Es posible que las cuentas que no sean de Microsoft no usen el término comprobación en dos fases, pero la característica debería encontrarse dentro de la configuración de **Seguridad** o **Inicio de sesión**. La aplicación Microsoft Authenticator funciona con todas las cuentas compatibles con los estándares TOTP. Para más información acerca de cómo agregar cuentas que no sean de Microsoft, consulte [Adición de cuentas que no sean de Microsoft](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="in-this-section"></a>En esta sección
 
@@ -71,7 +71,8 @@ En función del tipo de cuenta, la organización puede decidir que se debe usar 
 |------|------------|
 |[Descarga e instalación de la aplicación](user-help-auth-app-download-install.md)|Describe dónde y cómo obtener e instalar la aplicación Microsoft Authenticator para dispositivos con Android e iOS.|
 |[Adición de cuentas profesionales o educativas](user-help-auth-app-add-work-school-account.md)|Se describe cómo agregar varias cuentas profesionales o educativas, y personales a la aplicación Microsoft Authenticator.|
-|[Adición de cuentas personales](user-help-auth-app-add-personal-ms-account.md)|Se describe cómo agregar cuentas personales tanto de Microsoft como no de Microsoft a la aplicación Microsoft Authenticator.|
+|[Adición de cuentas personales](user-help-auth-app-add-personal-ms-account.md)|Se describe cómo agregar sus cuentas personales Microsoft a la aplicación Microsoft Authenticator.|
+|[Adición de cuentas que no sean de Microsoft](user-help-auth-app-add-non-ms-account.md)|Describe cómo agregar sus cuentas personales que no sean Microsoft a la aplicación Microsoft Authenticator.|
 |[Adición manual de cuentas](user-help-auth-app-add-account-manual.md)|Se describe cómo agregar manualmente cuentas a la aplicación Microsoft Authenticator si no se puede leer el código QR.|
 |[Inicio de sesión mediante la aplicación](user-help-auth-app-sign-in.md)|Describe cómo iniciar sesión en varias cuentas mediante la aplicación Microsoft Authenticator.|
 |[Credenciales de la cuenta de copia de seguridad y recuperación](user-help-auth-app-backup-recovery.md)| Proporciona información acerca de cómo realizar copias de seguridad y recuperar las credenciales de su cuenta con la aplicación Microsoft Authenticator.|

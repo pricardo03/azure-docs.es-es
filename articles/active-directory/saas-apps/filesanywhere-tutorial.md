@@ -4,272 +4,234 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/17/2017
+ms.topic: tutorial
+ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54cbcb19e400f08e1e1d8e97afaa2e2e1cff133c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 847f9b4fbed247665768e7f6869a3be9cf2f2f48
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205841"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integración de Azure Active Directory con FilesAnywhere
 
 En este tutorial, aprenderá a integrar FilesAnywhere con Azure Active Directory (Azure AD).
-
 La integración de FilesAnywhere con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a FilesAnywhere
-- Puede permitir que los usuarios inicien sesión automáticamente en FilesAnywhere (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
+* En Azure AD, puede controlar quién tiene acceso a FilesAnywhere.
+* Puede permitir que los usuarios inicien sesión automáticamente en FilesAnywhere (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con FilesAnywhere, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en FilesAnywhere
-
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción que permita el inicio de sesión único en FilesAnywhere
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Agregar FilesAnywhere desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
+* FilesAnywhere admite el inicio de sesión único iniciado tanto por **SP** como por **IDP**.
+
+* FilesAnywhere admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-filesanywhere-from-the-gallery"></a>Agregar FilesAnywhere desde la galería
+
 Para configurar la integración de FilesAnywhere en Azure AD, será preciso que agregue FilesAnywhere desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar FilesAnywhere desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **FilesAnywhere**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_search.png)
+4. En el cuadro de búsqueda, escriba **FilesAnywhere**, seleccione **FilesAnywhere** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **FilesAnywhere** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+     ![FilesAnywhere en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con FilesAnywhere con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de FilesAnywhere para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de FilesAnywhere.
-
-Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en FilesAnywhere.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con FilesAnywhere con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de FilesAnywhere.
 
 Para configurar y probar el inicio de sesión único de Azure AD con FilesAnywhere, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba para FilesAnywhere](#creating-a-filesanywhere-test-user)**: para tener un homólogo de Britta Simon en FilesAnywhere que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de FilesAnywhere](#configure-filesanywhere-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba para FilesAnywhere](#create-filesanywhere-test-user)**: para tener un homólogo de Britta Simon en FilesAnywhere que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación FilesAnywhere.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con FilesAnywhere, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con FilesAnywhere, realice los pasos siguientes:
 
-1. En el Portal de administración de Azure, en la página de integración de la aplicación **FilesAnywhere**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **FilesAnywhere**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de FilesAnywhere**, si quiere configurar la aplicación en **modo iniciado por ID**:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_filesanywhere_url.png)
-    
-     a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`.
-> [!NOTE]
-> Tenga en cuenta que el valor **215** de **clientid** es simplemente un ejemplo. Es necesario reemplazarlo con el valor de clientid real.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-1. En la sección **Dominio y direcciones URL de FilesAnywhere**, si quiere configurar la aplicación en **modo iniciado por SP**, realice los siguientes pasos:
-    
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_filesanywhere_url1.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-     a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
+4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
 
-    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.filesanywhere.com/`.
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de FilesAnywhere](common/both-replyurl.png)
 
-    > [!NOTE] 
-    > Tenga en cuenta que estos no son valores reales. Tendrá que actualizar estos valores con la dirección URL de inicio de sesión y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de FilesAnywhere](mailto:support@FilesAnywhere.com) para obtener estos valores. 
+    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
-1. La aplicación FilesAnywhere espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
-    
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_filesanywhere_attribute.png)
-    
-    Cuando los usuarios se suscriben con FilesAnywhere obtienen el valor del atributo **clientid** del equipo de [FilesAnywhere](mailto:support@FilesAnywhere.com). Tendrá que agregar el atributo "Client Id" con el valor único proporcionado por FilesAnywhere. Todos estos atributos mostrados anteriormente son obligatorios.
-    > [!NOTE] 
-    > Tenga en cuenta que el valor **2331** de **clientid** es simplemente un ejemplo. Debe proporcionar el valor real.
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de FilesAnywhere](common/both-signonurl.png)
 
-1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
-    
-    | Nombre del atributo | Valor de atributo |
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.filesanywhere.com/`
+
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de FilesAnywhere](mailto:support@FilesAnywhere.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+
+6. La aplicación FilesAnywhere espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono Editar para agregar los atributos.
+
+    ![imagen](common/edit-attribute.png)
+
+    Cuando los usuarios se suscriben con FilesAnywhere obtienen el valor del atributo **clientid** del equipo de [FilesAnywhere](mailto:support@FilesAnywhere.com). Tendrá que agregar el atributo "Client Id" con el valor único proporcionado por FilesAnywhere.
+
+7. Además de lo anterior, la aplicación FilesAnywhere espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
+
+    | NOMBRE | Atributo de origen|
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 
-     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_04.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_05.png)
-    
+    ![imagen](common/new-attribute-details.png)
+
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-    
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
-    
-    d. Haga clic en **Aceptar**.
 
-1. Haga clic en el botón **Guardar** .
+    c. Deje **Espacio de nombres** en blanco.
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_general_400.png)
+    d. Seleccione **Atributo** como origen.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_certificate.png) 
+    f. Haga clic en **Aceptar**.
 
-1. En la sección **Configuración de FilesAnywhere**, haga clic en **Configurar FilesAnywhere** para abrir la ventana **Configurar inicio de sesión**.
+    g. Haga clic en **Save**(Guardar).
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_configure.png) 
+8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1.  Para completar la configuración de SSO para su aplicación en FilesAnywhere, póngase en contacto con el [equipo de soporte técnico de FilesAnywhere](mailto:support@FilesAnywhere.com) y proporcióneles el certificado de firma de tokens SAML descargado y la dirección URL de inicio de sesión único.
+9. En la sección **Set up FilesAnywhere** (Configurar FilesAnywhere), copie las direcciones URL adecuadas según sus necesidades.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-![Creación de un usuario de Azure AD][100]
+    a. URL de inicio de sesión
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    b. Identificador de Azure AD
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en el icono de **Azure Active Directory**.
+    c. URL de cierre de sesión
 
-    ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/create_aaduser_01.png) 
+### <a name="configure-filesanywhere-single-sign-on"></a>Configuración del inicio de sesión único de FilesAnywhere
 
-1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/create_aaduser_02.png) 
+Para configurar el inicio de sesión único en **FilesAnywhere**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de FilesAnywhere](mailto:support@FilesAnywhere.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/create_aaduser_03.png) 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/create_aaduser_04.png) 
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    d. Haga clic en **Create**(Crear). 
+    ![Botón Nuevo usuario](common/new-user.png)
 
+3. En las propiedades Usuario, siga estos pasos.
 
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-### <a name="creating-a-filesanywhere-test-user"></a>Creación de un usuario de prueba para FilesAnywhere
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-La aplicación admite el aprovisionamiento de usuarios Just-In-Time y, tras la autenticación, los usuarios se crearán automáticamente en la aplicación. 
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
+    d. Haga clic en **Create**(Crear).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a FilesAnywhere.
 
-![Asignar usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **FilesAnywhere**.
 
-**Para asignar Britta Simon a FilesAnywhere, siga estos pasos:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. A continuación, haga clic en **All applications** (Todas las aplicaciones).
+2. En la lista de aplicaciones, seleccione **FilesAnywhere**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo de FilesAnywhere en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **FilesAnywhere**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_app.png) 
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][202] 
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Asignar usuario][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-filesanywhere-test-user"></a>Creación de un usuario de prueba para FilesAnywhere
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+En esta sección, se crea un usuario llamado Britta Simon en FilesAnywhere. FilesAnywhere admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en FilesAnywhere, se crea uno después de la autenticación.
 
-
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de FilesAnywhere en el panel de acceso, debería iniciar sesión automáticamente en la aplicación FilesAnywhere.
-
+Al hacer clic en el icono de FilesAnywhere en el panel de acceso, debería iniciar sesión automáticamente en la versión de FilesAnywhere para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/FilesAnywhere-tutorial/tutorial_general_01.png
-[2]: ./media/FilesAnywhere-tutorial/tutorial_general_02.png
-[3]: ./media/FilesAnywhere-tutorial/tutorial_general_03.png
-[4]: ./media/FilesAnywhere-tutorial/tutorial_general_04.png
-
-[100]: ./media/FilesAnywhere-tutorial/tutorial_general_100.png
-
-[200]: ./media/FilesAnywhere-tutorial/tutorial_general_200.png
-[201]: ./media/FilesAnywhere-tutorial/tutorial_general_201.png
-[202]: ./media/FilesAnywhere-tutorial/tutorial_general_202.png
-[203]: ./media/FilesAnywhere-tutorial/tutorial_general_203.png

@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875678"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268930"
 ---
 # <a name="what-is-bing-autosuggest"></a>¿Qué es Bing Autosuggest?
 
-Si envía consultas a cualquier Bing Search API, puede usar Bing Autosuggest API para mejorar su experiencia con el cuadro de búsqueda. Bing Autosuggest API devuelve una lista de consultas sugeridas basadas en la cadena de consulta parcial que el usuario escribe en el cuadro de búsqueda. Visualice las sugerencias en la lista desplegable del cuadro de búsqueda. Los términos sugeridos se basan en las consultas sugeridas que otros usuarios han buscado y la intención del usuario.
+Si una aplicación envía consultas a cualquier Bing Search API, puede usar Bing Autosuggest API para mejorar su experiencia de búsqueda. Bing Autosuggest API devuelve una lista de consultas sugeridas según la cadena de consulta parcial del cuadro de búsqueda. Como los caracteres se escriben en el cuadro de búsqueda, puede mostrar sugerencias en una lista desplegable.
 
-Por lo general, se llama a esta API cada vez que el usuario escribe un carácter nuevo en el cuadro de búsqueda. La integridad de la cadena de consulta afecta a la relevancia de los términos de la consulta sugeridos que devuelve la API. Cuanto más completa sea la cadena de consulta, más apropiada será la lista de términos de consulta sugeridos. Por ejemplo, las sugerencias que puede devolver la API para *s* es probable que tengan menos relevancia que las consultas que devuelve para *veleros*.
+## <a name="bing-autosuggest-api-features"></a>Características de Bing Autosuggest API
 
-## <a name="getting-suggested-search-terms"></a>Obtención de términos de búsqueda sugeridos
+| Característica                                                                                                                                                                                 | DESCRIPCIÓN                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Sugerencia de términos de búsqueda en tiempo real](concepts/get-suggestions.md) | Mejore su experiencia con las aplicaciones mediante Autosuggest API para mostrar términos de búsqueda sugeridos a medida que se escriben. |
 
-En el ejemplo siguiente se muestra una solicitud que devuelve las cadenas de consulta sugeridas para *navegar*. Recuerde codificar como dirección URL el término de consulta parcial del usuario al establecer el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query). Por ejemplo, si el usuario escribe *sailing les*, establezca `q` en `sailing+les` o `sailing%20les`.
+## <a name="workflow"></a>Flujo de trabajo
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+Bing Autosuggest API es un servicio web RESTful, fácil de llamar desde cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
-La respuesta siguiente contiene una lista de objetos [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) que contienen los términos de consulta sugeridos.
+1. Cree una [cuenta de API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con acceso a Bing Search APIs. Si no tiene una suscripción de Azure, puede [crear una cuenta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
+2. Envíe una solicitud a esta API cada vez que un usuario escriba un carácter en el cuadro de búsqueda de la aplicación.
+3. Analice el mensaje JSON devuelto para procesar la respuesta de API.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+Generalmente, llamaría a esta API cada vez que un usuario escriba un carácter en el cuadro de búsqueda de la aplicación. A medida que se escriben más caracteres, la API devolverá las consultas de búsqueda sugeridas más relevantes. Por ejemplo, las sugerencias que la API podría devolver para un único `s` suelen ser menos pertinentes que para `sail`.
 
-Cada sugerencia incluye un campo `displayText`, `query` y `url`. El campo `displayText` contiene la consulta sugerida que usa para rellenar la lista desplegable del cuadro de búsqueda. Debe mostrar todas las sugerencias que incluye la respuesta, y en el orden especificado.
-
-A continuación se muestra un ejemplo de cuadro de búsqueda desplegable con términos de consulta sugeridos.
+El ejemplo siguiente muestra un cuadro de búsqueda desplegable con los términos de consulta sugeridos de Bing Autosuggest API.
 
 ![Lista del cuadro de búsqueda desplegable de AutoSuggest](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Si el usuario selecciona una consulta sugerida en la lista desplegable, puede usar la cadena de consulta del campo `query` para llamar a [Bing Web Search API](../bing-web-search/search-the-web.md) y ver los resultados por sí mismo. O bien, puede usar la dirección URL del campo `url` para enviar al usuario a la página de resultados de la búsqueda de Bing.
-
-## <a name="throttling-requests"></a>Solicitudes de limitación
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+Cuando un usuario selecciona una sugerencia en la lista desplegable, puede usarla para comenzar la búsqueda con una de las Bing Search APIs o ir directamente a la página de resultados de búsqueda de Bing.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

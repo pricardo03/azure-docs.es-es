@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: b3ad10c62d393e2508d3ea04f0e49d3ffbf184cd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886380"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267502"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
-Application Insights es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o J2EE, hospedadas localmente, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
+Application Insights es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
 
 [Eche un vistazo a la animación de introducción](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -46,7 +46,7 @@ Application Insights está dirigido al equipo de desarrollo y sirve ayudarle a c
 
 * **Tasas de solicitud, tiempos de respuesta y tasas de error** - Averigüe qué páginas que son las más conocidas, en qué momento del día y dónde están los usuarios. Vea qué páginas presentan mejor rendimiento. Si los tiempos de respuesta y las tasas de error aumentan cuando hay más solicitudes, quizás tiene un problema de recursos. 
 * **Tasas de dependencia, tiempos de respuesta y tasa de error** - Averigüe si los servicios externos le ralentizan.
-* **Excepciones** - Analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
+* **Excepciones**: - Analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
 * **Vistas de página y rendimiento de carga** - Notificados por los exploradores de los usuarios.
 * **Llamadas AJAX** desde páginas web - Tasas, tiempos de respuesta y tasas de error.
 * **Número de usuarios y sesiones**.
@@ -107,7 +107,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
 * **En tiempo de ejecución: instrumente su aplicación web en el servidor.**  Evita toda actualización del código. Se necesita acceso de administrador al servidor.
   * [**IIS local o en una máquina virtual**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Máquina virtual o aplicación web de Azure**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**J2EE**](../../azure-monitor/app/java-live.md)
+  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **En tiempo de desarrollo: agregue Application Insights al código.**  Le permite escribir datos de telemetría personalizados e instrumentalizar las aplicaciones de back-end y de escritorio.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013, actualización 2 o superior.
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -122,7 +122,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
 Comience en el tiempo de ejecución con:
 
 * [Servidor IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Servidor de J2EE](../../azure-monitor/app/java-live.md)
+* [Servidor Java EE](../../azure-monitor/app/java-live.md)
 
 Comience en el tiempo de desarrollo con:
 

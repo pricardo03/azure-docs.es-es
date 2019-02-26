@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con FreshGrade | Microsoft Azure'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FreshGrade.
+title: 'Tutorial: Integración de Azure Active Directory con OU Campus | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OU Campus.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
+ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 66dc029348c66e9204aaeea5f6a9f0ebf89c8bbb
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 51ce72e16aff23341bca9b593e5551d6ad5c8544
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456629"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344261"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integración de Azure Active Directory con FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutorial: Integración de Azure Active Directory con OU Campus
 
-En este tutorial, aprenderá cómo integrar FreshGrade con Azure Active Directory (Azure AD).
-La integración de FreshGrade con Azure AD proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar OU Campus con Azure Active Directory (Azure AD).
+La integración de OU Campus con Azure AD proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a FreshGrade.
-* Puede permitir que los usuarios inicien sesión automáticamente en FreshGrade (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a OU Campus.
+* Puede permitir que los usuarios inicien sesión automáticamente en OU Campus (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con FreshGrade, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con OU Campus, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para inicio de sesión único en FreshGrade
+* Una suscripción habilitada para el inicio de sesión único en OU Campus
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* FreshGrade admite el inicio de sesión único iniciado por **SP**
+* OU Campus admite el inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-freshgrade-from-the-gallery"></a>Incorporación de FreshGrade desde la galería
+## <a name="adding-ou-campus-from-the-gallery"></a>Incorporación de OU Campus desde la galería
 
-Para configurar la integración de FreshGrade en Azure AD, deberá agregar FreshGrade desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de OU Campus en Azure AD, debe agregar OU Campus desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar FreshGrade desde la galería, siga estos pasos:**
+**Para agregar OU Campus desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -64,31 +64,31 @@ Para configurar la integración de FreshGrade en Azure AD, deberá agregar Fresh
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **FreshGrade**, seleccione **FreshGrade** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **OU Campus**, seleccione **OU Campus** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![FreshGrade en la lista de resultados](common/search-new-app.png)
+     ![OU Campus en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con FreshGrade con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de FreshGrade.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con OU Campus con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de OU Campus.
 
-Para configurar y probar el inicio de sesión único de Azure AD con FreshGrade, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con OU Campus, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en FreshGrade](#configure-freshgrade-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en OU Campus](#configure-ou-campus-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en FreshGrade](#create-freshgrade-test-user)**: para tener un homólogo de Britta Simon en FreshGrade que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de OU Campus](#create-ou-campus-test-user)**: para tener un homólogo de Britta Simon en OU Campus que esté vinculado a la representación de ella en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con FreshGrade, siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con OU Campus, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **FreshGrade**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **OU Campus**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -100,32 +100,32 @@ Para configurar el inicio de sesión único de Azure AD con FreshGrade, siga est
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de FreshGrade](common/sp-identifier.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de OU Campus](common/sp-intiated.png)
 
-      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-      | |
-      |--|
-      | `https://<subdomain>.freshgrade.com/login` |
-      | `https://<subdomain>.onboarding.freshgrade.com/login` |
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://a.cms.omniupdate.com/<Instance Name>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con los siguientes patrones:
-      | |
-      |--|
-      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
-      | `https://login.freshgrade.com:443/saml/metadata/alias/<instancename>` |
+    > [!Note]
+    > Este valor no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de OU Campus](mailto:support@omniupdate.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    > [!NOTE]
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de clientes de FreshGrade](mailto:support@freshgrade.com) . También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+6. En la sección **Set up OU Campus** (Configurar OU Campus), copie las direcciones URL adecuadas según sus necesidades.
 
-### <a name="configure-freshgrade-single-sign-on"></a>Configuración del inicio de sesión único en FreshGrade
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-Para configurar el inicio de sesión único en **FreshGrade**, es preciso enviar la **dirección URL de metadatos de aplicación** al [equipo de soporte técnico de FreshGrade](mailto:support@freshgrade.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-ou-campus-single-sign-on"></a>Configuración del inicio de sesión único en OU Campus
+
+Para configurar el inicio de sesión único en **OU Campus**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de OU Campus](mailto:support@omniupdate.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -154,15 +154,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a FreshGrade.
+En esta sección, concederá acceso a Britta Simon a OU Campus para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **FreshGrade**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **OU Campus**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **FreshGrade**.
+2. En la lista de aplicaciones, seleccione **OU Campus**.
 
-    ![Vínculo a FreshGrade en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a OU Campus en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -178,15 +178,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-freshgrade-test-user"></a>Creación de un usuario de prueba en FreshGrade
+### <a name="create-ou-campus-test-user"></a>Creación de un usuario de prueba de OU Campus
 
-En esta sección, creará un usuario llamado Britta Simon en FreshGrade. Colabore con el  [equipo de soporte técnico de FreshGrade](mailto:support@freshgrade.com) para agregar usuarios a la plataforma de FreshGrade. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en OU Campus. Trabaje con el  [equipo de soporte técnico de OU Campus](mailto:support@omniupdate.com) para agregar los usuarios a la plataforma de OU Campus. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de FreshGrade en el Panel de acceso, debería iniciar sesión automáticamente en la versión de FreshGrade para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de OU Campus en el Panel de acceso, debería iniciar sesión automáticamente en la versión de OU Campus para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

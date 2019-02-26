@@ -8,47 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860397"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313167"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y PHP
 
-En esta guía de inicio rápido se detectan los rostros de personas en una imagen mediante Face API.
+En esta guía de inicio rápido, usará la API de REST de Azure Face con PHP para detectar caras humanas en una imagen.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita una clave de suscripción para ejecutar el ejemplo. Puede obtener las claves de la suscripción de evaluación gratuita en la página de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una clave de suscripción de Face API. Puede obtener una clave de la suscripción de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). O bien, siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse al servicio Face API y obtener la clave.
+- Un editor de código como [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Solicitud Face - Detect
+## <a name="initialize-the-html-file"></a>Inicialización del archivo HTML
 
-Use el método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detectar los rostros en una imagen y devolver atributos de la cara, como:
+Cree un nuevo archivo HTML, *detectFaces.html*, y agregue el código siguiente.
 
-* Id. de rostro: identificador único que se usa en varios escenarios de Face API.
-* Rectángulo facial: las indicaciones de ubicación (izquierda, parte superior, ancho y alto) del rostro en la imagen.
-* Puntos de referencia: matriz de 27 puntos faciales de referencia de las posiciones importantes de los componentes del rostro.
-* Atributos faciales como la edad, el sexo, la intensidad de la sonrisa, la postura de la cabeza y el vello facial.
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-Para ejecutar el ejemplo, siga estos pasos:
+## <a name="write-the-php-script"></a>Escritura del script PHP
 
-1. Copie el código siguiente en un editor.
-1. Reemplace `<Subscription Key>` por una clave de suscripción válida.
-1. Si es necesario, cambie `uriBase` para usar la ubicación donde obtuvo las claves de suscripción.
-1. También puede establecer `imageUrl` en la imagen que quiere analizar.
-1. Guarde el archivo con la extensión `.php`.
-1. Abra el archivo en una ventana del explorador con compatibilidad con PHP.
+Agregue el siguiente código dentro del elemento `body` del documento. De este modo, se configura una interfaz de usuario básica con un campo de dirección URL, un botón **Analizar cara**, un panel de respuesta y un panel de información de la imagen.
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -102,13 +97,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>Respuesta de Face - Detect
+Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). El campo `returnFaceAttributes` especifica qué atributos de cara recuperar; puede ser conveniente cambiar esta cadena según su uso previsto.
 
-Se devuelve una respuesta correcta en código JSON, por ejemplo:
+## <a name="run-the-script"></a>Ejecute el script
+
+Abra el archivo en un explorador web compatible con PHP. Debe obtener una cadena JSON de datos de cara, similar a la siguiente.
 
 ```json
 [

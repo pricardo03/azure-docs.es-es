@@ -4,204 +4,221 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d389a9675f7d4de56a03026c0d392b9988f6b0da
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa1771366efba82fc00886581dac77295e68f9f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201693"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integración de Azure Active Directory con Central Desktop
 
 En este tutorial, obtendrá información sobre cómo integrar Central Desktop con Azure Active Directory (Azure AD).
-
 Integrar Central Desktop con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Central Desktop.
-- Puede permitir que los usuarios inicien sesión automáticamente en Central Desktop con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Central Desktop.
+* Puede permitir que los usuarios inicien sesión automáticamente en Central Desktop (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para obtener más detalles sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Central Desktop, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción a Central Desktop con el inicio de sesión único habilitado
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, siga estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si todavía no dispone de un entorno de evaluación gratuita de Azure AD, [obtenga una evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción a Central Desktop con el inicio de sesión único habilitado
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Central Desktop desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-## <a name="add-central-desktop-from-the-gallery"></a>Agregar Central Desktop desde la galería
+* Central Desktop admite inicio de sesión único iniciado por **SP**
+
+## <a name="adding-central-desktop-from-the-gallery"></a>Adición de Central Desktop desde la galería
+
 Para configurar la integración de Central Desktop en Azure AD, deberá agregar Central Desktop desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Central Desktop desde la galería, realice los pasos siguientes:**
+**Para agregar Central Desktop desde la galería, realice los siguientes pasos:**
 
-1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), seleccione el icono **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar nuevas aplicaciones, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Central Desktop**. En el panel de resultados, seleccione **Central Desktop** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Central Desktop en la lista de resultados](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **Central Desktop**, seleccione **Central Desktop** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+
+     ![Central Desktop en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Central Desktop con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Central Desktop para un usuario de Azure AD. Es decir, es necesario establecer un vínculo entre un usuario de Azure AD y el usuario relacionado de Central Desktop.
-
-En Central Desktop, asigne a **Nombre de usuario** el mismo valor definido en **nombre de usuario** en Azure AD. Ahora ya ha establecido el vínculo entre los dos usuarios.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Central Desktop con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Central Desktop.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Central Desktop, es preciso completar los siguientes bloques de creación:
 
-1. [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on), para permitir que los usuarios utilicen esta característica.
-1. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. [Creación de un usuario de prueba de Central Desktop](#create-a-central-desktop-test-user): para tener un homólogo de Britta Simon en Central Desktop que esté vinculado a su representación en Azure AD.
-1. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. [Prueba del inicio de sesión único](#test-single-sign-on) para comprobar que la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Central Desktop](#configure-central-desktop-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba de Central Desktop](#create-central-desktop-test-user)**: para tener un homólogo de Britta Simon en Central Desktop vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Central Desktop.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Central Desktop, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con Central Desktop, siga estos pasos:
 
-1. En la página de integración de la aplicación **Central Desktop** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En la página de integración de la aplicación [Central Desktop](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en la lista desplegable **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Central Desktop**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información acerca del inicio de sesión único de dominio y direcciones URL de Central Desktop](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.centraldesktop.com`
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro **Identificador**, escriba una dirección URL con el siguiente patrón:
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información acerca del inicio de sesión único de dominio y direcciones URL de Central Desktop](common/sp-identifier-reply.png)
+
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.centraldesktop.com`
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
+    | |
 
-    c. En el cuadro **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
-     
-    > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador, la URL de respuesta y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de asistencia al cliente de Central Desktop](https://imeetcentral.com/contact-us) para obtener estos valores. 
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.centraldesktop.com/saml2-assertion.php`
 
-1. En la sección **Certificado de firma de SAML**, seleccione **Certificado**. A continuación, guarde el archivo de certificado en el equipo.
+    > [!NOTE]
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Central Desktop](https://imeetcentral.com/contact-us) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Vínculo de descarga del certificado](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-1. Seleccione el botón **Guardar**.
+    ![Vínculo de descarga del certificado](common/certificateraw.png)
 
-    ![Botón Guardar de configuración de inicio de sesión único](./media/central-desktop-tutorial/tutorial_general_400.png)
-    
-1. En la sección **Configuración de Central Desktop**, seleccione **Configurar Central Desktop** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+6. En la sección **Set up Central Desktop** (Configurar Central Desktop), copie las direcciones URL que necesite.
 
-    ![Configuración de Central Desktop](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-central-desktop-single-sign-on"></a>Configuración del inicio de sesión único en Central Desktop
 
 1. Inicie sesión en su inquilino de **Central Desktop**.
 
-1. Vaya a **Configuración**. Seleccione **Avanzado** y, a continuación, seleccione **Inicio de sesión único**.
+2. Vaya a **Configuración**. Seleccione **Avanzado** y, a continuación, seleccione **Inicio de sesión único**.
 
     ![Programa de instalación: avanzado](./media/central-desktop-tutorial/ic769563.png "Programa de instalación: avanzado")
 
-1. En la página **Configuración de inicio de sesión único**, siga estos pasos:
+3. En la página **Configuración de inicio de sesión único**, siga estos pasos:
 
     ![Configuración de inicio de sesión único ](./media/central-desktop-tutorial/ic769564.png "Configuración de inicio de sesión único")
-    
+
      a. Seleccione **Enable SAML v2 Single Sign On**(Habilitar inicio de sesión único de SAML).
-    
-    b. En el cuadro **SSO URL** (URL de SSO), pegue el **Identificador de entidad de SAML** que copió de Azure Portal.
-    
-    c. En el cuadro **SSO Login URL** (URL de inicio de sesión de SSO), pegue la dirección **URL de servicio de inicio de sesión único de SAML** que copió de Azure Portal.
-    
-    d. En el cuadro **SSO Logout URL** (URL de cierre de sesión de SSO), pegue la dirección **URL de cierre de sesión** que copió de Azure Portal.
 
-1. En la sección **Message Signature Verification Method** (Método de autenticación de firma de mensaje), realice los pasos siguientes:
+    b. En el cuadro **SSO URL** (URL de SSO), pegue el **Identificador de Azure AD** que copió de Azure Portal.
 
-    ![Método de autenticación de firma de mensaje](./media/central-desktop-tutorial/ic769565.png "Método de autenticación de firma de mensaje") a. Seleccione **Certificado**.
+    c. En el cuadro **SSO Login URL** (URL de inicio de sesión de SSO), pegue la **Dirección URL de inicio de sesión** que copió de Azure Portal.
+
+    d. En el cuadro **SSO Logout URL** (URL de cierre de sesión de SSO), pegue la **Dirección URL de cierre de sesión** que copió de Azure Portal.
+
+4. En la sección **Message Signature Verification Method** (Método de autenticación de firma de mensaje), realice los pasos siguientes:
+
+    ![Método de autenticación de firma de mensaje](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
     
+     a. Seleccione **Certificado**.
+
     b. En la lista **SSO Certificate** (Certificado de SSO), seleccione **RSH SHA256**.
-    
-    c. Abra el certificado descargado en el Bloc de notas. A continuación, copie el contenido del certificado y péguelo en el campo **SSO Certificate** (Certificado de SSO).
-        
-    d. Seleccione **Mostrar un vínculo a la página de inicio de sesión SAMLv2**.
-    
-    e. Seleccione **Actualizar**.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación. Después de agregar esta aplicación desde la sección **Active Directory** > **Aplicaciones empresariales**, seleccione la pestaña **Inicio de sesión único** y, a continuación, acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada en la [documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+    c. Abra el certificado descargado en el Bloc de notas. A continuación, copie el contenido del certificado y péguelo en el campo **SSO Certificate** (Certificado de SSO).
+
+    d. Seleccione **Mostrar un vínculo a la página de inicio de sesión SAMLv2**.
+
+    e. Seleccione **Actualizar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, seleccione el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/central-desktop-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos**. Después, seleccione **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/central-desktop-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, seleccione **Agregar** para abrir el cuadro de diálogo **Usuario**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/central-desktop-tutorial/create_aaduser_03.png)
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-1. En el cuadro de diálogo **Usuario**, realice los pasos siguientes:
+    d. Haga clic en **Create**(Crear).
 
-    ![Cuadro de diálogo Usuario](./media/central-desktop-tutorial/create_aaduser_04.png)
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Central Desktop.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Central Desktop**.
 
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    d. Seleccione **Crear**.
- 
-### <a name="create-a-central-desktop-test-user"></a>Crear un usuario de prueba de Central Desktop
+2. En la lista de aplicaciones, seleccione **Central Desktop**.
+
+    ![Vínculo a Central Desktop en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-central-desktop-test-user"></a>Creación del usuario de prueba de Central Desktop
 
 Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse en la aplicación Central Desktop. En esta sección se describe cómo crear cuentas de usuario de Azure AD en Central Desktop.
 
@@ -212,78 +229,31 @@ Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse e
 
 1. Inicie sesión en su inquilino de Central Desktop.
 
-1. Vaya a **Contactos**  > **Internal Members** (Miembros internos).
-
-1. Seleccione **Add Internal Members** (Agregar miembros internos).
+2. Seleccione **People** (Personas) y **Add Internal Members** (Agregar miembros internos).
 
     ![Personas](./media/central-desktop-tutorial/ic781051.png "Personas")
-    
-1. En el cuadro de texto **Email Address of New Members** (Dirección de correo electrónico de nuevos miembros), escriba una cuenta de Azure AD que quiera aprovisionar y luego haga clic en **Siguiente**.
+
+3. En el cuadro de texto **Email Address of New Members** (Dirección de correo electrónico de nuevos miembros), escriba una cuenta de Azure AD que quiera aprovisionar y luego haga clic en **Siguiente**.
 
     ![Dirección de correo electrónico de nuevos miembros](./media/central-desktop-tutorial/ic781052.png "Dirección de correo electrónico de nuevos miembros")
 
-1. Seleccione **Add Internal Members** (Agregar miembros internos).
+4. Seleccione **Add Internal Members** (Agregar miembros internos).
 
     ![Agregar miembros internos](./media/central-desktop-tutorial/ic781053.png "Agregar miembros internos")
-   
-   >[!NOTE]
-   >Los usuarios que se agregan reciben un correo electrónico que incluye un vínculo de confirmación para activar sus cuentas.
-   
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+  
+   > [!NOTE]
+   > Los usuarios que se agregan reciben un correo electrónico que incluye un vínculo de confirmación para activar sus cuentas.
 
-En esta sección, va a conceder acceso al usuario Britta Simon a Central Desktop para que use el inicio de sesión único de Azure.
-
-![Asignación de rol de usuario][200] 
-
-**Para asignar a Britta Simon a Central Desktop, realice los pasos siguientes:**
-
-1. En Azure Portal, abra la vista de aplicaciones. Vaya a la vista de directorio y, a continuación, a **Aplicaciones empresariales**.
-
-1. Seleccione **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **Central Desktop**.
-
-    ![Vínculo a Central Desktop en la lista de aplicaciones](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
-
-1. En el menú de la izquierda, seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"][202]
-
-1. Seleccione el botón **Agregar**. Después, seleccione **Usuarios y grupos**, en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista **Usuarios**.
-
-1. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
-
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-    
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Central Desktop en el panel de acceso, iniciará sesión automáticamente en la aplicación Central Desktop.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Central Desktop en el panel de acceso, debería iniciar sesión automáticamente en la versión de Central Desktop para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/central-desktop-tutorial/tutorial_general_01.png
-[2]: ./media/central-desktop-tutorial/tutorial_general_02.png
-[3]: ./media/central-desktop-tutorial/tutorial_general_03.png
-[4]: ./media/central-desktop-tutorial/tutorial_general_04.png
-
-[100]: ./media/central-desktop-tutorial/tutorial_general_100.png
-
-[200]: ./media/central-desktop-tutorial/tutorial_general_200.png
-[201]: ./media/central-desktop-tutorial/tutorial_general_201.png
-[202]: ./media/central-desktop-tutorial/tutorial_general_202.png
-[203]: ./media/central-desktop-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
