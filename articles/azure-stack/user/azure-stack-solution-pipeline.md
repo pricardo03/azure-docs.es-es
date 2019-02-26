@@ -477,7 +477,7 @@ La creación de una canalización de versión es el último paso en el proceso d
 
 Ahora que ha completado las modificaciones a la canalización de versión, es hora de iniciar la implementación. Para ello, cree una versión a partir de la canalización de versión. Una versión se puede crear automáticamente; por ejemplo, el desencadenador de implementación continua se establece en la canalización de versión. Esto significa que al modificar el código fuente se iniciará una nueva compilación y, a partir de ella, una nueva versión. Sin embargo, en esta sección creará una nueva versión manualmente.
 
-1. En la pestaña **Canalización**, abra la desplegable lista **Versión** y elija **Crear versión**.
+1. En la pestaña **Canalización**, abra la lista desplegable **Versión** y elija **Crear versión**.
 
     ![Creación de una versión](media/azure-stack-solution-hybrid-pipeline/200.png)
 
