@@ -95,7 +95,7 @@ Actualmente, solo están disponibles las ofertas gratuita y BYOL (traiga su prop
 
 Azure Marketplace está disponible para clientes de Microsoft Azure en los siguientes países:
 
-Alemania, Arabia Saudí, Argelia, Argentina, Australia, Austria, Baréin, Belarús, Bélgica, Brasil, Bulgaria, Canadá, Chile, Chipre, Colombia, Corea del Sur, Costa Rica, Croacia, Dinamarca, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, ERY de Macedonia, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Filipinas, Finlandia, Francia, Grecia, Guatemala, Hong Kong, Hungría, India, Indonesia, Irlanda, Islandia, Israel, Italia, Japón, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Liechtenstein, Lituania, Luxemburgo, Malasia, Malta, Marruecos, México, Montenegro, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, Puerto Rico, Qatar, Reino Unido, República Checa, República Dominicana, Rumania, Rusia, Serbia, Singapur, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Taiwán, Trinidad y Tobago, Túnez, Turquía, Ucrania, Uruguay, Venezuela.
+Alemania, Arabia Saudí, Argelia, Argentina, Australia, Austria, Baréin, Belarús, Bélgica, Brasil, Bulgaria, Canadá, Chile, Chipre, Colombia, Corea del Sur, Costa Rica, Croacia, Dinamarca, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, ERY de Macedonia, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Filipinas, Finlandia, Francia, Grecia, Guatemala, RAE de Hong Kong, Hungría, India, Indonesia, Irlanda, Islandia, Israel, Italia, Japón, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Liechtenstein, Lituania, Luxemburgo, Malasia, Malta, Marruecos, México, Montenegro, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, Puerto Rico, Qatar, Reino Unido, República Checa, República Dominicana, Rumania, Rusia, Serbia, Singapur, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Taiwán, Trinidad y Tobago, Túnez, Turquía, Ucrania, Uruguay, Venezuela.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Implementación de una solución de Azure Marketplace
 
@@ -160,7 +160,7 @@ Una oferta de suscripción de "Evaluación gratuita" es gratis para siempre.  Un
 
 **¿Es necesario tener registrado un método de pago (por ejemplo, una tarjeta de crédito) para implementar las ofertas del nivel Gratis o BYOL (traiga su propia licencia)?**
 
- No. No se requiere ningún método de pago para implementar las ofertas del nivel Gratis o BYOL. Sin embargo, sí que es necesario para las ofertas de evaluación gratuita. Las publicaciones que incluyen los botones **Obtenerla ahora** o **Evaluación de software gratuita** se implementan en la suscripción de Azure seleccionada.  Estas ofertas se facturan mediante el método de pago registrado en la cuenta seleccionada. Los cargos de uso de Azure se facturan aparte de las licencias de software.
+No. No se requiere ningún método de pago para implementar las ofertas del nivel Gratis o BYOL. Sin embargo, sí que es necesario para las ofertas de evaluación gratuita. Las publicaciones que incluyen los botones **Obtenerla ahora** o **Evaluación de software gratuita** se implementan en la suscripción de Azure seleccionada.  Estas ofertas se facturan mediante el método de pago registrado en la cuenta seleccionada. Los cargos de uso de Azure se facturan aparte de las licencias de software.
 
 **¿Con quién debe ponerse en contacto un cliente indirecto con contrato Enterprise (EA) si desea conocer los precios de ofertas vendidas en Azure Marketplace?**
 
@@ -176,7 +176,7 @@ Algunas ofertas específicas de Azure Marketplace pueden usar créditos de una s
 
 **¿Se aplican descuentos de licencias por volumen a las compras que se realizan en Azure Marketplace?**
 
- No. El anunciante propietario de las soluciones en Azure Marketplace puede establecer los precios.  Los descuentos normales de licencias por volumen de Microsoft no se aplican a las compras de Azure Marketplace.
+No. El anunciante propietario de las soluciones en Azure Marketplace puede establecer los precios.  Los descuentos normales de licencias por volumen de Microsoft no se aplican a las compras de Azure Marketplace.
 
 **¿Cómo se pagan estas suscripciones? ¿Las compras de Azure Marketplace aparecen en la factura de Azure o en una factura aparte?**
 
@@ -489,7 +489,7 @@ Actualmente, solo están disponibles las ofertas gratuita y BYOL (traiga su prop
 
 Azure Marketplace está disponible para clientes de Microsoft Azure en los siguientes países:
 
-Alemania, Arabia Saudí, Argelia, Argentina, Australia, Austria, Baréin, Belarús, Bélgica, Brasil, Bulgaria, Canadá, Chile, Chipre, Colombia, Corea del Sur, Costa Rica, Croacia, Dinamarca, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, ERY de Macedonia, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Filipinas, Finlandia, Francia, Grecia, Guatemala, Hong Kong, Hungría, India, Indonesia, Irlanda, Islandia, Israel, Italia, Japón, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Liechtenstein, Lituania, Luxemburgo, Malasia, Malta, Marruecos, México, Montenegro, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, Puerto Rico, Qatar, Reino Unido, República Checa, República Dominicana, Rumania, Rusia, Serbia, Singapur, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Taiwán, Trinidad y Tobago, Túnez, Turquía, Ucrania, Uruguay, Venezuela.
+Alemania, Arabia Saudí, Argelia, Argentina, Australia, Austria, Baréin, Belarús, Bélgica, Brasil, Bulgaria, Canadá, Chile, Chipre, Colombia, Corea del Sur, Costa Rica, Croacia, Dinamarca, Ecuador, Egipto, El Salvador, Emiratos Árabes Unidos, ERY de Macedonia, Eslovaquia, Eslovenia, España, Estados Unidos, Estonia, Filipinas, Finlandia, Francia, Grecia, Guatemala, RAE de Hong Kong, Hungría, India, Indonesia, Irlanda, Islandia, Israel, Italia, Japón, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Liechtenstein, Lituania, Luxemburgo, Malasia, Malta, Marruecos, México, Montenegro, Nigeria, Noruega, Nueva Zelanda, Omán, Países Bajos, Pakistán, Panamá, Paraguay, Perú, Polonia, Portugal, Puerto Rico, Qatar, Reino Unido, República Checa, República Dominicana, Rumania, Rusia, Serbia, Singapur, Sri Lanka, Sudáfrica, Suecia, Suiza, Tailandia, Taiwán, Trinidad y Tobago, Túnez, Turquía, Ucrania, Uruguay, Venezuela.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Implementación de una solución de Azure Marketplace
 
@@ -528,7 +528,7 @@ Una oferta de suscripción de nivel gratuito es gratis para siempre.  Una oferta
 
 **¿Es necesario tener registrado un método de pago (por ejemplo, una tarjeta de crédito) para implementar las ofertas del nivel Gratis o BYOL (traiga su propia licencia)?**
 
- No. No se requiere ningún método de pago para implementar las ofertas del nivel Gratis o BYOL. Sin embargo, sí que es necesario para las ofertas de evaluación gratuita.
+No. No se requiere ningún método de pago para implementar las ofertas del nivel Gratis o BYOL. Sin embargo, sí que es necesario para las ofertas de evaluación gratuita.
 
 Las publicaciones que incluyen los botones “OBTENERLA AHORA” o “EVALUACIÓN GRATUITA DEL SOFTWARE” se implementan en su suscripción de Azure y se facturan con el método de pago que tenga registrado en su cuenta. Los cargos de uso de Azure se facturan aparte de las licencias de software.
 
@@ -550,7 +550,7 @@ Algunas ofertas específicas de Azure Marketplace pueden usar créditos de una s
 
 **¿Se aplican descuentos de licencias por volumen a las compras que se realizan en Azure Marketplace?**
 
- No. Los proveedores de software independientes propietarios de soluciones en Azure Marketplace pueden establecer el precio. Los descuentos normales de licencias por volumen de Microsoft no se aplican a las compras de Azure Marketplace.
+No. Los proveedores de software independientes propietarios de soluciones en Azure Marketplace pueden establecer el precio. Los descuentos normales de licencias por volumen de Microsoft no se aplican a las compras de Azure Marketplace.
 
 **¿Cómo se pagan estas suscripciones? ¿Las compras de Azure Marketplace aparecen en la factura de Azure o en una factura aparte?**
 
