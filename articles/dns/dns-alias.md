@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 9/25/2018
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092849"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446102"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -25,45 +25,45 @@ Un conjunto de registros de alias se admite para los siguientes tipos de registr
 - CNAME 
 
 > [!NOTE]
-> Los registros de alias de los tipos de registro D o AAAA de Azure Traffic Manager solo se admiten para los tipos de punto de conexión externo. Debe proporcionar la dirección IPv4 o IPv6, según corresponda, para los puntos de conexión externos en Traffic Manager. Lo ideal es usar direcciones IP estáticas para la dirección.
+> Si pretende usar un registro de alias para los tipos de registro A o AAAA para apuntar a un [perfil de Azure Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md), debe asegurarse de que el perfil de Traffic Manager solo tenga [puntos de conexión externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Debe proporcionar la dirección IPv4 o IPv6 para los puntos de conexión externos en Traffic Manager. Lo ideal es usar direcciones IP estáticas.
 
 ## <a name="capabilities"></a>Capacidades
 
-- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros D/AAAA de DNS.** Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
+- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública. El conjunto de registros de DNS es automático si la dirección IP pública cambia o se elimina. Se evitan los registros de DNS pendientes que apuntan a direcciones IP incorrectas.
 
-- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
+- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede crear un conjunto de registros A/AAAA o CNAME y usar los registros de alias para apuntarlo a un perfil de Traffic Manager. Esto resulta especialmente útil si necesita enrutar el tráfico a un vértice de zona, ya que los registros CNAME tradicionales no se admiten para un vértice de zona. Por ejemplo, supongamos que su perfil de Traffic Manager es myprofile.trafficmanager.net y la zona DNS de la empresa es contoso.com. Puede crear un conjunto de registros de alias de tipo A/AAAA para contoso.com (el vértice de zona) y apuntar a myprofile.trafficmanager.net.
 
-   > [!NOTE]
-   > Los registros de alias de los tipos de registro D o AAAA de Traffic Manager solo se admiten para los tipos de punto de conexión externo. Debe proporcionar la dirección IPv4 o IPv6, según corresponda, para los puntos de conexión externos en Traffic Manager. Lo ideal es usar direcciones IP estáticas para la dirección.
-   
-- **Apuntar a otro conjunto de registros DNS dentro de la misma zona.** Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, un conjunto de registros CNAME de DNS puede ser un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no-alias.
+- **Apuntar a otro conjunto de registros de DNS dentro de la misma zona**. Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, un conjunto de registros CNAME de DNS puede ser un alias de otro conjunto de registros CNAME. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
 
 ## <a name="scenarios"></a>Escenarios
+
 Hay algunos escenarios comunes para los registros de alias.
 
 ### <a name="prevent-dangling-dns-records"></a>Impedir que los registros DNS queden pendientes
- Dentro de las zonas de Azure DNS, los registros de alias se pueden usar para realizar un seguimiento estrecho del ciclo de vida de los recursos de Azure. Los recursos incluyen una dirección IP pública o un perfil de Traffic Manager. Un problema común de los registros DNS tradicionales son los registros pendientes. Este problema se produce especialmente con los tipos de registros D/AAAA o CNAME. 
 
-En el caso de un registro de zona DNS tradicional, si la dirección IP de destino o CNAME ya no existen, el registro de la zona DNS no tiene conocimiento de este hecho. Como resultado, el registro debe actualizarse manualmente. En algunas organizaciones, esta actualización manual podría no ocurrir a tiempo. También puede resultar problemático debido a la separación de roles y niveles de permisos asociados.
+Un problema común de los registros DNS tradicionales son los registros pendientes. Por ejemplo, los registros DNS que no se han actualizado para reflejar los cambios en las direcciones IP. El error ocurre especialmente con tipos de registros A/AAAA o CNAME.
 
-Por ejemplo, un rol podría tener autoridad para eliminar una dirección IP o CNAME que pertenezca a una aplicación. Pero no tiene autoridad suficiente para actualizar el registro DNS que apunta a esos destinos. Un retardo de tiempo se produce entre el momento en que se elimina la dirección IP o CNAME, y cuando se quita el registro DNS que apunta a ella. Este retardo de tiempo puede provocar una interrupción del servicio para los usuarios.
+En el caso de un registro de zona DNS tradicional, si la dirección IP de destino o CNAME ya no existen, el registro DNS asociado debe actualizarse manualmente. En algunas organizaciones, puede que una actualización manual no se produzca a tiempo por problemas de proceso o debido a la separación de roles y niveles de permiso asociados. Por ejemplo, un rol podría tener autoridad para eliminar una dirección IP o CNAME que pertenezca a una aplicación. Pero no tiene autoridad suficiente para actualizar el registro DNS que apunta a esos destinos. Un retraso en la actualización del registro DNS puede provocar una interrupción del servicio para los usuarios.
 
-Los registros de alias eliminan la complejidad asociada a este escenario. Ayudan a evitar referencias pendientes. Tomemos, por ejemplo, un registro DNS que se califica como un registro de alias que apunte a una dirección IP pública o a un perfil de Traffic Manager. Si se eliminan los recursos subyacentes, se quita el registro de alias DNS al mismo tiempo. Este proceso garantiza que los usuarios nunca sufran una interrupción del servicio.
+Los registros de alias impiden referencias pendientes mediante un acoplamiento estrecho del ciclo de vida de un registro DNS con un recurso de Azure. Por ejemplo, considere un registro DNS que se califica como un registro de alias que apunte a una dirección IP pública o a un perfil de Traffic Manager. Si se eliminan los recursos subyacentes, se quita el registro de alias DNS al mismo tiempo.
 
-### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Actualización automática de zonas DNS cuando cambian las direcciones IP de la aplicación
+### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Actualización automática del conjunto de registros DNS cuando las direcciones IP de la aplicación cambian
 
-Este escenario es similar al anterior. Puede que una aplicación se mueva o la máquina virtual subyacente se reinicie. Un registro de alias se actualiza entonces automáticamente cuando la dirección IP cambia para el recurso de direcciones IP públicas subyacente. Para evitar posibles riesgos de seguridad, dirija a los usuarios a otra aplicación que tenga la dirección IP antigua.
+Este escenario es similar al anterior. Puede que una aplicación se mueva o la máquina virtual subyacente se reinicie. Un registro de alias se actualiza entonces automáticamente cuando la dirección IP cambia para el recurso de direcciones IP públicas subyacente. Esto evita posibles riesgos de seguridad de dirigir a los usuarios a otra aplicación asignada a la dirección IP pública anterior.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Hospedaje de aplicaciones con equilibrio de carga en el vértice de la zona
 
-El protocolo DNS evita la asignación de cualquier elemento que no sea un registro D o AAAA en el vértice de la zona. Un ejemplo es contoso.com. Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de Traffic Manager. No es posible señalar al perfil de Traffic Manager desde el registro de vértice de zona. Como consecuencia, los propietarios de aplicaciones deben usar una solución alternativa. Un redireccionamiento en la capa de la aplicación debe redirigirse desde el vértice de zona a otro dominio. Un ejemplo es el redireccionamiento de contoso.com a www.contoso.com. Esa organización presenta un único punto de error en cuanto a la función de redireccionamiento.
+El protocolo DNS evita la asignación de registros CNAME en el vértice de zona. Por ejemplo, si el dominio es contoso.com, puede crear registros CNAME para somelable.contoso.com, pero no puede crear CNAME para contoso.com.
+Esta restricción presenta un problema para los propietarios de aplicaciones que tienen aplicaciones con equilibrio de carga detrás de [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Puesto que el uso de un perfil de Traffic Manager requiere la creación de un registro CNAME, no es posible apuntar al perfil de Traffic Manager desde el vértice de zona.
 
-Con los registros de alias, este problema ya no existe. Ahora los propietarios de aplicaciones pueden apuntar su registro de vértice de zona a un perfil de Traffic Manager que tenga puntos de conexión externos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Traffic Manager que se utilice para cualquier otro dominio dentro de su zona DNS. Por ejemplo, contoso.com y www.contoso.com pueden apuntar al mismo perfil de Traffic Manager. Esto ocurre siempre que el perfil de Traffic Manager solo tenga configurados puntos de conexión externos.
+Este problema puede resolverse mediante los registros de alias. A diferencia de los registros CNAME, se pueden crear registros de alias en el vértice de zona y los propietarios de aplicaciones pueden usarlos para apuntar su registro de vértice de zona a un perfil de Traffic Manager que tiene puntos de conexión externos. Los propietarios de aplicaciones pueden apuntar al mismo perfil de Traffic Manager que se utilice para cualquier otro dominio dentro de su zona DNS.
+
+Por ejemplo, contoso.com y www.contoso.com pueden apuntar al mismo perfil de Traffic Manager. Para obtener más información sobre el uso de registros de alias con perfiles de Azure Traffic Manager, consulte la sección Pasos siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los registros de alias, consulte los artículos siguientes:
 
 - [Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure](tutorial-alias-pip.md)
-- [Tutorial: Configuración de un registro de alias de para admitir nombres de dominio de vértice con Traffic Manager](tutorial-alias-tm.md)
+- [Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager](tutorial-alias-tm.md)
 - [Preguntas más frecuentes sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
