@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473833"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408874"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor. Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. La siguiente lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar estas métricas y acceder a ellas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -652,14 +652,52 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
-|---|---|---|---|---|---|
-|MetadataRequests|Solicitudes de metadatos|Recuento|Recuento|Recuento de las solicitudes de metadatos. Cosmos DB mantiene la colección de metadatos del sistema para cada cuenta, lo que le permite enumerar las colecciones, las bases de datos y sus configuraciones de forma gratuita.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Cargo de la solicitud de Mongo|Recuento|Total|Unidades de la solicitud de Mongo consumidas|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Solicitudes de Mongo|Recuento|Recuento|Número de solicitudes de Mongo realizadas|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Unidades de solicitud totales|Recuento|Total|Unidades de solicitud consumidas|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Total de solicitudes|Recuento|Recuento|Número de solicitudes realizadas|DatabaseName, CollectionName, Region, StatusCode|
+### <a name="request-metrics"></a>Solicitud de métricas
 
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Asignación de métricas heredadas | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   Total de solicitudes| Recuento   | Recuento | Número de solicitudes realizadas|  DatabaseName, CollectionName, Region, StatusCode|   Todo |   TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, error interno del servidor, servicio no disponible, solicitudes limitadas, promedio de solicitudes por segundo |    Se usa para supervisar las solicitudes por código de estado, la colección en una granularidad por minuto. Para obtener el promedio de solicitudes por segundo, utilice la agregación Count en un minuto y divida por 60. |
+| MetadataRequests |    Solicitudes de metadatos   |Recuento| Recuento   | Recuento de las solicitudes de metadatos. Azure Cosmos DB mantiene la colección de metadatos del sistema para cada cuenta, lo que le permite enumerar las colecciones, las bases de datos y sus configuraciones de forma gratuita.    | DatabaseName, CollectionName, Region, StatusCode| Todo|  |Se usa para supervisar las limitaciones debido a las solicitudes de metadatos.|
+| MongoRequests |   Solicitudes de Mongo| Recuento | Recuento|  Número de solicitudes de Mongo realizadas   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Todo |Tasa de solicitudes de consultas de Mongo, tasa de solicitudes de actualización de Mongo, tasa de solicitudes de eliminación de Mongo, tasa de solicitudes de inserción de Mongo y tasa de solicitudes de recuento de Mongo|   Se usa para supervisar los errores de solicitud de Mongo y los usos por de comando. |
+
+
+### <a name="request-unit-metrics"></a>Métricas de unidad de solicitud
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Asignación de métricas heredadas | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Cargo de la solicitud de Mongo |  Recuento   |Total  |Unidades de la solicitud de Mongo consumidas|  DatabaseName, CollectionName, Region, CommandName, ErrorCode|   Todo |Cargo de solicitudes de consultas de Mongo, cargo de solicitudes de actualización de Mongo, cargo de solicitudes de eliminación de Mongo, cargo de solicitudes de inserción de Mongo y cargo de solicitudes de recuento de Mongo| Se usa para supervisar las RU de recursos de Mongo en un minuto.|
+| TotalRequestUnits |Unidades de solicitud totales|   Recuento|  Total|  Unidades de solicitud consumidas| DatabaseName, CollectionName, Region, StatusCode    |Todo|   TotalRequestUnits|  Se usa para supervisar el uso de RU total en una granularidad por minuto. Para obtener el promedio de RU consumidas por segundo, utilice la agregación Total en un minuto y divida por 60.|
+| ProvisionedThroughput |Rendimiento aprovisionado|    Recuento|  Máxima |Rendimiento aprovisionado en granularidad de la colección|  DatabaseName, CollectionName|   5M| |   Se usa para supervisar el rendimiento aprovisionado por colección.|
+
+### <a name="storage-metrics"></a>Métricas de almacenamiento
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Asignación de métricas heredadas | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| Almacenamiento disponible   |Bytes| Total|  Almacenamiento total disponible notificado en una granularidad de cinco minutos por región|   DatabaseName, CollectionName, Region|   5M| Almacenamiento disponible|   Se usa para supervisar la capacidad de almacenamiento disponible (aplicable solo para las colecciones de almacenamiento fijo). La granularidad mínima debe ser de cinco minutos.| 
+| DataUsage |Uso de datos |Bytes| Total   |Uso de datos total notificado en una granularidad de cinco minutos por región|    DatabaseName, CollectionName, Region|   5M  |Tamaño de los datos  | Se utiliza para supervisar el uso total de los datos en la colección y la región, la granularidad mínima debe ser cinco minutos.|
+| IndexUsage|   Uso de índice|    Bytes|  Total   |Uso del índice total notificado en una granularidad de cinco minutos por región|    DatabaseName, CollectionName, Region|   5M| Tamaño de índice| Se utiliza para supervisar el uso total de los datos en la colección y la región, la granularidad mínima debe ser cinco minutos. |
+| DocumentQuota|    Cuota de documentos| Bytes|  Total|  Cuota de almacenamiento total notificado en una granularidad de cinco minutos por región. Aplicable a f| DatabaseName, CollectionName, Region|   5M  |Capacidad de almacenamiento|  Se utiliza para supervisar la cuota total en la colección y la región. La granularidad mínima debe ser cinco minutos.|
+| DocumentCount|    Recuento de documentos| Recuento   |Total  |Recuento total de documentos notificado en una granularidad de cinco minutos por región|  DatabaseName, CollectionName, Region|   5M  |Recuento de documentos|Se utiliza para supervisar el recuento de documentos en la colección y la región. La granularidad mínima debe ser cinco minutos.|
+
+### <a name="latency-metrics"></a>Métricas de latencia
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | Latencia de replicación|  MilliSeconds|   Mínima, máxima y promedio | Latencia de replicación P99 entre regiones de origen y destino para la cuenta habilitada geográficamente| SourceRegion, TargetRegion| Todo | Se usa para supervisar la latencia de replicación P99 entre dos regiones cualesquiera para una cuenta replicada geográficamente. |
+
+### <a name="availability-metrics"></a>Métricas de disponibilidad
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Asignación de métricas heredadas | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | Disponibilidad del servicio| Percent |Mínimo y máximo|   Solicitudes de cuenta en una granularidad por hora|  |   1H  | Disponibilidad del servicio  | Se trata del porcentaje de solicitudes pasadas en total. Se considera que una solicitud ha dado error debido a un error del sistema si el código de estado es 410, 500 o 503. Se utiliza para supervisar la disponibilidad de la cuenta en una granularidad por hora. |
+
+### <a name="cassandra-api-metrics"></a>Métricas de Cassandra API
+
+|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones| Granularidades de tiempo| Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Solicitudes de Cassandra |  Recuento|  Recuento|  Número de solicitudes de Cassandra API realizadas|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Todo| Se usa para supervisar las solicitudes de Cassandra en una granularidad por minuto. Para obtener el promedio de solicitudes por segundo, utilice la agregación Count en un minuto y divida por 60.|
+| CassandraRequestCharges|  Cargos de solicitud de Cassandra| Recuento|   Suma, mínimo, máximo y promedio| Unidades de solicitud consumidas por solicitudes de Cassandra API|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Todo| Se usa para supervisar las RU por minuto por una cuenta de Cassandra API.|
+| CassandraConnectionClosures   | Cierres de conexión de Cassandra |Recuento| Recuento   |Número de conexiones de Cassandra cerradas|    ClosureReason, Region|  Todo | Se usa para supervisar la conectividad entre los clientes y Cassandra API de Azure Cosmos DB.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
