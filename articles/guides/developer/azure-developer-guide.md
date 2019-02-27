@@ -144,7 +144,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
     >**Para comenzar**: [implemente un clúster de Container Service](../../container-service/dcos-swarm/container-service-deployment.md).
 
--   **Máquina de Docker**: permite instalar y administrar un motor de Docker en hosts virtuales mediante comandos docker-machine.
+-   **Máquina de Docker**: permite instalar y administrar un motor de Docker en hosts virtuales, usando los comandos docker-machine.
 
     >**Cuándo se debe usar**: cuando sea necesario crear rápidamente un prototipo de una aplicación mediante la creación de un único host de Docker.
 
