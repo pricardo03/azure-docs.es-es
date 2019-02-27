@@ -180,7 +180,7 @@ Cuando la aplicación está lista y funcionando en Azure, debe poder supervisar 
 
     >**Para comenzar**: siga el [tutorial de Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
--   **Azure Monitor**: servicio que ayuda a visualizar, consultar, enrutar, archivar y actuar sobre las métricas y los registros generados por la infraestructura y los recursos de Azure. Monitor proporciona las vistas de datos que se ven en Azure Portal y es un origen único para la supervisión de los recursos de Azure.
+-   **Azure Monitor**: Es un servicio que ayuda a visualizar, consultar, enrutar, archivar y actuar sobre las métricas y los registros generados por la infraestructura y los recursos de Azure. Monitor proporciona las vistas de datos que se ven en Azure Portal y es un origen único para la supervisión de los recursos de Azure.
  
     >**Para comenzar**: [inicie su andadura por Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
