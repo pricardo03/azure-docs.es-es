@@ -343,7 +343,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors**y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recopilar los elementos objectId que se utilizarán en el **cuerpo de la solicitud** para sus propios usuarios, grupos o entidades de servicio.
+1. Ejecute la implementación del plano técnico asignándolo a una suscripción. Como los parámetros **contributors** y **owners** requieren una serie de objectIds de las entidades de servicio para que se les conceda la asignación de roles, utilice [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para recopilar los elementos objectId que se utilizarán en el **cuerpo de la solicitud** para sus propios usuarios, grupos o entidades de servicio.
 
    - URI DE LA API REST
 
