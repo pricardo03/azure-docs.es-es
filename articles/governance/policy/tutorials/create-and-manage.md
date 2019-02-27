@@ -399,7 +399,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Cumplimiento: conforme](../media/create-and-manage/compliance-status-compliant.png)
 
-1. Al hacer clic en cualquier directiva de la página de cumplimiento de a iniciativa se abre la página de detalles de cumplimiento de la directiva. Esta página proporciona los detalles de cumplimiento a nivel de recurso.
+1. Al hacer clic en cualquier directiva de la página de cumplimiento de la iniciativa se abre la página de detalles de cumplimiento de la directiva.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exclusión de un recurso no conforme o denegado mediante Exclusión
 
