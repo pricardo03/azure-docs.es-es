@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994894"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269863"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introducción a las consultas de registro en Azure Monitor
 
@@ -43,7 +43,7 @@ En este tutorial aprenderá a escribir consultas de registro en Azure Monitor. L
 Las consultas pueden comenzar por un nombre de tabla o el comando *search*. Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.
 
 > [!NOTE]
-> El lenguaje de consulta de Data Explorer que usa Azure Monitor distingue entre mayúsculas y minúsculas. Las palabras clave del lenguaje se suelen escribir en minúsculas. Al usar nombres de tablas o columnas en una consulta, asegúrese de usar las mayúsculas y minúsculas correctas, tal como se muestra en el panel de esquema.
+> El lenguaje de consulta de Kusto que usa Azure Monitor distingue entre mayúsculas y minúsculas. Las palabras clave del lenguaje se suelen escribir en minúsculas. Al usar nombres de tablas o columnas en una consulta, asegúrese de usar las mayúsculas y minúsculas correctas, tal como se muestra en el panel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas basadas en tablas
 Azure Monitor organiza los datos de registro en tablas, compuestas de varias columnas. Todas las tablas y columnas se muestran en el panel de esquema en Log Analytics en el portal de Analytics. Identifique una tabla que le interese y observe algunos datos:

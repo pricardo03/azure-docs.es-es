@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 51376661530d5de67e0efeacbcfd0d3a56078511
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117959"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301594"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 
@@ -246,7 +246,7 @@ Además de las funcionalidades de registro anteriores, Network Watcher tiene act
 
 Application Insights está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso.
 
-Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o J2EE, tanto hospedadas localmente como en la nube. Se integra con el proceso de DevOps y tiene puntos de conexión para diversas herramientas de desarrollo.
+Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o Java EE, tanto hospedadas localmente como en la nube. Se integra con el proceso de DevOps y tiene puntos de conexión para diversas herramientas de desarrollo.
 
 ![Diagrama de Application Insights](./media/azure-log-audit/azure-log-audit-fig6.png)
 

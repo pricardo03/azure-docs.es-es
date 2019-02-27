@@ -1,6 +1,6 @@
 ---
-title: Ver registros de actividad de cambios de RBAC en Azure | Microsoft Docs
-description: Vea los registros de actividad de los cambios de control de acceso basado en rol (RBAC) de los últimos 90 días.
+title: Visualización de registros de actividad de cambios de RBAC en recursos de Azure | Microsoft Docs
+description: Vea registros de actividad de los cambios de control de acceso basado en rol (RBAC) en recursos de Azure de los últimos 90 días.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117655"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338825"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Visualización de los registros de actividad de cambios de RBAC
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualización de registros de actividad de cambios de RBAC en recursos de Azure
 
-En ciertas ocasiones, necesitará obtener información acerca de los cambios de control acceso basado en rol (RBAC), por ejemplo, para fines de auditoría y para solucionar problemas. Siempre que un usuario realiza cambios en las definiciones de roles o las asignaciones de roles de las suscripciones, los cambios se registran en el [Registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md). Puede consultar los registros de actividad para ver todos los cambios de RBAC de los últimos 90 días.
+En ciertas ocasiones, necesitará obtener información acerca de los cambios de control acceso basado en rol (RBAC) en recursos de Azure, por ejemplo, para fines de auditoría y para solucionar problemas. Siempre que un usuario realiza cambios en las definiciones de roles o las asignaciones de roles de las suscripciones, los cambios se registran en el [Registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md). Puede consultar los registros de actividad para ver todos los cambios de RBAC de los últimos 90 días.
 
 ## <a name="operations-that-are-logged"></a>Operaciones que se registran
 

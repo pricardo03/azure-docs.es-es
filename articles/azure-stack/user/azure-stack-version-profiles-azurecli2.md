@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765728"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416996"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack
 
@@ -114,7 +114,12 @@ Antes de que pueda crear máquinas virtuales mediante la CLI, debe ponerse en co
 
 Use los pasos siguientes para conectarse a Azure Stack:
 
-1. Registre el entorno de Azure Stack. Para ello, ejecute el comando `az cloud register`.
+1. Registre el entorno de Azure Stack. Para ello, ejecute el comando `az cloud register`. En algunos escenarios, la conectividad directa a internet saliente se enruta mediante un servidor proxy o firewall, que exige la intercepción de SSL. En estos casos, el comando `az cloud register` puede producir un error del tipo "Unable to get endpoints from the cloud" (No se pueden obtener los puntos de conexión de la nube). Para solucionar este error, puede establecer las siguientes variables de entorno:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
      a. Para registrar el entorno *administrativo de nube*, use:
 
@@ -200,7 +205,7 @@ Use los pasos siguientes para conectarse a Azure Stack:
       ```
 
       > [!NOTE]
-      > Si su cuenta de usuario tiene la autenticación multifactor habilitada, puede usar `az login command` sin proporcionar el parámetro `-u`. Al ejecutar este comando, se le proporciona una URL y un código que debe usar para la autenticación.
+      > Si su cuenta de usuario tiene la autenticación multifactor habilitada, puede usar el comando `az login` sin proporcionar el parámetro `-u`. Al ejecutar este comando, se le proporciona una URL y un código que debe usar para la autenticación.
    
       * Inicie sesión como una *entidad de servicio*: Antes de iniciar sesión, [cree una entidad de servicio en Azure Portal](azure-stack-create-service-principals.md) o mediante la CLI y asígnele un rol. Ahora, inicie sesión con el siguiente comando:
 

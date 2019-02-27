@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244494"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327857"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -78,7 +78,7 @@ Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta e
 Las cuentas de almacenamiento de uso general pueden configurarse para cada uno de los niveles de rendimiento siguientes:
 
 * Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure.
-* Un nivel de rendimiento premium para almacenar solo los discos de máquina virtual de Azure. Consulte, [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de Azure Virtual Machines](../../virtual-machines/windows/premium-storage.md) para ver una introducción detallada de Premium Storage.
+* Un nivel de rendimiento prémium para almacenar solo los discos de máquina virtual no administrados.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveles de acceso a datos de blob en bloques
 

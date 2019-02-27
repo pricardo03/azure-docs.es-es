@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000958"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342497"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creación de un índice básico en Azure Search
 
@@ -23,6 +23,32 @@ En Azure Search, un *índice* es un almacén persistente de *documentos* y otras
 Al agregar o cargar un índice, Azure Search crea las estructuras físicas basadas en el esquema que proporciona. Por ejemplo, si un campo del índice está marcado como habilitado para búsquedas, se crea un índice invertido para ese campo. Posteriormente, cuando agrega o carga documentos o cuando envía consultas de búsqueda a Azure Search, está enviando las solicitudes a un índice específico del servicio de búsqueda. La carga de campos con valores de documento se denomina *indexación* o ingesta de datos.
 
 Puede crear un índice en el portal, la [API REST](search-create-index-rest-api.md) o el [SDK de .NET](search-create-index-dotnet.md).
+
+## <a name="recommended-workflow"></a>Flujo de trabajo recomendado
+
+Para llegar al diseño adecuado del índice, se necesitan normalmente varias iteraciones. El uso de una combinación de API y herramientas puede ayudarle a que finalice rápidamente el diseño.
+
+1. Determine si puede usar un [indexador](search-indexer-overview.md#supported-data-sources). Si los datos externos son uno de los orígenes de datos admitidos, puede crear un prototipo y cargar un índice mediante el [**Asistente para importar datos**](search-import-data-portal.md).
+
+2. Si no puede usar dicho asistente, puede [crear un índice inicial en el portal **, y agregar campos y tipos de datos y asignar atributos mediante los controles de la página **Add Index** (Agregar índice). El portal muestra los atributos que están disponibles para diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
+
+   ![Agregar página de índice que muestra atributos por tipo de datos](media/search-create-index-portal/field-attributes.png "Add index page showing attributes by data type")
+  
+   Al hacer clic en **Create** (Crear), se crean todas las estructuras físicas que respaldan el índice en el servicio de búsqueda.
+
+3. Descargue el esquema de índice mediante [la API REST Get Index](https://docs.microsoft.com/rest/api/searchservice/get-index) y una herramienta de prueba web como [Postman](search-fiddler.md). Ahora tiene una representación JSON del índice que creó en el portal. 
+
+   Llegados a este punto, va a cambiar a un enfoque basado en código. El portal no es adecuado para la iteración porque no se puede editar un índice que ya se ha creado. Sin embargo, puede usar Postman y REST en el resto de las tareas.
+
+4. [Cargue el índice con datos](search-what-is-data-import.md). Azure Search acepta documentos JSON. Para cargar los datos mediante programación, puede usar Postman con documentos JSON en la carga de solicitudes. Si los datos no se expresan con facilidad como JSON, este paso será más laborioso.
+
+5. Consulte el índice, examine los resultados y siga recorriendo en iteración el esquema de índice hasta que empiece a ver los resultados esperados. Puede usar el [**explorador de búsqueda**](search-explorer.md) o Postman para consultar el índice.
+
+6. Continúe usando código para recorrer en iteración su diseño.  
+
+Como se crean estructuras físicas en el servicio, cada vez que realiza cambios materiales en una definición de campo existente, es necesario [quitar y volver a crear los índices](search-howto-reindex.md). Esto significa que durante el desarrollo, debe estar preparado para recompilaciones frecuentes. Considere la posibilidad de trabajar con un subconjunto de los datos para asegurarse de que las recompilaciones van más rápido. 
+
+Para un diseño iterativo, se recomienda código, en lugar del portal. Si confía en el portal para la definición del índice, tendrá que rellenar la definición del índice en cada recompilación. Como alternativa, herramientas como [Postman y la API REST](search-fiddler.md) son útiles con pruebas de concepto cuando los proyectos de desarrollo están aún en las fases iniciales. Puede realizar cambios incrementales en una definición de índice de un cuerpo de solicitud y, luego, enviar la solicitud al servicio para volver a crear un índice mediante un esquema actualizado.
 
 ## <a name="components-of-an-index"></a>Componentes de un índice
 
@@ -104,7 +130,10 @@ La [*recopilación de campos*](#fields-collection) es normalmente el elemento m�
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>Recopilación y atribución de campos
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>Recopilación de campos y atributos de campo
+
 Al definir el esquema, debe especificar el nombre, el tipo y los atributos de cada campo del índice. El tipo de campo permite clasificar los datos que se almacenan en ese campo. Los atributos se establecen en campos individuales para especificar cómo se usa el campo. En la tabla siguiente se enumeran los tipos y los atributos que puede especificar.
 
 ### <a name="data-types"></a>Tipos de datos
@@ -116,7 +145,7 @@ Al definir el esquema, debe especificar el nombre, el tipo y los atributos de ca
 | *Edm.Int32* |Valores enteros de 32 bits. |
 | *Edm.Int64* |Valores enteros de 64 bits. |
 | *Edm.Double* |Datos numéricos de precisión doble. |
-| *Edm.DateTimeOffset* |Los valores de hora y fecha se representan con el formato OData V4 (por ejemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Los valores de fecha y hora se representan con el formato OData V4 (por ejemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Un punto que representa una ubicación geográfica en todo el mundo. |
 
 Puede encontrar información más detallada sobre los [tipos de datos de Azure Search admitidos aquí](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
@@ -133,20 +162,35 @@ Puede encontrar información más detallada sobre los [tipos de datos de Azure S
 
 Puede encontrar información más detallada sobre los [atributos de índice de Azure Search aquí](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
+## <a name="storage-implications"></a>Implicaciones del almacenamiento
+
+Los atributos seleccionados tienen un efecto sobre el almacenamiento. La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos.
+
+El índice se basa en el origen de datos [ejemplo de realestate integrado](search-get-started-portal.md), que se puede indexar y consultar en el portal. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo **searchable** y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo **retrievable** y nada más y así sucesivamente.
+
+![Tamaño de índice según la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
+
+Aunque estas variantes de índice son artificiales, se puede hacer referencia a ellas en comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor **retrievable** aumenta el tamaño del índice?  No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí.
+
+Los índices que admiten ordenación y filtrado son en proporción más grandes que aquellos que solo admiten búsqueda de texto completo. El motivo es que la consulta de ordenación y filtrado se realiza por coincidencias exactas, de forma que los documentos se almacenan intactos. En cambio, los campos que permiten búsquedas que admiten búsqueda de texto completo y búsqueda parcial usan índices invertidos, que se rellenan con términos acortados que consumen menos espacio que los documentos completos.
+
+> [!Note]
+> La arquitectura de almacenamiento se considera un detalle de implementación de Azure Search y podría cambiar sin previo aviso. No hay ninguna garantía de que el comportamiento actual se conserve en el futuro.
+
 ## <a name="suggesters"></a>Proveedores de sugerencias
-Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente las cadenas de búsqueda parcial se envían a las sugerencias (API REST de Azure Search Service) mientras el usuario está escribiendo una consulta de búsqueda y la API devuelve un conjunto de frases sugeridas. El proveedor de sugerencias que defina en el índice determina qué campos se utilizan para generar los términos de búsqueda de escritura anticipada. Para más información sobre los detalles de configuración, consulte [Add suggesters](index-add-suggesters.md) (Agregar proveedores de sugerencias).
+Un proveedor de sugerencias es una sección del esquema que define qué campos de un índice se utilizan para admitir consultas con la función Autocompletar o con escritura automática en las búsquedas. Normalmente, las cadenas de búsqueda parcial se envían a las [API REST de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) mientras el usuario escribe una consulta de búsqueda, y la API devuelve un conjunto de frases sugeridas. 
+
+Los campos agregados a un proveedor de sugerencias se usan para compilar los términos de búsqueda de escritura anticipada. Todos los términos de búsqueda se crean durante la indexación y se almacenan por separado. Para más información sobre la creación de una estructura de proveedor de sugerencias, consulte [Incorporación de proveedores de sugerencias](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Perfiles de puntuación
 
-Un perfil de puntuación es una sección del esquema que define comportamientos de puntuación personalizados que permiten influir en los elementos que aparecen más arriba en los resultados de la búsqueda. Los perfiles de puntuación se componen de ponderaciones de campos y de funciones. Para poder utilizarlos, especifique un perfil por nombre en la cadena de consulta.
+Un [perfil de puntuación](index-add-scoring-profiles.md) es una sección del esquema que define comportamientos de puntuación personalizados que permiten influir en los elementos que aparecen más arriba en los resultados de la búsqueda. Los perfiles de puntuación se componen de ponderaciones de campos y de funciones. Para poder utilizarlos, especifique un perfil por nombre en la cadena de consulta.
 
-El perfil de puntuación predeterminada funciona en segundo plano para calcular un resultado de búsqueda para todos los elementos de un conjunto de resultados. Puede usar un perfil de puntuación interno y sin nombre. Como alternativa, configure defaultScoringProfile para que use un perfil personalizado como valor predeterminado, al que se invoca cuando no se especifica un perfil personalizado en la cadena de consulta.
-
-Consulte [Adición de perfiles de puntuación](index-add-scoring-profiles.md) para más información.
+El perfil de puntuación predeterminada funciona en segundo plano para calcular un resultado de búsqueda para todos los elementos de un conjunto de resultados. Puede usar un perfil de puntuación interno y sin nombre. Como alternativa, configure **defaultScoringProfile** para que use un perfil personalizado como valor predeterminado, al que se invoca cuando no se especifica un perfil personalizado en la cadena de consulta.
 
 ## <a name="analyzers"></a>Analizadores
 
-El elemento de analizadores establece el nombre del analizador de idioma que se utilizará para el campo. Para más información acerca del conjunto de valores permitido, consulte [Language analyzers in Azure Search](index-add-language-analyzers.md) (Analizadores de idioma en Azure Search). Esta opción puede utilizarse solo con campos habilitados para la búsqueda y no se puede establecer junto con **searchAnalyzer** ni **indexAnalyzer**. Una vez que se elige el analizador, no se podrá cambiar para el campo.
+El elemento de analizadores establece el nombre del analizador de idioma que se utilizará para el campo. Para más información sobre el intervalo de analizadores disponibles, consulte [Adición de analizadores a un índice de Azure Search](search-analyzers.md). Los analizadores solo pueden usarse con campos de que permiten búsquedas. Una vez que el analizador se asigna a un campo, no se puede cambiar a menos que se vuelva a generar el índice.
 
 ## <a name="cors"></a>CORS
 

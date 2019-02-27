@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077478"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313490"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -35,6 +35,7 @@ Se aplican ciertas limitaciones al implementar grupos de contenedores en una red
 
 * Para implementar grupos de contenedores en una subred, la subred no puede contener otros tipos de recursos. Quite todos los recursos existentes de una subred existente antes de implementar grupos de contenedores en ella o crear una nueva subred.
 * Los grupos de contenedores implementados en una red virtual no admiten actualmente direcciones IP públicas ni etiquetas de nombre DNS.
+* Actualmente no puede usar una [identidad administrada](container-instances-managed-identity.md) en un grupo de contenedores que se implementa en una red virtual.
 * Debido a los recursos de red adicionales implicados, implementar un grupo de contenedores en una red virtual suele ser algo más lento que implementar una instancia de contenedor estándar.
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa

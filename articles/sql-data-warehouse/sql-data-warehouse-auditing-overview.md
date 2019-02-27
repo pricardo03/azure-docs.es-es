@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456228"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342311"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 
@@ -74,10 +74,13 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
     ![Panel de navegación][8]
 
     > [!IMPORTANT]
-    > Los registros de auditoría de nivel de servidor se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
+    > Los registros de auditoría se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
     >
-    > * **Premium Storage** actualmente **no es compatible** con Append Blobs.
-    > * **El almacenamiento en VNet** actualmente **no se admite**.
+    > - Se admiten todos los tipos de almacenamiento (v1, v2 y blob).
+    > - Se admiten todas las configuraciones de replicación de almacenamiento.
+    > - **Premium Storage** actualmente **no se admite**.
+    > - **El almacenamiento en VNet** actualmente **no se admite**.
+    > - **El almacenamiento detrás de un firewall** actualmente **no se admite**.
 
 8. Haga clic en **Save**(Guardar).
 

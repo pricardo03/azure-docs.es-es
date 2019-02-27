@@ -1,6 +1,6 @@
 ---
-title: Roles personalizados en Azure | Microsoft Docs
-description: Obtenga información sobre cómo definir roles personalizados con el control de acceso basado en roles (RBAC) para la administración de acceso específico de recursos en Azure.
+title: Roles personalizados en los recursos de Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear roles personalizados con el control de acceso basado en roles (RBAC) para la administración de acceso específico de recursos de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697142"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339335"
 ---
-# <a name="custom-roles-in-azure"></a>Roles personalizados en Azure
+# <a name="custom-roles-for-azure-resources"></a>Roles personalizados en los recursos de Azure
 
-Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso. Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta 2000 roles personalizados. Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso. Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta 2000 roles personalizados. Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
 
 ## <a name="custom-role-example"></a>Ejemplo de rol personalizado
 
@@ -107,7 +107,7 @@ Al igual que los roles integrados, la propiedad `AssignableScopes` especifica lo
 | Visualización de un rol personalizado | `Microsoft.Authorization/ roleDefinition/read` | Los usuarios que tienen acceso a esta operación en un ámbito pueden ver los roles personalizados que están disponibles para su asignación en ese ámbito. Todos los roles integrados permiten que los roles personalizados estén disponibles para la asignación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de roles personalizados con Azure PowerShell](custom-roles-powershell.md)
-- [Creación de roles personalizados con la CLI de Azure](custom-roles-cli.md)
-- [Descripción de definiciones de roles](role-definitions.md)
-- [Solución de problemas de RBAC en Azure](troubleshooting.md)
+- [Creación de roles personalizados para los recursos de Azure con Azure PowerShell](custom-roles-powershell.md)
+- [Creación de roles personalizados para los recursos de Azure con la CLI de Azure](custom-roles-cli.md)
+- [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md)
+- [Solución de problemas del control de acceso basado en rol para recursos de Azure](troubleshooting.md)

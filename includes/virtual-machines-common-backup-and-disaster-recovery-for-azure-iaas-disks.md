@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638823"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443419"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
 En este artículo se explica cómo planear la copia de seguridad y recuperación ante desastres (DR) de discos y máquinas virtuales (VM) IaaS en Azure. En este documento se tratan los discos administrados y los no administrados.
 
-En primer lugar, hablaremos de las funcionalidades de tolerancia a errores integradas en la plataforma Azure que permite protegerse contra errores locales. Luego, analizaremos los escenarios de desastre que las funcionalidades integradas no cubren completamente. También se muestran varios ejemplos de escenarios de carga de trabajo a los que se pueden aplicar distintas consideraciones sobre copia de seguridad y recuperación ante desastres. Luego se revisan las soluciones posibles para la recuperación ante desastres de discos IaaS. 
+En primer lugar, hablaremos de las funcionalidades de tolerancia a errores integradas en la plataforma Azure que permite protegerse contra errores locales. Luego, analizaremos los escenarios de desastre que las funcionalidades integradas no cubren completamente. También se muestran varios ejemplos de escenarios de carga de trabajo a los que se pueden aplicar distintas consideraciones sobre copia de seguridad y recuperación ante desastres. Luego se revisan las soluciones posibles para la recuperación ante desastres de discos IaaS.
 
 ## <a name="introduction"></a>Introducción
 
-La plataforma Azure usa diversos métodos de redundancia y tolerancia a errores que contribuyen a proteger a los clientes de errores de hardware localizados. Es posible que los errores locales incluyan problemas con una máquina del servidor de Azure Storage en la que se almacena parte de los datos de un disco virtual o errores de una SSD o HDD presente en el servidor. Estos errores de componentes de hardware aislados pueden producirse durante las operaciones normales. 
+La plataforma Azure usa diversos métodos de redundancia y tolerancia a errores que contribuyen a proteger a los clientes de errores de hardware localizados. Es posible que los errores locales incluyan problemas con una máquina del servidor de Azure Storage en la que se almacena parte de los datos de un disco virtual o errores de una SSD o HDD presente en el servidor. Estos errores de componentes de hardware aislados pueden producirse durante las operaciones normales.
 
 La plataforma Azure está diseñada para ser resistente a estos errores. Los desastres de gran envergadura pueden generar errores o inaccesibilidad de muchos servidores de almacenamiento o incluso de un centro de datos completo. Si bien las máquinas virtuales y los discos normalmente están protegidos de errores localizados, es preciso seguir otros pasos para proteger la carga de trabajo de errores catastróficos en toda la región, como un desastre de gran envergadura, que pueden afectar a la máquina virtual y los discos.
 
 Además de la posibilidad de errores de la plataforma, pueden producirse problemas con los datos o la aplicación de un cliente. Por ejemplo, es posible que una versión nueva de la aplicación realice inadvertidamente un cambio en los datos que produzca alguna interrupción. En ese caso, tal vez convenga revertir la aplicación y los datos a una versión anterior que contenga el último buen estado conocido. Para ello, es necesario haber realizado copias de seguridad periódicas.
 
-Para la recuperación ante desastres regional, debe realizar una copia de los discos de máquina virtual IaaS en otra región. 
+Para la recuperación ante desastres regional, debe realizar una copia de los discos de máquina virtual IaaS en otra región.
 
 Antes de examinar las opciones de copia de seguridad y recuperación ante desastres, repasemos algunos métodos disponibles para controlar errores localizados.
 
@@ -47,9 +47,9 @@ Para asegurar que siempre se mantienen tres réplicas, Azure Storage genera auto
 
 Gracias a esta arquitectura, Azure ha ofrecido de manera constante durabilidad de nivel empresarial para discos IaaS, con una [tasa de error anualizada](https://en.wikipedia.org/wiki/Annualized_failure_rate) de cero por cierto líder en el sector.
 
-Los errores de hardware localizados en el host de proceso o en la plataforma de almacenamiento pueden en ocasiones traducirse en falta de disponibilidad temporal de la máquina virtual que está cubierta por el [contrato de nivel de servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) para disponibilidad de la máquina virtual. Azure ofrece también un contrato de nivel de servicio líder del sector para instancias únicas de máquina virtual que usan discos SSD premium de Azure.
+Los errores de hardware localizados en el host de proceso o en la plataforma de almacenamiento pueden en ocasiones traducirse en falta de disponibilidad temporal de la máquina virtual que está cubierta por el [contrato de nivel de servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) para disponibilidad de la máquina virtual. Azure ofrece también un Acuerdo de Nivel de Servicio (SLA) líder del sector para instancias únicas de máquina virtual que usan discos SSD premium de Azure.
 
-Para proteger las cargas de trabajo de aplicación de tiempo de inactividad debido a la falta temporal de disponibilidad de un disco o una máquina virtual, los clientes pueden usar los [conjuntos de disponibilidad](../articles/virtual-machines/windows/manage-availability.md). Dos máquinas virtuales o más de un conjunto de disponibilidad proporcionan redundancia para la aplicación. Azure luego crea estas máquinas virtuales y discos en dominios de error independientes con distintos componentes de alimentación, red y servidor. 
+Para proteger las cargas de trabajo de aplicación de tiempo de inactividad debido a la falta temporal de disponibilidad de un disco o una máquina virtual, los clientes pueden usar los [conjuntos de disponibilidad](../articles/virtual-machines/windows/manage-availability.md). Dos máquinas virtuales o más de un conjunto de disponibilidad proporcionan redundancia para la aplicación. Azure luego crea estas máquinas virtuales y discos en dominios de error independientes con distintos componentes de alimentación, red y servidor.
 
 Debido a estos dominios de error independientes, los errores de hardware localizados normalmente no afectan a varias máquinas virtuales del conjunto al mismo tiempo. Tener dominios de error independientes proporciona alta disponibilidad de la aplicación. Se recomienda usar conjuntos de disponibilidad cuando se requiere alta disponibilidad. La sección siguiente abarca el aspecto de la recuperación ante desastres.
 
@@ -98,11 +98,11 @@ Los problemas de datos de la aplicación IaaS son otra posibilidad. Considere un
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Solución de recuperación ante desastres: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) se usa para copias de seguridad y recuperación ante desastres y funciona tanto con [discos administrados](../articles/virtual-machines/windows/managed-disks-overview.md) como con [discos no administrados](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Puede crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. 
+[Azure Backup](https://azure.microsoft.com/services/backup/) se usa para copias de seguridad y recuperaciones ante desastres y funciona tanto con [discos administrados](../articles/virtual-machines/windows/managed-disks-overview.md) como con discos no administrados. Puede crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad.
 
-Si usa [discos SSD premium](../articles/virtual-machines/windows/premium-storage.md), [discos administrados](../articles/virtual-machines/windows/managed-disks-overview.md) o discos de otros tipos con la opción de [almacenamiento con redundancia local](../articles/storage/common/storage-redundancy-lrs.md), es especialmente importante crear copias de seguridad periódicas de recuperación ante desastres. Azure Backup almacena los datos en el almacén de Recovery Services para su retención a largo plazo. Elija la opción de [almacenamiento con redundancia geográfica](../articles/storage/common/storage-redundancy-grs.md) opción para el almacén de Backup Recovery Services. Esa opción garantiza que las copias de seguridad se repliquen en una región distinta de Azure para su protección contra desastres regionales.
+Si usa [discos SSD premium](../articles/virtual-machines/windows/disks-types.md), [discos administrados](../articles/virtual-machines/windows/managed-disks-overview.md) o discos de otros tipos con la opción de [almacenamiento con redundancia local](../articles/storage/common/storage-redundancy-lrs.md), es especialmente importante crear copias de seguridad periódicas de recuperación ante desastres. Azure Backup almacena los datos en el almacén de Recovery Services para su retención a largo plazo. Elija la opción de [almacenamiento con redundancia geográfica](../articles/storage/common/storage-redundancy-grs.md) opción para el almacén de Backup Recovery Services. Esa opción garantiza que las copias de seguridad se repliquen en una región distinta de Azure para su protección contra desastres regionales.
 
-Con [discos no administrados](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), puede usar el tipo de almacenamiento con redundancia local para discos IaaS, pero asegúrese de que Azure Backup está habilitado con la opción de almacenamiento con redundancia geográfica en el almacén de Recovery Services.
+Con discos no administrados, puede usar el tipo de almacenamiento con redundancia local para discos IaaS, pero asegúrese de que Azure Backup esté habilitado con la opción de almacenamiento con redundancia geográfica en el almacén de Recovery Services.
 
 > [!NOTE]
 > Si usa la opción [almacenamiento con redundancia geográfica](../articles/storage/common/storage-redundancy-grs.md) o [almacenamiento con redundancia geográfica con acceso de lectura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) con los discos no administrados, todavía necesita instantáneas coherentes de copia de seguridad y recuperación ante desastres. Use [Azure Backup](https://azure.microsoft.com/services/backup/) o [instantáneas coherentes](#alternative-solution-consistent-snapshots).
@@ -136,7 +136,7 @@ Para solucionar el problema, Azure Backup ofrece copias de seguridad coherentes 
 
 El servicio Azure Backup inicia el trabajo de copia de seguridad a la hora programada y desencadena la extensión de reserva instalada en la máquina virtual para tomar una instantánea de un momento dado. Esta instantánea se toma en coordinación con el servicio de instantáneas de volumen para obtener una instantánea coherente de los discos de la máquina virtual sin tener que apagarla. La extensión de reserva de la máquina virtual realiza un vaciado de todas las escrituras antes de tomar una instantánea coherente de todos los discos. Después de tomar la instantánea, el servicio Azure Backup transfiere los datos al almacén de Backup. Para que el proceso de copia de seguridad resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
-Para restaurarlos, puede ver las copias de seguridad disponibles a través de Azure Backup y luego iniciar una restauración. Puede crear y restaurar copias de seguridad de Azure a través de [Azure Portal](https://portal.azure.com/), [mediante PowerShell](../articles/backup/backup-azure-vms-automation.md) o mediante la [CLI de Azure](/cli/azure/). 
+Para restaurarlos, puede ver las copias de seguridad disponibles a través de Azure Backup y luego iniciar una restauración. Puede crear y restaurar copias de seguridad de Azure a través de [Azure Portal](https://portal.azure.com/), [mediante PowerShell](../articles/backup/backup-azure-vms-automation.md) o mediante la [CLI de Azure](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Pasos para habilitar una copia de seguridad
 
@@ -166,15 +166,15 @@ Si tiene que reparar o volver a generar una máquina virtual, puede restaurarla 
 
 -   Puede crear otra máquina virtual como una representación de un momento dado de la máquina virtual de copia de seguridad.
 
--   Puede restaurar los discos y luego usar la plantilla de la máquina virtual para personalizar y volver a generar la máquina virtual restaurada. 
+-   Puede restaurar los discos y luego usar la plantilla de la máquina virtual para personalizar y volver a generar la máquina virtual restaurada.
 
 Para más información, consulte las instrucciones para [usar Azure Portal para restaurar máquinas virtuales](../articles/backup/backup-azure-arm-restore-vms.md). En este documento se explican también los pasos concretos para restaurar máquinas virtuales con copia de seguridad en un centro de datos emparejado mediante el almacén de Backup con redundancia geográfica si se produce algún desastre en el centro de datos principal. En ese caso, Azure Backup usa el servicio Compute de la segunda región para crear la máquina virtual restaurada.
 
-También puede usar PowerShell para [restaurar una máquina virtual](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) o para [crear una máquina virtual a partir de discos restaurados](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+También puede usar PowerShell para [crear una máquina virtual a partir de discos restaurados](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Soluciones alternativas: Instantáneas coherentes
 
-Si no puede usar Azure Backup, puede implementar su propio mecanismo de copia de seguridad con instantáneas. Resulta complicado crear las instantáneas coherentes para todos los discos usados que usa una máquina virtual y luego replicar esas instantáneas en otra región. Por esta razón, Azure considera mejor opción usar el servicio Backup que compilar una solución personalizada. 
+Si no puede usar Azure Backup, puede implementar su propio mecanismo de copia de seguridad con instantáneas. Resulta complicado crear las instantáneas coherentes para todos los discos usados que usa una máquina virtual y luego replicar esas instantáneas en otra región. Por esta razón, Azure considera mejor opción usar el servicio Backup que compilar una solución personalizada.
 
 Si usa el almacenamiento con redundancia geográfica con acceso de lectura o el almacenamiento con redundancia geográfica para los discos, las instantáneas se replican automáticamente en un centro de datos secundario. Si se usa el almacenamiento con redundancia local para los discos, el usuario debe replicar los datos por sí mismo. Para más información, consulte [Copias de seguridad de discos de máquinas virtuales de Azure no administrados con instantáneas incrementales](../articles/virtual-machines/windows/incremental-snapshots.md).
 
@@ -216,7 +216,7 @@ La creación de las instantáneas por sí sola puede no ser suficiente para la r
 
 Si usa el almacenamiento con redundancia geográfica o el almacenamiento con redundancia geográfica con acceso de lectura para los discos, las instantáneas se replican automáticamente en la región secundaria. Puede haber unos minutos de retraso antes de la replicación. Si el centro de datos principal deja de funcionar antes de que se complete la replicación de las instantáneas, no puede acceder a las instantáneas desde el centro de datos secundario. La probabilidad de que esto ocurra es pequeña.
 
-> [!NOTE] 
+> [!NOTE]
 > Tener los discos solo en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura o almacenamiento con redundancia geográfica no protege de desastres la máquina virtual. También debe crear instantáneas coordinadas o usar Azure Backup. Esto es necesario para recuperar una máquina virtual a un estado coherente.
 
 Si usa el almacenamiento con redundancia local, debe copiar las instantáneas en otra cuenta de almacenamiento inmediatamente después de crear la instantánea. El destino de copia puede ser una cuenta de almacenamiento con redundancia local en una región distinta, con lo que la copia se encuentra en una región remota. También puede copiar la instantánea en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura en la misma región. En este caso, la instantánea se replica de forma diferida en la región secundaria remota. La copia de seguridad se protege ante desastres en el sitio principal después de completar la copia de seguridad y la replicación.
@@ -260,12 +260,10 @@ La diferencia principal entre el almacenamiento con redundancia geográfica y el
 
 Si resulta ser una interrupción importante, el equipo de Azure puede desencadenar una conmutación por error geográfica y cambiar las entradas DNS principales para que señalen a un almacenamiento secundario. En este momento, si tiene habilitado el almacenamiento con redundancia geográfica o el almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a los datos de la región que se usa como secundaria. En otras palabras, si la cuenta de almacenamiento es almacenamiento con redundancia geográfica y hay un problema, solo puede acceder el almacenamiento secundario si existe una conmutación por error geográfica.
 
-Para más información, vea [Qué hacer si se produce una interrupción del servicio Azure Storage](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+Para más información, vea [Qué hacer si se produce una interrupción del servicio Azure Storage](../articles/storage/common/storage-disaster-recovery-guidance.md).
 
 >[!NOTE] 
 >Microsoft controla si se produce una conmutación por error. La conmutación por error no se controla por cuenta de almacenamiento, por lo que no son los clientes individuales quienes deciden su uso. Para implementar la recuperación ante desastres con cuentas de almacenamiento o discos de máquina virtual en concreto, debe usar las técnicas descritas anteriormente en este artículo.
-
-
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

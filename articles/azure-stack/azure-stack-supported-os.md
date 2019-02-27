@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247857"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301288"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operativos invitados compatibles con Azure Stack
 
@@ -53,24 +53,24 @@ Las ediciones de Datacenter están disponibles en Marketplace para su descarga; 
 Las distribuciones Linux indicadas como disponibles en Marketplace incluyen el agente Linux de Microsoft Azure (WALA) necesario. Si trae su propia imagen para Azure Stack, siga las instrucciones de [Agregar imágenes de Linux a Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Las imágenes personalizadas deben compilarse con la última versión pública de WALA. Las versiones anteriores a la 2.2.18 pueden no funcionar correctamente en Azure Stack.
+> Las imágenes personalizadas deben compilarse con la última versión pública de WALA o con la versión 2.2.20. Es posible que las versiones anteriores a 2.2.20 y las versiones comprendidas entre 2.2.20 y 2.2.35 (exclusive) no funcionen correctamente en Azure Stack. 
 >
 > No se admite [cloud-init](https://cloud-init.io/) en Azure Stack en este momento.
 
 | Distribución | DESCRIPCIÓN | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Basado en CentOS 6.9 | 64 bits | Rogue Wave | SÍ |
-| Basado en CentOS 7.4 | 64 bits | Rogue Wave | SÍ |
-| ClearLinux | 64 bits | ClearLinux.org | SÍ |
+| Basado en CentOS 6.9 | 64 bits | Rogue Wave | Sí |
+| Basado en CentOS 7.4 | 64 bits | Rogue Wave | Sí |
+| ClearLinux | 64 bits | ClearLinux.org | Sí |
 | Container Linux |  64 bits | CoreOS | Stable |
-| Debian 8 "Jessie" | 64 bits | credativ |  SÍ |
-| Debian 9 "Stretch" | 64 bits | credativ | SÍ |
+| Debian 8 "Jessie" | 64 bits | credativ |  Sí |
+| Debian 9 "Stretch" | 64 bits | credativ | Sí |
 | Red Hat Enterprise Linux 7.x | 64 bits | Red Hat |Traiga su propia imagen |
-| SLES 11SP4 | 64 bits | SUSE | SÍ |
-| SLES 12SP3 | 64 bits | SUSE | SÍ |
-| Ubuntu 14.04 LTS | 64 bits | Canonical | SÍ |
-| Ubuntu 16.04 LTS | 64 bits | Canonical | SÍ |
-| Ubuntu 18.04-LTS | 64 bits | Canonical | SÍ |
+| SLES 11SP4 | 64 bits | SUSE | Sí |
+| SLES 12SP3 | 64 bits | SUSE | Sí |
+| Ubuntu 14.04 LTS | 64 bits | Canonical | Sí |
+| Ubuntu 16.04 LTS | 64 bits | Canonical | Sí |
+| Ubuntu 18.04-LTS | 64 bits | Canonical | Sí |
 
 Para obtener información de soporte técnico de Red Hat Enterprise Linux, consulte [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat y Azure Stack: preguntas más frecuentes).
 

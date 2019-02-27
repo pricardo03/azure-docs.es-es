@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114967"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343517"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
-En este artículo se explica cómo configurar directivas de seguridad y cómo visualizarlas en Security Center. Azure Security Center asigna automáticamente sus [directivas de seguridad integradas](security-center-policy-definitions.md) en cada suscripción que se incorpora. Puede configurarlas en [Azure Policy](../azure-policy/azure-policy-introduction.md), que también le permite establecer directivas en grupos de administración y entre varias suscripciones.
+En este artículo se explica cómo configurar directivas de seguridad y cómo visualizarlas en Security Center. Azure Security Center asigna automáticamente sus [directivas de seguridad integradas](security-center-policy-definitions.md) en cada suscripción que se incorpora. Puede configurarlas en [Azure Policy](../governance/policy/overview.md), que también le permite establecer directivas en grupos de administración y entre varias suscripciones.
 
-Para obtener instrucciones sobre cómo establecer directivas con PowerShell, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell](../azure-policy/assign-policy-definition-ps.md).
+Para obtener instrucciones sobre cómo establecer directivas con PowerShell, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante el módulo de Azure PowerShell](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > Security Center inició su integración con Azure Policy. Los clientes existentes se migrarán automáticamente a la nueva iniciativa integrada en Azure Policy, en lugar de las directivas de seguridad anteriores de Security Center. Este cambio no afectará a los recursos ni al entorno, excepto la presencia de la nueva iniciativa en Azure Policy.
 
 ## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Policy, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../azure-policy/azure-policy-introduction.md).
+Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Policy, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../governance/policy/overview.md).
 
 Las directivas de seguridad generan las recomendaciones de seguridad que se muestran en Azure Security Center. Puede supervisar si se cumplen para identificar posibles puntos vulnerables y mitigar amenazas. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para más información sobre cómo determinar la opción más adecuada en su caso.
 
@@ -52,7 +52,7 @@ Security Center crea automáticamente una directiva de seguridad predeterminada 
 - Asignar directivas entre grupos de administración y suscripciones, que pueden representar una organización entera o una unidad de negocio dentro de la organización.
 - Supervisar el cumplimiento de las directivas.
 
-Para más información sobre Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../azure-policy/create-manage-policy.md).
+Para más información sobre Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](../governance/policy/tutorials/create-and-manage.md).
 
 Una directiva de Azure consta de los siguientes componentes:
 
@@ -236,4 +236,4 @@ En este artículo, ha aprendido cómo editar las directivas de seguridad en Azur
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): Obtenga respuestas para las preguntas más frecuentes acerca del uso del servicio.
 * [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
 
-Para más información acerca de Azure Policy, consulte [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md)
+Para más información acerca de Azure Policy, consulte [¿Qué es Azure Policy?](../governance/policy/overview.md)

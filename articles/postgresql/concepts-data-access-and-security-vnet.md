@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537229"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417489"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for PostgreSQL
 
@@ -23,6 +23,7 @@ Para crear una regla de red virtual, primero debe haber una [red virtual][vm-vir
 
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de nube pública de Azure donde Azure Database for PostgreSQL se implementa para servidores de uso general y optimizados para memoria.
+> En el caso de emparejamiento de VNET, si el tráfico fluye a través de una instancia de VNet Gateway común con puntos de conexión de servicio y se supone que lo hace al elemento del mismo nivel, cree una regla de ACL o red virtual para permitir que Microsoft Azure Virtual Machines en la red virtual de puerta de enlace acceda al servidor Azure Database for PostgreSQL.
 
 <a name="anch-terminology-and-description-82f" />
 

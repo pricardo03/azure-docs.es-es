@@ -1,7 +1,7 @@
 ---
 title: Incorporación de proveedores de sugerencias a un índice de Azure Search
 description: Habilita campos para las acciones de consulta con escritura anticipada, en las que las consultas que se sugieren están compuestas de texto procedente de campos de un índice de Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007703"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269933"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Incorporación de proveedores de sugerencias a un índice de Azure Search
 
@@ -34,9 +34,12 @@ Aunque un **proveedor de sugerencias** tiene varias propiedades, es principalmen
 
 Puede tener un solo recurso de **proveedor de sugerencias** para cada índice (en concreto, un **proveedor de sugerencias** de la colección de **proveedores de sugerencias**).
 
-Puede crear un **proveedor de sugerencias** en cualquier momento, pero el impacto en el índice variará según los campos. Los nuevos campos que se agregan a un proveedor de sugerencias como parte de la misma actualización son los que menos impacto provocan ya que no se requiere ninguna recompilación del índice. La incorporación de campos existentes, sin embargo, cambia la definición del campo, lo cual hace necesaria una recompilación completa del índice.
+## <a name="creating-a-suggester"></a>Creación de un proveedor de sugerencias 
 
-## <a name="usage"></a>Uso  
+Puede crear un **proveedor de sugerencias** en cualquier momento, pero el impacto en el índice variará según los campos. 
+
++ Los nuevos campos que se agregan a un proveedor de sugerencias como parte de la misma actualización son los que menos impacto provocan ya que no se requiere ninguna recompilación del índice.
++ La incorporación de campos existentes a un proveedor de sugerencias, sin embargo, cambia la definición del campo, lo cual hace necesaria una recompilación completa del índice.
 
  Los **proveedores de sugerencias** funcionan mejor cuando se usan para sugerir documentos específicos en lugar de términos o frases flexibles. Los campos de mejores candidatos son títulos, nombres y demás frases relativamente cortas que pueden identificar un elemento. Los campos repetitivos son menos efectivos, por ejemplo, las categorías y etiquetas, o campos muy largos como campos de descripciones o comentarios.  
 

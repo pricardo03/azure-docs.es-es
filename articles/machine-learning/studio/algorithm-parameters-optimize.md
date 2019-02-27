@@ -10,20 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0f324dec9349b44252a85b2f9334a1b6d847faae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247144"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456017"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio
 
-En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning. La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
+En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning Studio. La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
 
 
 
-Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más usados para la selección del modelo, y es el mecanismo de selección de modelo predeterminado en Azure Machine Learning. Como R y Python son compatibles con Azure Machine Learning, siempre puede implementar sus propios mecanismos de selección de modelo mediante R o Python.
+Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más utilizados para la selección de modelos y es el mecanismo de selección de modelos predeterminado en Azure Machine Learning Studio. Como R y Python son compatibles con Azure Machine Learning Studio, siempre puede implementar sus propios mecanismos de selección de modelos mediante R o Python.
 
 Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 
@@ -32,7 +32,7 @@ Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 3. **Definir la métrica**: Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
 4. **Formar, evaluar y comparar**: Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
 
-En la imagen siguiente se muestra cómo se puede lograr esto en Azure Machine Learning.
+En la imagen siguiente se muestra cómo se puede hacer en Azure Machine Learning Studio.
 
 ![Encontrar el mejor conjunto de parámetros](./media/algorithm-parameters-optimize/fig1.png)
 

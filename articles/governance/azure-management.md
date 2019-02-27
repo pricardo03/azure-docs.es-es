@@ -1,5 +1,5 @@
 ---
-title: Introducción a la administración de Azure
+title: 'Introducción a la administración de Azure: Gobierno de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112224"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338077"
 ---
 # <a name="management-in-azure"></a>Administración en Azure
 

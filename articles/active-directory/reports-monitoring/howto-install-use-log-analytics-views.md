@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de2aa262dff54f2b8e535aa646e9a8cac7719567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165270"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453637"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
 
@@ -41,13 +41,13 @@ Para usar las vistas de Log Analytics, necesita:
 
 ## <a name="install-the-log-analytics-views"></a>Instalación de las vistas de Log Analytics
 
-1. Vaya al área de trabajo de Log Analytics. Para ello, vaya primero a [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**. Escriba **Log Analytics** en el cuadro de texto y seleccione **Log Analytics**. Seleccione el área de trabajo a la que se han enviado los registros de actividad, como parte de los requisitos previos.
+1. Vaya al área de trabajo de Log Analytics. Para ello, vaya primero a [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**. Escriba **Log Analytics** en el cuadro de texto y seleccione **Áreas de trabajo de Log Analytics**. Seleccione el área de trabajo a la que se han enviado los registros de actividad, como parte de los requisitos previos.
 2. Seleccione **View Designer** (Diseñador de vistas), seleccione **Import** (Importar) y, después, seleccione **Choose File** (Elegir archivo) para importar las vistas desde el equipo local.
 3. Seleccione las vistas que ha descargado de los requisitos previos y seleccione **Save** (Guardar) para guardar la importación. Realice este paso en la vista **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD) y la vista **Sign-ins Events** (Eventos de inicio de sesión).
 
 ## <a name="use-the-views"></a>Uso de las vistas
 
-1. Vaya al área de trabajo de Log Analytics. Para ello, vaya primero a [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**. Escriba **Log Analytics** en el cuadro de texto y seleccione **Log Analytics**. Seleccione el área de trabajo a la que se han enviado los registros de actividad, como parte de los requisitos previos.
+1. Vaya al área de trabajo de Log Analytics. Para ello, vaya primero a [Azure Portal](https://portal.azure.com) y seleccione **Todos los servicios**. Escriba **Log Analytics** en el cuadro de texto y seleccione **Áreas de trabajo de Log Analytics**. Seleccione el área de trabajo a la que se han enviado los registros de actividad, como parte de los requisitos previos.
 
 2. Cuando se encuentre en el área de trabajo, seleccione **Workspace Summary** (Resumen del área de trabajo). Debería ver las tres vistas siguientes:
 
@@ -73,5 +73,5 @@ Para usar las vistas de Log Analytics, necesita:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Análisis de registros de actividad en Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Introducción a Log Analytics en Azure Portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Análisis de registros de actividad con registros de Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Introducción a los registros de Azure Monitor en Azure Portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

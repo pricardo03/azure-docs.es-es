@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/20/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d5b97f9c3b29732ba901f783ac04a3ada338ab69
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 319623487f37308b5b8fe3fd107b01733825184d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866447"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454725"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>Códigos de respuesta HTTP de QnA Maker API
 Las API de [administración](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) de predicción devuelven códigos de respuesta HTTP. Mientras que los mensajes de respuesta incluyen información específica de una solicitud, el código de estado de respuesta HTTP es general. 
@@ -31,3 +31,4 @@ Las API de [administración](https://westus.dev.cognitive.microsoft.com/docs/ser
 |401|Clave no válida|
 |403|Prohibido: no tiene los permisos correctos|
 |404|KB no existe|
+|410|Esta API está en desuso y ya no está disponible|

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119146"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341086"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Uso de Android SDK para Azure Maps
 
@@ -45,7 +45,7 @@ Consulte la [documentación de Android Studio](https://developer.android.com/stu
 
 ## <a name="set-up-a-virtual-device"></a>Configuración de un dispositivo virtual
 
-Android Studio permite configurar un dispositivo virtual Android en el equipo. Lo que puede ayudar a probar la aplicación mientras la desarrolla. Para configurar un dispositivo virtual, haga clic en el icono del administrador de dispositivos virtuales Android (AVD) en la parte superior derecha de la pantalla del proyecto. A continuación, haga clic en el botón **Crear un dispositivo virtual**. También puede abrir el administrador en Herramientas > Android > AVD Manager en la barra de herramientas. En la categoría **Phones** (Teléfonos), seleccione **Nexus 5X** y haga clic en **Next** (Siguiente).
+Android Studio permite configurar un dispositivo virtual Android en el equipo. Lo que puede ayudar a probar la aplicación mientras la desarrolla. Para configurar un dispositivo virtual, haga clic en el icono del administrador de dispositivos virtuales Android (AVD) en la parte superior derecha de la pantalla del proyecto. A continuación, haga clic en el botón **Crear un dispositivo virtual**. También puede abrir el administrador en **Herramientas > Android > AVD Manager** en la barra de herramientas. En la categoría **Phones** (Teléfonos), seleccione **Nexus 5X** y haga clic en **Next** (Siguiente).
 
 Obtenga más información sobre cómo configurar un AVD en la [documentación de Android Studio](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Obtenga más información sobre cómo configurar un AVD en la [documentación de
 
 Antes de avanzar hacia la creación de la aplicación, siga estos pasos para instalar Android SDK para Azure Maps. 
 
-1. Agregue lo siguiente al bloque de repositorios **allprojects** del archivo **build.gradle**.
+1. Agregue lo siguiente al bloque de repositorios de **todos los proyectos** del archivo **build.gradle**.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Antes de avanzar hacia la creación de la aplicación, siga estos pasos para ins
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Configure los permisos con la adición de lo siguiente a "AndroidManifest.xml".
+3. Configure los permisos con la adición de lo siguiente a **AndroidManifest.xml**:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -128,7 +128,7 @@ Antes de avanzar hacia la creación de la aplicación, siga estos pasos para ins
 
     public class MainActivity extends AppCompatActivity {
         
-        static{
+        static {
             AzureMaps.setSubscriptionKey("{subscription-key}");
         }
 
@@ -187,7 +187,7 @@ Antes de avanzar hacia la creación de la aplicación, siga estos pasos para ins
 
 ## <a name="import-classes"></a>Importación de clases
 
-Después de completar los pasos anteriores, probablemente obtendrá advertencias de Android Studio en alguna parte del texto en el código. Para controlar esto, tendrá que importar algunas de las clases a las que se hace referencia en `MainActivity.java`.
+Después de completar los pasos anteriores, probablemente obtendrá advertencias de Android Studio en alguna parte del texto en el código. Para solucionar estas advertencias, importe las clases a las que se hace referencia en `MainActivity.java`.
 
 Puede importar automáticamente estas clases presionando `Alt`+`Enter`(`Option`+`Return` en Mac). 
 

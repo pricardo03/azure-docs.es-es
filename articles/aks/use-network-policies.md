@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232181"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447181"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -27,21 +27,7 @@ En este artículo se muestra cómo usar las directivas de red para controlar el 
 
 Es preciso que esté instalada y configurada la versión 2.0.56 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Información general sobre la directiva de red
-
-De forma predeterminada, todos los pods de un clúster de AKS pueden enviar y recibir tráfico sin limitaciones. Para mejorar la seguridad, puede definir reglas que controlen el flujo de tráfico. Por ejemplo, las aplicaciones de back-end solo se suelen exponer en los servicios de front-end o los componentes de base de datos solo son accesibles para las capas de aplicación que se conectan a ellos.
-
-Las directivas de red son recursos de Kubernetes que permiten controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración como etiquetas asignadas, espacio de nombres o puerto de tráfico. Las directivas de red se definen como manifiestos de YAML y se pueden incluir como parte de uno más amplio que también crea una implementación o un servicio.
-
-Para ver las directivas de red en acción, vamos a crear y luego expandir una directiva que define el flujo de tráfico de la siguiente forma:
-
-* Deniegue todo el tráfico al pod.
-* Permita el tráfico en función de las etiquetas de pod.
-* Permita el tráfico según el espacio de nombres.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creación de un clúster de AKS y habilitación de la directiva de red
-
-Solo se puede habilitar la directiva de red cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente. Para crear un clúster de AKS con la directiva de red, habilite primero una marca de característica en la suscripción. Para registrar la marca de característica *EnableNetworkPolicy*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
+Para crear un clúster de AKS con la directiva de red, habilite primero una marca de característica en la suscripción. Para registrar la marca de característica *EnableNetworkPolicy*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ Cuando todo esté listo, actualice el registro del proveedor de recursos *Micros
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Para usar la directiva de red con un clúster de AKS, debe usar el [complemento de CNI de Azure][azure-cni] y definir su propia red virtual y sus propias subredes. Para obtener más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking]. En el ejemplo siguiente se invoca el script:
+## <a name="overview-of-network-policy"></a>Información general sobre la directiva de red
+
+De forma predeterminada, todos los pods de un clúster de AKS pueden enviar y recibir tráfico sin limitaciones. Para mejorar la seguridad, puede definir reglas que controlen el flujo de tráfico. Por ejemplo, las aplicaciones de back-end solo se suelen exponer en los servicios de front-end o los componentes de base de datos solo son accesibles para las capas de aplicación que se conectan a ellos.
+
+Las directivas de red son recursos de Kubernetes que permiten controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico según la configuración como etiquetas asignadas, espacio de nombres o puerto de tráfico. Las directivas de red se definen como manifiestos de YAML y se pueden incluir como parte de uno más amplio que también crea una implementación o un servicio.
+
+Para ver las directivas de red en acción, vamos a crear y luego expandir una directiva que define el flujo de tráfico de la siguiente forma:
+
+* Deniegue todo el tráfico al pod.
+* Permita el tráfico en función de las etiquetas de pod.
+* Permita el tráfico según el espacio de nombres.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creación de un clúster de AKS y habilitación de la directiva de red
+
+Solo se puede habilitar la directiva de red cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente. 
+
+Para usar la directiva de red con un clúster de AKS, debe usar el [complemento de CNI de Azure][azure-cni] y definir su propia red virtual y sus propias subredes. Para obtener más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking].
+
+En el ejemplo siguiente se invoca el script:
 
 * Crea una red virtual y una subred.
 * Crea una entidad de servicio de Azure Active Directory (AD) para usarse con el clúster de AKS.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -241,6 +245,9 @@ spec:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> Esta directiva de red usa un elemento *namespaceSelector* y un elemento *podSelector* para la regla de entrada. La sintaxis YAML es importante para que las reglas de entrada sean o no aditivas. En este ejemplo, ambos elementos deben coincidir para que se aplique la regla de entrada. Puede que las versiones de Kubernetes anteriores a *1.12* no puedan interpretar correctamente estos elementos y restrinjan el tráfico de red según lo esperado. Para más información, consulte [Behavior of to and from selectors][policy-rules] (Comportamiento de los selectores to and from).
 
 Aplique la política de red actualizada mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
@@ -442,6 +449,7 @@ Si quiere saber más detalles sobre el uso de directivas, consulte [Directivas d
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

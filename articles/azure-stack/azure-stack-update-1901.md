@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115715"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416520"
 ---
 # <a name="azure-stack-1901-update"></a>Actualización 1901 de Azure Stack
 
@@ -199,7 +199,9 @@ Para revisar la referencia de los módulos actualizados, consulte [Referencia de
            "autoUpgradeMinorVersion": "true"
    ```
 
-- Hay una nueva consideración para planear la capacidad de Azure Stack con precisión. Se han establecido límites en el número total de máquinas virtuales que se pueden implementar en Azure Stack, a fin de garantizar que todos nuestros servicios internos satisfacen la escala a la que se ejecutan los clientes. El límite es de 60 máquinas virtuales por host, con un máximo de 700 para el sello entero (si se alcanza el límite de 60 por host). Para más información, consulte la [nueva versión del planeador de capacidad](http://aka.ms/azstackcapacityplanner).
+- Hay una nueva consideración para planear la capacidad de Azure Stack con precisión. Con la actualización 1901, ahora hay un límite en el número total de máquinas virtuales que se pueden crear.  Este límite está diseñado para ser temporal y evitar la inestabilidad de la solución. El origen del problema de estabilidad en los números mayores de las máquinas virtuales se está abordando, pero aún no se ha determinado un tiempo específico para la corrección. Con la actualización 1901, ahora hay un límite por servidor de 60 máquinas de virtuales con un límite total de en la solución de 700.  Por ejemplo, el límite de una máquina virtual de Azure Stack de 8 servidores sería 480 (8 * 60).  Para una solución de Azure Stack de 12 a 16 servidores, el límite sería 700. Este límite se ha creado teniendo todas las consideraciones de capacidad de proceso en cuenta, como la reserva de resistencia y la relación entre la CPU virtual y la física que le gustaría mantener en el sello al operador. Para más información, consulte la nueva versión del planeador de capacidad.  
+En caso de que se alcanzara el límite de escalado de máquinas virtuales, se devolverían como resultado los códigos de error siguientes: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - La versión de la API de proceso ha aumentado a 2017-12-01.
 
@@ -290,7 +292,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
    - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
       1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
-      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
+      2. En la misma suscripción, vaya a **Control de acceso (IAM)** y compruebe que **AzureStack-DiskRP-Client** aparece en la lista.
    - Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
 
 - Una máquina virtual de Ubuntu 18.04 creada con la autorización de SSH habilitada no le permitirá usar las claves SSH para iniciar sesión. Como alternativa, utilice el acceso a la VM para la extensión de Linux a fin de implementar las claves SSH después del aprovisionamiento o utilice la autenticación basada en contraseña.

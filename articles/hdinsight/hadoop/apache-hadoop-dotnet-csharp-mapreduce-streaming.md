@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435317"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342930"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Apache Hadoop en HDInsight
 
@@ -175,7 +175,13 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
 
 2. Use uno de los siguientes comandos para iniciar el trabajo de MapReduce:
 
-    * Si usa __Data Lake Storage__ como almacenamiento predeterminado:
+    * Si usa __Data Lake Storage Gen2__ como almacenamiento predeterminado:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Si usa __Data Lake Storage Gen1__ como almacenamiento predeterminado:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
     En la lista siguiente, se describen las funciones de cada parámetro:
 
     * `hadoop-streaming.jar`: el archivo .jar que contiene la funcionalidad de streaming de MapReduce.
-    * `-files`: agrega los archivos `mapper.exe` y `reducer.exe` a este trabajo. El texto `adl:///` o `wasb:///` que aparece antes de cada archivo es la ruta a la raíz del almacenamiento predeterminado del clúster.
+    * `-files`: agrega los archivos `mapper.exe` y `reducer.exe` a este trabajo. El texto `abfs:///`, `adl:///` o `wasb:///` que aparece antes de cada archivo es la ruta a la raíz del almacenamiento predeterminado del clúster.
     * `-mapper`: especifica el archivo que implementa el asignador.
     * `-reducer`: especifica el archivo que implementa el reductor.
     * `-input`: los datos de entrada.

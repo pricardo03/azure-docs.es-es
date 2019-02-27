@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982852"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330875"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
 
@@ -116,10 +116,10 @@ Si ya no necesita la imagen Nginx, puede eliminarla localmente con el comando [d
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Para quitar imágenes del registro de contenedor de Azure, puede usar el comando de la CLI de Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Por ejemplo, el siguiente comando elimina el manifiesto al que se hace referencia mediante una etiqueta, todos los datos de la capa asociados y todas las demás etiquetas que hacen referencia al manifiesto.
+Para quitar imágenes del registro de contenedor de Azure, puede usar el comando de la CLI de Azure [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete). Por ejemplo, el siguiente comando elimina el manifiesto al que se hace referencia mediante la etiqueta `samples/nginx:latest`, todos los datos de la capa únicos y todas las demás etiquetas que hacen referencia al manifiesto.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

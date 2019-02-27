@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382740"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310582"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
@@ -72,7 +72,7 @@ Al crear un almacén de Recovery Services se determina cómo se replica el almac
 
     ![Selección del almacén nuevo en la lista de almacenes de Recovery Services](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Al seleccionar el almacén, la hoja Almacén de Recovery Services, la hoja **Información general** (*que tiene el nombre del almacén en la parte superior*) y la hoja de detalles del almacén se abren.
+    Al seleccionar el almacén, se abren la hoja Almacén de Recovery Services, la hoja **Información general** (*que tiene el nombre del almacén en la parte superior*) y la hoja de detalles del almacén.
 
     ![Vista de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

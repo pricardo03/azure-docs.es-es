@@ -1,6 +1,6 @@
 ---
 title: Límites de recursos para Azure NetApp Files| Microsoft Docs
-description: Describe los límites de recursos de Azure Files de NetApp, incluidos los límites de los grupos de capacidad, los volúmenes y la subred delegada.
+description: Describe los límites de recursos para Azure NetApp Files, incluidos los límites de las cuentas de NetApp, los grupos de capacidad, los volúmenes, instantáneas y la subred delegada.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -11,33 +11,29 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
-ms.date: 01/03/2019
+ms.topic: concepts
+ms.date: 02/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f34afb1df2ae38353f29a80bfb6798c16856dbeb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 196d85917e0a9900e141d58bff171beeb8540409
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056739"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430020"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
+
 Entender los límites de recursos de Azure NetApp Files ayuda a administrar los volúmenes.
 
-## <a name="capacity_pools"></a>Grupos de capacidad
-
+- Cada suscripción de Azure puede tener un máximo de 10 cuentas de NetApp.
+- Cada cuenta de NetApp puede tener un máximo de 25 grupos de capacidad.
+- Cada grupo de capacidad puede pertenecer a una sola cuenta de NetApp.  
 - El tamaño mínimo para un grupo de capacidades único es de 4 TiB, y el tamaño máximo es de 500 TiB. 
-- Cada grupo de capacidad puede pertenecer a una sola cuenta de NetApp. Sin embargo, puede tener varios grupos de capacidad dentro de una cuenta de NetApp.  
-
-## <a name="volumes"></a>Volúmenes
-
+- Cada grupo de capacidad puede tener un máximo de 500 volúmenes.
 - El tamaño mínimo para un volumen único es de 100 GiB, y el tamaño máximo es de 92 TiB.
-- Puede tener un máximo de 100 volúmenes por suscripción de Azure y por región.  
+- Cada volumen puede tener un máximo de 255 instantáneas.
+- En cada instancia de Azure Virtual Network (red virtual), solo puede delegarse una subred a Azure NetApp Files.
 
-## <a name="delegated_subnet"></a>Subred delegada 
-
-En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.
-
-## <a name="next-steps"></a>Pasos siguientes
+**Pasos siguientes**
 
 [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

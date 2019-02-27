@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991538"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453501"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -346,7 +346,7 @@ Puede usar el cmdlet de PowerShell `Get-AzureRmApplicationGatewayBackendHealth` 
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>¿Qué es la directiva de retención en los registros de diagnóstico?
 
-Los registros de diagnóstico fluyen hacia la cuenta de almacenamiento de los clientes y estos pueden establecer la directiva de retención según sus preferencias. Los registros de diagnóstico también se pueden enviar a un centro de eventos o a Log Analytics. Consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md) para más información.
+Los registros de diagnóstico fluyen hacia la cuenta de almacenamiento de los clientes y estos pueden establecer la directiva de retención según sus preferencias. Los registros de diagnóstico también se pueden enviar a un centro de eventos o a registros de Azure Monitor. Consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md) para más información.
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>¿Cómo se pueden obtener los registros de auditoría de Application Gateway?
 
@@ -358,7 +358,7 @@ Sí, Application Gateway admite alertas. Las alertas se configuran en métricas.
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>¿Cómo se pueden analizar las estadísticas de tráfico de Application Gateway?
 
-Puede ver y analizar los registros de acceso mediante diferentes mecanismos, como Azure Log Analytics, Excel, Power BI, etc.
+Puede ver y analizar los registros de acceso mediante diferentes mecanismos, como registros de Azure Monitor, Excel, Power BI, etc.
 
 También hemos publicado una plantilla de Resource Manager que instala y ejecuta el conocido analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
 

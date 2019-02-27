@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: be6c04fe31aaa8d4b9081942b054575ff548cf5a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300377"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457020"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
 
@@ -56,7 +56,7 @@ Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avan
 
 ## <a name="supported-customizations"></a>Personalizaciones compatibles
 
-La arquitectura de los modelos de red neuronal que cree en Azure Machine Learning se pueden personalizar ampliamente mediante el uso de Net#. Puede:
+La arquitectura de los modelos de red neuronal que cree en Azure Machine Learning Studio se pueden personalizar ampliamente mediante el uso de Net#. Puede:
 
 + Crear capas ocultas y controlar el número de nodos de cada capa.
 + Especificar cómo se van a conectar las capas entre ellas.

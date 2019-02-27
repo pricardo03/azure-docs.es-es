@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso mediante RBAC y Azure PowerShell | Microsoft Docs
-description: Aprenda a administrar el acceso de usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y Azure PowerShell. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
+title: Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell | Microsoft Docs
+description: Aprenda a administrar el acceso a recursos de Azure de usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y Azure PowerShell. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106178"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343781"
 ---
-# <a name="manage-access-using-rbac-and-azure-powershell"></a>Administración de acceso mediante RBAC y Azure PowerShell
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos y aplicaciones mediante el uso de RBAC y Azure PowerShell.
+El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos y aplicaciones mediante el uso de RBAC y Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -326,6 +326,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Concesión de acceso a un grupo mediante RBAC y Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: Creación de un rol personalizado con Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Concesión de acceso de grupo a recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Administración de recursos con Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864288"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312198"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descripción de imágenes con lenguaje natural
 
-Los algoritmos de Computer Vision analizan el contenido de una imagen. Este análisis forma la base de una «descripción» que se presenta en lenguaje natural, en oraciones completas. La descripción resume lo que se encuentra en la imagen. Los algoritmos de Computer Vision generan varias descripciones en función de las características visuales identificadas en la imagen. Cada una de estas descripciones se evalúa y se genera una puntuación de confianza. Después, se devuelve una lista de puntuaciones de confianza ordenadas de más alta a más baja.
+Computer Vision puede analizar una imagen y generar una frase inteligible que describa su contenido. El algoritmo realmente devuelve varias descripciones según diferentes características visuales y cada descripción tiene una puntuación de confianza. El resultado final es una lista de descripciones ordenadas de mayor a menor confianza.
 
 ## <a name="image-description-example"></a>Ejemplo de descripción de imagen
 

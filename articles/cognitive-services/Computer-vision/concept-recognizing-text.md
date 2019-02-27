@@ -11,18 +11,21 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7908c29f3a48821588ea93ebe33ffb6b8de77520
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48ce15a11c3e3282535420f3e1bb1915276d70f5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881182"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313184"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconocimiento de texto manuscrito e impreso
 
 Computer Vision puede detectar y extraer texto impreso o manuscrito de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres, tarjetas de visita, cartas y pizarras.
 
-El reconocimiento de texto le ahorrará tiempo y esfuerzo. Asimismo, puede ser más productivo si usa una imagen de texto en lugar de tener que transcribirlo. Gracias al reconocimiento de texto, puede digitalizar sus notas. Esta digitalización permite implementar una búsqueda rápida y sencilla, así como reducir el uso de papel.
+La característica de reconocimiento de texto es muy similar al [reconocimiento óptico de caracteres (OCR)](concept-extracting-text-ocr.md), pero se diferencia en que se ejecuta de forma asincrónica y usa modelos de reconocimiento actualizados.
+
+> [!NOTE]
+> Esta tecnología está actualmente en versión preliminar y solo está disponible para textos en inglés.
 
 ## <a name="text-recognition-requirements"></a>Requisitos del reconocimiento de texto
 
@@ -32,9 +35,6 @@ Computer Vision puede reconocer el texto impreso y manuscrito de las imágenes q
 - El tamaño de archivo de la imagen debe ser inferior a 4 megabytes (MB)
 - El tamaño de la imagen debe estar entre 50 x 50 y 4200 x 4200 píxeles.
 
-> [!NOTE]
-> Esta tecnología está actualmente en versión preliminar y solo está disponible para textos en inglés.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los conceptos acerca de la [extracción de texto con OCR](concept-extracting-text-ocr.md).
+Consulte la [documentación de referencia del reconocimiento de texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) para más información.

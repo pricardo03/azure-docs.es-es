@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754652"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453008"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,9 @@ En este artículo se muestra cómo habilitar y administrar el escalado automáti
 
 En este artículo es necesario ejecutar la versión de la CLI de Azure 2.0.55 o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
-Los clústeres de AKS que admitan el escalado automático de clústeres deben usar conjuntos de escalado de máquinas virtuales y ejecutar la versión de Kubernetes *1.12.4* o posterior. La compatibilidad con el conjunto de escalado está en su versión preliminar. Para optar por recibir y crear clústeres que usan conjuntos de escalado, instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add], tal como se muestra en el ejemplo siguiente:
+### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
+
+Los clústeres de AKS que admitan el escalado automático de clústeres deben usar conjuntos de escalado de máquinas virtuales y ejecutar la versión de Kubernetes *1.12.4* o posterior. La compatibilidad con el conjunto de escalado está en su versión preliminar. Para optar por recibir y crear clústeres que usan conjuntos de escalado, primero instale la extensión de la CLI de Azure *aks-preview* mediante el comando [az extension add][az-extension-add], tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Cuando instala la extensión *aks-preview*, cada clúster de AKS que cree usará el modelo de implementación de versión preliminar del conjunto de escalado. Si prefiere crear clústeres de forma regular y totalmente compatibles, elimine la extensión mediante `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Registro del proveedor de características del conjunto de escalado
+
+Para crear una instancia de AKS que use conjuntos de escalado, también debe habilitar una marca de característica en su suscripción. Para registrar la marca de característica *VMSSPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado del registro con el comando [az feature list][az-feature-list]:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Acerca del escalado automático de clústeres
 
@@ -149,6 +171,9 @@ En este artículo le mostramos cómo escalar automáticamente el número de nodo
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

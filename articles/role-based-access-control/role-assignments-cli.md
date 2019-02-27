@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso mediante RBAC y la CLI de Azure | Microsoft Docs
-description: Aprenda a administrar el acceso de usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y la CLI de Azure. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
+title: Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure | Microsoft Docs
+description: Aprenda a administrar el acceso a recursos de Azure de usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y la CLI de Azure. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437106"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341728"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>Administración de acceso mediante RBAC y la CLI de Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos y aplicaciones mediante el uso de RBAC y la CLI de Azure.
+El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos y aplicaciones mediante el uso de RBAC y la CLI de Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para gestionar el acceso, necesita una de las siguientes opciones:
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Creación de un rol personalizado con la CLI de Azure](tutorial-custom-role-cli.md)
-- [Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure](tutorial-custom-role-cli.md)
+- [Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure](../azure-resource-manager/cli-azure-resource-manager.md)

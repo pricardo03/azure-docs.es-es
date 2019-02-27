@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998593"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414751"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -29,10 +29,10 @@ En el artículo se muestra cómo usar la API [Cargar vídeo](https://api-portal.
 Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cual se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
 
 ## <a name="uploading-considerations"></a>Consideraciones de la carga
-    
+
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
-- El tamaño de carga con la opción de dirección URL se limita a 10 GB
-- El tamaño de carga con la opción de matriz de bytes se limita a 2 GB 
+- El tamaño de carga con la opción de dirección URL se limita a 25 GB
+- El tamaño de carga con la opción de matriz de bytes se limita a 2 GB
 - La opción de matriz de bytes agota el tiempo de espera a los 30 minutos
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
 

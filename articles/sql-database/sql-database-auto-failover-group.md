@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004254"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301934"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -60,14 +60,18 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   El servidor de SQL Database o la Instancia administrada que hospedan las bases de datos secundarias del grupo de conmutación por error. La base de datos secundaria no puede estar en la misma región que la principal.
 
-- **Incorporación de bases de datos al grupo de conmutación por error en un servidor de SQL Database**
+- **Incorporación de bases de datos únicas a un grupo de conmutación por error**
 
-  Puede colocar varias bases de datos únicas o agrupadas dentro de un grupo elástico en el mismo servidor de SQL Database en el mismo grupo de conmutación por error. Si agrega una única base de datos al grupo de conmutación por error, se crea automáticamente una base de datos secundaria con la misma edición y el mismo tamaño de proceso. Si la base de datos principal está en un grupo elástico, la base de datos secundaria se crea automáticamente en el grupo elástico con el mismo nombre. Si agrega una base de datos que ya tenga una base de datos secundaria en el servidor secundario, el grupo hereda esa replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el servidor secundario.
+  Puede poner varias bases de datos únicas en el mismo servidor de SQL Database e incluirlas en el mismo grupo de conmutación por error. Si agrega una base de datos única al grupo de conmutación por error, automáticamente se creará una base de datos secundaria con la misma edición y el mismo tamaño de proceso del servidor secundario.  Ese servidor es el que especificó cuando creó el grupo de conmutación por error. Si agrega una base de datos que ya tenga una base de datos secundaria en el servidor secundario, el grupo heredará el vínculo de replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el servidor secundario.
   
 > [!IMPORTANT]
   > En una instancia administrada, se replican todas las bases de datos de usuario. No se puede seleccionar un subconjunto de bases de datos de usuario para la replicación en el grupo de conmutación por error.
 
-- **Agente de escucha de lectura-escritura de grupo de conmutación por error**
+- **Incorporación de bases de datos de un grupo elástico a un grupo de conmutación por error**
+
+  Puede poner varias bases de datos en el mismo grupo elástico e incluirlas en el mismo grupo de conmutación por error. Si la base de datos principal está en un grupo elástico, la base de datos secundaria se creará automáticamente en un grupo elástico con el mismo nombre (grupo secundario). Debe asegurarse de que el servidor secundario contiene un grupo elástico con el mismo nombre exacto y suficiente capacidad libre para hospedar las bases de datos secundarias que va a crear el grupo de conmutación por error. Si agrega una base de datos en un grupo que ya tiene una base de datos secundaria en el grupo secundario, el grupo heredará el vínculo de replicación geográfica. Cuando se agrega una base de datos que ya tiene una base de datos secundaria en un servidor que no forma parte del grupo de conmutación por error, se crea otra base de datos secundaria en el grupo secundario.
+  
+  - **Agente de escucha de lectura-escritura de grupo de conmutación por error**
 
   Un registro de CNAME de DNS formado que apunta a la dirección URL de la base de datos principal actual. Permite que las aplicaciones SQL de lectura y escritura se reconecten sin problemas a la base de datos principal cuando cambia después de la conmutación por error.
 

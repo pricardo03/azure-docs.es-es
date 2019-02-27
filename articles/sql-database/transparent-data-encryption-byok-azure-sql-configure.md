@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f1cb99799e3aa5c0b37643112f8644d1aabfd666
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/15/2019
+ms.openlocfilehash: f2c7fde7b4834457f84ecaa3ce0fdd5f65dd03b5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108099"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430325"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 
@@ -205,55 +205,59 @@ Compruebe lo siguiente si se produce un problema:
    - No deshabilitado
    - Poder realizar las operaciones *get*, *wrap key*, *unwrap key*
    
-## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>Paso 1. Crear un servidor y asignar una identidad de Azure AD al servidor
+## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>Paso 1. Creación de un servidor con una identidad de Azure AD
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
-      az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
-      
-
+      az sql server create --name <servername> --resource-group <rgname>  --location <location> --admin-user <user> --admin-password <password> --assign-identity
+      az sql db create --name <dbname> --server <servername> --resource-group <rgname>  
  
-## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>Paso 2. Conceder permisos de Key Vault al servidor
+ 
+>[!Tip]
+>Mantenga el valor de "principalID" de la creación del servidor; es el identificador de objeto usado para asignar permisos de almacén de claves en el siguiente paso.
+>
+ 
+## <a name="step-2-grant-key-vault-permissions-to-the-logical-sql-server"></a>Paso 2. Concesión de permisos de Key Vault al servidor SQL lógico
       cli
       # create key vault, key and grant permission
-      az keyvault create -n "VaultName" -g "ResourceGroupName" 
-      az keyvault key create -n myKey -p software --vault-name "VaultName" 
-      az keyvault set-policy -n "VaultName" --object-id "ServerIdentityObjectId" -g "ResourceGroupName" --key-permissions wrapKey unwrapKey get list 
-      
+       az keyvault create --name <kvname> --resource-group <rgname> --location <location> --enable-soft-delete true
+       az keyvault key create --name <keyname> --vault-name <kvname> --protection software
+       az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group <rgname> --key-permissions wrapKey unwrapKey get 
 
+
+>[!Tip]
+>Mantenga el URI de clave o el valor de keyID de la nueva clave para el próximo paso; por ejemplo: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h.
+>
  
+       
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Paso 3. Agregar la clave de Key Vault al servidor y establecer el protector de TDE
   
      cli
      # add server key and update encryption protector
-      az sql server key create -g "ResourceGroupName" -s "ServerName" -t "AzureKeyVault" -u "FullVersionedKeyUri 
-      az sql server tde-key update -g "ResourceGroupName" -s "ServerName" -t AzureKeyVault -u "FullVersionedKeyUri" 
-      
-  
+     az sql server key create --server <servername> --resource-group <rgname> --kid <keyID>
+     az sql server tde-key set --server <servername> --server-key-type AzureKeyVault  --resource-group <rgname> --kid <keyID>
+
+        
   > [!Note]
 > La longitud combinada para el nombre del almacén de claves y el nombre de la clave no puede superar los 94 caracteres.
 > 
 
->[!Tip]
->KeyId de ejemplo desde Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
->
   
 ## <a name="step-4-turn-on-tde"></a>Paso 4 Activar TDE 
       cli
       # enable encryption
-      az sql db tde create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" --status Enabled 
+      az sql db tde set --database <dbname> --server <servername> --resource-group <rgname> --status Enabled 
       
 
-Ahora, la base de datos o el almacén de datos tienen TDE habilitado con una clave de cifrado en Key Vault.
+Ahora, la base de datos o el almacén de datos tienen TDE habilitado con una clave de cifrado administrada por el cliente en Azure Key Vault.
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Paso 5. Comprobar el estado de cifrado y la actividad de cifrado
 
      cli
       # get encryption scan progress
-      az sql db tde show-activity -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
+      az sql db tde list-activity --database <dbname> --server <servername> --resource-group <rgname>  
 
       # get whether encryption is on or off
-      az sql db tde show-configuration -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
+      az sql db tde show --database <dbname> --server <servername> --resource-group <rgname> 
 
 ## <a name="sql-cli-references"></a>Referencias de la CLI de SQL
 

@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: bdd512972f1a684a3b76ae0323bbadd87bf0d659
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9ea9cc116a13aac2dca9edf8ba86c933310b5198
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238324"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269644"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
-Azure Stream Analytics ofrece funcionalidades de detección de anomalías basadas en aprendizaje automático que pueden usarse para supervisar las dos anomalías que se producen con más frecuencia: temporales y persistentes. Con las funciones **AnomalyDetection_SpikeAndDip** y **AnomalyDetection_ChangePoint**, puede realizar la detección de anomalías directamente en el trabajo de Stream Analytics.
+Disponible tanto en la nube como en Azure IoT Edge, Azure Stream Analytics ofrece funcionalidades de detección de anomalías integradas basadas en aprendizaje automático, que se pueden usar para supervisar las dos anomalías que se producen con más frecuencia: temporales y persistentes. Con las funciones **AnomalyDetection_SpikeAndDip** y **AnomalyDetection_ChangePoint**, puede realizar la detección de anomalías directamente en el trabajo de Stream Analytics.
 
 Los modelos de aprendizaje automático asumen una serie temporal muestreada uniformemente. Si la serie temporal no es uniforme, puede insertar un paso de agregación con una ventana de saltos de tamaño constante antes de llamar a la detección de anomalías.
 
@@ -36,13 +36,14 @@ Las brechas en la serie temporal pueden producirse porque el modelo no recibe lo
 
 ## <a name="spike-and-dip"></a>Picos e interrupciones
 
-A las anomalías temporales de un flujo de eventos de serie temporal se les conocen como picos e interrupciones. Los picos y las interrupciones pueden supervisarse mediante el operador basado en Machine Learning, **AnomalyDetection_SpikeAndDip**.
+A las anomalías temporales de un flujo de eventos de serie temporal se les conocen como picos e interrupciones. Los picos y las interrupciones pueden supervisarse mediante el operador basado en Machine Learning, [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+).
 
 ![Ejemplo de anomalías de picos e interrupciones](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
 En la misma ventana deslizante, si un pico de segundo es menor que el primero, la puntuación calculada del pico más pequeño probablemente no es lo suficientemente significativo en comparación con la puntuación del primer pico en el nivel de confianza especificado. Puede intentar reducir la configuración del nivel de confianza del modelo para capturar estas anomalías. Sin embargo, si empieza a recibir demasiadas alertas, puede usar un intervalo de confianza superior.
 
-En la siguiente consulta de ejemplo se da por supuesto una velocidad uniforme de entrada de 1 evento por segundo en una ventana deslizante de 2 minutos con un historial de 120 eventos. La instrucción SELECT final extrae y produce la puntuación y el estado de anomalía con un nivel de confianza del 95 %.
+En la siguiente consulta de ejemplo se da por supuesto una velocidad uniforme de entrada de un evento por segundo en una ventana deslizante de 2 minutos con un historial de 120 eventos. La instrucción SELECT final extrae y produce la puntuación y el estado de anomalía con un nivel de confianza del 95 %.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -67,7 +68,7 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Cambio de puntos
 
-Las anomalías persistentes en un flujo de eventos de serie temporal son los cambios en la distribución de valores del flujo de eventos, como los cambios de nivel y tendencias. En Stream Analytics, estas anomalías se detectan mediante el operador **AnomalyDetection_ChangePoint** basado en Machine Learning.
+Las anomalías persistentes en un flujo de eventos de serie temporal son los cambios en la distribución de valores del flujo de eventos, como los cambios de nivel y tendencias. En Stream Analytics, estas anomalías se detectan mediante el operador [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) basado en Machine Learning.
 
 Los cambios persistentes duran mucho más que los picos y las interrupciones, y podrían indicar eventos catastróficos. Los cambios persistentes normalmente no son visibles a simple vista, pero se pueden detectar con el operador **AnomalyDetection_ChangePoint**.
 
@@ -79,7 +80,7 @@ La imagen siguiente es un ejemplo de un cambio de tendencia:
 
 ![Ejemplo de anomalía de cambio de tendencia](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-En la siguiente consulta de ejemplo se da por supuesto una velocidad uniforme de entrada de 1 evento por segundo en una ventana deslizante de 20 minutos con un historial de 1200 eventos. La instrucción SELECT final extrae y produce la puntuación y el estado de anomalía con un nivel de confianza del 80 %.
+En la siguiente consulta de ejemplo se da por supuesto una velocidad uniforme de entrada de un evento por segundo en una ventana deslizante de 20 minutos con un historial de 1200 eventos. La instrucción SELECT final extrae y produce la puntuación y el estado de anomalía con un nivel de confianza del 80 %.
 
 ```SQL
 WITH AnomalyDetectionStep AS

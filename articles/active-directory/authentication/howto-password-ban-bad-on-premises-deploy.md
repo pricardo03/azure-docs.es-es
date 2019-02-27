@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204379"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417217"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Vista previa: Implementación de la protección con contraseña de Azure AD
 
@@ -53,15 +53,18 @@ Si es posible, esto se logra mediante la aplicación de revisiones completas a l
     |`https://login.microsoftonline.com`|Solicitudes de autenticación|
     |`https://enterpriseregistration.windows.net`|Funcionalidad de protección con contraseña de Azure AD|
 
+* Todas las máquinas que hospedan el servicio de proxy de protección con contraseña de Azure AD deben estar configuradas para permitir el tráfico TLS 1.2 HTTP de salida.
 * Una cuenta de administrador global para registrar el servicio de proxy de protección con contraseña de Azure AD y el bosque con Azure AD.
 * Una cuenta con privilegios de administrador de dominio de Active Directory en el dominio raíz del bosque para registrar el bosque de Windows Server Active Directory con Azure AD.
 * Todos los dominios de Active Directory que ejecuten el software del servicio de agente de controlador de dominio deben usar DFSR para la replicación de sysvol.
 
 ## <a name="single-forest-deployment"></a>Implementación en un único bosque
 
-En el diagrama siguiente se muestra cómo los componentes básicos de la protección con contraseña de Azure AD funcionan conjuntamente en un entorno de Active Directory local.  
+En el diagrama siguiente se muestra cómo los componentes básicos de la protección con contraseña de Azure AD funcionan conjuntamente en un entorno de Active Directory local.
 
 ![Funcionamiento conjunto de los componentes de la protección con contraseña de Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Antes de la implementación es una buena idea revisar cómo funciona el software; consulte la [introducción conceptual a la protección con contraseña de Azure AD](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Descarga del software
 

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117283"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270069"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integración del centro de datos de Azure Stack: publicar puntos de conexión
 
@@ -34,6 +34,9 @@ No se indican las VIP de infraestructura interna porque no son necesarias para l
 
 > [!Note]  
 > Las VIP de usuario son dinámicas y están definidas por los propios usuarios, sin ningún control por parte del operador de Azure Stack.
+
+> [!Note]
+> A partir de la actualización 1811, ya no es necesario que los puertos del intervalo de 12495 a 30015 esté abierto porque se incorporado la [extensión Host](azure-stack-extension-host-prepare.md).
 
 |Punto de conexión (VIP)|Registro de host DNS A|Protocolo|Puertos|
 |---------|---------|---------|---------|

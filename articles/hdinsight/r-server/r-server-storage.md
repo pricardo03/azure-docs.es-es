@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910273"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309124"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluciones de Azure Storage para ML Services en HDInsight
 
@@ -119,9 +119,9 @@ Después de asignar un nombre a la entidad de servicio y crear una contraseña p
 
 También es posible agregar acceso al clúster a una o varias cuentas de Data Lake Storage después de la creación del clúster. Abra la entrada de Azure Portal para una instancia de Data Lake Storage y vaya a **Explorador de datos > Acceso > Agregar**. 
 
-### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Acceso a la instancia de Data Lake Storage desde ML Services en HDInsight
+### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Acceso a Data Lake Storage Gen1 desde el clúster ML Services de HDInsight
 
-Una vez que tenga acceso a una instancia de Data Lake Storage, puede usar el almacenamiento en el clúster de ML Services en HDInsight de la manera en que lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://**, de la forma siguiente:
+Una vez que tenga acceso a Data Lake Storage Gen1, puede usar el almacenamiento del clúster ML Services de HDInsight tal y como lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://**, de la forma siguiente:
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -143,7 +143,7 @@ Una vez que tenga acceso a una instancia de Data Lake Storage, puede usar el alm
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-Los siguientes comandos se usan para configurar la cuenta de Data Lake Storage con el directorio RevoShare y agregar el archivo .csv de ejemplo del ejemplo anterior:
+Los siguientes comandos se usan para configurar la cuenta de Data Lake Storage Gen1 con el directorio RevoShare y agregar el archivo .csv del ejemplo anterior:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

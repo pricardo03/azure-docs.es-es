@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262596"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312998"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -26,7 +26,7 @@ Hay tres métodos para exportar datos de Application Insights a Power BI:
 
 * [**Exportación de consultas de Analytics**](#export-analytics-queries). Este es el método preferido. Escriba cualquier consulta que desee y expórtela a Power BI. Puede colocar esta consulta en un panel junto con otros datos.
 * [**Exportación continua y Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Este método es útil si desea almacenar los datos durante largos períodos. Si no tiene un requisito de retención de datos extendido, utilice el método de consulta de análisis de exportación. Exportación continua y Stream Analytics implica más trabajo de configuración y una sobrecarga de almacenamiento adicional.
-* [**Adaptador de Power BI**](#power-pi-adapter). El conjunto de gráficos está predefinido, pero puede agregar sus propias consultas de cualquier otro origen.
+* **Adaptador de Power BI**. El conjunto de gráficos está predefinido, pero puede agregar sus propias consultas de cualquier otro origen.
 
 > [!NOTE]
 > El adaptador de Power BI está **en desuso**. Los gráficos predefinidos para esta solución se rellenan con consultas estáticas no modificables. No tiene la capacidad de editar estas consultas y, según ciertas propiedades de los datos, es posible que la conexión con Power BI se realice correctamente, pero no se rellene ningún dato. Esto se debe a los criterios de exclusión que se establecen en la consulta codificado de forma rígida. Aunque esta solución incluso puede funcionar para algunos clientes, debido a la falta de flexibilidad del adaptador, la solución recomendada es usar la funcionalidad de [**exportación de consultas de Analytics**](#export-analytics-queries).

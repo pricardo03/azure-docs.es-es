@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243992"
+ms.locfileid: "56268794"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
@@ -42,7 +42,7 @@ Para registrarse para todos los eventos, puede suscribirse al evento JobStateCha
 | Microsoft.Media.JobCanceled| Permite obtener un evento cuando el trabajo realiza la transición al estado cancelado. Se trata de un estado final que incluye las salidas del trabajo.|
 | Microsoft.Media.JobErrored| Permite obtener un evento cuando el trabajo realiza la transición al estado de error. Se trata de un estado final que incluye las salidas del trabajo.|
 
-Siga los [ejemplos de esquemas](#event-schema-examples).
+Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ### <a name="monitoring-job-output-state-changes"></a>Supervisión de cambios de estado de salida de trabajo
 
@@ -56,7 +56,15 @@ Siga los [ejemplos de esquemas](#event-schema-examples).
 | Microsoft.Media.JobOutputCanceled| Permite obtener un evento cuando la salida del trabajo realiza la transición al estado cancelado.|
 | Microsoft.Media.JobOutputErrored| Permite obtener un evento cuando la salida del trabajo realiza la transición al estado de error.|
 
-Siga los [ejemplos de esquemas](#event-schema-examples).
+Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
+
+### <a name="monitoring-job-output-progress"></a>Supervisión del progreso de salida del trabajo
+
+| Tipo de evento | DESCRIPCIÓN |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| Este evento refleja el progreso del procesamiento de trabajo del 0 % al 100 %. El servicio intenta enviar un evento si se ha producido un aumento del 5 % o mayor en el valor de progreso o han pasado más de 30 segundos desde el último evento (latido). No se garantiza que el valor de progreso se inicie en el 0 %, o que alcance el 100 %, ni tampoco que aumente a una velocidad constante a lo largo del tiempo. No debe utilizar este evento para determinar si se ha completado el procesamiento; en su lugar, utilice los eventos de cambio de estado.|
+
+Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ## <a name="live-event-types"></a>Tipos de eventos en directo
 
@@ -72,7 +80,7 @@ Los eventos de nivel de transmisión se generan en función de la transmisión o
 | Microsoft.Media.LiveEventEncoderConnected | El codificador se conectó al evento en directo. |
 | Microsoft.Media.LiveEventEncoderDisconnected | El codificador se desconecta. |
 
-Siga los [ejemplos de esquemas](#event-schema-examples).
+Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ### <a name="track-level-events"></a>Eventos de nivel de seguimiento
 
@@ -87,7 +95,7 @@ Los eventos de nivel de seguimiento se generan por pista. Los tipos de evento de
 | Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | El servidor multimedia detecta una discontinuidad en la pista entrante. |
 
-Siga los [ejemplos de esquemas](#event-schema-examples).
+Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ## <a name="event-schema-examples"></a>Ejemplos de esquema de eventos
 
@@ -245,6 +253,29 @@ Para cada cambio de estado JobOutput, el esquema de ejemplo tiene un aspecto sim
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+El esquema de ejemplo es similar al siguiente:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

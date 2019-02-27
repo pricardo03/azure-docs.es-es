@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818998"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456510"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ En este artículo se presentan los conceptos básicos para proteger sus aplicaci
 - [Seguridad de nodos](#node-security)
 - [Actualización de un clúster de Service Fabric](#cluster-upgrades)
 - [Seguridad de las redes](#network-security)
-- Secretos de Kubernetes
+- [Secretos de Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Seguridad de componentes maestros
 
@@ -36,9 +36,9 @@ De forma predeterminada, el servidor de API de Kubernetes utiliza una dirección
 
 Los nodos de AKS son máquinas virtuales de Azure de los que usted realiza la administración y el mantenimiento. Los nodos ejecutan una distribución Ubuntu Linux optimizada con el tiempo de ejecución del contenedor de Docker. Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implementan automáticamente con las actualizaciones de seguridad del sistema operativo y las configuraciones más recientes.
 
-La plataforma Azure aplica automáticamente las revisiones de seguridad del sistema operativo a los nodos del clúster durante la noche. Si una actualización de seguridad del sistema operativo requiere un reinicio del host, este no se realiza automáticamente. Puede reiniciar manualmente los nodos, o bien optar por un enfoque común que consiste en usar [Kured][kured], un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet][aks-daemonset] y supervisa cada nodo para comprobar la presencia de un archivo que indique que hace falta un reinicio. Los reinicios se administran en el clúster con el mismo [proceso de acordonar y purgar](#cordon-and-drain) que una actualización de clúster.
+La plataforma Azure aplica automáticamente las revisiones de seguridad del sistema operativo a los nodos del clúster durante la noche. Si una actualización de seguridad del sistema operativo requiere un reinicio del host, este no se realiza automáticamente. Puede reiniciar manualmente los nodos, o bien optar por un enfoque común que consiste en usar [Kured][kured], un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet][aks-daemonsets] y supervisa en todos los nodos la presencia de un archivo que indique que hace falta un reinicio. Los reinicios se administran en el clúster con el mismo [proceso de acordonar y purgar](#cordon-and-drain) que una actualización de clúster.
 
-Los nodos se implementan en una subred de una red privada virtual, sin ninguna dirección IP pública asignada. Para fines de administración y solución de problemas, SSH está habilitado de forma predeterminada. El acceso de SSH solo está disponible mediante la dirección IP interna. Las reglas del grupo de seguridad de red de Azure pueden usarse para restringir aún más el acceso del intervalo IP a los nodos de AKS. La eliminación de la regla SSH del grupo de seguridad de red predeterminada y la deshabilitación del servicio SSH en los nodos impiden que la plataforma Azure realice tareas de mantenimiento.
+Los nodos se implementan en una subred de una red privada virtual, sin ninguna dirección IP pública asignada. Para fines de administración y solución de problemas, SSH está habilitado de forma predeterminada. El acceso de SSH solo está disponible mediante la dirección IP interna.
 
 Para proporcionar almacenamiento, los nodos usan Azure Managed Disks. Para la mayoría de los tamaños de nodo de máquina virtual, estos son los discos Premium respaldados por SSD de alto rendimiento. Los datos almacenados en discos administrados se cifran automáticamente en reposo dentro de la plataforma Azure. Para mejorar la redundancia, estos discos también se replican de forma segura en el centro de datos de Azure.
 
@@ -46,7 +46,7 @@ Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completame
 
 ## <a name="cluster-upgrades"></a>Actualizaciones de clústeres
 
-Por motivos de seguridad y cumplimiento, o para usar las características más recientes, Azure proporciona herramientas para orquestar la actualización de un clúster y de componentes de AKS. La orquestación de esta actualización incluye los componentes tanto de maestro como de agente de Kubernetes. Puede ver una lista de las versiones de Kubernetes disponibles para su clúster de AKS. Para iniciar el proceso de actualización, especifique una de estas versiones disponibles. A continuación, Azure acordona y purga con seguridad cada uno de los nodos de AKS y lleva a cabo la actualización.
+Por motivos de seguridad y cumplimiento, o para usar las características más recientes, Azure proporciona herramientas para orquestar la actualización de un clúster y de componentes de AKS. La orquestación de esta actualización incluye los componentes tanto de maestro como de agente de Kubernetes. Puede ver una [lista de las versiones de Kubernetes disponibles](supported-kubernetes-versions.md) para su clúster de AKS. Para iniciar el proceso de actualización, especifique una de estas versiones disponibles. A continuación, Azure acordona y purga con seguridad cada uno de los nodos de AKS y lleva a cabo la actualización.
 
 ### <a name="cordon-and-drain"></a>Acordonar y purgar
 
@@ -57,7 +57,7 @@ Durante el proceso de actualización, los nodos de AKS se acordonan individualme
 - Los pods se programan para ejecutarse de nuevo en estos.
 - El siguiente nodo del clúster se acordona y purga mediante el mismo proceso hasta que todos los nodos están actualizados correctamente.
 
-Para más información, consulte [Upgrade an AKS cluster][aks-upgrade-cluster] (Actualización de un clúster de AKS).
+Para más información, consulte [Actualización de un clúster de AKS][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Seguridad de las redes
 

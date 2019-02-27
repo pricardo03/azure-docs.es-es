@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425181"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454266"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF)
 
@@ -133,7 +133,7 @@ WAF de Application Gateway se puede configurar para ejecutarse en dos modos:
 
 ### <a name="application-gateway-waf-reports"></a>Supervisión de WAF
 
-Es importante supervisar el estado de la instancia de Application Gateway. La supervisión del estado del firewall de aplicaciones web y las aplicaciones que este protege se proporciona mediante el registro y la integración con Azure Monitor, Azure Security Center y Log Analytics.
+Es importante supervisar el estado de la instancia de Application Gateway. La supervisión del estado del firewall de aplicaciones web y las aplicaciones que este protege se proporciona mediante el registro y la integración con Azure Monitor, Azure Security Center y los registros de Azure Monitor.
 
 ![diagnóstico](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Cada registro de Application Gateway se integra con [Azure Monitor](../monitorin
 
 #### <a name="logging"></a>Registro
 
-WAF de Application Gateway ofrece informes detallados sobre las amenazas detectadas. El registro se integra con los registros de Diagnósticos de Azure y las alertas se registran en formato json. Estos registros pueden integrarse con [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+WAF de Application Gateway ofrece informes detallados sobre las amenazas detectadas. El registro se integra con los registros de Diagnósticos de Azure y las alertas se registran en formato json. Estos registros pueden integrarse con los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

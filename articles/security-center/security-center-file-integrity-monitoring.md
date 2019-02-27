@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50f2c174f21243a70c830c1c30127e0629c81972
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110258"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310747"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -88,7 +88,7 @@ Para habilitar FIM en un área de trabajo, siga estos pasos:
 4. Seleccione **Aplicar la supervisión de la integridad de los archivos** para habilitar FIM.
 
 > [!NOTE]
-> Puede cambiar la configuración en cualquier momento. Consulte a continuación [Edición de las entidades supervisadas](security-center-file-integrity-monitoring.md#edit-monitored-items) para más información.
+> Puede cambiar la configuración en cualquier momento. Consulte a continuación Edición de las entidades supervisadas para más información.
 >
 >
 

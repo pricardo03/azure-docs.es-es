@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993006"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269423"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Creación de gráficos y diagramas a partir de consultas de Azure Monitor
 
@@ -93,7 +93,7 @@ Para cambiar, seleccione la lista desplegable con el nombre de la columna.
 ![AccountType del gráfico de barras](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte otras lecciones para usar el [lenguaje de consulta de Data Explorer](/azure/kusto/query/) con datos de registro de Azure Monitor:
+Consulte otras lecciones para usar el [lenguaje de consulta de Kusto](/azure/kusto/query/) con datos de registro de Azure Monitor:
 
 - [Operaciones de cadena](string-operations.md)
 - [Operaciones de fecha y hora](datetime-operations.md)

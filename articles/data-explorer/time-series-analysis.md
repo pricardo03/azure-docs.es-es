@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750569"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408789"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
 
@@ -224,9 +224,9 @@ demo_many_series1
 |   |   |
 | --- | --- |
 |   | Recuento |
-|   | 23115 |
+|   | 18339 |
 
-Ahora, vamos a crear un conjunto de 23 115 series temporales de la métrica de recuento de lecturas. Agregamos la cláusula `by` a la instrucción make-series, aplicamos la regresión lineal y seleccionamos las dos primeras series temporales que tuvieron la tendencia decreciente más significativa:
+Ahora, vamos a crear un conjunto de 18339 series temporales de la métrica de recuento de lecturas. Agregamos la cláusula `by` a la instrucción make-series, aplicamos la regresión lineal y seleccionamos las dos primeras series temporales que tuvieron la tendencia decreciente más significativa:
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -235,7 +235,7 @@ demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![Dos primeras series temporales](media/time-series-analysis/time-series-top-2.png)
@@ -258,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-En menos de dos minutos, Azure Data Explorer analizó más de 20 000 series temporales y detectó dos series temporales anormales en las que el recuento de lecturas bajó repentinamente.
+En menos de dos minutos, Azure Data Explorer analizó aproximadamente 20 000 series temporales y detectó dos series temporales anormales en las que el recuento de lecturas bajó repentinamente.
 
 Estas funcionalidades avanzadas, combinadas con el rápido rendimiento de Azure Data Explorer, proporcionan una solución única y eficaz para el análisis de series temporales.

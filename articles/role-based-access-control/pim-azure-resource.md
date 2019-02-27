@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso a los recursos de Azure con Privileged Identity Management (PIM)
-description: Obtenga información sobre cómo administrar el acceso a los recursos de Azure con Privileged Identity Management (PIM) y el control de acceso basado en rol (RBAC).
+title: Administración del acceso a los recursos de Azure con Azure Active Directory Privileged Identity Management (PIM)
+description: Obtenga información sobre cómo administrar el acceso a los recursos de Azure con Azure Active Directory Privileged Identity Management (PIM) y el control de acceso basado en rol (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 141cba29f5027ce092775d97c1abe9ecf11badf5
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 757068034868744b408c9402b521a0e4c73950f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436052"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338213"
 ---
-# <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Administración del acceso a recursos de Azure con Privileged Identity Management
+# <a name="manage-access-to-azure-resources-with-azure-ad-privileged-identity-management"></a>Administración del acceso a los recursos de Azure con Azure Active Directory Privileged Identity Management
 
 Para proteger las cuentas con privilegios de ciberataques malintencionados, puede usar Azure Active Directory Privileged Identity Management (PIM) para reducir el tiempo de exposición de los privilegios y aumentar la visibilidad de su uso a través de alertas e informes. PIM lo hace limitando a los usuarios a que solo acepten sus privilegios "just-in-time" (JIT) o mediante la asignación de privilegios por un período de tiempo más corto, tras el cual se revocan automáticamente. 
 
@@ -33,4 +33,4 @@ Ya puede usar PIM con control de acceso basado en roles (RBAC) de Azure para adm
 - Asignar acceso temporal a recursos de Azure para tareas rápidas u horarios de guardia
 - Reciba alertas cuando se asigne acceso a los recursos para nuevos usuarios o grupos, así como cuando activen asignaciones aptas
 
-Para más información, consulte [Información general de control de acceso basado en rol de Azure PIM](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md).
+Para más información, vea [¿Qué es Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495227"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327517"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -148,17 +148,15 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 
 - *Discos de sistema operativo predeterminados*: estos tipos de disco ofrecen datos persistentes y almacenamiento en caché. Estos discos están optimizados para el acceso del sistema operativo en tiempo de inicio y no están diseñados para cargas de trabajo transaccionales o de almacenamiento de datos (analíticas).
 
-- *Discos no administrados*: con estos tipos de disco, usted administra las cuentas de almacenamiento que almacenan los archivos de disco duro virtual (VHD) que se corresponden con los discos de la máquina virtual. Los archivos VHD se almacenan como blobs de páginas en las cuentas de Azure Storage.
+- *Discos no administrados*: con estos tipos de disco, administra las cuentas de almacenamiento que almacenan los archivos de disco duro virtual (VHD) que se corresponden con los discos de la máquina virtual. Los archivos VHD se almacenan como blobs de páginas en las cuentas de Azure Storage.
 
-- *Managed disks (discos administrados)*: Azure administra las cuentas de almacenamiento utilizadas para los discos de la máquina virtual. Especifique el tipo de disco (Premium o Standard) y el tamaño de disco que necesite. Azure crea y administra el disco en su nombre.
+- *Managed Disks*: Azure administra las cuentas de almacenamiento utilizadas para los discos de la máquina virtual. Especifique el tipo de disco (Premium o Standard) y el tamaño de disco que necesite. Azure crea y administra el disco en su nombre.
 
 - *Discos de Premium Storage*: estos tipos de disco son más adecuados para las cargas de trabajo de producción. Premium Storage admite discos de máquina virtual que se pueden conectar a series específicas de máquina virtual, como las series DS, DSv2, GS y F. El disco Premium tiene diferentes tamaños entre los que puede elegir, desde 32 GB a 4,096 GB. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM.
 
 Cuando se crea un nuevo disco administrado desde el portal, puede elegir el **Tipo de cuenta** para el tipo de disco que quiere usar. Es importante saber que en el menú desplegable no se muestran todos los discos disponibles. Después de elegir un tamaño de máquina virtual determinado, el menú muestra solo las SKU de Premium Storage disponibles que se basan en ese tamaño de máquina virtual.
 
 ![Captura de pantalla de la página de disco administrado](./media/oracle-design/premium_disk01.png)
-
-Para más información, consulte [Premium Storage de alto rendimiento y Managed Disks para máquinas virtuales](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 Una vez configurado el almacenamiento en una máquina virtual, tal vez le interese realizar una prueba de carga en los discos antes de crear una base de datos. Puede ser útil conocer la velocidad de E/S en términos de latencia y rendimiento para ayudarle a determinar si las máquinas virtuales admiten el rendimiento esperado con objetivos de latencia.
 
@@ -200,8 +198,6 @@ Existen tres opciones para el almacenamiento en caché de host:
 
 Para maximizar el rendimiento, se recomienda comenzar con la opción **Ninguno** para el almacenamiento en caché de host. En el caso de Premium Storage, es importante tener en cuenta que debe deshabilitar las "barreras" al montar el sistema de archivos con las opciones **Solo lectura** o **Ninguno**. Actualice el archivo/etc/fstab con el UUID en los discos.
 
-Para obtener más información, vea [Premium Storage para VM Linux](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
-
 ![Captura de pantalla de la página de disco administrado](./media/oracle-design/premium_disk02.png)
 
 - En los discos del sistema operativo, use el almacenamiento en caché predeterminado **Lectura y escritura**.
@@ -215,9 +211,9 @@ Una vez que se haya guardado la configuración del disco de datos, no se puede c
 
 Después de que se instala y configura el entorno de Azure, el siguiente paso es proteger la red. Estas son algunas recomendaciones:
 
-- *Directiva NSG*: NSG puede definirse mediante una subred o NIC. Es más fácil controlar el acceso en el nivel de subred para garantizar la seguridad y forzar el enrutamiento de elementos como el firewall de aplicaciones.
+- *Directiva del NSG*: el grupo de seguridad de red (NSG) se puede definir como una subred o NIC. Es más fácil controlar el acceso en el nivel de subred para garantizar la seguridad y forzar el enrutamiento de elementos como el firewall de aplicaciones.
 
-- *Jumpbox*: para un acceso más seguro, los administradores no deben conectarse directamente con el servicio de aplicación o la base de datos. Se usa un Jumpbox como un medio entre la máquina del administrador y los recursos de Azure.
+- *Jumpbox*: Para un acceso más seguro, los administradores no deben conectarse directamente con el servicio de aplicación o la base de datos. Se usa un Jumpbox como un medio entre la máquina del administrador y los recursos de Azure.
 ![Captura de pantalla de la página de topología de Jumpbox](./media/oracle-design/jumpbox.png)
 
     La máquina del administrador debería tener un acceso restringido a la dirección IP del Jumpbox únicamente. El Jumpbox debe tener acceso a la aplicación y la base de datos.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c5e67e581d3fc370710528609bf94b1110416c33
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563748"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311382"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -103,10 +103,10 @@ Los nuevos servidores RHUI de Azure se implementan con [Azure Traffic Manager](h
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Actualización del certificado de cliente de RHUI expirado en una máquina virtual
 
-Si usa una imagen de máquina virtual de RHEL anterior, por ejemplo, RHEL 7.4 (URN de imagen: `RedHat:RHEL:7.4:7.4.2018010506`), experimentará problemas de conectividad a RHUI debido a un certificado de cliente SSL ahora expirado. El error que vea puede ser similar a _"SSL del mismo nivel rechazó el certificado como expirado"_. Para solucionar este problema, actualice el paquete de cliente de RHUI en la máquina virtual con el siguiente comando:
+Si usa una imagen de máquina virtual de RHEL anterior, por ejemplo, RHEL 7.4 (URN de imagen: `RedHat:RHEL:7.4:7.4.2018010506`), experimentará problemas de conectividad a RHUI debido a un certificado de cliente SSL ahora expirado. El error que vea puede ser similar a _"SSL del mismo nivel rechazó el certificado como expirado"_ o _Error: No se puede recuperar el repositorio de metadatos (repomd.xml) para el repositorio:... Compruebe su ruta de acceso y vuelva a intentarlo"_. Para solucionar este problema, actualice el paquete de cliente de RHUI en la máquina virtual con el siguiente comando:
 
 ```bash
-sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
+sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
 Como alternativa, al ejecutar `sudo yum update` también se actualiza el paquete del certificado de cliente (según la versión de RHEL) a pesar de los errores de "certificado SSL expirado" que verá para otros repositorios. Si esta actualización es correcta, se debería restaurar la conectividad normal a otros repositorios de RHUI, de modo que podrá ejecutar `sudo yum update` correctamente.

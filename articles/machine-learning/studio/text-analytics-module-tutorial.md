@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242675"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454385"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creación de un modelo de análisis de opiniones en Azure Machine Learning Studio
 
-Puede usar Azure Machine Learning para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
+Puede usar Azure Machine Learning Studio para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
 
 En un experimento de análisis de texto, normalmente debería:
 
@@ -66,7 +66,7 @@ Como alternativa al uso del módulo de extracción de características de n-gram
 ## <a name="step-3-train-classification-or-regression-model"></a>Paso 3: Entrenar un modelo de clasificación o regresión
 El texto se ha transformado ya en columnas de características numéricas. El conjunto de datos todavía contiene columnas de cadenas de las fases anteriores, por lo que se utilizará la opción Select Columns in Dataset (Seleccionar columnas en el conjunto de datos) para excluirlas.
 
-A continuación, se utilizará la [regresión logística de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) para predecir el destino: puntuación de revisión alta o baja. En este punto, el problema de análisis de texto se ha convertido en un problema de clasificación normal. Puede utilizar las herramientas disponibles en Azure Machine Learning para mejorar el modelo. Por ejemplo, puede experimentar con diferentes clasificadores para averiguar el grado de precisión de los resultados que proporcionan o usar el ajuste de hiperparámetros para mejorar la precisión.
+A continuación, se utilizará la [regresión logística de dos clases](https://msdn.microsoft.com/library/azure/dn905994.aspx) para predecir el destino: puntuación de revisión alta o baja. En este punto, el problema de análisis de texto se ha convertido en un problema de clasificación normal. Puede utilizar las herramientas disponibles en Azure Machine Learning Studio para mejorar el modelo. Por ejemplo, puede experimentar con diferentes clasificadores para averiguar el grado de precisión de los resultados que proporcionan o usar el ajuste de hiperparámetros para mejorar la precisión.
 
 ![Entrenar y puntuar](./media/text-analytics-module-tutorial/scoring-text.png)
 

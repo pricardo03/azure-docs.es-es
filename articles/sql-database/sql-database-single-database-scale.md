@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961353"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454028"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -42,7 +42,7 @@ Después de elegir inicialmente el número de núcleos virtuales, puede escalar 
 
 Al cambiar el nivel de servicio o el tamaño de proceso de una base de datos, se crea una réplica de la base de datos original en el nuevo tamaño de proceso y, después, se cambian las conexiones a la réplica. Durante este proceso, no se pierde ningún dato; sin embargo, durante el breve momento en que se cambie a la réplica, las conexiones a la base de datos estarán deshabilitadas, por tanto, es posible que se reviertan algunas transacciones en curso. En general, la duración del cambio varía, pero suele ser menor que 30 segundos el 99 % de las veces. Si el número de transacciones en curso es elevado en el momento en que las conexiones están deshabilitadas, esta longitud de tiempo puede ser mayor.
 
-La duración de todo el proceso de escalado vertical depende del nivel de servicio y del tamaño de la base de datos antes y después del cambio. Por ejemplo, el cambio de una base de datos de 250 GB dentro de un nivel de servicio De uso general, o bien desde o hacia este, se completará en seis horas. En una base de datos del mismo tamaño que cambie los tamaños de proceso en el nivel de servicio Crítico para la empresa, el escalado vertical se completará en unas tres horas.
+La duración de todo el proceso de escalado vertical depende generalmente del nivel de servicio y del tamaño de la base de datos antes y después del cambio. Por ejemplo, cualquier tamaño de base de datos que vaya a cambiar el tamaño de proceso en el nivel de servicio de uso general se completará en unos minutos. Por el contrario, la latencia para cambiar el tamaño de proceso en el nivel crítico para la empresa tardará unos 90 minutos como máximo por cada 100 GB.
 
 > [!TIP]
 > Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) y [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).

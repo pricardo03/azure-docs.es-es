@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861279"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312555"
 ---
-# <a name="detecting-adult-and-racy-content"></a>Detección de contenido para adultos y subido de tono
+# <a name="detect-adult-and-racy-content"></a>Detección de contenido para adultos y subido de tono
 
-Entre las diferentes categorías visuales, se encuentra el grupo de contenido para adultos y subido de tono, que permite detectar el material destinado a adultos y limita la presentación de imágenes de contenido sexual. El filtro para detección de contenido para adultos y subido de tono se puede establecer en una escala gradual, para ajustarlo a la preferencia del usuario.
+Computer Vision puede detectar material para adultos en imágenes para que los desarrolladores puedan restringir la presentación de dichas imágenes en su software. Las marcas de contenido se aplican con una puntuación entre cero y uno para que los desarrolladores puedan interpretar los resultados según sus preferencias. 
 
-## <a name="defining-adult-and-racy-content"></a>Detección de contenido para adultos y subido de tono
+> [!NOTE]
+> Esta característica también está disponible en el servicio [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview). Consulte esta alternativa para las soluciones en escenarios de moderación de contenido más rigurosas, como la moderación de texto y los flujos de trabajo de revisión humana.
 
-Entre las distintas características visuales cubiertas por el [método de análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), la característica visual para adultos habilita la detección de imágenes para adultos y subidas de tono. Las imágenes "para adultos" se definen como aquellas de naturaleza pornográfica que suelen representar desnudos y actos sexuales. Las imágenes "subidas de tono" se definen como las imágenes de naturaleza sexualmente sugerente y que a menudo contienen material sexual menos explícito que las imágenes etiquetadas como "para adultos" El tipo de característica visual para adultos suele usarse para restringir la visualización de imágenes con contenido sexualmente sugerente o explícito.
+## <a name="content-flag-definitions"></a>Definiciones de las marcas de contenido
 
-## <a name="identifying-adult-and-racy-content"></a>Identificación de contenido para adultos y subido de tono
+Las imágenes **para adultos** se definen como aquellas de naturaleza pornográfica que suelen representar desnudos y actos sexuales. 
 
-El método de análisis de imagen devuelve dos propiedades, `isAdultContent` y `isRacyContent`, en la respuesta JSON del método para indicar, respectivamente, que se trata de contenido para adultos o subido de tono. Ambas propiedades devuelven un valor booleano true o false. El método también devuelve dos propiedades `adultScore` y `racyScore`, que representan, respectivamente, las puntuaciones de confianza para la identificación de contenido para adultos o subido de tono. El filtro para la detección de contenido para adultos y subido de tono se puede establecer en una escala gradual, con el fin de que pueda ajustarlo a sus preferencias según el escenario concreto.
+Las imágenes **subidas de tono** se definen como las imágenes de naturaleza sexualmente sugerente y que a menudo contienen material sexual menos explícito que las imágenes etiquetadas como **para adultos**. 
+
+## <a name="identify-adult-and-racy-content"></a>Identificación de contenido para adultos y subido de tono
+
+La API [de análisis](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+
+El método Analyze Image devuelve dos propiedades booleanas, `isAdultContent` y `isRacyContent`, en la respuesta JSON del método para indicar, respectivamente, que se trata de contenido para adultos o subido de tono. El método también devuelve dos propiedades `adultScore` y `racyScore`, que representan, respectivamente, las puntuaciones de confianza para la identificación de contenido para adultos o subido de tono.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

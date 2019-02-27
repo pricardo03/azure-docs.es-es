@@ -1,7 +1,7 @@
 ---
 title: 'Adición de analizadores de idiomas: Azure Search'
 description: Análisis de texto de léxico en varios idiomas para consultas e índices en idiomas distintos del inglés en Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b5c562994c169a8c5d51ee31a9606c5c40162603
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007613"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328306"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Search
 
-Un *analizador de idiomas* es un componente específico de un [motor de búsqueda de texto completo](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad `analyzer`. Si el índice contiene cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.  
+Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad **analyzer**. Si el índice contiene cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.  
 
 Azure Search admite 35 analizadores respaldados por la tecnología de Lucene y 50 analizadores respaldados por la tecnología de procesamiento de lenguaje natural de Microsoft que se usa en Office y Bing.
 
-## <a name="compare-language-analyzer-types"></a>Comparación entre tipos de analizadores de idiomas 
+## <a name="comparing-analyzers"></a>Comparación de analizadores
 
 Es posible que algunos desarrolladores prefieran la solución más familiar, simple y de código abierto de Lucene. Los analizadores de idiomas de Lucene son más rápidos, pero los analizadores de Microsoft disponen de capacidades avanzadas, como la lematización, la descomposición de palabras (en idiomas como el alemán, danés, neerlandés, sueco, noruego, estonio, finés, húngaro, eslovaco) y el reconocimiento de entidades (direcciones URL, correos electrónicos, fechas y números). Si es posible, debe ejecutar las comparaciones de los analizadores de Microsoft y Lucene para decidir cuál es la que se ajusta mejor. 
 
@@ -49,15 +49,17 @@ El analizador predeterminado es Standard Lucene, que funciona bien con el inglé
  > [!Tip]
  > La [versión de demostración de Search Analyzer](https://alice.unearth.ai/) muestra una comparación entre los resultados que proporciona el analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. Cada vez que se realiza una entrada de búsqueda, los resultados de cada analizador se muestran en los paneles adyacentes.
 
-## <a name="analyzer-configuration"></a>Configuración del analizador
+## <a name="configuring-analyzers"></a>Configuración de analizadores
 
-Para cada campo de la definición del índice, puede establecer la propiedad `analyzer` en un nombre de analizador que especifica el idioma y el proveedor. Se aplicará el mismo analizador durante la búsqueda e indización de ese campo. Por ejemplo, puede tener campos separados para descripciones de hoteles en inglés, francés y español que existen en paralelo dentro del mismo índice.  
+Los analizadores de lenguaje se usan tal cual. Para cada campo de la definición del índice, puede establecer la propiedad **analyzer** en un nombre de analizador que especifique el idioma y el proveedor (Microsoft o Lucene). Se aplicará el mismo analizador durante la búsqueda e indización de ese campo. Por ejemplo, puede tener campos separados para descripciones de hoteles en inglés, francés y español que existen en paralelo dentro del mismo índice. Como alternativa, en lugar de **analyzer**, puede usar **indexAnalyzer** y **searchAnalyzer** a fin de tener reglas de análisis distintas en el momento de la indización y de la consulta. 
 
-Use el parámetro de consulta **searchFields** para especificar qué campo concreto del lenguaje buscar en las consultas. Puede revisar ejemplos de consultas que incluyan la propiedad del analizador en Buscar documentos. 
+Use el parámetro de consulta **searchFields** para especificar qué campo concreto del lenguaje buscar en las consultas. Puede revisar ejemplos de consultas que incluyan la propiedad analyzer en [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Para más información sobre las propiedades del índice, consulte [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creación de un índice [API REST de Azure Search Service]). Para más información sobre el análisis en Azure Search, consulte [Analizadores de Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
-## <a name="analyzer-list"></a>Lista de analizadores  
+<a name="language-analyzer-list"></a>
+
+## <a name="language-analyzer-list"></a>Lista de analizadores de idioma 
  A continuación se muestra la lista de idiomas admitidos y los nombres de analizadores Lucene y Microsoft.  
 
 |Idioma|Nombre del analizador de Microsoft|Nombre del analizador de Lucene|  

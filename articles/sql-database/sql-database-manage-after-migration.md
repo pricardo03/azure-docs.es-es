@@ -1,5 +1,5 @@
 ---
-title: 'Administración después de la migración: Azure SQL Database | Microsoft Docs'
+title: 'Administración de bases de datos únicas y agrupadas después de la migración: Azure SQL Database | Microsoft Docs'
 description: Obtenga información acerca de cómo administrar la base de datos tras la migración a Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099741"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417642"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de la base de datos en Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
-El cambio del entorno autocontrolado y autoadministrado tradicional a un entorno PaaS puede parecer un poco abrumador al principio. Como desarrollador de aplicaciones o DBA, deseará conocer las capacidades básicas de la plataforma que le ayudarán a mantener la disponibilidad, el rendimiento, la seguridad y la resistencia de la aplicación. Ese es precisamente el objetivo de este artículo. El artículo sucinta organiza los recursos y ofrece instrucciones sobre cómo usar mejor las capacidades clave de SQL Database para administrar y mantener la aplicación se ejecute de forma eficaz y lograr mejores resultados en la nube. Por lo general, el público al que va dirigido este artículo estará formado por personas que:
+El cambio del entorno autocontrolado y autoadministrado tradicional a un entorno PaaS puede parecer un poco abrumador al principio. Como desarrollador de aplicaciones o DBA, deseará conocer las capacidades básicas de la plataforma que le ayudarán a mantener la disponibilidad, el rendimiento, la seguridad y la resistencia de la aplicación. Ese es precisamente el objetivo de este artículo. El artículo organiza brevemente los recursos y ofrece instrucciones sobre cómo usar mejor las funcionalidades clave de SQL Database con bases de datos únicas y agrupadas para administrar y mantener la aplicación, que se ejecute de forma eficaz y lograr mejores resultados en la nube. Por lo general, el público al que va dirigido este artículo estará formado por personas que:
 
-- Evalúen la migración de sus aplicaciones a Azure SQL DB (y modernicen así las suyas).
+- Evalúan la migración de sus aplicaciones a Azure SQL Database (y modernizan así las suyas).
 - Estén en proceso de migrar sus aplicaciones (escenario de migración en curso).
 - Hayan completado recientemente la migración a Azure SQL DB (nuevo DBA en la nube).
 
-En este artículo se describen algunas de las características básicas de Azure SQL DB como una plataforma que puede aprovechar fácilmente. Son las siguientes:
+En este artículo se tratan algunas de las características básicas de Azure SQL Database como una plataforma que puede aprovechar fácilmente al trabajar con bases de datos únicas y agrupadas en grupos elásticos. Son las siguientes:
 
 - Recuperación ante desastres y continuidad empresarial (BCDR)
 - Seguridad y cumplimiento normativo
 - Supervisión y mantenimiento inteligentes de la base de datos
 - Movimiento de datos
+
+> [!NOTE]
+> Este artículo se aplica a las siguientes opciones de implementación en Azure SQL Database: bases de datos únicas y grupos elásticos. No es válido para la opción de implementación de instancias administradas en SQL Database.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Recuperación ante desastres y continuidad empresarial (BCDR)
 
@@ -299,11 +302,11 @@ SQL Database utiliza algunas técnicas inteligentes que permiten controlar ciert
 
 - **Exportar**: puede exportar su instancia de Azure SQL Database como un archivo BACPAC desde Azure Portal.
 
-   ![exportación de base de datos](./media/sql-database-export/database-export.png)
+   ![exportación de base de datos](./media/sql-database-export/database-export1.png)
 
 - **Importar**: también puede importar datos como un archivo BACPAC en la base de datos mediante Azure Portal.
 
-   ![importación de base de datos](./media/sql-database-import/import.png)
+   ![importación de base de datos](./media/sql-database-import/import1.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Cómo se pueden sincronizar los datos entre SQL Database y SQL Server
 

@@ -1,6 +1,6 @@
 ---
-title: Visualización de las asignaciones de denegación mediante Azure Portal | Microsoft Docs
-description: Aprenda cómo ver a usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha negado el acceso a acciones específicas en un ámbito determinado mediante Azure Portal.
+title: Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal | Microsoft Docs
+description: Aprenda cómo ver a usuarios, grupos, entidades de servicio e identidades administradas a los que se les ha denegado el acceso a acciones específicas en recursos de Azure en un ámbito determinado mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637730"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343245"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Visualización de las asignaciones de denegación mediante Azure Portal
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal
 
-[Denegar asignaciones](deny-assignments.md) impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Aunque no pueda crear sus propias asignaciones de denegación, debe poder ver las asignaciones de denegación porque pueden afectar a los permisos generales. Para obtener información sobre una asignación de denegación, debe tener el permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de los [roles integrados](built-in-roles.md).
+Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. Aunque no pueda crear sus propias asignaciones de denegación, debe poder ver las asignaciones de denegación porque pueden afectar a los permisos generales. Para obtener información sobre una asignación de denegación, debe tener el permiso `Microsoft.Authorization/denyAssignments/read`, que se incluye en la mayoría de los [roles integrados de recursos de Azure](built-in-roles.md).
 
 En este artículo se describe cómo usar Azure Portal para ver las asignaciones de denegación.
 
@@ -105,5 +105,5 @@ Siga estos pasos para ver detalles adicionales sobre una asignación de denegaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Descripción de las asignaciones de denegación](deny-assignments.md)
-* [List deny assignments using RBAC and the REST API](deny-assignments-rest.md) (Lista de asignaciones de denegación mediante RBAC y la API REST)
+* [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md)
+* [Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST](deny-assignments-rest.md)

@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005053"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300882"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Cómo crear una consulta en Azure Search
 
@@ -22,14 +22,14 @@ En Azure Search, una consulta es una especificación completa de una operación 
 
 Una solicitud de consulta es un constructor enriquecido, que especifica los campos que pertenecen al ámbito, la búsqueda, los campos que se van a devolver, el filtrado y la ordenación, etc. Una consulta sin especificar se ejecuta en todos los campos de búsqueda como una operación de búsqueda de texto completo, devolviendo un conjunto de resultados sin puntuar en orden aleatorio.
 
-### <a name="apis-and-tools-for-testing"></a>API y herramientas de pruebas
+## <a name="apis-and-tools-for-testing"></a>API y herramientas de pruebas
 
 En la tabla siguiente se enumeran las API y los métodos basados en herramientas para el envío de consultas.
 
 | Metodología | DESCRIPCIÓN |
 |-------------|-------------|
 | [Explorador de búsqueda (portal)](search-explorer.md) | Proporciona una barra de búsqueda y opciones para la selección del índice y la versión de API. Los resultados se devuelven como documentos JSON. <br/>[Más información.](search-get-started-portal.md#query-index) | 
-| [Postman u otra herramienta de prueba HTTP](search-fiddler.md) | Explica cómo configurar un encabezado y un cuerpo de solicitud de HTTP para enviar consultas a Azure Search.  |
+| [Postman o Fiddler](search-fiddler.md) | Las herramientas de pruebas Web son una opción excelente para formular llamadas REST. La API REST es compatible con todas las operaciones posibles de Azure Search. En este artículo, se explica cómo configurar el encabezado y el cuerpo de una solicitud HTTP para enviar solicitudes a Azure Search.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que puede usarse para consultar un índice de Azure Search.  <br/>[Más información.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Documentos de búsqueda (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Métodos GET o POST en un índice, con parámetros de consulta para entradas adicionales.  |
 
@@ -76,7 +76,7 @@ Los atributos de índice de un campo establecen las operaciones permitidas: si e
 La captura de pantalla anterior es una lista parcial de atributos de índice para el ejemplo de bienes inmuebles. En el portal puede ver el esquema de índice completo. Para más información acerca de los atributos de índice, consulte el artículo sobre la [creación de índices con la API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas son algunas de ellas: [asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [construcciones del proveedor de sugerencias (para Autocompletar y las sugerencias automáticas)](https://docs.microsoft.com/rest/api/searchservice/suggesters), [puntuación lógica para la clasificación de resultados](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
+> Algunas funcionalidades de consulta están habilitadas para todo el índice en lugar de por campo. Estas son algunas de ellas: [asignaciones de sinónimos](search-synonyms.md), [analizadores personalizados](index-add-custom-analyzers.md), [construcciones del proveedor de sugerencias (para Autocompletar y las sugerencias automáticas)](index-add-suggesters.md), [puntuación lógica para la clasificación de resultados](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementos de una solicitud de consulta
 
@@ -94,9 +94,9 @@ Todos los demás parámetros de búsqueda son opcionales. Para la lista completa
 
 ## <a name="choose-a-parser-simple--full"></a>Elección del analizador: básico | completo
 
-Azure Search se basa en Apache Lucene y le permite elegir entre dos analizadores de consulta para gestionar consultas típicas y especializadas. Las solicitudes se formulan mediante el analizador básico con [sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search), seleccionada como predeterminada por su velocidad y eficacia para las consultas de texto libre. Esta sintaxis admite varios operadores de búsqueda comunes entre los que se incluyen los operadores de frase, sufijo, precedencia, AND, OR y NOT.
+Azure Search se basa en Apache Lucene y le permite elegir entre dos analizadores de consulta para gestionar consultas típicas y especializadas. Las solicitudes se formulan mediante el analizador básico con [sintaxis de consulta simplificada](query-simple-syntax.md), seleccionada como predeterminada por su velocidad y eficacia para las consultas de texto libre. Esta sintaxis admite varios operadores de búsqueda comunes entre los que se incluyen los operadores de frase, sufijo, precedencia, AND, OR y NOT.
 
-La [sintaxis de consulta completa de Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), que se habilita al agregar `queryType=full` a la solicitud, permite usar el expresivo lenguaje de consulta adoptado ampliamente desarrollado en [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La sintaxis completa amplía la sintaxis simplificada. Cualquier consulta que escriba con sintaxis simplificada se ejecuta en el analizador de Lucene completo. 
+La [sintaxis de consulta completa de Lucene](query-Lucene-syntax.md#bkmk_syntax), que se habilita al agregar `queryType=full` a la solicitud, permite usar el expresivo lenguaje de consulta adoptado ampliamente desarrollado en [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). La sintaxis completa amplía la sintaxis simplificada. Cualquier consulta que escriba con sintaxis simplificada se ejecuta en el analizador de Lucene completo. 
 
 Los ejemplos siguientes ilustran el punto: misma consulta, pero con valores de queryType distintos, producen resultados diferentes. En la primera consulta, `^3` se trata como parte del término de búsqueda.
 
@@ -118,16 +118,16 @@ Azure Search admite una amplia gama de tipos de consulta.
 
 | Tipo de consulta | Uso | Más información y ejemplos |
 |------------|--------|-------------------------------|
-| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](https://docs.microsoft.com/rest/api/searchservice/language-support#analyzer-list) o [especializados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos tipo código postal, identificador y algunos nombres de producto. | 
-| Búsqueda filtrada | [Expresión de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) y cualquier analizador | Las consultas de filtro evalúan una expresión booleana en todos los campos *filtrables* de un índice. A diferencia de la búsqueda, una consulta de filtro busca el contenido exacto de un campo, incluidas las mayúsculas y minúsculas de los campos de cadena. Otra diferencia es que las consultas de filtro se expresan con sintaxis de OData. <br/>[Ejemplo de expresión de filtro](search-query-simple-examples.md#example-3-filter-queries) |
+| Búsqueda de texto libre | Parámetro de búsqueda y cualquier analizador| La consulta de texto completo busca uno o más términos en todos los campos *que permiten búsquedas* del índice y funciona tal y como cabría esperar de un motor de búsqueda como Google o Bing. El ejemplo de la introducción es una búsqueda de texto completo.<br/><br/>La búsqueda de texto completo se somete a análisis de texto con el analizador de Lucene estándar (predeterminado) para poner todos los términos en minúscula y eliminar palabras vacías como "the". Puede invalidar el valor predeterminado con [analizadores de idiomas distintos al inglés](index-add-language-analyzers.md#language-analyzer-list) o [analizadores independientes del idioma especializados](index-add-custom-analyzers.md#AnalyzerTable) que modifiquen el análisis de texto. Un ejemplo es el analizador por [palabra clave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html), que trata el contenido de un campo como token único. Esto es útil para los datos tipo código postal, identificador y algunos nombres de producto. | 
+| Búsqueda filtrada | [Expresión de filtro de OData](query-odata-filter-orderby-syntax.md) y cualquier analizador | Las consultas de filtro evalúan una expresión booleana en todos los campos *filtrables* de un índice. A diferencia de la búsqueda, una consulta de filtro busca el contenido exacto de un campo, incluidas las mayúsculas y minúsculas de los campos de cadena. Otra diferencia es que las consultas de filtro se expresan con sintaxis de OData. <br/>[Ejemplo de expresión de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Búsqueda georreferenciada | [Tipo Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en el campo, la expresión de filtro y cualquier analizador | Las coordenadas que se almacenan en un campo con Edm.GeographyPoint se utilizan para "buscar cerca de mí" o los controles de búsqueda con mapas. <br/>[Ejemplo de búsqueda georreferenciada](search-query-simple-examples.md#example-5-geo-search)|
 | Búsqueda de intervalo | Expresión de filtro y analizador básico | En Azure Search, las consultas de intervalo se compilan con el parámetro de filtro. <br/>[Ejemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
-| [Filtrado en el campo](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields) | Parámetro de búsqueda y analizador completo | Compila una expresión de consulta compuesta con un único campo como destino. <br/>[Ejemplo de filtro en el campo](search-query-lucene-examples.md#example-2-intra-field-filtering) |
-| [Búsqueda aproximada](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy) | Parámetro de búsqueda y analizador completo | Coincidencias en términos con construcción u ortografía similares. <br/>[Ejemplo de búsqueda aproximada](search-query-lucene-examples.md#example-3-fuzzy-search) |
-| [Búsqueda por proximidad](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity) | Parámetro de búsqueda y analizador completo | Busca términos que están cerca uno del otro en un documento. <br/>[Ejemplo de búsqueda por proximidad](search-query-lucene-examples.md#example-4-proximity-search) |
-| [Priorización de términos](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost) | Parámetro de búsqueda y analizador completo | Clasifica un documento superior si contiene el término prioritario con respecto a otros que no lo tienen. <br/>[Ejemplo de priorización de términos](search-query-lucene-examples.md#example-5-term-boosting) |
-| [Búsqueda de expresiones regulares](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex) | Parámetro de búsqueda y analizador completo | Coincidencias basadas en el contenido de una expresión regular. <br/>[Ejemplo de expresión regular](search-query-lucene-examples.md#example-6-regex) |
-|  [búsqueda de prefijo o de carácter comodín](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard) | Parámetro de búsqueda y analizador completo | Coincidencias según un prefijo y una virgulilla (`~`) o carácter individual (`?`). <br/>[Ejemplo de búsqueda con caracteres comodín](search-query-lucene-examples.md#example-7-wildcard-search) |
+| [Filtrado en el campo](query-lucene-syntax.md#bkmk_fields) | Parámetro de búsqueda y analizador completo | Compila una expresión de consulta compuesta con un único campo como destino. <br/>[Ejemplo de filtro en el campo](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Búsqueda aproximada](query-lucene-syntax.md#bkmk_fuzzy) | Parámetro de búsqueda y analizador completo | Coincidencias en términos con construcción u ortografía similares. <br/>[Ejemplo de búsqueda aproximada](search-query-lucene-examples.md#example-3-fuzzy-search) |
+| [Búsqueda por proximidad](query-lucene-syntax.md#bkmk_proximity) | Parámetro de búsqueda y analizador completo | Busca términos que están cerca uno del otro en un documento. <br/>[Ejemplo de búsqueda por proximidad](search-query-lucene-examples.md#example-4-proximity-search) |
+| [Priorización de términos](query-lucene-syntax.md#bkmk_termboost) | Parámetro de búsqueda y analizador completo | Clasifica un documento superior si contiene el término prioritario con respecto a otros que no lo tienen. <br/>[Ejemplo de priorización de términos](search-query-lucene-examples.md#example-5-term-boosting) |
+| [Búsqueda de expresiones regulares](query-lucene-syntax.md#bkmk_regex) | Parámetro de búsqueda y analizador completo | Coincidencias basadas en el contenido de una expresión regular. <br/>[Ejemplo de expresión regular](search-query-lucene-examples.md#example-6-regex) |
+|  [búsqueda de prefijo o de carácter comodín](query-lucene-syntax.md#bkmk_wildcard) | Parámetro de búsqueda y analizador completo | Coincidencias según un prefijo y una virgulilla (`~`) o carácter individual (`?`). <br/>[Ejemplo de búsqueda con caracteres comodín](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="manage-search-results"></a>Administración de los resultados de búsqueda 
 
@@ -156,7 +156,7 @@ Para más información acerca de la paginación de resultados de búsqueda, cons
 ### <a name="ordering-results"></a>Ordenación de los resultados
 Al recibir los resultados de una consulta de búsqueda, puede solicitar que Azure Search muestre los resultados ordenados según los valores de un campo específico. De forma predeterminada, Azure Search ordena los resultados de búsqueda basándose en el rango de puntuación de búsqueda de cada documento, que se deriva del valor [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Si desea que Azure Search devuelva los resultados ordenados según un valor distinto de la puntuación de búsqueda, puede usar el parámetro **`orderby`**. Puede especificar el valor del parámetro **`orderby`** para que incluya nombres de campo y llamadas a la [**`geo.distance()` función**](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) para los valores geoespaciales. Cada expresión puede ir seguida de `asc` para indicar que se solicitan los resultados en orden ascendente y de **`desc`** para indicar que se solicitan los resultados en orden descendente. El valor predeterminado es el orden ascendente.
+Si desea que Azure Search devuelva los resultados ordenados según un valor distinto de la puntuación de búsqueda, puede usar el parámetro **`orderby`**. Puede especificar el valor del parámetro **`orderby`** para que incluya nombres de campo y llamadas a la [**`geo.distance()` función**](query-odata-filter-orderby-syntax.md) para los valores geoespaciales. Cada expresión puede ir seguida de `asc` para indicar que se solicitan los resultados en orden ascendente y de **`desc`** para indicar que se solicitan los resultados en orden descendente. El valor predeterminado es el orden ascendente.
 
 
 ### <a name="hit-highlighting"></a>Resaltado de referencias

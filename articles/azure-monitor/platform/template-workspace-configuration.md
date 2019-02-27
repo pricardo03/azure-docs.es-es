@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235502"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417517"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -56,7 +56,7 @@ Los siguientes parámetros establecen un valor predeterminado:
 
 > [!NOTE]
 >Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**.  
->Si puede obtener algunas suscripciones en el (modelo de precios anterior a abril de 2018) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], puede especificar el plan de tarifa **independiente** tanto para la suscripción con el modelo de precios anterior a abril de 2018 y para suscripciones que tengan los precios nuevos. Para las áreas de trabajo en las suscripciones que han adoptado el nuevo modelo de precios, el plan de tarifa se establecerá en **PerGB2018**. 
+>Si puede obtener algunas suscripciones en el [modelo de precios anterior a abril de 2018](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), puede especificar el plan de tarifa **independiente** tanto para la suscripción con el modelo de precios anterior a abril de 2018 como para las suscripciones que tengan los precios nuevos. Para las áreas de trabajo en las suscripciones que han adoptado el nuevo modelo de precios, el plan de tarifa se establecerá en **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Creación e implementación de una plantilla
 

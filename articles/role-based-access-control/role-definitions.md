@@ -1,6 +1,6 @@
 ---
-title: Descripción de definiciones de roles en RBAC de Azure | Microsoft Docs
-description: Obtenga información acerca de las definiciones de roles en el control de acceso basado en rol (RBAC) para la administración de acceso específico de recursos en Azure.
+title: Descripción de definiciones de roles en RBAC para recursos de Azure | Microsoft Docs
+description: Obtenga información acerca de las definiciones de roles en el control de acceso basado en rol (RBAC) para la administración de acceso específico de recursos de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991368"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342786"
 ---
-# <a name="understand-role-definitions"></a>Descripción de definiciones de roles
+# <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
-Si quiere comprender el funcionamiento de un rol o si va a crear su propio [rol personalizado](custom-roles.md), resulta útil entender cómo se definen los roles. En este artículo se describen los detalles de las definiciones de roles y se proporcionan algunos ejemplos.
+Si quiere comprender el funcionamiento de un rol o si va a crear su propio [rol personalizado](custom-roles.md) para recursos de Azure, resulta útil entender cómo se definen los roles. En este artículo se describen los detalles de las definiciones de roles y se proporcionan algunos ejemplos.
 
 ## <a name="role-definition-structure"></a>Estructura de definición de roles
 
@@ -151,6 +151,8 @@ Puesto que Alicia tiene una acción de carácter comodín (`*`) en un ámbito de
 
 Los permisos de Bob se restringen a solo los `Actions` y `DataActions` especificados en el rol [Colaborador de datos de blobs de almacenamiento (versión preliminar)](built-in-roles.md#storage-blob-data-contributor-preview). Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar los contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
 
+Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>¿Qué herramientas se admiten cuando se usa RBAC para las operaciones de datos?
 
 Para visualizar y trabajar con operaciones de datos, debe tener las versiones correctas de las herramientas o SDK:
@@ -225,10 +227,10 @@ Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (
 | El rol está disponible para la asignación solo en el grupo de recursos de red. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | El rol está disponible para la asignación en todos los ámbitos. | `"/"` |
 
-Para obtener información acerca de `AssignableScopes` para roles personalizados, consulte [Roles personalizados](custom-roles.md).
+Para obtener información acerca de `AssignableScopes` para roles personalizados, consulte [Roles personalizados en los recursos de Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Roles integrados](built-in-roles.md)
-* [Roles personalizados](custom-roles.md)
+* [Roles integrados en los recursos de Azure](built-in-roles.md)
+* [Roles personalizados en los recursos de Azure](custom-roles.md)
 * [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md)

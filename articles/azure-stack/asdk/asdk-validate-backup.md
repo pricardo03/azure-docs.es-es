@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 31c5d068c8fcd0b6edea7cff63098131d848a14e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965331"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416385"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Uso del ASDK para validar una copia de seguridad de Azure Stack
 Después de implementar Azure Stack y aprovisionar recursos de usuario, como ofertas, planes, cuotas y suscripciones, debe [habilitar la infraestructura de copia de seguridad de Azure Stack](../azure-stack-backup-enable-backup-console.md). La programación y ejecución de copias de seguridad de infraestructura regulares asegurará que los datos de administración de infraestructura no se pierdan si se produce un error de servicio o de hardware muy grave.
@@ -45,18 +45,35 @@ El escenario siguiente **no** se admite al validar las copias de seguridad en el
 ## <a name="cloud-recovery-deployment"></a>Implementación de la recuperación en la nube
 Las copias de seguridad de infraestructura de la implementación de sistemas integrados se pueden validar mediante la realización de una implementación de recuperación en la nube del ASDK. En este tipo de implementación, los datos de servicio específicos se restauran a partir de la copia de seguridad después de instalar el ASDK en el equipo host.
 
-
-
 ### <a name="prereqs"></a>Requisitos previos de recuperación en la nube
 Antes de iniciar una implementación de recuperación en la nube del ASDK, asegúrese de que tiene la información siguiente:
 
+**Requisitos del instalador de la interfaz de usuario**
+
+*El instalador de la interfaz de usuario actual solo admite claves de cifrado*
+
 |Requisito previo|DESCRIPCIÓN|
 |-----|-----|
-|Ruta de acceso del recurso compartido de copia de seguridad.|La ruta de acceso del recurso compartido de archivo UNC de la copia de seguridad de Azure Stack más reciente que se va a usar para recuperar información de la infraestructura de Azure Stack. Este recurso compartido local se creará durante el proceso de implementación de recuperación en la nube.|
-|Clave de cifrado de copia de seguridad.|La clave de cifrado que se usó para programar la ejecución de la copia de seguridad de infraestructura mediante el portal de administración de Azure Stack.|
-|Id. de la copia de seguridad que se va a restaurar.|El identificador de copia de seguridad, en formato alfanumérico "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica la copia de seguridad que se va a restaurar durante la recuperación en la nube.|
-|Dirección IP del servidor horario.|Se necesita una dirección IP de servidor horario válida, como 132.163.97.2, para la implementación de Azure Stack.|
-|Contraseña del certificado externo.|La contraseña para el certificado externo que se usa en Azure Stack. La copia de seguridad de la entidad de certificación contiene los certificados externos que se deben restaurar con esta contraseña.|
+|Ruta de acceso del recurso compartido de copia de seguridad|La ruta de acceso del recurso compartido de archivo UNC de la copia de seguridad de Azure Stack más reciente que se va a usar para recuperar información de la infraestructura de Azure Stack. Este recurso compartido local se creará durante el proceso de implementación de recuperación en la nube.|
+|Id. de la copia de seguridad que se va a restaurar|El identificador de copia de seguridad, en formato alfanumérico "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica la copia de seguridad que se va a restaurar durante la recuperación en la nube.|
+|Dirección IP del servidor horario|Se necesita una dirección IP de servidor horario válida, como 132.163.97.2, para la implementación de Azure Stack.|
+|Contraseña del certificado externo|La contraseña para el certificado externo que se usa en Azure Stack. La copia de seguridad de la entidad de certificación contiene los certificados externos que se deben restaurar con esta contraseña.|
+|Clave de cifrado de copia de seguridad|Necesario si ha actualizado a la versión de Azure Stack 1901 o posterior y la configuración de copia de seguridad sigue configurada con una clave de cifrado. La clave de cifrado estará en desuso a partir de la versión 1901. El instalador admitirá la clave de cifrado en el modo de compatibilidad con versiones anteriores durante al menos 3 versiones. Una vez actualizada la configuración de copia de seguridad para usar un certificado, consulte la siguiente tabla para la información necesaria.|
+
+|     |     | 
+
+**Requisitos del instalador de PowerShell**
+
+*El instalador de PowerShell actual es compatible con el certificado de descifrado o la clave de cifrado*
+
+|Requisito previo|DESCRIPCIÓN|
+|-----|-----|
+|Ruta de acceso del recurso compartido de copia de seguridad|La ruta de acceso del recurso compartido de archivo UNC de la copia de seguridad de Azure Stack más reciente que se va a usar para recuperar información de la infraestructura de Azure Stack. Este recurso compartido local se creará durante el proceso de implementación de recuperación en la nube.|
+|Id. de la copia de seguridad que se va a restaurar|El identificador de copia de seguridad, en formato alfanumérico "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica la copia de seguridad que se va a restaurar durante la recuperación en la nube.|
+|Dirección IP del servidor horario|Se necesita una dirección IP de servidor horario válida, como 132.163.97.2, para la implementación de Azure Stack.|
+|Contraseña del certificado externo|La contraseña para el certificado externo que se usa en Azure Stack. La copia de seguridad de la entidad de certificación contiene los certificados externos que se deben restaurar con esta contraseña.|
+|Contraseña de certificación de descifrado|Opcional. Necesario únicamente si la copia de seguridad se cifra mediante un certificado. Es la contraseña para el certificado autofirmado (.pfx) que contiene la clave privada necesaria para descifrar los datos de copia de seguridad.|
+|Clave de cifrado de copia de seguridad|Opcional. Necesario si ha actualizado a la versión de Azure Stack 1901 o posterior y la configuración de copia de seguridad sigue configurada con una clave de cifrado. El instalador admitirá la clave de cifrado en el modo de compatibilidad con versiones anteriores durante al menos 3 versiones. Una vez actualizada la configuración de copia de seguridad para usar un certificado, debe proporcionar la contraseña del certificado de descifrado.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Preparación del equipo host 
@@ -74,17 +91,23 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
 Después, copie los archivos de copia de seguridad de Azure Stack más recientes en el recurso compartido recién creado. La estructura de carpetas del recurso compartido debe ser: `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`.
 
+Por último, copie el certificado de descifrado (.pfx) en el directorio del certificado `C:\CloudDeployment\Setup\Certificates\` y cámbiele el nombre a `BackupDecryptionCert.pfx`.
+
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>Implementación del ASDK en modo de recuperación en la nube
-Para iniciar la recuperación en la nube se usa el script **InstallAzureStackPOC.ps1**. 
 
 > [!IMPORTANT]
-> La instalación de ASDK admite exactamente una tarjeta de interfaz de red (NIC) para la conexión con redes. Si tiene varias NIC, asegúrese de que solo una está habilitada (y todas las demás deshabilitadas) antes de ejecutar el script de implementación.
+> 1. El instalador de la interfaz de usuario actual solo admite claves de cifrado. Solo puede validar las copias de seguridad de los sistemas que sigan usando clave de cifrado. Si se cifró la copia de seguridad en un sistema integrado o ASDK mediante certificado, debe usar el instalador de PowerShell (**InstallAzureStackPOC.ps1**). 
+> 2. El instalador de PowerShell (**InstallAzureStackPOC.ps1**) admite la clave de cifrado o el certificado.
+> 3. La instalación de ASDK admite exactamente una tarjeta de interfaz de red (NIC) para la conexión con redes. Si tiene varias NIC, asegúrese de que solo una está habilitada (y todas las demás deshabilitadas) antes de ejecutar el script de implementación.
 
-### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Uso del instalador para implementar el ASDK en modo de recuperación
+### <a name="use-the-installer-ui-to-deploy-the-asdk-in-recovery-mode"></a>Uso del instalador de la interfaz de usuario para implementar el ASDK en modo de recuperación
 Los pasos de esta sección muestran cómo implementar el ASDK mediante una interfaz gráfica de usuario (GUI) que se proporciona al descargar y ejecutar el script de PowerShell **asdk-installer.ps1**.
 
 > [!NOTE]
 > La interfaz de usuario del instalador del Kit de desarrollo de Azure Stack es un script de código abierto basado en WCF y PowerShell.
+
+> [!IMPORTANT]
+> El instalador de la interfaz de usuario actual solo admite claves de cifrado.
 
 1. Una vez que el equipo host arranque correctamente en la imagen de CloudBuilder.vhdx, inicie sesión con las credenciales de administrador que especificó cuando [preparó el equipo host del kit de desarrollo](asdk-prepare-host.md) para la instalación del ASDK. Dichas credenciales deben coincidir con las de administrador local del host del kit de desarrollo.
 2. Abra una consola de PowerShell con privilegios elevados y ejecute el script de PowerShell **letra de unidad>\AzureStack_Installer\asdk-installer.ps1&lt;**. El script puede estar en una unidad distinta de C:\ en la imagen de CloudBuilder.vhdx. Haga clic en **Recuperar**.
@@ -117,27 +140,66 @@ Los pasos de esta sección muestran cómo implementar el ASDK mediante una inter
 
 
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Uso de PowerShell para implementar el ASDK en modo de recuperación
+
 Modifique los comandos de PowerShell siguientes para el entorno y ejecútelos para implementar el ASDK en modo de recuperación en la nube:
+
+**Use el script InstallAzureStackPOC.ps1 para iniciar la recuperación en la nube con clave de cifrado.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
-$adminPass = Get-Credential Administrator
-$key = ConvertTo-SecureString "<Your backup encryption key>" -AsPlainText -Force ` 
-$certPass = Read-Host -AsSecureString  
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
--BackupEncryptionKeyBase64 $key -BackupStoreCredential $adminPass -BackupId "<Backup ID to restore>" `
--TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupEncryptionKeyBase64 $key `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-## <a name="restore-infrastructure-data-from-backup"></a>Restauración de los datos de la infraestructura de copia de seguridad
-Después de una implementación de recuperación en la nube correcta, tendrá que completar la restauración con el cmdlet **Restore-AzureStack**. 
-
-Después de iniciar sesión como operador de Azure Stack, [instale PowerShell de Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) y, después, sustituya el identificador de copia de seguridad por el parámetro `Name` y ejecute el comando siguiente:
+**Use el script InstallAzureStackPOC.ps1 para iniciar la recuperación en la nube con certificado de descifrado.**
 
 ```powershell
-Restore-AzsBackup -Name "<BackupID>"
+cd C:\CloudDeployment\Setup     
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupDecryptionCertPassword $decryptioncertpassword `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
+
+## <a name="complete-cloud-recovery"></a>Finalización de la recuperación en la nube 
+Después de una implementación de recuperación en la nube correcta, tendrá que completar la restauración con el cmdlet **Restore-AzureStack**. 
+
+Después de iniciar sesión como operador de Azure Stack, [instale PowerShell de Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) y ejecute los siguientes comandos para especificar el certificado y la contraseña que se van a usar al restaurar desde copia de seguridad:
+
+**Modo de recuperación con archivo de certificado**
+
+> [!NOTE] 
+> La implementación de Azure Stack no conserva el certificado de descifrado por motivos de seguridad. Deberá volver a proporcionar el certificado de descifrado y la contraseña asociada.
+
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>" `
+ -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
+ -DecryptionCertPassword $decryptioncertpassword
+```
+
+**Modo de recuperación con clave de cifrado**
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>"
+```
+
 Espere 60 minutos después de llamar a este cmdlet para iniciar la comprobación de los datos de copia de seguridad en el ASDK recuperado en la nube.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,6 +1,6 @@
 ---
 title: Ejemplos de consultas de registro de Azure Monitor | Microsoft Docs
-description: Ejemplos de consultas de registro en Azure Monitor mediante el lenguaje de consulta de Data Explorer.
+description: Ejemplos de consultas de registro en Azure Monitor mediante el lenguaje de consulta de Kusto.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993204"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416656"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Ejemplos de consultas de registro de Azure Monitor
-En este artículo se incluyen varios ejemplos de [consultas](log-query-overview.md) que usan el [lenguaje de consulta de Datos](https://docs.microsoft.com/azure/kusto/query/) para recuperar distintos tipos de datos de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  
+En este artículo se incluyen varios ejemplos de [consultas](log-query-overview.md) que usan el [lenguaje de consulta de Kusto](/azure/kusto/query/) para recuperar distintos tipos de datos de registro de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  
 
 Consulte la [referencia del lenguaje Kusto](https://docs.microsoft.com/azure/kusto/query/) para más información sobre las diferentes palabras clave usadas en estos ejemplos. Puede consultar una [lección sobre cómo crear consultas](get-started-queries.md) si no está familiarizado con Azure Monitor.
 
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Búsqueda de eventos relacionados con la deserialización
-Busca registros en las tablas **Event** y **SecurityEvents** que mencionan _unmarshaling_.
+Búsqueda de registros en las tablas **Event** y **SecurityEvents** que mencionan _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

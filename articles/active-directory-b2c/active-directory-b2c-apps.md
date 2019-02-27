@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172653"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446382"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
 
@@ -91,10 +91,10 @@ A continuación, la API web puede usar el token para comprobar la identidad del 
 Una API web puede recibir tokens de muchos tipos de clientes, incluidas aplicaciones web, aplicaciones móviles y de escritorio, aplicaciones de una página, demonios del lado del servidor e incluso otras API web. Por ejemplo, veamos el flujo completo de una aplicación web que llama a una API web:
 
 1. La aplicación web ejecuta una directiva y el usuario completa la experiencia de usuario.
-2. Azure AD B2C devuelve un `access_token` y un código de autorización al explorador.
-3. El explorador publica el `access_token` y un código de autorización en el URI de redirección.
-4. El servidor web valida el `access token` y establece una cookie de sesión.
-5. El `access_token` se proporciona a Azure AD B2C con el código de autorización, el identificador de cliente de aplicación y las credenciales.
+2. Azure AD B2C devuelve un objeto `id_token` (OpenID Connect) y un código de autorización al explorador.
+3. El explorador publica el `id_token` y un código de autorización en el URI de redirección.
+4. El servidor web valida el `id_token` y establece una cookie de sesión.
+5. El servidor web le pide a Azure AD B2C un objeto `access_token` al que se le proporcionan el código de autorización, el identificador de cliente de la aplicación y las credenciales del cliente.
 6. El `access_token` y `refresh_token` se devuelven al servidor web.
 7. Se llama a la API web con el `access_token` en un encabezado de autorización.
 8. La API web valida el token.

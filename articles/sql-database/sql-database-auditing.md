@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234669"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339794"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -43,8 +43,11 @@ Puede usar la auditoría de base de datos SQL para:
 > [!IMPORTANT]
 > Los registros de auditoría se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
 >
-> - **Premium Storage** actualmente **no es compatible** con la opción para anexar blobs.
+> - Se admiten todos los tipos de almacenamiento (v1, v2 y blob).
+> - Se admiten todas las configuraciones de replicación de almacenamiento.
+> - **Premium Storage** actualmente **no se admite**.
 > - **El almacenamiento en VNet** actualmente **no se admite**.
+> - **El almacenamiento detrás de un firewall** actualmente **no se admite**.
 
 ## <a id="subheading-8"></a>Definir la directiva de auditoría de nivel de servidor frente la de nivel de base de datos
 

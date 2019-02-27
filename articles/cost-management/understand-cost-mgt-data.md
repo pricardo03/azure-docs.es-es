@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981764"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447470"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -61,6 +61,8 @@ En la tabla siguiente se muestran las ofertas no compatibles.
 | **Planes de soporte técnico** | Soporte técnico Standard de Azure Government | MS-AZR-USGOV-0041P |
 | **Planes de soporte técnico** | Soporte técnico Pro-Direct de Azure Government | MS-AZR-USGOV-0042P |
 | **Planes de soporte técnico** | Soporte técnico para desarrolladores de Azure Government | MS-AZR-USGOV-0043P |
+
+Los clientes con las categorías de oferta de pago por uso, MSDN y Visual Studio pueden encontrar los datos en Cost Management, a partir del 10/02/2018.
 
 Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para ello, inicie sesión en [Azure Portal](https://portal.azure.com). Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, elija la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
 

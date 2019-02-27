@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700046"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329820"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Por ejemplo, en un escenario de IoT, podría almacenar los metadatos sobre sensores (que no cambian a menudo) en los datos de referencia y combinarlos con los flujos de datos de IoT en tiempo real. Azure Stream Analytics carga los datos de referencia en la memoria para lograr un procesamiento del flujo de baja latencia. Para usar los datos de referencia en el trabajo de Azure Stream Analytics, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. 
@@ -74,7 +74,7 @@ Azure Stream Analytics examina automáticamente los blobs de datos de referencia
 
 ## <a name="azure-sql-database-preview"></a>Azure SQL Database (versión preliminar)
 
-Su trabajo de Stream Analytics recupera los datos de referencia de Azure SQL Database, que se almacenan como instantánea en la memoria para su procesamiento. La instantánea de los datos de referencia también se almacena en un contenedor en una cuenta de almacenamiento que especifique en las opciones de configuración. El contenedor se crea automáticamente cuando se inicia el trabajo, y se elimina automáticamente cuando se detiene el trabajo.
+Su trabajo de Stream Analytics recupera los datos de referencia de Azure SQL Database, que se almacenan como instantánea en la memoria para su procesamiento. La instantánea de los datos de referencia también se almacena en un contenedor en una cuenta de almacenamiento que especifique en las opciones de configuración. El contenedor se crea automáticamente cuando se inicia el trabajo. Si el trabajo se detiene o entra en un estado de error, cuando se reinicia, se eliminan los contenedores creados automáticamente.  
 
 Si los datos de referencia están un conjunto de datos de variación lenta, deberá actualizar periódicamente la instantánea que se usa en su trabajo. Stream Analytics le permite establecer una frecuencia de actualización al configurar la conexión de entrada de Azure SQL Database. El tiempo de ejecución de Stream Analytics consultará a Azure SQL Database al intervalo especificado por la frecuencia de actualización. La frecuencia de actualización más rápida que se admite es de una vez por minuto. Para cada actualización, Stream Analytics almacena una nueva instantánea en la cuenta de almacenamiento proporcionada.
 

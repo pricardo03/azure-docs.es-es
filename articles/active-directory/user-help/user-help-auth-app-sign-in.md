@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e0f3c7e6af22210ba04565b86b8098851b26d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186903"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456034"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inicio de sesión en sus cuentas mediante la aplicación Microsoft Authenticator
 La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas si usa la comprobación en dos fases. La comprobación en dos pasos le ayuda a acceder a sus cuentas de manera más segura, en especial cuando se examina información confidencial. Como las contraseñas se pueden olvidar, poner en peligro o robar, la comprobación en dos pasos es un paso de seguridad adicional que ayuda a proteger su cuenta ya que es más difícil que otras personas accedan a ella.
@@ -62,9 +62,9 @@ Después de activar el inicio de sesión en el teléfono, puede iniciar sesión 
 
     Después de escribir el nombre de usuario, aparece la pantalla **Aprobar el inicio de sesión**, en la que se muestra un número de dos dígitos y en el que se le pide que inicie sesión con la aplicación Microsoft Authenticator. Si no desea usar este inicio de sesión en el método, puede seleccionar **Use su contraseña en su lugar** e inicie sesión con su contraseña.
 
-    ![Cuadro Aprobar el inicio de sesión en PC](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
+    ![Cuadro Aprobar el inicio de sesión en el equipo](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
-2. Abra la notificación o la aplicación Microsoft Authenticator en su dispositivo y, después, pulse el número que coincida con el número que aparece la pantalla **Aprobar el inicio de sesión** del PC.
+2. Abra la notificación o la aplicación Microsoft Authenticator en su dispositivo y, después, pulse el número que coincida con el número que aparece la pantalla **Aprobar el inicio de sesión** del equipo.
 
     ![Cuadro Aprobar el inicio de sesión en dispositivo](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
@@ -113,7 +113,7 @@ Para conocer los pasos necesarios para iniciar sesión en su cuenta profesional 
 |**¿Qué ocurre si pierdo mi teléfono o no lo tengo conmigo? ¿Cómo puedo acceder a mi cuenta?**| Siempre puede seleccionar el uso de una contraseña en lugar del vínculo en la página de inicio de sesión para volver a utilizar la contraseña. Sin embargo, si usa la verificación en dos pasos, seguirá siendo necesario un segundo método para verificar la identidad.<br><br>**Importante**<br>Es muy recomendable que tenga más de un método de verificación asociado con su cuenta y que dicho método esté actualizado.<br><br>Puede administrar sus métodos de verificación para las cuentas personales de la página [Configuración de seguridad](https://account.live.com/proofs/manage). Para cuentas profesionales o educativas, puede ir a la página [Comprobación de seguridad adicional](https://aka.ms/MFASetup) de su organización o a la página **Garantizar la seguridad de la cuenta** si el administrador ha activado la información de seguridad. Para más información sobre la información de seguridad, consulte [Manage your security info](security-info-manage-settings.md) (Administrar la información de seguridad).<br><br>Si no puede administrar sus métodos de verificación, debe ponerse en contacto con su administrador.|
 |**¿Cómo dejo de usar esta característica y vuelvo a usar mi contraseña?**|Para las cuentas personales, seleccione el vínculo **Use su contraseña en su lugar** durante el inicio de sesión. Su elección más reciente se recuerda y se ofrece de forma predeterminada la próxima vez que inicie sesión. Si desea volver a usar el inicio de sesión con el teléfono, seleccione el vínculo **Use una aplicación en su lugar** durante el inicio de sesión.<br><br>En el caso de las cuentas profesionales o educativas, debe acceder a la página de comprobación adicional de seguridad (por ejemplo, https://aka.ms/MFASetup) y quitar la aplicación Microsoft Authenticator.|
 |**¿Por qué no puedo usar más de una cuenta profesional o educativa para el inicio de sesión con el teléfono?**| Debe registrarse un teléfono en una única cuenta profesional o educativa. Si desea activar el inicio de sesión con el teléfono para una cuenta profesional o educativa diferente, primero debe anular el registro de la cuenta antigua a través de la página **Configuración**.|
-|**¿Puedo iniciar sesión en mi PC con mi teléfono?**| Para su PC, se recomienda iniciar sesión con Windows Hello en Windows 10. Windows Hello le permite usar su cara, la huella digital o el PIN para iniciar sesión.|
+|**¿Puedo iniciar sesión en mi equipo con mi teléfono?**| En el caso de su equipo, se recomienda iniciar sesión mediante Windows Hello en Windows 10. Windows Hello le permite usar su cara, la huella digital o el PIN para iniciar sesión.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Si tiene más preguntas generales sobre la aplicación, consulte [Preguntas más frecuentes de la aplicación Microsoft Authenticator](user-help-auth-app-faq.md).

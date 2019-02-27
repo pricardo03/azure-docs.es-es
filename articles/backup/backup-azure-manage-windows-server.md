@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261509"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268879"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
@@ -40,7 +40,7 @@ Para supervisar las alertas o ver los datos de administración de un almacén de
 
     ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. En la lista de almacenes, haga clic en cualquiera de ellos para abrir su panel de **información general**. 
+4. En la lista de almacenes, haga clic en cualquiera de ellos para abrir su panel de **información general**.
 
     ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Para acceder al menú Alertas de copia de seguridad, en el menú del almacén de
 
 ![Alertas de copias de seguridad](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-El informe Alertas de copia de seguridad enumera las alertas del almacén. 
+El informe Alertas de copia de seguridad enumera las alertas del almacén.
 
 ![Alertas de copias de seguridad](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ De forma predeterminada, todos los detalles, excepto **Hora de la última repeti
 
 ### <a name="change-the-filter-in-alerts-report"></a>Cambio del filtro en un informe de alertas
 
-Use el menú **Filtro** para cambiar la gravedad, el estado, la hora de inicio y la hora de finalización de las alertas. 
+Use el menú **Filtro** para cambiar la gravedad, el estado, la hora de inicio y la hora de finalización de las alertas.
 
 > [!NOTE]
 > La edición del filtro de alertas de copia de seguridad no cambia las alertas críticas o de advertencia en el panel de información general del almacén.
@@ -184,7 +184,7 @@ Para ver más detalles acerca de los trabajos, haga clic en **En curso** o en **
 
 El menú **Trabajos de copia de seguridad** muestra información acerca del tipo de elemento, la operación, el estado, la hora de inicio y la duración.  
 
-Para abrir el menú Trabajos de copia de seguridad, en el menú principal del almacén, haga clic en **Trabajos de copia de seguridad**. 
+Para abrir el menú Trabajos de copia de seguridad, en el menú principal del almacén, haga clic en **Trabajos de copia de seguridad**.
 
 ![Elementos de copia de seguridad en la configuración](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**P1. ¿Cuánto tarda el estado del trabajo del agente de copia de seguridad de Azure en reflejarse en el portal?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>¿Cuánto tarda el estado del trabajo del agente de copia de seguridad de Azure en reflejarse en el portal?
+Azure Portal puede tardar hasta 15 minutos en reflejar el estado del trabajo del agente de copia de seguridad de Azure.
 
-R1. Azure Portal puede tardar hasta 15 minutos en reflejar el estado del trabajo del agente de copia de seguridad de Azure.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Cuando se produce un error en un trabajo de copia de seguridad, ¿cuánto tarda en generarse una alerta?
+Se genera una alerta en menos de 20 minutos desde que se produce el error en la copia de seguridad de Azure.
 
-**P2. Cuando se produce un error en un trabajo de copia de seguridad, ¿cuánto tarda en generarse una alerta?**
-
-R2. Se genera una alerta en menos de 20 minutos desde que se produce el error en la copia de seguridad de Azure.
-
-**P3. ¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?**
-
-R3. Sí. En las siguientes situaciones no se envían notificaciones.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?
+Sí. En las siguientes situaciones no se envían notificaciones.
 
 * Si se configuran las notificaciones por horas y una alerta se genera y se resuelve en menos de una hora
 * Cuando se cancela un trabajo

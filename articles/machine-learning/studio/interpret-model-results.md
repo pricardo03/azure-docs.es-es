@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997012"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456085"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.
 
 
 
-Hay cuatro tipos de modelos de aprendizaje automático principales en Azure Machine Learning:
+Hay cuatro tipos de modelos de Machine Learning principales en Azure Machine Learning Studio:
 
 * clasificación
 * Agrupación en clústeres
@@ -35,11 +35,11 @@ Los módulos usados para la predicción sobre estos modelos son:
 * módulo [Asignar a clústeres][assign-to-clusters] para la agrupación en clústeres
 * [Score Matchbox Recommender][score-matchbox-recommender] para sistemas de recomendación
 
-Este documento explica cómo interpretar los resultados de predicción para cada uno de estos módulos. Para obtener información general sobre estos módulos, consulte [Cómo elegir parámetros para optimizar los algoritmos de Azure Machine Learning](algorithm-parameters-optimize.md).
+Este documento explica cómo interpretar los resultados de predicción para cada uno de estos módulos. Para obtener información general acerca de estos módulos, consulte [Elección de parámetros para optimizar los algoritmos de Azure Machine Learning Studio](algorithm-parameters-optimize.md).
 
-Este tema aborda la interpretación de predicción, pero no la evaluación de modelos. Para más información sobre cómo evaluar su modelo, consulte [Evaluación del rendimiento de un modelo en Azure Machine Learning](evaluate-model-performance.md).
+Este tema aborda la interpretación de predicción, pero no la evaluación de modelos. Para más información sobre cómo evaluar su modelo, consulte [Evaluación del rendimiento de un modelo en Azure Machine Learning Studio](evaluate-model-performance.md).
 
-Si no está familiarizado con Azure Machine Learning y necesita ayuda para crear un experimento simple para comenzar, consulte [Crear un experimento simple en Azure Machine Learning Studio](create-experiment.md) en Azure Machine Learning Studio.
+Si no está familiarizado con Azure Machine Learning Studio y necesita ayuda para crear un experimento simple para comenzar, consulte [Crear un experimento simple en Azure Machine Learning Studio](create-experiment.md) en Azure Machine Learning Studio.
 
 ## <a name="classification"></a>clasificación
 Existen dos subcategorías de problemas de clasificación:
@@ -47,12 +47,12 @@ Existen dos subcategorías de problemas de clasificación:
 * Problemas con solo dos clases (clasificación de dos clases o binaria)
 * Problemas con más de dos clases (clasificación multiclase)
 
-Azure Machine Learning tiene diversos módulos para tratar con cada uno de estos tipos de clasificación, pero los métodos para interpretar sus resultados de predicción son similares.
+Azure Machine Learning Studio tiene diversos módulos para tratar con cada uno de estos tipos de clasificación, pero los métodos para interpretar sus resultados de predicción son similares.
 
 ### <a name="two-class-classification"></a>Clasificación multiclase
 **Experimento de ejemplo**
 
-Un ejemplo de un problema de clasificación de dos clases es la clasificación de flores de iris. La tarea consiste en clasificar flores de iris en función de sus características. El conjunto de datos de Iris proporcionado en Azure Machine Learning es un subconjunto del [conjunto de datos de Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
+Un ejemplo de un problema de clasificación de dos clases es la clasificación de flores de iris. La tarea consiste en clasificar flores de iris en función de sus características. El conjunto de datos de Iris proporcionado en Azure Machine Learning Studio es un subconjunto del [conjunto de datos de Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) popular, que contiene instancias de solo dos especies de flor (clases 0 y 1). Existen cuatro características para cada flor (longitud del sépalo, ancho del sépalo, longitud del pétalo y ancho del pétalo).
 
 ![Captura de pantalla del experimento de iris](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Para los sistemas de recomendación, puede usar el problema de la recomendación
 * Datos de características de los clientes
 * Datos de características de restaurantes
 
-Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de Azure Machine Learning:
+Hay varias tareas que podemos hacer con el módulo integrado [Train Matchbox Recommender][train-matchbox-recommender] de Azure Machine Learning Studio:
 
 * predecir las valoraciones para un usuario determinado y un elemento;
 * recomendar elementos a un usuario determinado;
@@ -237,7 +237,7 @@ Puede elegir lo que quiere hacer mediante la selección de las cuatro opciones e
 
 ![Recomendador Matchbox](./media/interpret-model-results/19_1.png)
 
-Un experimento de Azure Machine Learning típico para un sistema de recomendación es similar al de la figura 20. Para información sobre cómo usar los módulos del sistema de recomendación, vea la página de ayuda [Train Matchbox Recommender][train-matchbox-recommender] y [Score Matchbox Recommender][score-matchbox-recommender].
+Un experimento de Azure Machine Learning Studio típico para un sistema de recomendación es similar al de la figura 20. Para información sobre cómo usar los módulos del sistema de recomendación, vea la página de ayuda [Train Matchbox Recommender][train-matchbox-recommender] y [Score Matchbox Recommender][score-matchbox-recommender].
 
 ![Experimento del sistema de recomendación](./media/interpret-model-results/20.png)
 

@@ -4,17 +4,17 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237424"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447793"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -80,7 +80,7 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
-`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md).
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parámetros
 
@@ -215,7 +215,9 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincidan todos los caracteres y cualquier otro carácter para que coincida ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincidan todos los caracteres y cualquier otro carácter para que coincida ese carácter en sí.
+**match** y **notMatch** distinguen mayúsculas de minúsculas. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields
 
@@ -245,15 +248,41 @@ Se admiten los siguientes campos:
 - `identity.type`
   - Devuelve el tipo de [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitado en el recurso.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Esta sintaxis con corchetes admite nombres de etiquetas que tienen signos de puntuación como guion, punto o espacio.
   - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
-  - Ejemplo: `tags.CostCenter` donde **CostCenter** es el nombre de la etiqueta.
-- `tags[<tagName>]`
-  - Esta sintaxis con corchetes admite nombres de etiqueta que contengan un punto.
+  - Ejemplos: `tags['Acct.CostCenter']` donde **Acct.CostCenter** es el nombre de la etiqueta.
+- `tags['''<tagName>''']`
+  - Esta sintaxis con corchetes admite nombres de etiquetas con apóstrofos mediante secuencias de escape con dobles apóstrofos.
   - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
-  - Ejemplo: `tags[Acct.CostCenter]` donde **Acct.CostCenter** es el nombre de la etiqueta.
-
+  - Ejemplo: `tags['''My.Apostrophe.Tag''']` donde **'\<tagName\>'** es el nombre de la etiqueta.
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]` y `tags[tag.with.dots]` son todavía formas aceptables de declarar un campo de etiquetas.
+> Sin embargo, las expresiones preferidas son las mencionadas anteriormente.
+
+#### <a name="use-tags-with-parameters"></a>Uso de etiquetas con parámetros
+
+Un valor de parámetro se puede pasar a un campo de etiqueta. Al pasar un parámetro a un campo de etiqueta aumenta la flexibilidad de la definición de directiva durante la asignación de directivas.
+
+En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de etiquetas para la etiqueta denominada con el valor del parámetro **tagName**. Si esa etiqueta no existe, se usa el efecto **append** para agregarla con el valor de la misma etiqueta con nombre establecida en el grupo de recursos principal de los recursos auditados mediante la función de búsqueda `resourcegroup()`.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Valor
 
@@ -341,7 +370,7 @@ Para obtener información detallada sobre cada efecto, el orden de evaluación, 
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
-A excepción de las siguientes funciones de implementación y recursos, todas las [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) están disponibles para su uso dentro de una regla de directiva:
+Se pueden usar todas las [funciones de plantillas de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) dentro de la regla de directiva, excepto las siguientes:
 
 - copyIndex()
 - deployment()
@@ -353,7 +382,7 @@ A excepción de las siguientes funciones de implementación y recursos, todas la
 
 Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Ejemplos de función de directiva
+#### <a name="policy-function-example"></a>Ejemplo de función de directiva
 
 Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener la propiedad **nombre**, combinada con la matriz `concat` y la función de objeto para compilar una condición `like` que exige que el nombre del recurso empiece con el nombre del grupo de recursos.
 
@@ -367,24 +396,6 @@ Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` pa
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener el valor de la matriz de la propiedad **etiquetas** de la etiqueta **CostCenter** del grupo de recursos y adjuntarlo a la etiqueta **CostCenter** del nuevo recurso.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

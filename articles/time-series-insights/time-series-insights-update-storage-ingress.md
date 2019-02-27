@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0326e6f05f44b5f2c4416a1c1db09bc5816a297
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558318"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301679"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -112,7 +112,7 @@ Es importante seleccionar una propiedad Time Series ID adecuada, porque es una p
 
 ## <a name="your-azure-storage-account"></a>Su cuenta de almacenamiento de Azure
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 Al crear un entorno de Time Series Insights de pago por uso, se crean dos recursos: un entorno de Time Series Insights y una cuenta de uso general V1 de Azure Storage donde almacenar los datos. Hemos optado por que la cuenta de uso general V1 de Azure Storage sea el recurso predeterminado por su interoperabilidad, precio y rendimiento. 
 
@@ -189,7 +189,7 @@ En la versión preliminar de Time Series Insights se indexan los datos mediante 
 
 ### <a name="scale"></a>Escala
 
-La versión preliminar de Time Series Insights admite una escala de entrada de hasta 6 megabits por segundo(Mbps) por entorno. La compatibilidad con el escalado se está mejorando actualmente. Tenemos previsto actualizar nuestra documentación para reflejar esas mejoras.
+La versión preliminar de Time Series Insights permite realizar un escalado de entrada de hasta 6 megabits por segundo (Mbps) en cada entorno. La compatibilidad con el escalado se está mejorando actualmente. Tenemos previsto actualizar la documentación para reflejar esas mejoras.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

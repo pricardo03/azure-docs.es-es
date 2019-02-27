@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266909"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446399"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA (instancias grandes) en Azure
 
@@ -70,7 +70,7 @@ Específicamente, compruebe los siguientes parámetros y, si es necesario, ajús
 
 A partir de SP1 SLES12 y RHEL 7.2, se deben establecer estos parámetros en un archivo de configuración en el directorio /etc/sysctl.d. Por ejemplo, se debe crear un archivo de configuración con el nombre 91-NetApp-HANA.conf. Para las versiones anteriores de SLES y RHEL, estos parámetros deben establecerse en in/etc/sysctl.conf.
 
-Para todas las versiones de RHEL que empiecen con SLES12, tenga en cuenta lo siguiente: 
+Para todas las versiones de RHEL que empiecen con RHEL 6.3, tenga en cuenta lo siguiente: 
 - El parámetro sunrpc.tcp_slot_table_entries = 128 se debe establecer en /etc/modprobe.d/sunrpc-local.conf. Si el archivo no existe, debe agregar esta entrada para crearlo: 
     - options sunrpc tcp_max_slot_table_entries=128
 
@@ -140,7 +140,7 @@ Hay algunos detalles que vale la pena mencionar acerca de las funciones de red d
 
 Para más información sobre los detalles de Ethernet para su arquitectura, consulte los [escenarios admitidos de HLI](hana-supported-scenario.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Almacenamiento
 
 La distribución de almacenamiento de SAP HANA en Azure (instancias largas) es configurada por SAP HANA en Azure Service Management a través de las instrucciones recomendadas de SAP. Estas instrucciones se documentan en las notas del producto [Requisitos de almacenamiento de SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
 

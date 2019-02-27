@@ -8,19 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880895"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313082"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detección de las combinaciones de colores de las imágenes
 
-Computer Vision extrae los colores de una imagen. Después, los colores se analizan en tres contextos diferentes: el color de primer plano predominante, el color de fondo predominante y los colores predominantes de la imagen como un todo. Se agrupan en 12 colores de énfasis predominantes. que son: negro, azul, marrón, gris, verde, naranja, rosa, púrpura, rojo, verde azulado, blanco y amarillo. Computer Vision analiza los colores que se extraen de una imagen para devolver el color de énfasis que representa al color más brillante de la imagen para su visualización, mediante una combinación de colores predominantes y de saturación. En función de los colores de una imagen, se pueden devolver el blanco y negro básico o los colores de énfasis en códigos de color hexadecimales. Computer Vision también devuelve un valor booleano que indica si una imagen está en blanco y negro.
+Computer Vision analiza los colores de una imagen para proporcionar tres atributos diferentes: el color de primer plano predominante, el color de fondo predominante y el conjunto de colores predominantes de la imagen como un todo. Los colores devueltos pertenecen al conjunto negro, azul, marrón, gris, verde, naranja, rosa, púrpura, rojo, verde azulado, blanco y amarillo. 
+
+Computer Vision extrae también un color de énfasis, que representa el color más brillantes de la imagen, basándose en una combinación de colores dominantes y en la saturación. El color de énfasis se devuelve como un código de color HTML hexadecimal. 
+
+Computer Vision también devuelve un valor booleano que indica si una imagen está en blanco y negro.
 
 ## <a name="color-scheme-detection-examples"></a>Ejemplos de detección de la combinación de colores
 
@@ -48,7 +52,7 @@ El ejemplo siguiente muestra la respuesta JSON devuelta por Computer Vision dura
 
 ### <a name="dominant-color-examples"></a>Ejemplos de color predominante
 
-En la tabla siguiente se describen los colores predominantes de primer plano, fondo y de imagen para cada imagen de ejemplo tal y como Computer Vision los ha devuelto.
+En la tabla siguiente se muestra el color de primer plano, el color de fondo y los colores de la imagen devueltos para cada imagen de ejemplo.
 
 | Imagen | Colores predominantes |
 |-------|-----------------|
@@ -57,7 +61,7 @@ En la tabla siguiente se describen los colores predominantes de primer plano, fo
 
 ### <a name="accent-color-examples"></a>Ejemplos de color de énfasis
 
- En la tabla siguiente se describen los colores de énfasis, como un valor hexadecimal de HTML, para cada imagen de ejemplo tal y como Computer Vision los ha devuelto.
+ En la tabla siguiente se muestran los colores de énfasis devueltos, como un valor hexadecimal de HTML, para cada imagen de ejemplo.
 
 | Imagen | Color de énfasis |
 |-------|--------------|
@@ -67,7 +71,7 @@ En la tabla siguiente se describen los colores predominantes de primer plano, fo
 
 ### <a name="black--white-detection-examples"></a>Ejemplos de detección en blanco y negro
 
-En la tabla siguiente se indica si cada imagen de ejemplo está en blanco y negro, tal como lo devuelve Computer Vision.
+La siguiente tabla muestra la evaluación en blanco y negro de Computer Vision en las imágenes de ejemplo.
 
 | Imagen | ¿Blanco y negro? |
 |-------|----------------|

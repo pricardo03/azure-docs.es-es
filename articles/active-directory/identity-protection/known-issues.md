@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183843"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339030"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Preguntas frecuentes y problemas conocidos con la versión actualizada de Identity Protection de Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183843"
 
 
 **Descartar el riesgo del usuario** en la versión actualizada de Identity Protection establece el actor del historial de riesgo del usuario de dicha versión de Identity Protection en **\<Admin’s name with a hyperlink pointing to user’s blade\>** (Nombre del administrador con un hipervínculo que apunta a la hoja del usuario).
+
+Actualmente hay un problema conocido que provoca latencias en el flujo de descarte de riesgo de usuario. Si tiene una "directiva de riesgo de usuario", esta directiva dejará de aplicarse a los usuarios descartados a los pocos minutos de hacer clic en "Descartar el riesgo de usuario". Sin embargo, se han constatado retrasos en la experiencia de usuario al actualizar el "Estado de riesgo" de los usuarios descartados. Como alternativa, actualice la página a nivel del explorador para ver el "Estado de riesgo" más reciente del usuario.
 
 
 ## <a name="risky-users-report"></a>Informe de usuarios de riesgo

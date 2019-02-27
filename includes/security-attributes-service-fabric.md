@@ -4,22 +4,22 @@ ms.service: service-fabric
 ms.topic: include
 ms.date: 01/31/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a20311a0285bf8fda5498241a60b85093039ad19
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 179d87a0c1af587148f1b5ffa2cad8085ef0886f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513260"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306843"
 ---
-## <a name="preventative"></a>Preventivo
+## <a name="preventative"></a>Prevención
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | El cliente posee el clúster y el conjunto de escalado de máquinas virtuales (VM) en el que se basa el clúster. El cifrado de discos de Azure se puede habilitar en el conjunto de escalado de VM. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí |  |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí |  |
 | Control de clave de cifrado (CMK, BYOK, etc.)| Sí | El cliente posee el clúster y el conjunto de escalado de máquinas virtuales (VM) en el que se basa el clúster. El cifrado de discos de Azure se puede habilitar en el conjunto de escalado de VM. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
-| Llamadas API cifradas| Sí | Las llamadas de API de Service Fabric se hacen a través de Azure Resource Manager. Se requiere un token web de JSON (JWT) válido. |
+| Llamadas a API cifradas| Sí | Las llamadas de API de Service Fabric se hacen a través de Azure Resource Manager. Se requiere un token web de JSON (JWT) válido. |
 
 ## <a name="network-segmentation"></a>Segmentación de red
 
@@ -34,7 +34,7 @@ ms.locfileid: "55513260"
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Con compatibilidad de supervisión de Azure y compatibilidad con terceros. |
+| Compatibilidad con supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Utilizando la compatibilidad de supervisión de Azure y la compatibilidad de las soluciones de terceros. |
 
 ## <a name="iam-support"></a>Compatibilidad con IAM
 

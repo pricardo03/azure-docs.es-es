@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985507"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458416"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar el acelerador de escritura
 
@@ -42,17 +42,17 @@ Estas restricciones se aplican al usar el Acelerador de escritura para un VHD o 
 
 - El almacenamiento en caché de discos Premium debe establecerse en "Ninguno" o "Solo lectura". No se admite ningún otro modo de almacenamiento en caché.
 - Actualmente, los discos con el Acelerador de escritura habilitado no admiten las instantáneas. Durante la copia de seguridad, el servicio Azure Backup excluye automáticamente los discos con el Acelerador de escritura habilitado conectados a la VM.
-- Solo los tamaños de E/S más pequeños (<=32KiB) toman la ruta de acceso acelerada. En situaciones de carga de trabajo donde los datos se cargan de forma masiva o donde los búferes de registros de transacción de los diferentes sistemas de administración de bases de datos (DBMS) se llenan hasta un mayor grado antes de conservarse en el almacenamiento, existe la probabilidad de que la E/S escrita en el disco no tome la ruta de acceso acelerada.
+- Solo los tamaños de E/S más pequeños (<=512 KiB) toman la ruta de acceso acelerada. En situaciones de carga de trabajo donde los datos se cargan de forma masiva o donde los búferes de registros de transacción de los diferentes sistemas de administración de bases de datos (DBMS) se llenan hasta un mayor grado antes de conservarse en el almacenamiento, existe la probabilidad de que la E/S escrita en el disco no tome la ruta de acceso acelerada.
 
 Hay límites en los discos duros virtuales de Azure Premium Storage por máquina virtual que el Acelerador de escritura puede admitir. Los límites actuales son:
 
 | SKU de la máquina virtual | Número de discos de Acelerador de escritura | IOPS de discos de Acelerador de escritura por máquina virtual |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms, M16s | 2 | 2.500 |
+| M8ms, M8s | 1 | 1250 |
 
 Los límites de IOPS son por máquina virtual y *no* por disco. Todos los discos del Acelerador de escritura comparten el mismo límite de IOPS por máquina virtual.
 

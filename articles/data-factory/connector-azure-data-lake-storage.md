@@ -1,5 +1,5 @@
 ---
-title: Copia de datos hacia o desde Azure Data Lake Storage Gen2 (versión preliminar) mediante Data Factory (versión preliminar) | Microsoft Docs
+title: Copia de datos a Azure Data Lake Storage Gen2 o desde él mediante Azure Data Factory | Microsoft Docs
 description: Aprenda a copiar datos hacia y desde Azure Data Lake Storage Gen2 mediante Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e8bc85a309a8c6755f1efae1ca702720cf01477
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662320"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311594"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copia de datos hacia o desde Azure Data Lake Storage Gen2 (versión preliminar) mediante Data Factory (versión preliminar)
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
 
-Azure Data Lake Storage Gen2 (versión preliminar) es un conjunto de funcionalidades dedicadas al análisis de macrodatos, creadas en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos.
+‎Azure Data Lake Storage Gen2 es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos.
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Data Lake Storage Gen2 como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005257"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267587"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registro de Splunk en Azure Monitor
 
-Este artículo sirve de ayuda para que los usuarios que están familiarizados con Splunk obtengan información sobre el lenguaje de consulta de Data Explorer para escribir consultas de registro en Azure Monitor. Se realizan comparaciones directas entre ambos para conocer las principales diferencias y similitudes donde puede aprovechar los conocimientos que posee.
+Este artículo sirve de ayuda para que los usuarios que están familiarizados con Splunk obtengan información sobre el lenguaje de consulta de Kusto para escribir consultas de registro en Azure Monitor. Se realizan comparaciones directas entre ambos para conocer las principales diferencias y similitudes donde puede aprovechar los conocimientos que posee.
 
 ## <a name="structure-and-concepts"></a>Estructura y conceptos
 

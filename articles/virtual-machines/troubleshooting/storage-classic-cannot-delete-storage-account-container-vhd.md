@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383748"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330620"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento clásico
 En este artículo se proporcionan instrucciones para solucionar problemas cuando se produce uno de los siguientes errores al intentar eliminar un archivo de blob de páginas *.vhd, un contenedor o una cuenta de almacenamiento clásico de Azure. 
@@ -21,7 +21,7 @@ En este artículo se proporcionan instrucciones para solucionar problemas cuando
 
 En este artículo solo se tratan los problemas de los recursos de almacenamiento clásico. Si un usuario elimina una máquina virtual clásica mediante Azure Portal, PowerShell o la CLI, los discos no se eliminan automáticamente. El usuario dispone de la opción para eliminar el recurso "Disco". En caso de que la opción no se seleccione, el recurso "Disco" impedirá la eliminación de la cuenta de almacenamiento, el contenedor y el archivo de blob de páginas *.vhd real.
 
-Se puede encontrar más información sobre los discos de Azure [aquí](../../virtual-machines/windows/about-disks-and-vhds.md). Azure impide la eliminación de un disco que esté asociado a una máquina virtual para evitar daños. También impide la eliminación de los contenedores y las cuentas de almacenamiento que tengan un blob de páginas que esté asociado a una máquina virtual. 
+Se puede encontrar más información sobre los discos de Azure [aquí](../../virtual-machines/windows/managed-disks-overview.md). Azure impide la eliminación de un disco que esté asociado a una máquina virtual para evitar daños. También impide la eliminación de los contenedores y las cuentas de almacenamiento que tengan un blob de páginas que esté asociado a una máquina virtual. 
 
 ## <a name="what-is-a-disk"></a>¿Qué es un "Disco"?
 Un recurso "Disco" se utiliza para montar un archivo de blob de páginas *.vhd en una máquina virtual, como un disco del sistema operativo o un disco de datos. Hasta que se elimine un recurso de disco de datos o de disco del sistema operativo, seguirá manteniendo una concesión en el archivo *.vhd. Ningún recurso de almacenamiento en la ruta de acceso que se muestre en la imagen de abajo se puede eliminar si un recurso "Disco" hace referencia a él.

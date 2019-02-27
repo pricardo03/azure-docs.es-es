@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260387"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313575"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Consorcio de prueba de autoridad de Ethereum
 
@@ -359,7 +359,7 @@ Mediante la implementación basada en direcciones IP públicas, este primer paso
 
     -  Elija el mismo número de nodos de validador que el resto de los miembros de la red para garantizar una representación razonable
 
-    -  Use la misma dirección de Ethereum que no se proporcionó en el [paso anterior](#step-1-add-the-new-admin)
+    -  Use la misma dirección de Ethereum que se proporcionó en el paso anterior
 
     -  Pase la *dirección URL de datos del consorcio* proporcionada en la pestaña *Configuración de Ethereum*
 

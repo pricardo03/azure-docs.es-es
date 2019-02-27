@@ -15,20 +15,22 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699272"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340860"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
-El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
 
-Los roles integrados siempre están en evolución. Para obtener las últimas definiciones de roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+El [control de acceso basado en rol (RBAC)](overview.md) tiene varios roles integrados para recursos de Azure que se pueden asignar a usuarios, grupos, entidades de servicio e identidades administradas. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados para los recursos de Azure](custom-roles.md).
+
+En este artículo se enumeran los roles integrados para los recursos de Azure, que están en constante evolución. Para obtener los últimos roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list). Si desea ver los roles de administrador de Azure Active Directory, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="built-in-role-descriptions"></a>Descripciones de rol integrado
-En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol.
+
+En la tabla siguiente se proporciona una breve descripción de cada rol integrado. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol. Para obtener información sobre lo que significan estas acciones y cómo se aplican a la administración y a los planos de datos, consulte [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md).
 
 
 | Rol integrado | DESCRIPCIÓN |
@@ -139,6 +141,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **Acciones** |  |
 > | * | Crear y administrar recursos de todos los tipos |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="contributor"></a>Colaborador
 > [!div class="mx-tableFixed"]
@@ -154,6 +162,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/elevateAccess/Action | Concede al llamador acceso de administrador de acceso de usuario en el ámbito de inquilinos |
 > | Microsoft.Blueprint/blueprintAssignments/write | Crea o actualiza los artefactos de plano técnico |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Elimina los artefactos de plano técnico |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="reader"></a>Lector
 > [!div class="mx-tableFixed"]
@@ -163,6 +175,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Acciones** |  |
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -172,6 +190,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Acciones** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Inserta o extrae metadatos de confianza en el contenido para un registro de contenedor. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
@@ -181,6 +205,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **Acciones** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Extrae u obtiene imágenes de un registro de contenedor. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
@@ -191,6 +221,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Extrae u obtiene imágenes de un registro de contenedor. |
 > | Microsoft.ContainerRegistry/registries/push/write | Inserta o escribe imágenes en un registro de contenedor. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -200,6 +236,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Acciones** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -210,6 +252,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Escribe o modifica el estado de cuarentena de las imágenes que estén en cuarentena |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="api-management-service-contributor"></a>Colaborador de servicio de administración de API
 > [!div class="mx-tableFixed"]
@@ -225,6 +273,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="api-management-service-operator-role"></a>Rol del operador del servicio API Management
 > [!div class="mx-tableFixed"]
@@ -250,6 +304,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtiene una lista de claves de usuario |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="api-management-service-reader-role"></a>Rol de lector del servicio API Management
 > [!div class="mx-tableFixed"]
@@ -268,6 +326,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtiene una lista de claves de usuario |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="application-insights-component-contributor"></a>Colaborador de componentes de Application Insights
 > [!div class="mx-tableFixed"]
@@ -284,6 +346,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Depurador de instantáneas de Application Insights
 > [!div class="mx-tableFixed"]
@@ -298,6 +366,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="automation-job-operator"></a>Operador de trabajos de Automation
 > [!div class="mx-tableFixed"]
@@ -319,6 +393,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="automation-operator"></a>Operador de Automation
 > [!div class="mx-tableFixed"]
@@ -348,6 +428,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtiene la salida de un trabajo |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="automation-runbook-operator"></a>Operador de runbooks de Automation
 > [!div class="mx-tableFixed"]
@@ -362,6 +448,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Rol de administrador de clúster de Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -371,6 +463,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Acciones** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Muestra la credencial clusterAdmin de un clúster administrado. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Rol de usuario de clúster de Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -380,6 +478,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 4abbcc35-e782-43D8-92c5-2d3f1bd2253f |
 > | **Acciones** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Muestra la credencial clusterUser de un clúster administrado. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Propietario del registro de Azure Stack
 > [!div class="mx-tableFixed"]
@@ -391,6 +495,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Recupera detalles ampliados de un producto de Marketplace de Azure Stack. |
 > | Microsoft.AzureStack/registrations/products/read | Obtiene las propiedades de un producto de Marketplace de Azure Stack. |
 > | Microsoft.AzureStack/registrations/read | Obtiene las propiedades de un registro de Azure Stack. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="backup-contributor"></a>Colaborador de copias de seguridad
 > [!div class="mx-tableFixed"]
@@ -442,6 +552,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtiene el estado de la operación para una operación determinada. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumera todas las intenciones de protección de la copia de seguridad. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="backup-operator"></a>Operador de copias de seguridad
 > [!div class="mx-tableFixed"]
@@ -508,6 +624,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtiene el estado de la operación para una operación determinada. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumera todas las intenciones de protección de la copia de seguridad. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="backup-reader"></a>Lector de copias de seguridad
 > [!div class="mx-tableFixed"]
@@ -555,6 +677,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtiene el estado de la operación para una operación determinada. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Enumera todas las intenciones de protección de la copia de seguridad. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="billing-reader"></a>Lector de facturación
 > [!div class="mx-tableFixed"]
@@ -570,6 +698,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="biztalk-contributor"></a>Colaborador de BizTalk
 > [!div class="mx-tableFixed"]
@@ -585,6 +719,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>Colaborador de punto de conexión de CDN
 > [!div class="mx-tableFixed"]
@@ -601,6 +741,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cdn-endpoint-reader"></a>Lector de punto de conexión de CDN
 > [!div class="mx-tableFixed"]
@@ -617,6 +763,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cdn-profile-contributor"></a>Colaborador de perfil de CDN
 > [!div class="mx-tableFixed"]
@@ -633,6 +785,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cdn-profile-reader"></a>Lector de perfil de CDN
 > [!div class="mx-tableFixed"]
@@ -649,6 +807,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="classic-network-contributor"></a>Colaborador de la red clásica
 > [!div class="mx-tableFixed"]
@@ -664,6 +828,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="classic-storage-account-contributor"></a>Colaborador de cuentas de almacenamiento clásico
 > [!div class="mx-tableFixed"]
@@ -679,6 +849,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>Rol de servicio de operador de claves de cuentas de almacenamiento clásicas
 > [!div class="mx-tableFixed"]
@@ -689,6 +865,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Enumera las claves de acceso de las cuentas de almacenamiento. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenera las claves de acceso existentes de la cuenta de almacenamiento. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>Colaborador de la máquina virtual clásica
 > [!div class="mx-tableFixed"]
@@ -714,6 +896,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cognitive-services-contributor"></a>Colaborador de Cognitive Services
 > [!div class="mx-tableFixed"]
@@ -739,6 +927,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cognitive-services-user"></a>Usuario de Cognitive Services
 > [!div class="mx-tableFixed"]
@@ -760,6 +954,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Rol de lector de cuentas de Cosmos DB
 > [!div class="mx-tableFixed"]
@@ -775,6 +975,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Insights/Metrics/read | Lee métricas |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -785,6 +991,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Envía una solicitud para configurar la copia de seguridad. |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Envía una solicitud de restauración. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cost-management-contributor"></a>Colaborador de Cost Management
 > [!div class="mx-tableFixed"]
@@ -799,6 +1011,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="cost-management-reader"></a>Lector de Cost Management
 > [!div class="mx-tableFixed"]
@@ -813,6 +1031,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/read | Obtiene la lista de suscripciones. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="data-box-contributor"></a>Colaborador de Data Box
 > [!div class="mx-tableFixed"]
@@ -827,6 +1051,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Databox/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="data-box-reader"></a>Lector de Data Box
 > [!div class="mx-tableFixed"]
@@ -842,6 +1072,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Databox/locations/availableSkus/action | Este método devuelve la lista de SKU disponibles. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="data-factory-contributor"></a>Colaborador de Factoría de datos
 > [!div class="mx-tableFixed"]
@@ -858,6 +1094,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Desarrollador de Data Lake Analytics
 > [!div class="mx-tableFixed"]
@@ -889,6 +1131,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Elimina una regla de firewall. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Crea o actualiza una directiva de proceso. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Elimina una directiva de proceso. |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="data-purger"></a>Purgador de datos
 > [!div class="mx-tableFixed"]
@@ -901,6 +1147,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Insights/components/purge/action | Purga datos de Application Insights. |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Elimina los datos especificados del área de trabajo. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="devtest-labs-user"></a>Usuario de DevTest Labs
 > [!div class="mx-tableFixed"]
@@ -941,6 +1193,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Enumera los tamaños disponibles a los que se puede actualizar la máquina virtual |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="dns-zone-contributor"></a>Colaborador de zona DNS
 > [!div class="mx-tableFixed"]
@@ -956,6 +1212,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar vales de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="documentdb-account-contributor"></a>Colaborador de cuenta de DocumentDB
 > [!div class="mx-tableFixed"]
@@ -971,6 +1233,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>Colaborador de EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
@@ -988,6 +1256,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>Lector de EventGrid EventSubscription
 > [!div class="mx-tableFixed"]
@@ -1002,6 +1276,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Enumera las suscripciones de eventos regionales. |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Enumera las suscripciones de eventos regionales por tipo de tema. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Colaborador de Domain Services para HDInsight
 > [!div class="mx-tableFixed"]
@@ -1013,6 +1293,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Colaborador de la cuenta de Sistemas inteligentes
 > [!div class="mx-tableFixed"]
@@ -1028,6 +1314,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="key-vault-contributor"></a>Colaborador de almacén de claves
 > [!div class="mx-tableFixed"]
@@ -1045,6 +1337,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purga un almacén de claves eliminado temporalmente |
 > | Microsoft.KeyVault/hsmPools/* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="lab-creator"></a>Creador de laboratorio
 > [!div class="mx-tableFixed"]
@@ -1060,6 +1356,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obtiene información sobre la disponibilidad regional para cada categoría de tamaño configurada en una cuenta de laboratorio. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="log-analytics-contributor"></a>Colaborador de Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1081,6 +1383,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="log-analytics-reader"></a>Lector de Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1095,6 +1403,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera las claves compartidas del área de trabajo. Estas claves se utilizan para conectar los agentes de Microsoft Operational Insights al área de trabajo. |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="logic-app-contributor"></a>Colaborador de aplicación lógica
 > [!div class="mx-tableFixed"]
@@ -1123,6 +1435,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obtiene las propiedades de un plan de App Service |
 > | Microsoft.Web/sites/functions/listSecrets/action | Muestra secretos de Web Apps. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="logic-app-operator"></a>Operador de aplicación lógica
 > [!div class="mx-tableFixed"]
@@ -1147,6 +1465,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Web/connections/*/read | Lee las conexiones. |
 > | Microsoft.Web/customApis/*/read | Lee la API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obtiene las propiedades de un plan de App Service |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="managed-application-operator-role"></a>Rol de operador de aplicación administrada
 > [!div class="mx-tableFixed"]
@@ -1157,6 +1481,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.Solutions/applications/read | Recupera una lista de aplicaciones. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="managed-applications-reader"></a>Lector de aplicaciones administradas
 > [!div class="mx-tableFixed"]
@@ -1168,6 +1498,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Solutions/jitRequests/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="managed-identity-contributor"></a>Colaborador de identidad administrada
 > [!div class="mx-tableFixed"]
@@ -1184,6 +1520,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="managed-identity-operator"></a>Operador de identidad administrada
 > [!div class="mx-tableFixed"]
@@ -1199,6 +1541,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="management-group-contributor"></a>Colaborador de grupo de administración
 > [!div class="mx-tableFixed"]
@@ -1212,6 +1560,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Management/managementGroups/subscriptions/delete | Anula la asociación de la suscripción con el grupo de administración. |
 > | Microsoft.Management/managementGroups/subscriptions/write | Asocia la suscripción existente con el grupo de administración. |
 > | Microsoft.Management/managementGroups/write | Crea o actualiza un grupo de administración. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="management-group-reader"></a>Lector de grupo de administración
 > [!div class="mx-tableFixed"]
@@ -1221,6 +1575,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **Acciones** |  |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="monitoring-contributor"></a>Colaborador de supervisión
 > [!div class="mx-tableFixed"]
@@ -1253,6 +1613,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Supervisión del publicador de métricas
 > [!div class="mx-tableFixed"]
@@ -1264,8 +1630,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Escribe métricas. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="monitoring-reader"></a>Lector de supervisión
 > [!div class="mx-tableFixed"]
@@ -1277,6 +1647,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Ejecuta una consulta de búsqueda |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="network-contributor"></a>Colaborador de la red
 > [!div class="mx-tableFixed"]
@@ -1292,6 +1668,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>Colaborador de la cuenta de NewRelic APM
 > [!div class="mx-tableFixed"]
@@ -1307,6 +1689,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | NewRelic.APM/accounts/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="reader-and-data-access"></a>Lector y acceso a los datos
 > [!div class="mx-tableFixed"]
@@ -1317,6 +1705,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="redis-cache-contributor"></a>Colaborador de la memoria caché de Redis
 > [!div class="mx-tableFixed"]
@@ -1332,6 +1726,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>Colaborador de la directiva de recursos (versión preliminar)
 > [!div class="mx-tableFixed"]
@@ -1346,6 +1746,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/policysetdefinitions/* | Crear y administrar conjuntos de directivas |
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Colaborador de colecciones de trabajos de Scheduler
 > [!div class="mx-tableFixed"]
@@ -1361,6 +1767,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Scheduler/jobcollections/* | Crear y administrar colecciones de trabajos |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="search-service-contributor"></a>Colaborador del servicio de búsqueda
 > [!div class="mx-tableFixed"]
@@ -1376,6 +1788,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Search/searchServices/* | Crear y administrar servicios de búsqueda |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="security-admin"></a>Administrador de seguridad
 > [!div class="mx-tableFixed"]
@@ -1405,6 +1823,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Security/securityContacts/write | Actualiza el contacto de seguridad. |
 > | Microsoft.Security/InformationProtectionPolicies/write | Actualiza las directivas de protección de información correspondientes al recurso. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="security-manager-legacy"></a>Administrador de seguridad (heredado)
 > [!div class="mx-tableFixed"]
@@ -1423,6 +1847,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Security/* | Crear y administrar las directivas y los componentes de seguridad |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="security-reader"></a>Lector de seguridad
 > [!div class="mx-tableFixed"]
@@ -1439,6 +1869,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Security/*/read | Leer directivas y componentes de seguridad |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="site-recovery-contributor"></a>Colaborador de Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1474,6 +1910,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="site-recovery-operator"></a>Operador de Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1539,6 +1981,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="site-recovery-reader"></a>Lector de Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1578,6 +2026,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devuelve los detalles de uso de un almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | La operación Token de almacén se puede usar para obtener el token de almacén de las operaciones back-end a nivel de almacén. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="sql-db-contributor"></a>Colaborador de Base de datos de SQL
 > [!div class="mx-tableFixed"]
@@ -1614,6 +2068,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="sql-security-manager"></a>Administrador de seguridad SQL
 > [!div class="mx-tableFixed"]
@@ -1655,6 +2113,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Crear y administrar directivas de alerta de seguridad de SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="sql-server-contributor"></a>Colaborador de SQL Server
 > [!div class="mx-tableFixed"]
@@ -1694,6 +2158,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Edita las directivas de alerta de seguridad de SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-account-contributor"></a>Colaborador de la cuenta de almacenamiento
 > [!div class="mx-tableFixed"]
@@ -1711,6 +2179,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/* | Crear y administrar cuentas de almacenamiento |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>Rol de servicio de operador de claves de cuentas de almacenamiento
 > [!div class="mx-tableFixed"]
@@ -1721,6 +2195,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenera las claves de acceso de la cuenta de almacenamiento especificada. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-blob-data-contributor-preview"></a>Colaborador de datos de blobs de almacenamiento (versión preliminar)
 > [!div class="mx-tableFixed"]
@@ -1732,10 +2212,14 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Devuelve el resultado de la eliminación de un contenedor. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devuelve una lista de contenedores. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Devuelve el resultado del contenedor de blobs de colocación. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Devuelve el resultado de la eliminación de un blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Devuelve el resultado de la escritura de un blob. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-blob-data-owner-preview"></a>Propietario de datos de blobs de almacenamiento (versión preliminar)
 > [!div class="mx-tableFixed"]
@@ -1745,8 +2229,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Lector de datos de blobs de almacenamiento (versión preliminar)
 > [!div class="mx-tableFixed"]
@@ -1756,8 +2244,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devuelve una lista de contenedores. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devuelve un blob o una lista de blobs. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-queue-data-contributor-preview"></a>Colaborador de datos de la cola de almacenamiento (versión preliminar)
 > [!div class="mx-tableFixed"]
@@ -1769,10 +2261,14 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Devuelve el resultado de la eliminación de una cola. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devuelve una cola o una lista de colas. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Devuelve el resultado de escribir una cola. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Devuelve el resultado de eliminar un mensaje. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devuelve un mensaje. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Devuelve el resultado de escribir un mensaje. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="storage-queue-data-reader-preview"></a>Lector de datos de la cola de almacenamiento (versión preliminar)
 > [!div class="mx-tableFixed"]
@@ -1782,8 +2278,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devuelve una cola o una lista de colas. |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devuelve un mensaje. |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="support-request-contributor"></a>Colaborador de la solicitud de soporte técnico
 > [!div class="mx-tableFixed"]
@@ -1795,6 +2295,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/*/read | Leer autorización |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="traffic-manager-contributor"></a>Colaborador de Traffic Manager
 > [!div class="mx-tableFixed"]
@@ -1810,6 +2316,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="user-access-administrator"></a>Administrador de acceso de usuario
 > [!div class="mx-tableFixed"]
@@ -1821,6 +2333,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | */read | Leer recursos de todos los tipos, excepto secretos. |
 > | Microsoft.Authorization/* | Administrar la autorización |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>Inicio de sesión de administrador de Virtual Machine
 > [!div class="mx-tableFixed"]
@@ -1834,9 +2352,13 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Network/loadBalancers/read | Obtiene una definición del equilibrador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtiene una definición de interfaz de red.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Iniciar sesión en una máquina virtual como usuario habitual |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Iniciar de sesión en una máquina virtual con privilegios de administrador de Windows o de usuario raíz de Linux |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="virtual-machine-contributor"></a>Colaborador de la máquina virtual
 > [!div class="mx-tableFixed"]
@@ -1883,6 +2405,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="virtual-machine-user-login"></a>Inicio de sesión de usuario de Virtual Machine
 > [!div class="mx-tableFixed"]
@@ -1896,8 +2424,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Network/loadBalancers/read | Obtiene una definición del equilibrador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtiene una definición de interfaz de red.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Iniciar sesión en una máquina virtual como usuario habitual |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="web-plan-contributor"></a>Colaborador de plan web
 > [!div class="mx-tableFixed"]
@@ -1913,6 +2445,12 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.Web/serverFarms/* | Crear y administrar granjas de servidores |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="website-contributor"></a>Colaborador de sitio web
 > [!div class="mx-tableFixed"]
@@ -1933,9 +2471,15 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obtiene las propiedades de un plan de App Service |
 > | Microsoft.Web/sites/* | Crear y administrar sitios web (la creación de sitios también requiere permisos de escritura para el plan de App Service asociado) |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Roles personalizados](custom-roles.md)
-- [Administración de las asignaciones de roles mediante Azure Portal](role-assignments-portal.md)
+- [Roles personalizados en los recursos de Azure](custom-roles.md)
+- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
 - [Permisos en Azure Security Center](../security-center/security-center-permissions.md)

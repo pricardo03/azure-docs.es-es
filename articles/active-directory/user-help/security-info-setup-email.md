@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de la información de seguridad para usar correo electrónico: Azure Active Directory | Microsoft Docs'
-description: Configure la información de seguridad para comprobar su identidad mediante una dirección de correo electrónico profesional o educativa.
+title: 'Configuración de la información de seguridad (versión preliminar) para usar su dirección de correo electrónico: Azure Active Directory | Microsoft Docs'
+description: Configuración de la información de seguridad para comprobar su identidad mediante una dirección de correo electrónico.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,72 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18124286d78520e8b89a61c5d12760c9ad784c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197222"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455218"
 ---
-# <a name="set-up-security-info-to-use-email-preview"></a>Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)
+# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configuración de la información de seguridad (versión preliminar) para usar su dirección de correo electrónico
+Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Tras configurarlo por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar información de seguridad.
+
+Tras configurar el método de restablecimiento de contraseña, también debe configurar el método de comprobación mediante dos factores, para lo que se usa una [aplicación de autenticación](security-info-setup-auth-app.md), [un mensaje de texto](security-info-setup-text-msg.md) o un [llamada de teléfono](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Para configurar la información de seguridad tiene que iniciar sesión en su cuenta profesional o educativa y completar el proceso de registro. Si nunca ha configurado la información de seguridad, se le pedirá que lo haga ahora.
-
-## <a name="set-up-email"></a>Configuración del correo electrónico
-
-Dependiendo de la configuración de su organización, puede que se le pida que agregue una dirección de correo electrónico a su información de seguridad al iniciar sesión. En caso contrario, para comenzar la configuración del correo electrónico en la información de seguridad, siga los pasos que encontrará en [Administración de la información de seguridad](security-info-manage-settings.md).
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configuración de una dirección de correo electrónico desde la página Información de seguridad
+Dependiendo de la configuración de su organización, es posible que pueda usar una dirección de correo electrónico como uno de sus métodos de información de seguridad.
 
 >[!Note]
->Es recomendable usar una cuenta de correo electrónico que no requiera la contraseña de red para acceder.<br>Si no ve la opción de correo electrónico, es posible que su organización no le permita usar un correo electrónico para la comprobación. Si este es el caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
+>Se recomienda usar una cuenta de correo electrónico que no requiera la contraseña de red para acceder. Si no ve la opción de correo electrónico, es posible que su organización no le permita usar un correo electrónico para la comprobación. Si este es el caso, tendrá que elegir otro método o ponerse en contacto con su administrador para obtener más ayuda.
 
-### <a name="to-use-your-email-address"></a>Para usar su dirección de correo electrónico
+### <a name="to-set-up-your-email-address"></a>Para configurar su dirección de correo electrónico
 
-1. Seleccione la opción **Correo electrónico** y, después, escriba la dirección de correo electrónico en el cuadro. Esta dirección de correo electrónico no puede ser la dirección de correo electrónico profesional o educativa.
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
-     ![Página Información de seguridad, con el cuadro de entrada de correo electrónico](media/security-info/security-info-keep-secure-setup-email.png)
+    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile.png)
 
-2. Busque un correo electrónico de Microsoft para su organización, escriba el código de verificación incluido en el cuadro **Verifica tu correo electrónico** y, a continuación, seleccione **Listo**.
+2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, después, seleccione **Agregar método** en la página **Información de seguridad**.
 
-     ![Página Información de seguridad, con el cuadro de entrada del código de verificación de correo electrónico](media/security-info/security-info-verify-email.png)
+    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    >[!Note]
-    >Si no ve un correo electrónico de Microsoft en nombre de su organización, asegúrese de que ha escrito correctamente su dirección de correo electrónico y, a continuación, compruebe las carpetas de correo no deseado.
+3. En la página **Agregar un método**, seleccione **Correo electrónico** en la lista desplegable y, después, seleccione **Agregar**.
 
-3. En la página **Garantizar la seguridad de la cuenta**, seleccione **Listo**.
+    ![Cuadro Agregar método, con Correo electrónico seleccionado](media/security-info/securityinfo-myprofile-addemail.png)
 
-    La información de seguridad se actualiza para usar la dirección de correo electrónico con el fin de comprobar su identidad cuando se usa el restablecimiento de contraseña.
+4. En la página **Correo electrónico**, escriba su dirección de correo electrónico (por ejemplo, alain@gmail.com) y seleccione **Siguiente**.
 
-## <a name="additional-security-info-options"></a>Opciones de información de seguridad adicionales
+    ![Adición de un número de teléfono y elección de llamadas de teléfono](media/security-info/securityinfo-myprofile-emailaddress.png)
 
-Tiene opciones para determinar cómo su organización se pone en contacto con usted para verificar su identidad, basándose en lo que está intentando hacer. Entre estas opciones se incluyen:
+    >[!Important]
+    >Esta dirección de correo electrónico no puede ser la dirección de correo electrónico profesional o educativa.
+
+5. Escriba el código que se ha enviado a la dirección de correo electrónico que ha especificado y seleccione **Siguiente**.
+
+    ![Adición de un número de teléfono y elección de mensajes de texto](media/security-info/securityinfo-myprofile-emailcode.png)
+
+    La información de seguridad se actualiza y puede usar la dirección de correo electrónico para comprobar su identidad al usar el restablecimiento de contraseña.
+
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Eliminación de la dirección de correo electrónico de los métodos de información de seguridad
+Si no desea usar la dirección de correo electrónico como método de información de seguridad, puede quitarla de la página **Información de seguridad**.
+
+>[!Important]
+>Si elimina la dirección de correo electrónico por error, no hay forma de deshacer la operación. Tendrá que volver a agregar el método, para lo que debe seguir los pasos de la sección sobre cómo [Configuración de una dirección de correo electrónico](#set-up-your-email-address-from-the-security-info-page) de este mismo artículo.
+
+### <a name="to-delete-your-email-address"></a>Para eliminar una dirección de correo electrónico
+
+1. En la página **Información de seguridad**, seleccione el vínculo **Eliminar**, que se encuentra al lado de la opción **Correo electrónico**.
+
+    ![Vínculo para eliminar el método del teléfono de la información de seguridad](media/security-info/securityinfo-myprofile-emaildelete.png)
+
+2. Seleccione **Sí** en el cuadro de confirmación para eliminar la cuenta de **Correo electrónico**. Una vez eliminada la cuenta de correo electrónico, se quitará de su información de seguridad y desaparecerá de la página **Información de seguridad**.
+
+## <a name="additional-security-info-methods"></a>Otros métodos de información de seguridad
+Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
 
 - **Aplicación autenticadora.** Descargue y use una aplicación autenticadora para obtener una notificación de aprobación o un código de aprobación generado de forma aleatoria para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo configurar y usar la aplicación Microsoft Authenticator, consulte [Set up security info to use an authenticator app](security-info-setup-auth-app.md) (Configuración de la información de seguridad para usar una aplicación de autenticador).
 
@@ -65,8 +88,6 @@ Tiene opciones para determinar cómo su organización se pone en contacto con us
     >Si faltan algunas de estas opciones, lo más probable es que su organización no permita esos métodos. Si este es el caso, tendrá que elegir uno de los métodos que sí están disponibles o ponerse en contacto con su administrador para obtener más ayuda.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Si necesita actualizar la información de seguridad, siga las instrucciones del artículo [Administración de la información de seguridad](security-info-manage-settings.md).
 
 - Restablezca la contraseña si ha perdido u olvidado la que tenía acudiendo al [portal de restablecimiento de contraseña](https://passwordreset.microsoftonline.com/) o siga los pasos descritos en el artículo [Restablecimiento de la contraseña profesional o educativa](user-help-reset-password.md).
 

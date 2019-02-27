@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998542"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266431"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
 
@@ -80,4 +80,4 @@ union
 
 - Consulte la [expresión workspace](workspace-expression.md) para hacer referencia al área de trabajo de Log Analytics.
 - Obtenga información sobre cómo se almacenan los [datos de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
-- Obtenga acceso a toda la documentación del [lenguaje de consulta de Data Explorer](/azure/kusto/query/).
+- Acceda a toda la documentación del [lenguaje de consulta de Kusto](/azure/kusto/query/).

@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116004"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326881"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 
-Azure Managed Disks ofrece tres opciones de tipo de almacenamiento: [SSD Premium](../windows/premium-storage.md), [SSD estándar](../windows/disks-standard-ssd.md) y [HDD estándar](../windows/standard-storage.md). En función de sus necesidades de rendimiento, puede cambiar un disco administrado entre tipos de almacenamiento con un tiempo de inactividad mínimo. En un disco no administrado, no se puede cambiar de un tipo de almacenamiento a otro. Sin embargo, le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md).
+Azure Managed Disks ofrece cuatro opciones de tipo de almacenamiento: unidades de estado ultra sólido (SSD), SSD Premium, SSD estándar y unidades de disco duro estándar (HDD). En función de sus necesidades de rendimiento, puede cambiar un disco administrado entre tipos de almacenamiento con un tiempo de inactividad mínimo. En un disco no administrado, no se puede cambiar de un tipo de almacenamiento a otro. Sin embargo, le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md).
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -35,6 +35,7 @@ Azure Managed Disks ofrece tres opciones de tipo de almacenamiento: [SSD Premium
 * Si usa un disco no administrado, en primer lugar [conviértalo en un disco administrado](convert-unmanaged-to-managed-disks.md) para permitirle cambiar entre tipos de almacenamiento. 
 * Los ejemplos de este artículo requieren la versión 6.0.0 o posterior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Ejecute [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) para crear una conexión con Azure.
 
+* Los ejemplos de este artículo requieren la versión 6.0.0 o posterior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Conversión de todos los discos administrados de una máquina virtual de estándar a prémium
 

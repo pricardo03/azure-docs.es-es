@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994966"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453374"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar y eliminar datos de usuario integrados de Machine Learning Studio
 
@@ -70,8 +70,8 @@ Los usuarios también pueden eliminar todo el área de trabajo:
 ![Eliminación de un área de trabajo gratuita en Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>Exportación de datos de Studio con PowerShell
-Puede usar PowerShell para exportar toda la información en un formato portátil desde Azure Machine Learning Studio mediante comandos. Para más información, consulte el artículo [módulo de PowerShell para Azure Machine Learning](powershell-module.md).
+Puede usar PowerShell para exportar toda la información en un formato portátil desde Azure Machine Learning Studio mediante comandos. Para más información, consulte el artículo [módulo de PowerShell para Azure Machine Learning Studio](powershell-module.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning](https://docs.microsoft.com/rest/api/machinelearning/). 
+Para obtener documentación sobre los servicios web y el plan de compromiso de facturación, consulte [Referencia de la API REST de Azure Machine Learning Studio](https://docs.microsoft.com/rest/api/machinelearning/). 

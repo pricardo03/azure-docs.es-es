@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240410"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446824"
 ---
 # <a name="capacity-planning-and-scaling"></a>Escalado y planeamiento de capacidad
 
@@ -33,7 +33,7 @@ Las operaciones de escalado deben realizarse a través de la implementación de 
 * Solo será necesario escalar horizontalmente un nodo del conjunto de escalado de máquinas virtuales a la vez.
   * Para escalar horizontalmente tres o más nodos a la vez, debe [escalar horizontalmente un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out). Además, es más seguro escalar y reducir horizontalmente los conjuntos de escalado de máquinas virtuales un nodo a la vez.
 * Si tiene un nivel de confiabilidad Silver o superior en su clúster de Service Fabric y un nivel de durabilidad Silver o superior en cualquier conjunto de escalado en el que haya configurado reglas de escalado automático.
-  * La capacidad [mínima] de las reglas de escalado debe ser igual o mayor que cinco instancias de máquina virtual y debe ser igual o mayor que el mínimo del nivel de confiabilidad para el tipo de nodo principal.
+  * La capacidad [mínima] de las reglas de escalabilidad automática debe ser igual o mayor que cinco instancias de máquina virtual y debe ser igual o mayor que el mínimo del nivel de confiabilidad para el tipo de nodo principal.
 
 > [!NOTE]
 > El tejido de servicio con estado de Azure Service Fabric: / System/InfastructureService/< NOMBRE_DEL_TIPO_DE_NODO> se ejecuta en cada tipo de nodo que tiene una durabilidad de nivel Silver o superior, que es el único servicio de sistema que se puede ejecutar en Azure en cualquiera de los tipos de nodo de clústeres. 

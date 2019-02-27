@@ -3,7 +3,7 @@ title: Introducción a UWP de Azure AD v2.0 | Microsoft Docs
 description: Cómo pueden llamar las aplicaciones de la Plataforma universal de Windows (UWP) a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2.0.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
-ms.author: andret
+ms.date: 02/18/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7d4e586dcb90153fb4d037c9c9821cd3ea3182
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176720"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408823"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -74,14 +74,11 @@ Esta guía crea una aplicación que muestra un botón que consulta Graph API, un
 2. Copie y pegue el siguiente comando en la ventana de la **consola del administrador de paquetes**:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client
     ```
 
 > [!NOTE]
-> Este comando instala la [biblioteca de autenticación de Microsoft](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL adquiere, almacena en memoria caché y actualiza los tokens de usuario que obtienen acceso a las API protegidas por Azure Active Directory v2.0.
-
-> [!NOTE]
-> En este tutorial no se usa todavía la versión más reciente de MSAL.NET, pero estamos trabajando para actualizarla.
+> Este comando instala la [biblioteca de autenticación de Microsoft](https://aka.ms/msal-net). MSAL adquiere, almacena en memoria caché y actualiza los tokens de usuario que obtienen acceso a las API protegidas por Azure Active Directory v2.0.
 
 ## <a name="initialize-msal"></a>Inicializar MSAL
 Este paso le ayuda a crear una clase para administrar la interacción con MSAL, como la administración de tokens.
@@ -159,7 +156,8 @@ En esta sección se muestra cómo usar MSAL para obtener un token de Microsoft G
     
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, App.PublicClientApp.Users.FirstOrDefault());
+                var accounts = await App.PublicClientApp.GetAccountsAsync();
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -203,15 +201,15 @@ El método `AcquireTokenSilentAsync` controla las renovaciones y las adquisicion
 
 En última instancia, se producirá un error en el método `AcquireTokenSilentAsync`. El error puede deberse a que los usuarios hayan cerrado sesión o cambiado su contraseña en otro dispositivo. Si MSAL detecta que el problema puede solucionarse requiriendo una acción interactiva, desencadena una excepción `MsalUiRequiredException`. La aplicación puede abordar esta excepción de dos maneras:
 
-* Puede realizar una llamada en `AcquireTokenAsync` inmediatamente. Esta llamada provoca que se solicite al usuario que inicie sesión. Este patrón se da normalmente en aplicaciones en línea en las que no hay ningún contenido sin conexión disponible para el usuario. El ejemplo generado por esta instalación guiada sigue este patrón. Lo ve en acción la primera vez que ejecuta el ejemplo. 
-    * Dado que ningún usuario ha usado la aplicación, `PublicClientApp.Users.FirstOrDefault()` contendrá un valor NULL y se iniciará una excepción `MsalUiRequiredException`.
-    * El código del ejemplo se ocupa entonces de la excepción llamando a `AcquireTokenAsync`. Esta llamada provoca que se solicite al usuario que inicie sesión.
+* Puede realizar una llamada en `AcquireTokenAsync` inmediatamente. Esta llamada provoca que se solicite al usuario que inicie sesión. Este patrón se da normalmente en aplicaciones en línea en las que no hay ningún contenido sin conexión disponible para el usuario. El ejemplo generado por esta instalación guiada sigue este patrón. Lo ve en acción la primera vez que ejecuta el ejemplo.
+  * Dado que ningún usuario ha usado la aplicación, `accounts.FirstOrDefault()` contendrá un valor NULL y se iniciará una excepción `MsalUiRequiredException`.
+  * El código del ejemplo se ocupa entonces de la excepción llamando a `AcquireTokenAsync`. Esta llamada provoca que se solicite al usuario que inicie sesión.
 
 * O, en su lugar, presenta una indicación visual a los usuarios de que se requiere un inicio de sesión interactivo. A continuación, se puede seleccionar el momento adecuado para iniciar sesión. Asimismo, la aplicación puede volver a probar el método `AcquireTokenSilentAsync` más tarde. Este patrón se usa con frecuencia cuando los usuarios pueden utilizar otra funcionalidad de aplicación sin interrupciones. Por ejemplo, si hay contenido sin conexión disponible en la aplicación. En este caso, los usuarios pueden decidir cuándo desean iniciar sesión para acceder al recurso protegido o para actualizar la información obsoleta. De lo contrario, la aplicación puede decidir probar el método `AcquireTokenSilentAsync` de nuevo cuando se restablezca la red después de no haber estado disponible temporalmente.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Llamada a Microsoft Graph API con el token que acaba de obtener
 
-* Agregue el siguiente método nuevo al archivo **MainPage.xaml.cs**. El método se utiliza para realizar una solicitud de `GET` a Graph API con un encabezado [de autorización]:
+* Agregue el siguiente método nuevo al archivo **MainPage.xaml.cs**. El método se utiliza para realizar una solicitud de `GET` a Graph API con un encabezado `Authorization`:
 
     ```csharp
     /// <summary>
@@ -255,11 +253,12 @@ En esta aplicación de ejemplo, el método `GetHttpContentWithToken` se usa para
     /// </summary>
     private void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        if (App.PublicClientApp.Users.Any())
+        var accounts = await App.PublicClientApp.GetAccountsAsync();
+        if (accounts.Any())
         {
             try
             {
-                App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+                App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
                 this.ResultText.Text = "User has signed-out";
                 this.CallGraphButton.Visibility = Visibility.Visible;
                 this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -333,7 +332,7 @@ Para habilitar la autenticación integrada de Windows cuando se utiliza con un d
     ```
 
 > [!IMPORTANT]
-> Autenticación integrada de Windows no está configurada de forma predeterminada para este ejemplo. Las aplicaciones que requieren las funcionalidades *Autenticación empresarial* o *Certificados de usuario compartidos* requieren un mayor nivel de comprobación de Microsoft Store. Además, no todos los desarrolladores desean llevar a cabo un nivel de comprobación más alto. Habilite esta opción solo si necesita usar la autenticación integrada de Windows con un dominio de Azure Active Directory federado.
+> La [autenticación integrada de Windows](https://aka.ms/msal-net-iwa) no está configurada de forma predeterminada para este ejemplo. Las aplicaciones que requieren las funcionalidades *Autenticación empresarial* o *Certificados de usuario compartidos* requieren un mayor nivel de comprobación de Microsoft Store. Además, no todos los desarrolladores desean llevar a cabo un nivel de comprobación más alto. Habilite esta opción solo si necesita usar la autenticación integrada de Windows con un dominio de Azure Active Directory federado.
 
 ## <a name="test-your-code"></a>Prueba del código
 

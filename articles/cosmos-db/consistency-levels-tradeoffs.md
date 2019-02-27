@@ -4,15 +4,15 @@ description: Compromisos entre rendimiento y disponibilidad en los distintos niv
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113760"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309207"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Inconvenientes de la coherencia, disponibilidad y rendimiento 
 
@@ -44,22 +44,23 @@ La latencia de RTT exacta depende de la distancia a la velocidad de la luz y la 
 
 - Para un tipo determinado de operación de escritura (por ejemplo, Insert, Replace, Upsert o Delete), el rendimiento de escritura de las unidades de solicitud es idéntico para todos los niveles de coherencia.
 
-## <a name="consistency-levels-and-data-durability"></a>Durabilidad de los datos y niveles de coherencia
+## <a id="rto"></a>Durabilidad de los datos y niveles de coherencia
 
-En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos se produce una interrupción en toda la región. La tabla define la relación entre el modelo de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. Es importante tener en cuenta que, en un sistema distribuido, incluso con una consistencia sólida, es imposible tener una base de datos distribuida con RPO y RTO que ofrezcan una diferencia de cero con respecto al teorema de CAP. Encontrará más información en  [Consistency levels in Azure Cosmos DB](consistency-levels.md) (Niveles de coherencia en Azure Cosmos DB).
+En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos se produce una interrupción en toda la región. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como "objetivo de tiempo de recuperación (RTO)". También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO).
+
+La tabla define la relación entre el modelo de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. Es importante tener en cuenta que, en un sistema distribuido, aunque la coherencia sea sólida, el teorema de CAP determina que no es posible tener una base de datos distribuida con un RPO y un RTO de cero. Encontrará más información en  [Consistency levels in Azure Cosmos DB](consistency-levels.md) (Niveles de coherencia en Azure Cosmos DB).
 
 |**Regiones**|**Modo de replicación**|**Nivel de coherencia**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Arquitectura única o multimaestro|Cualquier nivel de coherencia|< 240 minutos|<1 semana|
 |>1|Maestro único|Sesión, prefijo coherente, eventual|< 15 minutos|< 15 minutos|
-|>1|Maestro único|De obsolescencia entrelazada|K & T*|< 15 minutos|
+|>1|Maestro único|De obsolescencia entrelazada|K & T|< 15 minutos|
 |>1|Arquitectura multimaestro|Sesión, prefijo coherente, eventual|< 15 minutos|0|
-|>1|Arquitectura multimaestro|De obsolescencia entrelazada|K & T*|0|
+|>1|Arquitectura multimaestro|De obsolescencia entrelazada|K & T|0|
 |>1|Arquitectura única o multimaestro|Alta|0|< 15 minutos|
 
-* K & T = el número de versiones "K" (actualizaciones) de un elemento. O el intervalo de tiempo "T".
-
-
+K = número de versiones "K" (actualizaciones) de un elemento.
+T = intervalo de tiempo "T" desde la última actualización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

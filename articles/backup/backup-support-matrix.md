@@ -5,20 +5,23 @@ services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 02/17/2019
 ms.author: raynew
-ms.custom: mvc
-ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ff4ee1d88bd13e647d0f6218d7e9c9b2c57a5a01
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883711"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429577"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de compatibilidad de Azure Backup
 
-Puede usar el [servicio Azure Backup](backup-overview.md) realiza copias de seguridad de los datos en la nube de Microsoft Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad para los escenarios e implementaciones de Azure Backup.
+Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de los datos en la nube de Microsoft Azure. En este artículo se resumen las configuraciones y limitaciones de compatibilidad generales para los escenarios e implementaciones de Azure Backup.
+
+Otras matrices de compatibilidad están disponibles:
+
+[Matriz de compatibilidad](backup-support-matrix-iaas.md) para copia de seguridad de máquina virtual de Azure, [Matriz de compatibilidad](backup-support-matrix-mabs-dpm.md) para copia de seguridad con System Center DPM o Microsoft Azure Backup Server (MABS), [Matriz de compatibilidad](backup-support-matrix-mars-agent.md) para copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
 ## <a name="vault-support"></a>Compatibilidad con almacenes
 
@@ -26,13 +29,14 @@ Azure Backup utiliza los almacenes de Recovery Services para organizar y adminis
 
 **Configuración** | **Detalles**
 --- | ---
-Número de almacenes | Hasta 500 almacenes de Recovery Services en una suscripción única.
-Máquinas en un almacén | Hasta 1000 máquinas virtuales de Azure en un único almacén.<br/><br/> Se pueden registrar hasta 50 máquinas locales que ejecuten el agente de Azure Backup (agente de Microsoft Azure Recovery Services [MABS]) en un único almacén.
-Origen de datos en almacenamiento de almacén | Máximo 54 400 GB. No hay límite para las copias de seguridad de las máquinas virtuales de Azure.
-Copias de seguridad en el almacén | Máquinas virtuales de Azure: una vez al día; máquinas con protección de DPM/MABS: dos veces al día; máquinas con copia de seguridad realizada directamente con el agente MARS: tres veces al día.  
-Traslado del almacén | Para trasladar un almacén de Recovery Services, debe inscribirse en una versión preliminar privada. Para probarlo, escriba a AskAzureBackupTeam@microsoft.com.
-Movimiento de datos entre almacenes | No se admite el traslado de datos con copia de seguridad realizada entre almacenes.
-Tipo de replicación de almacenamiento | Puede modificar el tipo de replicación de almacenamiento (GRS/LRS) de un almacén antes de que se almacenen las copias de seguridad. Una vez iniciadas las copias de seguridad en el almacén, el tipo de replicación no se puede modificar.
+**Vaults in subscription** (Almacenes en la suscripción) | Hasta 500 almacenes de Recovery Services en una suscripción única.
+**Machines in a vault** (Máquinas en un almacén) | Hasta 1000 máquinas virtuales de Azure en un único almacén.<br/><br/> Se pueden registrar hasta 50 servidores MABS en un único almacén.
+**Data sources in vault storage** (Origen de datos en almacenamiento de almacén) | Máximo 54 400 GB. No hay límite para las copias de seguridad de las máquinas virtuales de Azure.
+**Backups to vault** (Copias de seguridad en el almacén) | Máquinas virtuales de Azure: una vez al día<br/><br/>Máquinas protegidas por DPM/MABS: dos veces al día<br/><br/> Máquinas con copia de seguridad directa mediante el agente de MARS: tres veces al día. 
+**Backups between vaults** (Copias de seguridad entre almacenes) | Las copias de seguridad se realizan dentro de una región.<br/><br/> Necesita un almacén en cada región de Azure que contenga máquinas virtuales de las que desee realizar copias de seguridad. No se pueden realizar copias de seguridad en una región diferente. 
+**Move vault** (Movimiento del almacén) | También puede [mover almacenes](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre suscripciones o entre grupos de recursos en la misma suscripción.
+**Move data between vaults** (Movimiento de datos entre almacenes) | No se admite el traslado de datos con copia de seguridad realizada entre almacenes.
+**Modify vault storage type** (Modificación del tipo de almacenamiento de almacén) | Puede modificar el tipo de replicación de almacenamiento (GRS/LRS) de un almacén antes de que se almacenen las copias de seguridad. Una vez iniciadas las copias de seguridad en el almacén, el tipo de replicación no se puede modificar.
 
 
 
@@ -40,15 +44,15 @@ Tipo de replicación de almacenamiento | Puede modificar el tipo de replicación
 
 Esto es lo que se admite si quiere hacer copias de seguridad de equipos locales.
 
-**Máquina** | **Ubicación** | **Copias de seguridad** | **Características**
+**Máquina** | **Copia de seguridad realizada** | **Ubicación** | **Características**
 --- | --- | --- | ---
-**Física o virtual Windows (sin servidor de copia de seguridad)** | Archivos, carpetas, estado del sistema | Copia de seguridad realizada en el almacén de Recovery Services | Copia de seguridad tres veces al día.<br/><br/> Copia de seguridad sin reconocimiento de aplicaciones.<br/><br/> Restauración de archivos, carpetas, volúmenes.
-**Física o virtual Linux (sin servidor de copia de seguridad)** | No se admite la copia de seguridad.
-**Física o virtual con DPM** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad realizada en DPM (en un disco asociado localmente al servidor DPM o a una cinta).<br/><br/> DPM, después, realiza copias de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
-**Física o virtual con MABS** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad realizada en MABS (en un disco asociado localmente al servidor MABS). La cinta no se admite<br/><br/> Después, MABS realiza una copia de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
+**Copia de seguridad directa de máquina Windows con el agente de MARS** | Archivos, carpetas, estado del sistema | Copia de seguridad en el almacén de Recovery Services | Copia de seguridad tres veces al día.<br/><br/> Copia de seguridad sin reconocimiento de aplicaciones.<br/><br/> Restauración de archivos, carpetas, volúmenes.
+**Copia de seguridad directa de máquina Linux con el agente de MARS** | No se admite la copia de seguridad.
+**Copia de seguridad en DPM** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad en almacenamiento local de DPM. DPM, después, realiza copias de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
+**Copia de seguridad en MABS** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad en almacenamiento local de MABS. Después, MABS realiza una copia de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
 
 
-## <a name="azure-vms"></a>Máquinas virtuales de Azure
+## <a name="azure-vm-backup-support"></a>Compatibilidad de copia de seguridad de máquinas virtuales de Azure
 
 ### <a name="azure-vm-limits"></a>Límites de máquina virtual de Azure
 
@@ -62,11 +66,12 @@ Tamaño del disco de datos de máquina virtual de Azure | El disco individual pu
 
 Esto es lo que se admite si desea hacer una copia de seguridad de las máquinas virtuales de Azure.
 
-**Máquina** | **Ubicación** | **Copias de seguridad** | **Características**
+**Máquina** | **Copia de seguridad realizada** | **Ubicación** | **Características**
 --- | --- | --- | ---
-**Máquinas virtuales de Azure (sin servidor de copia de seguridad)** | Archivos, carpetas, estado del sistema | Copia de seguridad realizada en el almacén. | Copia de seguridad una vez al día.<br/><br/> Copias de seguridad con reconocimiento de aplicaciones para máquinas virtuales Windows, copias de seguridad coherentes con archivos para máquinas virtuales Linux. Puede configurar la coherencia de aplicaciones para máquinas Linux con scripts personalizados.<br/><br/> Restauración de máquina virtual o disco.<br/><br/> No se puede hacer una copia de seguridad de la máquina virtual de Azure en una ubicación local.
-**Máquina virtual de Azure con DPM** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad realizada en DPM que se ejecuta en Azure (en un disco asociado localmente al servidor DPM). La cinta no se admite.<br/><br/> DPM, después, realiza copias de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
-**Máquina virtual de Azure con MABS** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad realizada en MABS que se ejecuta en Azure (en un disco asociado localmente al servidor MABS). La cinta no se admite<br/><br/> Después, MABS realiza una copia de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
+**Copia de seguridad de máquina virtual de Azure con la extensión de máquina virtual** | Toda la máquina virtual | Copia de seguridad en almacén | Extensión instalada cuando se habilita la copia de seguridad para una máquina virtual.<br/><br/> Copia de seguridad una vez al día.<br/><br/> Copias de seguridad con reconocimiento de aplicaciones para máquinas virtuales Windows, copias de seguridad coherentes con archivos para máquinas virtuales Linux. Puede configurar la coherencia de aplicaciones para máquinas Linux con scripts personalizados.<br/><br/> Restauración de máquina virtual o disco.<br/><br/> No se puede hacer una copia de seguridad de la máquina virtual de Azure en una ubicación local.
+**Copia de seguridad de máquina virtual de Azure con el agente de MARS** | Archivos, carpetas | Copia de seguridad en almacén | Copia de seguridad tres veces al día.<br/><br/> Si desea realizar copias de seguridad de archivos o carpetas específicos en lugar de toda la máquina virtual, puede ejecutar el agente de MARS junto con la extensión de máquina virtual.
+**Máquina virtual de Azure con DPM** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad en almacenamiento local de máquina virtual de Azure que se ejecuta en DPM. DPM, después, realiza copias de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/>. Oracle no se admite.
+**Máquina virtual de Azure con MABS** | Archivos, carpetas, volúmenes, estado del sistema, datos de la aplicación. | Copia de seguridad en almacenamiento local de máquina virtual de Azure que se ejecuta en MABS. Después, MABS realiza una copia de seguridad en el almacén. | Instantáneas con reconocimiento de aplicaciones<br/><br/> Granularidad completa para la copia de seguridad y recuperación.<br/><br/> Linux admitido en máquinas virtuales (Hyper-V o VMware).<br/><br/> Oracle no se admite.
 
 
 
@@ -78,12 +83,17 @@ Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux.
 
 **Copia de seguridad** | **Linux (reconocido por Azure)**
 --- | ---
-**Máquina Linux local (sin DPM o MABS)**. |  No. El agente MARS solo puede instalarse en máquinas Windows.
-**Máquina virtual de Azure (sin DPM o MABS)** | Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperación de nivel de archivo.<br/><br/> Restauración mediante la creación de una máquina virtual desde un disco o un punto de recuperación.
-**Equipo o máquina virtual locales de Azure con DPM** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
-**Equipo o máquina virtual locales de Azure con MABS** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure.
+**Copia de seguridad directa de máquina local que ejecuta Linux**. |  No. El agente MARS solo puede instalarse en máquinas Windows.
+**Copia de seguridad de máquina virtual de Azure que ejecuta Linux (con la extensión del agente)** | Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperación de nivel de archivo.<br/><br/> Restauración mediante la creación de una máquina virtual desde un disco o un punto de recuperación.
+**Copia de seguridad del entorno local o de máquina virtual de Azure que ejecuta Linux mediante DPM** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
+**Copia de seguridad de máquina local/máquina virtual de Azure que ejecuta Linux con MABS** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure.
 
-## <a name="disk-support"></a>Compatible con disco
+## <a name="daylight-saving-support"></a>Compatibilidad con horario de verano
+
+Azure Backup no admite el ajuste automático del reloj para los cambios de horario de verano para realizar copias de seguridad de máquinas virtuales de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
+
+
+## <a name="disk-deduplication-support"></a>Compatibilidad con desduplicación de disco
 
 La compatibilidad con la desduplicación de disco es la siguiente:
 - Se admite la desduplicación de disco en el entorno local cuando utiliza DPM o MAB para hacer copias de seguridad de las máquinas virtuales de Hyper-V que ejecutan Windows. Windows Server realiza la desduplicación de los datos (en el nivel de host) en discos duros virtuales (VHD) que están conectados a la máquina virtual como almacenamiento de copia de seguridad.
@@ -109,26 +119,25 @@ Seguridad de los datos:
 
 **Máquina** | **En tránsito** | **En reposo**
 --- | --- | ---
-Máquinas Windows locales sin DPM/MABS | ![SÍ][green] | ![SÍ][green]
-Máquinas virtuales de Azure | ![SÍ][green] | ![SÍ][green]
-Máquinas virtuales de Azure o locales con DPM | ![SÍ][green] | ![SÍ][green]
-Máquinas virtuales de Azure o locales con MABS | ![SÍ][green] | ![SÍ][green]
+Máquinas Windows locales sin DPM/MABS | ![Sí][green] | ![Sí][green]
+Máquinas virtuales de Azure | ![Sí][green] | ![Sí][green]
+Máquinas virtuales de Azure o locales con DPM | ![Sí][green] | ![Sí][green]
+Máquinas virtuales de Azure o locales con MABS | ![Sí][green] | ![Sí][green]
 
 
 
 ## <a name="compression-support"></a>Compatibilidad de compresión
 
-Backup admite la compresión del tráfico de copia de seguridad, tal y como se resume en la siguiente tabla. Observe lo siguiente:
+Backup admite la compresión del tráfico de copia de seguridad, tal y como se resume en la siguiente tabla. 
 
 - Para las máquinas virtuales de Azure, la extensión de la máquina virtual lee directamente los datos de la cuenta de Azure Storage a través de la red de almacenamiento, no es necesario comprimir este tráfico.
 - Si utiliza DPM o MABS, puede comprimir los datos antes de realizar la copia de seguridad en DPM/MABS, para ahorrar ancho de banda.
 
 **Máquina** | **Comprimir a MABS/DPM (TCP)** | **Comprimir (HTTPS) al almacén**
 --- | --- | ---
-Máquinas Windows locales sin DPM/MABS | N/D | SÍ
-Máquinas virtuales de Azure | N/D | N/D
-Máquinas virtuales de Azure o locales con DPM | ![SÍ][green] | ![SÍ][green]
-Máquinas virtuales de Azure o locales con MABS | ![SÍ][green] | ![SÍ][green]
+**Copia de seguridad directa de máquinas Windows locales** | N/D | Sí
+**Copia de seguridad de máquinas virtuales de Azure mediante la extensión de máquina virtual** | N/D | N/D
+** Copia de seguridad en el entorno local o en máquinas de Azure mediante DPM/MABS | ![Sí][green] | ![Sí][green]
 
 
 
@@ -146,10 +155,8 @@ Puntos de recuperación en disco DPM/MABS | 64 para servidores de archivos, 448 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Copia de seguridad de máquinas virtuales de Azure](backup-azure-arm-vms-prepare.md)
-- [Copia de seguridad directa de máquinas Windows](tutorial-backup-windows-server-to-azure.md), sin un servidor de copia de seguridad.
-- [Configuración de MABS](backup-azure-microsoft-azure-backup.md) para la copia de seguridad en Azure y, luego, copia de seguridad de las cargas de trabajo en MABS.
-- [Configuración de DPM](backup-azure-dpm-introduction.md) para la copia de seguridad en Azure y, luego, copia de seguridad de las cargas de trabajo en DPM.
+- [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) para la copia de seguridad de máquina virtual de Azure.
+
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png

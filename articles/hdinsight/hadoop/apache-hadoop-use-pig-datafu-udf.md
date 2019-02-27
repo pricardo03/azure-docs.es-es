@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436225"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338451"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Uso de Apache DataFu Pig con Apache Pig en HDInsight
 
@@ -90,7 +90,9 @@ En los pasos de esta sección se supone que está familiarizado con el uso de Pi
 >
 > * Si el clúster usa Azure Storage, utilice una ruta `wasb://`. Por ejemplo, `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * Si el clúster usa Azure Data Lake Store, utilice una ruta `adl://`. Por ejemplo, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
+> * Si el clúster usa Azure Data Lake Storage Gen2, utilice una ruta `abfs://`. Por ejemplo, `register abfs://home/example/jars/datafu-pig-1.4.0.jar`.
+>
+> * Si el clúster usa Azure Data Lake Storage Gen1, utilice una ruta `adl://`. Por ejemplo, `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 Normalmente, definirá un alias para las funciones de DataFu.Normalmente, definirá un alias para las funciones de DataFu. En el ejemplo siguiente se define un alias de `SHA`:
 

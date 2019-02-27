@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238392"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454706"
 documentType: LandingData
 title: Instancia administrada de Azure SQL Database
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="sql-database-managed-instance#business-critical-service-tier">El nivel de servicio Crítico para la empresa</a> está ahora en <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">Disponibilidad General (GA)</a>.
-    - html: (Versión preliminar) Los <a href="https://aka.ms/managed-instance-aadlogins">inicios de sesión de Azure AD de nivel de instancia</a> se crean mediante <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
+    - html: (Versión preliminar) Las <a href="https://aka.ms/managed-instance-aadlogins">entidades de seguridad (inicios de sesión) de un servidor de Azure AD en el nivel de instancia</a> se crean mediante <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
     - html: (Versión preliminar) Las instancias se crean con la <a href="https://aka.ms/managed-instance-collation">intercalación de nivel de servidor que elija</a>.
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Puede configurar la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. Tenga en cuenta que la retención de copias de seguridad a largo plazo (hasta 10 años) aún no está habilitada, por lo que se pueden usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">copias de seguridad de solo copia</a> como alternativa.
     - html: (Versión preliminar) Use <a href="https://aka.ms/managed-instance-failover-groups">grupos de conmutación por error distribuidos geográficamente</a> para mantener una copia de la instancia en la otra región y asegurarse de que los datos estarán disponibles incluso en caso de desastre regional.

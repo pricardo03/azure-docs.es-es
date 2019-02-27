@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245759"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456714"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -262,6 +262,7 @@ Al depurar los módulos con este método, los módulos se ejecutan sobre el ento
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Agregue la siguiente línea de código única a la devolución de llamada que quiera depurar:
 
       ```python
@@ -350,6 +351,12 @@ Puede omitir esta sección si los módulos se ejecutan en el mismo equipo que Vi
 
 > [!NOTE]
 > En el ejemplo anterior se muestra cómo depurar módulos de IoT Edge en contenedores. Ha agregado puertos expuestos a la configuración `createOptions` del contenedor del módulo. Una vez finalizada la depuración de los módulos, se recomienda quitar estos puertos expuestos de los módulos de IoT Edge listos para entornos de producción.
+
+## <a name="build-and-debug-a-module-remotely"></a>Compilación y depuración de un módulo de forma remota
+
+Con los recientes cambios en los motores de Docker y Moby para admitir conexiones SSH y una nueva configuración de las herramientas de Azure IoT que permite la inyección de configuración de entorno en la paleta de comandos de Visual Studio Code y en los terminales de Azure IoT Edge, ahora puede compilar y depurar módulos en dispositivos remotos.
+
+Consulte la [entrada del blog para desarrolladores de IoT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obtener más información e instrucciones paso a paso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

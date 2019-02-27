@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fd7355c342a075f7b0c2e1173717c0345f1f94ba
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561100"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428557"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -87,7 +87,7 @@ En esta sección encontrará ejemplos de configuración de desencadenadores basa
 | **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/` | Recibe eventos de los blobs en el contenedor `containername` y la carpeta `foldername`. |
 | **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/subfoldername/` | También puede hacer referencia a una subcarpeta. |
 | **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/file.txt` | Recibe eventos de un blob denominado `file.txt` en la carpeta `foldername`, en el contenedor `containername`. |
-| **Ruta de acceso de blobs que termina con** | `file.txt` | Recibe eventos de un blob denominado `file.txt` en cualquier ruta de acceso. |
+| **Ruta de acceso de blobs que termina con** | `file.txt` | Recibe eventos para un blob denominado `file.txt` en cualquier ruta de acceso. |
 | **Ruta de acceso de blobs que termina con** | `/containername/blobs/file.txt` | Recibe eventos de un blob denominado `file.txt` en el contenedor `containername`. |
 | **Ruta de acceso de blobs que termina con** | `foldername/file.txt` | Recibe eventos de un blob denominado `file.txt` en la carpeta `foldername` en cualquier contenedor. |
 

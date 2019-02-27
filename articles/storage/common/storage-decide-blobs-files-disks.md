@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509140"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327017"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Disks, y está diseñado para ayudarle a elegir entre estas características.
@@ -67,4 +67,4 @@ Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos
   
 Algunas características SMB no son aplicables a la nube. Para más información, consulte [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Características que no admite el servicio Azure File).
   
-Para más información acerca de los discos, vea [Acerca de los discos y los discos duros virtuales para máquinas virtuales de Linux en Azure](../../virtual-machines/windows/about-disks-and-vhds.md) y [Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Para más información acerca de los discos, consulte [Introducción a los discos administrados](../../virtual-machines/windows/managed-disks-overview.md) y [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/attach-managed-disk-portal.md) (Procedimiento para conectar un disco de datos a una máquina virtual Windows).

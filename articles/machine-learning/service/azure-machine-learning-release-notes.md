@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100183"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446773"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
@@ -29,7 +29,7 @@ En este artículo obtendrá información acerca de las versiones del servicio Az
 ### <a name="azure-machine-learning-sdk-for-python-v1015"></a>SDK de Azure Machine Learning para Python v1.0.15
 
 + **Nuevas características:**
-  + Azure Machine Learning Pipelines agregó las funcionalidades AzureBatchStep ([bloc de notas](https://aka.ms/pl-azbatch)), HyperDriveStep ([bloc de notas](https://aka.ms/pl-hyperdrive)) y programación basada en tiempo ([bloc de notas](https://aka.ms/pl-schedule)).
+  + Las canalizaciones de Azure Machine Learning agregaron las funcionalidades AzureBatchStep ([cuaderno](https://aka.ms/pl-azbatch)), HyperDriveStep ([cuaderno](https://aka.ms/pl-hyperdrive)) y programación basada en el tiempo ([cuaderno](https://aka.ms/pl-schedule)).
   +  La funcionalidad DataTranferStep se actualizó para funcionar con Azure Database para PostgreSQL ([bloc de notas](https://aka.ms/pl-data-trans)).
 
 + **Cambios**

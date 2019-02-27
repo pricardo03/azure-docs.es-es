@@ -3,17 +3,17 @@ title: Solución de problemas del agente de Azure Backup
 description: Solución de problemas de instalación y registro del Agente de Azure Backup
 services: backup
 author: saurabhsensharma
-manager: shreeshd
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 65eb6ef088c9baae67d65607ede771f3c9d11a41
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ce6293e63e672df9683ab607a304f8c7275911c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114151"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446620"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -24,8 +24,13 @@ A continuación, se indica cómo resolver los errores que pueden aparecer durant
 | ---     | ---     | ---    |
 | **Error** </br> *Se han proporcionado credenciales de almacén no válidas. El archivo está dañado o no tiene asociadas las credenciales más recientes para el servicio de recuperación. (Id.: 34513)* | <ul><li> Las credenciales del almacén no son válidas (es decir, se descargaron más de 48 horas antes del registro).<li>El agente de MARS no puede descargar archivos en el directorio TEMP de Windows. <li>Las credenciales del almacén están en una ubicación de red. <li>TLS 1.0 está deshabilitado<li> Hay un servidor proxy configurado que bloquea la conexión. <br> |  <ul><li>Descargue las credenciales de almacén nuevas. (**Nota**: si se han descargado anteriormente varios archivos de credenciales de almacén, solo el archivo descargado más reciente será válido dentro de 48 horas). <li>Vaya a **IE** > **Configuración** > **Opciones de Internet** > **Seguridad** > **Internet**. A continuación, seleccione **Nivel personalizado** y desplácese hasta que vea la sección de descarga de archivos. Seleccione **Habilitar**.<li>Es posible que también tenga que agregar estos sitios a los [sitios de confianza](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements) de Internet Explorer.<li>Cambie la configuración para usar un servidor proxy. A continuación, proporcione los detalles del servidor proxy. <li> Haga coincidir la fecha y hora con las de la máquina.<li>Si recibe un error que indica que no se permiten las descargas de archivos, es probable que haya un gran número de archivos en el directorio C:/Windows/Temp.<li>Vaya a C:/Windows/Temp para comprobar si hay más de 60 000 o 65 000 archivos con la extensión .tmp. Si es el caso, elimínelos.<li>Asegúrese de que tiene instalado .NET Framework 4.6.2. <li>Si deshabilitó TLS 1.0 a causa del cumplimiento de PCI, consulte esta [página de solución de problemas](https://support.microsoft.com/help/4022913). <li>Si tiene instalado un software antivirus instalado en el servidor, excluya los archivos siguientes del examen: <ul><li>CBengine.exe<li>CSC.exe, relacionado con .NET Framework. Hay un archivo CSC.exe por cada versión de .NET instalada en el servidor. Excluya todos los archivos CSC.exe vinculados a todas las versiones de .NET Framework en el servidor afectado. <li>Ubicación de caché o carpeta temporal. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.<br><li>La carpeta Bin está en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
 
+## <a name="unable-to-download-vault-credential-file"></a>No se puede descargar el archivo de credenciales de almacén
 
-## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>El agente de MARS no pudo conectarse a Azure Backup.
+| Detalles del error | Acciones recomendadas |
+| ---     | ---    |
+|No se pudo descargar el archivo de credenciales de almacén. (Id.: 403) | <ul><li> Intente descargar las credenciales de almacén mediante un explorador diferente o realice los pasos siguientes: <ul><li> Inicie Internet Explorer y presione F12. </li><li> Vaya a la pestaña **Red** para borrar la caché de Internet Explorer y las cookies. </li> <li> Actualice la página.<br>O BIEN</li></ul> <li> Compruebe si la suscripción está deshabilitada o ha expirado.<br>O BIEN</li> <li> Compruebe si hay alguna regla de firewall que esté bloqueando la descarga del archivo de credenciales de almacén. <br>O BIEN</li> <li> Asegúrese de que no haya agotado el límite en el almacén (50 máquinas por almacén).<br>O BIEN</li>  <li> Asegúrese de que el usuario tenga los permisos necesarios de Azure Backup para descargar las credenciales de almacén y registre el servidor en el almacén (consulte el  [artículo](backup-rbac-rs-vault.md)).</li></ul> | 
+
+## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>El Agente de Microsoft Azure Recovery Service no se pudo conectar a Microsoft Azure Backup
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 | ---     | ---     | ---    |
@@ -54,6 +59,9 @@ A continuación, se indica cómo resolver los errores que pueden aparecer durant
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Las copias de seguridad no se ejecutan según la programación.
 Si las copias de seguridad programadas no se desencadenan automáticamente, mientras que las copias de seguridad manuales funcionan sin problemas, pruebe las acciones siguientes:
 
+- Asegúrese de que la programación de copia de seguridad de Windows Server no entra en conflicto con la programación de copia de seguridad de archivos y carpetas de Azure.
+- Vaya a **Panel de Control** > **Herramientas administrativas** > **Programador de tareas**. Expanda **Microsoft** y seleccione **Copia de seguridad en línea**. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**. Asegúrese de que el estado de la tarea se establece en **Habilitado**. En caso contrario, seleccione **Editar**, active la casilla **Habilitado** y haga clic en **Aceptar**. En la pestaña **General**, vaya a **Opciones de seguridad** y compruebe que la cuenta de usuario seleccionada para ejecutar la tarea es **SYSTEM** o pertenece al **grupo de administradores locales** en el servidor.
+
 - Compruebe si PowerShell 3.0 o posterior está instalado en el servidor. Para comprobar la versión de PowerShell, ejecute el siguiente comando y verifique que el número de versión *principal* es igual o mayor que 3.
 
   `$PSVersionTable.PSVersion`
@@ -67,9 +75,6 @@ Si las copias de seguridad programadas no se desencadenan automáticamente, mien
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
-
-- Vaya a **Panel de Control** > **Herramientas administrativas** > **Programador de tareas**. Expanda **Microsoft** y seleccione **Copia de seguridad en línea**. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**. Asegúrese de que el estado de la tarea se establece en **Habilitado**. En caso contrario, seleccione **Editar** y, a continuación, la casilla de verificación **Habilitado**. En la pestaña **General**, vaya a **Opciones de seguridad**. Asegúrese de que la cuenta de usuario que está seleccionada para la ejecución de la tarea es la de **sistema** o del **grupo Administradores locales** en el servidor.
-
 
 > [!TIP]
 > Para garantizar que los cambios realizados se aplican de forma coherente, reinicie el servidor después de realizar los pasos anteriores.
@@ -99,7 +104,7 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
 8.  Reinicie el servicio del iniciador iSCSI de Microsoft. Para ello, haga clic con el botón derecho en el servicio, seleccione **Detener**, vuelva a hacer clic con el botón derecho y seleccione **Iniciar**.
 
-9.  Vuelva a intentar la recuperación mediante la **restauración instantánea**.
+9.  Vuelva a intentar la recuperación mediante [**Instant Restore**](backup-instant-restore-capability.md) (Restauración instantánea).
 
 Si la recuperación sigue sin funcionar, reinicie el cliente o el servidor. Si no quiere reiniciar o la recuperación sigue sin funcionar incluso después del reinicio del servidor, intente recuperar desde una máquina alternativa. Siga los pasos de [este artículo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 

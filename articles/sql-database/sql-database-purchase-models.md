@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007733"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456697"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra de Azure SQL Database
 
@@ -50,9 +50,11 @@ El costo de proceso refleja la capacidad de proceso total que se ha aprovisionad
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
-Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia. No hay cargos adicionales por el almacenamiento de copia de seguridad hasta el 100 % del total de su almacenamiento de servidor aprovisionado. El consumo adicional de almacenamiento de copia de seguridad se cobra en GB/mes. Por ejemplo, si tiene un tamaño de almacenamiento de base de datos de 100 GB, obtendrá 100 GB de almacenamiento de copia de seguridad sin costo adicional. Pero, si la copia de seguridad ocupa 110 GB, deberá pagar los 10 GB adicionales.
+Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia. 
 
-El almacenamiento de copia de seguridad de una única base de datos se le cobra mediante el prorrateo del almacenamiento que se asignó a las copias de seguridad de base de datos menos el tamaño de la base de datos. El almacenamiento de copia de seguridad de un grupo elástico se le cobra mediante el prorrateo del almacenamiento que se asignó a las copias de seguridad de base de datos de todas las bases de datos del grupo menos el tamaño máximo de los datos del grupo elástico. Cualquier aumento en el tamaño de la base de datos o el grupo elástico, o aumento en la velocidad de transacción, requiere más almacenamiento y, por tanto, aumenta la facturación del almacenamiento de copia de seguridad.  Al aumentar el tamaño máximo de los datos, esta cantidad nueva se deduce del tamaño de almacenamiento de copia de seguridad facturado.
+De forma predeterminada, se realizan copias de seguridad automatizadas de las bases de datos en el almacenamiento de blobs RA-GRS estándar durante siete días. El almacenamiento se usa para realizar cada cinco minutos copias de seguridad completas semanales, copias de seguridad diferenciales diarias y copias de seguridad de registros de transacciones. El tamaño del registro de transacciones depende de la tasa de cambio de la base de datos. Se ofrece una cantidad de almacenamiento mínimo igual al 100 % del tamaño de la base de datos sin costo adicional. El consumo adicional de almacenamiento de copia de seguridad se cobrará en GB/mes.
+
+Para más información sobre los precios de almacenamiento, consulte la página de [precios](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
 

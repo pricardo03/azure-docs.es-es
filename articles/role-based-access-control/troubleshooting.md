@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas de RBAC en Azure | Microsoft Docs
-description: Solución de problemas con el control de acceso basado en rol (RBAC) de Azure.
+title: Solución de problemas del control de acceso basado en rol para recursos de Azure | Microsoft Docs
+description: Solucione problemas con el control de acceso basado en rol (RBAC) para recursos de Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411244"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342480"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Solución de problemas de RBAC en Azure
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
-En este artículo se responden preguntas comunes acerca del control de acceso basado en rol (RBAC), con el fin de que sepa qué esperar cuando usa los roles de Azure Portal y de que pueda solucionar los problemas de acceso.
+En este artículo se responden preguntas comunes acerca del control de acceso basado en rol (RBAC) para los recursos de Azure, con el fin de que sepa qué esperar cuando usa los roles de Azure Portal y de que pueda solucionar los problemas de acceso.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas con las asignaciones de roles RBAC
 
@@ -119,6 +119,6 @@ Algunas características de [Azure Functions](../azure-functions/functions-overv
 Un lector puede hacer clic en la pestaña **Características de la plataforma** y, a continuación, hacer clic en **Toda las opciones de configuración** para ver algunas opciones de configuración relacionadas con una aplicación de función (similar a una aplicación web), pero no puede modificar ninguna de estas opciones de configuración.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md)
-* [Visualización de los registros de actividad de cambios de RBAC](change-history-report.md)
+* [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
+* [Visualización de registros de actividad de cambios de RBAC en recursos de Azure](change-history-report.md)
 

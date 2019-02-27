@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso mediante RBAC y Azure Portal | Microsoft Docs
-description: Aprenda a administrar el acceso de usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y Azure Portal. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
+title: Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal | Microsoft Docs
+description: Aprenda a administrar el acceso a recursos de Azure de usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y Azure Portal. Esto incluye cómo enumerar el acceso, conceder acceso y quitar el acceso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412315"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342344"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Administración del acceso mediante RBAC y Azure Portal
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos, entidades de servicio e identidades administradas con RBAC y Azure Portal.
+El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. En este artículo se describe cómo administrar el acceso de usuarios, grupos, entidades de servicio e identidades administradas con RBAC y Azure Portal.
 
 ## <a name="open-access-control-iam"></a>Apertura de Control de acceso (IAM)
 
@@ -41,7 +41,7 @@ La hoja **Control de acceso (IAM)**, también conocida como administración de i
 
 ## <a name="view-roles-and-permissions"></a>Visualización de roles y permisos
 
-Una definición de rol es una colección de permisos que se usan para las asignaciones de roles. Azure tiene más de 70 [roles integrados](built-in-roles.md). Siga estos pasos para ver los roles y permisos que se pueden realizar en el plano de datos y de administración.
+Una definición de rol es una colección de permisos que se usan para las asignaciones de roles. Azure tiene más de 70 [roles integrados en los recursos de Azure](built-in-roles.md). Siga estos pasos para ver los roles y permisos que se pueden realizar en el plano de datos y de administración.
 
 1. Abra **Control de acceso (IAM)** en un ámbito como, por ejemplo, grupo de administración, suscripción, grupo de recursos o recurso, en donde quiere ver roles y permisos.
 
@@ -165,7 +165,7 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Siga est
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
-* [Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Solución de problemas de RBAC en Azure](troubleshooting.md)
-* [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md)
+* [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
+* [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Solución de problemas del control de acceso basado en rol para recursos de Azure](troubleshooting.md)
+* [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/index.md)

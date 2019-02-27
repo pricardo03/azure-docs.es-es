@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996311"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267724"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: Seguimiento de dependencias
 Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mide cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia. Puede investigar llamadas específicas y relacionarlas a solicitudes y excepciones.
@@ -133,7 +133,7 @@ Desplazarse hasta una repetición de una solicitud con error y examine los event
 ![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análisis
-Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Data Explorer](https://aka.ms/LogAnalyticsLanguage). Estos son algunos ejemplos.
+Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Kusto](/azure/kusto/query/). Estos son algunos ejemplos.
 
 * Búsqueda de llamadas de dependencia con errores:
 

@@ -1,6 +1,6 @@
 ---
-title: Integración de los registros de Azure Active Directory con Log Analytics mediante Azure Monitor (versión preliminar) | Microsoft Docs
-description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con Log Analytics mediante Azure Monitor (versión preliminar).
+title: Transmisión en secuencias registros de Azure Active Directory a registros de Azure Monitor (versión preliminar) | Microsoft Docs
+description: Aprenda a integrar registros de Azure Active Directory con registros de Azure Monitor (versión preliminar)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,30 +17,30 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51db96523a96015822f4507731bad2a398521530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165848"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456493"
 ---
-# <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integración de registros de Azure AD con Log Analytics mediante Azure Monitor (versión preliminar)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integración de registros de Azure AD con registros de Azure Monitor (versión preliminar)
 
-Log Analytics le permite consultar los datos para buscar eventos concretos, analizar tendencias y realizar la correlación entre varios orígenes de datos. Con la integración de los registros de actividad de Azure AD en Log Analytics, ahora puede realizar tareas como:
+Registros de Azure Monitor permite consultar los datos para buscar eventos concretos, analizar tendencias y realizar la correlación entre varios orígenes de datos. Con la integración de los registros de actividad de Azure AD en registros de Azure Monitor, ahora puede realizar tareas como:
 
  * Comparar los registros de inicio de sesión de Azure AD con los registros de seguridad publicados por Azure Security Center.
 
  * Solucionar problemas de cuellos de botella de rendimiento en la página de inicio de sesión de la aplicación mediante la correlación de datos de rendimiento de la aplicación de Azure Application Insights.  
 
-El vídeo siguiente de una sesión de Ignite muestra las ventajas del uso de Log Analytics para los registros de Azure AD en escenarios de usuario prácticos.
+El siguiente vídeo es de una sesión de Ignite y muestra las ventajas del uso de registros de Azure Monitor para registros de Azure AD en escenarios de usuario prácticos.
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
-En este artículo, se ofrece información sobre cómo integrar los registros de Azure Active Directory (Azure AD) con Log Analytics mediante Azure Monitor.
+En este artículo, se aprende a integrar los registros de Azure Active Directory (Azure AD) con Azure Monitor.
 
 ## <a name="supported-reports"></a>Informes admitidos
 
-Puede enrutar los registros de actividad de auditoría y los registros de actividad de inicio de sesión a Log Analytics para su posterior análisis. 
+Puede enrutar los registros de actividad de auditoría y los registros de actividad de inicio de sesión en registros de Azure Monitor para su posterior análisis. 
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 * **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
@@ -58,13 +58,13 @@ Para usar esta característica, necesita:
 * Un usuario que sea *administrador global* o *administrador de seguridad* para el inquilino de Azure AD.
 * Un área de trabajo de Log Analytics en la suscripción a Azure. Aprenda a [crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-log-analytics"></a>Envío de registros a Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>Envío de registros a registros de Azure Monitor
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
 2. Seleccione **Azure Active Directory** > **Configuración de diagnóstico** -> **Agregar configuración de diagnóstico**. También puede seleccionar **Exportar configuraciones** desde la página **Registros de auditoría** o **Inicios de sesión** para ir a la página de configuración de diagnóstico.  
     
-3. En el menú **Configuración de diagnóstico**, seleccione la casilla **Enviar a Log Analytics** y, a continuación, seleccione **Configurar**.
+3. En el menú **Configuración de diagnóstico**, seleccione la casilla **Enviar a área de trabajo de Log Analytics** y, después, seleccione **Configurar**.
 
 4. Seleccione el área de trabajo de Log Analytics a la que quiere enviar los registros o cree una nueva área de trabajo en el cuadro de diálogo proporcionado.  
 
@@ -80,5 +80,5 @@ Para usar esta característica, necesita:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Analyze Azure AD activity logs in Log Analytics](howto-analyze-activity-logs-log-analytics.md) (Análisis de registros de actividad de Azure AD en Log Analytics)
-* [Install and use the Log Analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md) (Instalación y uso de las vistas de Log Analytics para Azure Active Directory)
+* [Análisis de registros de actividad de Azure AD con registros de Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Instalación y uso de las vistas de Log Analytics para Azure Active Directory](howto-install-use-log-analytics-views.md)

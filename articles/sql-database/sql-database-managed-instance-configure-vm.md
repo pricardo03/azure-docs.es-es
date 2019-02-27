@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410073"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408806"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Configurar una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database
 
@@ -97,7 +97,8 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
 4. Seleccione **Comprar** para implementar la máquina virtual de Azure en la red.
 5. Seleccione el icono **Notificaciones** para ver el estado de la implementación.
 
-No continúe hasta que haya creado la máquina virtual de Azure. 
+> [!IMPORTANT]
+> No continúe hasta aproximadamente 15 minutos después de la creación de la máquina virtual para dar tiempo a que los scripts posteriores a la creación instalen SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 

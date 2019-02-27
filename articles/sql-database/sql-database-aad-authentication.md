@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217193"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453144"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar la autenticación de Azure Active Directory para autenticación con SQL
 
@@ -101,16 +101,16 @@ Para crear un usuario de base de datos independiente en Azure SQL Database, Inst
 
 ### <a name="manage-instances"></a>Administración de instancias
 
-- Se admiten inicios de sesión y usuarios de Azure AD como característica en versión preliminar para [instancias administradas](sql-database-managed-instance.md).
-- Sin embargo, no se admite el establecimiento de inicios de sesión de Azure AD asignados a un grupo de Azure AD como propietario de la base de datos en [instancias administradas](sql-database-managed-instance.md).
+- Se admiten las entidades de seguridad (inicios de sesión) del servidor y los usuarios de Azure AD como característica en versión preliminar para [instancias administradas](sql-database-managed-instance.md).
+- Sin embargo, no se admite el establecimiento de dichas entidades (inicios de sesión) de Azure AD asignadas a un grupo de Azure AD como propietario de la base de datos en [instancias administradas](sql-database-managed-instance.md).
     - Una prolongación de este escenario es que cuando se agrega un grupo como parte del rol de servidor `dbcreator`, los usuarios de este grupo pueden conectarse a la instancia administrada y crear bases de datos, pero no podrán acceder a ellas. El motivo es que el propietario de la nueva base de datos es SA y no el usuario de Azure AD. Este problema no se manifiesta si el usuario se agrega al rol de servidor `dbcreator`.
-- Se admiten la administración del Agente SQL y la ejecución de trabajos con los inicios de sesión de Azure AD.
-- Las operaciones de copia de seguridad y restauración de la base de datos se pueden ejecutar con los inicios de sesión de Azure AD.
-- Se admite la auditoría de todas las instrucciones relacionadas con los inicios de sesión y eventos de autenticación de Azure AD.
-- Se admite la conexión de administrador dedicada para los inicios de sesión de Azure AD que son miembros del rol de servidor de administrador del sistema.
+- Se admite la administración del agente SQL y las ejecuciones de los trabajos en las entidades de seguridad (inicios de sesión) de un servidor de Azure AD.
+- Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD pueden ejecutar operaciones de copia de seguridad y restauración de bases de datos.
+- Se admite la auditoría de todas las instrucciones relacionadas con las entidades de seguridad (inicios de sesión) de un servidor de Azure AD y los eventos de autenticación.
+- Se admite la conexión de administrador dedicada para las entidades de seguridad (inicios de sesión) de un servidor de Azure AD que son miembros del rol del servidor de administrador del sistema.
     - Se admite mediante la utilidad SQLCMD y SQL Server Management Studio.
-- Se admiten desencadenadores de inicio de sesión para eventos de inicio de sesión procedentes de inicios de sesión de Azure AD.
-- Se puede configurar Service Broker y el correo electrónico de base de datos mediante el inicio de sesión de Azure AD.
+- Se admiten desencadenadores de inicio de sesión para los eventos de inicio de sesión procedentes de las entidades de seguridad (inicios de sesión) de un servidor de Azure AD.
+- Se puede configurar Service Broker y el correo electrónico de la base de datos mediante una entidad de seguridad (inicio de sesión) de un servidor de Azure AD.
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Conexión mediante identidades de Azure AD
@@ -121,7 +121,7 @@ La autenticación de Azure Active Directory admite los siguientes métodos de co
 - Mediante el nombre y contraseña de una entidad de seguridad de Azure AD
 - Mediante la autenticación de token de aplicación
 
-Se admiten los siguientes métodos de autenticación para inicios de sesión de Azure AD (**versión preliminar pública**):
+Se admiten los siguientes métodos de autenticación para entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**):
 
 - Contraseña de Azure Active Directory
 - Azure Active Directory integrado
@@ -133,7 +133,7 @@ Se admiten los siguientes métodos de autenticación para inicios de sesión de 
 
 - Para mejorar la capacidad de administración, se recomienda que aprovisione un grupo dedicado de Azure AD como administrador.   
 - Solo un administrador de Azure AD (un usuario o grupo) se puede configurar en un servidor de Azure SQL Server o Azure SQL Data Warehouse en cualquier momento.
-  - La adición de inicios de sesión de Azure AD para instancias administradas (**versión preliminar pública**) ofrece la posibilidad de crear varios inicios de sesión de Azure AD que se pueden agregar al rol `sysadmin`.
+  - La adición de entidades de seguridad (inicios de sesión) de un servidor de Azure AD para instancias administradas (**versión preliminar pública**) ofrece la posibilidad de crear varias de estas entidades que se pueden agregar al rol `sysadmin`.
 - Inicialmente, solo un administrador de Azure AD para SQL Server puede conectarse al servidor de Azure SQL Database, a Instancia administrada o a Azure SQL Data Warehouse con una cuenta de Azure Active Directory. El administrador de Active Directory puede configurar los usuarios de la base de datos de Azure AD sucesivos.   
 - Se recomienda establecer el tiempo de espera de conexión a 30 segundos.   
 - SQL Server 2016 Management Studio y SQL Server Data Tools para Visual Studio 2015 (versión 14.0.60311.1 abril de 2016 o posterior) admiten la autenticación de Azure Active Directory. (La autenticación de Azure AD es compatible con el **proveedor de datos .NET Framework para SqlServer**; al menos la versión 4.6 de .NET Framework). Por lo tanto, las versiones más recientes de estas herramientas y aplicaciones de capa de datos (DAC y .BACPAC) pueden usar la autenticación de Azure AD.   
@@ -147,12 +147,12 @@ Se admiten los siguientes métodos de autenticación para inicios de sesión de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para aprender a crear y rellenar Azure AD y, posteriormente, configurarlo con Azure SQL Database o Azure SQL Data Warehouse, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database, Instancia administrada o SQL Data Warehouse](sql-database-aad-authentication-configure.md).
-- Para ver un tutorial del uso de los inicios de sesión de Azure AD con instancias administradas, consulte [Inicios de sesión de Azure AD con instancias administradas](sql-database-managed-instance-aad-security-tutorial.md).
+- Para ver un tutorial sobre el uso de entidades de seguridad (inicios de sesión) de un servidor de Azure AD con instancias administradas, consulte [Entidades de seguridad (inicios de sesión) de un servidor de Azure AD con instancias administradas](sql-database-managed-instance-aad-security-tutorial.md).
 - Para obtener información general de acceso y control en SQL Database, consulte [Control de acceso a Azure SQL Database](sql-database-control-access.md).
 - Para obtener información general de los inicios de sesión, usuarios y roles de base de datos de SQL Database, consulte [Control y concesión de acceso a bases de datos](sql-database-manage-logins.md).
 - Para más información acerca de las entidades de seguridad de bases de datos, consulte [Entidades de seguridad](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para más información acerca de los roles de base de datos, consulte [Roles de nivel de base de datos](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para conocer la sintaxis de la creación de inicios de sesión de Azure AD para instancias administradas, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD para instancias administradas, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Para más información general acerca de las reglas de firewall de SQL Database, consulte [Introducción a las reglas de firewall de Azure SQL Database](sql-database-firewall-configure.md).
 
 <!--Image references-->

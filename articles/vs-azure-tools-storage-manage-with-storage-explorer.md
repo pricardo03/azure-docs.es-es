@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756825"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311212"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -221,7 +221,7 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
 
 3. El Usuario B usa el Explorador de Storage para conectarse a la cuenta que pertenece al Usuario A, con la SAS proporcionada.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generación de una cadena de conexión de SAS para la cuenta que quiere compartir
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Generación de una cadena de consulta de SAS para la cuenta que quiere compartir
 
 1. En el Explorador de Storage, haga clic con el botón derecho en la cuenta de almacenamiento que quiere compartir y seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
 
@@ -231,7 +231,7 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
 
     ![Cuadro de diálogo Get SAS (Obtener SAS)][15]
 
-3. Junto al cuadro de texto **Connection String** (Cadena de conexión), seleccione **Copy** (Copiar) para copiarla en el portapapeles y, luego, haga clic en **Close** (Cerrar).
+3. Junto al cuadro de texto **Query String** (Cadena de consulta), seleccione **Copy** (Copiar) para copiarla en el Portapapeles y, luego, haga clic en **Close** (Cerrar).
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Asociación de una cuenta de almacenamiento mediante una cadena de conexión de SAS
 

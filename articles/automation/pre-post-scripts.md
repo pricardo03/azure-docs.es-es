@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236012"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416792"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Administración de scripts previos y posteriores (versión preliminar)
 
@@ -22,7 +22,7 @@ Los scripts previos y posteriores le permiten ejecutar runbooks de PowerShell en
 
 ## <a name="runbook-requirements"></a>Requisitos de runbook
 
-Para que un runbook se utilice como script previo o posterior, el runbook debe importarse a su cuenta de automatización y publicarse. Para más información sobre este proceso, consulte [Publicación de un runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+Para que un runbook se utilice como script previo o posterior, el runbook debe importarse a su cuenta de automatización y publicarse. Para más información sobre este proceso, consulte [Publicación de un runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Uso de script previo o posterior
 
@@ -52,7 +52,19 @@ Si se hace clic en la ejecución de la implementación de actualizaciones, se pr
 
 ## <a name="passing-parameters"></a>Paso de parámetros
 
-Cuando se configuran los scripts previos y posteriores, se pueden pasar parámetros como cuando se programa un runbook. Los parámetros se definen en el momento de la creación de la implementación de actualización. Recuerde que los scripts previos y posteriores requieren parámetros del tipo `String`. Si necesita otro tipo de objeto, puede convertirlo a otro tipo mediante `[System.Convert]` o administrarlo con su propia lógica.
+Cuando se configuran los scripts previos y posteriores, se pueden pasar parámetros como cuando se programa un runbook. Los parámetros se definen en el momento de la creación de la implementación de actualización. Los scripts anteriores y posteriores admiten los siguientes tipos:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+Si necesita otro tipo de objeto, puede convertirlo a otro tipo mediante su propia lógica en el runbook.
 
 Además de los parámetros estándar de runbook, se proporciona un parámetro adicional. Este parámetro es **SoftwareUpdateConfigurationRunContext**. Este parámetro es una cadena JSON, y si define el parámetro en su script previo o posterior, la implementación de la actualización lo pasará automáticamente. El parámetro contiene información sobre la implementación de la actualización, que es un subconjunto de la información que devuelve [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). En la tabla siguiente se muestran las propiedades que se proporcionan en la variable:
 

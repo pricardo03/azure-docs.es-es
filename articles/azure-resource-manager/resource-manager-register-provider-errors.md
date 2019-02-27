@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497424"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341409"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolución de errores del registro del proveedor de recursos
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante Azure Portal o la interfaz de línea de comandos que esté usando; pero no ocurre con todos. Si no ha usado un proveedor de recursos determinado antes, debe registrar dicho proveedor.
 
+O bien, al deshabilitar el apagado automático para máquinas virtuales, es posible que reciba un mensaje de error similar al siguiente:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Causa
 
-Recibirá estos errores por uno de estos tres motivos:
+Recibirá estos errores por uno de estos motivos:
 
-* El proveedor de recursos no se ha registrado para la suscripción
+* El proveedor de recursos necesario no se ha registrado para la suscripción
 * No se permite esta versión de API para el tipo de recurso
 * No se permite esta ubicación para el tipo de recurso
+* Para el apagado automático de máquinas virtuales, debe registrarse el proveedor de recursos Microsoft.DevTestLab.
 
 ## <a name="solution-1---powershell"></a>Solución 1: PowerShell
 

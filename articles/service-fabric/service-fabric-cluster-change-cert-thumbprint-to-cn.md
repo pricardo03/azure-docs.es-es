@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564330"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312878"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Cambiar el clúster para que use un nombre común en vez de la huella digital del certificado
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si cambia un clúster implementado para que use nombres comunes del certificado en vez de las huellas digitales del mismo, será mucho más fácil administrar los certificados. En este artículo se describe cómo actualizar un clúster activo de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -96,7 +96,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Los secretos de un conjunto de escalado de máquinas virtuales no admiten el mismo identificador de recurso para dos secretos independientes, porque cada secreto es una versión única de un recurso. 
+> Los secretos de un conjunto de escalado no admiten el mismo identificador de recurso para dos secretos independientes, porque cada secreto es una versión única de un recurso. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Descargar y actualizar la plantilla desde el portal
 El certificado se ha instalado en el conjunto de escalado subyacente, pero también debe actualizar el clúster de Service Fabric para que use ese certificado y su nombre común.  A continuación, descargue la plantilla para implementar el clúster.  Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al grupo de recursos que hospeda el clúster.  En **Configuración**, seleccione **Implementaciones**.  Seleccione la implementación más reciente y haga clic en **Ver plantilla**.

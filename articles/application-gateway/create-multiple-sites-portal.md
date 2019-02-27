@@ -1,25 +1,22 @@
 ---
-title: 'Creación de una puerta de enlace de aplicaciones que hospede varios sitios web: Azure Portal | Microsoft Docs'
+title: 'Crear una puerta de enlace de aplicaciones que hospede varios sitios web: Azure Portal'
 description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993315"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454328"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
 
-Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](multiple-site-overview.md) al crear una [puerta de enlace de aplicaciones](overview.md). En este tutorial se definen grupos de direcciones de back-end mediante máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
+Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](multiple-site-overview.md) al crear una [puerta de enlace de aplicaciones](overview.md). En este artículo se definen grupos de direcciones de back-end mediante máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este artículo se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
 
 En este artículo, aprenderá a:
 
@@ -35,9 +32,9 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com)
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -141,6 +138,8 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 3. Haga clic en **OK**.
 4. Cree otro agente de escucha con el nombre *fabrikamListener* y utilice el segundo nombre de dominio. En este ejemplo, vamos a utilizar *www.fabrikam.com*.
 
+![agentes de escucha de varios sitios](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Crear reglas de enrutamiento
 
 Las reglas se procesan en el orden en que aparecen y el tráfico se dirige utilizando la primera regla que dé una coincidencia, sin tener en cuenta su especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
@@ -180,12 +179,4 @@ Después de crear la puerta de enlace de aplicaciones con la dirección IP públ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido cómo:
-
-> [!div class="checklist"]
-> * Creación de una puerta de enlace de aplicaciones
-> * Crear máquinas virtuales para servidores back-end
-> * Crear grupos de back-end con los servidores back-end
-> * Crear un agente de escucha de back-end
-> * Crear reglas de enrutamiento
-> * Creación de un registro CNAME en el dominio
+[Configuración de App Service con Application Gateway](create-web-app.md)

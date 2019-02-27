@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210109"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269066"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -157,7 +157,11 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 **R:** Un usuario puede unir o registrar un dispositivo a Azure AD mediante Multi-Factor Authentication. De esta forma, el dispositivo se convierte en un segundo factor de confianza para dicho usuario. Siempre que el mismo usuario inicia sesión en el dispositivo y accede a una aplicación, Azure AD considera al dispositivo como segundo factor. Esta función permite que el usuario acceda sin problemas a las aplicaciones sin indicaciones adicionales de Multi-Factor Authentication. 
 
-Este comportamiento no es aplicable a ningún otro usuario que inicie sesión en el dispositivo. Por lo que todos los demás usuarios que accedan a dicho dispositivo recibirán un desafío de Multi-Factor Authentication. Después de realizarlo, podrán tener acceso a las aplicaciones que requieren de Multi-Factor Authentication.
+Este comportamiento:
+
+- Es aplicable a dispositivos unidos a Azure AD y a dispositivos registrados de Azure AD, pero no a dispositivos unidos a Azure AD híbridos.
+
+- No es aplicable a ningún otro usuario que inicie sesión en el dispositivo. Por lo que todos los demás usuarios que accedan a dicho dispositivo recibirán un desafío de Multi-Factor Authentication. Después de realizarlo, podrán tener acceso a las aplicaciones que requieren de Multi-Factor Authentication.
 
 ---
 

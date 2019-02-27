@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245548"
+ms.locfileid: "56270188"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](../Concepts/development-lifecycle-knowledge-base.md) indica cómo administrar una base de conocimiento de principio a fin. Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
@@ -25,6 +25,18 @@ El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](
 El servicio QnA Maker mejora continuamente los algoritmos que extraen preguntas y respuestas del contenido y amplía la lista de formatos HTML y de archivos que admite. Siga las [directrices](../Concepts/data-sources-supported.md) para la extracción de datos según su tipo de documento. 
 
 En general, las páginas de preguntas más frecuentes deben ser independientes y no combinarse con otra información. Los manuales de productos deben tener encabezados claros y, preferiblemente, una página de índice. 
+
+## <a name="creating-good-questions-and-answers"></a>Creación de buenas preguntas y respuestas
+
+### <a name="good-questions"></a>Buenas preguntas
+
+Las mejores preguntas son simples. Identifique la palabra o frase clave de cada pregunta y formule una pregunta sencilla sobre ella. 
+
+Agregue tantas preguntas alternativas como necesite, pero mantenga las variantes simples. Agregar más palabras o expresiones que no forman parte del objetivo principal de la pregunta no ayuda a que QnA Maker encuentre una coincidencia. 
+
+### <a name="good-answers"></a>Buenas respuestas
+
+Las mejores respuestas son sencillas, pero no tanto como Sí y No. Si la respuesta debe remitir a otros orígenes o incluir una experiencia enriquecida con vínculos y multimedia, use [etiquetado](../how-to/metadata-generateanswer-usage.md) para distinguir qué tipo de respuesta espera, y envíe la etiqueta con la consulta para obtener la versión correcta de la respuesta.
 
 ## <a name="chit-chat"></a>Charla
 Agregue una charla a su bot para que sea más conversacional y atractivo fácilmente. Puede agregar fácilmente conjuntos de datos de charla para tres personalidades predefinidas al crear la base de conocimiento y cambiarlos en cualquier momento. Obtenga información sobre cómo [agregar una charla a la base de conocimiento](../How-To/chit-chat-knowledge-base.md). 
@@ -58,7 +70,6 @@ Asegúrese de aprovechar al máximo las características de clasificación que Q
 ### <a name="choosing-a-threshold"></a>Selección de un umbral
 La puntuación de confianza predeterminada que se usa como umbral es de 50, pero puede cambiarla para su base de conocimiento según sus necesidades. Dado que cada base de conocimiento es diferente, conviene probar y elegir el umbral que mejor se adapte a cada caso. Obtenga más información sobre la [puntuación de confianza](../Concepts/confidence-score.md). 
 
-
 ### <a name="add-alternate-questions"></a>Agregar preguntas alternativas
 [Alternar las preguntas](../How-To/edit-knowledge-base.md) aumenta las probabilidades de encontrar una coincidencia con una consulta de usuario. Las preguntas alternativas son útiles cuando hay varias maneras de plantear la misma pregunta. Esto puede incluir cambios en la estructura de la frase y el estilo de redacción.
 
@@ -81,7 +92,7 @@ Aunque hay cierta compatibilidad con los sinónimos en inglés, use [alteracione
 |comprar|compra<br>banca por internet<br>banca electrónica|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Usar diferentes palabras para diferenciar preguntas
-Los algoritmos de coincidencia y clasificación de QnA Maker que hacen coincidir una consulta de usuario con una pregunta en la base de conocimiento funcionan mejor si cada pregunta aborda una necesidad distinta. La repetición del mismo conjunto de palabras en diferentes preguntas reduce la probabilidad de que se seleccione la respuesta correcta para una consulta de usuario determinado con esas palabras. 
+Los algoritmos de clasificación de QnA Maker que buscan la correspondencia entre la consulta de un usuario y una pregunta de la base de conocimiento funcionan mejor si cada pregunta aborda una necesidad distinta. La repetición del mismo conjunto de palabras en diferentes preguntas reduce la probabilidad de que se seleccione la respuesta correcta para una consulta de usuario determinado con esas palabras. 
 
 Por ejemplo, puede tener dos preguntas y respuestas independientes con las siguientes preguntas:
 
@@ -90,8 +101,7 @@ Por ejemplo, puede tener dos preguntas y respuestas independientes con las sigui
 |dónde está *ubicado* el estacionamiento|
 |dónde está *ubicado* el cajero automático|
 
-Puesto que estas dos preguntas y respuestas están expresadas con palabras muy similares, esta similitud podría provocar que las puntuaciones sean muy parecidas para muchas de las consultas de usuario que están expresadas como *dónde está ubicado `<x>`*. Como alternativa, intente diferenciarlas claramente con consultas como *dónde está el estacionamiento* y *dónde está el cajero automático*, evitando palabras como "ubicado", que pueden estar en muchas preguntas en la base de conocimiento. 
-
+Puesto que estas dos preguntas y respuestas están expresadas con palabras muy similares, esta similitud podría provocar que las puntuaciones sean muy parecidas para muchas de las consultas de usuario que están expresadas como *dónde está ubicado `<x>`*. Como alternativa, intente diferenciarlas claramente con consultas como *"dónde está el estacionamiento"* y *"dónde está el cajero automático"*, evitando palabras como "ubicado", que pueden estar en muchas preguntas en la base de conocimiento. 
 
 ## <a name="collaborate"></a>Colaborar
 QnA Maker permite a los usuarios [colaborar](../How-to/collaborate-knowledge-base.md) en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.

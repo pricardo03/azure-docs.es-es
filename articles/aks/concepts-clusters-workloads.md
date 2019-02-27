@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998091"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456527"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ El patrón de clúster incluye los siguientes componentes principales de Kuberne
 
 AKS proporciona un patrón de clúster de inquilino único con un servidor de API dedicado, Scheduler, etc. El usuario define el número de nodos, así como su tamaño, y la plataforma Azure configura la comunicación segura entre el patrón de clúster y los nodos. La interacción con el patrón de clúster se produce a través de las API de Kubernetes, como `kubectl` o el panel de Kubernetes.
 
-Este patrón de clúster administrado significa que no es necesario configurar componentes como el almacén *etcd* de alta disponibilidad, pero también significa que no puede obtener acceso al patrón de clúster directamente. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el patrón de clúster y, a continuación, los nodos. Para solucionar posibles problemas, puede revisar los registros del patrón de clúster a través de Azure Log Analytics.
+Este patrón de clúster administrado significa que no es necesario configurar componentes como el almacén *etcd* de alta disponibilidad, pero también significa que no puede obtener acceso al patrón de clúster directamente. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el patrón de clúster y, a continuación, los nodos. Para solucionar los posibles problemas, puede revisar los registros maestros del clúster mediante registros de Azure Monitor.
 
 Si tiene que configurar el patrón de clúster de una manera determinada o necesita acceso directo a él, puede implementar su propio clúster de Kubernetes con [aks-engine][aks-engine].
 

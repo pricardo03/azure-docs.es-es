@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: c3a737bdd9978e6cb02e3e8b7a34407eb1dd8fb6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380770"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452770"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,7 @@ En Kubernetes, los volúmenes pueden representar más que un disco tradicional d
 
 ## <a name="persistent-volumes"></a>Volúmenes persistentes
 
-Los volúmenes se definen y se crean como parte del ciclo de vida del pod, y solo existen hasta que se elimina el pod. Los pods suelen esperar que su almacenamiento se conserve si un pod se vuelve a programar en un host diferente durante un evento de mantenimiento, especialmente en StatefulSets. Un *volumen persistente* es un recurso de almacenamiento creado y administrado por la API de Kubernetes, que puede existir más allá de la duración de un pod individual.
+Los volúmenes que se definen y se crean como parte del ciclo de vida del pod solo existen hasta que se elimina este. Los pods suelen esperar que su almacenamiento se conserve si un pod se vuelve a programar en un host diferente durante un evento de mantenimiento, especialmente en StatefulSets. Un *volumen persistente* es un recurso de almacenamiento creado y administrado por la API de Kubernetes, que puede existir más allá de la duración de un pod individual.
 
 Se usan Azure Disks o Azure Files para proporcionar el volumen PersistentVolume. Como se indicó en la sección anterior sobre los volúmenes, la elección de Azure Disks o Azure Files suele venir determinada por la necesidad de acceso simultáneo a los datos o al nivel de rendimiento.
 

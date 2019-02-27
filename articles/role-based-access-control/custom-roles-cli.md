@@ -1,6 +1,6 @@
 ---
-title: Creación de roles personalizados con la CLI de Azure | Microsoft Docs
-description: Obtenga información sobre cómo crear roles para el control de acceso basado en roles (RBAC) con la CLI de Azure. Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
+title: Creación de roles personalizados para los recursos de Azure con la CLI de Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear roles personalizados con el control de acceso basado en roles (RBAC) para recursos de Azure con la CLI de Azure. Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437263"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338145"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Creación de roles personalizados con la CLI de Azure
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Creación de roles personalizados para los recursos de Azure con la CLI de Azure
 
-Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo crear y administrar roles personalizados con la CLI de Azure.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo crear y administrar roles personalizados con la CLI de Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para crear roles personalizados, necesita:
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Creación de un rol personalizado con la CLI de Azure](tutorial-custom-role-cli.md)
-- [Roles personalizados en Azure](custom-roles.md)
+- [Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure](tutorial-custom-role-cli.md)
+- [Roles personalizados en los recursos de Azure](custom-roles.md)
 - [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md)

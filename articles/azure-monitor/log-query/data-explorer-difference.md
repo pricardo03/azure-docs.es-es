@@ -1,6 +1,6 @@
 ---
 title: Diferencias en el lenguaje de consulta de los registros de Azure Monitor | Microsoft Docs
-description: Información de referencia del lenguaje de consulta de Data Explorer que utiliza Azure Monitor. Incluye elementos adicionales específicos de Azure Monitor y elementos no admitidos en las consultas del registro de Azure Monitor.
+description: Información de referencia del lenguaje de consulta de Kusto que utiliza Azure Monitor. Incluye elementos adicionales específicos de Azure Monitor y elementos no admitidos en las consultas del registro de Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003642"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266737"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferencias en el lenguaje de consulta de los registros de Azure Monitor
 
-Aunque los [registros de Azure Monitor](log-query-overview.md) se basan en [Azure Data Explorer](/azure/data-explorer) y usa el [mismo lenguaje de consulta](/azure/kusto/query), la versión del lenguaje presenta algunas diferencias. En este artículo se identifican los elementos que son diferentes entre la versión del lenguaje que se utiliza en Data Explorer y la versión que se utiliza en las consultas del registro de Azure Monitor.
+Aunque los [registros de Azure Monitor](log-query-overview.md) se basan en [Azure Data Explorer](/azure/data-explorer) y usa el mismo [lenguaje de consulta de Kusto](/azure/kusto/query), la versión del lenguaje presenta algunas diferencias. En este artículo se identifican los elementos que son diferentes entre la versión del lenguaje que se utiliza en Data Explorer y la versión que se utiliza en las consultas del registro de Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Elementos de Data Explorer que no se admiten en Azure Monitor
-En las siguientes secciones se describen los elementos del lenguaje de consulta de Data Explorer que no son compatibles con Azure Monitor.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>Elementos de KQL que no se admiten en Azure Monitor
+En las siguientes secciones se describen los elementos del lenguaje de consulta de Kusto que no son compatibles con Azure Monitor.
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Instrucciones que no se admiten en Azure Monitor
 
@@ -64,4 +64,4 @@ Los operadores siguientes admiten características específicas de Azure Monitor
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga referencias a distintos [recursos para escribir consultas de Azure Monitor](query-language.md).
-- Obtenga acceso a toda la [documentación de referencia del lenguaje de consulta de Data Explorer](/azure/kusto/query/).
+- Acceda a la [documentación de referencia completa del lenguaje de consulta de Kusto](/azure/kusto/query/).

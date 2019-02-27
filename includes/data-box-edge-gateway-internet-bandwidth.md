@@ -2,16 +2,17 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ab9da996226b3f26fd30db1cd012c80253a85a5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333790"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306872"
 ---
-Los siguientes requisitos se aplican al ancho de banda mínimo de Internet requerido para los dispositivos.
+Los dispositivos están diseñados para seguir funcionando cuando la conexión a Internet es lenta o se interrumpe. En condiciones normales de funcionamiento, recomendamos utilizar: 
 
-- Su dispositivo tiene un ancho de banda de Internet de 20 Mbps o más disponible en todo momento. Este ancho de banda no debe compartirse con otras aplicaciones.
-- El dispositivo tiene un ancho de banda dedicado de Internet de 64 Mbps o más cuando se usa el límite de red.
+- Un ancho de banda mínimo de 10 Mbps para garantizar que el dispositivo se mantiene actualizado.
+- Un ancho de banda mínimo de 20 Mbps dedicado a carga y descarga para transferir archivos.
+

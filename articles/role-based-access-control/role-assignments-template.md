@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso mediante RBAC y plantillas de Azure Resource Manager | Microsoft Docs
-description: Aprenda a administrar el acceso de usuarios, grupos y aplicaciones mediante control de acceso basado en rol (RBAC) y plantillas de Azure Resource Manager.
+title: Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager | Microsoft Docs
+description: Aprenda a administrar el acceso a los recursos de Azure de usuarios, grupos y aplicaciones mediante control de acceso basado en rol (RBAC) y plantillas de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696904"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337210"
 ---
-# <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>Administración del acceso mediante RBAC y plantillas de Azure Resource Manager
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en que se administra el acceso a los recursos en Azure. Además de usar Azure PowerShell o la CLI de Azure, puede administrar el acceso a los recursos de Azure mediante RBAC y [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo puede administrar el acceso mediante RBAC y plantillas.
+El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. Además de usar Azure PowerShell o la CLI de Azure, puede administrar el acceso a los recursos de Azure mediante RBAC y [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo puede administrar el acceso mediante RBAC y plantillas.
 
 ## <a name="example-template-to-create-a-role-assignment"></a>Plantilla de ejemplo para crear una asignación de roles
 
@@ -251,6 +251,6 @@ Para implementar la plantilla anterior con la CLI de Azure, siga estos pasos.
     
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Crear e implementar su primera plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md)
+- [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

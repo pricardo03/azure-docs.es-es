@@ -4,18 +4,18 @@ description: Uso de Azure Portal para implementar módulos en un dispositivo de 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969410"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430121"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
 
@@ -51,6 +51,7 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 
    * **Módulo de IoT Edge**: la opción predeterminada.
    * **Módulo de Azure Stream Analytics**: solo módulos generados a partir de una carga de trabajo de Azure Stream Analytics.
+   * **Módulo de Azure Machine Learning**: solo imágenes de modelo generadas a partir de un área de trabajo de Azure Machine Learning.
 
 1. Seleccione **Módulo IoT Edge**.
 
@@ -82,6 +83,29 @@ Revise la información de implementación y seleccione **Enviar**.
 ## <a name="view-modules-on-your-device"></a>Visualización de módulos en el dispositivo
 
 Una vez que los módulos se han implementado en el dispositivo, puede verlos todos en la página **Detalles del dispositivo** del portal. Esta página muestra el nombre de cada módulo implementado, así como información útil, como el estado de la implementación y el código de salida.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Implementación de módulos desde Azure Marketplace
+
+Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que puede examinar una amplia gama de aplicaciones y soluciones empresariales que están certificadas y optimizadas para ejecutarse en Azure, incluyendo los [módulos de IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). También puede acceder a Azure Marketplace desde la sección **Crear un recurso** de Azure Portal.
+
+Puede instalar un módulo IoT Edge desde Azure Marketplace o desde Azure Portal:
+
+1. Encuentre un módulo e inicie el proceso de implementación.
+
+   * Azure Portal: Encuentre un módulo y seleccione **Crear**.
+
+   * Azure Marketplace:
+
+     1. Encuentre un módulo y seleccione **Obtenerla ahora**.
+     1. Para confirmar las condiciones de uso y la directiva de privacidad del proveedor, seleccione **Continuar**.
+
+1. Elija la suscripción y la instancia de IoT Hub a la que está asociado el dispositivo de destino.
+
+1. Elija **Implementar en un dispositivo**.
+
+1. Escriba el nombre del dispositivo o seleccione **Buscar dispositivo** para buscar entre los dispositivos registrados en el centro.
+
+1. Seleccione **Crear** para continuar el proceso estándar de configurar un manifiesto de implementación, lo que incluye agregar otros módulos si lo desea. Los detalles del nuevo módulo, como el URI de la imagen, las opciones de creación y las propiedades deseadas están predefinidas pero se pueden cambiar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829931"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328034"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Red del consorcio de Hyperledger Fabric
 
@@ -100,7 +100,7 @@ En **Configuración de red**, especifique las entradas para crear una red para e
 **Configuración de la red**|Puede elegir entre crear una red o unirse a una existente. Si elige *Unirse a existente*, debe proporcionar valores adicionales. |Nueva red <br/> Unirse a existente |
 **Contraseña de la entidad de certificación HLF**|Una contraseña utilizada para los certificados generada por las entidades de certificación que se crean como parte de la implementación. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 1 y 25 caracteres |
 **Configuración de la organización** |Puede personalizar el nombre y el certificado de su organización o usar valores predeterminados.|Valor predeterminado <br/> Avanzado |
-**Configuración de red VPN**| Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | SÍ <br/> Sin  |
+**Configuración de red VPN**| Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> Sin  |
 
 Seleccione **Aceptar**.
 
@@ -113,7 +113,7 @@ En **Configuración de Fabric**, configure el tamaño y rendimiento de la red y 
 | Nombre de parámetro | DESCRIPCIÓN | Valores permitidos |
 |---|---|---|
 **Tipo de escala**|El tipo de implementación de una única máquina virtual con varios contenedores o de varias máquinas virtuales en un modelo de escalabilidad horizontal.|Máquina virtual única o varias máquinas virtuales |
-**Tipo de disco de máquina virtual**|El tipo de almacenamiento que respalda cada uno de los nodos implementados. <br/> Para más información sobre el almacenamiento, visite [Introducción a Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) y [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|SSD estándar <br/> SSD Premium |
+**Tipo de disco de máquina virtual**|El tipo de almacenamiento que respalda cada uno de los nodos implementados. <br/> Para más información acerca de los tipos de disco disponibles, visite [Selección de un tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD estándar <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Implementación de varias máquinas virtuales (configuración adicional)
 

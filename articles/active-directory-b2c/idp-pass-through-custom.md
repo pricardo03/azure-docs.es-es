@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883005"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427878"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Pase de un token de acceso a través de una directiva personalizada a la aplicación en Azure Active Directory B2C
 
@@ -24,11 +24,11 @@ ms.locfileid: "55883005"
 
 Un [directiva personalizada](active-directory-b2c-get-started-custom.md) en Azure Active Directory (Azure AD) B2C proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Agregue un tipo de notificación y envíe dicha notificación a la directiva personalizada para pasar el token a través de las aplicaciones que registre en Azure AD B2C. 
 
-Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), incluidos Facebook y [Google](active-directory-b2c-custom-setup-goog-idp.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
+Azure AD B2C admite pasar el token de acceso de los proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) y [OpenID Connect](active-directory-b2c-reference-oidc.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- La directiva personalizada se configura con un proveedor de identidades de OAuth 2.0.
+- La directiva personalizada se configura con un proveedor de identidades de OAuth 2.0. o de OpenID Connect.
 
 ## <a name="add-the-claim-elements"></a>Incorporación de elementos de notificación 
 

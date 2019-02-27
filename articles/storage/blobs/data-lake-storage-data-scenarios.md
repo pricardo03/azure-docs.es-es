@@ -73,7 +73,7 @@ En esta tabla se muestra cómo conceder acceso para cada herramienta o servicio 
 |Apache DistCp | Asignación de un rol a una identidad administrada asignada por el usuario | [Creación de un clúster de HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
 |Azure Data Factory| Asignación de un rol a una identidad administrada asignada por el usuario<br>**or**<br> Asignación de un rol a una entidad de servicio<br>**or**<br> Uso de una clave de cuenta de almacenamiento | [Propiedades del servicio vinculado](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |HDInsight de Azure| Asignación de un rol a una identidad administrada asignada por el usuario | [Creación de un clúster de HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
-|Azure Databricks| Asignación de un rol a una entidad de servicio | [Uso de Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|Azure Databricks| Asignación de un rol a una entidad de servicio | [Procedimientos para uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Para conceder acceso a carpetas o archivos específicos, consulte estos artículos.
 

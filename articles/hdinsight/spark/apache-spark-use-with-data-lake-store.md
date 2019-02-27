@@ -1,6 +1,6 @@
 ---
-title: Uso de Apache Spark para analizar datos en Azure Data Lake Storage
-description: Ejecución de trabajos de Spark para analizar los datos almacenados en Azure Data Lake Storage
+title: Uso de Apache Spark para analizar datos en Azure Data Lake Storage Gen1
+description: Ejecución de trabajos de Spark para analizar los datos almacenados en Azure Data Lake Storage Gen1
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4228091c52e65da70d91fffd8af2f2472fa8f43
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821376"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430563"
 ---
-# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage
+# <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Uso de un clúster de HDInsight Spark para analizar los datos en Data Lake Storage Gen1
 
 En este tutorial usará [Jupyter Notebook](https://jupyter.org/), disponible con los clústeres de HDInsight Spark, para ejecutar un trabajo que lee datos de una cuenta de Data Lake Storage.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Cuenta de Azure Data Lake Storage. Siga las instrucciones que se describen en [Introducción a Azure Data Lake Storage mediante Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
+* Cuenta de Azure Data Lake Storage Gen1. Siga las instrucciones de [Introducción a Azure Data Lake Storage Gen1 con Azure Portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Clúster de Azure HDInsight Spark con Data Lake Storage como almacenamiento. Siga las instrucciones que se describen en [Inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Clúster de Azure HDInsight Spark con Data Lake Storage Gen1 como almacenamiento. Siga las instrucciones que se describen en [Inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     
 ## <a name="prepare-the-data"></a>Preparación de los datos
@@ -45,7 +45,7 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
         AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
    > [!WARNING]  
-   > Asegúrese de que coincida el uso de mayúsculas y minúsculas en los nombres de archivo y ruta de acceso.
+   > Asegúrese de que los nombres de archivo y ruta de acceso estén escritos con las mayúsculas adecuadas.
 
 3. Se le pide que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta de Data Lake Storage. Debe ver una salida similar al siguiente fragmento de código:
 
@@ -56,7 +56,7 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
     El archivo de datos (**HVAC.csv**) se copiará en una carpeta **/hvac** en la cuenta de Data Lake Storage.
 
-## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage"></a>Uso de un clúster de HDInsight Spark con Data Lake Storage
+## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Uso de un clúster de HDInsight Spark con Data Lake Storage Gen1
 
 1. En [Azure Portal](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster de Apache Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
 
@@ -79,9 +79,9 @@ Si ha creado un clúster de HDInsight con Data Lake Storage como almacenamiento 
 
      ![Estado de un trabajo de cuaderno de Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Estado de un trabajo de cuaderno de Jupyter")
 
-5. Cargue datos de ejemplo en una tabla temporal mediante el archivo **HVAC.csv** que copió en la cuenta de Data Lake Storage. Ahora puede obtener acceso a los datos de la cuenta de Data Lake Storage con el siguiente patrón de dirección URL.
+5. Cargue los datos de ejemplo en una tabla temporal mediante el archivo **HVAC.csv** que copió en la cuenta de Data Lake Storage Gen1. Ahora puede obtener acceso a los datos de la cuenta de Data Lake Storage con el siguiente patrón de dirección URL.
 
-    * Si dispone de Data Lake Storage como almacenamiento predeterminado, HVAC.csv estará en la ruta de acceso similar a la siguiente dirección URL:
+    * Si dispone de Data Lake Storage Gen1 como almacenamiento predeterminado, HVAC.csv estará en la ruta de acceso similar a la siguiente dirección URL:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

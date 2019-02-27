@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884008"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453943"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Hoja de referencia rápida de algoritmos de aprendizaje automático de Azure Machine Learning Studio
 
-La **hoja de referencia rápida de algoritmos de Azure Machine Learning** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
+La **hoja de referencia rápida de algoritmos de Azure Machine Learning Studio** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) tiene una gran biblioteca de algoritmos de las familias de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
 
@@ -27,14 +27,12 @@ La **hoja de referencia rápida de algoritmos de Azure Machine Learning** le ayu
 
 **Descargue aquí la hoja de referencia rápida: [Hoja de referencia rápida de algoritmos de aprendizaje automático (11x17 in.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Hoja de referencia rápida de algoritmos de aprendizaje automático: Aprenda a elegir un algoritmo de Machine Learning.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Hoja de referencia rápida de algoritmos de aprendizaje automático: Aprenda a elegir un algoritmo de Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 Descargue e imprima la hoja de referencia rápida de algoritmos de Machine Learning Studio en tamaño tabloide para tenerlo a mano y que le sirva de ayuda al elegir un algoritmo.
 
 > [!NOTE]
-> Para obtener ayuda para utilizar esta hoja de referencia rápida para elegir el algoritmo correcto y conocer más sobre los distintos tipos de algoritmos de aprendizaje automático y cómo se usan, consulte [Cómo elegir algoritmos para Microsoft Azure Machine Learning](algorithm-choice.md).
+> Para obtener ayuda para utilizar esta hoja de referencia rápida para elegir el algoritmo correcto y conocer más sobre los distintos tipos de algoritmos de aprendizaje automático y cómo se usan, consulte [Cómo elegir algoritmos para Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notas y definiciones de terminología de la hoja de referencia rápida de algoritmos de Machine Learning Studio
 
@@ -44,7 +42,7 @@ Descargue e imprima la hoja de referencia rápida de algoritmos de Machine Learn
 
 * Existen tres categorías principales de aprendizaje automático: **aprendizaje supervisado**, **aprendizaje sin supervisar** y **aprendizaje de refuerzo**.
 
-  * En el **aprendizaje supervisado**, cada punto de datos está etiquetado o asociado con una categoría o valor de interés.  Un ejemplo de una etiqueta de categoría es asignar una imagen como un 'gato' o 'perro'.  Un ejemplo de una etiqueta de valor es el precio de venta asociado a un coche usado. El objetivo del aprendizaje supervisado es estudiar muchos ejemplos etiquetados como los anteriores y, luego, poder realizar predicciones sobre los puntos de datos futuros. Por ejemplo, identificar nuevas fotografías con el animal correcto o asignar precios de venta precisos a otros coches usados. Este es un tipo conocido y útil del aprendizaje automático. Todos los módulos de Azure Machine Learning son algoritmos de aprendizaje supervisado, excepto [agrupación en clústeres k-means][k-means-clustering].
+  * En el **aprendizaje supervisado**, cada punto de datos está etiquetado o asociado con una categoría o valor de interés.  Un ejemplo de una etiqueta de categoría es asignar una imagen como un 'gato' o 'perro'.  Un ejemplo de una etiqueta de valor es el precio de venta asociado a un coche usado. El objetivo del aprendizaje supervisado es estudiar muchos ejemplos etiquetados como los anteriores y, luego, poder realizar predicciones sobre los puntos de datos futuros. Por ejemplo, identificar nuevas fotografías con el animal correcto o asignar precios de venta precisos a otros coches usados. Este es un tipo conocido y útil del aprendizaje automático. Todos los módulos de Azure Machine Learning Studio son algoritmos de aprendizaje supervisado, excepto [agrupación en clústeres k-means][k-means-clustering].
 
   * En el **aprendizaje sin supervisar**, los puntos de datos no tienen etiquetas asociadas a ellos. En su lugar, el objetivo de un algoritmo de aprendizaje sin supervisar es organizar los datos de alguna manera o describir su estructura. Esto puede significar agruparlos en clústeres, como hace K-means, o buscar diferentes maneras de examinar datos complejos para que parezcan más simples.
 

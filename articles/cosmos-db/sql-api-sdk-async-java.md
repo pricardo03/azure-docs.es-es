@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979180"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416282"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Disponibilidad general directa.
+* La conectividad de modo directo ya está generalmente disponible (GA). Para un ejemplo que usa conectividad de modo directo, consulte el repositorio de GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
 * Se agregó compatibilidad para QueryMetrics.
-* Se han cambiado las API que aceptan java.util.Collection para las que el orden es importante para aceptar java.util.List en su lugar.
-  Ahora ConnectionPolicy#getPreferredLocations() JsonSerialization y PartitionKey(.) aceptan List.
+* Se han cambiado las API que aceptan java.util.Collection para las que el orden es importante para aceptar java.util.List en su lugar. Ahora ConnectionPolicy#getPreferredLocations() JsonSerialization y PartitionKey(.) aceptan List.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Se ha agregado compatibilidad con Direct.
+* Se agregó compatibilidad para la conectividad de modo directo.
 * Se han cambiado las API que aceptan java.util.Collection para las que el orden es importante para aceptar java.util.List en su lugar.
   Ahora ConnectionPolicy#getPreferredLocations() JsonSerialization y PartitionKey(.) aceptan List.
 * Se ha corregido un error de sesión en la consulta de documentos en modo de puerta de enlace.

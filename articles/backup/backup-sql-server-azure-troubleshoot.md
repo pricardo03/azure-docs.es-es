@@ -1,26 +1,19 @@
 ---
-title: Guía para la solución de problemas de Azure Backup para máquinas virtuales con SQL Server | Microsoft Docs
-description: Información para la solución de problemas en la realización de copias de seguridad de máquinas virtuales con SQL Server en Azure.
+title: Solución de problemas de copia de seguridad de base de datos de SQL Server con Azure Backup | Microsoft Docs
+description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296128"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428626"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
@@ -28,11 +21,11 @@ En este artículo se proporciona información para la solución de problemas par
 
 ## <a name="public-preview-limitations"></a>Limitaciones de la versión preliminar pública
 
-Para ver las limitaciones de la versión preliminar pública, consulte el artículo [Copia de seguridad de base de datos de SQL Server en Azure](backup-azure-sql-database.md#public-preview-limitations).
+Para ver las limitaciones de la versión preliminar pública, consulte el artículo [Copia de seguridad de base de datos de SQL Server en Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## <a name="sql-server-permissions"></a>Permisos de SQL Server
 
-Para configurar la protección de una base de datos de SQL Server en una máquina virtual, se debe instalar en ella la extensión **AzureBackupWindowsWorkload**. Si recibe el error **UserErrorSQLNoSysadminMembership**, significa que la instancia de SQL no tiene los permisos de copia de seguridad requeridos. Para corregir este error, siga los pasos que se describen en [Definición de permisos para máquinas virtuales SQL no incluidas en el catálogo de soluciones](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+Para configurar la protección de una base de datos de SQL Server en una máquina virtual, se debe instalar en ella la extensión **AzureBackupWindowsWorkload**. Si recibe el error **UserErrorSQLNoSysadminMembership**, significa que la instancia de SQL no tiene los permisos de copia de seguridad requeridos. Para corregir este error, siga los pasos que se describen en [Definición de permisos para máquinas virtuales SQL no incluidas en el catálogo de soluciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## <a name="troubleshooting-errors"></a>Solución de errores
 
@@ -56,13 +49,13 @@ Las siguientes tablas se organizan por código de error.
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Se produce cuando el modelo de recuperación de base de datos no admite el tipo de copia de seguridad solicitado. El error puede ocurrir en las siguientes situaciones: <br/><ul><li>Una base de datos que usa un modelo de recuperación simple no permite la copia de seguridad de registros.</li><li>No se permiten copias de seguridad diferenciales y de registros de bases de datos maestras.</li></ul>Para más información, consulte el documento [Modelos de recuperación (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si se produce un error en la copia de seguridad de registros de la base de datos en el modelo de recuperación simple, pruebe una de estas opciones:<ul><li>Si la base de datos está en modo de recuperación simple, deshabilite las copias de seguridad de registros.</li><li>Use la [documentación de SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para cambiar el modelo de recuperación de base de datos a Completo o Registro masivo. </li><li> Si no desea cambiar el modelo de recuperación y tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. Las copias de seguridad completas y diferenciales funcionarán en función de la programación. Se omitirán las copias de seguridad del registro, que es lo esperable en este caso.</li></ul>Si es una base de datos maestra y ha configurado una base de datos diferencial o de registros, siga cualquiera de estos pasos:<ul><li>Use el portal para cambiar la programación de la directiva de copia de seguridad para la base de datos maestra a Completa.</li><li>Si tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. La copia de seguridad completa funcionará según la programación. No se realizarán copias de seguridad diferenciales o de registro, que es lo que se espera en este caso.</li></ul> |
-| La operación se canceló, porque ya se estaba ejecutando una operación en conflicto en la misma base de datos. | Consulte la [entrada del blog acerca de las limitaciones en las operaciones de copia de seguridad y restauración](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que se ejecutan de forma concurrente.| [Utilice SQL Server Management Studio (SSMS) para supervisar los trabajos de la base de datos](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms). Una vez que se produzca un error en la operación en conflicto, reinicie la operación.|
+| La operación se canceló, porque ya se estaba ejecutando una operación en conflicto en la misma base de datos. | Consulte la [entrada del blog acerca de las limitaciones en las operaciones de copia de seguridad y restauración](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) que se ejecutan de forma concurrente.| [Utilice SQL Server Management Studio (SSMS) para supervisar los trabajos de la base de datos](manage-monitor-sql-database-backup.md). Una vez que se produzca un error en la operación en conflicto, reinicie la operación.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| La base de datos SQL no existe. | La base de datos se eliminó o se cambió de nombre. | <ul><li>Compruebe si la base de datos se ha eliminado o cambiado de nombre por accidente.</li><li>Si la base de datos se eliminó por accidente, para continuar realizando copias de seguridad, restaure la base de datos a la ubicación original.</li><li>Si ha eliminado la base de datos y no va a necesitar copias de seguridad en el futuro, en el almacén de Recovery Services, haga clic en [stop backup with "Delete/Retain data"](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) (Detener copia de seguridad con "Eliminar o conservar datos").</li>|
+| La base de datos SQL no existe. | La base de datos se eliminó o se cambió de nombre. | Compruebe si la base de datos se ha eliminado o cambiado de nombre por accidente.<br/><br/> Si la base de datos se eliminó por accidente, para continuar realizando copias de seguridad, restaure la base de datos a la ubicación original.<br/><br/> Si ha eliminado la base de datos y no va a necesitar copias de seguridad en el futuro, en el almacén de Recovery Services, haga clic en [stop backup with "Delete/Retain data"](manage-monitor-sql-database-backup.md) (Detener copia de seguridad con "Eliminar o conservar datos").
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

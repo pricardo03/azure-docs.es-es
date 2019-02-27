@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686269"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308730"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -29,12 +29,12 @@ Para el control de errores y excepciones más básico, puede usar una *directiva
 
 Estos son los tipos de directivas de reintentos: 
 
-| Escriba | DESCRIPCIÓN | 
+| Type | DESCRIPCIÓN | 
 |------|-------------| 
-| [**Predeterminada**](#default-retry) | Esta directiva envía hasta cuatro reintentos en intervalos de [*aumento exponencial*](#exponential-retry) con una escala de 7,5 segundos, pero que están limitados entre 5 y 45 segundos. | 
-| [**Intervalo exponencial**](#exponential-retry)  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. | 
-| [**Intervalo fijo**](#fixed-retry)  | Esta directiva espera el intervalo especificado antes de enviar la solicitud siguiente. | 
-| [**Ninguna**](#no-retry)  | No volver a enviar la solicitud. | 
+| **Valor predeterminado** | Esta directiva envía hasta cuatro reintentos en intervalos que *aumentan exponencialmente* a una escala de 7,5 segundos pero con unos límites de entre 5 y 45 segundos. | 
+| **Intervalo exponencial**  | Esta directiva espera un intervalo aleatorio seleccionado de un intervalo exponencialmente creciente antes de enviar la solicitud siguiente. | 
+| **Intervalo fijo**  | Esta directiva espera el intervalo especificado antes de enviar la solicitud siguiente. | 
+| **None**  | No volver a enviar la solicitud. | 
 ||| 
 
 Para más información acerca de los límites de las directivas de reintentos, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,7 +71,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 *Obligatorio*
 
-| Valor | Escriba | DESCRIPCIÓN |
+| Valor | Type | DESCRIPCIÓN |
 |-------|------|-------------|
 | <*retry-policy-type*> | string | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
 | <*retry-interval*> | string | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
@@ -80,7 +80,7 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 *Opcional*
 
-| Valor | Escriba | DESCRIPCIÓN |
+| Valor | Type | DESCRIPCIÓN |
 |-------|------|-------------|
 | <*minimum-interval*> | string | Para la directiva de intervalo exponencial, el intervalo más pequeño para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 | <*maximum-interval*> | string | Para la directiva de intervalo exponencial, el intervalo más grande para el intervalo seleccionado aleatoriamente en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 

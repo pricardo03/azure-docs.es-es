@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744405"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343041"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
 Normalmente, implementa los recursos de Azure en un grupo de recursos en su suscripción de Azure. Sin embargo, también puede crear grupos de recursos de Azure y crear recursos de Azure en el nivel de suscripción. Para implementar plantillas en el nivel de suscripción, use la CLI de Azure y Azure PowerShell. Azure Portal no admite la implementación en el nivel de suscripción.
 
-Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nombre y una ubicación para el grupo de recursos. También se puede crear un grupo de recursos e implementar recursos en él en la misma plantilla. Los recursos que se pueden implementar en el nivel de suscripción incluyen: [directivas](../azure-policy/azure-policy-introduction.md) y [control de acceso basado en rol](../role-based-access-control/overview.md).
+Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nombre y una ubicación para el grupo de recursos. También se puede crear un grupo de recursos e implementar recursos en él en la misma plantilla. Los recursos que se pueden implementar en el nivel de suscripción incluyen: [directivas](../governance/policy/overview.md) y [control de acceso basado en rol](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Definición y asignación de directivas
 
-Puede [definir](../azure-policy/policy-definition.md) y asignar una directiva en la misma plantilla.
+Puede [definir](../governance/policy/concepts/definition-structure.md) y asignar una directiva en la misma plantilla.
 
 ```json
 {

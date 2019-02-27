@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173949"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454657"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Agregar manualmente una cuenta a la aplicación
 Si la cámara no puede capturar el código QR, puede agregar manualmente la información de su cuenta a la aplicación Microsoft Authenticator para realizar la verificación en dos fases. Esta opción funciona tanto para las cuentas profesionales o educativas y como para las cuentas que no sean de Microsoft.
@@ -27,9 +27,9 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 >[!Important]
 >Antes de agregar su cuenta, debe descargar e instalar la aplicación Microsoft Authenticator. Si no lo ha hecho aún, siga los pasos descritos en el artículo para [descargar e instalar la aplicación](user-help-auth-app-download-install.md).
 
-## <a name="add-your-work-or-school-account"></a>Agregar una cuenta profesional o educativa
+## <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
 
-1. En su PC, fíjese en el **código** y la **dirección URL** que se encuentra en la página para **configurar la aplicación móvil**. Mantenga esta página abierta para que pueda ver el código y la dirección URL.
+1. En su equipo, fíjese en el **código** y la **dirección URL** que se encuentra en la página para **configurar la aplicación móvil**. Mantenga esta página abierta para que pueda ver el código y la dirección URL.
     
     ![Pantalla que proporciona el código QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
@@ -45,9 +45,9 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 
     En la pantalla **Cuentas** de la aplicación aparece el nombre de su cuenta y un código de verificación de seis dígitos. Para mayor seguridad, el código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces.
 
-## <a name="add-your-google-account"></a>Agregar la cuenta de Google
+## <a name="add-your-google-account"></a>Adición de la cuenta de Google
 
-1. En su PC, seleccione **CAN'T SCAN IT** (NO SE PUEDE DETECTAR) de la página para **configurar el autenticador** con el código QR.
+1. En su equipo, seleccione **CAN'T SCAN IT** (NO SE PUEDE DETECTAR) de la página para **configurar el autenticador** con el código QR.
 
     Aparecerá la página **Can't scan barcode** (No se puede detectar el código de barras) con el código secreto. Mantenga esta página abierta para que pueda ver el código secreto.
 
@@ -55,7 +55,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 
 3. Escriba un **nombre de cuenta** (por ejemplo, Google) y escriba la **clave secreta** del paso 1; a continuación, seleccione **Finish** (Finalizar).
 
-4. En la página para **configurar Authenticator** en su PC, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Google y, a continuación, seleccione **Verify** (Comprobar).
+4. En la página para **configurar Authenticator** en su equipo, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Google y, a continuación, seleccione **Verify** (Comprobar).
 
     En la pantalla **Cuentas** de la aplicación aparece el nombre de su cuenta y un código de verificación de seis dígitos. Para mayor seguridad, el código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces.
 
@@ -70,7 +70,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 
 3. Escriba un **nombre de cuenta** (por ejemplo, Facebook) y escriba la **clave secreta** del paso 1; a continuación, seleccione **Finish** (Finalizar).
 
-4. En la página del **autenticador en dos factores** de su PC, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Facebook y, a continuación, seleccione **Verify** (Comprobar).
+4. En la página del **autenticador en dos fases** del equipo, escriba el código de verificación de seis dígitos que se proporciona en la aplicación de su cuenta de Facebook y, a continuación, seleccione **Verify** (Comprobar).
 
     En la pantalla **Cuentas** de la aplicación aparece el nombre de su cuenta y un código de verificación de seis dígitos. Para mayor seguridad, el código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces.
 
@@ -80,7 +80,7 @@ Los códigos que se proporcionan para las cuentas no distinguen mayúsculas de m
 ## <a name="add-your-amazon-account"></a>Agregar la cuenta de Amazon
 Puede agregar su cuenta personal de Amazon activando primero la verificación en dos fases y, luego, agregando la cuenta a la aplicación.
 
-1. En su PC, seleccione **Can't scan the barcode** (No se puede detectar el código de barras) en la página **Choose how you'll receive codes** (Seleccione cómo recibirá los códigos) que tiene el código QR.
+1. En su equipo, seleccione **Can't scan the barcode** (No se puede detectar el código de barras) en la página **Choose how you'll receive codes** (Seleccione cómo recibirá los códigos) que tiene el código QR.
 
     Aparecerá el mensaje **Can't scan barcode** (No se puede detectar el código de barras) con el código secreto. Mantenga este mensaje abierto para que pueda ver el código secreto.
 
@@ -88,11 +88,11 @@ Puede agregar su cuenta personal de Amazon activando primero la verificación en
 
 3. Escriba un **nombre de cuenta** (por ejemplo, Amazon) y escriba la **clave secreta** del paso 1; a continuación, seleccione **Finish** (Finalizar).
 
-4. Complete el resto del proceso de registro, incluida la operación para agregar un método de verificación de copia de seguridad, como un mensaje de texto y, a continuación, seleccione **Send code** (Enviar código).
+4. Complete el resto del proceso de registro, incluida la operación para agregar un método de verificación de copia de seguridad, como un mensaje de texto y, a continuación, seleccione **Enviar código**.
 
-5. En la página **Add a backup verification method** (Añadir método de verificación de copia de seguridad) en su PC, escriba el código de verificación de seis dígitos que proporciona el método de verificación de copia de seguridad para su cuenta de Amazon y, a continuación, seleccione **Verificar código y continuar**.
+5. En la página **Add a backup verification method** (Añadir método de verificación de copia de seguridad) en el equipo, escriba el código de verificación de seis dígitos que proporciona el método de verificación de copia de seguridad para su cuenta de Amazon y, a continuación, seleccione **Verificar código y continuar**.
 
-6. En la página Almost done (Casi hemos terminado), decida si quiere que su PC sea un dispositivo de confianza y, a continuación, seleccione **Got it. Turn on Two-Step Verification** (Entendido. Activar la verificación en dos pasos).
+6. En la página Almost done (Casi hemos terminado), decida si quiere que su equipo sea un dispositivo de confianza y, a continuación, seleccione **Got it. Turn on Two-Step Verification** (Entendido. Activar la verificación en dos pasos).
 
     A continuación aparecerá la página **Ajustes de seguridad avanzada**, y se mostrarán los detalles de la verificación en dos fases actualizada.
 

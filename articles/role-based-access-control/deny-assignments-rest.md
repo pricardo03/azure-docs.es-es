@@ -1,6 +1,6 @@
 ---
-title: 'Enumeración de las asignaciones de denegación mediante RBAC y la API REST: Azure | Microsoft Docs'
-description: Aprenda a enumerar las asignaciones de denegación para usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) y la API REST.
+title: 'Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST: Azure | Microsoft Docs'
+description: Aprenda a enumerar las asignaciones de denegación para usuarios, grupos y aplicaciones mediante el control de acceso basado en rol (RBAC) para recursos de Azure y la API de REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975594"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341630"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Enumeración de las asignaciones de denegación mediante RBAC y la API REST
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST
 
 Actualmente, las asignaciones de denegación son de **solo lectura** y únicamente pueden establecerse mediante Azure. Aunque no se pueden crear asignaciones de denegación propias, se pueden enumerar, ya que pueden afectar a los permisos vigentes. En este artículo se describe la enumeración de las asignaciones de denegación mediante RBAC y la API REST.
 
@@ -36,7 +36,7 @@ Actualmente, las asignaciones de denegación son de **solo lectura** y únicamen
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de denegación quiere obtener.
 
-    | Ámbito | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -60,7 +60,7 @@ Actualmente, las asignaciones de denegación son de **solo lectura** y únicamen
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de denegación quiere obtener.
 
-    | Ámbito | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -95,6 +95,6 @@ Actualmente, las asignaciones de denegación son de **solo lectura** y únicamen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Descripción de las asignaciones de denegación](deny-assignments.md)
+- [Descripción de las asignaciones de denegación para recursos de Azure](deny-assignments.md)
 - [Elevación de los privilegios de acceso de un administrador global en Azure Active Directory](elevate-access-global-admin.md)
 - [Azure REST API Reference](/rest/api/azure/) (Referencia de API de REST en Azure)

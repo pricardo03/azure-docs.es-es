@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882223"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428211"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Transmisión de un token de acceso a través de un flujo de usuario a la aplicación en Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882223"
 
 Un [flujo de usuario](active-directory-b2c-reference-policies.md) en Azure Active Directory (Azure AD) B2C proporciona una oportunidad a los usuarios para registrarse o iniciar sesión con un proveedor de identidades. Cuando esto sucede, Azure AD B2C recibe un [token de acceso](active-directory-b2c-reference-tokens.md) del proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. Habilite una notificación en el flujo de usuario para pasar el token a través de las aplicaciones que registre en Azure AD B2C.
 
-Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), incluidos [Facebook](active-directory-b2c-setup-fb-app.md) y [Google](active-directory-b2c-setup-goog-app.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
+Azure AD B2C admite pasar el token de acceso de los proveedores de identidades de [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) y [OpenID Connect](active-directory-b2c-reference-oidc.md). Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - La aplicación debe usar un [flujo de usuario v2](user-flow-versions.md).
-- El flujo de usuario se configura con un proveedor de identidades de OAuth 2.0.
+- El flujo de usuario se configura con un proveedor de identidades de OAuth 2.0. o de OpenID Connect.
 
 ## <a name="enable-the-claim"></a>Habilitación de la notificación
 

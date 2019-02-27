@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083927"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428784"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -53,19 +53,20 @@ Hay cinco pasos para crear una implementación. En las siguientes secciones se a
 ### <a name="step-1-name-and-label"></a>Paso 1: Nombre y etiqueta
 
 1. Asigne a su implementación un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
-1. Agregue etiquetas para realizar un mejor seguimiento de las implementaciones. Las etiquetas son pares de **nombre** y **valor** que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
+1. Puede agregar etiquetas como pares clave-valor para ayudarle a realizar un seguimiento de las implementaciones. Por ejemplo, **HostPlatform** y **Linux**, o **Versión** y **3.0.1**.
 1. Seleccione **Siguiente** para ir al segundo paso. 
 
 ### <a name="step-2-add-modules-optional"></a>Paso 2: Incorporación de módulos (opcional)
 
-Hay dos tipos de módulos que se pueden agregar a una implementación. El primero es un módulo basado en un servicio de Azure, como una cuenta de Storage o Stream Analytics. El segundo es un módulo basado en su propio código. Puede agregar varios módulos de cualquier tipo a una implementación. 
+Hay dos tipos de módulos que se pueden agregar a una implementación. El primero es un módulo basado en un servicio de Azure, como una cuenta de Storage o Stream Analytics. El segundo es un módulo que utiliza su propio código. Puede agregar varios módulos de cualquier tipo a una implementación. 
 
 Si se crea una implementación sin módulos, quita cualquier módulo actual de los dispositivos. 
 
 >[!NOTE]
->Azure Machine Learning y Azure Functions todavía no admiten la implementación del servicio de Azure automatizada. Use la implementación de módulo personalizada para agregar manualmente esos servicios a la implementación. 
+>Azure Functions todavía no admiten la implementación del servicio de Azure automatizada. Use la implementación de módulo personalizada para agregar manualmente ese servicio a la implementación. 
 
 Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
+
 1. En la sección **Deployment Modules** (Módulos de implementación) de la página, haga clic en **Agregar**.
 1. Seleccione **Azure Stream Analytics module** (Módulo de Azure Stream Analytics).
 1. Seleccione su **Suscripción** en el menú desplegable.
@@ -73,7 +74,8 @@ Para agregar un módulo desde Azure Stream Analytics, siga estos pasos:
 1. Seleccione **Guardar** para agregar el módulo a la implementación. 
 
 Para agregar código personalizado como un módulo, o para agregar manualmente un módulo de servicio de Azure, siga estos pasos:
-1. En la sección **Configuración del registro** de la página, proporcione los nombres y las credenciales para cualquier registro del contenedor privado que contenga las imágenes del módulo para esta implementación. El agente de Edge notificará el error 500 si no puede encontrar las credenciales del registro del contenedor para una imagen de Docker.
+
+1. En la sección **Configuración de Container Registry** de la página, proporcione los nombres y las credenciales para cualquier registro del contenedor privado que contenga las imágenes del módulo para esta implementación. El agente de Edge notificará el error 500 si no puede encontrar las credenciales del registro del contenedor para una imagen de Docker.
 1. En la sección **Deployment Modules** (Módulos de implementación) de la página, haga clic en **Agregar**.
 1. Seleccione **Módulo IoT Edge**.
 1. Asigne un **nombre** al módulo.
@@ -87,7 +89,7 @@ Para agregar código personalizado como un módulo, o para agregar manualmente u
 1. Use el menú desplegable para seleccionar el **estado deseado** para el módulo. Elija entre las siguientes opciones:
    * **En ejecución**: esta es la opción predeterminada. El módulo volverá a ejecutarse inmediatamente después de la implementación.
    * **Detenido**: tras la implementación, el módulo permanecerá inactivo hasta que se llame después del inicio por el usuario u otro módulo.
-1. Seleccione **Habilitar** si quiere agregar etiquetas o propiedades al módulo gemelo. 
+1. Seleccione **Set module twin's desired properties** (Establecer propiedades deseadas del módulo gemelo) si desea agregar etiquetas u otras propiedades al módulo gemelo.
 1. Escriba las **Variables de entorno** para este módulo. Las variables de entorno brindan información adicional a un módulo, lo cual facilita el proceso de configuración.
 1. Seleccione **Guardar** para agregar el módulo a la implementación. 
 
@@ -99,8 +101,22 @@ Las rutas definen cómo los módulos se comunican entre sí dentro de una implem
 
 Agregue o actualice las rutas con información de [Declaración de rutas](module-composition.md#declare-routes) y, luego, seleccione **Siguiente** para continuar con la sección de revisión.
 
+### <a name="step-4-specify-metrics-optional"></a>Paso 4: Especificar las métricas (opcional)
 
-### <a name="step-4-target-devices"></a>Paso 4: Dispositivos de destino
+Las métricas proporcionan el número de resúmenes de los distintos estados que un dispositivo puede notificar como resultado de la aplicación del contenido de configuración.
+
+1. Escriba un nombre para **Nombre de métrica**.
+
+1. Escriba una consulta para **Criterios de las métricas**. La consulta se basa en las [propiedades notificadas](module-edgeagent-edgehub.md#edgehub-reported-properties) del módulo gemelo del centro de IoT Edge. La métrica representa el número de filas devueltas por la consulta.
+
+Por ejemplo: 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+### <a name="step-5-target-devices"></a>Paso 5: Dispositivos de destino
 
 Use la propiedad de etiquetas en los dispositivos para dirigirse a los dispositivos específicos que deberían recibir esta implementación. 
 
@@ -110,9 +126,32 @@ Como varias implementaciones pueden tener como destino el mismo dispositivo, deb
 1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Seleccione **Siguiente** para pasar al último paso.
 
-### <a name="step-5-review-template"></a>Paso 5: Plantilla de revisión
+### <a name="step-6-review-deployment"></a>Paso 6: Revisar la implementación
 
 Revise la información de implementación y seleccione **Enviar**.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Implementación de módulos desde Azure Marketplace
+
+Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que puede examinar una amplia gama de aplicaciones y soluciones empresariales que están certificadas y optimizadas para ejecutarse en Azure, incluyendo los [módulos de IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). También puede acceder a Azure Marketplace desde la sección **Crear un recurso** de Azure Portal.
+
+Puede instalar un módulo IoT Edge desde Azure Marketplace o desde Azure Portal:
+
+1. Encuentre un módulo e inicie el proceso de implementación.
+
+   * Azure Portal: Encuentre un módulo y seleccione **Crear**.
+
+   * Azure Marketplace:
+
+     1. Encuentre un módulo y seleccione **Obtenerla ahora**.
+     1. Para confirmar las condiciones de uso y la directiva de privacidad del proveedor, seleccione **Continuar**.
+
+1. Elija la suscripción y la instancia de IoT Hub a la que está asociado el dispositivo de destino.
+
+1. Seleccione la **Implementación a escala**.
+
+1. Elija si desea agregar el módulo a una nueva implementación o a un clon de una implementación existente. Si opta por la clonación, seleccione en la lista la implementación existente.
+
+1. Seleccione **Crear** para continuar el proceso de creación de una implementación a escala. Podrá especificar los mismos detalles como lo haría para cualquier implementación.
 
 ## <a name="monitor-a-deployment"></a>Supervisión de una implementación
 
@@ -130,15 +169,17 @@ Para ver los detalles de una implementación y supervisar los dispositivos que l
    * **Priority** (Prioridad): el número de prioridad asignado a la implementación.
    * **Métricas del sistema** - **Dirigidas** especifica el número de dispositivos gemelos en IoT Hub que coinciden con la condición de destino, y **Aplicadas** especifica el número de dispositivos que ha tenido el contenido de implementación aplicado a sus módulos gemelos en IoT Hub. 
    * **Métricas del dispositivo**: el número de dispositivos de Edge en el informe de implementación correcto o con errores del entorno de ejecución del cliente de IoT Edge.
+   * **Métricas personalizadas**: el número de dispositivos de Edge en los datos del informe de implementación para cualquiera de las métricas que haya definido para la implementación.
    * **Creation time** (Hora de creación): la marca de tiempo de cuando se creó la implementación. Esta marca de tiempo se utiliza para dirimir cuando dos implementaciones tienen la misma prioridad. 
-2. Seleccione la implementación que desea supervisar.  
-3. Examine los detalles de la implementación. Puede usar las pestañas para revisar los detalles de la implementación.
+1. Seleccione la implementación que desea supervisar.  
+1. Examine los detalles de la implementación. Puede usar las pestañas para revisar los detalles de la implementación.
 
 ## <a name="modify-a-deployment"></a>Modificación de una implementación
 
 Cuando se modifica una implementación, los cambios se replican inmediatamente a todos los dispositivos seleccionados. 
 
 Si actualiza la condición de destino, se producen las siguientes actualizaciones:
+
 * Si un dispositivo no cumplía la antigua condición de destino, pero cumple la nueva condición de destino y esta implementación es la prioridad más alta para ese dispositivo, esta implementación se aplica al dispositivo. 
 * Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino, desinstala esta implementación y asume la siguiente implementación de mayor prioridad. 
 * Si un dispositivo que actualmente ejecuta esta implementación ya no cumple la condición de destino y no cumple la condición de destino de cualquier otra implementación, no se produce ningún cambio en el dispositivo. El dispositivo sigue ejecutando los módulos actuales en su estado actual, pero ya no se administra como parte de esta implementación. Cuando se cumple la condición de destino de cualquier otra implementación, desinstala esta implementación y adopta una nueva. 
@@ -153,9 +194,10 @@ Para modificar una implementación, siga estos pasos:
 
 1. Seleccione la implementación que desea modificar. 
 1. Realice las actualizaciones en los campos siguientes: 
-   * Condición de destino 
-   * Etiquetas 
-   * Prioridad 
+   * Condición de destino
+   * Métricas: puede modificar o eliminar las métricas que haya definido, o agregar otras nuevas.
+   * Etiquetas
+   * Prioridad
 1. Seleccione **Guardar**.
 1. Siga los pasos de [Supervisión de una implementación](#monitor-a-deployment) para observar la implementación de los cambios. 
 

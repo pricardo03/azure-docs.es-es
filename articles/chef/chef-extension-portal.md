@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358157"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327557"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalación del cliente Chef desde Azure Portal
 Puede agregar la extensión de cliente de Chef directamente en una máquina Linux o Windows desde Azure Portal. Este artículo le guiará a través de ese proceso con una nueva máquina virtual Linux.
@@ -53,7 +53,7 @@ En esta sección, primero usará Azure Portal para crear una máquina Linux. Dur
 1. En la pestaña **Aspectos básicos**, especifique los siguientes valores y luego seleccione **Aceptar**.
 
     - **Nombre**: escriba el nombre de la nueva máquina virtual.
-    - **Tipo de disco de máquina virtual**: especifique **SSD** o **HDD** como tipo de disco de almacenamiento. Para más información sobre los tipos de disco de máquina virtual en Azure, vea el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](/azure/virtual-machines/windows/premium-storage).
+    - **Tipo de disco de máquina virtual**: especifique **SSD** o **HDD** como tipo de disco de almacenamiento. Para más información sobre los tipos de disco de máquina virtual, consulte el artículo [Selección de un tipo de disco](../virtual-machines/windows/disks-types.md).
     - **Nombre de usuario**: escriba un nombre de usuario al que se concederán privilegios de administrador en la máquina virtual.
     - **Tipo de autenticación**: seleccione **Contraseña**. También puede seleccionar **Clave SSH pública** y proporcionar un valor de clave SSH pública. Para los fines de esta demostración, y tal como aparece en las capturas de pantalla, se selecciona **Contraseña**.
     - **Contraseña** y **Confirmar contraseña**: escriba una contraseña para el usuario.

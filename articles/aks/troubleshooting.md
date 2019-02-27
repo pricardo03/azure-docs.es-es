@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468842"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327568"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -34,7 +34,11 @@ La configuración máxima de pods por nodo es 110 de forma predeterminada si imp
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Recibo el error insufficientSubnetSize al implementar un clúster de AKS con redes avanzadas. ¿Cuál debo hacer?
 
-En la opción personalizada de Azure Virtual Network para redes durante la creación de AKS, se usa la interfaz de red de contenedor (CNI) de Azure para la administración de direcciones IP (IPAM). El número de nodos en un clúster de AKS puede ser cualquier valor entre 1 y 100. En función de la sección anterior, el tamaño de subred debe ser mayor que el producto del número de nodos y el máximo de pods por nodo. Se puede expresar la relación de esta manera: tamaño de subred > número de nodos del clúster * máximo de pods por nodo.
+Si se usa Azure CNI (conexiones de red avanzadas), AKS preasigna las direcciones IP según el criterio de "máximos pods" por nodo configurado. El número de nodos en un clúster de AKS puede ser cualquier valor entre 1 y 110. En función del número máximo de pods configurados por nodo, el tamaño de subred debe ser mayor que el producto del número de nodos y el número máximo de pods por nodo. Esto se describe en la siguiente ecuación básica:
+
+Tamaño de subred > número de nodos del clúster (teniendo en cuenta los requisitos de escalado futuras) * máx. pods por nodo.
+
+Para más información, consulte [Planeamiento de direccionamiento IP del clúster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mi pod se ha atascado en el modo CrashLoopBackOff. ¿Cuál debo hacer?
 

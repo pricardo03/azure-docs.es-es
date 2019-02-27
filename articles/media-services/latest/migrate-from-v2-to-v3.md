@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744180"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340355"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -45,11 +45,11 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 
 * Para el procesamiento de trabajos basados en archivos, puede usar una dirección URL de HTTP(S) como entrada.<br/>No es necesario tener contenido ya almacenado en Azure, ni es necesario crear recursos.
 * Presenta el concepto de [transformaciones](transforms-jobs-concept.md) para el procesamiento de trabajos basados en archivos. Una transformación puede utilizarse para crear configuraciones reutilizables, crear plantillas de Azure Resource Manager y aislar los valores de procesamiento entre varios clientes o inquilinos.
-* Un recurso puede tener varios [Localizadores de streaming](streaming-locators-concept.md) con diferentes configuraciones de empaquetado dinámico y cifrado dinámico.
+* Un recurso puede tener varios [Localizadores de streaming](streaming-locators-concept.md) con diferentes configuraciones de [empaquetado dinámico](dynamic-packaging-overview.md) y cifrado dinámico.
 * La [protección de contenido](content-key-policy-concept.md) es compatible con características de varias claves.
 * Puede transmitir eventos en directo que tengan hasta 24 horas de duración al usar Media Services para transcodificar una fuente de contribución de velocidad de bits única en un flujo de salida que tiene varias velocidades de bits.
 * Nueva compatibilidad de streaming en vivo de baja latencia en Eventos en directo. Para más información, consulte [latencia](live-event-latency.md).
-* La versión preliminar de Evento en directo admite empaquetado dinámico y cifrado dinámico. Esto habilita la protección de contenido en la vista previa, así como el empaquetado DASH y HLS.
+* La versión preliminar de Evento en directo admite [empaquetado dinámico](dynamic-packaging-overview.md) y cifrado dinámico. Esto habilita la protección de contenido en la vista previa, así como el empaquetado DASH y HLS.
 * Salida en directo es más fácil de usar que la entidad Program de las API v2. 
 * Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
 * Ingesta segura de RTMPS.<br/>Cuando se crea un evento en directo, el usuario recibe cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   

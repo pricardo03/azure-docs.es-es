@@ -1,6 +1,6 @@
 ---
-title: Cambio, eliminación y administración de los grupos de administración de Azure
-description: Aprenda a mantener y actualizar la jerarquía de grupos de administración.
+title: 'Cambio, eliminación y administración de los grupos de administración de Azure: Gobierno de Azure'
+description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582424"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342606"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -39,11 +39,11 @@ Puede cambiar el nombre del grupo de administración mediante el portal, PowerSh
 
 1. Seleccione la opción **Cambiar nombre de grupo** en la parte superior de la página.
 
-   ![Cambiar nombre de grupo](./media/detail_action_small.png)
+   ![Opción Cambiar nombre de grupo](./media/detail_action_small.png)
 
 1. Cuando se abra el menú, escriba el nuevo nombre que desea mostrar.
 
-   ![Cambiar nombre de grupo](./media/rename_context.png)
+   ![Panel Cambiar nombre de grupo](./media/rename_context.png)
 
 1. Seleccione **Guardar**.
 
@@ -87,11 +87,11 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
    - Si el icono está deshabilitado, al mantener el selector del mouse sobre el icono se muestra el motivo.
 
-   ![Eliminar grupo](./media/delete.png)
+   ![Opción de eliminación de grupo](./media/delete.png)
 
 1. Se abre una ventana para que confirme si quiere eliminar el grupo de administración.
 
-   ![Eliminar grupo](./media/delete_confirm.png)
+   ![Ventana de confirmación de eliminación de grupo](./media/delete_confirm.png)
 
 1. Seleccione **Sí**.
 
@@ -195,13 +195,13 @@ Para ver qué permisos tiene, seleccione el grupo de administración y, a contin
 
 1. Seleccione los puntos suspensivos al final de la fila correspondiente a la suscripción de la lista que quiere mover.
 
-   ![Move](./media/move_small.png)
+   ![Opción Mover](./media/move_small.png)
 
 1. Seleccione **Mover**.
 
 1. En el menú que se abre, seleccione el **grupo de administración primario**.
 
-   ![Move](./media/move_small_context.png)
+   ![Panel Mover](./media/move_small_context.png)
 
 1. Seleccione **Guardar**.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c684e9d1bf6cec12024cedfb5360d10e400e139
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429940"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416011"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edición de runbooks de texto en Azure Automation
 
@@ -22,7 +22,7 @@ El editor de texto de Azure Automation sirve para editar [runbooks de PowerShell
 
 El editor de texto incluye una característica para insertar código para cmdlets, los recursos y los runbooks secundarios en un runbook. En lugar de escribir en el código personalmente, puede seleccionar entre una lista de recursos disponibles para que se inserte el código adecuado en el runbook.
 
-Cada runbook de Azure Automation tiene dos versiones: una de borrador y otra publicada. Edite la versión de borrador del runbook y después publíquela para que pueda ejecutarse. No se puede editar la versión publicada. Consulte el artículo sobre la [publicación de un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) para obtener más información.
+Cada runbook de Azure Automation tiene dos versiones: una de borrador y otra publicada. Edite la versión de borrador del runbook y después publíquela para que pueda ejecutarse. No se puede editar la versión publicada. Para más información, consulte [Publicación de un Runbook](manage-runbooks.md#publish-a-runbook).
 
 Para trabajar con [runbooks gráficos](automation-runbook-types.md#graphical-runbooks), consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -33,7 +33,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 1. En el Portal de Azure, seleccione su cuenta de automatización.
 2. En **AUTOMATIZACIÓN DE PROCESOS**, seleccione **Runbooks** para abrir la lista de runbooks.
 3. Seleccione el runbook que desea editar y después en el botón **Editar**.
-4. Realice las modificaciones necesarias.
+4. Edite el runbook.
 5. Haga clic en **Guardar** cuando termine las modificaciones.
 6. Haga clic en **Publicar** si desea que la última versión de borrador del runbook se publique.
 
@@ -42,7 +42,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 1. En el lienzo del editor de texto, coloque el cursor donde desee colocar el cmdlet.
 2. Expanda el nodo **Cmdlets** en el control Biblioteca.
 3. Expanda el módulo que contiene el cmdlet que desea usar.
-4. Haga clic con el botón derecho en el cmdlet para insertarlo y seleccione **Agregar a lienzo**. Si el cmdlet tiene más de un conjunto de parámetros, se agregará el conjunto predeterminado. También puede expandir el cmdlet para seleccionar un conjunto de parámetros diferente.
+4. Haga clic con el botón derecho en el cmdlet para insertarlo y seleccione **Agregar al lienzo**. Si el cmdlet tiene más de un conjunto de parámetros, se agregará el conjunto predeterminado. También puede expandir el cmdlet para seleccionar un conjunto de parámetros diferente.
 5. Se inserta el código para el cmdlet con toda su lista de parámetros.
 6. Proporcione un valor adecuado en lugar del tipo de datos entre corchetes, <>, para los parámetros necesarios. Elimine cualquier parámetro que no sea necesario.
 
@@ -50,7 +50,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 
 1. En el lienzo del editor de texto, coloque el cursor donde desee colocar el código para el [runbook secundario](automation-child-runbooks.md).
 2. Expanda el nodo **Runbooks** en el control Biblioteca.
-3. Haga clic con el botón derecho en el runbook para insertarlo y seleccione **Agregar a lienzo**.
+3. Haga clic con el botón derecho en el runbook para insertarlo y seleccione **Agregar al lienzo**.
 4. Se inserta el código para el runbook secundario con los marcadores de posición de los parámetros de runbook.
 5. Reemplace los marcadores de posición por valores adecuados para cada parámetro.
 
@@ -59,12 +59,12 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 1. En el lienzo del editor de texto, coloque el cursor donde desee colocar el código para el runbook secundario.
 2. Expanda el nodo **Recursos** en el control Biblioteca.
 3. Expanda el nodo para el tipo de recurso que desee.
-4. Haga clic con el botón derecho en el recurso para insertarlo y seleccione **Agregar a lienzo**. Para [recursos variables](automation-variables.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
+4. Haga clic con el botón derecho en el recurso para insertarlo y seleccione **Agregar al lienzo**. Para [recursos variables](automation-variables.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
 5. El código para el recurso se inserta en el runbook.
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Para editar un runbook de Azure Automation mediante Windows PowerShell
 
-Para editar un runbook con Windows PowerShell, use el editor de su elección y guárdelo en un archivo. ps1. Puede usar el cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) para recuperar el contenido del runbook y después el cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) para reemplazar el borrador del runbook existente por el modificado.
+Para editar un runbook con Windows PowerShell, use el editor de su elección y guárdelo en un archivo `.ps1`. Puede usar el cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) para recuperar el contenido del runbook y después el cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) para reemplazar el borrador del runbook existente por el modificado.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Para recuperar el contenido de un runbook mediante Windows PowerShell
 
@@ -81,7 +81,7 @@ Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $autom
 
 ### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>Para cambiar el contenido de un runbook mediante Windows PowerShell
 
-En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido existente de un runbook por el de un archivo de script. Tenga en cuenta que es el mismo procedimiento de ejemplo que en el artículo sobre cómo [importar un runbook desde un archivo de script con Windows PowerShell](automation-creating-importing-runbook.md).
+En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido existente de un runbook por el de un archivo de script. Se trata del mismo procedimiento de ejemplo que en la sección [To import a runbook from a script file with Windows PowerShell](manage-runbooks.md#import-a-runbook) (Importación de un runbook a partir de un archivo de script con Windows PowerShell).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -95,7 +95,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-* [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
+* [Administración de runbooks en Azure Automation](manage-runbooks.md)
 * [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 * [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * [Certificates](automation-certificates.md)

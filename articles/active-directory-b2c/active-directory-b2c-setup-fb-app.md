@@ -1,5 +1,5 @@
 ---
-title: Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C | Microsoft Docs
+title: 'Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook: Azure Active Directory B2C | Microsoft Docs'
 description: Permita suscribirse e iniciar sesión en sus aplicaciones a los clientes con cuentas de Facebook mediante Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163048"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428506"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Creación de una aplicación de Facebook
 
-Para usar una cuenta de Facebook como proveedor de identidades en Azure Active Directory (Azure AD) B2C, debe crear una aplicación en su inquilino que la represente. Si aún no tiene una cuenta de Facebook, puede obtenerla en [https://www.facebook.com/](https://www.facebook.com/).
+Para usar una cuenta de Facebook como [proveedor de identidades](active-directory-b2c-reference-oauth-code.md) en Azure Active Directory (Azure AD) B2C, tiene que crear una aplicación en su inquilino que la represente. Si aún no tiene una cuenta de Facebook, puede obtenerla en [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Inicie sesión en [Facebook for developers](https://developers.facebook.com/) con las credenciales de su cuenta de Facebook.
 2. Si aún no lo ha hecho, debe registrarse como desarrollador de Facebook. Para ello, seleccione **Register** (Registrarte) en la esquina superior derecha de la página, acepte las directivas de Facebook y complete los pasos de registro.

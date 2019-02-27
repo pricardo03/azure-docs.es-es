@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469505"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415517"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -54,6 +54,20 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
+### <a name="blank-sign-in-dialog"></a>Cuadro de diálogo de inicio de sesión en blanco
+Que un cuadro de diálogo de inicio de sesión esté en blanco suele deberse a que ADFS le pide al Explorador de Storage que realice una redirección que Electron no admite. Para solucionar este problema, puede intentar usar el flujo de código de dispositivo para el inicio de sesión. Para ello, siga los pasos que se indican a continuación:
+1. "Vaya a Experimental" -> "Use el inicio de sesión de código de dispositivo".
+2. Abra el cuadro de diálogo de conexión (ya sea mediante el icono de interruptor de la barra vertical izquierda o con "Agregar cuenta" en el panel de la cuenta).
+3. Elija en qué entorno que desea iniciar sesión.
+4. Haga clic en el botón "Iniciar sesión".
+5. Siga las instrucciones del siguiente panel.
+
+Nota: Actualmente esta característica solo está disponible en la versión preliminar 1.7.0.
+
+Si tiene problemas para iniciar sesión en la cuenta que desea utilizar porque ya está registrado el explorador predeterminado en una cuenta diferente, puede hacer lo siguiente:
+1. Copie manualmente el vínculo y el código en una sesión privada del explorador.
+2. Copie manualmente el vínculo y el código en otro navegador distinto.
+
 ### <a name="reauthentication-loop-or-upn-change"></a>Bucle de reautenticación o cambio UPN
 Si se encuentra en un bucle de reautenticación o ha cambiado el UPN de una de sus cuentas, intente lo siguiente:
 1. Quite todas las cuentas y cierre el Explorador de Storage.
@@ -90,7 +104,7 @@ Si ninguno de estos métodos funciona, [abra una incidencia en GitHub](https://g
 Si no puede recuperar las suscripciones después de iniciar sesión correctamente, siga los métodos siguientes de solución de problemas:
 
 * Compruebe que la cuenta tiene acceso a las que espera. Para comprobar que tiene acceso, inicie sesión en el portal para el entorno de Azure que está intentando usar.
-* Asegúrese de que ha iniciado sesión con el entorno correcto de Azure (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
+* Asegúrese de que ha iniciado sesión con el entorno correcto de Azure (Azure, Azure China 21Vianet, Azure Alemania, Azure US Government, o entorno personalizado).
 * Si está detrás de un proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
 * Pruebe a quitar la cuenta y volver a agregarla.
 * Si hay un vínculo "Más información", vea qué mensajes de error se notifican para los inquilinos en los que se producen errores. Si no está seguro de qué hacer con los mensajes de error que ve, si lo desea, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +130,7 @@ En primer lugar, asegúrese de que la siguiente información que especificó sea
 * La dirección URL del proxy y el número de puerto
 * El nombre de usuario y la contraseña si los exige el proxy
 
-Tenga en cuenta que el Explorador de Storage no es compatible con los archivos .PAC para configurar el proxy.
+Tenga en cuenta que el Explorador de Storage no es compatible con los archivos auto-config del proxy para configurar el proxy.
 
 ### <a name="common-solutions"></a>Soluciones comunes
 

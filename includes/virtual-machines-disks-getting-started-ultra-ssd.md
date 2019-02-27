@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985502"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443351"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>Habilitación de discos SSD Ultra de Azure
+# <a name="enabling-azure-ultra-ssd"></a>Habilitación de discos SSD Ultra de Azure
 
-SSD Ultra de Azure le ofrece un alto rendimiento, IOPS elevadas y un almacenamiento en disco consistente y de baja latencia para máquinas virtuales IaaS de Azure. En esta nueva oferta se proporciona un rendimiento exclusivo que se encuentra en los mismos niveles de disponibilidad que nuestras ofertas de discos existentes. Los beneficios adicionales de Ultra SSD incluyen la capacidad de cambiar dinámicamente el rendimiento del disco junto con sus cargas de trabajo sin tener que reiniciar las máquinas virtuales. Asimismo, SSD Ultra es adecuado para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de primer nivel y cargas de trabajo que admitan muchas transacciones.
+SSD Ultra de Azure ofrece un alto rendimiento, un número elevado de IOPS y un almacenamiento en disco coherente y de baja latencia para máquinas virtuales IaaS de Azure. En esta nueva oferta se proporciona un rendimiento exclusivo que se encuentra en los mismos niveles de disponibilidad que nuestras ofertas de discos existentes. Los beneficios adicionales de Ultra SSD incluyen la posibilidad de cambiar dinámicamente el rendimiento del disco junto con sus cargas de trabajo sin tener que reiniciar las máquinas virtuales. Asimismo, SSD Ultra es adecuado para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de nivel superior y cargas de trabajo que admitan muchas transacciones.
 
-Actualmente, SSD Ultra está en versión preliminar y se debe [inscribir](https://aka.ms/UltraSSDPreviewSignUp) en la vista previa con el fin de tener acceso a ellos.
+Actualmente, SSD Ultra está en versión preliminar y es necesario [inscribirse](https://aka.ms/UltraSSDPreviewSignUp) en la vista previa para acceder a ellos.
 
-Una vez aprobada, ejecute uno de los comandos siguientes para determinar en qué zona de Este de EE. UU. 2 va a implementar SSD Ultra para:
+Una vez aprobada, ejecute uno de los comandos siguientes para determinar en qué zona de Este de EE. UU. 2 va a implementar el disco Ultra:
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
@@ -35,7 +35,7 @@ La respuesta será similar al formulario siguiente, donde X es la zona que se ut
 
 Si no hubo respuesta del comando, eso significa que el registro de la característica está pendiente o todavía no se ha aprobado.
 
-Ahora que sabe en qué zona realizar la implementación, siga los pasos de implementación de este artículo para obtener sus primeras máquinas virtuales implementadas con discos SSD Ultra.
+Ahora que conoce la zona de implementación, siga los pasos de implementación de este artículo para obtener sus primeras máquinas virtuales implementadas con discos SSD Ultra.
 
 ## <a name="deploying-an-ultra-ssd"></a>Implementación de un disco SSD Ultra
 
@@ -44,7 +44,7 @@ Consulte también el ejemplo [Creación de una máquina virtual con varios disco
 
 A continuación se describen los cambios nuevos o modificados en la plantilla de Resource Manager: **apiVersion** para `Microsoft.Compute/virtualMachines` y `Microsoft.Compute/Disks` debe establecerse en `2018-06-01` (o posterior).
 
-Especifique el disco Sku UltraSSD_LRS, capacidad de disco, IOPS y rendimiento en MBps para crear un disco SSD Ultra. El siguiente es un ejemplo que crea un disco con 1024 GiB (GiB = 2^30 Bytes), 80 000 IOPS y 1 200 MBps (MBps = 10^6 Bytes por segundo):
+Especifique el disco Sku UltraSSD_LRS, la capacidad de disco, el número de IOPS y el rendimiento en MBps para crear un disco SSD Ultra. El siguiente es un ejemplo que crea un disco con 1024 GiB (GiB = 2^30 Bytes), 80 000 IOPS y 1 200 MBps (MBps = 10^6 Bytes por segundo):
 
 ```json
 "properties": {  
@@ -77,10 +77,10 @@ Agregue una funcionalidad adicional en las propiedades de la máquina virtual pa
 
 Cuando se aprovisiona la máquina virtual, puede realizar una partición y dar formato a los discos de datos y configurarlos para las cargas de trabajo.
 
-## <a name="additional-ultra-ssd-scenarios"></a>Escenarios adicionales de SSD Ultra
+## <a name="additional-ultra-ssd-scenarios"></a>Otros escenarios de SSD Ultra
 
-- Durante la creación de máquinas virtuales, los discos SSD Ultra puede crearse de forma implícita también. Sin embargo, estos discos recibirán un valor predeterminado para IOPS (500) y para el rendimiento (8 MiB/s).
-- Discos SSD Ultra adicionales pueden asociarse a máquinas virtuales compatibles.
+- Durante la creación de máquinas virtuales, los discos SSD Ultra pueden crearse también de forma implícita. Sin embargo, estos discos recibirán un valor predeterminado para IOPS (500) y para el rendimiento (8 MiB/s).
+- Se pueden asociar discos SSD Ultra adicionales a máquinas virtuales compatibles.
 - Los discos SSD Ultra admiten el ajuste de los atributos de rendimiento del disco (IOPS y rendimiento) en tiempo de ejecución sin necesidad de desasociar el disco de la máquina virtual. Cuando se ha enviado una operación de cambio de tamaño del rendimiento del disco en un disco, este cambio puede tardar hasta una hora en surtir efecto.
 - El aumento de la capacidad del disco requiere que se anule la asignación de una máquina virtual.
 

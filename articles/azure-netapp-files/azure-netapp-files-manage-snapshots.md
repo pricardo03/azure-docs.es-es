@@ -1,6 +1,6 @@
 ---
 title: Administración de instantáneas mediante Azure NetApp Files | Microsoft Docs
-description: Describe cómo crear una instantánea a petición para un volumen o restaurar desde una instantánea a un nuevo volumen mediante Azure NetApp Files.
+description: Se describe cómo crear instantáneas para un volumen o realizar una restauración a partir de una instantánea en un nuevo volumen mediante Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412947"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430206"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
+
 Puede usar Azure NetApp Files para crear una instantánea a petición para un volumen o restaurar desde una instantánea a un nuevo volumen.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creación de una instantánea a petición para un volumen
-Solo puede crear instantáneas a petición.  Las directivas de instantánea no se admiten actualmente.  
-1.  En la hoja Administración de volumen, haga clic en **Instantáneas** y, a continuación, en **+ Agregar instantánea** para crear una instantánea a petición para un volumen.
 
-2.  En la ventana Nueva instantánea, proporcione un nombre para la nueva instantánea que va a crear.   
+Solo puede crear instantáneas a petición. Las directivas de instantánea no se admiten actualmente.
 
-3. Haga clic en **OK**. 
+1.  En la hoja Volume (Volumen), haga clic en **Snapshots** (Instantáneas).
 
+    ![Desplazamiento hasta las instantáneas](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+
+2.  Haga clic en **+ Add snapshot** (+Agregar instantánea) para crear una instantánea a petición para un volumen.
+
+    ![Agregar instantánea](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+
+3.  En la ventana Nueva instantánea, proporcione un nombre para la nueva instantánea que va a crear.   
+
+    ![Nueva instantánea](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+
+4. Haga clic en **OK**. 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restauración de una instantánea a un nuevo volumen
+
 Actualmente, puede restaurar una instantánea solo a un nuevo volumen. 
 1. Vaya a la hoja **Administración de instantáneas** desde la hoja Volumen para mostrar la lista de instantáneas. 
 2. Seleccione una instantánea para restaurarla.  
@@ -61,7 +72,7 @@ Actualmente, puede restaurar una instantánea solo a un nuevo volumen.
 
     *   **Red virtual**  
         Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
-        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede tener acceso al servicio Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de redes virtuales. También puede tener acceso al volumen desde la red local a través de Express Route. 
+        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede acceder a Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de VNET. También puede acceder al volumen desde la red local mediante ExpressRoute. 
 
     * **Subred**  
         Especifique la subred que desea usar para el volumen.  
@@ -73,3 +84,6 @@ Actualmente, puede restaurar una instantánea solo a un nuevo volumen.
 5. Haga clic en **OK**.   
     El nuevo volumen al que se restaura la instantánea aparece en la hoja Volúmenes.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+[Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

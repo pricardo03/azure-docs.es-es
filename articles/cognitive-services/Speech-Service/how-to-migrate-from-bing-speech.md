@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863574"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447963"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de Bing Speech al servicio Voz
 
@@ -65,7 +65,7 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 
 Las [API de REST](rest-apis.md) del servicio Voz son compatibles con las Bing Speech API. Si actualmente usa las API de REST de Bing Speech, solo debe cambiar el punto de conexión de REST y cambiar a una clave de suscripción del servicio Voz.
 
-Los protocolos de WebSockets del servicio Voz también son compatibles con los utilizados por Bing Speech. Para nuevos desarrollos, se recomienda usar el SDK del servicio Voz en lugar de WebSockets. También es una buena idea migrar el código existente al SDK. No obstante, como con las API de REST, el código existente que utiliza Bing Speech a través de WebSockets requiere solo un cambio en el punto de conexión y una clave actualizada.
+Los protocolos de WebSockets del servicio Voz también son compatibles con los utilizados por Bing Speech. Para nuevos desarrollos, se recomienda usar el SDK de Voz en lugar de WebSockets. También es una buena idea migrar el código existente al SDK. No obstante, como con las API de REST, el código existente que utiliza Bing Speech a través de WebSockets requiere solo un cambio en el punto de conexión y una clave actualizada.
 
 Si usa una biblioteca de cliente de Bing Speech para un lenguaje de programación específico, migrar al [Speech SDK](speech-sdk.md) requerirá cambios en la aplicación porque la API es diferente. El Speech SDK puede simplificar el código al mismo tiempo que le proporciona acceso a nuevas características.
 

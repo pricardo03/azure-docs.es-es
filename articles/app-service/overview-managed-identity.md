@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105084"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300591"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -280,8 +280,8 @@ Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication 
 
 Una aplicación con una identidad administrada tiene dos variables de entorno definidas:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT: dirección URL del servicio de token local.
+- MSI_SECRET: encabezado que se usa para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF). La plataforma se encarga de cambiarlo.
 
 La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicación puede solicitar tokens. Para obtener un token para un recurso, realice una solicitud HTTP GET para este punto de conexión, incluyendo los parámetros siguientes:
 
@@ -289,7 +289,7 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 > |-----|-----|-----|
 > |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
-> |secret|Encabezado|El valor de la variable de entorno MSI_SECRET.|
+> |secret|Encabezado|El valor de la variable de entorno MSI_SECRET. Este encabezado se utiliza para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF).|
 > |clientid|Consultar|(Opcional) El identificador de la identidad asignada por el usuario que se usará. Si se omite, se usa la identidad asignada por el sistema.|
 
 Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:

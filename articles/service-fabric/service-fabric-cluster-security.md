@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109324"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428644"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Escenarios de seguridad de los clústeres de Service Fabric
 Un clúster de Azure Service Fabric es un recurso que usted posee. Tiene la responsabilidad de proteger los clústeres para impedir que usuarios no autorizados se conecten a ellos. Proteger el clúster es especialmente importante si en él se ejecutan cargas de trabajo de producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos. Los clústeres sin protección no se admiten para cargas de trabajo de producción. 
@@ -73,7 +73,12 @@ Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalid
 Para los clústeres que se ejecutan en Azure también se puede proteger el acceso a los puntos de conexión de administración con Azure Active Directory (Azure AD). Para aprender a crear los artefactos de Azure AD y a rellenarlos al crear el clúster, consulte [Configuración de Azure AD para autenticar a los clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Recomendaciones de seguridad
-Para la seguridad de nodo a nodo en los clústeres de Azure, se recomienda utilizar la seguridad de Azure AD para autenticar a los clientes y certificados.
+Para los clústeres de Service Fabric implementados en una red pública hospedada en Azure, la recomendación para la autenticación mutua de cliente a nodo es:
+*   Usar Azure Active Directory para la identidad del cliente
+*   Un certificado para la identidad del servidor y el cifrado SSL de la comunicación HTTP
+
+Para los clústeres de Service Fabric implementados en una red pública hospedada en Azure, la recomendación para la seguridad de nodo a nodo es usar un certificado de clúster para autenticar los nodos. 
+
 
 Para los clústeres de Windows Server independientes, si tiene Windows Server 2012 R2 y Windows Active Directory, se recomienda la seguridad de Windows con las cuentas de servicio administradas de grupo. De lo contrario, use la seguridad de Windows con cuentas de Windows.
 

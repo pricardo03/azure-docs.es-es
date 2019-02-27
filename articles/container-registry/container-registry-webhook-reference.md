@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857761"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329326"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referencia de webhook de Azure Container Registry
 
@@ -40,17 +40,17 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 
 ### <a name="push-event-payload"></a>Carga del evento de inserción
 
-|Elemento|Escriba|DESCRIPCIÓN|
+|Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
 |`id`|string|El identificador del evento de webhook.|
-|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
 |`action`|string|La acción que desencadenó el evento de webhook.|
 |[Destino](#target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
 ### <a name="target"></a>Destino
 
-|Elemento|Escriba|DESCRIPCIÓN|
+|Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
 |`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido. Igual que el campo de longitud.|
@@ -61,7 +61,7 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 
 ### <a name="request"></a>request
 
-|Elemento|Escriba|DESCRIPCIÓN|
+|Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
 |`id`|string|El identificador de la solicitud que inició el evento.|
 |`host`|string|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
@@ -104,17 +104,17 @@ Webhook que se desencadena cuando se elimina un repositorio o un manifiesto. No 
 
 ### <a name="delete-event-payload"></a>Carga del evento de eliminación
 
-|Elemento|Escriba|DESCRIPCIÓN|
+|Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
 |`id`|string|El identificador del evento de webhook.|
-|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
 |`action`|string|La acción que desencadenó el evento de webhook.|
 |[Destino](#delete_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#delete_request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
 ### <a name="delete_target"></a> destino
 
-|Elemento|Escriba|DESCRIPCIÓN|
+|Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
 |`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
 |`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
@@ -122,7 +122,7 @@ Webhook que se desencadena cuando se elimina un repositorio o un manifiesto. No 
 
 ### <a name="delete_request"></a> solicitud
 
-|Elemento|Escriba|DESCRIPCIÓN|
+|Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
 |`id`|string|El identificador de la solicitud que inició el evento.|
 |`host`|string|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
@@ -154,10 +154,10 @@ Comandos de la [CLI de Azure](/cli/azure/acr) de ejemplo que desencadenan un web
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

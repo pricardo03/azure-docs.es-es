@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e56cc5a893c5a88a5b64466d6feceb20ccd8cdc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167854"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445549"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zendesk para el aprovisionamiento automático de usuarios
 
@@ -118,7 +118,8 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
     *   En el campo **Dominio**, rellene el subdominio del inquilino de Zendesk.
     Ejemplo: para una cuenta con una dirección URL de inquilino con el valor https://my-tenant.zendesk.com, el subdominio sería **my-tenant**.
 
-6. El **Token secreto** para su cuenta de Zendesk está ubicado en **Administración > API > Configuración**. 
+6. El **Token secreto** para su cuenta de Zendesk está ubicado en **Administración > API > Configuración**.
+   Asegúrese de que **Token de acceso** está establecido en **Habilitado**.
 
     ![Aprovisionamiento de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)![Aprovisionamiento de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 

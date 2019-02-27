@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354627"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340185"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
@@ -39,15 +39,21 @@ El servicio de administración de datos Azure Data Explorer, que es el responsab
 
 Azure Data Explorer admite varios métodos de ingesta, cada uno con sus propios escenarios de destino, ventajas y desventajas. Azure Data Explorer ofrece canalizaciones y conectores para servicios comunes, ingesta mediante programación con los SDK y acceso directo al motor para fines de exploración.
 
-### <a name="ingestion-using-pipelines"></a>Ingesta mediante canalizaciones
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Ingesta mediante canalizaciones, conectores y complementos
 
-En la actualidad, Azure Data Explorer es compatible con la canalización del centro de eventos, que se puede administrar con el asistente para administración en Azure Portal. Para más información, consulte [Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md).
+Actualmente, Azure Data Explorer es compatible con lo siguiente:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Ingesta mediante conectores y complementos
+* Canalización de Event Grid, que se puede administrar con el asistente para administración en Azure Portal. Para más información, consulte [Ingesta de blobs de Azure en Azure Data Explorer](ingest-data-event-grid.md).
 
-* Azure Data Explorer es compatible con el complemento Logstash. Para obtener más información, consulte [Complemento de salida Logstash para Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Canalización del centro de eventos, que se puede administrar con el asistente para administración en Azure Portal. Para más información, consulte [Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md).
 
-* Azure Data Explorer es compatible con el conector de Kafka. Para más información, consulte [Inicio rápido: Ingesta de datos de Kafka en Azure Data Explorer](ingest-data-kafka.md).
+* Complemento Logstash; consulte [Ingesta de datos de Logstash en Azure Data Explorer](ingest-data-logstash.md).
+
+* Conector de Kafka; consulte [Ingesta de datos de Kafka en Azure Data Explorer](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Ingesta mediante servicios de integración
+
+* Azure Data Factory (ADF), un servicio de integración de datos totalmente administrado para cargas de trabajo de análisis en Azure, para copiar datos con Azure Data Explorer como origen o destino. Para más información, consulte [Copia de datos con Azure Data Explorer como origen o destino mediante Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Ingesta mediante programación
 
@@ -131,21 +137,27 @@ Para todos los métodos de ingesta, salvo la ingesta de consulta, cambie el form
 La asignación de esquemas, ayuda a enlazar campos de datos de origen a columnas de tabla de destino.
 
 * [Asignación de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona con todos los formatos basados en ordinales. se puede realizar mediante el parámetro de comando de ingesta o [se puede crear previamente en la tabla](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) y hacerle referencia desde el parámetro de comando de ingesta.
-* [Asignación de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorio) y [asignación de Avro](/azure/kusto/management/tables#create-ingestion-mapping) (obligatorio) se pueden realizar mediante el parámetro de comando de ingesta o se pueden [crear previamente en la tabla](/azure/kusto/management/mappings?branch=master#avro-mapping) y hacerles referencia desde el parámetro de comando de ingesta.
+* [Asignación de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoria) y [Asignación de Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoria) se pueden realizar mediante el parámetro de comando de ingesta. También se pueden [crear previamente en la tabla](/azure/kusto/management/tables#create-ingestion-mapping) y referenciarse desde el parámetro de comando de ingesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md).
+> [Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos de Kafka en Azure Data Explorer](ingest-data-kafka.md)
+> [Ingesta de datos mediante la suscripción de Event Grid en Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)
+> [Ingesta de datos de Kafka en Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer](node-ingest-data.md)
+> [Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos mediante el SDK de .NET Standard de Azure Data Explorer (versión preliminar)](net-standard-ingest-data.md)
+> [Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingesta de datos mediante el SDK de .NET Standard de Azure Data Explorer (versión preliminar)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingesta de datos de Logstash en Azure Data Explorer](ingest-data-logstash.md)

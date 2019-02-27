@@ -1,6 +1,6 @@
 ---
-title: Creación de roles personalizados con la API de REST en Azure | Microsoft Docs
-description: Obtenga información sobre cómo crear roles para el control de acceso basado en roles (RBAC) con la API de REST. Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
+title: 'Creación de roles personalizados para recursos de Azure mediante la API de REST: Azure | Microsoft Docs'
+description: Obtenga información sobre cómo crear roles personalizados con el control de acceso basado en roles (RBAC) para recursos de Azure con la API de REST. Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436069"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338774"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>Creación de roles personalizados con la API de REST
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Creación de roles personalizados para los recursos de Azure con la API de REST
 
-Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo crear y administrar roles personalizados con la API de REST.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo crear y administrar roles personalizados con la API de REST.
 
 ## <a name="list-roles"></a>Lista de roles
 
@@ -38,7 +38,7 @@ Para enumerar todos los roles u obtener información sobre un rol en particular 
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener.
 
-    | Scope | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -67,7 +67,7 @@ Para obtener información sobre un solo rol utilizando su nombre para mostrar, c
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de roles quiere obtener.
 
-    | Scope | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -115,7 +115,7 @@ Para crear un rol personalizado, use la API de REST [Role Definitions - Create O
 
 1. Dentro del URI, reemplace *{scope}* por el primer elemento `assignableScopes` del rol personalizado.
 
-    | Scope | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -179,7 +179,7 @@ Para actualizar un rol personalizado, use la API de REST [Role Definitions - Cre
 
 1. Dentro del URI, reemplace *{scope}* por el primer elemento `assignableScopes` del rol personalizado.
 
-    | Scope | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -262,7 +262,7 @@ Para eliminar un rol personalizado, use la API de REST [Role Definitions - Delet
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito que desea eliminar para el rol personalizado.
 
-    | Scope | Escriba |
+    | Ámbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -272,6 +272,6 @@ Para eliminar un rol personalizado, use la API de REST [Role Definitions - Delet
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Roles personalizados en Azure](custom-roles.md)
-- [Administración del acceso mediante RBAC y API REST](role-assignments-rest.md)
+- [Roles personalizados en los recursos de Azure](custom-roles.md)
+- [Administración del acceso a recursos de Azure mediante RBAC y la API de REST](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/) (Referencia de API de REST en Azure)

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359942"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328559"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -180,7 +180,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
    | SQL Server | 1433 | Puerto normal para las instancias predeterminadas de SQL Server. Si usó una imagen de la galería, este puerto se abre automáticamente.
    | Sondeo de mantenimiento | 59999 | Cualquier puerto TCP abierto. En un paso posterior, configure el [sondeo de mantenimiento](#probe) del equilibrador de carga y el clúster para usar este puerto.  
 
-1. Agregue almacenamiento a la máquina virtual. Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../premium-storage.md).
+1. Agregue almacenamiento a la máquina virtual. Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../disks-types.md).
 
    Ambas máquinas virtuales necesitan al menos dos discos de datos.
 
@@ -188,7 +188,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
       >[!NOTE]
       >Si conecta discos con formato NTFS, solo puede habilitar S2D sin comprobación de la idoneidad del disco.  
 
-   Conecte un mínimo de dos Premium Storage (discos SSD) a cada máquina virtual. Se recomienda usar, como mínimo, discos P30 (1 TB).
+   Conecte un mínimo de dos discos SSD Premium a cada máquina virtual. Se recomienda usar, como mínimo, discos P30 (1 TB).
 
    Establezca el almacenamiento en caché de host como **de solo lectura**.
 

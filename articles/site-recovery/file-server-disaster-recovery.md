@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508375"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309326"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -58,7 +58,7 @@ El siguiente diagrama le ayuda a determinar qué estrategia utilizar para su ent
 |---------|---------|---------|
 |Entorno de servidor de archivos con o sin DFSR|   [Uso de Site Recovery para la replicación](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery no es compatible con los clústeres de discos compartidos ni con el almacenamiento conectado a la red (NAS). Si su entorno usa estas configuraciones, utilice cualquiera de los demás enfoques según corresponda. <br> Site Recovery no es compatible con SMB 3.0. La máquina virtual replicada incorpora los cambios solo cuando se actualizan los cambios realizados en los archivos en la ubicación original de los archivos.
 |Entorno de servidor de archivos con DFSR     |  [Extensión de DFSR a una máquina virtual de IaaS de Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR funciona correctamente en entornos con el ancho de banda muy restringido. Este enfoque requiere una máquina virtual de Azure activa y en ejecución todo el tiempo. Debe tener en cuenta el costo de la máquina virtual en la planeación.         |
-|Máquina virtual de IaaS de Azure     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     Si utiliza File Sync en un escenario de recuperación ante desastres, durante la conmutación por error debe realizar acciones manuales para asegurarse de que los recursos compartidos de archivos están accesibles para el equipo cliente de forma transparente. File Sync requiere que el puerto 445 esté abierto en el equipo cliente.     |
+|Máquina virtual de IaaS de Azure     |     File Sync    |     Si utiliza File Sync en un escenario de recuperación ante desastres, durante la conmutación por error debe realizar acciones manuales para asegurarse de que los recursos compartidos de archivos están accesibles para el equipo cliente de forma transparente. File Sync requiere que el puerto 445 esté abierto en el equipo cliente.     |
 
 
 ### <a name="site-recovery-support"></a>Compatibilidad de Site Recovery

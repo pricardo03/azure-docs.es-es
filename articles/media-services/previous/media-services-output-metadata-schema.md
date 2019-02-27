@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997582"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312589"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 ## <a name="overview"></a>Información general
@@ -29,7 +29,7 @@ Media Services no realiza un examen preventivo de los recursos de entrada para g
 
 Si desea examinar el archivo de metadatos, puede crear un localizador **SAS** y descargar el archivo en el equipo local.  
 
-En este artículo se describen los elementos y los tipos del esquema XML en que se basan los metadatos de salida (&lt;nombre_de_archivo_de_origen&gt;_manifest.xml). Para información acerca del archivo que contiene metadatos sobre el recurso de entada, consulte [Input Metadata](media-services-input-metadata-schema.md) (Metadatos de entrada).  
+En este artículo se describen los elementos y los tipos del esquema XML en que se basan los metadatos de salida (&lt;nombre_de_archivo_de_origen&gt;_manifest.xml). Para información acerca del archivo que contiene los metadatos sobre el recurso de entrada, consulte Metadatos de entrada.  
 
 Puede encontrar el código del esquema completo y un ejemplo de XML al final de este artículo.  
 
@@ -39,10 +39,10 @@ Colección de entradas AssetFile para el trabajo de codificación.
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un [elemento AssetFile](media-services-output-metadata-schema.md) que forma parte de la colección de AssetFiles. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un elemento AssetFile que forma parte de la colección de AssetFiles. |
 
 ## <a name="AssetFile "></a> Elemento AssetFile
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Type | DESCRIPCIÓN |
@@ -54,24 +54,24 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
-| **Sources** |Colección de archivos multimedia de entrada/origen, que se procesa para producir este AssetFile. Para más información, consulte [Elemento Source](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. Para más información, consulte [Elemento VideoTracks](media-services-output-metadata-schema.md). |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. Se trata de la colección de todas esas pistas de audio. Para más información, consulte [Elemento AudioTracks](media-services-output-metadata-schema.md). |
+| **Sources** |Colección de archivos multimedia de entrada/origen, que se procesa para producir este AssetFile. Para más información, consulte el elemento Source. |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. Para más información, consulte el elemento VideoTracks. |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. Se trata de la colección de todas esas pistas de audio. Para más información, consulte el elemento AudioTracks. |
 
 ## <a name="Sources "></a> Elemento Sources
 Colección de archivos multimedia de entrada/origen, que se procesa para producir este AssetFile.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
-| **Origen**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un archivo de entrada/origen que se usa al generar este recurso. Para más información, consulte [Elemento Source](media-services-output-metadata-schema.md). |
+| **Origen**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un archivo de entrada/origen que se usa al generar este recurso. Para más información, consulte el elemento Source. |
 
 ## <a name="Source "></a> Elemento Source
 Un archivo de entrada/origen que se usa al generar este recurso.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Type | DESCRIPCIÓN |
@@ -81,17 +81,17 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ## <a name="VideoTracks "></a> Elemento VideoTracks
 Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. El elemento **VideoTracks** representa una colección de todas las pistas de vídeo.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de vídeo en el AssetFile primario. Para más información, consulte [Elemento VideoTrack](media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de vídeo en el AssetFile primario. Para más información, consulte el elemento VideoTrack. |
 
 ## <a name="VideoTrack"></a> Elemento VideoTrack
 Una determinada pista de vídeo en el AssetFile primario.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Type | DESCRIPCIÓN |
@@ -113,17 +113,17 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ## <a name="AudioTracks "></a> Elemento AudioTracks
 Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. El elemento **AudioTracks** representa una colección de todas las pistas de audio.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de audio en el AssetFile primario. Para más información, consulte [Elemento AudioTrack](media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de audio en el AssetFile primario. Para más información, consulte el elemento AudioTrack. |
 
 ## <a name="AudioTrack "></a> Elemento AudioTrack
 Una determinada pista de audio en el AssetFile primario.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Type | DESCRIPCIÓN |
@@ -139,12 +139,12 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-meta
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parámetros de resultado de medición de la sonoridad. Para más información, consulte [Elemento LoudnessMeteringResultParameters](media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parámetros de resultado de medición de la sonoridad. Para más información, consulte el elemento LoudnessMeteringResultParameters. |
 
 ## <a name="LoudnessMeteringResultParameters "></a> Elemento LoudnessMeteringResultParameters
 Parámetros de resultado de medición de la sonoridad.  
 
-Puede encontrar un ejemplo de XML en [Ejemplo de XML](media-services-output-metadata-schema.md#xml).  
+Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Type | DESCRIPCIÓN |

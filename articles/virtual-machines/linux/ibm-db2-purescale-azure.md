@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 61cad318dbbe55ef5ecf1b8167b6594ab6e57553
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247544"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327421"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale en Azure
 
@@ -89,7 +89,7 @@ Esta arquitectura ejecuta las capas de datos, de aplicación y de almacenamiento
 
 ### <a name="storage-considerations"></a>Consideraciones sobre el almacenamiento
 
-Al igual que Oracle RAC, DB2 pureScale es una base de datos con escalabilidad horizontal y E/S de bloque de alto rendimiento. Se recomienda usar la opción de [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) más grande que mejor se adapte a sus necesidades. Las opciones de almacenamiento más pequeñas pueden ser adecuadas para entornos de desarrollo y pruebas, mientras que los entornos de producción a menudo requieren mayor capacidad de almacenamiento. La arquitectura de ejemplo usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) debido a la relación entre E/S por segundo y su tamaño y precio. Independientemente del tamaño, utilice Premium Storage para obtener el mejor rendimiento.
+Al igual que Oracle RAC, DB2 pureScale es una base de datos con escalabilidad horizontal y E/S de bloque de alto rendimiento. Se recomienda usar la opción de [disco SSD Premium de Azure](disks-types.md) mayor que mejor se adapte a sus necesidades. Las opciones de almacenamiento más pequeñas pueden ser adecuadas para entornos de desarrollo y pruebas, mientras que los entornos de producción a menudo requieren mayor capacidad de almacenamiento. La arquitectura de ejemplo usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) debido a la relación entre E/S por segundo y su tamaño y precio. Independientemente del tamaño, utilice Premium Storage para obtener el mejor rendimiento.
 
 DB2 pureScale usa una arquitectura que lo comparte todo, en la que todos los datos son accesibles desde todos los nodos del clúster. Premium Storage debe compartirse entre instancias, sin importar si son instancias a petición o dedicadas.
 

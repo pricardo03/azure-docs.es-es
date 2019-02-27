@@ -3,15 +3,15 @@ title: Consultas SQL para Azure Cosmos DB
 description: Más información sobre la sintaxis SQL, los conceptos de base de datos y las consultas SQL para Azure Cosmos DB. Puede usar SQL como lenguaje de consulta JSON en Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822415"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455966"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Ejemplos de consultas SQL para Azure Cosmos DB
 
@@ -1369,13 +1369,13 @@ Las funciones matemáticas realizan un cálculo, basado en valores de entrada pr
 | CEILING (num_expr) | Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada. |
 | FLOOR (num_expr) | Devuelve el valor entero más grande menor o igual que la expresión numérica especificada. |
 | EXP (num_expr) | Devuelve el exponente de la expresión numérica especificada. |
-| [LOG (num_expr [,base])](#bk_log) | Devuelve el logaritmo natural de la expresión numérica especificada o bien el logaritmo que utiliza la base especificada |
+| LOG (num_expr ,base) | Devuelve el logaritmo natural de la expresión numérica especificada o bien el logaritmo que utiliza la base especificada |
 | LOG10 (num_expr) | Devuelve el valor logarítmico de base 10 de la expresión numérica especificada. |
 | ROUND (num_expr) | Devuelve un valor numérico, redondeado al valor entero más cercano. |
 | TRUNC (num_expr) | Devuelve un valor numérico, truncado al valor entero más cercano. |
 | SQRT (num_expr) | Devuelve la raíz cuadrada de la expresión numérica especificada. |
 | SQUARE (num_expr) | Devuelve el cuadrado de la expresión numérica especificada. |
-| [POWER (num_expr, num_expr)](#bk_power) | Devuelve la potencia de la expresión numérica especificada al valor especificado. |
+| POWER (num_expr, num_expr) | Devuelve la potencia de la expresión numérica especificada al valor especificado. |
 | SIGN (num_expr) | Devuelve el valor de signo (-1, 0, 1) de la expresión numérica especificada. |
 | ACOS (num_expr) | Devuelve el ángulo, en radianes, cuyo coseno es la expresión numérica especificada; también se denomina arcocoseno. |
 | ASIN (num_expr) | Devuelve el ángulo, en radianes, cuyo seno es la expresión numérica especificada. Esta función también se denomina arcoseno. |

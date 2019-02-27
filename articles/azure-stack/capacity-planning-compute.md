@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160918"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446331"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planeamiento de la capacidad de proceso de Azure Stack
 Los [tamaños de máquinas virtuales admitidos en Azure Stack](./user/azure-stack-vm-sizes.md) son un subconjunto de los admitidos por Azure. Azure impone límites de recursos junto con varios vectores para evitar el consumo excesivo de recursos (nivel de servicio y local del servidor). Sin la imposición de algunos límites sobre el consumo del inquilino, las experiencias de este se verán afectadas cuando otros inquilinos consuman recursos en exceso. Para la salida de redes de la máquina virtual, hay extremos de ancho de banda en Azure Stack que coinciden con las limitaciones de Azure. En el caso de los recursos de almacenamiento, los límites de IOPS de almacenamiento se han implementado en Azure Stack para evitar el consumo excesivo básico de recursos por parte de los inquilinos para el acceso de almacenamiento.  
@@ -43,7 +43,7 @@ Si se produce un error en un servidor, las máquinas virtuales hospedadas en el 
 
 El siguiente cálculo da como resultado la memoria total disponible que se puede usar para la selección de ubicación de la máquina virtual del inquilino. Esta capacidad de memoria es para la totalidad de la unidad de escalado de Azure Stack.
 
-  Memoria disponible para la selección de ubicación de la máquina virtual = memoria total del servidor – Reserva de resistencia – Sobrecarga de la infraestructura de Azure Stack<sup>1</sup>
+  Memoria disponible para la selección de ubicación de la máquina virtual = memoria total del servidor - reserva de resistencia - memoria usada por las máquinas virtuales en ejecución - sobrecarga de la infraestructura de Azure Stack<sup>1</sup>
 
   Reserva de resistencia = H + R * (N-1) + V * (N-2)
 

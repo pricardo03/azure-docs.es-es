@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701927"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310064"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
 
@@ -32,7 +32,7 @@ En este tutorial se describen los pasos necesarios para la creación, la elimina
 > [!NOTE]
 > -  Azure Portal admite dispositivos que ejecutan la versión Update 5.0 o posterior. Si el dispositivo no está actualizado, instale Update 5 inmediatamente. Para más información, vaya a [Instalación de Update 5](storsimple-8000-install-update-5.md). 
 > - Si está usando StorSimple Cloud Appliance (8010/8020), no puede actualizar una aplicación en la nube. Utilice la versión más reciente del software para crear una nueva aplicación en la nube con la versión Update 5.0 y después realizar una conmutación por error en la nueva aplicación en la nube creada. 
-> - Todos los dispositivos que ejecutan Update 4.0 o una versión anterior experimentarán [la funcionalidad de administración reducida](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - Todos los dispositivos que ejecutan Update 4.0 o una versión anterior experimentarán una disminución en la funcionalidad de administración. 
 
 ## <a name="create-a-service"></a>Crear un servicio
 Para crear un servicio Administrador de dispositivos de StorSimple, debe tener:
@@ -93,7 +93,7 @@ Realice los pasos siguientes para obtener la clave de registro del servicio.
 
 Mantenga la clave de registro del servicio en una ubicación segura. Necesitará esta clave, así como la clave de cifrado de datos de servicio para registrar dispositivos adicionales con este servicio. Después de obtener la clave de registro del servicio, tiene que configurar el dispositivo a través de la interfaz de Windows PowerShell para StorSimple.
 
-Para obtener más información sobre cómo usar esta clave de registro, consulte [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Para más información sobre cómo usar esta clave del registro, consulte [Paso 3: Configurar y registrar el dispositivo mediante Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Volver a generar la clave de registro de servicio
 Tiene que volver a generar una clave de registro del servicio si tiene que realizar la rotación de claves o si la lista de administradores de servicios ha cambiado. Cuando se regenera la clave, la nueva clave se utiliza solo para registrar dispositivos posteriores. Los dispositivos que ya se han registrado no se ven afectados por este proceso.
@@ -127,7 +127,7 @@ El cambio de la clave de cifrado de datos del servicio se realiza en 3 pasos:
 2. En Windows PowerShell para StorSimple, inicie el cambio de claves de cifrado de datos del servicio.
 3. Si tiene más de un dispositivo de StorSimple, actualice la clave de cifrado de datos del servicio en los demás dispositivos.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Paso 1: Usar un script de Windows PowerShell para autorizar a un dispositivo cambiar la clave de cifrado de datos del servicio
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Paso 1: Usar un script de Windows PowerShell para autorizar a un dispositivo a cambiar la clave de cifrado de datos del servicio
 Normalmente, el administrador de dispositivos solicitará que el administrador de servicios autorice que un dispositivo cambie las claves de cifrado de datos del servicio. A continuación, el administrador de servicios autorizará que el dispositivo cambie la clave.
 
 Este paso se realiza con el script basado en Azure Resource Manager. El administrador de servicios puede seleccionar un dispositivo que sea apto para la autorización. A continuación, se autoriza que el dispositivo inicie el proceso de cambio de las claves de cifrado de datos del servicio. 
@@ -143,7 +143,7 @@ Para poder autorizar que un dispositivo inicie los cambios de las claves de cifr
 * No se puede autorizar un dispositivo mientras la sustitución de la clave de cifrado de datos del servicio esté en curso.
 * Se puede autorizar un dispositivo cuando algunos de los dispositivos registrados en el servicio hayan sustituido el cifrado, mientras que otros no lo hayan hecho. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Paso 2: Usar Windows PowerShell para StorSimple a fin de iniciar el cambio de claves de cifrado de datos del servicio
 Este paso se realiza en la interfaz de Windows PowerShell para StorSimple del dispositivo de StorSimple autorizado.
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Si utiliza la consola serie del dispositivo para conectarse a la interfaz de Win
    
    Si tiene un único dispositivo registrado en el servicio, el proceso de sustitución habrá finalizado y puede omitir el paso siguiente. Si tiene varios dispositivos registrados en el servicio, vaya al paso 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Paso 3: actualizar la clave de cifrado de datos del servicio en otros dispositivos de StorSimple
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Paso 3: Actualizar la clave de cifrado de datos del servicio en otros dispositivos de StorSimple
 Estos pasos deben realizarse en la interfaz de Windows PowerShell del dispositivo de StorSimple si tiene varios dispositivos registrados en el servicio StorSimple Manager. La clave que obtuvo en el paso 2 se debe usar para actualizar todos los dispositivos de StorSimple restantes registrados con el servicio StorSimple Manager.
 
 Realice los pasos siguientes para actualizar el cifrado de datos del servicio en el dispositivo.
@@ -176,7 +176,7 @@ Realice los pasos siguientes para actualizar el cifrado de datos del servicio en
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Para actualizar la clave de cifrado de datos del servicio en dispositivos físicos
 1. Use Windows PowerShell para StorSimple para conectarse a la consola. Seleccione la opción 1 para iniciar sesión con acceso total.
 2. En el símbolo del sistema, escriba: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Proporcione la clave de cifrado de datos del servicio que obtuvo en [Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio](#to-initiate-the-service-data-encryption-key-change).
+3. Proporcione la clave de cifrado de datos del servicio que obtuvo en [Paso 2: Usar Windows PowerShell para StorSimple a fin de iniciar el cambio de claves de cifrado de datos del servicio](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Para actualizar la clave de cifrado de datos del servicio en todas las aplicaciones en la nube 8010/8020
 1. Descargue y configure el script de PowerShell [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1). 

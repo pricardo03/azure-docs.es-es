@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810344"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417523"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
@@ -52,7 +52,7 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 ## <a name="requirements-and-restrictions"></a>Requisitos y restricciones
 * La característica Copia de seguridad y restauración requiere que el plan de App Service tenga el nivel **estándar** o **premium**. Para obtener más información sobre cómo escalar el plan de App Service para usar un nivel superior, vea [Escalación de una aplicación web en Azure App Service](web-sites-scale.md).  
   El nivel **premium** permite realizar un mayor número de copias de seguridad diarias que el nivel **estándar**.
-* Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para más información acerca de las cuentas de Azure Storage, consulte los vínculos al final de este artículo.
+* Necesita una cuenta de almacenamiento de Azure y un contenedor en la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Para más información sobre las cuentas de almacenamiento de Azure, consulte [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) (Introducción a la cuenta de almacenamiento de Azure).
 * Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Si el tamaño de la copia de seguridad supera este límite, obtendrá un error.
 * No se admiten las copias de seguridad de SSL habilitadas para Azure Database for MySQL. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
 * No se admiten las copias de seguridad de SSL habilitadas para Azure Database for PostgreSQL. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.

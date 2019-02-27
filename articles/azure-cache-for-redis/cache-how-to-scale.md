@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235579"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313439"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Escalado de Azure Cache for Redis
 Azure Cache for Redis tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la memoria caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -115,7 +115,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 * [¿Se pierden los datos de mi memoria caché durante el escalado?](#will-i-lose-data-from-my-cache-during-scaling)
 * [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](#is-my-custom-databases-setting-affected-during-scaling)
 * [¿La caché estará disponible durante el escalado?](#will-my-cache-be-available-during-scaling)
-* [Con la replicación geográfica configurada, ¿por qué no puedo escalar la memoria caché o cambiar las particiones de un clúster?](#scaling-limitations-with-geo-relication)
+* Con la replicación geográfica configurada, ¿por qué no puedo escalar la memoria caché o cambiar las particiones de un clúster?
 * [Operaciones que no son compatibles](#operations-that-are-not-supported)
 * [¿Cuánto tarda el escalado?](#how-long-does-scaling-take)
 * [¿Cómo puedo saber si el escalado ha terminado?](#how-can-i-tell-when-scaling-is-complete)

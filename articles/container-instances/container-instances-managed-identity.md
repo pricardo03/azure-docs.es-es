@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657032"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311570"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -27,6 +27,9 @@ En este artículo, conocerá mejor las identidades administradas de Azure Contai
 > * Utilización de la identidad administrada para tener acceso a Key Vault desde un contenedor en ejecución
 
 Adaptación de los ejemplos para habilitar y utilizar las identidades en Azure Container Instances para tener acceso a otros servicios de Azure. Estos ejemplos son interactivos. Aunque, en la práctica, las imágenes de contenedor ejecutarían el código para tener acceso a servicios de Azure.
+
+> [!NOTE]
+> Actualmente no se puede usar una identidad administrada en un grupo de contenedores que se implementa en una red virtual.
 
 ## <a name="why-use-a-managed-identity"></a>¿Por qué usar una identidad administrada?
 

@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872992"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308458"
 ---
 # <a name="face-detection-with-computer-vision"></a>Detección de caras con Computer Vision
 
-Computer Vision detecta las caras humanas dentro de una imagen y genera la edad, sexo y rectángulo de cada rostro detectado. Computer Vision proporciona un subconjunto de la funcionalidad que se puede encontrar en [Face](/azure/cognitive-services/face/) y este servicio se puede usar para obtener un análisis más detallado, como la identificación facial y la detección de posturas.  
+Computer Vision puede detectar caras humanas en una imagen y generar la edad, el sexo y el rectángulo de cada rostro detectado. 
+
+> [!NOTE]
+> Esta característica también está disponible en el servicio Azure [Face](/azure/cognitive-services/face/). Utilice esta alternativa para realizar un análisis más detallado de los rostros que incluya la identificación de la cara y la detección de la pose. 
 
 ## <a name="face-detection-examples"></a>Ejemplos de detección de caras
 
-El primer ejemplo muestra la respuesta JSON devuelta por Computer Vision para una imagen que contiene una sola cara humana.
+En el ejemplo siguiente, se muestra la respuesta JSON devuelta por Computer Vision en una imagen con un solo rostro humano.
 
 ![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ El primer ejemplo muestra la respuesta JSON devuelta por Computer Vision para un
 }
 ```
 
-El segundo ejemplo muestra la respuesta JSON devuelta para una imagen que contiene varios rostros humanos.
+En el ejemplo siguiente, se muestra la respuesta JSON devuelta en una imagen con varios rostros humanos.
 
 ![Vision Analyze Family Photo Face](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ El segundo ejemplo muestra la respuesta JSON devuelta para una imagen que contie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los conceptos relacionados con la [detección de contenido específico del dominio](concept-detecting-domain-content.md).
+Para más información sobre el uso de la característica de detección de rostros, consulte la documentación de referencia de [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Análisis de imágenes).

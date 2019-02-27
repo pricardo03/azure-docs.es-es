@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387053"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313541"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -316,7 +316,7 @@ Tipo | Identifica el proveedor real de la métrica.
 class | Junto con "counter", identifica la métrica específica en el espacio de nombres del proveedor.
 counter | Junto con "class", identifica la métrica específica en el espacio de nombres del proveedor.
 counterSpecifier | Identifica la métrica específica en el espacio de nombres de Métricas de Azure.
-condition | (Opcional) selecciona una instancia específica del objeto al que se aplica la métrica o selecciona la agregación en todas las instancias de este objeto. Para obtener más información, consulte las [definiciones de las métricas](#metrics-supported-by-builtin) de `builtin`.
+condition | (Opcional) selecciona una instancia específica del objeto al que se aplica la métrica o selecciona la agregación en todas las instancias de este objeto. Para más información, consulte las definiciones de las métricas `builtin`.
 sampleRate | Intervalo de ISO 8601 que establece la frecuencia de recopilación de muestras sin procesar de esta métrica. Si no se establece, el intervalo de recopilación se establece a partir del valor de [sampleRateInSeconds](#ladcfg). La frecuencia de muestreo más corta admitida es de 15 segundos (PT15S).
 unit | Debería ser una de estas cadenas: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond" o "Millisecond". Define la unidad para la métrica. Los consumidores de los datos recopilados esperan que los valores de los datos recopilados coincidan con esta unidad. LAD omite este campo.
 DisplayName | La etiqueta (en el idioma especificado por la configuración regional correspondiente) que va a adjuntarse a estos datos en el servicio de Métricas de Azure. LAD omite este campo.

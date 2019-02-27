@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201795"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416724"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referencia del servicio Infrastructure Backup
 
@@ -108,6 +108,23 @@ Infrastructure Backup Controller realizará una copia de datos a petición. La r
 > [!Note]  
 > Ningún puerto de entrada debe estar abierto.
 
+### <a name="encryption-requirements"></a>Requisitos de cifrado
+
+A partir de 1901, el servicio Infrastructure Backup utilizará un certificado con una clave pública (.CER) para cifrar los datos de copia de seguridad y un certificado con la clave privada (.PFX) para descifrar los datos de copia de seguridad durante la recuperación en la nube.   
+ - El certificado se usa para el traslado de claves y no para establecer una comunicación autenticada segura. Por este motivo, el certificado puede ser un certificado autofirmado. Azure Stack no requiere comprobar la raíz o confianza de este certificado, por lo que el acceso externo a internet no es necesario.
+ 
+El certificado autofirmado viene en dos partes, una con la clave pública y otra con la clave privada:
+ - Cifrar los datos de copia de seguridad: el certificado con la clave pública (exportada a un archivo .CER) se usa para cifrar los datos de copia de seguridad
+ - Descifrar los datos de copia de seguridad: el certificado con la clave privada (exportada a un archivo .PFX) se usa para descifrar los datos de copia de seguridad
+
+El certificado con la clave pública (.CER) no lo administra la rotación interna de secretos. Para girar el certificado, deberá crear un nuevo certificado autofirmado y actualizar la configuración de copia de seguridad con el nuevo archivo (.CER).  
+ - Todas las copias de seguridad existentes permanecen cifradas mediante la clave pública anterior. Las nuevas copias de seguridad usarán la nueva clave pública. 
+ 
+El certificado usado durante la recuperación en la nube con la clave privada (.PFX) no se conserva en Azure Stack por motivos de seguridad. Este archivo debe proporcionarse explícitamente durante la recuperación en la nube.  
+
+**Modo de compatibilidad con versiones anteriores**. A partir de 1901, la compatibilidad con las claves de cifrado está en desuso y se eliminará en las futuras versiones. Si actualiza desde 1811 con copia de seguridad ya habilitada con una clave de cifrado, Azure Stack continuará usando la clave de cifrado. El modo de compatibilidad con versiones anteriores se admitirá durante al menos 3 versiones. Después de ese momento, será necesario un certificado. 
+ * La actualización de la clave de cifrado al certificado es una operación unidireccional.  
+ * Todas las copias de seguridad existentes permanecerán cifradas con la clave de cifrado. Las nuevas copias de seguridad usarán el certificado. 
 
 ## <a name="infrastructure-backup-limits"></a>Límites de Infrastructure Backup
 

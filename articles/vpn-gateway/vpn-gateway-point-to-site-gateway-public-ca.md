@@ -1,39 +1,49 @@
 ---
-title: Transición de los certificados de entidad de certificación de autofirmados a públicos para puertas de enlace P2S | Azure VPN Gateway | Microsoft Docs
+title: Transición a certificados de entidad de certificación públicos para puertas de enlace P2S | Azure VPN Gateway | Microsoft Docs
 description: Este artículo lo ayuda a realizar una transición exitosa a los nuevos certificados de entidad de certificación públicos para puertas de enlace P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: ac1ae4125418a9c0b3e9587cd03a44e752ac8f82
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236964"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453528"
 ---
-# <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Transición de los certificados de entidad de certificación de autofirmados a públicos para puertas de enlace P2S
+# <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
 
-Azure VPN Gateway ya no emite certificados autofirmados para puertas de enlace de conexiones P2S. Los certificados emitidos ahora están firmados por una entidad de certificación (CA) pública. Sin embargo, las puertas de enlace anteriores todavía utilizan certificados autofirmados. Estos certificados autofirmados están a punto de expirar y deben realizar la transición a los certificados de entidad de certificación pública.
+Azure VPN Gateway ya no emite certificados autofirmados en el nivel de Azure para sus puertas de enlace para conexiones P2S. Los certificados emitidos ahora están firmados por una entidad de certificación (CA) pública. Sin embargo, algunas de las puertas de enlace anteriores todavía utilizan certificados autofirmados. Estos certificados autofirmados están a punto de expirar y deben realizar la transición a los certificados de entidad de certificación pública.
 
-Anteriormente, un certificado autofirmado para la puerta de enlace debía actualizarse cada 18 meses. Los archivos de configuración de cliente VPN tenían que generarse y volver a implementarse en todos los clientes P2S. Al migrar a los certificados de entidad de certificación pública, se elimina esta limitación. Además de la transición para certificados, este cambio también proporciona mejoras en la plataforma, una métrica mejor y estabilidad mejorada.
+>[!NOTE]
+> Este cambio de certificado en el nivel de Azure no afecta a los certificados autofirmados que se usan en la autenticación de cliente de P2S. Puede continuar con la emisión y uso de certificados autofirmados como siempre.
+>
+
+Los certificados en este contexto constituyen un certificado adicional en el nivel de Azure. No son las cadenas de certificados que usa al generar sus propios certificados raíz autofirmados y certificados de cliente para la autenticación. Esos certificados no se ven afectados y expirarán en las fechas que haya establecido para ello.
+
+Anteriormente, un certificado autofirmado para la puerta de enlace (que emitía Azure en segundo plano) debía actualizarse cada 18 meses. Los archivos de configuración de cliente VPN tenían que generarse y volver a implementarse en todos los clientes P2S. Al migrar a los certificados de entidad de certificación pública, se elimina esta limitación. Además de la transición para certificados, este cambio también proporciona mejoras en la plataforma, una métrica mejor y estabilidad mejorada.
 
 Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el certificado de puerta de enlace se puede migrar, recibirá un aviso en Azure Portal. Puede ver si se ve afectada la puerta de enlace siguiendo los pasos de este artículo.
 
->[!IMPORTANT]
->La transición está programada para el 12 de marzo de 2019 a partir de las 18:00 UTC. Puede crear una incidencia de soporte técnico si prefiere un período diferente. Cree y finalice la solicitud con al menos 24 horas de antelación.  Puede solicitar una de las ventanas siguientes:
+> [!IMPORTANT]
+> La transición está programada para el 12 de marzo de 2019 a partir de las 18:00 UTC. Puede crear una incidencia de soporte técnico si prefiere un período diferente. Cree y finalice la solicitud con al menos 24 horas de antelación.  Puede solicitar una de las ventanas siguientes:
 >
->* 06:00 UTC el 25 de febrero
->* 18:00 UTC el 25 de febrero
->* 06:00 UTC el 1 de marzo
->* 18:00 UTC el 1 de marzo
+> * El 25 de febrero a partir de las 06:00 UTC
+> * El 25 de febrero a partir de las 18:00 UTC
+> * El 1 de marzo a partir de las 06:00 UTC
+> * El 1 de marzo a partir de las 18:00 UTC
 >
->**Todas las puertas de enlace restantes realizarán la transición el 12 de marzo de 2019 a partir de las 18:00 UTC**.
+> **Todas las puertas de enlace restantes realizarán la transición el 12 de marzo de 2019 a partir de las 18:00 UTC**.
 >
+> El proceso de transición de la puerta de enlace puede tardar 2 horas en completarse. Los clientes recibirán un correo electrónico cuando se haya completado el proceso de transición de su puerta de enlace.
+> 
 
 ## <a name="1-verify-your-certificate"></a>1. Comprobación del certificado
+
+### <a name="resource-manager"></a>Resource Manager
 
 1. Compruebe si se ven afectadas por esta actualización. Descargar la configuración actual del cliente VPN mediante los pasos descritos en [este artículo](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -42,7 +52,12 @@ Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el ce
 
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
-4. Si *ServerCertRotCn* y *ServerCertIssuerCn* son "DigiCert Global Root CA", no se ven afectados por esta actualización y no es necesario continuar con los pasos descritos en este artículo. Sin embargo, si aparece algo más, el certificado de puerta de enlace forma parte de la actualización y realizará la transición.
+4. Si *ServerCertRotCn* y *ServerCertIssuerCn* son "DigiCert Global Root CA", no se verán afectados por esta actualización y no es necesario continuar con los pasos descritos en este artículo. Sin embargo, si aparece algo más, el certificado de puerta de enlace forma parte de la actualización y realizará la transición.
+
+### <a name="classic"></a>Clásico
+
+1. En un equipo cliente, vaya a la ruta de acceso %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. En la carpeta con el identificador de la puerta de enlace, puede ver el certificado.
+2. En la pestaña General del certificado, compruebe que la entidad emisora es "DigiCert Global Root CA". Si tiene algo distinto a esta entidad emisora, el certificado de la puerta de enlace formará parte de la actualización y se realizará su transición.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Comprobación de la programación de transición del certificado
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639398"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327313"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comunes durante la creación de discos duros virtuales (P+F)
 
@@ -27,7 +27,7 @@ Las preguntas más frecuentes (P+F) siguientes abarcan problemas comunes detecta
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>¿Cómo se crea una máquina virtual desde Azure Portal mediante el disco duro virtual que se carga en Premium Storage?
 
-En la actualidad, Azure Marketplace no admite la creación de ofertas de máquina virtual a partir de imágenes que residen en el almacenamiento administrado o desde Azure Premium Storage.  Para obtener más información sobre estas opciones de almacenamiento, vea [Introducción a Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) y [Discos administrados y Premium Storage de alto rendimiento para VM](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+En la actualidad, Azure Marketplace no admite la creación de ofertas de máquina virtual a partir de imágenes que residen en el almacenamiento administrado o desde Azure Premium Storage.  Para más información sobre estas opciones de almacenamiento, consulte [Introducción a Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>¿Se pueden usar máquinas virtuales de generación 2 para las ofertas?
@@ -73,7 +73,7 @@ Sí, si se hospedan en Azure.  Azure asigna un identificador único, denominado 
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>En una máquina virtual, ¿cómo se puede administrar la extensión de script personalizada en la tarea de inicio?
 
-En el artículo siguiente se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y también se detallan los pasos para solucionar problemas en los sistemas Windows: [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/) (Extensión de script personalizado de Azure para Windows).
+En el artículo siguiente se detalla cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y se detallan también los pasos para solucionar problemas en los sistemas Windows: [Extensión de la secuencia de comandos personalizada para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>¿Se admiten en Azure Marketplace las aplicaciones o los servicios de 32 bits?

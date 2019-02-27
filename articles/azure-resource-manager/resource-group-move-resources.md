@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108779"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417098"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -55,7 +55,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * API Management
 * Aplicaciones de App Service (aplicaciones web) - consulte las [limitaciones de App Service](#app-service-limitations)
 * Certificados de App Service: consulte [Limitaciones de App Service Certificate](#app-service-certificate-limitations)
-* Automation
+* Automatización: los runbooks deben existir en el mismo grupo de recursos que la cuenta de Automation.
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Explorador de datos de Azure
@@ -134,6 +134,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure Firewall
 * Azure Migrate
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
+* Aplicaciones clásicas
 * Azure Container Instances
 * Container Service
 * Data Box

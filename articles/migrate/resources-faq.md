@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746326"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416197"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -117,6 +117,10 @@ Hemos introducido la generación de perfiles continua de datos de rendimiento (q
 Los datos que recopila el dispositivo recopilador se almacenan en la ubicación de Azure especificada al crear el proyecto de migración. Los datos se almacenan de forma segura en una suscripción de Microsoft y se eliminan cuando el usuario elimina el proyecto de Azure Migrate.
 
 Para la visualización de dependencias, si instala agentes en las máquinas virtuales, los datos que recopilan los Dependency Agent se almacenan en los Estados Unidos en un área de trabajo de Log Analytics creada en la suscripción del usuario. Estos datos se eliminan al eliminar el área de trabajo de Log Analytics en su suscripción. [Más información](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>¿Qué es el volumen de datos que carga Azure Migrate en caso de generación de perfiles continua?
+
+El volumen de datos que se envían a Azure Migrate varia en función de varios parámetros. Para conceder a un número indicativo, un proyecto de diez máquinas (cada uno con un disco y una NIC), tendría que enviar alrededor de 50 MB por día. Se trata de un valor aproximado y podría cambiar en función del número de puntos de datos para las NIC y los discos (los datos enviados no serían lineales si aumenta el número de máquinas, NIC o discos). 
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>¿Los datos se cifran en reposo y mientras están en tránsito?
 

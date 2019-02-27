@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300738"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446671"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -26,12 +26,11 @@ Sí. Se pueden crear hasta 500 almacenes de Recovery Services por cada región a
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>¿Hay algún límite en el número de servidores o máquinas que se pueden registrar en cada almacén?
 Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de Microsoft Azure Backup (MAB), puede registrar hasta 50 agentes de MAB por almacén. Y puede registrar 50 servidores de MAB o servidores DPM en un almacén.
 
-
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Si mi organización tiene un almacén, ¿cómo puedo aislar datos de servidores distintos en el almacén al restaurar los datos?
 Los datos del servidor que desea recuperar de forma conjunta deben usar la misma frase de contraseña al configurar la copia de seguridad. Si desea aislar la recuperación en un uno o varios servidores específicos, use una frase de contraseña solo para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>¿Puedo mover mi almacén entre suscripciones?
- No. El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción.
+Sí. Para mover un almacén de Recovery Services, consulte este [artículo](backup-azure-move-recovery-services-vault.md).
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>¿Puedo mover datos de copia de seguridad a otro almacén?
  No. Los datos de copia de seguridad almacenados en un almacén no se pueden mover a otro almacén.
@@ -40,7 +39,8 @@ Los datos del servidor que desea recuperar de forma conjunta deben usar la misma
  No. Un almacén de Recovery Services solo puede cambiar las opciones de almacenamiento antes de almacenar ninguna copia de seguridad.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
-No, la ILR no se admite.
+- ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md).
+- ILR no se admite para puntos de recuperación en línea de máquinas virtuales locales copiadas mediante el servidor de copia de seguridad de Azure o DPM de System Center.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
@@ -76,10 +76,8 @@ Las versiones de DPM compatibles se resumen en la [matriz de compatibilidad](bac
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>¿Puedo usar Azure Backup Server para crear una copia de seguridad de reconstrucción completa (BMR) para un servidor físico? <br/>
 Sí.
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>¿Puedo usar DPM para realizar copias de seguridad de aplicaciones en Azure Stack?
  No. Puede usar Azure Backup para proteger Azure Stack; Azure Backup no admite el uso de DPM para realizar copias de seguridad de aplicaciones en Azure Stack.
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Si he instalado el agente de Azure Backup para proteger archivos y carpetas, ¿puedo instalar System Center DPM para realizar copias de seguridad de las cargas de trabajo locales en Azure?
 Sí. Pero debe configurar DPM primero y después instalar el agente de Azure Backup.  Instalar los componentes en este orden garantiza que el agente de Azure Backup funcione con DPM. No se recomienda o no se admite la instalación del agente antes que DPM.
@@ -93,7 +91,6 @@ Sí.
 - Puede realizar copias de seguridad de las máquinas virtuales de Azure una vez al día.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>¿Qué sistemas operativos se admiten para la copia de seguridad?
-
 Azure Backup admite estos sistemas operativos para realizar copias de seguridad de archivos y carpetas y de aplicaciones protegidas con Azure Backup Server y DPM.
 
 **SISTEMA OPERATIVO**| **SKU** |**Detalles**
@@ -138,29 +135,23 @@ SharePoint | Suma de las bases de datos de contenido y configuración de la gran
 Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad.
 Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad.
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>¿Hay un límite en la cantidad de datos de los que se realiza una copia de seguridad con el uso de un almacén de Recovery Services?
 No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos?
- No. Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad, permanecen en el almacén. Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
-
-Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
-
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos seleccionados para la copia de seguridad?
-
- Los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup, DPM y Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, los datos del almacén se reducen entre un 30 % y un 40 %.
+Los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup, DPM y Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, los datos del almacén se reducen entre un 30 % y un 40 %.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>¿Puedo eliminar archivos individuales desde un punto de recuperación en el almacén?
 No, Azure Backup no admite la eliminación o la purga de elementos individuales de copias de seguridad almacenadas.
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Si se cancela un trabajo de copia de seguridad una vez iniciado, ¿se eliminan los datos de copia de seguridad transferidos?
-
  No. Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad permanecen en el almacén.
+
 - Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad.
 - Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos.
 - El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
+
+Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
 
 ## <a name="retention-and-recovery"></a>Retención y recuperación
 
@@ -177,7 +168,7 @@ Sí, puede personalizarlas. Por ejemplo, puede configurar requisitos de retenci�
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Si se conserva una copia de seguridad durante un período prolongado, ¿se tarda más tiempo en recuperar un punto de datos más antiguo? <br/>
-No: el tiempo de recuperación del punto de datos más antiguo o más reciente es el mismo. Cada punto de recuperación se comporta como un punto completo.
+ No. El tiempo de recuperación del punto más antiguo o más reciente es el mismo. Cada punto de recuperación se comporta como un punto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?
 Los productos con un punto de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos.
@@ -203,12 +194,12 @@ No hay ningún límite en cuanto al número de recuperaciones de Azure Backup.
 Cuando se aplica una nueva directiva, se sigue la programación y retención de la nueva directiva.
 
 - Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva.
-- - Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza.
+- Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza.
 
 ## <a name="encryption"></a>Cifrado
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>¿Se cifran los datos que se envían a Azure?
-Sí. Los datos se cifran en la máquina local mediante AES256. Los datos se envían a través de un vínculo HTTPS seguro. Los datos se transmiten en la nube protegidos por el vínculo HTTPS solamente entre el servicio de recuperación y el almacenamiento. El protocolo iSCSI protege los datos transmitidos entre el servicio de recuperación y la máquina del usuario. Se usa la tunelización segura para proteger el canal iSCSI.
+Sí. Los datos se cifran en la máquina local mediante AES256. Los datos se envían a través de un vínculo HTTPS seguro. Los datos se transmiten en la nube protegidos por el vínculo HTTPS solamente entre el servicio de recuperación y almacenamiento. El protocolo iSCSI protege los datos transmitidos entre el servicio de recuperación y la máquina del usuario. Se usa la tunelización segura para proteger el canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>¿También se cifran los datos de copia de seguridad en Azure?
 Sí. Los datos de Azure están cifrados en reposo.

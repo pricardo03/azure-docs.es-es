@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816193"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326830"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento
 
@@ -28,7 +28,7 @@ En ciertos escenarios, puede encontrarse alguno de los errores siguientes al int
 
 >**No se pudieron eliminar # de # blobs:<br>BlobName.vhd: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
 
-Los discos duros virtuales usados en las máquinas virtuales de Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para más información acerca de los discos de Azure, consulte el artículo de información [acerca del almacenamiento de discos administrados y no administrados para las máquinas virtuales Microsoft Linux de Azure](../linux/about-disks-and-vhds.md). 
+Los discos duros virtuales usados en las máquinas virtuales de Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para más información sobre los discos de Azure, consulte [Introducción a Azure Managed Disks](../linux/managed-disks-overview.md).
 
 Azure impide la eliminación de un disco que esté asociado a una máquina virtual para evitar daños. También impide la eliminación de contenedores y cuentas de almacenamiento que tengan un blob en páginas que esté asociado a una máquina virtual. 
 

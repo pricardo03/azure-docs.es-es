@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822789"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329957"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -88,7 +88,7 @@ Después, compruebe las propiedades de la máquina de origen. Recuerde que el no
 2. En **Propiedades** puede ver la información de replicación y conmutación por error de la máquina virtual.
 3. En **Compute and network** (Proceso y red) > **Propiedades de Compute**, puede cambiar varias propiedades de la máquina virtual:
 * Nombre de la máquina virtual de Azure: modifique el nombre para que cumpla con los requisitos de Azure si es necesario.
-* Tamaño o tipo de la máquina virtual de destino: el tamaño predeterminado de máquina virtual se elige en función del tamaño de máquina virtual de origen. Puede seleccionar un tamaño de máquina virtual diferente según sea necesario en cualquier momento anterior a la conmutación por error. Tenga en cuenta que el tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco [estándar](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) y [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) y las IOPS.
+* Tamaño o tipo de la máquina virtual de destino: el tamaño predeterminado de máquina virtual se elige en función del tamaño de máquina virtual de origen. Puede seleccionar un tamaño de máquina virtual diferente según sea necesario en cualquier momento anterior a la conmutación por error. Tenga en cuenta que el tamaño del disco de la máquina virtual también se basa en el tamaño del disco de origen y solo puede modificarse después de la conmutación por error. Obtenga más información sobre los tamaños de disco e IOPS en nuestro artículo [Objetivos de escalabilidad para discos](../virtual-machines/windows/disk-scalability-targets.md).
 
     ![Propiedades de proceso y red](./media/vmware-azure-enable-replication/vmproperties.png)
 

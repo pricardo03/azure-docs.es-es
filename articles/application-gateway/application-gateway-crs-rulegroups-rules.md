@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320108"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302048"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de reglas y grupos de reglas de CRS de firewall de aplicaciones web que se ofrecen
 
@@ -27,6 +27,11 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">General</p>
+
+|Identificador de regla|DESCRIPCIÓN|
+|---|---|
+|200004|Posible límite sin coincidencia con varias partes.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -239,6 +244,8 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |941290|Filtros XSS de IE: ataque detectado|
 |941300|Filtros XSS de IE: ataque detectado|
 |941310|Filtro XSS de codificación mal formulada US-ASCII: ataque detectado|
+|941330|Filtros XSS de IE: ataque detectado|
+|941340|Filtros XSS de IE: ataque detectado|
 |941350|XSS de IE con codificación UTF-7: ataque detectado|
 |941013|Regla 941013|
 |941014|Regla 941014|
@@ -255,18 +262,29 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |942011|Regla 942011|
 |942012|Regla 942012|
 |942100|Ataque por inyección de código SQL detectado mediante libinjection|
+|942110|Ataque por inyección de código SQL: Pruebas de inyección de código detectadas|
+|942130|Ataque por inyección de código SQL: Tautología de SQL detectada.|
 |942140|Ataque por inyección de código SQL = nombres de base de datos comunes detectados|
 |942160|Detección de pruebas de inyección de código SQL a ciegas mediante sleep() o benchmark()|
 |942170|Detección de intentos de inyección con las funciones benchmark y sleep que incluyen consultas condicionales|
+|942190|Detecta la ejecución de código MSSQL y los intentos de recopilación de información|
+|942200|Detecta inyecciones de código MySQL cuyo espacio o comentarios resultan confusos y terminaciones con el carácter de acento grave|
 |942230|Detección de intentos de inyección de código SQL condicionales|
+|942260|Detecta intentos básicos de omisión de la autenticación SQL (2/3)|
 |942270|Búsqueda de inyección de código SQL básico Cadena de ataque común para Oracle MySQL y otras bases de datos|
 |942290|Búsqueda de intentos de inyección de código SQL MongoDB básico|
+|942300|Detecta comentarios, condiciones e inyecciones de caracteres de MySQL|
 |942320|Detección de inyecciones de funciones o procedimientos almacenados de MySQL y PostgreSQL|
+|942330|Detecta sondeos clásicos de inyección de código SQL (1/2)|
+|942340|Detecta intentos básicos de omisión de la autenticación SQL (3/3)|
 |942350|Detección de intentos de inyección de UDF MySQL y otras manipulaciones de datos o estructuras|
+|942360|Detecta intentos concatenados de SQLLFI e inyecciones de código SQL básicas|
+|942370|Detecta sondeos clásicos de inyección de código SQL (2/2)|
 |942013|Regla 942013|
 |942014|Regla 942014|
 |942150|Ataque por inyección de código SQL|
 |942410|Ataque por inyección de código SQL|
+|942430|Restringe la detección de anomalías de caracteres de SQL (args): número de caracteres especiales que se han excedido (12)|
 |942440|Secuencia de comentario SQL detectada|
 |942450|Codificación hexadecimal de SQL identificada|
 |942015|Regla 942015|
@@ -550,6 +568,6 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de cómo deshabilitar reglas de WAF, consulte: [Personalización de reglas de WAF](application-gateway-customize-waf-rules-portal.md).
+Aprenda a deshabilitar las reglas de WAF visitando: [Personalización de las reglas de WAF](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

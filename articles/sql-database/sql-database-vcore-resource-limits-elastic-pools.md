@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962016"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328680"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleos virtuales
 
@@ -59,11 +59,11 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 4 (parte 2)
 
-|Tamaño de proceso|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Tamaño de proceso|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|7|8|9|10|16|24|
@@ -85,7 +85,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 1)
 
@@ -111,7 +111,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 2)
 
@@ -136,7 +136,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Crítico para la empresa: tamaños de almacenamiento y de proceso
 
@@ -164,7 +164,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 4 (parte 2)
 
@@ -190,7 +190,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 5 (parte 1)
 
@@ -216,7 +216,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 5 (parte 2)
 
@@ -242,7 +242,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-\* Para conocer el número máximo actual de trabajos (solicitudes) para cualquier base de datos individual, consulte [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos de bases de datos únicas).
+\* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
 

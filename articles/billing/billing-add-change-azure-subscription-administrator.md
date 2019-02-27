@@ -13,20 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110581"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448014"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
 
 Para administrar el acceso a recursos de Azure, debe tener el rol de administrador adecuado. Azure tiene un sistema de autorización denominado control de acceso basado en roles (RBAC) con varios roles integrados que puede elegir. Puede asignar estos roles en distintos ámbitos, como grupo de administración, suscripción o grupo de recursos.
 
-Microsoft recomienda que administre el acceso a los recursos mediante RBAC. Sin embargo, si aún utiliza el modelo de implementación clásico, deberá usar un administrador de suscripciones clásicas. Para más información, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md) y [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) (Administradores de la suscripción clásica de Azure).
+Microsoft recomienda que administre el acceso a los recursos mediante RBAC. No obstante, si todavía usa el modelo de implementación clásico y administra los recursos clásicos mediante el [módulo de PowerShell de Azure Service Management](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), necesitará usar un administrador clásico. 
+
+> [!TIP]
+> Si solo usa Azure Portal para administrar los recursos clásicos, no tendrá que utilizar el administrador clásico.
+
+Para más información, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md) y [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) (Administradores de la suscripción clásica de Azure).
 
 En este artículo, se describe cómo agregar o cambiar el rol de administrador para un usuario que usa RBAC en el ámbito de la suscripción.
 

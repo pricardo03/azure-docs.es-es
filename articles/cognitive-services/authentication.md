@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859752"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429475"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -58,7 +58,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-En el siguiente vídeo se explica cómo se usa una clave de Cognitive Services. 
+En el siguiente vídeo se explica cómo se usa una clave de Cognitive Services.
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Autenticación con una clave de suscripción a varios servicios
 
@@ -127,16 +127,15 @@ Los tokens de autenticación se incluyen en una solicitud como encabezado `Autho
 
 ### <a name="sample-requests"></a>Solicitudes de ejemplo
 
-Use esta dirección URL para intercambiar una clave de suscripción único servicio para un token de autenticación: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Use esta dirección URL para intercambiar una clave de suscripción para un token de autenticación: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-Al utilizar una clave de suscripción de varios servicios, se debe usar un punto de conexión específico de la región para el intercambio de token. Use esta dirección URL para intercambiar una clave de varios servicios de suscripción para un token de autenticación: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 Estas regiones de varios servicios admiten el intercambio de tokens:
 
@@ -147,13 +146,6 @@ Estas regiones de varios servicios admiten el intercambio de tokens:
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 Después de obtener un token de autenticación, deberá pasarlo en cada solicitud como encabezado `Authorization`. Esto es una llamada de ejemplo a Translator Text API:
 

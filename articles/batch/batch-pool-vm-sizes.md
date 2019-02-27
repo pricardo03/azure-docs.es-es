@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186013"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417149"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -44,14 +44,16 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Serie B | Todo |
 | Serie DC | Todo |
 | Optimizadas para memoria extrema | Todo |
-| Serie Hb<sup>1</sup> | Todo |
-| Serie Hc<sup>1</sup> | Todo |
+| Serie HB<sup>1,2</sup> | Todo |
+| Serie HC<sup>1,2</sup> | Todo |
 | Serie Lsv2 | Todo |
+| Serie NDv2<sup>1,2</sup> | Todo |
 | Serie NDv2<sup>1</sup> | Todo |
-| Serie NVv2 | Todo |
 | SAP HANA | Todo |
 
-<sup>1</sup> Pueden usarlas cuentas de Batch en modo de suscripción de usuario; la cuenta de Batch del modo de suscripción de usuario debe tener la cuota de núcleos que establezca. Para obtener más información, consulte [Configuración adicional para el modo de suscripción de usuario](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+<sup>1</sup> Prevista para el soporte técnico.  
+<sup>2</sup> Pueden usarlas cuentas de Batch en modo de suscripción de usuario; la cuenta de Batch del modo de suscripción de usuario debe tener la cuota de núcleos que establezca. Para obtener más información, consulte [Configuración adicional para el modo de suscripción de usuario](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 Los siguientes tamaños de VM solo se admiten para nodos de prioridad baja:
 

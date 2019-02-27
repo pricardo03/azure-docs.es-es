@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105844"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428999"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
-Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), difundirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [Log Analytics](https://azure.microsoft.com/services/log-analytics/), un servicio de [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
-![Registro de diagnóstico en Storage, Event Hubs o Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Registro de diagnóstico en Storage, Event Hubs o los registros de Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>¿Qué se registra?
@@ -82,7 +82,7 @@ La categoría Métricas registra las mismas [métricas de servidor](analysis-ser
 
     * **Archivar en una cuenta de almacenamiento**. Para usar esta opción, necesita una cuenta de almacenamiento existente a la cual conectarse. Vea [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). Siga las instrucciones para crear un administrador de recursos, una cuenta de propósito general y, a continuación, seleccione la cuenta de almacenamiento volviendo a esta página en el portal. Las cuentas de almacenamiento recién creadas pueden tardar unos minutos en aparecer en el menú desplegable.
     * **Transmitir a un centro de eventos**. Para usar esta opción, necesita un espacio de nombres de Event Hubs y un centro de eventos al que conectarse. Para más información, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). Luego, vuelva a esta página en el portal para seleccionar el espacio de nombres de Event Hubs y el nombre de la directiva.
-    * **Enviar a Log Analytics**. Para usar esta opción, use un área de trabajo existente o cree una nueva área de trabajo de Log Analytics siguiendo los pasos necesarios para [crear una nueva área de trabajo](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) en el portal. Para más información acerca de cómo ver los registros de Log Analytics, vea [Visualización de los registros de Log Analytics](#view-logs-in-log-analytics) en este artículo.
+    * **Enviar a Azure Monitor (área de trabajo de Log Analytics)**. Para usar esta opción, puede utilizar un área de trabajo ya existente o [crear un nuevo recurso de área de trabajo](../azure-monitor/learn/quick-create-workspace.md) en el portal. Para más información acerca de cómo ver los registros de Log Analytics, consulte [Visualización de los registros en el área de trabajo de Log Analytics](#view-logs-in-log-analytics) en este artículo.
 
     * **Motor**. Seleccione esta opción para registrar xEvents. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
     * **Servicio**. Seleccione esta opción para registrar los eventos del nivel de servicio. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
@@ -150,47 +150,43 @@ Los registros normalmente estarán disponibles en un par de horas tras la config
 * Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 * Asegúrese de establecer un período de retención porque los registros antiguos se eliminan de la cuenta de almacenamiento.
 
-## <a name="view-logs-in-log-analytics"></a>Visualización de los registros de Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Visualización de los registros en el área de trabajo de Log Analytics
 
-Los eventos del servidor y las métricas se integran con xEvents en Log Analytics para realizar un análisis en paralelo. Log Analytics también puede configurarse para recibir eventos de otros servicios de Azure proporcionando una vista holística de los datos de registro de diagnóstico en la arquitectura.
+Los eventos del servidor y las métricas se integran con xEvents en el recurso de área de trabajo de Log Analytics para realizar un análisis en paralelo. El área de trabajo de Log Analytics también puede configurarse para recibir eventos de otros servicios de Azure proporcionando una vista holística de los datos de registro de diagnóstico en la arquitectura.
 
-Para ver los datos de diagnóstico en Log Analytics, abra la página Búsqueda de registros desde el menú de la izquierda o el área Administración, como se muestra a continuación.
+Para ver los datos de diagnóstico, en el área de trabajo de Log Analytics, abra **Registros** en el menú izquierdo.
 
 ![Opciones de búsqueda de registros en Azure Portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Ahora que ha habilitado la recopilación de datos, en **Búsqueda de registros**, haga clic en **Todos los datos recopilados**.
+En el generador de consultas, expanda **LogManagement** > **AzureDiagnostics**. AzureDiagnostics incluye eventos de motor y de servicio. Observe que se crea una consulta sobre la marcha. El campo EventClass\_s contiene los nombres de xEvent, lo que puede resultar familiar si se ha usado xEvents para el registro local. Haga clic en **EventClass\_s** o en uno de los nombres de evento, el área de trabajo de Log Analytics continúa generando una consulta. Asegúrese de guardar las consultas para reutilizarlas más adelante.
 
-En **Tipo**, haga clic en **AzureDiagnostics** y, a continuación, haga clic en **Aplicar**. AzureDiagnostics incluye eventos de motor y de servicio. Tenga en cuenta que una consulta de Log Analytics se crea sobre la marcha. El campo EventClass\_s contiene los nombres de xEvent, lo que puede resultar familiar si se ha usado xEvents para el registro local.
+### <a name="example-query"></a>Consulta de ejemplo
+Esta consulta calcula y devuelve la CPU para cada evento de fin de consulta/fin de la actualización para una base de datos modelo y el servidor:
 
-Haga clic en **EventClass\_s** o en uno de los nombres de evento y Log Analytics continúa generando una consulta. Asegúrese de guardar las consultas para reutilizarlas más adelante.
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
 
-Asegúrese de consultar Log Analytics, que proporciona un sitio web con consulta mejorada, paneles y funcionalidades de alerta en los datos recopilados.
-
-### <a name="queries"></a>Consultas
-
-Existen cientos de consultas que puede utilizar. Estas son algunas para comenzar.
-Para más información sobre cómo utilizar el nuevo lenguaje de consulta de Búsqueda de registros, consulte [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
-
-* Query devuelve las consultas enviadas a Azure Analysis Services que han tardado más de cinco minutos (300 000 milisegundos) en completarse.
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* Identifique las réplicas con el escalado horizontal.
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    Cuando se usa el escalado horizontal, puede identificar las réplicas de solo lectura porque los valores del campo ServerName\_s tienen el número de instancia de la réplica anexado al nombre. El campo de recurso contiene el nombre de recurso de Azure, que coincide con el nombre del servidor que los usuarios ven. El campo IsQueryScaleoutReadonlyInstance_s es igual a true para las réplicas.
+```
 
 
-
-> [!TIP]
-> ¿Tiene una gran consulta de Log Analytics que desea compartir? Si tiene una cuenta de GitHub, puede agregarla a este artículo. Basta con hacer clic en **Editar** en la parte superior derecha de esta página.
+Existen cientos de consultas que puede utilizar. Para más información acerca de las consultas, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Tutorial: Activación del registro con PowerShell
+## <a name="turn-on-logging-by-using-powershell"></a>Activación del registro con PowerShell
+
 En este tutorial rápido, se crea una cuenta de almacenamiento en la misma suscripción y grupo de recursos que el servidor de Analysis Services. A continuación, se usa Set-AzureRmDiagnosticSetting para activar el registro y se envía la salida a la nueva cuenta de almacenamiento.
 
 ### <a name="prerequisites"></a>Requisitos previos
@@ -253,7 +249,7 @@ Para habilitar el registro, use el cmdlet Set-AzureRmDiagnosticSetting, junto co
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-El resultado debe parecerse a este:
+El resultado debe parecerse a este ejemplo:
 
 ```powershell
 StorageAccountId            : 
@@ -292,7 +288,7 @@ Location                    :
 Tags                        :
 ```
 
-Así se confirma que el registro está habilitado ahora para el servidor y se guarda la información en la cuenta de almacenamiento.
+Este resultado confirma que el registro está habilitado ahora para el servidor, y que la información se guarda en la cuenta de almacenamiento.
 
 También puede establecer una directiva de retención para los registros, de forma que los más antiguos se eliminen automáticamente. Por ejemplo, establezca la directiva de retención estableciendo la marca **-RetentionEnabled** en **$true** y el parámetro **-RetentionInDays** en **90**. Los registros de más de 90 días se eliminan automáticamente.
 

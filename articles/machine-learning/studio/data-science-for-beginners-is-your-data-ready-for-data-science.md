@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: f57f6bf93fce2526bdc478558551616ba1fa3c4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4f474fd6ac2fa6a4f44aacf0eacb85a92fdf1de9
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496030"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456476"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>¿Están sus datos preparados para la ciencia de datos?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciencia de datos para principiantes
@@ -100,7 +100,7 @@ A medida que agrega más datos, la imagen se vuelve más clara y puede tomar dec
 
 Con datos pertinentes, conectados, precisos y suficientes, tiene todos los ingredientes necesarios para llevar a cabo ciencia de datos de gran calidad.
 
-Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiantes* en Microsoft Azure Machine Learning.
+Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiantes* en Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820791"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446756"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
-En este tutorial se muestra cómo proteger su aplicación web mediante la creación (compra) de un certificado de App Service en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) y, a continuación, el enlace del mismo a una aplicación de App Service.
+En este tutorial se muestra cómo proteger la [aplicación de App Service](https://docs.microsoft.com/azure/app-service/) o la [aplicación de función](https://docs.microsoft.com/azure/azure-functions/) mediante la creación (compra) de un certificado de App Service en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) y su vinculación a una aplicación de App Service.
 
 > [!TIP]
 > Las instancias de App Service Certificate pueden usarse para cualquier servicio de Azure o que no sea de Azure, y no se limitan a App Services. Para ello, tiene que crear una copia PFX local de un certificado de App Service que pueda usar donde quiera. Para más información, visite nuestra entrada de blog [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/) (Creación de una copia PFX local de una instancia de App Service Certificate).
@@ -35,7 +35,7 @@ En este tutorial se muestra cómo proteger su aplicación web mediante la creaci
 Para completar esta guía paso a paso, debe:
 
 - [Crear una aplicación de App Service](/azure/app-service/)
-- [Asignar un nombre de dominio a la aplicación web](app-service-web-tutorial-custom-domain.md) o [comprarlo y configurarlo en Azure](manage-custom-dns-buy-domain.md)
+- [Asignar un nombre de dominio a su aplicación](app-service-web-tutorial-custom-domain.md) o [comprarla y configurarla en Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 

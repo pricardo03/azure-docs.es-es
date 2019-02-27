@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176363"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446008"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planeamiento de la capacidad de almacenamiento de Azure Stack
 En las secciones siguientes se proporciona información acerca del planeamiento de la capacidad de almacenamiento de Azure Stack para ayudarle a planificarse según las necesidades de almacenamiento de las soluciones.
@@ -38,7 +38,9 @@ Los operadores pueden elegir entre una configuración de almacenamiento híbrido
 
 ![Planeamiento de la capacidad de almacenamiento de Azure](media/azure-stack-capacity-planning/storage.png)
 
-En la configuración completamente de flash, la memoria caché es NVMe con una opción de capacidad de SATA SSD o NVMe. En la configuración híbrida, la memoria caché ofrece la opción de elegir entre SATA SSD y NVMe, mientras que la capacidad es HDD.
+En la configuración completamente de flash, la configuración puede ser de uno o dos niveles.  Si la configuración es de un nivel, todos los dispositivos de capacidad serán del mismo tipo (por ejemplo, NVMe o SATA/SAS SSD) y no se usan dispositivos de memoria caché. En una configuración completamente de flash de dos niveles, lo habitual son dispositivos de caché NVMe y, luego, dispositivos de capacidad SATA o SAS SSD.
+
+En una configuración híbrida de dos niveles, la caché es una elección entre NVMe o SATA/SAS SSD y la capacidad es la unidad de disco duro. 
 
 A continuación, se incluye un breve resumen de la configuración de almacenamiento de Azure Stack y Espacios de almacenamiento directo:
 - Un grupo de espacios de almacenamiento por unidad de escalado (todos los dispositivos de almacenamiento se configuran dentro de un único grupo).

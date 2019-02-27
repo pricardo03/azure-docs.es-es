@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002294"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269967"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Análisis de datos de registro en Azure Monitor
 
-Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics, que se basa en el [Explorador de datos de Azure](/azure/data-explorer). Recopila datos de telemetría desde varios orígenes y usa el [lenguaje de consulta del Explorador de datos](/azure/kusto/query) para recuperar y analizar los datos.
+Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics, que se basa en el [Explorador de datos de Azure](/azure/data-explorer). Recopila datos de telemetría desde varios orígenes y usa el [lenguaje de consulta de Kusto](/azure/kusto/query) utilizado por Data Explorer para recuperar y analizar los datos.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Entre las distintas formas en que usará las consultas de registros en Azure Mon
 ![Búsqueda de registros](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Escriba una consulta.
-Azure Monitor usa [una versión del lenguaje de consulta del Explorador de datos](get-started-queries.md) para recuperar y analizar los datos de registro de varias formas.  Normalmente se empieza con consultas básicas para avanzar posteriormente a funciones más avanzadas a medida que sus requisitos se hacen más complejos.
+Azure Monitor usa [una versión del lenguaje de consulta de Kusto](get-started-queries.md) para recuperar y analizar los datos de registro de varias formas.  Normalmente se empieza con consultas básicas para avanzar posteriormente a funciones más avanzadas a medida que sus requisitos se hacen más complejos.
 
 La estructura básica de una consulta consiste en una tabla de origen seguida de una serie de operadores separados por un carácter de barra vertical `|`.  Puede encadenar varios operadores para refinar los datos y realizar funciones avanzadas.
 

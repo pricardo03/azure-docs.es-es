@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de contraseñas de aplicación mediante información de seguridad: Azure Active Directory | Microsoft Docs'
-description: Configure contraseñas generadas automáticamente (contraseñas de aplicación) para usar con cada aplicación sin navegador, independientes de una contraseña normal, mediante información de seguridad.
+title: Configuración de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar) | Microsoft Docs
+description: Configure contraseñas generadas automáticamente (contraseñas de aplicaciones) para utilizarlas con cualquier aplicación sin explorador o que no admita la verificación de dos fases en la organización. Esta contraseña de aplicación es independiente de una contraseña normal y se puede configurar desde la página Información de seguridad.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211893"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456816"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Administración de contraseñas de aplicación mediante información de seguridad (versión preliminar)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Administración de contraseñas de aplicaciones desde la página Información de seguridad (versión preliminar)
+Determinadas aplicaciones, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos en la organización, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Determinadas aplicaciones sin navegador, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
+>[!Important]
+>Es posible que el administrador no le permita utilizar contraseñas de aplicaciones. Si no ve **Contraseñas de aplicaciones** como una opción, no están disponibles en la organización.
 
 Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
@@ -36,52 +38,48 @@ Al utilizar las contraseñas de aplicaciones, es importante recordar:
     >[!Note]
     >Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos. Esta compatibilidad significa que después de activar la verificación en dos pasos, ya no necesitará contraseñas de aplicaciones para clientes de Office 2013. Para obtener más información, consulte el artículo [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Creación y eliminación de contraseñas de aplicación mediante información de seguridad
+## <a name="create-new-app-passwords"></a>Creación de una nueva contraseña de aplicaciones
+Si utiliza la verificación en dos pasos con su cuenta profesional o educativa y su administrador ha activado la experiencia de información de seguridad, puede crear y eliminar las contraseñas de aplicaciones mediante la página **Información de seguridad**.
 
-Si utiliza la verificación en dos pasos con su cuenta profesional o educativa y su administrador ha activado la experiencia de información de seguridad, puede crear y eliminar las contraseñas de aplicación mediante el portal Mis aplicaciones.
+>[!Note]
+>Si el administrador no ha activado la experiencia de información de seguridad, debe seguir las instrucciones y la información de la sección [¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?](multi-factor-authentication-end-user-app-passwords.md).
 
-Si el administrador no ha activado la experiencia de información de seguridad, debe seguir las instrucciones y la información de la sección [¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?](multi-factor-authentication-end-user-app-passwords.md).
+### <a name="to-create-a-new-app-password"></a>Para crear una nueva contraseña de aplicación
+1. Inicie sesión en su cuenta profesional o educativa y vaya a la página https://myprofile.microsoft.com/.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Para crear contraseñas de aplicación mediante el portal Mis aplicaciones
+    ![Página Mi Perfil, que muestra los vínculos de Información de seguridad resaltados](media/security-info/securityinfo-myprofile.png)
 
-1. Inicie sesión en su cuenta profesional o educativa.
+2. Seleccione **Información de seguridad** en el panel de navegación izquierdo o en el vínculo del bloque **Información de seguridad** y, después, seleccione **Agregar método** en la página **Información de seguridad**.
 
-2. Vaya a myapps.microsoft.com, seleccione su nombre de la esquina superior derecha de la página y luego seleccione **Perfil**.
+    ![Página Información de seguridad con la opción Agregar método resaltada](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. En el área **Administrar cuenta**, seleccione **Editar la información de seguridad**.
+3. En la página **Agregar un método**, seleccione **Agregar contraseña** en la lista desplegable y, a continuación, seleccione **Agregar**.
 
-    ![Pantalla de perfil con el vínculo Editar información de seguridad resaltado](media/security-info/security-info-profile.png)
+    ![Cuadro Agregar un método, con la contraseña de aplicaciones seleccionada](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. En la pantalla **Garantizar la seguridad de la cuenta**, seleccione **Agregar información de seguridad**.
+4. Escriba el nombre de la aplicación que requiere la contraseña de la aplicación y, a continuación, seleccione **Siguiente**.
 
-    ![Pantalla de información de seguridad con información existente editable](media/security-info/security-info-edit-add-info.png)
+    ![Página de contraseña de aplicación, con el nombre de la aplicación](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. En la pantalla **Agregar información de seguridad**, seleccione **Contraseña de aplicación**.
+5. Copie el texto del cuadro **Contraseña**, pegue la contraseña en el área de contraseña de aplicaciones (en este ejemplo, Outlook 2010) y, a continuación, seleccione **Listo**.
 
-6. En la pantalla **Creación de la contraseña de la aplicación**, escriba un nombre para la contraseña de aplicación y luego seleccione **Siguiente**.
-
-    ![Pantalla con el nombre y la contraseña de aplicación](media/security-info/security-info-name-app-password.png)
-
-7. Seleccione **Copiar** para copiar la contraseña en el portapapeles y luego seleccione **Siguiente**.
-
-    ![Pantalla con la contraseña de aplicación para copiar](media/security-info/security-info-create-app-password.png)
+    ![Página de contraseña de aplicación, con el nombre de la aplicación](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Asegúrese de que la contraseña de aplicación aparece en la pantalla **Garantizar la seguridad de la cuenta**.
+    Se agrega la contraseña y puede iniciar sesión correctamente en la aplicación en el futuro.
 
-    ![Pantalla para garantizar la seguridad de la cuenta, con la contraseña de aplicación](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Eliminación de las contraseñas de aplicaciones
+Si ya no necesita utilizar una aplicación que requiera una contraseña de aplicaciones, puede eliminar la contraseña de aplicaciones asociada. Si se elimina la contraseña de aplicaciones, se libera uno de los puntos de contraseñas de aplicaciones disponibles para su uso en el futuro.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Para eliminar contraseñas de aplicación mediante el portal Mis aplicaciones
+>[!Important]
+>Si elimina una contraseña de aplicación por error, no existe modo alguno de deshacerlo. Tendrá que crear una nueva contraseña de aplicación y volver a introducirla en la aplicación. Para ello, siga los pasos de la sección [Creación de una nueva contraseña de aplicaciones](#create-new-app-passwords) de este artículo.
 
-1. En la pantalla **Garantizar la seguridad de la cuenta**, seleccione la **X** junto a la contraseña de la aplicación que desea eliminar.
+### <a name="to-delete-an-app-password"></a>Para eliminar una contraseña de aplicación
 
-    ![Pantalla para garantizar la seguridad de la cuenta, eliminar contraseña de aplicación](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. En la página **Información de seguridad**, seleccione el vínculo **Eliminar** situado junto a la opción **Contraseña de aplicación** para la aplicación específica.
 
-2. En la pantalla **Eliminar contraseña de aplicación**, seleccione **Eliminar**.
+    ![Vínculo para eliminar el método de la contraseña de aplicación de la información de seguridad](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Pantalla Eliminar contraseña de aplicación](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Seleccione **Sí** en el cuadro de confirmación para eliminar la **contraseña de aplicación**. Una vez eliminada la contraseña de aplicación, se quitará de su información de seguridad y desaparecerá de la página **Información de seguridad**.
 
-## <a name="next-steps"></a>Pasos siguientes
-
-- Si necesita actualizar la información de seguridad, siga las instrucciones del artículo [Administración de la información de seguridad](security-info-manage-settings.md).
-
-- Para información más general sobre la información de seguridad y qué puede hacer, consulte [Security info overview](user-help-security-info-overview.md) (Introducción a la información de seguridad). 
+## <a name="for-more-information"></a>Para obtener más información
+- Para más información sobre la página **Información de seguridad** y sobre cómo configurarla, consulte [Introducción a la información de seguridad](user-help-security-info-overview.md).

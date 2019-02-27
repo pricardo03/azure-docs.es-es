@@ -4,7 +4,7 @@ description: Este documento describe la causa de la alerta "Los datos del servic
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: maheshu
+manager: SamuelD
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -14,34 +14,41 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35586de180b1193e9886677ce4112eaa051395ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0ad829b976d8b712ee8027c89fb618c6c07de1bc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196763"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429031"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta sobre que los datos del servicio de mantenimiento no están actualizados
 
 ## <a name="overview"></a>Información general
-<li>Azure AD Connect Health genera una alerta de datos actualizada si no recibe todos los puntos de datos del servidor durante dos horas. El título de la alerta es **Los datos del servicio de mantenimiento no están actualizados**. </li>
-<li>La alerta con el estado **Advertencia** se desencadena si Connect Health no recibe elementos de datos parciales enviados desde el servidor durante dos horas. La alerta con el estado de advertencia no desencadena notificaciones de correo electrónico para el administrador de inquilinos. </li>
-<li>La alerta con el estado **Error** se desencadena si Connect Health no recibe ningún elemento de datos enviado desde el servidor durante dos horas. La alerta con el estado de error desencadena notificaciones de correo electrónico para el administrador de inquilinos. </li>
+Los agentes en las máquinas locales que Azure AD Connect Health supervisa periódicamente cargan los datos al servicio de Azure AD Connect Health. Si el servicio no recibe datos de un agente, la información presentada en el portal estará obsoleta. Para resaltar el problema, el servicio generará una alerta **Los datos del servicio de mantenimiento no están actualizados**. Esta alerta se genera cuando el servicio no ha recibido datos en las últimas dos horas.  
 
->[!IMPORTANT] 
-> Esta alerta sigue la [directiva de retención de datos](reference-connect-health-user-privacy.md#data-retention-policy) de Connect Health
+* La alerta con el estado **Advertencia** se desencadena si Connect Health no recibe elementos de datos parciales enviados desde el servidor durante dos horas. La alerta con el estado de advertencia no desencadena notificaciones de correo electrónico para el administrador de inquilinos.
+* La alerta con el estado **Error** se desencadena si Connect Health no recibe ningún elemento de datos enviado desde el servidor durante dos horas. La alerta con el estado de error desencadena notificaciones de correo electrónico para el administrador de inquilinos.
+
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas 
+
+> [!IMPORTANT] 
+> Esta alerta sigue la [directiva de retención de datos](reference-connect-health-user-privacy.md#data-retention-policy) de Connect Health
+
+* Asegúrese de que los servicios de agentes de Azure AD Connect Health se están ejecutando en la máquina. Por ejemplo, Connect Health para AD FS debe tener tres servicios.  
+  ![Comprobación de Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
+
 * Asegúrese de repasar y cumplir la [sección de los requisitos](how-to-connect-health-agent-install.md#requirements).
 * Utilice la [herramienta de pruebas de conectividad](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) para detectar problemas de conectividad.
-* Si tiene un proxy HTTP, siga [aquí los pasos de configuración](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
+* Si tiene un HTTP Proxy, siga estos [pasos de configuración](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
+La hoja de detalle de alertas muestra los elementos de datos que faltan de un servidor. La tabla siguiente le ayudará a concretar aún más el problema. 
 ### <a name="connect-health-for-sync"></a>Connect Health para sincronización
 
 | Elementos de datos | Pasos para solucionar problemas |
 | --- | --- | 
-| PerfCounter | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [La inspección de SSL para el tráfico saliente se filtra o se deshabilita](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Permitir los sitios web designados si la seguridad mejorada de IE está habilitada](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
-| AadSyncService-SynchronizationRules, <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults, <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | - Conectividad saliente basada en direcciones IP; vea los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653). <br /> - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
+| PerfCounter | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [La inspección de SSL para el tráfico saliente se filtra o se deshabilita](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| AadSyncService-SynchronizationRules, <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults, <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>Connect Health para ADFS
 
@@ -49,14 +56,14 @@ Realice pasos adicionales para validar en AD FS y siga el flujo de trabajo de la
 
 | Elementos de datos | Pasos para solucionar problemas |
 | --- | --- | 
-| PerfCounter, TestResult | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [La inspección de SSL para el tráfico saliente se filtra o se deshabilita](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Permitir los sitios web designados si la seguridad mejorada de IE está habilitada](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
+| PerfCounter, TestResult | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [La inspección de SSL para el tráfico saliente se filtra o se deshabilita](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 |  Adfs-UsageMetrics | Conectividad saliente basada en direcciones IP; vea los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653). | 
 
 ### <a name="connect-health-for-adds"></a>Connect Health para ADDS
 
 | Elementos de datos | Pasos para solucionar problemas |
 | --- | --- | 
-| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [La inspección de SSL para el tráfico saliente se filtra o se deshabilita](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Permitir los sitios web designados si la seguridad mejorada de IE está habilitada](https://technet.microsoft.com/windows/ms537180(v=vs.60)) <br />  - Conectividad saliente basada en direcciones IP; vea los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).  |
+| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Conectividad saliente al punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Puertos del firewall en el servidor que ejecuta el agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

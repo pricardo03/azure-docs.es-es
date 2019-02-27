@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234548"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268693"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solución de problemas de Hybrid Runbook Worker
 
@@ -204,7 +204,7 @@ Esto puede surgir si la máquina ya está registrada con una cuenta de Automatio
 
 #### <a name="resolution"></a>Resolución
 
-Para resolver este problema, quite la siguiente clave del Registro y pruebe el cmdlet `Add-HybridRunbookWorker` de nuevo:
+Para resolver este problema, quite la siguiente clave del Registro, reinicie `HealthService` y pruebe el cmdlet `Add-HybridRunbookWorker` de nuevo:
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819168"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428801"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Escritura en HDFS de Apache Hadoop desde Apache Storm en HDInsight
 
@@ -50,15 +50,18 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK 
 HdfsBolt usa el esquema de archivo que usted proporcione para comprender cómo escribir datos en HDFS. Con HDInsight, use uno de los siguientes esquemas:
 
 * `wasb://`: se usa con una cuenta de Azure Storage.
-* `adl://`: se usa con Azure Data Lake Storage.
+* `abfs://`: se usa con una cuenta de Azure Data Lake Storage Gen2.
+* `adl://`: se usa con una cuenta de Azure Data Lake Storage Gen1.
 
 En la siguiente tabla se proporcionan ejemplos de cómo usar el esquema de archivos en diferentes casos:
 
 | Esquema | Notas |
 | ----- | ----- |
 | `wasb:///` | La cuenta de almacenamiento predeterminada es un contenedor de blobs de una cuenta de Azure Storage. |
-| `adl:///` | La cuenta de almacenamiento predeterminada es un directorio de Azure Data Lake Storage. Durante la creación del clúster, especifique el directorio de Data Lake Storage que sea la raíz del HDFS del clúster. Por ejemplo, el directorio `/clusters/myclustername/`. |
+| `abfs:///` | La cuenta de almacenamiento predeterminada es un directorio en una cuenta de Azure Data Lake Storage Gen2 |
+| `adl:///` | La cuenta de almacenamiento predeterminada es un directorio de Azure Data Lake Storage Gen1. Durante la creación del clúster, especifique el directorio de Data Lake Storage que sea la raíz del HDFS del clúster. Por ejemplo, el directorio `/clusters/myclustername/`. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Cuenta de Azure Storage no predeterminada (adicional) asociada al clúster. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | Cuenta de Azure Storage no predeterminada (adicional) asociada al clúster. |
 | `adl://STORENAME/` | Raíz de la instancia de Data Lake Storage que usa el clúster. El uso de este esquema permite acceder a datos que se encuentren fuera del directorio que contiene el sistema de archivos del clúster. |
 
 Para obtener más información, consulte la referencia de [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) en Apache.org.
@@ -180,7 +183,7 @@ Para obtener más información sobre cómo usar este script con su clúster, con
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > En este ejemplo se da por supuesto que su clúster usa una cuenta de Azure Storage como almacenamiento predeterminado. Si el clúster usa Azure Data Lake Storage, use `hdfs.url: adl:///` en su lugar.
+    > En este ejemplo se da por supuesto que su clúster usa una cuenta de Azure Storage como almacenamiento predeterminado. Si el clúster usa Azure Data Lake Storage Gen2, utilice `hdfs.url: abfs:///` en su lugar. Si el clúster usa Azure Data Lake Storage Gen1, utilice `hdfs.url: adl:///` en su lugar.
     
     Para guardar el archivo, use __Ctrl+X__, después __Y__ y, finalmente, presione __Intro__. Los valores de este archivo establecen la URL de Data Lake Storage y el nombre del directorio en el que se escriben los datos.
 

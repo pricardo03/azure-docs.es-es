@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992133"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328629"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveles de servicio de núcleo virtual, ventaja híbrida de Azure y migración
 
@@ -42,7 +42,7 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos de almacenamiento y un escalado de lectura que sean altamente escalables.|
 |Proceso|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|
 |Memoria|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
-|Almacenamiento|Usa [almacenamiento remoto Premium](../virtual-machines/windows/premium-storage.md):<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|Almacenamiento|Usa el almacenamiento remoto:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
 |Rendimiento de E/S (aproximado)|Base de datos única: 500 IOPS por núcleo virtual con 7000 IOPS como máximo</br>Instancia administrada: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo con 200 000 IOPS como máximo|TBD|
 |Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Con alta disponibilidad y redundancia de zona|?|
 |Copias de seguridad|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas que se encuentran en el almacenamiento remoto de Azure, y restauraciones que usan esas instantáneas para una recuperación rápida. Las copias de seguridad son instantáneas y no afectan el rendimiento de E/S del proceso. Las restauraciones son muy rápidas y no tienen el tamaño de una operación de datos (tardan minutos en lugar de horas o días).|

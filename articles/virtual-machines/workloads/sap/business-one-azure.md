@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745357"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329855"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
 En este documento se ofrecen instrucciones para implementar SAP Business One en Azure Virtual Machines. La documentación no es un sustituto de la documentación de instalación de Business One para SAP. La documentación debe cubrir las instrucciones básicas de planeación e implementación de la infraestructura de Azure en la que se ejecutan las aplicaciones de Business One.
@@ -119,7 +119,7 @@ Estos documentos le ayudarán a decidir la selección de los tipos de almacenami
 
 En principio, debería:
 
-- Usar [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) antes que [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage).
+- Usar discos SSD Premium a través de unidades de disco duro estándar. Para más información acerca de los tipos de disco disponibles, consulte nuestro artículo [Selección de un tipo de disco](../../windows/disks-types.md).
 - Usar Azure Managed Disks antes que discos no administrados.
 - Asegurarse de que tiene suficiente rendimiento de IOPS y E/S configurado con la configuración de discos.
 - Combinar el volumen /hana/data y /hana/log para disponer de una configuración de almacenamiento rentable.
@@ -138,7 +138,6 @@ Las estimaciones de tamaño aproximadas para el lado DBMS de SQL Server son las 
 | Hasta 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
 El ajuste de tamaño indicado anteriormente debería darle una idea de por dónde empezar. Es posible que necesite más o menos recursos, en cuyo caso la adaptación en Azure es fácil. Se pueden cambiar los tipos de máquina virtual con un simple reinicio de la máquina virtual.
-
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA como DBMS
 Si se usa SAP HANA como DBMS en las secciones siguientes, se deben seguir las consideraciones del documento [Guía de operaciones de SAP HANA en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
