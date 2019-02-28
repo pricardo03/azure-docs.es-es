@@ -90,7 +90,7 @@ Ejemplo 2: varios pares **campo/valor** para anexar un conjunto de etiquetas.
 ```
 
 Ejemplo 3: un único par **campo/valor** que usa un 
-[alias](definition-structure.md#aliases) distinto de **[\*] ** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
+[alias](definition-structure.md#aliases) distinto de-**[\*]** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
