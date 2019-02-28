@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044423"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985893"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introducción a Azure Table Storage y a Table API de Azure Cosmos DB mediante .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ Necesitará lo siguiente para completar este ejemplo correctamente:
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca común de Azure Storage para .NET (versión preliminar)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). un paquete obligatorio en su versión preliminar que se admite en entornos de producción. 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table): esta biblioteca solo está disponible actualmente para .NET Standard, aún no lo está para .NET Core.
-* [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Cuenta de Almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Para completar este ejemplo, es preciso que haga referencia en el proyecto a tre
 
 * [Biblioteca de tablas de Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este paquete proporciona acceso mediante programación a los recursos de datos de la cuenta de Azure Table Storage o la cuenta de Table API de Azure Cosmos DB. Actualmente, esta biblioteca solo está disponible para .NET Standard, aún no lo está para .NET Core.
 
-* [Biblioteca del Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
-
 Para obtener los paquetes NuGet, siga estos pasos:
 
 1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y elija **Administrar paquetes NuGet**.
 2. Busque en línea "Microsoft.Azure.Storage.Common", elija version <= 9.0.0.1 y seleccione **Instalar** para instalar la biblioteca común de Azure Storage para .NET (versión preliminar) y sus dependencias. Asegúrese de que la casilla **Incluir versión preliminar** está activada ya que se trata de la versión preliminar de un paquete.
 3. Busque en línea "Microsoft.Azure.CosmosDB.Table" y seleccione **Instalar** para instalar la biblioteca de tablas de Microsoft Azure CosmosDB.
-4. Busque en línea "WindowsAzure.ConfigurationManager" y seleccione **Instalar** para instalar la biblioteca de Microsoft Azure Configuration Manager.
 
 > [!NOTE]
 > Las dependencias de ODataLib en la biblioteca común de Storage para .NET las resuelven los paquetes de ODataLib disponibles en NuGet, no desde WCF Data Services. A través de NuGet, es posible descargar directamente las bibliotecas ODataLib o bien hacer referencia a ellas con el código del proyecto. Los paquetes ODataLib específicos utilizados por la biblioteca de cliente de almacenamiento son [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) y [Spatial](https://nuget.org/packages/System.Spatial/). Aunque las clases de Azure Table Storage usan estas bibliotecas, son dependencias necesarias para programar con la biblioteca de común de Storage.

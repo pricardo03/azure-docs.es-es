@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884467"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984193"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guía de inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2
 
@@ -83,7 +83,7 @@ Para crear un grupo de recursos en Azure Portal, siga estos pasos:
 Para crear una cuenta de almacenamiento de uso general v2 en Azure Portal, siga estos pasos:
 
 > [!NOTE]
-> El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública. No está disponible actualmente en las nubes soberanas.
+> El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública.
 
 1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Todos los servicios**. Desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 2. Seleccione la **suscripción** y el **grupo de recursos** que creó anteriormente.
@@ -141,7 +141,7 @@ Login-AzAccount
 Para crear un grupo de recursos con PowerShell, use el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
 
 > [!NOTE]
-> El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública. No está disponible actualmente en las nubes soberanas.
+> El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -201,7 +201,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública. No está disponible actualmente en las nubes soberanas.
+> > El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Creación de una cuenta de almacenamiento de uso general v2
 
