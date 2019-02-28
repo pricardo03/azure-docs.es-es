@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207660"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integración de Azure Active Directory con dmarcian
 
@@ -143,15 +143,15 @@ Para configurar el inicio de sesión único de Azure AD con dmarcian, siga estos
 
 2. Haga clic en **Profile** (Perfil) en la esquina superior derecha y vaya a **Preferences** (Preferencias).
 
-    ![Preferencias ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![Preferencias](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Desplácese hacia abajo y haga clic en la sección **Single Sign-On** (Inicio de sesión único) y, después, haga clic en **Configure** (Configurar).
 
-    ![El inicio de sesión único ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![El inicio de sesión único](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. En la página **SAML Single Sign-On** (Inicio de sesión único de SAML), establezca **Status** (Estado) en **Enabled** (Habilitado) y realice los pasos siguientes:
 
-    ![Autenticación ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![Autenticación](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * En la sección **Add dmarcian to your Identity Provider** (Agregar dmarcian al proveedor de identidades), haga clic en **COPY** para copiar el valor de **Assertion Consumer Service URL** (Dirección URL del servicio de consumidor de aserciones) de la instancia y péguelo en el cuadro de texto **Dirección URL de respuesta** de la sección **Configuración básica de SAML** en Azure Portal.
 
@@ -229,15 +229,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en dmarcian, deben ap
 
 2. Haga clic en **Profile** (Perfil) en la esquina superior derecha y vaya a **Manage Users** (Administrar usuarios).
 
-    ![Usuario ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![Usuario](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. En el lado derecho de la sección **SSO Users** (Usuarios de SSO), haga clic en **Add New User** (Agregar nuevo usuario).
 
-    ![Agregar usuario ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![Agregar usuario](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. En la ventana emergente **Add New user** (Agregar nuevo usuario), realice los siguientes pasos:
 
-    ![Nuevo usuario ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![Nuevo usuario](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
      a. En el cuadro de texto **New User Email** (Correo electrónico del nuevo usuario), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
 
@@ -253,9 +253,9 @@ Al hacer clic en el icono de dmarcian en el Panel de acceso, debería iniciar se
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
