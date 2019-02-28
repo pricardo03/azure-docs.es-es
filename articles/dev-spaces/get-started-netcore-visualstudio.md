@@ -12,12 +12,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 08903bcb15c69e3bc9a2b5435785d4a1ee8edb5c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659055"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823950"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introducción a Azure Dev Spaces con .NET Core y Visual Studio
 
@@ -52,13 +52,6 @@ En esta guía, aprenderá a:
 1. Elija la configuración deseada para el control de acceso basado en rol (RBAC). Azure Dev Spaces admite los clústeres con RBAC habilitados o deshabilitados.
 
     ![Configuración de RBAC](media/common/k8s-RBAC.PNG)
-
-1. Asegúrese de que el enrutamiento de aplicación HTTP está habilitado.
-
-   ![Habilitación del enrutamiento de aplicación HTTP](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > Para habilitar el [enrutamiento de aplicación HTTP](/azure/aks/http-application-routing) en un clúster existente, use el comando: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Seleccione **Review + create** (Revisar y crear) y, a continuación, **Create** cuando haya terminado.
 

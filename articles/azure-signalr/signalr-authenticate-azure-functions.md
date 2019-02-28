@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: b66d4c9fb3bce03248f5696d5a7b2b7b62b7ffd3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0ed30b9ad38db71798edd75ee133a08670fd33fe
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746386"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890205"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
 
@@ -304,7 +304,7 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
 
 1. En VS Code, abra **SignalRInfo/function.json**.
 
-1. Inserte una [expresión de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) en la propiedad *userId* del enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Esto establece el valor en el nombre de usuario del usuario autenticado. El atributo tendrá ahora un aspecto similar al siguiente.
+1. Inserte una [expresión de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) en la propiedad *userId* del enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Esto establece el valor en el nombre de usuario del usuario autenticado. El atributo tendrá ahora un aspecto similar al siguiente.
 
     ```json
     {

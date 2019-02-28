@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743692"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804658"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inicio rápido: Ingesta de blobs de Azure en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
@@ -58,7 +58,7 @@ Cree una tabla en Azure Data Explorer a la que Event Hubs enviará datos. La tab
 
 1. En Azure Portal, bajo el clúster, seleccione **Consulta**.
 
-    ![Vínculo a la aplicación Consulta](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Vínculo a la aplicación Consulta](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Copie el siguiente comando en la ventana y seleccione **Ejecutar** para crear la tabla (TestTable) que recibirá los datos ingeridos.
 
@@ -82,11 +82,11 @@ Ahora se conectará a la cuadrícula de eventos desde Azure Data Explorer para q
 
 1. En el clúster que creó, seleccione **Bases de datos** y **TestDatabase**.
 
-    ![Selección de la base de datos de prueba](media/ingest-data-event-hub/select-test-database.png)
+    ![Selección de la base de datos de prueba](media/ingest-data-event-grid/select-test-database.png)
 
 1. Seleccione **Ingesta de datos** y **Agregar conexión de datos**.
 
-    ![Ingesta de datos](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Ingesta de datos](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Seleccione el tipo de conexión: **Blob Storage**.
 
@@ -185,9 +185,9 @@ Si no piensa volver a usar la cuadrícula de eventos, limpie **test-hub-rg** par
 
 1. En Azure Portal, seleccione **Grupos de recursos** en el extremo izquierdo y luego seleccione el grupo de recursos que creó.  
 
-    Si el menú izquierdo está contraído, seleccione el ![Botón Expandir](media/ingest-data-event-hub/expand.png) para expandirlo.
+    Si el menú izquierdo está contraído, seleccione el ![Botón Expandir](media/ingest-data-event-grid/expand.png) para expandirlo.
 
-   ![Selección del grupo de recursos que se eliminará](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Selección del grupo de recursos que se eliminará](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. En **test-resource-group**, seleccione **Eliminar grupo de recursos**.
 

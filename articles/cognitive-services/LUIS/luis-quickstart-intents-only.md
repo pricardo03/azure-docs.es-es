@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: b4ac0ccb249bac7149014861056c10f9093d6759
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878174"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593920"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación LUIS para determinar las intenciones del usuario
 
@@ -165,9 +165,13 @@ Regrese al portal de LUIS y cree una nueva intención para determinar si la expr
     |Submit resume for engineering position (Enviar el currículum vítae para el puesto de ingeniero)|
     |This is my c.v. for post 234123 in Tampa. (Este es mi currículum vítae para el puesto 234123 en Tampa).|
 
-    [![Captura de pantalla del ingreso de expresiones nuevas para la intención ApplyForJob](media/luis-quickstart-intents-only/utterance-applyforjob.png "Captura de pantalla del ingreso de expresiones nuevas para la intención ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+<!--
 
-    La intención etiquetada aparece en rojo porque actualmente LUIS no está seguro de que la intención esté correcta. Entrenar la aplicación indica a LUIS que las expresiones están en la intención correcta. 
+    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+
+    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
+
+-->
 
 ## <a name="train-again"></a>Volver a entrenar
 

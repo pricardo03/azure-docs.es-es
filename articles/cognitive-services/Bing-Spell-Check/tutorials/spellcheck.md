@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 086bcbe48fbace1a199e195e32fd1ad1bbd6ff46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0a7b8637ae3ca7342a04f6bf3f8a808539d980eb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869898"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886169"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilación de un cliente de revisión ortográfica de página web
 
-En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API.
+En este tutorial, vamos a compilar una página web que permita a los usuarios consultar Bing Spell Check API. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

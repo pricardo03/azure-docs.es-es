@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4e6d981ef1ac7985e9f230cfbbda440a765e20ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695492"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959194"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilación de una aplicación de consola .NET Core para administrar datos en la cuenta de SQL API de Azure Cosmos DB (versión preliminar de la versión 3 de SDK)
 
@@ -133,7 +133,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
    ![Captura de pantalla para obtener las claves de Azure Cosmos DB de Azure Portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. A continuación, se creará una nueva instancia de `CosmosClient` y se configurará algo de scaffolding para el programa.
+1. A continuación, se creará una instancia de `CosmosClient` y se configurará algo de scaffolding para nuestro programa.
 
    Debajo del método **Main**, agregue una nueva tarea asincrónica denominada **GetStartedDemoAsync**, que creará una instancia del nuevo `CosmosClient`. Se usará **GetStartedDemoAsync** como punto de entrada que llama a los métodos que operan en recursos de Azure Cosmos DB.
 

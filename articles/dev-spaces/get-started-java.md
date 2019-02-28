@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: mmontwil
-ms.openlocfilehash: d1840a451fc9354b32950283b335455d67ccbf43
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d080a3d251d88095e14011b5834d2b923f204162
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657253"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822913"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Introducción a Azure Dev Spaces con Java
 
@@ -71,7 +71,7 @@ az group create --name MyResourceGroup --location <region>
 Crear un clúster de Kubernetes con el siguiente comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
 ```
 
 La operación de creación del clúster tarda unos minutos.

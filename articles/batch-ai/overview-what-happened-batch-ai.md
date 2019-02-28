@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447810"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961369"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>¿Qué le va a suceder a Azure Batch AI?
 
@@ -83,7 +83,7 @@ Azure Machine Learning Service aporta un gran conjunto de nuevas funcionalidades
  
 Además de la tabla anterior, hay características en Azure Machine Learning Service que tradicionalmente no se admitían en BatchAI.
 
-|Característica|Servicio BatchAI|Azure Machine Learning Service|
+|Característica|Servicio BatchAI|Servicio Azure Machine Learning|
 |-------|:-------:|:-------:|
 |Preparación del entorno    |Sin  |Sí (preparación y carga de Conda en ACR)|
 |Ajuste de hiperparámetros  |Sin |    Sí|
@@ -101,7 +101,7 @@ Además de la tabla anterior, hay características en Azure Machine Learning Ser
 
 En esta tabla se presentan las diversas interfaces de programación disponibles para cada servicio.
     
-|Característica|Servicio BatchAI|Azure Machine Learning Service|
+|Característica|Servicio BatchAI|Servicio Azure Machine Learning|
 |-------|:-------:|:-------:|
 |SDK    |Java, C#, Python, Nodejs   |Python (basado en la configuración de ejecución y basado en el estimador para plataformas comunes)|
 |CLI    |Sí    |Aún no|
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Más información sobre el registro de cuentas de almacenamiento adicionales o la obtención de una referencia a otro almacén de datos registrado en la [documentación de Azure ML Service](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Más información sobre el registro de cuentas de almacenamiento adicionales o la obtención de una referencia a otro almacén de datos registrado en la [documentación de Azure ML Service](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Descarga y carga de datos 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-Toda la información de este fragmento de código de entrenamiento (incluido el archivo tf_mnist_replica.py) puede encontrarse en el [repositorio de GitHub de cuadernos de ejemplo de Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). El almacén de datos propiamente dicho se puede montar en los nodos individuales, o los datos de entrenamiento se pueden descargar en el propio nodo. Para más información sobre cómo hacer referencia al almacén de datos en el estimador, consulte la [documentación de Azure ML Service](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+Toda la información de este fragmento de código de entrenamiento (incluido el archivo tf_mnist_replica.py) puede encontrarse en el [repositorio de GitHub de cuadernos de ejemplo de Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). El almacén de datos propiamente dicho se puede montar en los nodos individuales, o los datos de entrenamiento se pueden descargar en el propio nodo. Para más información sobre cómo hacer referencia al almacén de datos en el estimador, consulte la [documentación de Azure ML Service](../machine-learning/service/how-to-access-data.md#access). 
 
 El envío de una ejecución en Azure ML se realiza mediante la función de envío.
 

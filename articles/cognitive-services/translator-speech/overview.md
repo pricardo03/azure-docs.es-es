@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: dc406e79adb72a8b84c4a30b372ec6f491b4e441
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874216"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674861"
 ---
 # <a name="what-is-translator-speech-api"></a>¿Qué es Translator Speech API?
 
@@ -25,13 +26,13 @@ Translator Speech API se puede utilizar para agregar conversión de voz en tiemp
 
 Translator Text API es un servicio de Azure que forma parte de [la colección de API Microsoft Cognitive Services](https://docs.microsoft.com/azure/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube, que se pueden consumir fácilmente en los proyectos de desarrollo.
 
-Con Translator Speech API, las aplicaciones cliente transmiten el audio de voz al servicio y reciben unos resultados de texto y audio, que incluyen el texto reconocido en el idioma de origen y su conversión al idioma de destino. Para producir los resultados, se aplica el reconocimiento de voz automático (ASR) con la tecnología de redes neuronales profundas a la secuencia de audio entrante. La salida sin formato del reconocimiento de voz automático se mejora aún más mediante una técnica nueva denominada TrueText, para reflejar mejor la intención del usuario. Por ejemplo, TrueText quita las disfluencias (hum o tos), palabras repetidas y restablece la puntuación y el uso adecuado de mayúsculas y minúsculas. También existe la posibilidad de enmascarar o excluir palabras soeces. Los motores de reconocimiento y traducción están entrenados específicamente para controlar la voz conversacional. 
+Con Translator Speech API, las aplicaciones cliente transmiten el audio de voz al servicio y reciben unos resultados de texto y audio, que incluyen el texto reconocido en el idioma de origen y su conversión al idioma de destino. Para producir los resultados, se aplica el reconocimiento de voz automático (ASR) con la tecnología de redes neuronales profundas a la secuencia de audio entrante. La salida sin formato del reconocimiento de voz automático se mejora aún más mediante una técnica nueva denominada TrueText, para reflejar mejor la intención del usuario. Por ejemplo, TrueText quita las disfluencias (hum o tos), palabras repetidas y restablece la puntuación y el uso adecuado de mayúsculas y minúsculas. También existe la posibilidad de enmascarar o excluir palabras soeces. Los motores de reconocimiento y traducción están entrenados específicamente para controlar la voz conversacional.
 
-El servicio Translator Speech utiliza la detección de silencios para determinar el final de una expresión. Después de una pausa en la actividad de voz, el servicio devuelve el resultado final de la expresión completa. El servicio también puede devolver resultados parciales, lo que proporciona los reconocimientos y las traducciones intermedios de una expresión en curso. 
+El servicio Translator Speech utiliza la detección de silencios para determinar el final de una expresión. Después de una pausa en la actividad de voz, el servicio devuelve el resultado final de la expresión completa. El servicio también puede devolver resultados parciales, lo que proporciona los reconocimientos y las traducciones intermedios de una expresión en curso.
 
 Para la traducción de voz a voz, el servicio permite sintetizar la voz (texto a voz) del texto hablado en los idiomas de destino. El audio de texto a voz se crea en el formato especificado por el cliente. Están disponibles los formatos WAV y MP3.
 
-Translator Speech API usa el protocolo WebSocket para proporcionar un canal de comunicación dúplex completo entre el cliente y el servidor. 
+Translator Speech API usa el protocolo WebSocket para proporcionar un canal de comunicación dúplex completo entre el cliente y el servidor.
 
 ## <a name="about-microsoft-translator"></a>Acerca de Microsoft Translator
 Microsoft Translator es un servicio de traducción automática basado en la nube. En el centro de este servicio están Translator Text API y [Translator Speech API](https://www.microsoft.com/en-us/translator/translatorapi.aspx), que dan servicio a diversos productos y servicios de Microsoft y que utilizan miles de empresas en todo el mundo en sus aplicaciones y flujos de trabajo para que su contenido llegue a una audiencia mundial.
@@ -43,17 +44,18 @@ Microsoft Translator Speech API usa la traducción automática estadística (SMT
 
 La traducción automática estadística ha alcanzado un nivel estable en cuanto a la mejora de su rendimiento. La calidad de la traducción ya no mejora de forma significativa en sistemas genéricos con SMT. Ahora, está tomando impulso una nueva tecnología de traducción basada en inteligencia artificial que utiliza redes neuronales (NN).
 
-NMT proporciona mejores traducciones, no solo desde un punto de vista de la calidad de la traducción sino también porque suena más fluida y más humana que las traducciones SMT. El motivo principal de esta fluidez es que NMT usa el contexto completo de una frase para traducir las palabras. SMT solo toma el contexto inmediato de unas pocas palabras antes y después de cada palabra.
+NMT proporciona mejores traducciones, no solo desde un punto de vista de la calidad de la traducción sino también porque suena más fluida y más humana que las traducciones SMT.
+El motivo principal de esta fluidez es que NMT usa el contexto completo de una frase para traducir las palabras. SMT solo toma el contexto inmediato de unas pocas palabras antes y después de cada palabra.
 
 Los modelos NMT son el núcleo de la API y no son visibles para los usuarios finales. Las únicas diferencias notables son:
 * La mejor calidad de la traducción, especialmente en idiomas como chino, japonés y árabe.
 * La incompatibilidad con las características de personalización de centros existentes (para su uso con Microsoft Translator Text API).
 
-Todos los idiomas de traducción de voz admitidos utilizan NMT. Por lo tanto, todas las traducciones de voz a voz utilizan NMT. 
+Todos los idiomas de traducción de voz admitidos utilizan NMT. Por lo tanto, todas las traducciones de voz a voz utilizan NMT.
 
-La traducción de voz a texto puede usar una combinación de NMT y SMT según el par de idiomas. Si el idioma de destino admite NMT, la traducción completa se realiza con NMT. Si el idioma de destino no admite NMT, la traducción es un híbrido de NMT y SMT, con el idioma inglés como "enlace" entre los dos idiomas. 
+La traducción de voz a texto puede usar una combinación de NMT y SMT según el par de idiomas. Si el idioma de destino admite NMT, la traducción completa se realiza con NMT. Si el idioma de destino no admite NMT, la traducción es un híbrido de NMT y SMT, con el idioma inglés como "enlace" entre los dos idiomas.
 
-Consulte los idiomas admitidos en [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
+Consulte los idiomas admitidos en [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx).
 
 Más información sobre [el funcionamiento de NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
@@ -68,4 +70,4 @@ Más información sobre [el funcionamiento de NMT](https://www.microsoft.com/en-
 ## <a name="see-also"></a>Otras referencias
 - [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/)
 - [Página de producto de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-- [Información de precios y soluciones](https://www.microsoft.com/en-us/translator/home.aspx) 
+- [Información de precios y soluciones](https://www.microsoft.com/en-us/translator/home.aspx)

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545797"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882593"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure
 
@@ -27,6 +27,8 @@ Azure Database for MySQL es un servicio de base de datos relacional de Microsoft
 > * Datos de consulta
 > * Actualización de datos
 > * Restauración de datos
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 Puede usar Azure Cloud Shell en el explorador o [instalar la CLI de Azure]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los bloques de código de este tutorial.
 
@@ -174,8 +176,8 @@ Para realizar la restauración, necesita la información siguiente:
 
 - Punto de restauración: seleccione el momento antes de que se modificara el servidor. Debe ser mayor o igual que el valor de la copia de seguridad más antigua de la base de datos de origen.
 - Servidor de destino: especifique el nombre del nuevo servidor donde desea restaurar.
-- Servidor de origen: especifique el nombre del servidor desde donde desea restaurar
-- Ubicación: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen
+- Servidor de origen: especifique el nombre del servidor desde donde desea restaurar.
+- Ubicación: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen.
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

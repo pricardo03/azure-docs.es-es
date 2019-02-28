@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270307"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867021"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
@@ -297,7 +297,7 @@ Como la cuenta de almacenamiento ahora se define en la plantilla vinculada, debe
 1. Abra azuredeploy.json en Visual Studio Code en caso de que no esté abierto.
 2. Expanda la definición del recurso de máquina virtual, actualice **dependsOn** como se muestra en esta captura de pantalla:
 
-    ![Las plantillas vinculadas de Azure Resource Manager configuran la dependencia ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Las plantillas vinculadas de Azure Resource Manager configuran la dependencia](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* es el nombre del recurso de implementaciones.  
 3. Actualice **properties/diagnosticsProfile/bootDiagnostics/storageUri** tal y como se muestra en la captura de pantalla anterior.

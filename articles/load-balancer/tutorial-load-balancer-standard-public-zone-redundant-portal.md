@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230839"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882644"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -177,7 +177,7 @@ Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones d
 4. Haga clic en **Agregar nuevo recurso de back-end** para agregar cada máquina virtual (*myVM2* y *myVM3*) al grupo de back-end del equilibrador de carga.
 5. Haga clic en **Agregar**.
 
-    ![Incorporación al grupo de direcciones de back-end ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Incorporación al grupo de direcciones de back-end](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Compruebe que la configuración del grupo de back-end del equilibrador de carga muestra las tres máquinas virtuales: **myVM1**, **myVM2** y **myVM3**.
 

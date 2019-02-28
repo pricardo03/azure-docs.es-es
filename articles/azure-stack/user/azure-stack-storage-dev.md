@@ -4,18 +4,17 @@ description: Guía de introducción a las herramientas de desarrollo de almacena
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 12/03/2018
+ms.date: 11/05/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 857e12664defb1fc0106dd0d3012b77a89f826c2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aa044ba9a7fcb66b5314144dd77bdd3435488218
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495112"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877612"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introducción a las herramientas de desarrollo de almacenamiento de Azure Stack
 
@@ -30,9 +29,9 @@ Utilice este artículo como guía de introducción a las herramientas de desarro
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de clientes de Azure
 
-En lo que respecta a las bibliotecas de cliente de almacenamiento, debe conocer cuál es la versión compatible con la API REST. También debe especificar el punto de conexión de Azure Stack en el código.
+Las versiones compatibles de la API REST para el almacenamiento de Azure Stack son 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 para la actualización 1802 o versiones más recientes y 2015-04-05 para las versiones anteriores. Los puntos de conexión de Azure Stack no tienen una paridad completa con la versión más reciente de la API REST de Azure Storage. En lo que respecta a las bibliotecas de cliente de almacenamiento, debe conocer cuál es la versión compatible con la API REST.
 
-### <a name="1811-update-or-newer-versions"></a>Actualización 1811 o versiones más recientes
+### <a name="1802-update-or-newer-versions"></a>Actualización 1802 o versiones más recientes
 
 | Biblioteca de cliente | Versión compatible de Azure Stack | Vínculo | Especificación de punto de conexión |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -46,22 +45,22 @@ En lo que respecta a las bibliotecas de cliente de almacenamiento, debe conocer 
 
 #### <a name="install-php-client-via-composer---current"></a>Instalación del cliente PHP a través de compositor: actual
 
-Para instalar a través de Composer: (usaremos el blob como ejemplo).
+Para instalar a través de compositor: (usaremos blob como ejemplo).
 
 1. Cree un archivo llamado **composer.json** en la raíz del proyecto con el código siguiente:
 
-    ```json
+  ```php
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.2.0"
+      "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-    ```
+  ```
 
 2. Descargue [composer.phar](http://getcomposer.org/composer.phar) en la raíz del proyecto.
 3. Ejecute `php composer.phar install`.
 
-### <a name="previous-versions-1802-to-1809-update"></a>Versiones anteriores (actualización de 1802 a 1809)
+### <a name="previous-versions"></a>Versiones anteriores
 
 |Biblioteca de cliente|Versión compatible de Azure Stack|Vínculo|Especificación de punto de conexión|
 |---------|---------|---------|---------|
@@ -75,19 +74,19 @@ Para instalar a través de Composer: (usaremos el blob como ejemplo).
 
 #### <a name="install-php-client-via-composer---previous"></a>Instalación del cliente PHP a través de compositor: anterior
 
-Para instalar a través de compositor: (usaremos blob como ejemplo).
+Instalación mediante Composer:
 
 1. Cree un archivo llamado **composer.json** en la raíz del proyecto con el código siguiente:
 
-  ```json
+  ```php
     {
-      "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
-      }
+          "require":{
+          "Microsoft/azure-storage":"0.15.0"
+          }
     }
   ```
 
-2. Descargue [composer.phar](http://getcomposer.org/composer.phar) en la raíz del proyecto.
+2. Descargue el archivo [composer.phar](http://getcomposer.org/composer.phar) en la raíz del proyecto.
 3. Ejecute `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Declaración de punto de conexión
@@ -102,7 +101,7 @@ Si no está seguro de cuál es su punto de conexión, póngase en contacto con e
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en el archivo app.config:
 
-```xml
+```
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -112,7 +111,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en la configuración de la cadena de conexión:
 
-```java
+```
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -124,7 +123,7 @@ public static final String storageConnectionString =
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en la instancia de la declaración:
 
-```javascript
+```
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -133,7 +132,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en la configuración de la cadena de conexión:
 
-```cpp
+```
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -144,7 +143,7 @@ EndpointSuffix=local.azurestack.external"));
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en la configuración de la cadena de conexión:
 
-```php
+```
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -155,7 +154,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en la instancia de la declaración:
 
-```python
+```
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -165,7 +164,7 @@ endpoint_suffix='local.azurestack.external')
 
 Para Azure Stack, el sufijo del punto de conexión se especifica en la configuración de la cadena de conexión:
 
-```ruby
+```
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

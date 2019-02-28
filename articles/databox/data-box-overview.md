@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411414"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875045"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -76,7 +76,7 @@ Data Box incluye los siguientes componentes:
 
 * **Dispositivo Data Box**: un dispositivo físico que le proporciona un espacio de almacenamiento principal, administra la comunicación con el almacenamiento en la nube y le ayuda a garantizar la seguridad y confidencialidad de todos los datos que están almacenados en el dispositivo. El dispositivo Data Box tiene una capacidad de almacenamiento utilizable de 80 TB. 
 
-    ![Plano frontal y trasero de Data Box ](media/data-box-overview/data-box-combined3.png)
+    ![Plano frontal y trasero de Data Box](media/data-box-overview/data-box-combined3.png)
 
     
 * **Servicio Data Box**: es una extensión de Azure Portal que le permite administrar un dispositivo Data Box desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el servicio Data Box para realizar la administración diaria del dispositivo Data Box. Las tareas de servicio incluyen cómo crear y administrar pedidos, ver y administrar alertas y administrar recursos compartidos.  
