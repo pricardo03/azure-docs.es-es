@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 13d985b95d971ea28ec5345dbb86df7a3271b716
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1f08ca8517d01a6d72f1f8a18514ea3f851ff14
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115188"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587912"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Back up a web app using PowerShell (Copia de seguridad de una aplicación web mediante PowerShell)
 
@@ -50,8 +50,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crea una cuenta de Storage. |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | Crea un contenedor de Azure Storage. |
-| [New-AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | Genera un token de SAS para un contenedor de Azure Storage.  |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Crea un contenedor de Azure Storage. |
+| [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Genera un token de SAS para un contenedor de Azure Storage.  |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crea un plan de App Service, |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crea una aplicación web. |
 | [New-AzWebAppBackup](/powershell/module/az.websites/new-azwebappbackup) | Crea una copia de seguridad para una aplicación web. |

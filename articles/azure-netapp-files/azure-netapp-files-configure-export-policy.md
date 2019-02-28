@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 08de7e2ca8cd993a0931f5b16cb9d6c9a04e53dc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 115c6726ed150b9a76685bd5a558d547d215958f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010963"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587742"
 ---
-# <a name="configure-export-policy-for-a-volume-optional"></a>Configuración de la directiva de exportación para un volumen (opcional)
+# <a name="configure-export-policy-for-a-volume"></a>Configuración de la directiva de exportación para un volumen
 
 Si lo desea, puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files. 
 
@@ -39,7 +39,7 @@ Si lo desea, puede configurar la directiva de exportación para controlar el acc
         * Dirección IPv4, por ejemplo, `10.1.12.24` 
         * Dirección IPv4 con una máscara de subred expresada como un número de bits, por ejemplo, `10.1.12.10/4`
 
-    * **Access**  
+    * **Acceder**  
         Seleccione uno de los tipos de accesos siguientes:  
         * Sin acceso 
         * Lectura y escritura

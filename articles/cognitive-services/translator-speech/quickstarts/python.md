@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872057"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673282"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Inicio rápido: Translator Speech API con Python
 <a name="HOLTop"></a>
@@ -30,7 +31,7 @@ Debe tener [Python.js 3.x](https://www.python.org/downloads/) para ejecutar este
 
 Debe instalar el [paquete websocket-client](https://pypi.python.org/pypi/websocket-client) para Python.
 
-Necesitará un archivo .wav llamado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz. 
+Necesitará un archivo .wav llamado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz.
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Microsoft Translator Speech API**. Se requiere una clave de suscripción de pago del [panel de Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -132,7 +133,7 @@ Un resultado correcto es la creación de un archivo denominado "speak2.wav". El 
 > [!div class="nextstepaction"]
 > [Tutorial de Translator Speech](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Otras referencias
 
 [Información general de Translator Speech](../overview.md)
 [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

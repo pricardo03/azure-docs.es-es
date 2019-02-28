@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846683"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586909"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 
@@ -41,40 +41,11 @@ En este tutorial se describen los pasos siguientes:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creación de un espacio de nombres mediante Azure Portal
-
-> [!NOTE] 
-> También puede crear entidades de mensajería y un espacio de nombres de Service Bus con [PowerShell](/powershell/azure/get-started-azureps). Para más información, consulte [Uso de PowerShell para administrar recursos de Service Bus](service-bus-manage-with-ps.md).
-
-Si ya ha creado un espacio de nombres de mensajería de Service Bus, vaya a la sección [Creación de un tema mediante Azure Portal](#2-create-a-topic-using-the-azure-portal).
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Creación de un tema mediante Azure Portal
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. Inicie sesión en [Azure Portal][azure-portal].
-2. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Todos los servicios**) o en **Todos los recursos**. Haga clic en el espacio de nombres en el que desea crear el tema. 
-3. Se abre la ventana de información general del espacio de nombres. Haga clic en **Temas**:
-   
-    ![de un tema][createtopic1]
-4. Haga clic en **+Tema**.
-   
-    ![Seleccionar temas][createtopic2]
-5. Escriba un nombre para el tema. Deje las restantes opciones con sus valores predeterminados.
-   
-    ![Seleccionar Nuevo][createtopic3]
-6. En la parte inferior del cuadro de diálogo, haga clic en **Crear**.
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Creación de una suscripción al tema
-
-1. En el panel de recursos del portal, haga clic en el espacio de nombres que creó en el paso 1, en **Temas** y, después, en el nombre del tema que creó en el paso 2.
-2. En la parte superior del panel de información general, haga clic en **+Suscripción** para agregar una suscripción a este tema.
-
-    ![Creación de una suscripción][createtopic4]
-
-3. Escriba el nombre de la suscripción. Deje las restantes opciones con sus valores predeterminados.
-
-## <a name="4-send-messages-to-the-topic"></a>4. Envío de mensajes al tema
+## <a name="send-messages-to-the-topic"></a>Envío de mensajes al tema
 
 Para enviar mensajes al tema, escriba una aplicación de consola en C# mediante Visual Studio.
 
@@ -231,7 +202,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Aplicación de consola (.NET Cor
    
       ![Tamaño del mensaje][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Recepción de mensajes de la suscripción
+## <a name="receive-messages-from-the-subscription"></a>Recepción de mensajes de la suscripción
 
 Para recibir los mensajes que acaba de enviar, cree otra aplicación de consola de .NET Core e instale el paquete NuGet **Microsoft.Azure.ServiceBus**, similar a la aplicación de remitente anterior.
 
