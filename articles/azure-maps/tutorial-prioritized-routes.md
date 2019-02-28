@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ec047f38596bed4d3f0bc5520dc9c7fc18b4c24
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749770"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585243"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -248,7 +248,7 @@ En esta sección se muestra cómo usar la API del servicio de rutas de Maps para
         datasource.add(routeLine, 0);
     });
     ```
-    Este fragmento de código consulta el servicio de enrutamiento de Azure Maps mediante el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) y, después, analiza la respuesta en formato GeoJSON mediante [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). A continuación, crea una matriz de coordenadas para la ruta devuelta y la agrega al origen de datos, pero también agrega un índice de 0 para garantizar que esta se representa antes de cualquier otra línea del origen de datos. Esto se hace ya que, a menudo, el cálculo de la ruta del camión será más lento que el de la ruta de un coche, y si la línea de ruta del camión se agrega al origen de datos después de la ruta del coche, esta se representará por encima. Se agregan dos propiedades a la línea de ruta del camión, una pincelada con un agradable tono azul y una pincelada de 9 píxeles de ancho. 
+    Este fragmento de código consulta el servicio de enrutamiento de Azure Maps mediante el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) y, después, analiza la respuesta en formato GeoJSON mediante [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). A continuación, crea una matriz de coordenadas para la ruta devuelta y la agrega al origen de datos, pero también agrega un índice de 0 para garantizar que esta se representa antes de cualquier otra línea del origen de datos. Esto se hace ya que, a menudo, el cálculo de la ruta del camión será más lento que el de la ruta de un coche, y si la línea de ruta del camión se agrega al origen de datos después de la ruta del coche, esta se representará por encima. Se agregan dos propiedades a la línea de ruta del camión, una pincelada con un agradable tono azul y una pincelada de 9 píxeles de ancho. 
 
 4. Agregue el siguiente código JavaScript para solicitar la ruta para automóvil y mostrar los resultados:
 
@@ -267,7 +267,7 @@ En esta sección se muestra cómo usar la API del servicio de rutas de Maps para
         datasource.add(routeLine);
     });
     ```
-    Este fragmento de código usa la misma consulta de ruta de camión para un automóvil. Consulta el servicio de enrutamiento de Azure Maps mediante el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) y, después, analiza la respuesta en formato GeoJSON mediante [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Luego, crea una matriz de coordenadas para la ruta devuelta y la agrega al origen de datos. Se agregan dos propiedades a la línea de ruta del coche, una pincelada con un tono morado y una pincelada de 5 píxeles de ancho. 
+    Este fragmento de código usa la misma consulta de ruta de camión para un automóvil. Consulta el servicio de enrutamiento de Azure Maps mediante el método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) y, después, analiza la respuesta en formato GeoJSON mediante [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). Luego, crea una matriz de coordenadas para la ruta devuelta y la agrega al origen de datos. Se agregan dos propiedades a la línea de ruta del coche, una pincelada con un tono morado y una pincelada de 5 píxeles de ancho. 
 
 5. Guarde el archivo **MapTruckRoute.html** y actualice el explorador para observar el resultado. Para una conexión correcta con las API de Maps, debe ver un mapa similar al siguiente.
 
