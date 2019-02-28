@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3145e2ffd7e5fab1ecfc5c7cd83746e6cd8d5936
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b024447eba938976019d662f410fbe08b979b1ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207146"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Tutorial: Integración de Azure Active Directory con Asset Bank
 
@@ -197,8 +197,8 @@ Al hacer clic en el icono de Asset Bank del panel de acceso, debe iniciar sesió
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

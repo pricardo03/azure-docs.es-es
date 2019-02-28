@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d91f395f2fd7e65f66f1a885dbd09e725029858
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f9bbf8e4ebf59e8084d0a831c55685238c053e13
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183962"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con AirWatch, realice lo
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-8. En la sección **Configurar AirWatch**, copie las direcciones URL adecuadas según sus necesidades.
+8. En la sección **Configurar AirWatch**, copie las direcciones URL adecuada según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -305,8 +305,8 @@ Al hacer clic en el icono de AirWatch en el panel de acceso y debería iniciar s
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

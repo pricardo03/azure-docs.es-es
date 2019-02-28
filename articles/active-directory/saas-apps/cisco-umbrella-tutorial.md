@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 222ac0b5dede45b9ae2b6fe9ba464e738ea48b94
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194264"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870829"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integración de Azure Active Directory con Cisco Umbrella
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con [nombre de aplicaci�
 
 6. En la **Opción A: Cargar archivo XML**, cargue el archivo **XML de metadatos de federación** que descargó desde Azure Portal y, una vez que los siguientes valores se autorrellenen automáticamente tras la carga de los metadatos, haga clic en **SIGUIENTE**.
 
-    ![El método ChooseFile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+    ![El método ChooseFile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. En la sección **Validación de la configuración de SAML**, haga clic en **PROBAR LA CONFIGURACIÓN DE SAML**.
 
@@ -245,8 +245,8 @@ Al hacer clic en el icono de Cisco Umbrella en el panel de acceso, debería inic
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

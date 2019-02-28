@@ -3,7 +3,7 @@ title: Implementación de una aplicación .NET de un contenedor en Azure Service
 description: Aprenda a incluir una aplicación .NET existente en un contenedor mediante Visual Studio y a depurar contenedores en Service Fabric localmente. La aplicación incluida en el contenedor se inserta en un registro de contenedor de Azure y se implementa en un clúster de Service Fabric. Cuando se implementa en Azure, la aplicación utiliza Azure SQL DB para conservar los datos.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: twhitney
-ms.openlocfilehash: 5bd43378d626d48f2ce05423fc49f85305b5858b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: aljo
+ms.openlocfilehash: bd92ac2a36fdb15741799571d3ceff7fbbb36eef
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151454"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807531"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307177"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883426"
 ---
 # <a name="create-a-xamarinios-app"></a>Creación de una aplicación Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -29,7 +29,7 @@ En este tutorial se muestra cómo agregar un servicio de back-end basado en la n
 
 Completar este tutorial es un requisito previo para todos los demás tutoriales de Xamarin.iOS sobre cómo usar la característica Mobile Apps en Azure App Service.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, regístrese para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -49,7 +49,7 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinios-app"></a>Descarga y ejecución de la aplicación Xamarin.iOS
-1. En el equipo Mac, abra el [Portal de Azure] en una ventana del explorador.
+1. En el equipo Mac, abra el [Azure Portal] en una ventana del explorador.
 2. En la hoja de configuración de la aplicación móvil, haga clic en **Introducción** > **Xamarin.iOS**. En el paso 3, haga clic en **Crear una nueva aplicación** , en caso de que no esté seleccionado.  A continuación, haga clic en el botón **Descargar** .
 
       Se descarga una aplicación cliente que se conecta a su back-end móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
@@ -72,7 +72,7 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md) (Incorporación de sincronización sin conexión a la aplicación)
-* [Adición de la autenticación a la aplicación Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Incorporación de autenticación a la aplicación](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Uso del cliente administrado para Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
@@ -88,4 +88,4 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

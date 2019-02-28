@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354219"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593206"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -510,7 +510,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
         | NOMBRE | type | Valor | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | string | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191324"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integración de Azure Active Directory con Snowflake
 
@@ -141,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con Snowflake, siga esto
     > [!NOTE]
     > Esto es independiente del contexto que haya seleccionado en la esquina superior derecha bajo el nombre de usuario.
     
-    ![El administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![El administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Abra el **certificado Base 64 descargado** en el Bloc de notas. Copie el valor entre "---BEGIN CERTIFICATE---" y "---END CERTIFICATE---" y pegue esto en las comillas junto a **certificado** a continuación. En el cuadro de texto **ssoUrl** (Dirección URL de cierre de sesión), pegue el valor de la **URL de inicio de sesión** que ha copiado de Azure Portal. Seleccione **Todas las consultas** y haga clic en **Ejecutar**.
 
@@ -219,11 +219,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Snowflake, tienen 
 
 2. Cambie de rol (**Switch Role**) en **ACCOUNTADMIN**, haciendo clic en el **perfil** en la parte superior derecha de la página.  
 
-    ![El administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![El administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Para crear el usuario, ejecute la siguiente consulta SQL y asegúrese de que "Login name" (Nombre de inicio de sesión) esté establecido en el nombre de usuario de Azure AD en la hoja de cálculo, como se muestra a continuación.
 
-    ![adminsql de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![adminsql de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,9 +238,9 @@ Al hacer clic en el icono de Snowflake en el panel de acceso, debería iniciar s
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
