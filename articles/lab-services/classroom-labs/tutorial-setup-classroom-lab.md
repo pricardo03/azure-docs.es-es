@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998525"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649601"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -69,10 +69,8 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. En la página **Configurar plantilla**, siga estos pasos: Estos pasos son **opcionales** para el tutorial.
-    1. Seleccione **Iniciar** para iniciar la plantilla de máquina virtual.
     2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. 
-    3. Instale y configure el software en la plantilla de máquina virtual. 
-    4. **Pare** la máquina virtual.  
+    3. Instale y configure el software en la plantilla de máquina virtual.     
     5. Escriba una **descripción** para la plantilla.
 9. Seleccione **Siguiente** en la página de plantilla. 
 10. En la página **Publicar la plantilla**, realice las acciones siguientes. 
