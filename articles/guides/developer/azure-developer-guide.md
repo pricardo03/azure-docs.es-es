@@ -70,7 +70,7 @@ Puede migrar las aplicaciones existentes a App Service con la [herramienta de mi
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Como proveedor de infraestructura como servicio (IaaS), Azure le permite implementar o migrar la aplicación a máquinas virtuales Windows o Linux. Junto con Azure Virtual Network, Azure Virtual Machines permite la implementación de máquinas virtuales Windows o Linux en Azure. Con las máquinas virtuales, tiene un control total sobre la configuración de la máquina. Al usar las máquinas virtuales, es responsabilidad suya la instalación, la configuración y el mantenimiento del software del servidor, así como las revisiones del sistema operativo.
+Como proveedor de infraestructura como servicio (IaaS), Azure le permite implementar o migrar la aplicación a máquinas virtuales Windows o Linux. Junto con Azure Virtual Network, Azure Virtual Machines permite la implementación de máquinas virtuales Windows o Linux en Azure. Con las máquinas virtuales tiene un control total sobre la configuración de la máquina. Al usar las máquinas virtuales, es responsabilidad suya la instalación, la configuración y el mantenimiento del software del servidor, así como las revisiones del sistema operativo.
 
 El nivel de control que tiene con las máquinas virtuales le permite ejecutar una amplia variedad de cargas de trabajo de servidor en Azure que no se ajustan a un modelo de PaaS. Estas cargas de trabajo incluyen servidores de base de datos, Windows Server Active Directory y Microsoft SharePoint. Para más información, consulte la documentación de Virtual Machines para [Linux](/azure/virtual-machines/linux/) o [Windows](/azure/virtual-machines/windows/).
 
