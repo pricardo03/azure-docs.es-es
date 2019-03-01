@@ -1,0 +1,94 @@
+items:
+- name: Documentación sobre la versión preliminar de Azure Sentinel
+  href: index.yml
+- name: Información general
+  href: overview.md
+- name: Guías de inicio rápido
+  items:
+  - name: Incorporación de Azure Sentinel
+    href: quickstart-onboard.md
+  - name: Obtención de visibilidad sobre las alertas
+    href: quickstart-get-visibility.md
+  expanded: true
+- name: Tutoriales
+  items:
+  - name: Detección de amenazas sospechosas
+    href: tutorial-detect-threats.md
+  - name: Investigación de casos
+    href: tutorial-investigate-cases.md
+  - name: Respuesta a amenazas
+    href: tutorial-respond-threats-playbook.md
+- name: Guías de procedimientos
+  items:
+  - name: Conexión con orígenes de datos
+    href: connect-data-sources.md
+    items:
+    - name: Conexión de servicios de Microsoft
+      items:
+      - name: Conexión de Azure AD
+        href: connect-azure-active-directory.md
+      - name: Conexión de Office 365
+        href: connect-office-365.md
+      - name: Conexión de Cloud App Security
+        href: connect-cloud-app-security.md
+      - name: Conexión del registro de actividad de Azure
+        href: connect-azure-activity.md
+      - name: Conexión de Azure AD Identity Protection
+        href: connect-azure-ad-identity-protection.md
+      - name: Conexión de Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Conexión de Azure ATP
+        href: connect-azure-atp.md
+      - name: Conexión de Azure Security Center
+        href: connect-azure-security-center.md
+      - name: Conexión del firewall de Windows
+        href: connect-windows-firewall.md
+      - name: Conexión de eventos de seguridad de Windows
+        href: connect-windows-security-events.md
+    - name: Conexión de soluciones externas
+      items:
+      - name: Conexión de CEF genérico
+        href: connect-common-event-format.md
+      - name: Conexión de Barracuda
+        href: connect-barracuda.md
+      - name: Conexión de Check Point
+        href: connect-checkpoint.md
+      - name: Conexión de Palo Alto
+        href: connect-paloalto.md
+      - name: Conexión de Fortinet
+        href: connect-fortinet.md
+      - name: Conexión de F5
+        href: connect-f5.md
+      - name: Conexión de Syslog
+        href: connect-syslog.md
+      - name: Conexión de Cisco
+        href: connect-cisco.md
+    - name: Conexión de información sobre amenazas
+      href: connect-threat-intelligence.md
+  - name: Análisis de usuario
+    href: user-analytics.md
+  - name: Búsqueda
+    href: hunting.md
+    items:
+    - name: Uso de cuadernos para la búsqueda
+      href: notebooks.md
+    - name: Uso de marcadores para la búsqueda
+      href: bookmarks.md
+  - name: Habilitar fusión
+    href: connect-fusion.md
+- name: Recursos
+  items:
+  - name: Recursos útiles
+    href: resources.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog sobre seguridad, privacidad y cumplimiento de Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 50587fc6b2fca37ddbe5a9a1cbe4ff1914c809c9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993374"

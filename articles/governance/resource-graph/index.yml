@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fb2260d844e82632fd54cea27acc07b226b83a50
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e437d1767fba01a75852bedc5a89de94c222d4f5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446467"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195071"
 documentType: LandingData
 title: Documentación de Azure Resource Graph
 metadata:
@@ -20,7 +20,7 @@ metadata:
 abstract:
   description: La documentación de Azure Resource Graph le ayuda a configurar y a aprender el lenguaje de consultas para detectar y explorar los recursos a escala.
 sections:
-- title: Inicios rápidos en 5 minutos
+- title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
     text: Configure Resource Graph y ejecute su primera consulta.
@@ -48,10 +48,8 @@ sections:
     className: cardsD
     items:
     - title: Línea de comandos
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI de Azure</a></p>
-    - title: PowerShell
-      html: <p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: API DE REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Recursos</a></p>
-    - title: OpenAPI (Swagger)
-      html: <p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview</a></p>
+      html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI de Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">SDK de Azure para .NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Referencia de API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">Versión preliminar del 01-09-2018 (OpenAPI)</a></p>

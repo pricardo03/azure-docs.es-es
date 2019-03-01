@@ -2,7 +2,7 @@
 ## [Supervisión de agente](../monitoring/index.md)
 
 # Introducción
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Registros de Azure Monitor](../log-analytics/log-analytics-get-started.md)
 ## [Automation](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Recuperación de sitios](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # Procedimientos
 
 ## Análisis
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatizar
 ### [Información general sobre Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

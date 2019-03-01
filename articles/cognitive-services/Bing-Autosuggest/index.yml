@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730943"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010640"
 documentType: LandingData
 title: Documentación de Bing Autosuggest
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: 'Documentación sobre Bing Autosuggest: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
   description: Aprenda a usar Bing Autosuggest API para obtener consultas sugeridas basadas en una consulta parcial. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: Bing Autosuggest API le permite enviar un término de consulta de búsqueda parcial a Bing y obtener una lista de consultas sugeridas en las que otros usuarios han buscado.  Por ejemplo, a medida que el usuario escribe cada carácter de su término de búsqueda, llamará a esta API y rellenará la lista desplegable del cuadro de búsqueda con las cadenas de consulta sugeridas. Aprenda a usar Autosuggest API con nuestras guías de inicio rápido, tutoriales y ejemplos.
+  description: Bing Autosuggest API le permite enviar un término de consulta de búsqueda parcial a Bing y obtener una lista de consultas sugeridas en las que otros usuarios han buscado.  Por ejemplo, a medida que el usuario escribe cada carácter de su término de búsqueda, puede llamar a esta API y rellenar la lista desplegable del cuadro de búsqueda con las sugerencias. Aprenda a usar Autosuggest API con nuestras guías de inicio rápido, tutoriales y ejemplos.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Más información sobre Bing Autosuggest API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: ¿Qué es Bing Autosuggest API?
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>Aprenda a obtener sugerencias de búsqueda en tiempo real</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Obtención de sugerencias de Bing Autosuggest API
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>Averigüe qué idiomas son compatibles con la API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Idiomas admitidos
 - title: Inicio rápido en 5 minutos
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Aprenda a desarrollar aplicaciones mediante Bing Autosuggest API:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Aplicación web de una sola página</a> &#124; <a href="tutorials/autosuggest-source.md">código fuente</a>
+    text: <a href="tutorials/autosuggest.md">Aplicación web de una sola página</a>
 - title: Referencia
   items:
   - type: list

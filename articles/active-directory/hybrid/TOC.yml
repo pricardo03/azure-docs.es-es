@@ -211,6 +211,8 @@ items:
       href: how-to-connect-fed-ssl-update.md
     - name: Administración de la confianza de AD FS con Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Configuración de notificaciones de grupos para aplicaciones
+      href: how-to-connect-fed-group-claims.md
     - name: Cambio del algoritmo hash para O365 RP
       href: how-to-connect-fed-sha256-guidance.md
     - name: Uso de un servidor de SAML 2.0 como Idp
@@ -243,8 +245,8 @@ items:
       href: how-to-connect-health-alert-catalog.md
   - name: Administración de Azure AD Connect Sync
     items:
-    - name: Administración de tareas operativas
-      href: how-to-connect-sync-operations.md
+    - name: Almacenamiento provisional y recuperación ante desastres
+      href: how-to-connect-sync-staging-server.md
     - name: Procedimientos recomendados de cambio de la configuración predeterminada
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: Cambio de la configuración predeterminada
@@ -335,9 +337,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: Referencia de ADConnectivityTools
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 8eb252f12a4a1a66ba7e8bd5c584e7aad227e24c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 613adb5c19c3ca7fa2f47700a0358a51beac98e4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889292"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193711"

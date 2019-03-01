@@ -1,22 +1,12 @@
 ---
 title: 'Organización de los recursos con grupos de administración de Azure: Servicios de gobierno de Azure'
-description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
+description: 'Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.'
 author: rthorn17
-manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339294"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -30,9 +20,9 @@ Puede compilar una estructura flexible de grupos de administración y suscripcio
 
 ![árbol](./media/tree.png)
 
-Cree una jerarquía para poder aplicar una directiva, por ejemplo, limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo "Grupo de administración del equipo de infraestructura". Esta directiva se heredará en ambas suscripciones de EA en ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernabilidad mejorada.
+Cree una jerarquía para poder aplicar una directiva, por ejemplo, limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo "Producción". Esta directiva se heredará en ambas suscripciones de EA en ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernabilidad mejorada.
 
-Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover muchas suscripciones bajo ese grupo de administración, puede crear una asignación de [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) en el grupo de administración que heredará ese acceso a todas las suscripciones.
+Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones. Al mover muchas suscripciones bajo ese grupo de administración, puede crear una asignación de [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC) en el grupo de administración que heredará ese acceso en todas las suscripciones.
 Una asignación en el grupo de administración puede permitir a los usuarios acceder a todo lo que necesitan en lugar de realizar scripting para proporcionar control de acceso basado en rol sobre las distintas suscripciones.
 
 ### <a name="important-facts-about-management-groups"></a>Hechos importantes acerca de los grupos de administración
@@ -42,12 +32,12 @@ Una asignación en el grupo de administración puede permitir a los usuarios acc
   - Este límite no incluye el nivel raíz o de suscripción.
 - Cada grupo de administración y suscripción admite solo un elemento primario.
 - Cada grupo de administración puede tener muchos elementos secundarios.
-- Todas las suscripciones y grupos de administración están dentro de una única jerarquía en cada directorio. Consulte [Hechos importantes sobre el grupo de administración raíz](#important-facts-about-the-root-management-group) para conoce las excepciones durante la versión preliminar.
+- Todas las suscripciones y grupos de administración están dentro de una única jerarquía en cada directorio. Consulte [Hechos importantes acerca de los grupos de administración raíz](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio
 
 Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz".
-Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol se apliquen en el nivel de directorio. Los [administradores de directorio necesitan elevar sus privilegios](../../role-based-access-control/elevate-access-global-admin.md) para ser inicialmente el propietario del grupo raíz. Una vez que el administrador es el propietario del grupo, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía.
+Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol se apliquen en el nivel de directorio. Los [administradores globales de Azure AD necesitan elevar sus privilegios](../../role-based-access-control/elevate-access-global-admin.md) para ser inicialmente el propietario del grupo raíz. Una vez que el administrador es el propietario del grupo, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Hechos importantes acerca de los grupos de administración raíz
 
@@ -60,7 +50,7 @@ Este grupo de administración raíz está integrado en la jerarquía de manera q
   - Las suscripciones nuevas pertenecen de manera predeterminada y automática al grupo de administración raíz cuando se crean.
 - Todos los clientes de Azure pueden ver el grupo de administración raíz, pero no todos los clientes tienen acceso para administrar ese grupo de administración raíz.
   - Todos los usuarios con acceso a una suscripción pueden ver el contexto de dónde está esa suscripción en la jerarquía.  
-  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de directorio son los únicos usuarios que pueden elevarse ellos mismos para obtener acceso.  Una vez que tengan acceso, los administradores de directorio pueden asignar cualquier rol RBAC a otros usuarios para la administración.  
+  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso.  Una vez que tienen acceso, los administradores globales pueden asignar cualquier rol RBAC a otros usuarios para la administración.  
 
 > [!IMPORTANT]
 > Todas las asignaciones de acceso de los usuarios o de directivas en el grupo de administración raíz **se aplican a todos los recursos dentro del directorio**.
@@ -69,21 +59,21 @@ Este grupo de administración raíz está integrado en la jerarquía de manera q
 
 ## <a name="initial-setup-of-management-groups"></a>Instalación inicial de los grupos de administración
 
-Cuando algún usuario comienza usando grupos de administración, se produce un proceso de configuración inicial. El primer paso es que el grupo de administración raíz se crea en el directorio. Una vez creado este grupo, todas las suscripciones existentes que existen en el directorio se convierten en elementos secundarios del grupo de administración raíz. El motivo de este proceso es asegurarse de que hay solo una jerarquía de grupos de administración en un directorio. La jerarquía única dentro del directorio permite a los clientes administrativos aplicar directivas y un acceso global que otros clientes dentro del directorio no puedan omitir. Nada que se haya asignado en la raíz se aplicará a todos los grupos de administración, suscripciones, grupos de recursos y recursos dentro del directorio al tener una jerarquía dentro del directorio.
+Cuando algún usuario comienza usando grupos de administración, se produce un proceso de configuración inicial. El primer paso es que el grupo de administración raíz se crea en el directorio. Una vez creado este grupo, todas las suscripciones existentes que existen en el directorio se convierten en elementos secundarios del grupo de administración raíz. El motivo de este proceso es asegurarse de que hay solo una jerarquía de grupos de administración en un directorio. La jerarquía única dentro del directorio permite a los clientes administrativos aplicar directivas y un acceso global que otros clientes dentro del directorio no puedan omitir. Nada que se haya asignado en la raíz se aplicará a toda jerarquía, lo cual incluye todos los grupos de administración, las suscripciones, los grupos de recursos y los recursos dentro de ese inquilino de Azure AD.
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas las suscripciones
 
-Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar el problema de que no se apliquen todas las suscripciones a la jerarquía.  Los procesos para aplicar suscripciones en la jerarquía se implementaron después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio.
+Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar el problema de que no estén todas las suscripciones en la jerarquía.  Los procesos para que todas las suscripciones estén en la jerarquía se implementaron después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio.
 
 ### <a name="how-to-resolve-the-issue"></a>Cómo resolver el problema
 
 Hay dos opciones para resolver este problema.
 
 1. Eliminar todas las asignaciones de roles y directivas del grupo de administración raíz
-    1. Mediante la eliminación de todas las asignaciones de roles y directivas del grupo de administración raíz, el servicio repondrá todas las suscripciones en la jerarquía durante el siguiente ciclo nocturno.  Este proceso es para asegurarse de que no se ha dado ningún acceso accidental ni asignación de directiva a todas las suscripciones de los inquilinos.
-    1. La mejor manera de realizar este proceso sin que afecte a los servicios es aplicar las asignaciones de roles o directivas un nivel por debajo del grupo de administración raíz. Después, puede quitar todas las asignaciones del ámbito raíz.
+   1. Mediante la eliminación de todas las asignaciones de roles y directivas del grupo de administración raíz, el servicio repondrá todas las suscripciones en la jerarquía durante el siguiente ciclo nocturno.  Este proceso es para asegurarse de que no se ha dado ningún acceso accidental ni asignación de directiva a todas las suscripciones de los inquilinos.
+   1. La mejor manera de realizar este proceso sin que afecte a los servicios es aplicar las asignaciones de roles o directivas un nivel por debajo del grupo de administración raíz. Después, puede quitar todas las asignaciones del ámbito raíz.
 1. Llamar a la API directamente para iniciar el proceso de reposición
-    1. Cualquier cliente del directorio puede llamar a las API *TenantBackfillStatusRequest* o *StartTenantBackfillRequest*. Cuando se llama a StartTenantBackfillRequest API, esta comienza el proceso de configuración inicial de mover todas las suscripciones a la jerarquía. Este proceso también inicia la aplicación de todas las suscripciones nuevas para que constituyan un elemento secundario del grupo de administración raíz. Este proceso se puede realizar sin cambiar ninguna asignación en el nivel raíz. Mediante una llamada a la API, acepta que todas las asignaciones de directivas o de acceso en la raíz se pueden aplicar a todas las suscripciones.
+   1. Cualquier cliente del directorio puede llamar a las API *TenantBackfillStatusRequest* o *StartTenantBackfillRequest*. Cuando se llama a StartTenantBackfillRequest API, esta comienza el proceso de configuración inicial de mover todas las suscripciones a la jerarquía. Este proceso también inicia la aplicación de todas las suscripciones nuevas para que constituyan un elemento secundario del grupo de administración raíz. Este proceso se puede realizar sin cambiar ninguna asignación en el nivel raíz. Mediante una llamada a la API, acepta que todas las asignaciones de directivas o de acceso en la raíz se pueden aplicar a todas las suscripciones.
 
 Si tiene preguntas acerca de este proceso de reposición, póngase en contacto con: managementgroups@microsoft.com  
   
@@ -95,17 +85,18 @@ Por ejemplo, el colaborador de máquina virtual del rol de RBAC puede asignarse 
 
 El gráfico siguiente muestra la lista de roles y las acciones admitidas en los grupos de administración.
 
-| Nombre de rol de RBAC             | Crear | Cambiar nombre | Move | Eliminar | Asignar acceso | Asignar directiva | Lectura  |
-|:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Propietario                       | X      | X      | X    | X      | X             | X             | X     |
-|Colaborador                 | X      | X      | X    | X      |               |               | X     |
-|Colaborador MG*             | X      | X      | X    | X      |               |               | X     |
-|Lector                      |        |        |      |        |               |               | X     |
-|Lector MG*                  |        |        |      |        |               |               | X     |
-|Colaborador de directivas de recursos |        |        |      |        |               | X             |       |
-|Administrador de acceso de usuario   |        |        |      |        | X             |               |       |
+| Nombre de rol de RBAC             | Crear | Cambiar nombre | Mover** | Eliminar | Asignar acceso | Asignar directiva | Lectura  |
+|:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
+|Propietario                       | X      | X      | X      | X      | X             | X             | X     |
+|Colaborador                 | X      | X      | X      | X      |               |               | X     |
+|Colaborador MG*             | X      | X      | X      | X      |               |               | X     |
+|Lector                      |        |        |        |        |               |               | X     |
+|Lector MG*                  |        |        |        |        |               |               | X     |
+|Colaborador de directivas de recursos |        |        |        |        |               | X             |       |
+|Administrador de acceso de usuario   |        |        |        |        | X             |               |       |
 
 *: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
+**: Las asignaciones de roles en el grupo de administración raíz no son necesarias para mover una suscripción o grupo de administración a este grupo y desde este.  Consulte [Administración de los recursos con grupos de administración](manage.md) para más información acerca de cómo mover elementos dentro de la jerarquía.
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
 
@@ -113,17 +104,11 @@ Los roles de RBAC personalizados no se admiten en los grupos de administración 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditoría de los grupos de administración mediante registros de actividad
 
-Para realizar el seguimiento de los grupos de administración mediante esta API, use la [API de registro de actividad de inquilinos](/rest/api/monitor/tenantactivitylogs). Actualmente no es posible usar PowerShell, la CLI ni Azure Portal para realizar el seguimiento de las actividades de los grupos de administración.
+Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md). Puede buscar todos los eventos que se producen en un grupo de administración en la misma ubicación central que otros recursos de Azure.  Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
-1. Como administrador de inquilinos del inquilino de Azure AD, [eleve los privilegios de acceso](../../role-based-access-control/elevate-access-global-admin.md) y asigne un rol de lector al usuario de auditoría con el ámbito `/providers/microsoft.insights/eventtypes/management`.
-1. Como usuario de auditoría, llame a la [API de registro de actividad de inquilinos](/rest/api/monitor/tenantactivitylogs) para ver las actividades del grupo de administración. Va a filtrar **Microsoft.Management** por proveedor de recursos para todas las actividades del grupo de administración.  Ejemplo:
+![Registros de actividades con Grupos de administración](media/al-mg.png)
 
-```http
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
-```
-
-> [!NOTE]
-> Para llamar cómodamente a esta API desde la línea de comandos, pruebe [ARMClient](https://github.com/projectkudu/ARMClient).
+Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -131,6 +116,6 @@ Para más información sobre los grupos de administración, consulte:
 
 - [Creación de grupos de administración para organizar los recursos de Azure](create.md)
 - [Cambio, eliminación y administración de los grupos de administración](manage.md)
-- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](https://aka.ms/mgPSdocs)
-- [Revisión de grupos de administración en la API REST](https://aka.ms/mgAPIdocs)
-- [Revisión de grupos de administración en la CLI de Azure](https://aka.ms/mgclidoc)
+- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
+- [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)
+- [Revisión de grupos de administración en la CLI de Azure](/cli/azure/account/management-group)
