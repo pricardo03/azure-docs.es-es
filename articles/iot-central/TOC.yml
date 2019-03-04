@@ -105,10 +105,12 @@ items:
       href: howto-manage-iot-central-from-powershell.md
     - name: Creación y administración de una aplicación como un CSP
       href: howto-create-and-manage-applications-as-CSP.md
-    - name: Configuración de página principal
+    - name: Configuración del panel de la aplicación
       href: howto-configure-homepage.md
   - name: Personalización
     items:
+    - name: Creación de paneles personales
+      href: howto-personalize-dashboard.md
     - name: Administración de las preferencias
       href: howto-manage-preferences.md
 - name: Temas relacionados
@@ -143,9 +145,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Exploradores compatibles
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 95702f9255bfe02aec5c5770d06021aa3b28148c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4843570f131b06657df1770060b95622fde43cc0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806885"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216822"

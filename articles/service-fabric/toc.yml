@@ -686,9 +686,9 @@ items:
         href: service-fabric-diagnostics-oms-containers.md
     - name: Supervisión de clústeres
       items:
-      - name: Configuración de Log Analytics para recopilar eventos de clústeres
+      - name: Configuración de registros de Azure Monitor para recopilar eventos de clúster
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Supervisión del clúster con Log Analytics
+      - name: Supervisión del clúster con los registros de Azure Monitor
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Consulta de API de EventStore
         href: service-fabric-diagnostics-eventstore-query.md
@@ -837,9 +837,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 2478cb35cb0981848009febe382fddf3371887ce
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bceb61a6c5d5105d09d1b2ec94b394fd25402ea6
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823389"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241823"

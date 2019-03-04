@@ -7,21 +7,35 @@ items:
     href: billing-understand-your-bill.md
   - name: Descripción de la factura del contrato Enterprise
     href: billing-understand-your-bill-ea.md
-  - name: Obtención de factura y datos de uso
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: 'Descripción de la factura: solo contrato de cliente de Microsoft'
+    href: billing-mca-understand-your-bill.md
+  - name: Visualización y descarga de la factura de Microsoft Azure
+    href: billing-download-azure-invoice.md
+  - name: Visualización y descarga de los datos de uso y los cargos de Microsoft Azure
+    href: billing-download-azure-daily-usage.md
+  - name: Visualización y descarga de los documentos fiscales para el contrato de cliente de Microsoft
+    href: billing-mca-download-tax-document.md
   - name: Cargos por servicios de terceros
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Explicación de los términos de uso
     href: billing-understand-your-usage.md
+  - name: 'Explicación de los términos de uso: solo contrato de cliente de Microsoft'
+    href: billing-mca-understand-your-usage.md
   - name: Explicación de los términos de facturación
     href: billing-understand-your-invoice.md
+  - name: 'Explicación de los términos de facturación: solo contrato de cliente de Microsoft'
+    href: billing-mca-understand-your-invoice.md
+  - name: Cuentas de facturación del contrato de cliente de Microsoft
+    href: billing-mca-overview.md
   expanded: true
 - name: Administrar costos
   items:
   - name: Prevención de costos inesperados
     href: billing-getting-started.md
-  - name: Ver precios de EA
+  - name: Visualización y descarga de los precios de la organización
     href: billing-ea-pricing.md
+  - name: 'Explicación de los términos de la hoja de precios: solo contrato de cliente de Microsoft'
+    href: billing-mca-understand-pricesheet.md
   - name: Uso de etiquetas de recurso
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Inicio del análisis de costos
@@ -30,6 +44,8 @@ items:
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: Optimización de recomendaciones
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Seguimiento de los créditos del contrato de cliente de Microsoft
+    href: billing-mca-check-azure-credits-balance.md
   - name: Cálculo del precio
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Descripción del límite de gasto
@@ -90,12 +106,20 @@ items:
     href: billing-manage-access.md
   - name: Roles de EA en Azure
     href: billing-understand-ea-roles.md
+  - name: Roles de contratos de cliente de Microsoft en Azure
+    href: billing-understand-mca-roles.md
   - name: Vinculación de Id. de partner
     href: billing-partner-admin-link-started.md
   - name: Visualización de cuentas de facturación
     href: billing-view-all-accounts.md
+  - name: Organización de costos con secciones de factura
+    href: billing-mca-section-invoice.md
+  - name: Tareas de EA del contrato de cliente de Microsoft
+    href: billing-mca-enterprise-operations.md
   - name: Resolución del saldo vencido
     href: billing-azure-subscription-past-due-balance.md
+  - name: Configuración de cuentas de facturación del contrato de cliente de Microsoft
+    href: billing-mca-setup-account.md
   - name: Registro con la cuenta de Office 365
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Suscripción a Office 365 con la cuenta de Azure
@@ -106,6 +130,8 @@ items:
     href: billing-subscription-become-disable.md
   - name: Transferencia de la propiedad
     href: billing-subscription-transfer.md
+  - name: 'Solicitud de la propiedad: contrato de cliente de Microsoft'
+    href: billing-mca-request-billing-ownership.md
   - name: Cancelación de la suscripción
     href: billing-how-to-cancel-azure-subscription.md
   - name: Cambio de la tarjeta de crédito
@@ -122,6 +148,8 @@ items:
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Creación de suscripciones adicionales
     href: billing-create-subscription.md
+  - name: 'Creación de una suscripción adicional: contrato de cliente de Microsoft'
+    href: billing-mca-create-subscription.md
   - name: Creación de suscripciones de Enterprise mediante programación
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Información sobre la exportación de suscripciones
@@ -190,9 +218,9 @@ items:
     items:
     - name: Enterprise Reporting REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447708"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241653"
