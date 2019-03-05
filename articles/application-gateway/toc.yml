@@ -166,13 +166,13 @@ items:
       href: application-gateway-create-probe-ps.md
   - name: Solución de problemas
     items:
-    - name: 'Solución de problemas de Application Gateway: equilibrador de carga interno (ILB) con una instancia de App Service Environment (ASE)'
+    - name: ILB con una instancia de App Service Environment
       href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: 'Solución de problemas de Application Gateway con App Service: redireccionamiento a una dirección URL de App Service'
+    - name: Redireccionamiento a la dirección URL de App Service
       href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: Solución de problemas de afinidad de sesión de Azure Application Gateway
+    - name: Problemas de afinidad de sesión
       href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: Solución de problemas de puerta de enlace incorrecta (502)
+    - name: Errores de puerta de enlace incorrecta (502)
       href: application-gateway-troubleshooting-502.md
     - name: Diagnóstico
       href: application-gateway-diagnostics.md
@@ -212,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985672"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309050"

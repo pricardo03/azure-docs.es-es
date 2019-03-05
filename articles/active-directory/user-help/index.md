@@ -51,10 +51,9 @@ Hemos creado este contenido para ayudarle a configurar y usar la información de
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Información general</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Administración de la información de seguridad</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">Ver actividades de inicio de sesión recientes</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Administración de organizaciones</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Administración de los dispositivos conectados</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Ver la información de privacidad</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Visualización de la información relacionada con la privacidad</a>
                         </p>
                     </div>
                 </div>
