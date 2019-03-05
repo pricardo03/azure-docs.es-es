@@ -3,18 +3,18 @@ title: Inclusión de una aplicación de .NET existente en un contenedor para Ser
 description: Adición de compatibilidad con Mesh en una aplicación .NET existente
 services: service-fabric-mesh
 keywords: inclusión del servicio fabric mesh en un contenedor
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: 6f71f45d435b6be3358f79d8b6e72e4636d92ab6
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+manager: chakdan
+ms.openlocfilehash: bb4aacafaa90f16370bc097b5feab7791def4006
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891958"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806953"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
 
@@ -71,4 +71,4 @@ Ahora puede publicar la aplicación en Azure Service Fabric Mesh.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo publicar una aplicación en Service Fabric Mes: [Tutorial: Implementación de una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
+Consulte cómo publicar una aplicación en Service Fabric Mesh: [Tutorial: Implementación de una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

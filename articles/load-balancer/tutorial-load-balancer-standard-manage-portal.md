@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fa40f4f666444209f70d3f49b7947450af01ec36
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672006"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983293"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
 
@@ -45,21 +45,22 @@ Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.
 En esta sección, se crea un equilibrador de carga público que ayuda a equilibrar la carga de las máquinas virtuales. La versión Estándar de Load Balancer solo admite direcciones IP públicas estándar. Cuando se crea una instancia de Standard Load Balancer, también se debe crear una nueva dirección IP pública estándar que se configura como front-end (denominado *LoadBalancerFrontend* de forma predeterminada) para dicha instancia. 
 
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
-2. En la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**:
-    
+2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
+
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
+    | Subscription               | Seleccione su suscripción.    |    
+    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupSLB* en el cuadro de texto.|
     | NOMBRE                   | *myLoadBalancer*                                   |
-    | Type          | Público                                        |
-    | SKU           | Estándar                          |
-    | Dirección IP pública | Seleccione **Crear nueva** y escriba *myPublicIP* en el cuadro de texto. La SKU estándar para la dirección IP pública está seleccionada de forma predeterminada. Para **Zona de disponibilidad**, seleccione **Con redundancia de zona**. |
-    | Subscription               | Seleccione su suscripción.    |
-    |Grupos de recursos | Seleccione **Crear nuevo** y, a continuación, escriba *myResourceGroupSLB*.    |
-    | Ubicación           | Seleccione **Europa Occidental**.                          |
-    
+    | Region         | Seleccione **Europa Occidental**.                                        |
+    | Type          | Seleccione **Público**.                                        |
+    | SKU           | Seleccione **Estándar**.                          |
+    | Dirección IP pública | Seleccione **Crear nuevo**. |
+    | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
+    |Zona de disponibilidad| Seleccione **Redundancia de zona**.    |
+3. En la pestaña **Revisar y crear**, haga clic en **Crear**.   
 
-![Creación de un equilibrador de carga](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
 En esta sección, se crea una red virtual, luego tres máquinas virtuales para el grupo de back-end de la instancia de Load Balancer y, finalmente, se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240699"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594362"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Conectar Azure Stack a Azure mediante VPN
 
@@ -305,4 +305,4 @@ Si desea saber qué cantidad de datos pasa mediante la conexión de sitio a siti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementar aplicaciones en Azure y Azure Stack](azure-stack-solution-pipeline.md)
+* [Implementar aplicaciones en Azure y Azure Stack](azure-stack-solution-pipeline.md)

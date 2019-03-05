@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446858"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887818"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure 
 
@@ -52,8 +52,7 @@ Esta versión preliminar pública presenta una serie de limitaciones.
 - No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas, instantáneas de bases de datos y bases de datos de FCI.
 - Las bases de datos con un gran número de archivos no se pueden proteger. El número máximo de archivos admitidos no es determinista. No solo depende del número de archivos, sino también de la longitud de la ruta de acceso de los archivos. 
 
-Consulte la [sección de preguntas frecuentes](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para más información sobre los escenarios admitidos y no admitidos.
-
+Revise las [preguntas más frecuentes](faq-backup-sql-server.md) sobre la copia de seguridad de bases de datos de SQL Server.
 ## <a name="scenario-support"></a>Compatibilidad con los escenarios
 
 **Soporte técnico** | **Detalles**
@@ -69,9 +68,9 @@ Consulte la [sección de preguntas frecuentes](https://docs.microsoft.com/azure/
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne las siguientes condiciones:
 
 1. Identifique o [cree](backup-azure-sql-database.md#create-a-recovery-services-vault) un almacén de Recovery Services en la misma región o configuración regional que la máquina virtual que hospeda la instancia de SQL Server.
-2. [Compruebe los permisos de máquina virtual](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) necesarios para realizar una copia de seguridad de las bases de datos SQL.
+2. [Compruebe los permisos de máquina virtual](#fix-sql-sysadmin-permissions) necesarios para realizar una copia de seguridad de las bases de datos SQL.
 3. Compruebe que la máquina virtual tenga [conectividad de red](backup-azure-sql-database.md#establish-network-connectivity).
-4. Compruebe que las bases de datos de SQL Server se denominan de acuerdo con las [directrices de nomenclatura](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) de Azure Backup.
+4. Compruebe que las bases de datos de SQL Server se denominan de acuerdo con las [directrices de nomenclatura](backup-azure-sql-database.md) de Azure Backup.
 5. Compruebe que no dispone de otras soluciones de copia de seguridad habilitadas para la base de datos. Deshabilite todas las demás copias de seguridad de SQL Server antes de configurar este escenario. Puede habilitar Azure Backup para una máquina virtual de Azure junto con Azure Backup para una base de datos de SQL Server que se ejecute en la máquina virtual sin que se produzcan conflictos.
 
 
@@ -197,7 +196,7 @@ Configure la copia de seguridad de la manera siguiente:
 
     - Selección de la directiva predeterminada: **HourlyLogBackup**.
     - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
-    - [Definir una nueva directiva](backup-azure-sql-database.md#define-a-backup-policy) basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
+    - [Definir una nueva directiva](backup-azure-sql-database.md#configure-a-backup-policy) basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
     - Durante la versión preliminar, no se puede editar una directiva de copia de seguridad existente.
     
 9. En **Backup menu** (Menú de copia de seguridad), seleccione **Enable backup** (Habilitar copia de seguridad).
@@ -326,7 +325,7 @@ Si necesita corregir los permisos debido un error **UserErrorSQLNoSysadminMember
 
     ![Mensaje de implementación correcta](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Como alternativa, puede habilitar la [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) en la instancia completa o el grupo de disponibilidad Always On si selecciona la opción **ON** (Activado) en la lista desplegable correspondiente de la columna **AUTOPROTECT** (Protección automática). La característica de [protección automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) no solo habilita la protección en todas las bases de datos existentes en una sola operación, sino que también protege automáticamente las nuevas bases de datos que se agregarán a esa instancia o al grupo de disponibilidad en el futuro.  
+Como alternativa, puede habilitar la [protección automática](backup-azure-sql-database.md#enable-auto-protection) en la instancia completa o el grupo de disponibilidad Always On si selecciona la opción **ON** (Activado) en la lista desplegable correspondiente de la columna **AUTOPROTECT** (Protección automática). La característica de [protección automática](backup-azure-sql-database.md#enable-auto-protection) no solo habilita la protección en todas las bases de datos existentes en una sola operación, sino que también protege automáticamente las nuevas bases de datos que se agregarán a esa instancia o al grupo de disponibilidad en el futuro.  
 
    ![Habilitar la protección automática en el grupo de disponibilidad Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 

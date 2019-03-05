@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340219"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588167"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure
 
-Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo el contenido de la suscripción y también abrir incidencias de soporte técnico.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con la CLI de Azure. El rol personalizado permite al usuario ver todo lo relativo a la administración de una suscripción y también abrir incidencias de soporte técnico.
 
 En este tutorial, aprenderá a:
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este tutorial, necesitará:
 
 - Permisos para crear roles personalizados, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator)
-- La [CLI de Azure](/cli/azure/install-azure-cli) instalada localmente
+- [Azure Cloud Shell](../cloud-shell/overview.md) o [CLI de Azure](/cli/azure/install-azure-cli)
 
 ## <a name="sign-in-to-azure-cli"></a>Inicio de sesión en la CLI de Azure
 
@@ -61,7 +61,7 @@ El modo más sencillo de crear un rol personalizado es tomar como partida una pl
 
 1. Abra ReaderSupportRole.json en un editor y agregue el siguiente código JSON.
 
-    Para obtener información sobre las distintas propiedades, consulte [Roles personalizados](custom-roles.md).
+    Para obtener información sobre las distintas propiedades, consulte [Roles personalizados para recursos de Azure](custom-roles.md).
 
     ```json
     {

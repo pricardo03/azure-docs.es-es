@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de un clúster y base de datos de Azure Data Explorer mediante la CLI'
-description: En este inicio rápido, aprenderá a crear un clúster y la base de datos de Azure Data Explorer con la CLI de Azure
+title: 'Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer mediante la CLI'
+description: Aprenda a crear un clúster y una base de datos de Azure Data Explorer mediante la CLI de Azure.
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,14 +8,14 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 2/4/2019
-ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 357f0efcf7300545d10113c92702d9fed4aad049
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881123"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958029"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>Creación de un clúster y base de datos de Azure Data Explorer mediante la CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante la CLI
 
 En este inicio rápido se describe cómo crear un clúster y una base de datos de Azure Data Explorer mediante la CLI de Azure.
 
@@ -25,11 +25,11 @@ Para completar esta guía de inicio rápido, necesita una suscripción de Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI de Azure en un entorno local, en este inicio rápido se necesita la versión 2.0.4 de la CLI de Azure o una versión posterior. Ejecute `az --version` para comprobar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI de Azure en un entorno local, en este inicio rápido se requiere la versión 2.0.4 o posterior de la CLI de Azure. Ejecute `az --version` para comprobar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Configuración de los parámetros de la CLI
 
-Los pasos siguientes no son necesarios si ejecuta comandos en Cloud Shell. Si está ejecutando la CLI localmente, realice los pasos siguientes para iniciar sesión en Azure y establecer su suscripción actual:
+Los pasos siguientes no son necesarios si ejecuta comandos en Azure Cloud Shell. Si ejecuta la CLI localmente, realice los pasos siguientes para iniciar sesión en Azure y establecer su suscripción actual:
 
 1. Ejecute el siguiente comandos para iniciar sesión en Azure:
 
@@ -37,7 +37,7 @@ Los pasos siguientes no son necesarios si ejecuta comandos en Cloud Shell. Si es
     az login
     ```
 
-2. Establezca la suscripción en la que desearía crear el clúster. Reemplace `MyAzureSub` por el nombre de la suscripción de Azure que desea usar:
+2. Establezca la suscripción donde quiere que se cree el clúster. Reemplace `MyAzureSub` por el nombre de la suscripción de Azure que quiere usar:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -54,7 +54,7 @@ Los pasos siguientes no son necesarios si ejecuta comandos en Cloud Shell. Si es
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
    |---|---|---|
    | Nombre | *azureclitest* | Nombre que quiere para el clúster.|
-   | sku | *D13_v2* | SKU que se usará para el clúster. |
+   | sku | *D13_v2* | La SKU que se usará para el clúster. |
    | resource-group | *testrg* | Nombre del grupo de recursos en el que se creará el clúster. |
 
     Hay varios parámetros opcionales que puede usar, como la capacidad del clúster, etcétera.
@@ -65,7 +65,7 @@ Los pasos siguientes no son necesarios si ejecuta comandos en Cloud Shell. Si es
     az kusto cluster show --name azureclitest --resource-group testrg
     ```
 
-Si el resultado contiene "provisioningState" con el valor "Succeeded", el clúster se creó correctamente.
+Si el resultado contiene `provisioningState` con el valor `Succeeded`, significa que el clúster se ha creado correctamente.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Creación de la base de datos en el clúster de Azure Data Explorer
 
@@ -77,13 +77,13 @@ Si el resultado contiene "provisioningState" con el valor "Succeeded", el clúst
 
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
    |---|---|---|
-   | cluster-name | *azureclitest* | Nombre del clúster en el que se debe crear la base de datos.|
-   | Nombre | *clidatabase* | Nombre que quiere para la base de datos.|
+   | cluster-name | *azureclitest* | Nombre del clúster donde se creará la base de datos.|
+   | Nombre | *clidatabase* | Nombre de la base de datos.|
    | resource-group | *testrg* | Nombre del grupo de recursos en el que se creará el clúster. |
-   | soft-delete-period | *3650:00:00:00* | Cantidad de tiempo durante la que se deben conservar los datos con el fin de que estén disponibles para las consultas. |
-   | hot-cache-period | *3650:00:00:00* | Cantidad de tiempo durante la que se deben conservar los datos en la memoria caché. |
+   | soft-delete-period | *3650:00:00:00* | Cantidad de tiempo que los datos estarán disponibles para consulta. |
+   | hot-cache-period | *3650:00:00:00* | Cantidad de tiempo que los datos se conservarán en la caché. |
 
-2. Ejecute el siguiente comando para ver la base de datos que creó:
+2. Ejecute el siguiente comando para ver la base de datos que ha creado:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

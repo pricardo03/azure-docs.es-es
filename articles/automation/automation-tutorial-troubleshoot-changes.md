@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433686"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816953"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -62,12 +62,14 @@ Durante la incorporación, la máquina virtual se aprovisiona con Microsoft Moni
 Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el software instalado.
 
 La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
-Después de habilitar la solución, la información sobre el software instalado y los cambios en la máquina virtual se pasa a Log Analytics.
+Después de habilitar la solución, la información sobre el software instalado y los cambios en la máquina virtual se pasa a los registros de Azure Monitor.
 Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Uso de Change Tracking en Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-El seguimiento de cambios genera datos de registro que se envían a Log Analytics.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Uso del seguimiento de cambios en los registros de Azure Monitor
+
+El seguimiento de cambios genera datos de registro que se envían a los registros de Azure Monitor.
 Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Seguimiento de cambios**.
 Los datos de Change Tracking se almacenan con el tipo **ConfigurationChange**.
 La siguiente consulta de Log Analytics de ejemplo devuelve todos los servicios de Windows que se hayan detenido.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Para más información sobre la ejecución y la búsqueda de archivos de registro en los registros de Azure Monitor, consulte el artículo sobre los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configuración de Change Tracking
 

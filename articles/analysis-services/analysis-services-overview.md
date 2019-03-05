@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429441"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731402"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -203,7 +203,7 @@ Administrar los servidores y las bases de datos modelo mediante el uso de [SQL S
 
 ### <a name="powershell"></a>PowerShell
 
-Las tareas de administración de los recursos del servidor como crear los recursos del servidor, suspender o reanudar las operaciones del servidor o cambiar el nivel de servicio, usan cmdlets de Azure Resource Manager (AzureRM). Las demás tareas de administración de bases de datos, como agregar o quitar miembros de rol, procesar o ejecutar scripts de TMSL, usan los cmdlets del módulo SqlServer. Para más información, consulte [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md).
+Las tareas de administración de los recursos del servidor como crear los recursos del servidor, suspender o reanudar las operaciones del servidor o cambiar el nivel de servicio, usan cmdlets de Azure PowerShell. Las demás tareas de administración de bases de datos, como agregar o quitar miembros de rol, procesar o ejecutar scripts de TMSL, usan los cmdlets del módulo SqlServer. Para más información, consulte [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md).
 
 ### <a name="object-model-and-scripting"></a>Modelo de objetos y scripting
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f20f237b83550b4c78b1fb7488e62119470a85a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883320"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877000"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integración de la red virtual en Azure Data Lake Storage Gen1
 
@@ -87,7 +87,7 @@ Algunas de las opciones disponibles son las siguientes:
 
 1.  Vaya a Azure Portal e inicie sesión en su cuenta.
  
-2.  [Cree una red virtual ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) en su suscripción. O bien, puede ir a una red virtual existente. La red virtual debe estar en la misma región que la cuenta de Data Lake Storage Gen 1.
+2.  [Cree una nueva red virtual ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) en su suscripción. O bien, puede ir a una red virtual existente. La red virtual debe estar en la misma región que la cuenta de Data Lake Storage Gen 1.
  
 3.  En la hoja **Red virtual**, seleccione **Puntos de conexión de servicio**.
  

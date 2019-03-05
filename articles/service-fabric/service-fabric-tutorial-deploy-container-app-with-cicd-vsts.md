@@ -3,7 +3,7 @@ title: Implementación de una aplicación de contenedor con CI/CD en un clúster
 description: En este tutorial aprenderá a configurar la integración y la implementación continuas para una aplicación de contenedor de Azure Service Fabric mediante Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: twhitney
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2da33f2a333529eb7a27a607484a407f869ee540
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872975"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807089"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación de contenedor con CI/CD en un clúster de Service Fabric
 
 Este tutorial es la segunda parte de una serie y describe cómo configurar la integración y la implementación continuas de una aplicación de contenedor de Azure Service Fabric mediante Visual Studio y Azure DevOps.  Se necesita una aplicación existente de Service Fabric; a modo de ejemplo se usa la aplicación creada en [Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric](service-fabric-host-app-in-a-container.md).
 

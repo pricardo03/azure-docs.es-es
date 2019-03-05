@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001642"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886441"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones
 
@@ -45,49 +45,11 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 
 Cada [suscripción a un tema](service-bus-messaging-overview.md#topics) puede recibir una copia de cada mensaje. Los temas son completamente compatibles desde el punto de vista semántico y del protocolo con las colas de Service Bus. Los temas de Service Bus admiten una amplia variedad de reglas de selección con condiciones de filtro, con acciones opcionales que establecerán o modificarán las propiedades del mensaje. Cada vez que coincide una regla, esta genera un mensaje. Para más información acerca de reglas, filtros y acciones, siga este [vínculo](topic-filters.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Primero, vaya a [Azure Portal][Azure portal] e inicie sesión con su suscripción de Azure. El primer paso es crear un espacio de nombres de Service Bus del tipo **Mensajería**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Creación de un espacio de nombres de Service Bus
 
-Un espacio de nombres de mensajería de Service Bus proporciona un contenedor con un único ámbito, al que hace referencia su [nombre de dominio completo][], en el que puede crear una o varias colas, temas y suscripciones. En el ejemplo siguiente se crea un espacio de nombres de mensajería de Service Bus en un [grupo de recursos](/azure/azure-resource-manager/resource-group-portal) nuevo o ya existente:
-
-1. En el panel de navegación izquierdo del portal, haga clic en **+ Crear un recurso**, luego, en **Enterprise Integration** y, finalmente, en **Service Bus**.
-2. En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-3. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Estándar o Premium).
-4. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
-5. En el campo **Grupo de recursos** , elija un grupo de recursos existente en el que residirá el espacio de nombres o cree uno.      
-6. En **Ubicación**, elija el país o región donde se debe hospedar el espacio de nombres.
-7. Haga clic en **Create**(Crear). El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
-
-  ![espacio de nombres](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
-
-La creación un nuevo espacio de nombres genera automáticamente una regla de firma de acceso compartido (SAS) inicial con un par asociado de claves principal y secundaria en el que ambas conceden control total sobre todos los aspectos del espacio de nombres. Para copiar la regla inicial, siga estos pasos:
-
-1. Haga clic en **Todos los recursos** y, después, en el nombre del espacio de nombres recién creado.
-2. En la ventana del espacio de nombres, haga clic en **Directivas de acceso compartido**.
-3. En la pantalla **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
-4. En la ventana **Directiva: RootManageSharedAccessKey**, haga clic en el botón **Copiar** que hay junto a **Cadena de conexión principal** para copiar la cadena de conexión en el portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
-
-    ![connection-string][connection-string]
-5. Repita el paso anterior, copie y pegue el valor de **Clave principal** en una ubicación temporal para su uso posterior.
-
-## <a name="create-a-topic-and-subscriptions"></a>Creación de un tema y una suscripción
-
-Para crear un tema de Service Bus, especifique el espacio de nombres en el que desea crearlo. En el ejemplo siguiente se muestra cómo crear un tema en el portal:
-
-1. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Todos los servicios**).
-2. Haga clic en el espacio de nombres en el que desea crear el tema.
-3. En la ventana del espacio de nombres, haga clic en **Temas** y, después, en la ventana **Temas**, haga clic en **+ Temas**.
-4. Escriba el **nombre** del tema y deje los restantes valores con sus valores predeterminados.
-5. En la parte inferior de la ventana, haga clic en **Crear**.
-6. Tome nota del nombre del tema.
-7. Seleccione el tema que acaba de crear.
-8. Haga clic en **+ Suscripción**, escriba el nombre de suscripción **S1** y deje los demás valores en sus valores predeterminados.
-9. Repita el paso anterior dos veces más y cree las suscripciones **S2** y **S3**.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Creación de reglas de filtro en suscripciones
 
@@ -105,7 +67,7 @@ Para ejecutar el código, haga lo siguiente:
 
 2. Vaya a la carpeta de ejemplos `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Obtenga la cadena de conexión que ha copiado en el Bloc de notas en la sección [Obtención de las credenciales de administración](#obtain-the-management-credentials) de este tutorial. También necesita el nombre del tema que creó en la sección anterior.
+3. Obtenga la cadena de conexión que ha copiado en el Bloc de notas en la sección "Obtención de las credenciales de administración" de este tutorial. También necesita el nombre del tema que creó en la sección anterior.
 
 4. En el símbolo del sistema, escriba el siguiente comando:
 
@@ -451,7 +413,7 @@ Avance hasta el siguiente tutorial para aprender más acerca del uso de las func
 > [Actualización del inventario mediante PowerShell y temas/suscripciones](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Nombre de dominio completo]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

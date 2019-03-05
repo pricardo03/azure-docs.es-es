@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200932"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876284"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Streaming de datos a Azure Databricks con Event Hubs
 
@@ -384,4 +384,4 @@ En este tutorial aprendió lo siguiente:
 Consulte el siguiente tutorial para aprender a realizar análisis de opiniones de los datos transmitidos con Azure Databricks y [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Análisis de sentimiento de los datos de streaming con Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)
+>[Análisis de sentimiento sobre los datos de streaming con Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

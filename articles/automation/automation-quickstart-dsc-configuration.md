@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431595"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817735"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar una máquina virtual Linux con Desired State Configuration
 
@@ -144,5 +144,5 @@ En esta guía de inicio rápido, incorporó una máquina virtual Linux a DSC, cr
 
 * Para obtener más información sobre Desired State Configuration de PowerShell, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
 * Para obtener más información acerca de cómo administrar DSC de Automatización desde PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
-* Para obtener información sobre cómo reenviar los informes de DSC a Log Analytics para la generación de informes y alertas, consulte el tema sobre el [reenvío de informes de DSC a Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
+* Para información sobre cómo reenviar los informes de DSC a los registros de Azure Monitor para la generación de informes y alertas, consulte el artículo sobre el [reenvío de informes de DSC a los registros de Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
 

@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823508"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984958"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparación de datos para el modelado de regresión
 
-En este tutorial, aprenderá a preparar datos para el modelado de regresión mediante el SDK de preparación de datos de Azure Machine Learning. Realizará varias transformaciones para filtrar y combinar dos conjuntos de datos diferentes de taxis de la ciudad de Nueva York.
+En este tutorial, aprenderá a preparar datos para los modelos de regresión mediante el [SDK de preparación de datos de Azure Machine Learning para Python](https://aka.ms/data-prep-sdk). Realizará varias transformaciones para filtrar y combinar dos conjuntos de datos diferentes de taxis de la ciudad de Nueva York.
 
 Este tutorial es la **primera de dos partes**. Después de completar la serie de tutoriales, puede predecir el costo de un viaje en taxi mediante el entrenamiento de un modelo sobre las características de los datos. Estas características incluyen el día y la hora de la recogida, el número de pasajeros y la ubicación de la recogida.
 
@@ -48,7 +48,7 @@ Obtenga todos estos requisitos previos de cualquiera de las siguientes secciones
 
 ### <a name="azure"></a>Uso de Azure Notebooks: cuadernos de Jupyter gratuitos en la nube
 
-Es fácil empezar a usar Azure Notebooks. El [SDK de preparación de datos de Azure Machine Learning para Python](https://aka.ms/data-prep-sdk) ya está instalado y configurado en [Azure Notebooks](https://notebooks.azure.com/). Tanto la instalación como las actualizaciones futuras se administran automáticamente mediante servicios de Azure.
+Es fácil empezar a usar Azure Notebooks. El SDK de preparación de datos de Azure Machine Learning se instala y configura automáticamente en [Azure Notebooks](https://notebooks.azure.com/). Tanto la instalación como las actualizaciones futuras se administran automáticamente mediante servicios de Azure.
 
 Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regression-part1-data-prep.ipynb** en el proyecto **Getting Started**.
 

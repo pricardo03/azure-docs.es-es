@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 829b566469e5fd61460c1451b196eec24fd4e3f8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417912"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882933"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Inicio rápido: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal
 
@@ -165,7 +165,7 @@ Después de completar el tutorial, puede ser conveniente eliminar el clúster. C
 En este tutorial, ha aprendido a crear un clúster de HDInsight basado en Linux mediante una plantilla de Resource Manager y a realizar consultas básicas de Hive. En el siguiente artículo, aprenderá a realizar una operación ETL (extraer, transformar y cargar) con Hadoop en HDInsight.
 
 > [!div class="nextstepaction"]
->[Extracción, transformación y carga de datos mediante Apache Hive en HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extracción, transformación y carga de datos mediante Apache Hive en HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 Si está preparado para empezar a trabajar con sus propios datos y necesita más información acerca de la forma en que HDInsight almacena los datos o de cómo obtener datos en HDInsight, consulte los siguientes artículos:
 

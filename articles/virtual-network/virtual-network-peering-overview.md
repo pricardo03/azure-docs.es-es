@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175734"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958191"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -63,7 +63,7 @@ Cuando las redes virtuales están emparejadas en la misma región, también pued
 
 ![tránsito de emparejamiento de redes virtuales](./media/virtual-networks-peering-overview/figure04.png)
 
-No se admite el tránsito de puerta de enlace en la relación de emparejamiento entre las redes virtuales creadas en regiones diferentes. Ambas redes virtuales de la relación de emparejamiento deben existir en la misma región para que funcione el tránsito de puerta de enlace. El tránsito de puerta de enlace entre las redes virtuales creadas mediante diferentes modelos de implementación (Resource Manager y clásico) solo se admite si la puerta de enlace está en la red virtual (Resource Manager). Para más información sobre el uso de una puerta de enlace de tránsito, consulte [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una puerta de enlace de VPN de tránsito en un emparejamiento de red virtual).
+No se admite el tránsito de puerta de enlace en la relación de emparejamiento entre las redes virtuales creadas en regiones diferentes. Ambas redes virtuales de la relación de emparejamiento deben existir en la misma región para que funcione el tránsito de puerta de enlace. El tránsito de puerta de enlace entre las redes virtuales creadas mediante diferentes modelos de implementación (Resource Manager y clásico) solo se admite si la puerta de enlace (VPN o ExpressRoute) está en la red virtual (Resource Manager). Para más información sobre el uso de una puerta de enlace de tránsito, consulte [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Configuración de una puerta de enlace de VPN de tránsito en un emparejamiento de red virtual).
 
 Cuando las redes virtuales que comparten una única conexión de Azure ExpressRoute están emparejadas, el tráfico entre ellas atraviesa la relación de emparejamiento (es decir, la red troncal de Azure). Puede seguir usando las puertas de enlace locales de cada red virtual para conectarse al circuito local. Como alternativa, puede utilizar una puerta de enlace compartida y configurar el tránsito para la conectividad local.
 
@@ -77,8 +77,7 @@ También puede probar el [Solucionador de los problemas de emparejamiento de red
 
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones
 
-Las siguientes restricciones se aplican cuando las redes virtuales están emparejadas globalmente:
-- Las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure en las regiones de la nube de Azure China, pero no en las nubes de Azure Government.
+Cuando las redes virtuales están emparejadas globalmente, se aplican las siguientes restricciones:
 - Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure en la red virtual emparejada globalmente. El equilibrador de carga y los recursos que se comunican con él deben estar en la misma región.
 - No se pueden utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace. Para poder hacerlo, las redes virtuales emparejadas deben estar en la misma región.
 

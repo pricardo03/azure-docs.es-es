@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572692"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825498"
 ---
 1. Inicie sesión en [Azure Portal][Azure portal].
 2. En el menú de la izquierda, seleccione **+ Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha. 
 3. En **Crear espacio de nombres**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 4. En el campo **Suscripción**, elija la suscripción de Azure en la que se va a crear el espacio de nombres.
-5. En el cuadro [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), seleccione un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno nuevo.  
+5. En el cuadro [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), seleccione un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno nuevo.  
 6. En **Ubicación**, seleccione el país o región donde se debe hospedar el espacio de nombres.
    
     ![Crear un espacio de nombres][create-namespace]
@@ -28,7 +28,7 @@ ms.locfileid: "51572692"
 3. En **Directivas de acceso compartido**, seleccione **RootManageSharedAccessKey**.
    
     ![información de conexión][connection-info]
-4. En **Directiva: RootManageSharedAccessKey**, haga clic en el botón **Copiar** situado junto a **Cadena de conexión: clave principal**. La cadena de conexión se copia en el Portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
+4. En la **directiva: RootManageSharedAccessKey**, haga clic en el botón **Copiar** situado junto a **Cadena de conexión: clave principal**. La cadena de conexión se copia en el Portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
    
     ![connection-string][connection-string]
 

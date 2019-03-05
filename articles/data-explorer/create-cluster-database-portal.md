@@ -7,17 +7,17 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.date: 02/21/2019
+ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408840"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674878"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Para usar el Explorador de datos de Azure, cree primero un *clúster* y una o varias *bases de datos* en ese clúster. A continuación, *ingerirá* (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En esta guía de inicio rápido, creará un clúster y una base de datos. En artículos siguientes, le mostramos cómo ingerir datos.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En esta guía de inicio rápido, creará un clúster y una base de datos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -27,7 +27,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Creación de un clúster
 
-Creará un clúster del Explorador de datos de Azure en un grupo de recursos de Azure con un conjunto definido de recursos de proceso y de almacenamiento.
+Creará un clúster de Azure Data Explorer con un conjunto definido de recursos de proceso y de almacenamiento en un grupo de recursos de Azure.
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
 
@@ -37,28 +37,22 @@ Creará un clúster del Explorador de datos de Azure en un grupo de recursos de 
 
 1. En **Azure Data Explorer**, en la parte inferior de la pantalla, seleccione **Crear**.
 
-1. Escriba un nombre único para el clúster, seleccione su suscripción y cree un grupo de recursos denominado *Grupo de recursos de prueba*.
-
-    ![Creación de un grupo de recursos](media/create-cluster-database-portal/create-resource-group.png)
-
-1. Rellene el formulario con la siguiente información.
+1. Rellene los detalles del clúster básico con la siguiente información.
 
    ![Creación del formulario del clúster](media/create-cluster-database-portal/create-cluster-form.png)
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Nombre del clúster | Un nombre de clúster único | Elija un nombre único que identifique el clúster. Por ejemplo, *miclusterdeprueba*. El nombre de dominio *[region].kusto.windows.net* se anexa al nombre del clúster que proporcione. El nombre solo puede contener letras minúsculas y números. Debe contener entre 3 y 22 caracteres.
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el servidor.|
-    | Grupos de recursos | *test-resource-group* | Cree un nuevo grupo de recursos. |
+    | Grupos de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
+    | Nombre del clúster | Un nombre de clúster único | Elija un nombre único que identifique el clúster. Por ejemplo, *mydataexplorercluster*. El nombre de dominio *[region].kusto.windows.net* se anexa al nombre del clúster que proporcione. El nombre solo puede contener letras minúsculas y números. Debe contener entre 3 y 22 caracteres.
     | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades.
     | Especificaciones de Compute | *D13_v2* | Seleccione la especificación de precio más bajo para esta guía de inicio rápido. En un sistema de producción, seleccione la especificación que mejor se adapte a sus necesidades.
     | | |
 
-1. Seleccione **Crear** para aprovisionar el clúster. Normalmente, el aprovisionamiento tarda unos diez minutos. Seleccione **Notificaciones** en la barra de herramientas para supervisar el proceso de aprovisionamiento.
+1. Seleccione **Revisar y crear** para revisar los detalles del clúster, y **Crear** para aprovisionarlo. El aprovisionamiento suele tardar aproximadamente 10 minutos.
 
-    ![Notificaciones](media/create-cluster-database-portal/notifications.png)
-
-1. Cuando el proceso haya finalizado, seleccione **Notificaciones** y, a continuación, **Ir al recurso**.
+1. Cuando la implementación se complete, seleccione **Ir al grupo de recursos**.
 
     ![Ir al recurso](media/create-cluster-database-portal/notification-resource.png)
 
@@ -68,7 +62,7 @@ Ahora está preparado para el segundo paso del proceso: la creación de la base 
 
 1. En la pestaña **Información general**, seleccione **Crear base de datos**.
 
-    ![Paso 2: Crear una base de datos](media/create-cluster-database-portal/database-creation.png)
+    ![Paso 2: Creación de una base de datos](media/create-cluster-database-portal/database-creation.png)
 
 1. Rellene el formulario con la siguiente información.
 
@@ -81,23 +75,19 @@ Ahora está preparado para el segundo paso del proceso: la creación de la base 
     | Período de caché | *31* | El intervalo de tiempo (en días) durante el que los datos consultados con frecuencia se van a mantener disponibles en el almacenamiento SSD o en la RAM, en lugar de en el almacenamiento a largo plazo.
     | | | |
 
-1. Seleccione **Guardar** para crear la base de datos. Normalmente se tarda menos de un minuto. Una vez completado el proceso, vuelve a la pestaña **Información general** del clúster.
+1. Seleccione **Crear** para crear la base de datos. Normalmente se tarda menos de un minuto. Una vez completado el proceso, vuelve a la pestaña **Información general** del clúster.
 
 ## <a name="run-basic-commands-in-the-database"></a>Ejecución de comandos básicos en la base de datos
 
 Ahora que tiene un clúster y la base de datos, puede ejecutar consultas y comandos. Aún no tiene ningún dato en la base de datos, pero todavía puede ver cómo funcionan las herramientas.
 
-1. En el clúster, seleccione **Consulta**.
-
-    ![Consulta de base de datos](media/create-cluster-database-portal/query-database.png)
-
-1. Pegue el siguiente comando en la ventana de consulta: `.show databases`; a continuación, seleccione **Ejecutar**.
+1. En el clúster, seleccione **Consulta**. Pegue el comando `.show databases` en la ventana de consulta; a continuación, seleccione **Ejecutar**.
 
     ![Presentación de los comandos de las bases de datos](media/create-cluster-database-portal/show-databases.png)
 
     El conjunto de resultados muestra **TestDatabase**, la única base de datos en el clúster.
 
-1. Pegue el siguiente comando en la ventana de consulta: `.show tables` y, a continuación, seleccione dicho comando en la ventana. Seleccione **Run** (Ejecutar).
+1. Pegue el comando `.show tables` en la ventana de consulta; a continuación, seleccione **Ejecutar**.
 
     Este comando devuelve un conjunto de resultados vacío porque aún no hay ninguna tabla. Agregará una tabla en el siguiente artículo de esta serie.
 
@@ -115,17 +105,11 @@ Puede detener y reiniciar un clúster según las necesidades empresariales.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto seguir nuestros tutoriales y guías de inicio rápido, conserve los recursos que creó. Si no, limpie el **grupo de recursos de prueba**, para evitar gastos.
+Si tiene previsto seguir nuestros tutoriales e inicios rápidos, conserve los recursos que creó. Si no, limpie el grupo de recursos de prueba para evitar ocasionar gastos.
 
-1. En Azure Portal, seleccione **Grupos de recursos** en el extremo izquierdo y luego seleccione el grupo de recursos que creó.  
+1. En Azure Portal, seleccione **Grupos de recursos** en el extremo izquierdo y luego seleccione el grupo de recursos que contenga el clúster de Data Explorer.  
 
-    Si el menú izquierdo está contraído, seleccione el ![Botón Expandir](media/create-cluster-database-portal/expand.png) para expandirlo.
-
-   ![Selección del grupo de recursos que se eliminará](media/create-cluster-database-portal/delete-resources-select.png)
-
-1. En **test-resource-group**, seleccione **Eliminar grupo de recursos**.
-
-1. En la nueva ventana, escriba el nombre del grupo de recursos que quiere eliminar (*test-resource-group*) y luego seleccione **Eliminar**.
+1. Seleccione **Eliminar grupo de recursos** para eliminar todo el grupo de recursos. Si utiliza un grupo de recursos existente, puede elegir eliminar solo el clúster de Data Explorer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,40 +8,41 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447504"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889229"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingesta de datos en Azure Data Explorer sin una línea de código
 
-Este tutorial le enseñará cómo ingerir datos de diagnóstico y de registro de actividad para un clúster de Azure Data Explorer sin una línea de código. Este método de ingesta simple le permite empezar a consultar datos de Azure Data Explorer rápidamente para el análisis de datos.
+En este tutorial se muestra cómo ingerir datos de registros de actividad y diagnóstico para un clúster de Azure Data Explorer sin escribir código. Con este sencillo método de ingesta, puede empezar a consultar datos de Azure Data Explorer rápidamente para el análisis de datos.
 
 En este tutorial, aprenderá a:
+
 > [!div class="checklist"]
 > * Cree la asignación de la ingesta y las tablas en una base de datos de Azure Data Explorer.
-> * Dé formato a los datos ingeridos mediante una directiva de actualización.
-> * Cree un [centro de eventos](/azure/event-hubs/event-hubs-about) y conéctelo a Azure Data Explorer.
-> * Transmita los datos a un centro de eventos desde los [registros de diagnóstico de Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) y los [registros de actividad de Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview).
-> * Consulte los datos ingeridos mediante Azure Data Explorer.
+> * Aplicar formato a los datos ingeridos mediante una directiva de actualización
+> * Crear un [centro de eventos](/azure/event-hubs/event-hubs-about) y conectarlo a Azure Data Explorer
+> * Transmitir datos a un centro de eventos desde los [registros de diagnóstico de Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) y los [registros de actividad de Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview)
+> * Consultar los datos ingeridos mediante Azure Data Explorer
 
 > [!NOTE]
-> Cree todos los recursos en la misma ubicación o región de Azure. Esto es un requisito para los registros de diagnóstico de Azure Monitor.
+> Crear todos los recursos en la misma ubicación o región de Azure Esto es un requisito para los registros de diagnóstico de Azure Monitor.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
-* [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md). En este tutorial, el nombre de la base de datos es *AzureMonitoring*.
+* [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md). En este tutorial, el nombre de la base de datos es *TestDatabase*.
 
-## <a name="azure-monitoring-data-provider---diagnostic-and-activity-logs"></a>Diagnóstico y registros de actividad del proveedor de datos de supervisión de Azure
+## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Proveedor de datos de Azure Monitor: registros de actividad y diagnóstico
 
-Vea y conozca los datos proporcionados por los registros de diagnóstico y actividad de la supervisión de Azure. Se creará una canalización de ingesta en función de estos esquemas de datos.
+Vea y comprenda los datos proporcionados por los registros de actividad y diagnóstico de Azure Monitor. Se creará una canalización de ingesta en función de estos esquemas de datos.
 
 ### <a name="diagnostic-logs-example"></a>Ejemplo de los registros de diagnóstico
 
-Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que proporciona datos sobre el funcionamiento de dicho servicio. Los datos se agregan con un intervalo de agregación de 1 minuto. Cada evento de los registros de diagnóstico contiene un registro. Lo siguiente es un ejemplo de un esquema de eventos de métricas de Azure Data Explorer, según la duración de la consulta:
+Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que proporciona datos sobre el funcionamiento de dicho servicio. Los datos se agregan con un intervalo de agregación de 1 minuto. Cada evento de un registro de diagnóstico contiene un registro. Este es un ejemplo de un esquema de eventos de métricas de Azure Data Explorer, según la duración de la consulta:
 
 ```json
 {
@@ -59,7 +60,7 @@ Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que
 
 ### <a name="activity-logs-example"></a>Registros de actividad de ejemplo
 
-Los registros de actividad de Azure son registros de nivel de suscripción que contienen una colección de registros. Proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. A diferencia de los registros de diagnóstico, un evento de los registros de actividad tiene una matriz de registros. Tendremos que dividir esta matriz de registros más adelante en el tutorial. Este es un ejemplo de un evento del registro de actividad para la comprobación de acceso:
+Los registros de actividad de Azure son registros de nivel de suscripción que contienen una colección de registros. Proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. A diferencia de los registros de diagnóstico, cada evento de un registro de actividad tiene una matriz de registros. Más adelante en este tutorial habrá que dividir esta matriz de registros. Este es un ejemplo de un evento del registro de actividad para la comprobación del acceso:
 
 ```json
 {
@@ -116,23 +117,23 @@ Los registros de actividad de Azure son registros de nivel de suscripción que c
 }
 ```
 
-## <a name="set-up-ingestion-pipeline-in-azure-data-explorer"></a>Configuración de la canalización de ingesta en Azure Data Explorer 
+## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Configuración de una canalización de ingesta en Azure Data Explorer
 
-La configuración de la canalización de Azure Data Explorer contiene varios pasos que incluyen la [ingesta de datos y la creación de tablas](/azure/data-explorer/ingest-sample-data#ingest-data). También puede manipular, asignar y actualizar los datos.
+La configuración de una canalización de Azure Data Explorer implica varios pasos, como la [creación de tablas y la ingesta de datos](/azure/data-explorer/ingest-sample-data#ingest-data). También puede manipular, asignar y actualizar los datos.
 
-### <a name="connect-to-azure-data-explorer-web-ui"></a>Conexión a la UI de Azure Data Explorer
+### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Conexión a la interfaz de usuario web de Azure Data Explorer
 
-1. En la base de datos *AzureMonitoring* de Azure Data Explorer, seleccione **Consulta**, con lo que se abrirá la interfaz de usuario web de Azure Data Explorer.
+En la base de datos *TestDatabase* de Azure Data Explorer, seleccione **Query** (Consultar) para abrir la interfaz de usuario web de Azure Data Explorer.
 
-    ![Consultar](media/ingest-data-no-code/query-database.png)
+![Página de consulta](media/ingest-data-no-code/query-database.png)
 
-### <a name="create-target-tables"></a>Creación de tablas de destino
+### <a name="create-the-target-tables"></a>Creación de las tablas de destino
 
 Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de destino en la base de datos de Azure Data Explorer.
 
-#### <a name="diagnostic-logs-table"></a>Tabla de registros de diagnóstico
+#### <a name="the-diagnostic-logs-table"></a>Tabla de registros de diagnóstico
 
-1. Cree una tabla *DiagnosticLogsRecords* en la base de datos *AzureMonitoring* que recibirá los registros del registro de diagnóstico mediante el comando de control `.create table`:
+1. En la base de datos *TestDatabase*, cree una tabla llamada *DiagnosticLogsRecords* para almacenar los registros de diagnóstico. Use el siguiente comando de control `.create table`:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -140,19 +141,19 @@ Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de d
 
 1. Seleccione **Ejecutar** para crear la tabla.
 
-    ![Ejecución de la consulta](media/ingest-data-no-code/run-query.png)
+    ![Ejecutar consulta](media/ingest-data-no-code/run-query.png)
 
-#### <a name="activity-logs-tables"></a>Tablas de los registros de actividad
+#### <a name="the-activity-logs-tables"></a>Tablas de registros de actividad
 
-Puesto que la estructura de los registros de actividad no es tabular, tendrá que manipular los datos y expandir cada evento a uno o varios registros. Los datos sin procesar se ingerirán en una tabla intermedia *ActivityLogsRawRecords*. En ese momento, los datos se manipularán y se expandirán. Los datos expandidos entonces se ingerirán en la tabla *ActivityLogsRecords* mediante una directiva de actualización. Por lo tanto, deberá crear dos tablas independientes para la ingesta de registros de actividad.
+Puesto que la estructura de los registros de actividad no es tabular, tendrá que manipular los datos y expandir cada evento a uno o varios registros. Los datos sin procesar se ingerirán en una tabla intermedia llamada *ActivityLogsRawRecords*. En ese momento, los datos se manipularán y se expandirán. Los datos expandidos se ingerirán a continuación en la tabla *ActivityLogsRecords* mediante una directiva de actualización. Esto significa que deberá crear dos tablas independientes para la ingesta de los registros de actividad.
 
-1. Cree una tabla *ActivityLogsRecords* en la base de datos *AzureMonitoring* que vaya a recibir entradas del registro de actividad. Ejecute la siguiente consulta de Azure Data Explorer para crear la tabla:
+1. Cree una tabla llamada *ActivityLogsRecords* en la base de datos *TestDatabase* para recibir registros de actividad. Para crear la tabla, ejecute la siguiente consulta de Azure Data Explorer:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Cree la tabla de datos intermedios *ActivityLogsRawRecords* en la base de datos *AzureMonitoring* para la manipulación de datos:
+1. Cree la tabla de datos intermedia llamada *ActivityLogsRawRecords* en la base de datos *TestDatabase* para la manipulación de los datos:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -166,25 +167,25 @@ Puesto que la estructura de los registros de actividad no es tabular, tendrá qu
 
 ### <a name="create-table-mappings"></a>Creación de asignaciones de tablas
 
- El formato de datos es `json`, por lo tanto, se requiere la asignación de datos. La asignación `json` asigna cada ruta de acceso JSON a un nombre de columna de tabla.
+ Como el formato de datos es `json`, se requiere la asignación de datos. La asignación `json` asigna cada ruta de acceso JSON a un nombre de columna de tabla.
 
-#### <a name="diagnostic-logs-table-mapping"></a>Asignación de la tabla de registros de diagnóstico
+#### <a name="table-mapping-for-diagnostic-logs"></a>Asignación de tablas para registros de diagnóstico
 
-Para asignar los datos a la tabla, utilice la siguiente consulta:
+Para asignar los datos de los registros de diagnóstico a la tabla, use la siguiente consulta:
 
 ```kusto
 .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
-#### <a name="activity-logs-table-mapping"></a>Asignación de la tabla de registros de actividad
+#### <a name="table-mapping-for-activity-logs"></a>Asignación de tablas para registros de actividad
 
-Para asignar los datos a la tabla, utilice la siguiente consulta:
+Para asignar los datos de los registros de actividad a la tabla, use la siguiente consulta:
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-update-policy"></a>Creación de la directiva de actualización
+### <a name="create-the-update-policy-for-activity-logs-data"></a>Creación de la directiva de actualización para los datos de los registros de actividad
 
 1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros para que cada valor de la colección reciba una fila independiente. Use el operador [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
@@ -207,167 +208,171 @@ Para asignar los datos a la tabla, utilice la siguiente consulta:
     }
     ```
 
-2. Agregue una [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Se ejecutará automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *ActivityLogsRawRecords* e ingerirá sus resultados en la tabla *ActivityLogsRecords*:
+2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *ActivityLogsRawRecords* e ingiere sus resultados en la tabla *ActivityLogsRecords*:
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-## <a name="create-an-event-hub-namespace"></a>Creación de un espacio de nombres del centro de eventos
+## <a name="create-an-azure-event-hubs-namespace"></a>Creación de un espacio de nombres de Azure Event Hubs
 
-Los registros de diagnóstico de Azure permiten exportar métricas a una cuenta de Storage o un centro de eventos. En este tutorial, se enrutan las métricas a través de un centro de eventos. Va a crear un centro de eventos y un espacio de nombres Event Hubs para registros de diagnóstico en los pasos siguientes. Supervisión de Azure creará el centro de eventos *insights-operational-logs* para los registros de actividad.
+Los registros de diagnóstico de Azure permiten exportar métricas a una cuenta de almacenamiento o a un centro de eventos. En este tutorial, enrutará las métricas mediante un centro de eventos. En los pasos siguientes creará un espacio de nombres de Event Hubs y un centro de eventos para los registros de diagnóstico. Azure Monitor creará el centro de eventos *insights-operational-logs* para los registros de actividad.
 
-1. Cree un centro de eventos mediante una plantilla de Azure Resource Manager en Azure Portal. Use el botón siguiente para iniciar la implementación. Haga clic con el botón derecho y seleccione **Abrir en una ventana nueva** para seguir el resto de los pasos de este artículo. El botón **Deploy to Azure** (Implementar en Azure) le lleva a Azure Portal.
+1. Cree un centro de eventos mediante una plantilla de Azure Resource Manager en Azure Portal. Para seguir el resto de los pasos de este artículo, haga clic con el botón derecho en el botón **Implementar en Azure** y, luego, seleccione **Abrir en una nueva ventana**. El botón **Deploy to Azure** (Implementar en Azure) le lleva a Azure Portal.
 
-    [![Implementación en Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Botón Implementar en Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-1. Cree un espacio de nombres del centro de eventos y un centro de eventos para los registros de diagnóstico.
+1. Cree un espacio de nombres de Event Hubs y un centro de eventos para los registros de diagnóstico.
 
     ![Creación de un centro de eventos](media/ingest-data-no-code/event-hub.png)
 
-    Rellene el formulario con la siguiente información. Use los valores predeterminados para cualquier configuración que no aparezca en la tabla siguiente.
+1. Rellene el formulario con la siguiente información. Para el caso de opciones de configuración que no se muestren en la siguiente tabla, use los valores predeterminados.
 
-    **Configuración** | **Valor sugerido** | **Descripción del campo**
+    **Configuración** | **Valor sugerido** | **Descripción**
     |---|---|---|
-    | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
-    | Grupos de recursos | *test-resource-group* | Cree un nuevo grupo de recursos. |
-    | Ubicación | Seleccione la región que mejor se adapte a sus necesidades. | Cree el espacio de nombres del centro de eventos en la misma ubicación que otros recursos.
-    | Nombre del espacio de nombres | *AzureMonitoringData* | Elija un nombre único que identifique el espacio de nombres.
-    | Nombre del centro de eventos | *DiagnosticLogsData* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. |
-    | Nombre del grupo de consumidores | *adxpipeline* | Cree un nombre para el grupo de consumidores. Permite que varias aplicaciones de consumo tengan cada una una vista independiente del flujo de eventos. |
+    | **Suscripción** | *Su suscripción* | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
+    | **Grupos de recursos** | *test-resource-group* | Cree un nuevo grupo de recursos. |
+    | **Ubicación** | Seleccione la región que mejor se adapte a sus necesidades. | Cree el espacio de nombres de Event Hubs en la misma ubicación que otros recursos.
+    | **Nombre del espacio de nombres** | *AzureMonitoringData* | Elija un nombre único que identifique el espacio de nombres.
+    | **Nombre del centro de eventos** | *DiagnosticLogsData* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. |
+    | **Nombre del grupo de consumidores** | *adxpipeline* | Cree un nombre para el grupo de consumidores. Los grupos de consumidores permiten consumir varias aplicaciones y que cada una tenga una vista independiente del flujo de eventos. |
     | | |
 
-## <a name="connect-azure-monitoring-logs-to-event-hub"></a>Conexión de los registros de supervisión de Azure al centro de eventos
+## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Conexión de registros de Azure Monitor al centro de eventos
 
-### <a name="diagnostic-logs-connection-to-event-hub"></a>Conexión de los registros de diagnóstico al centro de eventos
+Ahora debe conectar los registros de diagnóstico y los registros de actividad al centro de eventos.
 
-Seleccione un recurso desde el que se va a exportar las métricas. Hay varios tipos de recursos que permiten exportar los registros de diagnóstico incluidos Event Hub Namespace, KeyVault, IoT Hub y el clúster de Azure Data Explorer. En este tutorial, usamos el clúster de Azure Data Explorer como nuestro recurso.
+### <a name="connect-diagnostic-logs-to-your-event-hub"></a>Conexión de los registros de diagnóstico al centro de eventos
+
+Seleccione un recurso desde el que se va a exportar las métricas. Hay varios tipos de recursos que admiten la exportación de registros de diagnóstico, incluido el espacio de nombres de Event Hubs, Azure Key Vault, Azure IoT Hub y los clústeres de Azure Data Explorer. En este tutorial, se usará el clúster de Azure Data Explorer como recurso.
 
 1. Seleccione el clúster de Kusto en Azure Portal.
+1. Seleccione **Configuración de diagnóstico** y, luego, el vínculo **Activar diagnóstico**. 
 
     ![Configuración de diagnóstico](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. Seleccione **Configuración de diagnóstico** en el menú de la izquierda.
-1. Haga clic en el vínculo **Activar diagnóstico**. Se abre la ventana **Configuración de diagnóstico**.
+1. Se abre el panel **Configuración de diagnóstico**. Siga estos pasos.
+    1. Asigne a los datos del registro de diagnóstico el nombre *ADXExportedData*.
+    1. En **MÉTRICA**, active la casilla **AllMetrics** (Todas las métricas) (opcional).
+    1. Active la casilla **Transmitir a un centro de eventos**.
+    1. Seleccione **Configurar**.
 
-    ![Ventana Configuración de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
+    ![Panel Configuración de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. En el panel **Configuración de diagnóstico.**:
-    1. Denomine los datos del registro de diagnóstico: *ADXExportedData*
-    1. Seleccione la casilla **AllMetrics** (opcional).
-    1. Seleccione la casilla **Transmitir a un centro de eventos**.
-    1. Haga clic en **Configurar**.
+1. En el panel **Seleccionar centro de eventos**, configure cómo exportar datos desde los registros de diagnóstico hasta el centro de eventos que ha creado:
+    1. En la lista **Seleccionar el espacio de nombres del Centro de eventos**, seleccione *AzureMonitoringData*.
+    1. En la lista **Seleccionar nombre de centro de eventos**, seleccione *diagnosticlogsdata*.
+    1. En la lista **	Seleccionar el nombre de directiva del Centro de eventos**, seleccione **RootManagerSharedAccessKey**.
+    1. Seleccione **Aceptar**.
 
-1. En el panel **Seleccionar centro de eventos**, configure la exportación al centro de eventos que creó:
-    1. **Seleccionar el espacio de nombres del Centro de eventos** *AzureMonitoringData* desde la lista desplegable.
-    1. **Seleccionar nombre de centro de eventos** *diagnosticlogsdata* desde la lista desplegable.
-    1. **Seleccionar el nombre de directiva del Centro de eventos** desde la lista desplegable.
-    1. Haga clic en **OK**.
+1. Seleccione **Guardar**.
 
-1. Haga clic en **Save**(Guardar). En la ventana aparecerán el espacio de nombres del centro de eventos, el nombre y el nombre de la directiva.
-
-    ![Guardar la configuración de diagnóstico](media/ingest-data-no-code/save-diagnostic-settings.png)
-
-### <a name="activity-logs-connection-to-event-hub"></a>Conexión de los registros de actividad al centro de eventos
+### <a name="connect-activity-logs-to-your-event-hub"></a>Conexión de los registros de actividad al centro de eventos
 
 1. En el menú izquierdo de Azure Portal, seleccione **Registro de actividad**.
-1. Se abre la ventana **Registro de actividad**. **Haga clic en Exportar a Centro de eventos**.
+1. Se abre la ventana **Registro de actividad**. Seleccione **Exportar a Centro de eventos**.
 
-    ![Registro de actividades](media/ingest-data-no-code/activity-log.png)
+    ![Ventana Registro de actividad](media/ingest-data-no-code/activity-log.png)
 
-1. En la ventana **Exportar registro de actividad**:
+1. Se abre la ventana **Exportar registro de actividad**:
  
-    ![Exportar registro de actividad](media/ingest-data-no-code/export-activity-log.png)
+    ![Ventana Exportar registro de actividad](media/ingest-data-no-code/export-activity-log.png)
 
-    1. Seleccione su suscripción.
-    1. En la lista desplegable **Regiones**, elija **Seleccionar todo**
-    1. Seleccione la casilla **Exportar a un centro de eventos**.
-    1. Haga clic en **Select a service bus namespace** (Seleccionar un espacio de nombres del bus de servicio) para abrir el panel **Seleccionar centro de eventos**.
-    1. En el panel **Seleccionar centro de eventos**, seleccione en los menús desplegables su suscripción, el espacio de nombres de evento *AzureMonitoringData* y el nombre de la directiva del centro de eventos predeterminada.
-    1. Haga clic en **OK**.
-    1. Haga clic en **Guardar** en la parte superior derecha de la ventana. Se creará un centro de eventos con el nombre *insights-operational-logs*.
+1. En la ventana **Exportar registro de actividad**, realice los pasos siguientes:
+      1. Seleccione su suscripción.
+      1. En la lista **Regiones**, elija **Seleccionar todo**.
+      1. Active la casilla **Exportar a un centro de eventos**.
+      1. Elija **Select a service bus namespace** (Seleccionar un espacio de nombres del bus de servicio) para abrir el panel **Seleccionar centro de eventos**.
+      1. En el panel **Seleccionar centro de eventos**, seleccione su suscripción.
+      1. En la lista **Seleccionar el espacio de nombres del Centro de eventos**, seleccione *AzureMonitoringData*.
+      1. En la lista **Seleccionar el nombre de directiva del Centro de eventos**, seleccione el nombre de la directiva del centro de eventos predeterminada.
+      1. Seleccione **Aceptar**.
+      1. En la esquina superior izquierda de la ventana, seleccione **Guardar**.
+   Se creará un centro de eventos con el nombre *insights-operational-logs*.
 
-### <a name="see-data-flowing-to-your-event-hubs"></a>Visualización de los datos que fluyen a Event Hubs
+### <a name="see-data-flowing-to-your-event-hubs"></a>Visualización del flujo de datos a los centros de eventos
 
-1. Espere unos minutos hasta que se defina la conexión y se complete la exportación del registro de actividad al centro de eventos. Vaya al espacio de nombres del centro de eventos para ver los centros de eventos que creó.
+1. Espere unos minutos hasta que se defina la conexión y haya finalizado la exportación del registro de actividad al centro de eventos. Vaya al espacio de nombres de Event Hubs para ver los centros de eventos que ha creado.
 
-    ![Event Hubs creado](media/ingest-data-no-code/event-hubs-created.png)
+    ![Centros de eventos creados](media/ingest-data-no-code/event-hubs-created.png)
 
-1. Vea los datos que pasan al centro de eventos:
+1. Vea el flujo de datos al centro de eventos:
 
-    ![Datos de Event Hubs](media/ingest-data-no-code/event-hubs-data.png)
+    ![Datos del centro de eventos](media/ingest-data-no-code/event-hubs-data.png)
 
-## <a name="connect-event-hub-to-azure-data-explorer"></a>Conexión del centro de eventos a Azure Data Explorer
+## <a name="connect-an-event-hub-to-azure-data-explorer"></a>Conexión de un centro de eventos a Azure Data Explorer
 
-### <a name="diagnostic-logs-data-connection"></a>Conexión de datos de los registros de diagnóstico
+Ahora debe crear las conexiones de datos para sus registros de diagnóstico y registros de actividad.
 
-1. En el clúster de Azure Data Explorer *kustodocs*, seleccione **Bases de datos** en el menú izquierdo.
-1. En la ventana **Bases de datos**, seleccione el nombre de la base de datos *AzureMonitoring*
-1. En el menú de la izquierda, seleccione **Ingesta de datos**.
-1. En la ventana **Ingesta de datos**, haga clic en **+ Agregar conexión de datos**
+### <a name="create-the-data-connection-for-diagnostic-logs"></a>Creación de la conexión de datos para los registros de diagnóstico
+
+1. En el clúster de Azure Data Explorer llamado *kustodocs*, seleccione **Bases de datos** en el menú izquierdo.
+1. En la ventana **Bases de datos**, seleccione la base de datos *TestDatabase*.
+1. En el menú izquierdo, seleccione **Ingesta de datos**.
+1. En la ventana **Ingesta de datos**, haga clic en **+ Agregar conexión de datos**.
 1. En la ventana **Conexión de datos**, escriba la siguiente información:
 
-    ![Conexión del centro de eventos](media/ingest-data-no-code/event-hub-data-connection.png)
+    ![Conexión de datos del centro de eventos](media/ingest-data-no-code/event-hub-data-connection.png)
 
     Origen de datos:
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Nombre de la conexión de datos | *DiagnosticsLogsConnection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
-    | Espacio de nombres del centro de eventos | *AzureMonitoringData* | Nombre elegido anteriormente que identifica el espacio de nombres. |
-    | Centro de eventos | *diagnosticlogsdata* | El centro de eventos que creó. |
-    | Grupo de consumidores | *adxpipeline* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
+    | **Nombre de la conexión de datos** | *DiagnosticsLogsConnection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
+    | **Espacio de nombres del centro de eventos** | *AzureMonitoringData* | Nombre elegido anteriormente que identifica el espacio de nombres. |
+    | **Centro de eventos** | *diagnosticlogsdata* | El centro de eventos que creó. |
+    | **Grupo de consumidores** | *adxpipeline* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
     | | |
 
     Tabla de destino:
 
-    Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En este tutorial, usará el enrutamiento estático (el predeterminado), en el que se especifican el nombre de la tabla, el formato de archivo y la asignación. Por tanto, deje **My data includes routing info** (Mis datos incluyen información de enrutamiento) sin seleccionar.
+    Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En este tutorial usará el enrutamiento estático (el predeterminado), en el que se especifican el nombre de la tabla, el formato de los datos y la asignación. Deje **Mis datos incluyen información de enrutamiento** sin seleccionar.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Tabla | *DiagnosticLogsRecords* | La tabla que creó en la base de datos *AzureMonitoring*. |
-    | Formato de datos | *JSON* | Formato de tabla. |
-    | Asignación de columnas | *DiagnosticLogsRecordsMapping* | La asignación que creó en la base de datos *AzureMonitoring*, que asigna los datos JSON entrantes a los nombres de columna los y tipos de datos de *DiagnosticLogsRecords*.|
+    | **Table** | *DiagnosticLogsRecords* | La tabla que creó en la base de datos *TestDatabase*. |
+    | **Formato de datos** | *JSON* | El formato usado en la tabla. |
+    | **Asignación de columnas** | *DiagnosticLogsRecordsMapping* | La asignación que creó en la base de datos *TestDatabase*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de la tabla *DiagnosticLogsRecords*.|
     | | |
 
-1. Haga clic en **Crear**  
+1. Seleccione **Crear**.  
 
-### <a name="activity-logs-data-connection"></a>Conexión de datos de los registros de actividad
+### <a name="create-the-data-connection-for-activity-logs"></a>Creación de la conexión de datos para los registros de actividad
 
-Repita los pasos de la sección de [conexión de datos de registros de diagnóstico](#diagnostic-logs-data-connection) para crear la conexión de datos de los registros de actividad.
+Repita los pasos de la sección Creación de la conexión de datos para los registros de diagnóstico para crear la conexión de datos para los registros de actividad.
 
-1. Inserte la configuración siguiente en la ventana **Conexión de datos**:
+1. Use la configuración siguiente en la ventana **Conexión de datos**:
 
     Origen de datos:
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Nombre de la conexión de datos | *ActivityLogsConnection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
-    | Espacio de nombres del centro de eventos | *AzureMonitoringData* | Nombre elegido anteriormente que identifica el espacio de nombres. |
-    | Centro de eventos | *insights-operational-logs* | El centro de eventos que creó. |
-    | Grupo de consumidores | *$Default* | El grupo de consumidores predeterminado. Si es necesario, puede crear un grupo de consumidores diferente. |
+    | **Nombre de la conexión de datos** | *ActivityLogsConnection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
+    | **Espacio de nombres del centro de eventos** | *AzureMonitoringData* | Nombre elegido anteriormente que identifica el espacio de nombres. |
+    | **Centro de eventos** | *insights-operational-logs* | El centro de eventos que creó. |
+    | **Grupo de consumidores** | *$Default* | El grupo de consumidores predeterminado. Si es necesario, puede crear un grupo de consumidores diferente. |
     | | |
 
     Tabla de destino:
 
-    Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En este tutorial, usará el enrutamiento estático (el predeterminado), en el que se especifican el nombre de la tabla, el formato de archivo y la asignación. Por tanto, deje **My data includes routing info** (Mis datos incluyen información de enrutamiento) sin seleccionar.
+    Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En este tutorial usará el enrutamiento estático (el predeterminado), en el que se especifican el nombre de la tabla, el formato de los datos y la asignación. Deje **Mis datos incluyen información de enrutamiento** sin seleccionar.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Tabla | *ActivityLogsRawRecords* | La tabla que creó en la base de datos *AzureMonitoring*. |
-    | Formato de datos | *JSON* | Formato de tabla. |
-    | Asignación de columnas | *ActivityLogsRawRecordsMapping* | La asignación que creó en la base de datos *AzureMonitoring*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de *ActivityLogsRawRecords*.|
+    | **Table** | *ActivityLogsRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
+    | **Formato de datos** | *JSON* | El formato usado en la tabla. |
+    | **Asignación de columnas** | *ActivityLogsRawRecordsMapping* | La asignación que creó en la base de datos *TestDatabase*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de la tabla *ActivityLogsRawRecords*.|
     | | |
 
-1. Haga clic en **Crear**  
+1. Seleccione **Crear**.  
 
 ## <a name="query-the-new-tables"></a>Consulta de las nuevas tablas
 
-Tiene una canalización con el flujo de datos. La ingesta a través del clúster tarda cinco minutos, de forma predeterminada, por lo que los datos fluyen durante unos minutos antes de empezar la consulta.
+Ahora tiene una canalización con el flujo de datos. La ingesta a través del clúster tarda cinco minutos de forma predeterminada, por lo que los datos fluyen durante unos minutos antes de empezar la consulta.
 
-### <a name="diagnostic-logs-table-query-example"></a>Ejemplo de consulta de la tabla de registros de diagnóstico
+### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>Ejemplo de consulta en la tabla de registros de diagnóstico
 
-La siguiente consulta analiza los datos de duración de la consulta de los registros del registro de diagnóstico de Azure Data Explorer:
+La siguiente consulta analiza los datos de duración de la consulta del registro de diagnóstico de Azure Data Explorer:
 
 ```kusto
 DiagnosticLogsRecords
@@ -383,9 +388,9 @@ Resultados de la consulta:
 |   | 00:06.156 |
 | | |
 
-### <a name="activity-logs-table-query-example"></a>Ejemplo de consulta de la tabla de registros de actividad
+### <a name="an-example-of-querying-the-activity-logs-table"></a>Ejemplo de consulta de la tabla de registros de actividad
 
-La siguiente consulta analiza los datos de los registros del registro de actividad de Azure Data Explorer:
+La siguiente consulta analiza los datos del registro de actividad de Azure Data Explorer:
 
 ```kusto
 ActivityLogsRecords
@@ -406,4 +411,4 @@ Resultados de la consulta:
 Aprenda a escribir muchas más consultas de los datos que extrajo de Azure Data Explorer en el artículo siguiente:
 
 > [!div class="nextstepaction"]
-> [Escritura de consultas para Azure Data Explorer](write-queries.md)
+> [Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)

@@ -14,25 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2019
 ms.author: aschhab
-ms.openlocfilehash: 632ef45d4db5de03369e0abb8b16590911bdffdb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7543fb6aed2e63a998dae2b0a855a70197a282ac
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233309"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587215"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Service Bus mediante Azure Portal
 
-Un espacio de nombres es un contenedor con un ámbito para todos los componentes de la mensajería. Varias colas y temas pueden residir en un único espacio de nombres, y los espacios de nombres suelen servir de contenedores de aplicación. Existen dos formas de crear espacios de nombres de Service Bus:
-
-1. Azure Portal (este artículo)
-2. [Plantillas de Resource Manager][create-namespace-using-arm]
-
-## <a name="create-a-namespace-in-the-azure-portal"></a>Creación de un espacio de nombres en Azure Portal
+Un espacio de nombres es un contenedor con un ámbito para todos los componentes de la mensajería. Varias colas y temas pueden residir en un único espacio de nombres, y los espacios de nombres suelen servir de contenedores de aplicación. Este artículo proporciona instrucciones para crear un espacio de nombres en Azure Portal. 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Felicidades Ha creado un espacio de nombres de mensajería de Service Bus.
+Felicidades. Ha creado un espacio de nombres de mensajería de Service Bus.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

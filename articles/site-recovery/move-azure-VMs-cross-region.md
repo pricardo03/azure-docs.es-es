@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824684"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875827"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
 Hay varios escenarios en los que podría querer trasladar las máquinas virtuales IaaS de Azure existentes de una región a otra: para mejorar la confiabilidad y disponibilidad de las máquinas virtuales existentes, para mejorar la manejabilidad o debido a razones de gobierno, etc., según se indica. 
 
-En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure a otra región con Azure Site Recovery. En este tutorial, aprenderá lo siguiente:
+En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure a otra región con Azure Site Recovery. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * [Verificación de los requisitos previos](#verify-prerequisites)
@@ -28,7 +28,7 @@ En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure a o
 > * [Copia de datos en la región de destino](#copy-data-to-the-target-region)
 > * [Prueba de la configuración](#test-the-configuration)
 > * [Realización del traslado](#perform-the-move-to-the-target-region-and-confirm)
-> * [Descarte de los recursos en la región de origen ](#discard-the-resource-in-the-source-region)
+> * [Descarte de los recursos en la región de origen](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > Este documento le guía para trasladar las máquinas virtuales de Azure de una región a otra tal cual; si lo que se requiere es mejorar la disponibilidad de su infraestructura mediante el traslado de las máquinas virtuales a zonas de disponibilidad, consulte el tutorial aquí.
@@ -73,7 +73,7 @@ En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure a o
 
     - [Grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Equilibradores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Dirección IP pública ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Dirección IP pública](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     Para cualquier otro componente de red, consulte la [documentación](https://docs.microsoft.com/azure/#pivot=products&panel=network) de red. 
 

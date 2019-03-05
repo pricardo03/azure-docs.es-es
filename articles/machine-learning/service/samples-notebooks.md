@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5ba555ad31545e1ae1aa822ec58b0bd22ef486ac
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295158"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805525"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Uso de cuadernos de Jupyter para explorar Azure Machine Learning Service
 
@@ -48,6 +48,8 @@ Después de [crear una instancia de DSVM](how-to-configure-environment.md#dsvm),
 Siga estos pasos para crear un servidor de Jupyter Notebook local en su equipo.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+Con las instrucciones de inicio rápido se instalarán los paquetes necesarios para ejecutar los cuadernos de inicio rápido y del tutorial.  Otros cuadernos de ejemplo pueden requerir la instalación de componentes adicionales.  Para más información sobre estos componentes, consulte [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install) (Instalación del SDK de Azure Machine Learning para Python).
 
 <a name="automated-ml-setup"></a>
 

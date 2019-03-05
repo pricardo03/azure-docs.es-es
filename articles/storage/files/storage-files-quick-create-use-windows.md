@@ -1,41 +1,45 @@
 ---
-title: 'Guía de inicio rápido: Creación y uso un recurso compartido de archivos de Azure para Windows | Microsoft Docs'
-description: Use esta guía de inicio rápido para crear y usar un recurso compartido de archivos de Azure para Windows.
+title: 'Inicio rápido de Azure: Creación y uso de un recurso compartido de Azure Files en máquinas virtuales Windows | Microsoft Docs'
+description: En este inicio rápido, configurará un recurso compartido de Azure Files en Azure Portal y lo conectará a una máquina virtual Windows. Se conectará al recurso compartido de Files y cargará un archivo en él. A continuación, tomará una instantánea del recurso compartido de Files, modificará el archivo en el él y restaurará una instantánea anterior del recurso.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664002"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652474"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Inicio rápido: Creación y uso de un recurso compartido de archivos de Azure para Windows
-El artículo muestra los pasos básicos para crear y usar un recurso compartido de archivos de Azure. Esta guía de inicio rápido se centra en la rápida configuración de un recurso compartido de archivos de Azure para experimentar el funcionamiento del servicio. Si necesita instrucciones más detalladas para crear y usar recursos compartidos de archivos de Azure en su propio entorno, consulte [Uso de un recurso compartido de archivos de Azure con Windows](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
+
+El artículo muestra los pasos básicos para crear y usar un recurso compartido de Azure Files. Este inicio rápido se centra en la configuración rápida de un recurso compartido de Azure Files para experimentar el funcionamiento del servicio. Si necesita instrucciones más detalladas para crear y usar recursos compartidos de archivos de Azure en su propio entorno, consulte [Uso de un recurso compartido de archivos de Azure con Windows](storage-how-to-use-files-windows.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
 Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
-Antes de crear un recurso compartido de archivos de Azure para esta guía de inicio rápido, tiene que configurar los siguientes elementos:
+
+En este inicio rápido, configurará los elementos siguientes:
 
 - Una cuenta de Azure Storage y un recurso compartido de archivos de Azure
 - Una máquina virtual Windows Server 2016 Datacenter
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Para poder trabajar con un recurso compartido de archivos de Azure, es necesario que cree una cuenta de Azure Storage. Una cuenta de almacenamiento es un grupo compartido de almacenamiento en el que puede implementar un recurso compartido de archivos de Azure u otros recursos de almacenamiento como blobs o colas. Una cuenta de almacenamiento puede contener un número ilimitado de recursos compartidos. Un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento.
+Para poder trabajar con un recurso compartido de archivos de Azure, es necesario que cree una cuenta de Azure Storage. Una cuenta de almacenamiento v2 de uso general proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue y Table. El inicio rápido crea una cuenta de almacenamiento de uso general v2, pero los pasos para crear cualquier otro tipo de cuenta de almacenamiento son similares. Una cuenta de almacenamiento puede contener un número ilimitado de recursos compartidos. Un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
+
 A continuación creará un recurso compartido de archivos.
 
 1. Cuando se complete la implementación de la cuenta de Azure Storage, seleccione **Ir al recurso**.
@@ -58,6 +62,7 @@ A continuación creará un recurso compartido de archivos.
 Ya ha creado una cuenta de Azure Storage y un recurso compartido de archivos con un solo archivo en Azure. Ahora creará la máquina virtual de Azure con Windows Server 2016 Datacenter para representar el servidor local en esta guía de inicio rápido.
 
 ### <a name="deploy-a-vm"></a>Implementación de una máquina virtual
+
 1. A continuación, expanda el menú del lado izquierdo del portal y elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 1. En el cuadro de búsqueda que está encima de la lista de recursos de **Azure Marketplace**, busque **Windows Server 2016 Datacenter**, selecciónelo y, después, elija **Crear**.
 1. En la pestaña **Conceptos básicos**, en **Detalles del proyecto**, seleccione el grupo de recursos que creó para esta guía de inicio rápido.
@@ -112,6 +117,7 @@ Ya ha creado una nueva máquina virtual y ha conectado un disco de datos. Ahora 
       ![Ruta de acceso UNC en el panel Conectar de Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Creación de una instantánea de recurso compartido
+
 Ahora que ha asignado la unidad, puede crear una instantánea.
 
 1. En el portal, vaya al recurso compartido de archivos y seleccione **Crear instantánea**.
@@ -132,7 +138,7 @@ Ahora que ha asignado la unidad, puede crear una instantánea.
 
 ## <a name="restore-from-a-snapshot"></a>Restauración desde una instantánea
 
-1. En el portal, seleccione *qsTestFile* > seleccione el botón **Restaurar**.
+1. En la hoja de instantánea de recurso compartido de archivo, haga clic con el botón derecho en *qsTestFile* y seleccione el botón **Restaurar**.
 1. Seleccione **Sobrescribir el archivo original**.
 
    ![Botones Descargar y Restaurar](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Ahora que ha asignado la unidad, puede crear una instantánea.
    ![Botón Eliminar](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Uso de una instantánea de recurso compartido en Windows
+
 Al igual que con las instantáneas VSS en el entorno local, puede ver las instantáneas desde el recurso compartido de archivos de Azure montado en la pestaña Versiones anteriores.
 
 1. Ubique el recurso compartido montado en el Explorador de archivos.

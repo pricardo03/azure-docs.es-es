@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ea67c19beeb2fa52b77b04913aee1838569c4ac6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700118"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675031"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -80,7 +80,7 @@ Asegúrese de que los servidores y las máquinas virtuales de VMware cumplen los
 3. Compruebe la compatibilidad de [red](vmware-physical-azure-support-matrix.md#network) y [almacenamiento](vmware-physical-azure-support-matrix.md#storage) local. 
 4. Compruebe lo que es compatible para [redes Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](vmware-physical-azure-support-matrix.md#azure-storage), y [proceso](vmware-physical-azure-support-matrix.md#azure-compute), después de la conmutación por error.
 5. Las máquinas virtuales locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. En las máquinas virtuales Linux, el nombre de dispositivo o el nombre de punto de montaje debe ser único. Asegúrese de que los nombres de dos dispositivos o puntos de montaje no solo se diferencien en las mayúsculas y minúsculas. Por ejemplo, no puede asignarle a dos dispositivos de la misma máquina virtual el nombre *device1* y *Device1*.
+6. En las máquinas virtuales Linux, el nombre de dispositivo o el nombre de punto de montaje debe ser único. Asegúrese de que los nombres de dos dispositivos o puntos de montaje sean distintos. Tenga en cuenta que el nombre no distingue mayúsculas de minúsculas. Por ejemplo, no puede asignar a dos dispositivos de la misma máquina virtual el nombre _device1_ y _Device1_.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error

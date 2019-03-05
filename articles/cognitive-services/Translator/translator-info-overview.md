@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: df0f1570b4f876cbfb542a5571c8bec7e80e6895
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857732"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729226"
 ---
 # <a name="what-is-translator-text-api"></a>¿Qué es Translator Text API?
 
@@ -34,14 +34,6 @@ La traducción de voz, con la tecnología de Translator Text API, también está
 
 Microsoft Translator proporciona compatibilidad con varios idiomas de traducción, transliteración, detección de idioma y diccionarios. Consulte [Compatibilidad con idiomas](language-support.md) para obtener una lista completa o puede acceder a la lista mediante programación con la [API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
-## <a name="language-customization"></a>Personalización de lenguaje
-
-Custom Translator, una extensión del servicio Microsoft Translator, se puede usar en combinación con Translator Text API para ayudar a personalizar el sistema de traducción neuronal y mejorar la traducción para su terminología y estilo específicos.
-
-Con Custom Translator puede crear sistemas de traducción que administran la terminología usada en su propio negocio o sector. Luego, los sistemas de traducción personalizados se pueden integrar fácilmente en las aplicaciones, flujos de trabajo y sitios web ya existentes, en varios tipos de dispositivos, mediante el componente normal Microsoft Translator Text API, por medio del parámetro de categoría.
-
-Más información sobre la [personalización de idioma](customization.md)
-
 ## <a name="microsoft-translator-neural-machine-translation"></a>Traducción automática neuronal de Microsoft Translator
 
 La traducción automática neuronal (NMT) es el nuevo estándar para las traducciones automáticas de alta calidad basadas en inteligencia artificial. Este estándar reemplaza la traducción automática estadística (SMT) que alcanzó un nivel estable a mediados de 2010.
@@ -52,18 +44,16 @@ Los modelos NMT se sitúan en el centro de la API y no son visibles para los usu
 
 Más información sobre [el funcionamiento de NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
+## <a name="language-customization"></a>Personalización de lenguaje
+
+Custom Translator, una extensión del servicio Microsoft Translator, se puede usar en combinación con Translator Text API para ayudar a personalizar el sistema de traducción neuronal y mejorar la traducción para su terminología y estilo específicos.
+
+Con Custom Translator puede crear sistemas de traducción que administran la terminología usada en su propio negocio o sector. Luego, los sistemas de traducción personalizados se pueden integrar fácilmente en las aplicaciones, flujos de trabajo y sitios web ya existentes, en varios tipos de dispositivos, mediante el componente normal Microsoft Translator Text API, por medio del parámetro de categoría.
+
+Más información sobre la [personalización de idioma](customization.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea acerca de los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
-
 - [Regístrese](translator-text-how-to-signup.md) para obtener una clave de acceso.
-
-- [Inicio rápido](quickstarts/csharp.md) es un tutorial escrito en C# de las llamadas a API REST. Aprenda a traducir texto de un idioma a otro con un código mínimo.
-
-- [Documentación de referencia de API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) proporciona la documentación técnica de las API.
-
-## <a name="see-also"></a>Otras referencias
-
-- [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai)
-- [Página de producto de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-- [Información de precios y soluciones](https://www.microsoft.com/en-us/translator/default.aspx)
+- [Referencia de API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) proporciona la documentación técnica de las API.
+- [Detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

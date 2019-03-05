@@ -10,25 +10,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6287b4f07c99dd45628ed4b9eb1412200cf7cd43
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244613"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593648"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatización de la validación de Azure Stack con PowerShell
 
 La validación como servicio (VaaS) permite automatizar el inicio de las pruebas con el script **LaunchVaaSTests.ps1**.
 
-Puede usar PowerShell para el flujo de trabajo siguiente:
-
-- Prueba superada
+> [!NOTE]
+> Automation solo está disponible para el flujo de trabajo de los pasos de pruebas. Los flujos de trabajo de validación de paquete y de validación de la solución solo se admiten en el portal de VaaS.
 
 En este tutorial, aprenderá a crear un script que:
 

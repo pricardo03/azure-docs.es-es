@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427036"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984414"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -97,7 +97,7 @@ Más información acerca de los registros de flujo NSG siguiendo el tutorial [Re
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visualización de registros de diagnóstico de recursos de red
 
-Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Puede ver registros de diagnóstico con herramientas como Microsoft Power BI y Azure Log Analytics. Para obtener más información sobre el análisis de registros de diagnóstico de red de Azure, vea [Soluciones de supervisión de redes de Azure en Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Los registros de diagnóstico se pueden ver con herramientas como Microsoft Power BI y los registros de Azure Monitor. Para más información acerca del análisis de los registros de diagnóstico de la red de Azure, consulte [Soluciones de supervisión de redes de Azure en Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Habilitación automática de Network Watcher
 Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de Virtual Network. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni a los cargos asociados. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).

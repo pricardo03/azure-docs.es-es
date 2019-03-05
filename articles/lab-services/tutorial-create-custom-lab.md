@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096643"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804971"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
 En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
@@ -80,7 +80,7 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 1. Después de crear la máquina virtual, puede verla en la lista **Máquinas virtuales que se pueden reclamar**. 
 
     > [!NOTE] 
-    > Al agregar una máquina virtual de Linux a un laboratorio, puede habilitar el acceso RDP y SSH a la máquina virtual. Si no habilita el acceso al crear la máquina virtual, puede agregar manualmente reglas en el grupo de seguridad de red asociado a la máquina virtual para abrir puertos para SSH y RDP.
+    > En la página **Configuración avanzada** puede configurar la dirección IP pública, privada o de uso compartido para la máquina virtual. Cuando la **IP compartida** está habilitada, Azure DevTest Labs habilita RDP automáticamente para las máquinas virtuales Windows y SSH para las máquinas virtuales Linux. Si crea máquinas virtuales con direcciones **IP públicas**, RDP y SSH están habilitados sin cambios de DevTest Labs.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adición de un usuario al rol de usuario de laboratorio
 

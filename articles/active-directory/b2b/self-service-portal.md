@@ -1,5 +1,5 @@
 ---
-title: Portal de suscripción sin intervención del administrador para la colaboración B2B de Azure Active Directory | Microsoft Docs
+title: Portal de suscripción de autoservicio para la colaboración B2B de Azure Active Directory | Microsoft Docs
 description: La colaboración con Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e2f22188d825cfb5d51efe1f305fb2f8f52f6e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0c3ad424e8cab444b2405715eaa468411166ebd9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185050"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674283"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de autoservicio para el registro en la colaboración B2B de Azure AD
 

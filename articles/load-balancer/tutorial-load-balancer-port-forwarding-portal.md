@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/18
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232199"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959137"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
 
@@ -44,25 +44,26 @@ Para realizar todos los pasos de este tutorial, inicie sesión en Azure Portal e
 
 En primer lugar, cree un equilibrador de carga estándar público que pueda equilibrar la carga de tráfico a través de las máquinas virtuales. Un equilibrador de carga estándar solo admite una dirección IP pública estándar. Cuando se crea un equilibrador de carga estándar, también se crea una dirección IP pública estándar, que se configura como el front-end de equilibrador de carga y se denomina **LoadBalancerFrontEnd** de manera predeterminada. 
 
-1. En el lado superior izquierdo del portal, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
-   
-1. En el panel **Crear equilibrador de carga**, escriba o seleccione estos valores:
-   
-   - **Nombre**: escriba *MyLoadBalancer*.
-   - **Tipo**: Seleccione **Público**. 
-   - **SKU**: Seleccione **Estándar**.
-   - **Dirección IP pública**: seleccione **Crear nueva** y escriba *MyPublicIP* en el campo.
-   - **Configurar la dirección IP pública** > **Zona de disponibilidad**: seleccione **Con redundancia de zona**.
-   - **ResourceGroup**: seleccione **Crear nuevo**, a continuación, escriba *MyResourceGroupLB* y seleccione **Aceptar**. 
-   - **Ubicación**: Seleccione **Europa Occidental**. 
-     
-     >[!NOTE]
-     >Asegúrese de crear el equilibrador de carga y todos los recursos para él en una ubicación compatible con Availability Zones. Para más información, vea [Regiones que admiten Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. Seleccione **Crear**.
-   
-![Creación de un equilibrador de carga](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
+2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
+    | Configuración                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Seleccione su suscripción.    |    
+    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
+    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Region         | Seleccione **Europa Occidental**.                                        |
+    | Type          | Seleccione **Público**.                                        |
+    | SKU           | Seleccione **Estándar**.                          |
+    | Dirección IP pública | Seleccione **Crear nuevo**. |
+    | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
+    |Zona de disponibilidad| Seleccione **Redundancia de zona**.    |
+     
+    >[!NOTE]
+     >Asegúrese de crear el equilibrador de carga y todos los recursos para él en una ubicación compatible con Availability Zones. Para más información, vea [Regiones que admiten Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+
+3. En la pestaña **Revisar y crear**, haga clic en **Crear**.  
+  
 ## <a name="create-and-configure-back-end-servers"></a>Creación y configuración de servidores back-end
 
 Cree una red virtual con dos máquinas virtuales y agréguelas al grupo de back-end del equilibrador de carga. 

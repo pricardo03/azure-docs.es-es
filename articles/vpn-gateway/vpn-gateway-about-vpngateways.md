@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471329"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822930"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -57,7 +57,7 @@ Al crear una puerta de enlace de red virtual, hay que especificar la SKU de la p
 
 ## <a name="diagrams"></a>Diagramas de la topología de conexión
 
-Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. En las secciones siguientes, puede ver información y diagramas de topología sobre las siguientes conexiones de VPN Gateway. En las secciones siguientes se incluyen tablas que enumeran:
+Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. En las secciones a continuación puede ver diagramas de topología e información sobre las siguientes conexiones de puerta de enlace de VPN: Las siguientes secciones contienen tablas que muestran lo siguiente:
 
 * Modelo de implementación disponible
 * Herramientas de configuración disponibles
@@ -152,7 +152,6 @@ Para conocer las preguntas más frecuentes acerca de VPN Gateway, consulte [Preg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md).
 - Consulte las [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) para más información.
 - Consulte [Límites del servicio y la suscripción](../azure-subscription-service-limits.md#networking-limits).
 - Obtenga información sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.

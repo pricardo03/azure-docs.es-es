@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448081"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651199"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configuración de dispositivos conectados a la solución de supervisión
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="add-a-simulated-device"></a>Adición de un dispositivo simulado
 
-Vaya a la página **Dispositivos** en la solución y haga clic en **+ Nuevo dispositivo**:
+Vaya a la página **Device Explorer** en la solución y haga clic en **+ Nuevo dispositivo**:
 
 [![Aprovisionamiento de un dispositivo simulado](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ En el panel **Nuevo dispositivo**, elija **Simulado**, deje el número de dispos
 
 ## <a name="test-the-simulated-device"></a>Prueba del dispositivo simulado
 
-Para probar que el dispositivo de motor simulado envía los valores de propiedad de informes y telemetría, selecciónelo en la lista de dispositivos de la página **Dispositivos**. La información sobre el motor se muestra en el panel **Detalles del dispositivo**:
+Para probar que el dispositivo de motor simulado envía los valores de propiedad de informes y telemetría, selecciónelo en la lista de dispositivos de la página **Device Explorer**. La información sobre el motor se muestra en el panel **Detalles del dispositivo**:
 
 [![Vista del nuevo dispositivo de motor simulado](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Para ver los diagnósticos detallados, desplácese hacia abajo en el panel **Det
 
 ## <a name="reconfigure-a-device"></a>Nueva configuración de un dispositivo
 
-Para comprobar si puede actualizar las propiedades de configuración del motor, selecciónelo en la lista de dispositivos de la página **Dispositivos**. A continuación, haga clic en **Trabajos** y, a continuación, elija **Propiedades**. El panel de trabajos muestra los valores de propiedad del dispositivo seleccionado que se pueden actualizar:
+Para comprobar si puede actualizar las propiedades de configuración del motor, selecciónelo en la lista de dispositivos de la página **Device Explorer**. A continuación, haga clic en **Trabajos** y, a continuación, elija **Propiedades**. El panel de trabajos muestra los valores de propiedad del dispositivo seleccionado que se pueden actualizar:
 
 [![Nueva configuración de un dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Para facilitar que los operadores organicen y administren los dispositivos, es c
 * El equipo de Vehículo inteligente administra los camiones y los dispositivos de creación de prototipos.
 * El equipo de Edificio inteligente administra los refrigeradores, los ascensores y los motores.
 
-Para mostrar todos los dispositivos, vaya a la página **Dispositivos** y elija el filtro **Todos los dispositivos**:
+Para mostrar todos los dispositivos, vaya a la página **Device Explorer** y elija el filtro **Todos los dispositivos**:
 
 [![Mostrar todos los dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ En el panel **Trabajos**, seleccione **Etiqueta**, establezca el nombre del trab
 
 ### <a name="create-filters"></a>Creación de filtros
 
-Ahora puede usar los valores de etiqueta para crear filtros. En la página **Dispositivos**, haga clic en **Administrar grupos de dispositivos**:
+Ahora puede usar los valores de etiqueta para crear filtros. En la página **Device Explorer**, haga clic en **Administrar grupos de dispositivos**:
 
 [![Administrar grupos de dispositivos](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

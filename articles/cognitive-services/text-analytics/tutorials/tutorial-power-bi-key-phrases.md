@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245837"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889484"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -94,7 +94,7 @@ También podría considerar el filtrado de mensajes en blanco con el filtro Quit
 | | |
 | - | - |
 | `id`  | Un identificador único para este documento dentro de la solicitud. La respuesta también contiene este campo. De este modo, si procesa más de un documento, puede asociar fácilmente las frases clave extraídas con el documento del que proceden. En este tutorial, puesto que está procesando un solo documento por solicitud, puede codificar el valor de `id` para que sea el mismo para cada solicitud.|
-| `text`  | El texto que se va a procesar. El valor de este campo procede de la columna `Merged` que creó en la [sección anterior](#PreparingData), que contiene el texto de comentario y de línea de asunto combinados. La API de frases clave requiere que estos datos no tengan más de 5000 caracteres.|
+| `text`  | El texto que se va a procesar. El valor de este campo procede de la columna `Merged` que creó en la [sección anterior](#PreparingData), que contiene el texto de comentario y de línea de asunto combinados. La API de frases clave requiere que estos datos no tengan más de 5120 caracteres.|
 | `language` | El código del lenguaje natural en que está escrito el documento. Todos los mensajes de los datos de ejemplo están en inglés, por lo que puede codificar de forma rígida el valor `en` para este campo.|
 
 ## <a name="create-a-custom-function"></a>Creación de una función personalizada

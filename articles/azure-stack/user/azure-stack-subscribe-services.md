@@ -13,23 +13,23 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981298"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649091"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: Creación y prueba de una suscripción
 
 En este tutorial se muestra cómo crear una suscripción que contiene una oferta y, después, probarla. Para la prueba, inicie sesión en el portal de usuarios de Azure Stack como administrador de la nube, se suscribirá a la oferta y, después, creará una máquina virtual.
 
 > [!TIP]
-> Para una experiencia de evaluación más avanzada, puede [crear una suscripción para un usuario en particular](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) y después iniciar sesión como ese usuario en el portal de usuarios. 
+> Para una experiencia de evaluación más avanzada, puede [crear una suscripción para un usuario en particular](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) y después iniciar sesión como ese usuario en el portal de usuarios.
 
 En este tutorial se muestra cómo suscribirse a una oferta de Azure Stack.
 
@@ -60,10 +60,10 @@ Para suscribirse a una oferta como usuario, inicie sesión en el portal de usuar
 
 ## <a name="test-the-offer"></a>Probar la oferta
 
-Al iniciar sesión en el portal de usuarios, puede probar la oferta mediante el aprovisionamiento de una máquina virtual con las nuevas funcionalidades de suscripción. 
+Al iniciar sesión en el portal de usuarios, puede probar la oferta mediante el aprovisionamiento de una máquina virtual con las nuevas funcionalidades de suscripción.
 
 > [!NOTE]
-> Esta prueba requiere que una máquina virtual de Windows Server 2016 Datacenter que ya se agregó a Marketplace de Azure Stack. 
+> Esta prueba requiere que una máquina virtual de Windows Server 2016 Datacenter que ya se agregó a Marketplace de Azure Stack.
 
 1. Inicie sesión en el portal de usuario.
 
@@ -84,7 +84,6 @@ Al iniciar sesión en el portal de usuarios, puede probar la oferta mediante el 
 > [!NOTE]
 > La implementación de la máquina virtual tarda unos minutos en completarse.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió:
@@ -92,7 +91,6 @@ En este tutorial aprendió:
 > [!div class="checklist"]
 > * Suscripción a una oferta 
 > * Probar la oferta
-
 
 > [!div class="nextstepaction"]
 > [Creación de una máquina virtual a partir de una plantilla de comunidad](azure-stack-create-vm-template.md)

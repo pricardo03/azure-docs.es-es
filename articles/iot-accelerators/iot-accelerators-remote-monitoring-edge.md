@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606255"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675099"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detección de anomalías en el perímetro con el acelerador de soluciones de supervisión remota
 
@@ -55,12 +55,12 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Se necesitan dos pasos para agregar un dispositivo IoT Edge al acelerador de soluciones de supervisión remota. Esta sección le indica cómo:
 
-* Agregar un dispositivo IoT Edge en la página **Dispositivos** de la interfaz de usuario web de supervisión remota.
+* Agregar un dispositivo IoT Edge en la página **Device Explorer** de la interfaz de usuario web de supervisión remota.
 * Instalar el entorno de ejecución de IoT Edge en una máquina virtual Linux.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Agregar un dispositivo IoT Edge a la solución
 
-Para agregar un dispositivo IoT Edge al acelerador de soluciones de supervisión remota, vaya a la página **Dispositivos** de la interfaz de usuario web y haga clic en **+ Nuevo dispositivo**.
+Para agregar un dispositivo IoT Edge al acelerador de soluciones de supervisión remota, vaya a la página **Device Explorer** de la interfaz de usuario web y haga clic en **+ Nuevo dispositivo**.
 
 En el panel **Nuevo dispositivo**, elija **Dispositivo IoT Edge** y escriba **oil-pump** como identificador de dispositivo. Puede dejar los valores predeterminados para las demás opciones de configuración. A continuación, haga clic en **Aplicar**:
 
@@ -68,13 +68,13 @@ En el panel **Nuevo dispositivo**, elija **Dispositivo IoT Edge** y escriba **oi
 
 Tome nota de la cadena de conexión del dispositivo; la necesitará en la siguiente sección de este tutorial.
 
-Al registrar un dispositivo con IoT Hub en el acelerador de soluciones de supervisión remota, este aparece en la lista **Dispositivos** de la interfaz de usuario web:
+Al registrar un dispositivo con el centro de IoT en el acelerador de soluciones de supervisión remota, este aparece en la lista **Device Explorer** de la interfaz de usuario web:
 
 [![Nuevo dispositivo IoT Edge](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Para facilitar la administración de dispositivos IoT Edge en la solución, cree un grupo de dispositivos y agregue el dispositivo IoT Edge:
 
-1. Seleccione el dispositivo **oil-pump** en la lista de la página **Dispositivos** y, a continuación, haga clic en **Trabajos**.
+1. Seleccione el dispositivo **oil-pump** en la lista de la página **Device Explorer** y, a continuación, haga clic en **Trabajos**.
 
 1. Cree un trabajo para agregar la etiqueta **IsEdge** al dispositivo mediante la siguiente configuración:
 
@@ -90,7 +90,7 @@ Para facilitar la administración de dispositivos IoT Edge en la solución, cree
 
 1. Haga clic en **Aplicar** y en **Cerrar**.
 
-1. En la página **Dispositivos**, haga clic en **Administrar grupos de dispositivos**.
+1. En la página **Device Explorer**, haga clic en **Administrar grupos de dispositivos**.
 
 1. Haga clic en **Crear un nuevo grupo de dispositivos**. Cree un nuevo grupo de dispositivos con la siguiente configuración:
 
@@ -300,7 +300,7 @@ La página **Implementaciones** muestra las métricas siguientes:
 
 Puede ver los datos de telemetría de temperatura del dispositivo de bomba de petróleo en la interfaz de usuario web de supervisión remota:
 
-1. Vaya a la página **Dispositivos** y seleccione el dispositivo de la bomba de petróleo.
+1. Vaya a la página **Device Explorer** y seleccione el dispositivo de la bomba de petróleo.
 1. En la sección **Telemetría** del panel **Detalles del dispositivo**, haga clic en **Temperatura**:
 
     [![Ver datos de telemetría](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

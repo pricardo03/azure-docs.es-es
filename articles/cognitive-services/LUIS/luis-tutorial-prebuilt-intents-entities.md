@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346e7ac9a76f4ce4a87565ffc77032b095b2975c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878007"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873821"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificación de intenciones y entidades habituales
 
@@ -51,7 +51,7 @@ LUIS proporciona varias intenciones creadas previamente para ayudarle con las in
 
 1. Busque `Utilities`. 
 
-    [ ![Captura de pantalla del cuadro de diálogo de intenciones creadas previamente con las utilidades en el cuadro de búsqueda](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [![Captura de pantalla del cuadro de diálogo de intenciones creadas previamente con las utilidades en el cuadro de búsqueda](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
 1. Seleccione las siguientes intenciones y haga clic en **Done** (Listo): 
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231978"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986335"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal
 
 El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales (VM). Puede usar Azure Portal para crear un equilibrador de carga y equilibrar el tráfico entre las máquinas virtuales. Esta guía de inicio rápido muestra cómo crear y configurar un equilibrador de carga, los servidores de back-end y los recursos de red en el plan de tarifa Básico.
 
@@ -30,25 +30,27 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para realizar las tareas de esta guía de inicio rápido, inicie sesión en [Azure Portal](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Creación de una instancia de Load Balancer Básico
+## <a name="create-a-basic-load-balancer"></a>Creación de una instancia de Load Balancer básico
 
-En primer lugar, cree un equilibrador de carga básico público mediante el portal. El nombre y la dirección IP que crea se configuran automáticamente como el front-end del equilibrador de carga.
+En primer lugar, cree un equilibrador de carga básico público desde el portal. El nombre y la dirección IP que crea se configuran automáticamente como el front-end del equilibrador de carga.
 
-1. En el lado superior izquierdo del portal, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
-   
-1. En el panel **Crear equilibrador de carga**, escriba o seleccione estos valores:
-   
-   - **Nombre**: escriba *MyLoadBalancer*.
-   - **Tipo**: Seleccione **Público**. 
-   - **SKU**: Seleccione **Básica**.
-   - **Dirección IP pública**: Seleccione **Crear nuevo**. 
-     - Campo **Dirección IP pública**: escriba *MyPublicIP*.
-     - **Configurar la dirección IP pública** > **Asignación**: seleccione **Dinámico**.
-   - **ResourceGroup**: seleccione **Crear nuevo**, a continuación, escriba *MyResourceGroupLB* y seleccione **Aceptar**. 
-   
-1. Seleccione **Crear**.
-   
-![Creación de un equilibrador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
+2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
+
+    | Configuración                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Seleccione su suscripción.    |    
+    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
+    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Region         | Seleccione **Europa Occidental**.                                        |
+    | Type          | Seleccione **Público**.                                        |
+    | SKU           | Seleccione **Básica**.                          |
+    | Dirección IP pública | Seleccione **Crear nuevo**. |
+    | Nombre de la dirección IP pública              | *MyPublicIP*   |
+    | Asignación| Estática|
+
+3. En la pestaña **Revisar y crear**, haga clic en **Crear**.   
+
 
 ## <a name="create-back-end-servers"></a>Creación de los servidores de back-end
 

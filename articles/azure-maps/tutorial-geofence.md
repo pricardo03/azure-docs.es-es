@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244460"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670900"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configuración de una geovalla con Azure Maps
 
@@ -58,9 +58,9 @@ Abra la aplicación Postman y siga estos pasos para cargar la geovalla del sitio
 
 3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace el valor de subscription-key por la clave de suscripción de Azure Maps.
    
-    ![Parámetros de valor y clave de Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parámetros de clave-valor de Postman](./media/tutorial-geofence/postman-key-vals.png)
 
-4. Haga clic en **Body** (Cuerpo), seleccione el formato de entrada sin procesar y elija JSON como formato de entrada en la lista desplegable. Proporcione el siguiente JSON como datos que se van a cargar:
+4. Haga clic en **Body** (Cuerpo), seleccione el formato de entrada sin procesar y elija JSON como formato de entrada en la lista desplegable. Proporcione el siguiente código JSON como datos que se van a cargar:
 
    ```JSON
    {
@@ -165,7 +165,7 @@ Para más información, puede ver todos los [controladores de eventos admitidos]
 
   ![Creación de instancias de Logic Apps](./media/tutorial-geofence/logic-app.png)
 
-2. Seleccione un desencadenador de la solicitud HTTP y después seleccione Send an email (Enviar un correo electrónico) como acción en el conector de Outlook.
+2. Seleccione un desencadenador de la solicitud HTTP y después seleccione "Send an email" (Enviar un correo electrónico) como acción en el conector de Outlook
   
   ![Esquema de Logic Apps](./media/tutorial-geofence/logic-app-schema.png)
 

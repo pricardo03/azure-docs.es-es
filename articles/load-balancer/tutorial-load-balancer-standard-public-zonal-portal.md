@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229819"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985995"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Standard Load Balancer mediante Azure Portal
 
@@ -48,18 +48,22 @@ Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.
 Standard Load Balancer solo admite direcciones IP públicas estándar. Cuando se crea una dirección IP pública nueva al crear el equilibrador de carga, se configura automáticamente como una versión de la SKU Estándar. También tiene automáticamente redundancia de zona.
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Load Balancer**.
-2. En la página **Crear equilibrador de carga** especifique estos valores para el equilibrador de carga:
-    - **myLoadBalancer** como nombre del equilibrador de carga.
-    - **Público** como tipo de equilibrador de carga.
-      - **myPublicIPZonal** como la dirección IP pública nueva que crea. Seleccione **Elegir una dirección IP pública**. A continuación, seleccione **Crear nuevo**. Para el nombre, escriba **myPublicIP**. El SKU es estándar de manera predeterminada. Para **Zona de disponibilidad**, seleccione **Zona 1**.
-    - **myResourceGroupZLB** como nombre del nuevo grupo de recursos que crea.
-    - **Oeste de Europa** como ubicación.
-3. Seleccione **Crear** para crear el equilibrador de carga.
-   
-    ![Creación de una instancia de Standard Load Balancer de zona mediante Azure Portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
+    | Configuración                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Seleccione su suscripción.    |    
+    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupZLB* en el cuadro de texto.|
+    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Region         | Seleccione **Europa Occidental**.                                        |
+    | Type          | Seleccione **Público**.                                        |
+    | SKU           | Seleccione **Estándar**.                          |
+    | Dirección IP pública | Seleccione **Crear nuevo**. |
+    | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
+    |Zona de disponibilidad| Seleccione **1**.    |
+3. En la pestaña **Revisar y crear**, haga clic en **Crear**.   
 
-## <a name="create-backend-servers"></a>Creación de servidores back-end
+ ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
 En esta sección, creará una red virtual. También creará dos máquinas virtuales en la misma zona (es decir, la zona 1) para la región que desea agregar al grupo de back-end del equilibrador de carga. A continuación, se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga con redundancia de zona. Si se produce un error en una máquina virtual, se produce un error en el sondeo de mantenimiento de la máquina virtual en la misma zona. El tráfico continúa en otras máquinas virtuales dentro de la misma zona.
 

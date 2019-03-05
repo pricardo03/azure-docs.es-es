@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 5591e8174f15d552bf7295d1c3fe9cb5257c0f2e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b79800f9a9f0eb44c16c7f45fa97c55eca8ecd1a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438905"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737950"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 
@@ -23,40 +23,42 @@ El trabajo de ejemplo lee los datos de streaming desde el dispositivo de IoT Hub
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).  
 
-* Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión que está instalada en la máquina local. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Este inicio rápido requiere el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión que está instalada en la máquina local. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 * Algunas acciones de IoT Hub no son compatibles con Azure PowerShell y se deben llevar a cabo con la CLI de Azure versión 2.0.24 o posterior, y la extensión de IoT para la CLI de Azure. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y use `az extension add --name azure-cli-iot-ext` para instalar la extensión de IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccount` y escriba las credenciales de Azure en el explorador emergente:
+Inicie sesión en la suscripción de Azure con el comando `Connect-AzAccount` y escriba las credenciales de Azure en el explorador emergente:
 
 ```powershell
 # Connect to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Si tiene más de una suscripción, seleccione la que desee utilizar para este inicio rápido mediante la ejecución de los siguientes cmdlets. Asegúrese de reemplazar `<your subscription name>` por el nombre de su suscripción:  
 
 ```powershell
 # List all available subscriptions.
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Select the Azure subscription you want to use to create the resource group and resources.
-Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubscription
 ```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos de Azure con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
 $location = "WestUS2"
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
    -Name $resourceGroup `
    -Location $location 
 ```
@@ -111,17 +113,17 @@ El siguiente bloque de código de la CLI de Azure realiza varios comandos para p
 
 El siguiente bloque de código de Azure PowerShell usa los comandos para crear el almacenamiento de blobs que se usa para la salida del trabajo. Examine las secciones para comprender el código.
 
-1. Cree una cuenta de almacenamiento de uso general mediante el cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  En este ejemplo, se crea una cuenta de almacenamiento denominada **myasaquickstartstorage** con almacenamiento con redundancia local (LRS) y cifrado de blobs (habilitados de forma predeterminada).  
+1. Cree una cuenta de almacenamiento de uso general estándar mediante el cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount).  En este ejemplo, se crea una cuenta de almacenamiento denominada **myasaquickstartstorage** con almacenamiento con redundancia local (LRS) y cifrado de blobs (habilitados de forma predeterminada).  
    
 2. Recupere el contexto `$storageAccount.Context` de la cuenta de almacenamiento que define la cuenta que se va a usar. Cuando trabaje con cuentas de almacenamiento, haga referencia al contexto en lugar de proporcionar varias veces las credenciales. 
 
-3. Cree un nuevo contenedor de almacenamiento con [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer).
+3. Cree un nuevo contenedor de almacenamiento con [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer).
 
 4. Copie la clave de almacenamiento que indica el código y guárdela para crear la salida del trabajo de streaming más adelante.
 
    ```powershell
    $storageAccountName = "myasaquickstartstorage"
-   $storageAccount = New-AzureRmStorageAccount `
+   $storageAccount = New-AzStorageAccount `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName `
      -Location $location `
@@ -131,11 +133,11 @@ El siguiente bloque de código de Azure PowerShell usa los comandos para crear e
    $ctx = $storageAccount.Context
    $containerName = "container1"
    
-   New-AzureStorageContainer `
+   New-AzStorageContainer `
      -Name $containerName `
      -Context $ctx
    
-   $storageAccountKey = (Get-AzureRmStorageAccountKey `
+   $storageAccountKey = (Get-AzStorageAccountKey `
      -ResourceGroupName $resourceGroup `
      -Name $storageAccountName).Value[0]
    
@@ -145,7 +147,7 @@ El siguiente bloque de código de Azure PowerShell usa los comandos para crear e
 
 ## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
-Cree un trabajo de Stream Analytics con el cmdlet [New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre del grupo de recursos y la definición del trabajo. El nombre del trabajo puede ser cualquier nombre descriptivo que lo identifique. Solo puede contener caracteres alfanuméricos, guiones y guiones bajos, y debe tener una longitud de entre 3 y 63 caracteres. La definición del trabajo es un archivo JSON que contiene las propiedades necesarias para crear un trabajo. En su máquina local, cree un archivo denominado `JobDefinition.json` y agréguele los siguientes datos JSON:
+Cree un trabajo de Stream Analytics con el cmdlet [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre del grupo de recursos y la definición del trabajo. El nombre del trabajo puede ser cualquier nombre descriptivo que lo identifique. Solo puede contener caracteres alfanuméricos, guiones y guiones bajos, y debe tener una longitud de entre 3 y 63 caracteres. La definición del trabajo es un archivo JSON que contiene las propiedades necesarias para crear un trabajo. En su máquina local, cree un archivo denominado `JobDefinition.json` y agréguele los siguientes datos JSON:
 
 ```json
 {    
@@ -161,12 +163,12 @@ Cree un trabajo de Stream Analytics con el cmdlet [New-AzureRmStreamAnalyticsJob
 }
 ```
 
-Después, ejecute el cmdlet `New-AzureRmStreamAnalyticsJob`. Reemplace el valor de la variable `jobDefinitionFile` por la ruta de acceso a la ubicación en la que haya almacenado el archivo JSON de definición del trabajo. 
+Después, ejecute el cmdlet `New-AzStreamAnalyticsJob`. Reemplace el valor de la variable `jobDefinitionFile` por la ruta de acceso a la ubicación en la que haya almacenado el archivo JSON de definición del trabajo. 
 
 ```powershell
 $jobName = "MyStreamingJob"
 $jobDefinitionFile = "C:\JobDefinition.json"
-New-AzureRmStreamAnalyticsJob `
+New-AzStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -File $jobDefinitionFile `
   -Name $jobName `
@@ -175,7 +177,7 @@ New-AzureRmStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>Configuración de la entrada al trabajo
 
-Agregue una entrada al trabajo mediante el cmdlet [New-AzureRmStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de entrada del trabajo, el nombre del grupo de recursos y la definición de entrada del trabajo. La definición de la entrada del trabajo es un archivo JSON que contiene las propiedades necesarias para configurar la entrada del trabajo. En este ejemplo, creará un almacenamiento de blobs como entrada. 
+Agregue una entrada al trabajo mediante el cmdlet [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de entrada del trabajo, el nombre del grupo de recursos y la definición de entrada del trabajo. La definición de la entrada del trabajo es un archivo JSON que contiene las propiedades necesarias para configurar la entrada del trabajo. En este ejemplo, creará un almacenamiento de blobs como entrada. 
 
 En su máquina local, cree un archivo denominado `JobInputDefinition.json` y agréguele los siguientes datos JSON. No olvide reemplazar el valor de `accesspolicykey` con la parte `SharedAccessKey` de la cadena de conexión de IoT Hub que guardó en una sección anterior.
 
@@ -208,12 +210,12 @@ En su máquina local, cree un archivo denominado `JobInputDefinition.json` y agr
 }
 ```
 
-Después, ejecute el cmdlet `New-AzureRmStreamAnalyticsInput` y asegúrese de reemplazar el valor de la variable `jobDefinitionFile` por la ruta de acceso de la ubicación en la que haya almacenado el archivo JSON de definición de la entrada del trabajo. 
+Después, ejecute el cmdlet `New-AzStreamAnalyticsInput` y asegúrese de reemplazar el valor de la variable `jobDefinitionFile` por la ruta de acceso de la ubicación en la que haya almacenado el archivo JSON de definición de la entrada del trabajo. 
 
 ```powershell
 $jobInputName = "IoTHubInput"
 $jobInputDefinitionFile = "C:\JobInputDefinition.json"
-New-AzureRmStreamAnalyticsInput `
+New-AzStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobInputDefinitionFile `
@@ -222,7 +224,7 @@ New-AzureRmStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>Configuración de la salida al trabajo
 
-Agregue una salida al trabajo mediante el cmdlet [New-AzureRmStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsoutput?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de salida del trabajo, el nombre del grupo de recursos y la definición de salida del trabajo. La definición de la salida del trabajo es un archivo JSON que contiene las propiedades necesarias para configurar la salida del trabajo. En este ejemplo se usa el almacenamiento de blobs como salida. 
+Agregue una entrada al trabajo mediante el cmdlet [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de salida del trabajo, el nombre del grupo de recursos y la definición de salida del trabajo. La definición de la salida del trabajo es un archivo JSON que contiene las propiedades necesarias para configurar la salida del trabajo. En este ejemplo se usa el almacenamiento de blobs como salida. 
 
 En su máquina local, cree un archivo denominado `JobOutputDefinition.json` y agréguele los siguientes datos JSON. Asegúrese de reemplazar el valor de `accountKey` por la clave de acceso de su cuenta de almacenamiento que sea el valor almacenado en $storageAccountKey. 
 
@@ -256,12 +258,12 @@ En su máquina local, cree un archivo denominado `JobOutputDefinition.json` y ag
 }
 ```
 
-Después, ejecute el cmdlet `New-AzureRmStreamAnalyticsOutput`. Asegúrese de reemplazar el valor de la variable `jobOutputDefinitionFile` por la ruta de acceso a la ubicación en la que haya almacenado el archivo JSON de definición de la salida del trabajo. 
+Después, ejecute el cmdlet `New-AzStreamAnalyticsOutput`. Asegúrese de reemplazar el valor de la variable `jobOutputDefinitionFile` por la ruta de acceso a la ubicación en la que haya almacenado el archivo JSON de definición de la salida del trabajo. 
 
 ```powershell
 $jobOutputName = "BlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
-New-AzureRmStreamAnalyticsOutput `
+New-AzStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobOutputDefinitionFile `
@@ -270,7 +272,7 @@ New-AzureRmStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Definir la consulta de transformación
 
-Agregue una transformación al trabajo mediante el cmdlet [New-AzureRmStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticstransformation?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de transformación del trabajo, el nombre del grupo de recursos y la definición de transformación del trabajo. En su máquina local, cree un archivo denominado `JobTransformationDefinition.json` y agréguele los siguientes datos JSON. El archivo JSON contiene un parámetro de consulta que define la consulta de transformación:
+Agregue una transformación al trabajo mediante el cmdlet [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de transformación del trabajo, el nombre del grupo de recursos y la definición de transformación del trabajo. En su máquina local, cree un archivo denominado `JobTransformationDefinition.json` y agréguele los siguientes datos JSON. El archivo JSON contiene un parámetro de consulta que define la consulta de transformación:
 
 ```json
 {     
@@ -284,12 +286,12 @@ Agregue una transformación al trabajo mediante el cmdlet [New-AzureRmStreamAnal
 }
 ```
 
-Después, ejecute el cmdlet `New-AzureRmStreamAnalyticsTransformation`. Asegúrese de reemplazar el valor de la variable `jobTransformationDefinitionFile` por la ruta de acceso de la ubicación en la que haya almacenado el archivo JSON de definición de la transformación del trabajo. 
+Después, ejecute el cmdlet `New-AzStreamAnalyticsTransformation`. Asegúrese de reemplazar el valor de la variable `jobTransformationDefinitionFile` por la ruta de acceso de la ubicación en la que haya almacenado el archivo JSON de definición de la transformación del trabajo. 
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
 $jobTransformationDefinitionFile = "C:\JobTransformationDefinition.json"
-New-AzureRmStreamAnalyticsTransformation `
+New-AzStreamAnalyticsTransformation `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobTransformationDefinitionFile `
@@ -307,12 +309,12 @@ New-AzureRmStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Inicio del trabajo de Stream Analytics y consulta de la salida
 
-Inicie el trabajo mediante el cmdlet [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre del grupo de recursos, el modo de inicio de salida y el tiempo de inicio. `OutputStartMode` acepta valores de `JobStartTime`, `CustomTime` o `LastOutputEventTime`. Para más información acerca de los elementos a los que hacen referencia cada uno de estos valores, consulte la sección de [parámetros](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) de la documentación de PowerShell. 
+Inicie el trabajo mediante el cmdlet [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0). Este cmdlet toma como parámetros el nombre del trabajo, el nombre del grupo de recursos, el modo de inicio de salida y el tiempo de inicio. `OutputStartMode` acepta valores de `JobStartTime`, `CustomTime` o `LastOutputEventTime`. Para más información acerca de los elementos a los que hacen referencia cada uno de estos valores, consulte la sección de [parámetros](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) de la documentación de PowerShell. 
 
 Después de ejecutar el siguiente cmdlet, devuelve `True` como salida si el trabajo se inicia. En el contenedor de almacenamiento, se crea una carpeta de salida con los datos transformados. 
 
 ```powershell
-Start-AzureRmStreamAnalyticsJob `
+Start-AzStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
   -OutputStartMode 'JobStartTime'
@@ -323,7 +325,7 @@ Start-AzureRmStreamAnalyticsJob `
 Cuando no los necesite, elimine el grupo de recursos, el trabajo de streaming y todos los recursos relacionados. La eliminación del trabajo evita la facturación de las unidades de streaming utilizadas por el trabajo. Si planea utilizar el trabajo en el futuro, puede omitir su eliminación y simplemente detenerlo por el momento. Si no va a seguir usando este trabajo, ejecute el siguiente cmdlet para eliminar todos los recursos creados en este inicio rápido:
 
 ```powershell
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
   -Name $resourceGroup 
 ```
 

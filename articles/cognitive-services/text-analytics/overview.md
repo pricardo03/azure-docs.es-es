@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242947"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889297"
 ---
 # <a name="what-is-text-analytics"></a>¿Qué es Text Analytics?
 
@@ -64,11 +64,11 @@ Esta sección se ha movido a otro artículo para facilitar su detección. Para v
 
 ## <a name="data-limits"></a>Límites de datos
 
-Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. El límite actual es de 5000 caracteres para cada documento; si necesita analizar documentos mayores, puede dividirlos en fragmentos más pequeños. Si necesita un límite mayor, [póngase en contacto con nosotros](https://azure.microsoft.com/overview/sales-number/) para poder analizar sus requisitos.
+Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin formato. El límite actual es de 5120 caracteres para cada documento; si necesita analizar documentos mayores, puede dividirlos en fragmentos más pequeños. Si necesita un límite mayor, [póngase en contacto con nosotros](https://azure.microsoft.com/overview/sales-number/) para poder analizar sus requisitos.
 
 | Límite | Valor |
 |------------------------|---------------|
-| Tamaño máximo de un documento individual | 5000 caracteres, medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Tamaño máximo de un documento individual | 5120 caracteres, medidos por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamaño máximo de la solicitud completa | 1 MB |
 | Número máximo de documentos de una solicitud | 1000 documentos |
 
@@ -80,7 +80,7 @@ Text Analytics API utiliza la codificación Unicode para la representación del 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En primer lugar, pruebe con la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Puede pegar una entrada de texto (un máximo de 5000 caracteres) para detectar el idioma (hasta 120), calcular una puntuación de opinión o extraer frases clave. No es preciso registrarse.
+En primer lugar, pruebe con la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Puede pegar una entrada de texto (un máximo de 5120 caracteres) para detectar el idioma (hasta 120), calcular una puntuación de opinión o extraer frases clave. No es preciso registrarse.
 
 Cuando esté listo para llamar directamente a la API:
 

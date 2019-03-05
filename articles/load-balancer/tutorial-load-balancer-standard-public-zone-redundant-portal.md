@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882644"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982800"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -50,16 +50,20 @@ Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.
 La versión Estándar de Load Balancer solo admite direcciones IP públicas estándar. Cuando se crea una dirección IP pública nueva al crear el equilibrador de carga, se configura automáticamente como una versión de la SKU Estándar y también tiene automáticamente redundancia de zona.
 
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
-2. En la página **Crear equilibrador de carga** especifique estos valores para el equilibrador de carga:
-    - *myLoadBalancer*: como nombre del equilibrador de carga.
-    - **Pública**: como tipo de equilibrador de carga.
-     - *myPublicIP*: para la dirección IP pública nueva que crea. Para ello, haga clic en **Elegir una dirección IP pública** y, a continuación, en **Crear nueva**. En nombre, escriba *myPublicIP*, la SKU es Estándar de forma predeterminada y seleccione **Con redundancia de zona** en **Zona de disponibilidad**.
-    - *myResourceGroupLBAZ*: como nombre del nuevo grupo de recursos que crea.
-    - **Oeste de Europa**: como ubicación.
-3. Haga clic en **Crear** para crear el equilibrador de carga.
-   
-    ![Creación de un equilibrador de carga](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
+    | Configuración                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Seleccione su suscripción.    |    
+    | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLBAZ* en el cuadro de texto.|
+    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Region         | Seleccione **Europa Occidental**.                                        |
+    | Type          | Seleccione **Público**.                                        |
+    | SKU           | Seleccione **Estándar**.                          |
+    | Dirección IP pública | Seleccione **Crear nuevo**. |
+    | Nombre de la dirección IP pública              | Escriba *myPublicIP* en el cuadro de texto.   |
+    |Zona de disponibilidad| Seleccione **Redundancia de zona**.    |
+   
 
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 

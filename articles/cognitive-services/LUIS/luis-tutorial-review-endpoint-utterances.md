@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865964"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878187"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
@@ -50,11 +50,13 @@ Para ello, siga los pasos que se describen a continuación:
 
 1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
-2. Importe el archivo JSON en una aplicación nueva.
+1. Importe el archivo JSON en una aplicación nueva.
 
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
+1. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
-    Si utiliza este tutorial como una nueva aplicación importada, también tendrá que entrenar, publicar y, después, agregar las expresiones al punto de conexión con un [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
+1. Entrene y publique la nueva aplicación.
+
+1. Use el punto de conexión para agregar las expresiones siguientes. Puede hacer esto con un [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,13 +66,13 @@ Para ello, siga los pasos que se describen a continuación:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Seleccione **Review endpoint utterances** (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo. La lista se filtra para la intención **ApplyForJob**. 
+1. Seleccione **Review endpoint utterances** (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo. La lista se filtra para la intención **ApplyForJob**. 
 
-    [ ![Captura de pantalla del botón Review endpoint utterances (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Captura de pantalla del botón Review endpoint utterances (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. Alterne la **vista de entidades** para ver las entidades etiquetadas. 
+1. Alterne la **vista de entidades** para ver las entidades etiquetadas. 
     
-    [ ![Captura de pantalla de Review endpoint utterances (Revisar las expresiones de punto de conexión) con la alternancia de la vista de entidades resaltada](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Captura de pantalla de Review endpoint utterances (Revisar las expresiones de punto de conexión) con la alternancia de la vista de entidades resaltada](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Expresión|Intención correcta|Entidades que faltan|
     |:--|:--|:--|
@@ -78,29 +80,29 @@ Para ello, siga los pasos que se describen a continuación:
 
     Esta expresión no se encuentra en la intención correcta y tiene una puntuación menor del 50 %. La intención **ApplyForJob** tiene 21 expresiones en comparación con las siete expresiones de **GetJobInformation**. Junto con alinear correctamente la expresión de punto de conexión, se deben agregar más expresiones a la intención **GetJobInformation**. Esto queda como ejercicio para que pueda realizar por su cuenta. Cada intención, excepto para la intención **None** (Ninguno), debe tener aproximadamente el mismo número de expresiones de ejemplo. La intención **None** (Ninguno) debe contener un 10 % de las expresiones totales de la aplicación. 
 
-4. Para la intención `I'm looking for a job with Natual Language Processing`, seleccione la intención correcta, **GetJobInformation** en la columna **Aligned intent** (Intención alineada). 
+1. Para la intención `I'm looking for a job with Natual Language Processing`, seleccione la intención correcta, **GetJobInformation** en la columna **Aligned intent** (Intención alineada). 
 
-    [ ![Captura de pantalla de la alineación de la expresión con la intención en Review endpoint utterances (Revisar las expresiones de punto de conexión)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![Captura de pantalla de la alineación de la expresión con la intención en Review endpoint utterances (Revisar las expresiones de punto de conexión)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. En la misma expresión, la entidad para `Natural Language Processing` es keyPhrase. Debe ser una entidad **Job** en su lugar. Seleccione `Natural Language Processing` y, después, seleccione la entidad **Job** en la lista.
+1. En la misma expresión, la entidad para `Natural Language Processing` es keyPhrase. Debe ser una entidad **Job** en su lugar. Seleccione `Natural Language Processing` y, después, seleccione la entidad **Job** en la lista.
 
-    [ ![Captura de pantalla del etiquetado de entidad en la expresión en Review endpoint utterances (Revisar las expresiones de punto de conexión)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![Captura de pantalla del etiquetado de entidad en la expresión en Review endpoint utterances (Revisar las expresiones de punto de conexión)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. En la misma línea, seleccione la marca de verificación en un círculo en la columna **Add to aligned intent** (Agregar a la intención alineada). 
+1. En la misma línea, seleccione la marca de verificación en un círculo en la columna **Add to aligned intent** (Agregar a la intención alineada). 
 
-    [ ![Captura de pantalla de la finalización de la alineación de la expresión con la intención](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![Captura de pantalla de la finalización de la alineación de la expresión con la intención](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Esta acción mueve la expresión de **Review endpoint utterances** (Revisar las expresiones de punto de conexión) a la intención **GetJobInformation**. La expresión de punto de conexión ahora es una expresión de ejemplo para esa intención. 
 
-7. Revise las expresiones restantes de esta intención, mediante el etiquetado de expresiones y la corrección de la **intención alineada**, si son incorrectas.
+1. Revise las expresiones restantes de esta intención, mediante el etiquetado de expresiones y la corrección de la **intención alineada**, si son incorrectas.
 
-8. Cuando todas las expresiones son correctas, active la casilla en cada fila y luego seleccione **Add selected** (Agregar selección) para alinear las expresiones correctamente. 
+1. Cuando todas las expresiones son correctas, active la casilla en cada fila y luego seleccione **Add selected** (Agregar selección) para alinear las expresiones correctamente. 
 
-    [ ![Captura de pantalla de la finalización de las expresiones restantes en la intención alineada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![Captura de pantalla de la finalización de las expresiones restantes en la intención alineada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. La lista ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que la lista esté vacía. 
+1. La lista ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que la lista esté vacía. 
 
-10. Seleccione la siguiente intención en la lista Filter (Filtro) y continúe el proceso de corregir las expresiones y etiquetar entidades. Recuerde que en el último paso de cada intención debe seleccionar la opción **Add to aligned intent** (Agregar a la intención alineada) en la fila de expresiones o activar la casilla por cada intención y seleccionar **Add selected** (Agregar selección) sobre la tabla.
+1. Seleccione la siguiente intención en la lista Filter (Filtro) y continúe el proceso de corregir las expresiones y etiquetar entidades. Recuerde que en el último paso de cada intención debe seleccionar la opción **Add to aligned intent** (Agregar a la intención alineada) en la fila de expresiones o activar la casilla por cada intención y seleccionar **Add selected** (Agregar selección) sobre la tabla.
 
     Continúe hasta que todas las intenciones y entidades de la lista de filtros tengan una lista vacía. Se trata de una aplicación muy pequeña. El proceso de revisión tarda solo unos minutos. 
 

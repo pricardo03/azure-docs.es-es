@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4e4c9ae764e1278251c01d41a0617ed2e88e439
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242321"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879620"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Los historiales de ejecución ahora se denominan **experimentos**. Puede recopil
 
 El panel del área de trabajo del portal solo es compatible con los exploradores Microsoft Edge, Chrome y Firefox:
 
-[ ![Portal en línea](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Portal en línea](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Empiece a entrenar los modelos y a seguir los historiales de ejecución con la nueva CLI y el SDK. Puede obtener más información en el [Tutorial: Entrenamiento de modelos con el servicio Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -109,7 +109,7 @@ Con el nuevo SDK de Python de la versión más reciente, puede interactuar con A
 
 En esta versión más reciente, se ha cambiado el nombre de la extensión a Azure Machine Learning para Visual Studio Code y se ha ampliado y mejorado para trabajar con las nuevas características mencionadas.
 
-[ ![Azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>¿Qué sucede con los paquetes de dominio?
 

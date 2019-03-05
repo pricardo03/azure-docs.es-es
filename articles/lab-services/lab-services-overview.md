@@ -13,29 +13,28 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2f4bc3bc00d1a803ed678e49df23a78e6b063e50
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5c53c64c337cb2992b002ee02ceb9aab36e16de4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957800"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958752"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introducción a Azure Lab Services
-
 Azure Lab Services le permite configurar rápidamente un entorno para el equipo (por ejemplo: entorno de desarrollo, entorno de pruebas, entorno de laboratorio educativo) en la nube. El propietario de un laboratorio crea uno, aprovisiona Windows o máquinas virtuales Linux, instala el software y las herramientas que necesite y las pone a disposición de los usuarios del laboratorio. Los usuarios del laboratorio se conectan a las máquinas virtuales (VM) del laboratorio y las usan para trabajos cotidianos, proyectos a corto plazo o ejercicios de clase. Cuando los usuarios empiecen a usar los recursos del laboratorio, el administrador podrá analizar el coste y uso entre varios laboratorios y establecer directivas exhaustivas para optimizar los costos de la organización o el equipo.
 
 > [!IMPORTANT]
 > **Azure DevTest Labs** se expande con nuevos tipos de laboratorio (Azure Lab Services).
 >  
-> Azure Lab Services permite crear laboratorios administrados, como laboratorios educativos. El servicio controla toda la administración de la infraestructura para un laboratorio administrado, desde la sincronización de máquinas virtuales al control de errores y el escalado de infraestructuras. Los laboratorios administrados se encuentran actualmente en versión preliminar. Una vez finalice la versión preliminar, los nuevos tipos de laboratorio y los de DevTest Labs se unen bajo el nombre de Azure Lab Services en el que todos los tipos de laboratorio continúan evolucionando.
+> Azure Lab Services permite crear tipos de laboratorios administrados, como laboratorios educativos. El servicio gestiona la administración de toda la infraestructura de un tipo de laboratorio administrado, desde la sincronización de las máquinas virtuales hasta la gestión de errores y el escalado de dicha infraestructura. Por ahora, [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) y [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) seguirán siendo servicios independientes en Azure Portal. 
 
 ## <a name="key-capabilities"></a>Principales capacidades
 
 Azure Lab Services es compatible con las siguientes características o funcionalidades clave:
 
-- **Configuración rápida y flexible de un laboratorio**. Con Azure Lab Services, los propietarios de laboratorios pueden configurar un laboratorio rápidamente según sus necesidades. El servicio ofrece la opción de controlar todo el trabajo de infraestructura de Azure para laboratorios administrados o permite que los propietarios de laboratorio administren automáticamente y personalicen la infraestructura de la suscripción del propietario del laboratorio. El servicio proporciona escalado integrado y resiliencia de la infraestructura para laboratorios que administre el servicio.
-- **Experiencia simplificada para usuarios de laboratorios**. En un laboratorio administrado, como un laboratorio educativo, los usuarios pueden registrarse en un laboratorio con un código de registro y obtener acceso al laboratorio en cualquier momento para usar sus recursos. En un laboratorio creado en DevTest Labs, el propietario de un laboratorio puede conceder permisos a usuarios del laboratorio para crear máquinas virtuales, obtener acceso a ellas, administrar y volver a usar discos de datos y configurar secretos reutilizables.  
-- **Optimización de costos y análisis**. Un propietario de laboratorio puede establecer programaciones de laboratorio para apagar e iniciar máquinas virtuales automáticamente. El propietario del laboratorio puede establecer una programación para especificar las franjas horarias de disponibilidad de las máquinas virtuales del laboratorio para los usuarios, establecer directivas de uso por usuario o por laboratorio para optimizar costos y analizar las tendencias de actividad y uso de un laboratorio. Actualmente, para laboratorios administrados, como laboratorios educativos, existe un subconjunto más pequeño de opciones de optimización de costos y análisis.
+- **Configuración rápida y flexible de un laboratorio**. Con Azure Lab Services, los propietarios de laboratorios pueden configurar un laboratorio rápidamente según sus necesidades. El servicio ofrece la opción de ocuparse de todo el trabajo de infraestructura de Azure de los tipos de laboratorios administrados o permite que los propietarios del laboratorio administren por sí mismos y personalicen la infraestructura de la suscripción del propietario del laboratorio. El servicio proporciona escalado integrado y resiliencia de la infraestructura para laboratorios que administre el servicio.
+- **Experiencia simplificada para usuarios de laboratorios**. En un laboratorio administrado, como uno educativo, los usuarios pueden registrarse en un laboratorio con un código de registro y acceder a él en cualquier momento para usar sus recursos. En un laboratorio creado en DevTest Labs, el propietario de un laboratorio puede conceder permisos a usuarios del laboratorio para crear máquinas virtuales, obtener acceso a ellas, administrar y volver a usar discos de datos y configurar secretos reutilizables.  
+- **Optimización de costos y análisis**. Un propietario de laboratorio puede establecer programaciones de laboratorio para apagar e iniciar máquinas virtuales automáticamente. El propietario del laboratorio puede establecer una programación para especificar las franjas horarias de disponibilidad de las máquinas virtuales del laboratorio para los usuarios, establecer directivas de uso por usuario o por laboratorio para optimizar costos y analizar las tendencias de actividad y uso de un laboratorio. Actualmente, para los laboratorios administrados, como es el caso de los educativos, existe un subconjunto más pequeño de opciones de optimización de costos y análisis.
 - **Seguridad incrustada**. Un propietario de laboratorio puede configurar redes virtuales privadas y una subred para un laboratorio, además de habilitar una dirección IP pública compartida. Los usuarios de laboratorio pueden obtener acceso de forma segura a los recursos mediante su red virtual configurada con ExpressRoute o VPN de sitio a sitio. (solo disponible actualmente en DevTest Labs)
 - **Integración en flujos de trabajo y herramientas**. Azure Lab Services le permite integrar laboratorios en los sistemas de administración y el sitio web de la organización. Puede aprovisionar automáticamente entornos a partir de las herramientas de integración continua (CI) o implementación continua (CD). (solo disponible actualmente en DevTest Labs)
 
@@ -74,38 +73,52 @@ Puede usar Azure DevTest Labs para implementar numerosos escenarios clave, aunqu
 
 Para obtener más información, consulte [Use DevTest Labs for testing](devtest-lab-test-env.md) (Uso de DevTest Labs para pruebas).
 
-## <a name="user-profiles"></a>Perfiles de usuario
+## <a name="types-of-labs"></a>Tipos de laboratorios
+Puede crear dos tipos de laboratorios: **tipos de laboratorios administrados** con Azure Lab Services y **laboratorios** con Azure Lab Services. Si solo quiere insertar lo que necesita en un laboratorio y permitir que el servicio configure y administre la infraestructura necesaria para dicho laboratorio, elija **tipos de laboratorios administrados**. Actualmente, el **laboratorio educativo** es el único tipo de laboratorio administrado que se puede crear con Azure Lab Services. Si quiere administrar su propia infraestructura, cree un laboratorio con **Azure DevTest Labs**.
 
-En este artículo se describen distintos perfiles de usuario de Azure Lab Services.
+En las siguientes secciones, se proporcionan más detalles de estos laboratorios. 
 
-### <a name="lab-account-owner"></a>Propietario de la cuenta del laboratorio
+## <a name="managed-lab-types"></a>Tipos de laboratorio administrado
+Azure Lab Services permite crear laboratorios cuya infraestructura la administra Azure. En este artículo se hace referencia a ellos como tipos de laboratorios administrados. Los tipos de laboratorios administrados ofrecen diferentes tipos de laboratorio que se ajustan a sus necesidades. Actualmente, el único tipo de laboratorio administrado que se admite es el **laboratorio educativo**. 
 
-Por lo general, el administrador de TI de los recursos de nube de la organización, que es el propietario de la suscripción de Azure, actúa como propietario de la cuenta del laboratorio y realiza las siguientes tareas:
+Los tipos de laboratorios administrados le permiten ponerse en marcha inmediatamente, con una configuración mínima. El servicio controla toda la administración de la infraestructura para el laboratorio, desde la sincronización de máquinas virtuales al control de errores y el escalado de infraestructuras. Para crear un tipo de laboratorio administrado, como puede ser un laboratorio educativo, debe crear antes una cuenta de laboratorio para la organización. La cuenta de laboratorio actúa como cuenta central en la que se administran todos los laboratorios de la organización. 
 
-- Configura una cuenta de laboratorio para la organización.
-- Administra y configura las directivas en todos los laboratorios.
-- Concede permisos a personas de la organización para crear un laboratorio en la cuenta del laboratorio.
+Al crear y usar recursos de Azure en estos tipos de laboratorios administrados, el servicio crea y administra los recursos en las suscripciones internas de Microsoft. No se crean en su propia suscripción de Azure. El servicio realiza un seguimiento del uso de estos recursos en las suscripciones internas de Microsoft. Este uso se factura a la suscripción de Azure que contiene la cuenta de laboratorio.   
 
-### <a name="lab-creator"></a>Creador de laboratorio
+Estos son algunos de los **casos de uso de los tipos de laboratorios administrados**: 
 
-Normalmente, los usuarios, como un administrador o un responsable de desarrollo, un profesor, un host de Hackathon, un instructor o un instructor en línea, crean laboratorios en una cuenta de laboratorio. Un creador de laboratorio realiza las siguientes tareas:
+- Proporcione a los alumnos un laboratorio de máquinas virtuales que se configuran exactamente con todo lo necesario para una clase. Asigne a cada alumno un número limitado de horas para el uso de máquinas virtuales para deberes o proyectos personales.
+- Configure un grupo de máquinas virtuales de proceso de alto rendimiento para realizar investigaciones de procesos o gráficos intensivos. Ejecute las máquinas virtuales según sus necesidades y limpie las máquinas cuando haya terminado. 
+- Desplace un laboratorio de equipos físicos del centro educativo a la nube. Escale automáticamente el número de máquinas virtuales solo al umbral de costo y uso máximo que establezca en el laboratorio.  
+- Aprovisione rápidamente un laboratorio de máquinas virtuales para un host de Hackathon. Elimine el laboratorio con un solo clic cuando haya terminado. 
 
-- Crea un laboratorio.
-- Crea máquinas virtuales en el laboratorio.
-- Instala el software adecuado en máquinas virtuales.
-- Especifica quién puede obtener acceso al laboratorio.
-- Proporciona a los usuarios un vínculo al laboratorio.
 
-### <a name="lab-user"></a>Usuario de laboratorio
+## <a name="devtest-labs"></a>DevTest Labs
+Puede tener escenarios en los que quiera administrar toda la infraestructura y la configuración dentro de la suscripción. Para ello, puede crear un laboratorio con Azure DevTest Labs en Azure Portal. Para estos laboratorios, no es necesario crear ninguna cuenta de laboratorio. Estos laboratorios no aparecen en la cuenta de laboratorio (que existe para los tipos de laboratorios administrados).  
 
-Un usuario de laboratorio realiza las siguientes tareas:
+A continuación, se indican algunos **casos de uso para DevTest Labs**: 
 
-- Usa el vínculo de registro al laboratorio que el usuario recibe de un creador de laboratorio para registrarse.
-- Se conecta a una máquina virtual del laboratorio y la usa para desarrollar, probar o realizar trabajos de clase.
+- Aprovisione rápidamente un laboratorio de máquinas virtuales para un host de Hackathon o una sesión práctica en una conferencia. Elimine el laboratorio con un solo clic cuando haya terminado. 
+- Cree un grupo de máquinas virtuales configuradas con la aplicación y permita que el equipo use fácilmente una máquina virtual para búsquedas de errores.  
+- Proporcione a los desarrolladores con máquinas virtuales configuradas con todas las herramientas que necesitan. Programe el inicio y el apagado automático para minimizar costos. 
+- Cree repetidamente un laboratorio de máquinas de prueba como parte de la implementación. Pruebe los últimos bits y limpie las máquinas de prueba cuando haya terminado. 
+- Configure una variedad de máquinas virtuales y agentes de pruebas configuradas de manera diferente para escalar y probar el rendimiento. 
+- Ofrezca sesiones de aprendizaje para los clientes con un laboratorio configurado con la versión más reciente del producto. Ofrezca a cada cliente un número limitado de horas de uso en el laboratorio. 
+
+
+## <a name="managed-lab-types-vs-devtest-labs"></a>Tipos de laboratorio administrado frente a DevTest Labs
+En la tabla siguiente se comparan dos tipos de laboratorios compatibles con Azure Lab Services: 
+
+| Características | Tipos de laboratorio administrado | DevTest Labs |
+| -------- | ----------------- | ---------- |
+| Administración de infraestructura de Azure en el laboratorio. |  Administrado automáticamente por el servicio | Administrado por cuenta propia  |
+| Resistencia integrada a problemas de infraestructura | Controlado automáticamente por el servicio | Administrado por cuenta propia  |
+| Administración de suscripciones | El servicio controla la asignación de recursos en las suscripciones de Microsoft compatibles con el servicio. El servicio controla automáticamente el escalado. | Administre por cuenta propia en la suscripción de Azure. Sin escalabilidad automática de suscripciones. |
+| Implementación de Azure Resource Manager en el laboratorio | No disponible | Disponible |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Introducción a la configuración de un laboratorio con Azure Lab Services:
+Consulte los artículos siguientes: 
 
-- [Configuración de un laboratorio de clase](classroom-labs/tutorial-setup-classroom-lab.md)
-- [Configuración de un laboratorio](tutorial-create-custom-lab.md)
+- [Acerca de los laboratorios educativos](./classroom-labs/classroom-labs-overview.md)
+- [Acerca de DevTest Labs](devtest-lab-overview.md)

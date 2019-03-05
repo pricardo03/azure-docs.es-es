@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337568"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960656"
 ---
 # <a name="what-is-azure-media-services-v3"></a>¿Qué es Azure Media Services v3?
 
@@ -76,7 +76,7 @@ Consulte el ejemplo de [Get content key policy: .NET](get-content-key-policy-dot
 
 ## <a name="how-can-i-get-started-with-v3"></a>¿Cómo puedo comenzar con v3?
 
-Para información sobre cómo empezar a desarrollar con la API de Media Services v3, varias herramientas y SDK, consulte el artículo sobre el [Inicio del desarrollo](developers-guide.md).
+Para obtener información acerca de cómo empezar a desarrollar con la API de Media Services v3 mediante varias herramientas y SDK, consulte el artículo sobre cómo se [empieza a desarrollar](developers-guide.md).
 
 ## <a name="v3-content-map"></a>Mapa de contenido de v3
 
@@ -88,7 +88,7 @@ El contenido de Media Services v3 se organiza según la siguiente estructura (qu
 | Guías de inicio rápido | Muestra instrucciones básicas del primer día para que los nuevos clientes prueben rápidamente Media Services.|
 | Tutoriales | Muestran procedimientos basados en un escenario para algunas de las principales tareas de Media Services.|
 | Ejemplos | Vínculos a ejemplos de código. |
-| Conceptos | Contiene una explicación detallada de la funcionalidad de Media Services v3 y diagramas. Deben revisarse los conceptos fundamentales que se describen en estos temas antes de comenzar a desarrollar.<br/><br/>* Carga y almacenamiento en la nube<br/>* Codificación<br/>* Análisis multimedia<br/>* Empaquetado, entrega, protección<br/>* Streaming en vivo<br/>* Supervisión continua<br/>* Clientes de Player<br/><br/>Y mucho más... |
+| Conceptos | Contiene una explicación detallada de los [conceptos y la funcionalidad de Media Services v3](concepts-overview.md). Deben revisarse los conceptos fundamentales que se describen en estos temas antes de comenzar a desarrollar.<br/><br/>* Carga y almacenamiento en la nube<br/>* Codificación<br/>* Análisis multimedia<br/>* Empaquetado, entrega, protección<br/>* Streaming en vivo<br/>* Supervisión<br/>* Clientes de Player<br/><br/>Y mucho más... |
 | Guías de procedimientos | Muestra cómo completar una tarea.|
 
 ## <a name="next-steps"></a>Pasos siguientes

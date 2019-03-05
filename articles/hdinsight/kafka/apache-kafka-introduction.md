@@ -1,6 +1,6 @@
 ---
 title: 'Introducción a Apache Kafka en HDInsight: Azure'
-description: 'Información sobre Apache Kafka en HDInsight: qué es, qué hace y dónde encontrar ejemplos y obtener una introducción.'
+description: 'Aprenda sobre Apache Kafka en HDInsight: Qué es, qué hace y dónde encontrar ejemplos y obtener una introducción.'
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313969"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889195"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>Qué es Apache Kafka en HDInsight
 
@@ -38,7 +38,7 @@ Las siguientes son características específicas de Kafka en HDInsight:
 
     Para más información, consulte el artículo sobre [Alta disponibilidad con Apache Kafka en HDInsight](apache-kafka-high-availability.md).
 
-* Azure Log Analytics puede usarse para supervisar Kafka en HDInsight. Log Analytics muestra información de nivel de máquina virtual, por ejemplo, métricas de disco y de NIC, además de las métricas de JMX de Kafka.
+* Los registros de Azure Monitor se pueden usar para supervisar Kafka en HDInsight. Los registros de Azure Monitor muestran información en el nivel de máquina virtual, como métricas de disco y NIC y métricas de JMX de Kafka.
 
     Para más información, consulte [Análisis de registros para Apache Kafka en HDInsight](apache-kafka-log-analytics-operations-management.md).
 
@@ -64,15 +64,15 @@ Las siguientes son tareas y patrones comunes que pueden realizarse con Kafka en 
 
     Para más información sobre el uso de MirrorMaker, consulte el artículo sobre la [replicación de temas de Apache Kafka con Apache Kafka en HDInsight](apache-kafka-mirroring.md).
 
-* **Patrón de mensajería de publicación y suscripción**: Kafka proporciona una API de productor para publicar registros en un tema de Kafka. Al suscribirse a un tema, se utiliza la API de consumidor.
+* **Patrón de mensajería de publicación y suscripción**: Kafka proporciona una instancia de Producer API para publicar registros en un tema de Kafka. Al suscribirse a un tema, se utiliza la API de consumidor.
 
     Para más información, consulte [Inicio de Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
-* **Procesamiento de flujos**: Kafka se suele utilizar con Apache Storm o Spark para el procesamiento de flujos en tiempo real. Kafka 0.10.0.0 (versiones 3.5 y 3.6 de HDInsight) introdujo una API de streaming que permite generar soluciones de streaming sin necesidad de Storm ni Spark.
+* **Procesamiento de flujos**: Kafka se suele usar con Apache Storm o Spark para el procesamiento de flujos en tiempo real. Kafka 0.10.0.0 (versiones 3.5 y 3.6 de HDInsight) introdujo una API de streaming que permite generar soluciones de streaming sin necesidad de Storm ni Spark.
 
     Para más información, consulte [Inicio de Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
-* **Escalado horizontal**: Kafka particiona los flujos de los nodos del clúster de HDInsight. Los procesos del consumidor se pueden asociar con las particiones individuales para proporcionar equilibrio de carga al consumir los registros.
+* **Escalado horizontal**: Kafka particiona los flujos entre los nodos del clúster de HDInsight. Los procesos del consumidor se pueden asociar con las particiones individuales para proporcionar equilibrio de carga al consumir los registros.
 
     Para más información, consulte [Inicio de Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
@@ -82,19 +82,19 @@ Las siguientes son tareas y patrones comunes que pueden realizarse con Kafka en 
 
 ## <a name="use-cases"></a>Casos de uso
 
-* **Mensajería**: como admite el patrón de publicación de mensajes y suscripción, Kafka a menudo se utiliza como agente de mensajería.
+* **Mensajería**: como admite el patrón de mensajes de publicación y suscripción, Kafka se usa con frecuencia como agente de mensajería.
 
-* **Seguimiento de la actividad**: Kafka proporciona un registro en orden, por lo que se puede utilizar para realizar un seguimiento y volver a crear actividades. Por ejemplo, las acciones del usuario en un sitio web o dentro de una aplicación.
+* **Seguimiento de actividad**: Kafka proporciona un registro en orden, por lo que se puede usar para realizar un seguimiento de las actividades y volver a crearlas. Por ejemplo, las acciones del usuario en un sitio web o dentro de una aplicación.
 
-* **Agregación**: mediante el procesamiento de las transmisiones, puede agregar información de distintas transmisiones para combinar y centralizar la información en datos operativos.
+* **Agregación**: Mediante el procesamiento de los flujos, puede agregar información de distintos flujos para combinar y centralizar la información en datos operativos.
 
-* **Transformación**: mediante el procesamiento de las transmisiones, puede combinar y enriquecer los datos de varios temas de entrada en uno o más temas de salida.
+* **Transformación**: Mediante el procesamiento de los flujos, puede combinar y enriquecer los datos de varios temas de entrada en uno o más temas de salida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Use los vínculos siguientes para aprender a usar a Apache Kafka en HDInsight:
 
-* [Guía de inicio rápido: Creación de una instancia de Apache Kafka en HDInsight](apache-kafka-get-started.md)
+* [Inicio rápido: Creación de Apache Kafka en HDInsight](apache-kafka-get-started.md)
 
 * [Tutorial: Uso de Apache Spark con Apache Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

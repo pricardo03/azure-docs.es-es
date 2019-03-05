@@ -3,8 +3,8 @@ title: 'Tutorial: creación, depuración, implementación y supervisión de una 
 description: En este tutorial se crea una aplicación Azure Service Fabric Mesh multiservicio que consta de un sitio web de ASP.NET Core que se comunica con un servicio web de back-end, lo depura localmente y lo publica en Azure.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888756"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805433"
 ---
-# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: creación, depuración, implementación y actualización de una aplicación multiservicio en Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Creación, depuración, implementación y actualización de una aplicación multiservicio en Service Fabric Mesh
 
 Este tutorial es la primera parte de una serie. Aprenderá a crear en Visual Studio una aplicación de Azure Service Fabric Mesh que tenga un servicio de front-end web de ASP.NET y un servicio de back-end de ASP.NET Core Web API. A continuación, depurará la aplicación en el clúster de desarrollo local. Publicará la aplicación en Azure y realizará cambios en su configuración y código, además de actualizarla. Por último, eliminará los recursos de Azure que no use para que no se le cobre por ellos.
 

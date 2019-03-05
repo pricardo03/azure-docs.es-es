@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 359606c6dfe75d9910565cffa555b1e52d29267d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448536"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594090"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Selección de un dispositivo de entrada de audio con el SDK de Voz 
+# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selección de un dispositivo de entrada de audio con el SDK de Voz
 
 La versión 1.3.0 del SDK de Voz presenta una API para seleccionar la entrada de audio. En este artículo se describe cómo obtener los identificadores de los dispositivos de audio conectados a un sistema.
 El SDK de Voz puede usar estos posteriormente configurando el dispositivo de audio mediante el objeto `AudioConfig`:
@@ -367,3 +367,13 @@ Por ejemplo, la instrucción
 ```
 
 permite el uso de un auricular Bluetooth para una aplicación habilitada para voz.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Exploración de ejemplos en GitHub](https://aka.ms/csspeech/samples)
+
+## <a name="see-also"></a>Otras referencias
+
+- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
+- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)

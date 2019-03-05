@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830830"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816948"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -39,8 +39,7 @@ Puede verificar la versión actual de C# en el equipo de desarrollo con el coman
 dotnet --version
 ```
 
-Descargue el proyecto de C# de muestra de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip y extraiga el archivo ZIP.
-
+Descargue el proyecto de C# de muestra de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip y extraiga el archivo ZIP. Lo necesitará para el dispositivo y para el servicio.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -86,20 +85,19 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     Tome nota del valor devuelto, que es similar a este:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Comunicación entre un dispositivo y un servicio mediante flujos de dispositivo
 
 ### <a name="run-the-service-side-application"></a>Ejecución de la aplicación del lado del servicio
 
-Vaya a `device-streams-echo/service` en la carpeta del proyecto descomprimida. Necesitará tener a mano la siguiente información:
+Vaya a `iot-hub/Quickstarts/device-streams-echo/service` en la carpeta del proyecto descomprimida. Necesitará tener a mano la siguiente información:
 
 | Nombre de parámetro | Valor del parámetro |
 |----------------|-----------------|
-| `ServiceConnectionString` | La cadena de conexión del servicio de la instancia de IoT Hub. |
-| `DeviceId` | El identificador del dispositivo que creó anteriormente. |
+| `ServiceConnectionString` | Proporcione la cadena de conexión del servicio de la instancia de IoT Hub. |
+| `DeviceId` | Proporcione el identificador del dispositivo que creó anteriormente, por ejemplo, MyDevice. |
 
-Compile y ejecute el código de la forma siguiente:
+Compile y ejecute el código de la siguiente forma:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/service/
@@ -109,21 +107,24 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> Si la aplicación no responde a tiempo del lado del dispositivo, el tiempo expira.
 
 ### <a name="run-the-device-side-application"></a>Ejecución de la aplicación del lado del dispositivo
 
-Vaya al directorio `device-streams-echo/device` en la carpeta del proyecto descomprimida. Necesitará tener a mano la siguiente información:
+Vaya al directorio `iot-hub/Quickstarts/device-streams-echo/device` en la carpeta del proyecto descomprimida. Necesitará tener a mano la siguiente información:
 
 | Nombre de parámetro | Valor del parámetro |
 |----------------|-----------------|
-| `DeviceConnectionString` | La cadena de conexión del dispositivo que creó anteriormente. |
+| `DeviceConnectionString` | Proporcione la cadena de conexión del dispositivo de la instancia de IoT Hub. |
 
-Compile y ejecute el código de la forma siguiente:
+Compile y ejecute el código de la siguiente forma:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/device/
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 Al final del último paso, el programa del lado del servicio iniciará un flujo hacia el dispositivo y, una vez que establecido, enviará un búfer de cadena al servicio a través de dicho flujo. En este ejemplo, el programa del lado de servicio simplemente devuelve los mismos datos al dispositivo, lo que demuestra que la comunicación entre las dos aplicaciones es correcta. Consulte la figura siguiente.
 
 Salida de la consola en el lado del dispositivo: ![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Salida de la consola en el lado del dispositivo")
 
-
 Salida de la consola en el lado del servicio: ![alt text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Salida de la consola en el lado del servicio")
 
-
-
 El tráfico que se envía por el flujo se canaliza mediante IoT Hub en lugar de enviarse directamente. Este escenario proporciona [estas ventajas](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

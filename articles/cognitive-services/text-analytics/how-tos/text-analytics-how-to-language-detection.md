@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245095"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886798"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Ejemplo: Cómo detectar el idioma con Text Analytics
 
@@ -29,7 +29,7 @@ Esta capacidad es útil para los almacenes de contenido que recopilan texto arbi
 
 Debe tener documentos JSON en este formato: identificador, texto
 
-El tamaño del documento debe ser inferior a 5000 caracteres por documento y puede tener hasta 1000 elementos (ID) por colección. La colección se envía en el cuerpo de la solicitud. En el siguiente ejemplo se presenta contenido que se podría enviar para la detección del idioma.
+El tamaño del documento debe ser inferior a 5120 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. En el siguiente ejemplo se presenta contenido que se podría enviar para la detección del idioma.
 
    ```
     {

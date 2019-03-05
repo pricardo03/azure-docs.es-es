@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113369"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650910"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -200,6 +200,15 @@ En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la ta
 | Una  | `@` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
+> [!NOTE]
+> Para agregar un subdominio (como `www.contoso.com`) con un registro de dirección en lugar de un [registro CNAME](#map-a-cname-record) recomendado, el registro de dirección y el registro TXT tendrán un aspecto similar al de la tabla siguiente:
+>
+> | Tipo de registro | Host | Valor |
+> | - | - | - |
+> | Una  | `www` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
+
 Cuando se agregan los registros, la página de registros DNS es como la del ejemplo siguiente:
 
 ![Página de registros DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
@@ -321,7 +330,7 @@ Una vez completada la operación, la aplicación debe devolver la página correc
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
+Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="azure-cli"></a>Azure CLI 
 

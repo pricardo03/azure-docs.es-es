@@ -1,24 +1,26 @@
 ---
-title: Registro de instancias de contenedor con Azure Log Analytics
-description: Aprenda a enviar la salida de un contenedor (STDOUT y STDERR) a Azure Log Analytics.
+title: Registro de instancias de contenedor con registros de Azure Monitor
+description: Aprenda a enviar la salida de un contenedor (STDOUT y STDERR) a los registros de Azure Monitor.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337893"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879720"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Registro de instancias de contenedor con Azure Log Analytics
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Registro de instancias de contenedor con registros de Azure Monitor
 
-Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de datos a Log Analytics.
+Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de datos a los registros de Azure Monitor.
 
-Para enviar datos de instancias de contenedores a Log Analytics debe crear un grupo de contenedores mediante la CLI de Azure (o Cloud Shell) y un archivo YAML. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
+Para enviar datos de instancias de contenedores a registros de Azure Monitor debe crear un grupo de contenedores mediante la CLI de Azure (o Cloud Shell) y un archivo YAML. En las secciones siguientes se describe tanto la creación de un grupo de contenedores con el registro habilitado como la consulta de registros.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Debería recibir una respuesta de Azure con detalles de implementación poco después de emitir el comando.
 
-## <a name="view-logs-in-log-analytics"></a>Visualización de los registros de Log Analytics
+## <a name="view-logs-in-azure-monitor-logs"></a>Visualización de registros de Azure Monitor
 
 Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores, abra el área de trabajo de Log Analytics y:
 
@@ -109,7 +111,7 @@ Debería ver que la consulta `search *` muestra varios resultados. Si no ve ning
 
 ## <a name="query-container-logs"></a>Consulta de registros de contenedores
 
-Log Analytics incluyen un amplio [lenguaje de consulta][query_lang] para poder extraer información de miles de líneas de la salida del registro.
+Los registros de Azure Monitor incluyen un amplio [lenguaje de consulta][query_lang] para poder extraer información de miles de líneas de la salida del registro.
 
 El agente de registro de Azure Container Instances envía las entradas a la tabla `ContainerInstanceLog_CL` de su área de trabajo de Log Analytics. La estructura básica de una consulta consiste en la tabla de origen (`ContainerInstanceLog_CL`) seguida de una serie de operadores separados por el carácter de barra vertical (`|`). Puede encadenar varios operadores para refinar los resultados y realizar funciones avanzadas.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-Para más información acerca de cómo realizar consultas en registros y configurar alertas en Azure Log Analytics, consulte:
+Para más información acerca de cómo realizar consultas en registros y configurar alertas en registros de Azure Monitor, consulte:
 
-* [Descripción de las búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Descripción de las búsquedas de registros en los registros de Azure Monitor](../log-analytics/log-analytics-log-search.md)
 * [Alertas unificadas en Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

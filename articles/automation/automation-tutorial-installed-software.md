@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436020"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815899"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Detecte el software que está instalado en sus máquinas, sean de Azure o no
 
@@ -58,8 +58,10 @@ Para habilitar la solución, configure la ubicación, el área de trabajo de Log
 Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Inventario.
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
-Después de habilitar la solución, la información sobre el software instalado y los cambios en la máquina virtual se pasa a Log Analytics.
+Después de habilitar la solución, la información sobre el software instalado y los cambios en la máquina virtual se pasa a los registros de Azure Monitor.
 Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
 ## <a name="onboard-a-vm"></a>Incorporación de una máquina virtual
@@ -99,9 +101,9 @@ El filtro le permite buscar en función del nombre del software, la versión o e
 
 Por ejemplo, la búsqueda "Contoso" devuelve todo el software con un nombre, una versión o un editor que contenga "Contoso".
 
-## <a name="search-inventory-logs-for-installed-software"></a>Búsqueda de software instalado en los registros del inventario
+## <a name="search-inventory-logs-for-installed-software"></a>Buscar software instalado en los registros del inventario
 
-Inventario genera datos de registro que se envían a Log Analytics. Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Inventario**.
+El inventario genera datos de registro que se envían a los registros de Azure Monitor. Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Inventario**.
 
 Los datos de Inventario se almacenan con el tipo **ConfigurationData**.
 La consulta de Log Analytics del ejemplo siguiente devuelve los resultados de inventario en los que el publicador es igual a "Microsoft Corporation".
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Para más información sobre la ejecución y la búsqueda de archivos de registro en los registros de Azure Monitor, consulte el artículo sobre los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventario de máquina única
 
-Para ver el inventario de software de una única máquina, puede acceder a Inventario desde la página de recursos de VM de Azure o usar Log Analytics para filtrar hasta encontrar la máquina correspondiente.
+Para ver el inventario de software de una única máquina, puede acceder a Inventario desde la página de recursos de la máquina virtual de Azure o usar los registros de Azure Monitor para filtrar hasta encontrar la máquina correspondiente.
 La siguiente consulta de Log Analytics de ejemplo devuelve la lista de software para una máquina denominada ContosoVM.
 
 ```loganalytics

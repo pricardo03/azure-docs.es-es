@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bb1ec22d4113c7b9cecbc428bf70ac91d9a7e75
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457913"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587895"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configuración de la información de seguridad (versión preliminar) desde el mensaje de la página de inicio de sesión
 Puede seguir estos pasos si se le pide que configure la información de seguridad inmediatamente después de que iniciar sesión con su cuenta profesional o educativa.
@@ -74,7 +74,7 @@ Siga estos pasos para configurar la información de seguridad de su cuenta profe
 
     ![Notificación correcta, se establece la conexión entre la aplicación y su cuenta](media/security-info/securityinfo-prompt-auth-app-success.png).
 
-    La información de seguridad se actualiza para usar la aplicación Microsoft Authenticator de forma predeterminada para comprobar su identidad cuando se usan la verificación en dos pasos o el restablecimiento de contraseña.
+    La información de seguridad se actualiza para usar la aplicación Microsoft Authenticator de forma predeterminada para verificar su identidad cuando se usan la verificación en dos pasos o el restablecimiento de contraseña.
 
 9. En la página de configuración del **teléfono**, elija si desea recibir un mensaje de texto o una llamada de teléfono y seleccione **Siguiente**. En este ejemplo vamos a usar mensajes de texto, por lo que debe usar el número de teléfono de un dispositivo que pueda aceptar mensajes de texto.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856927"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873931"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extracción de datos relacionados contextualmente de una expresión
 
@@ -74,7 +74,7 @@ La entidad jerárquica es una buena opción para este tipo de datos porque las d
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [ ![Captura de pantalla de LUIS con nuevas expresiones en la intención MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Captura de pantalla de LUIS con nuevas expresiones en la intención MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Creación de una entidad de ubicación
 LUIS necesita entender lo que es una localización mediante el etiquetado del origen y del destino en las expresiones. Si necesita ver el enunciado en la vista de token (sin formato), seleccione el conmutador en la barra encima de las expresiones etiquetadas como **Entities View** (Vista de entidades). Después de cambiar el modificador, el control tiene la etiqueta **Tokens View** (Vista de tokens).
@@ -91,7 +91,7 @@ Aunque solo exista un elemento secundario (origen o destino) de una entidad jer�
 
 1. En la expresión, `move John W. Smith leaving Seattle headed to Dallas`, seleccione la palabra `Seattle`. Aparece un menú desplegable con un cuadro de texto en la parte superior. Escriba el nombre de entidad `Location` en el cuadro de texto y, a continuación, seleccione **Create new entity** (Crear nueva entidad) en el menú desplegable. 
 
-    [![Captura de pantalla de la creación de una nueva entidad en la página de intención](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Captura de pantalla de la creación de una nueva entidad en la página de intención](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. En la ventana emergente, seleccione el tipo de entidad **Hierarchical** con `Origin` y `Destination` como entidades secundarias. Seleccione **Listo**.
 
@@ -99,7 +99,7 @@ Aunque solo exista un elemento secundario (origen o destino) de una entidad jer�
 
 1. La etiqueta de `Seattle` está marcada como `Location` porque LUIS no sabe si el término era el origen, el destino o ninguno de ellos. Seleccione `Seattle`, luego seleccione la **ubicación** y, finalmente, vaya el menú de la derecha y seleccione `Origin`.
 
-    [![Captura de pantalla del cuadro diálogo emergente de etiquetado de entidades para cambiar los elementos secundarios de la entidad Locations](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Captura de pantalla del cuadro diálogo emergente de etiquetado de entidades para cambiar los elementos secundarios de la entidad Locations](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Etiquete las demás ubicaciones en todas las otras expresiones. Cuando están marcadas todas las ubicaciones, las expresiones comienzan a parecerse a un patrón. 
 

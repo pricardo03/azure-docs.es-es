@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745816"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674524"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hubs
 
@@ -122,7 +122,7 @@ Esta vez verá un error de autenticación cuando la aplicación intenta conectar
 
 Si el dispositivo usa uno de los SDK de dispositivo de IoT Hub, el código de biblioteca del SDK genera el token de SAS usado para autenticarse con el centro. Un token de SAS se genera a partir del nombre del centro, el nombre del dispositivo y la clave del dispositivo.
 
-En algunos escenarios, como en una puerta de enlace de protocolo de nube o como parte de un esquema de autenticación personalizado, puede que deba generar el token de SAS por su cuenta. Para solucionar problemas con el código de generación de SAS, es útil poder generar un token de SAS conocido para usar durante las pruebas.
+En algunos escenarios, como en una puerta de enlace de protocolo de nube o como parte de un esquema de autenticación personalizado, puede que deba generar el token de SAS por su cuenta. Para solucionar problemas con el código de generación de SAS, es útil generar un token de SAS conocido para usar durante las pruebas.
 
 > [!NOTE]
 > El ejemplo SimulatedDevice 2.js incluye ejemplos de generación de un token de SAS con y sin el SDK.
@@ -133,7 +133,7 @@ Para generar un token de SAS conocido mediante la CLI, ejecute el siguiente coma
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Anote el texto completo del token de SAS generado. Un token de SAS se parece a este: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Anote el texto completo del token de SAS generado. Un token de SAS se parece a este: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 En una ventana de terminal de su máquina de desarrollo, desplácese a la carpeta raíz del proyecto de ejemplo de Node.js que descargó. A continuación, vaya a la carpeta **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
 
@@ -189,13 +189,9 @@ En la ventana de terminal se muestra información a medida que se envía telemet
 
 ![Dispositivo simulado enviando mensajes](media/tutorial-connectivity/sim-3-sending.png)
 
-Puede usar **Métricas** en el portal para comprobar que los mensajes de telemetría llegan al centro de IoT:
+Puede usar **Métricas** en el portal para comprobar que los mensajes de telemetría llegan al centro de IoT. Seleccione el centro de IoT en la lista desplegable **Recurso**, seleccione **Telemetry messages sent** (Mensajes de telemetría enviados) como métrica y establezca el intervalo de tiempo en **Última hora**. En el gráfico se muestra el recuento total de mensajes enviados por el dispositivo simulado:
 
-![Navegación a las métricas de IoT Hub](media/tutorial-connectivity/metrics-portal.png)
-
-Seleccione el centro de IoT en la lista desplegable **Recurso**, seleccione **Telemetry messages sent** (Mensajes de telemetría enviados) como métrica y establezca el intervalo de tiempo en **Última hora**. En el gráfico se muestra el recuento total de mensajes enviados por el dispositivo simulado:
-
-![Presentación de las métricas de IoT Hub](media/tutorial-connectivity/metrics-active.png)
+![Presentación de las métricas de IoT Hub](media/tutorial-connectivity/metrics-portal.png)
 
 Las métricas tardan unos minutos en estar disponibles después de iniciar el dispositivo simulado.
 
